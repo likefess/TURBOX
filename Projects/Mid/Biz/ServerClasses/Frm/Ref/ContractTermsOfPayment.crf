@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited HelpContext="Biz.НСИ.Мастер-данные.Условия оплаты по договору">
+    <Inherited Name="EdtRec" Class="Biz.Rec.Ref.ContractTermsOfPayment" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" ByColumn="False" CaptionWidth="50">
+          <Inherited Name="Code" Visible="True"/>
+          <Component Name="ShortName" Class="Com.Ctrl.IEdit" After="Code" Field="EdtRec.ShortName" HasCaption="True"/>
+          <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          <Inherited Name="Name" After="NewLine1" FontBold="False" Visible="True"/>
+          <Component Name="NewLine2" Class="Com.Ctrl.INewLine" After="Name"/>
+          <Component Name="Company" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="EdtRec.Company" HasCaption="True" LookupField="Name" ShortList="True"/>
+          <Component Name="ContractSubject" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="EdtRec.ContractSubject" HasCaption="True" LookupField="Name"/>
+          <Component Name="NewLine3" Class="Com.Ctrl.INewLine"/>
+          <Component Name="ContractType" Class="Com.Ctrl.IEdit" Caption="@ContractTermsOfPayment:ContractType=Тип договора" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ContractSubject" HasCaption="True" LookupField="GroupDoc.Name"/>
+          <Component Name="ContractVariety" Class="Com.Ctrl.IEdit" Caption="@ContractTermsOfPayment:ContractVariety=Вид договора" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ContractSubject" HasCaption="True" LookupField="GroupDoc.GroupDoc.Name"/>
+          <Component Name="NewLine4" Class="Com.Ctrl.INewLine"/>
+          <Component Name="Description" Class="Com.Ctrl.IEdit" Field="EdtRec.Description" HasCaption="True" Multiline="True" Wrap="True"/>
+        </Inherited>
+      </Inherited>
+      <Component Name="PositionsFrame" Class="Com.Ctrl.IFrame" After="FieldsFrame" Sortable="True" Subtable="EdtRec.Positions">
+        <Component Name="Positions" Class="Biz.Rec.Ref.ContractTermsOfPayment_Positions" IsLibrary="1"/>
+        <Component Name="PaymentKindEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Positions.PaymentKind" HasCaption="True" ListAsString="Аванс|0;Постоплата|1" Width="28"/>
+        <Component Name="BaseDateKindEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Positions.BaseDateKind" HasCaption="True" ListAsString="Дата поставки/отгрузки|0;Дата начала периода поставки/отгрузки|1;Дата окончания периода поставки/отгрузки|2;1-е число периода расчета (календарное)|3;Последнее число периода расчета (календарное)|4;Дата заключения договора|5;Дата начала срока действия договора|6;Дата окончания срока действия договора|7" Width="98"/>
+        <Component Name="DaysTypeEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Positions.DaysType" HasCaption="True" ListAsString="Календарные дни|0;Банковские (рабочие) дни|1" Width="56"/>
+        <Component Name="PayInDaysCountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="Positions.PayInDaysCount" HasCaption="True" Width="25"/>
+        <Component Name="PaymentTypeEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Positions.PaymentType" HasCaption="True" ListAsString="Процент|0;Сумма|1" Width="42"/>
+        <Component Name="PaymentAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="Positions.PaymentAmount" FieldFormat=",##0.00;;-" HasCaption="True" Required="True" Width="35"/>
+        <Component Name="UnitOrCurrencyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Field="Positions.UnitOrCurrency" HasCaption="True" LookupField="Code" OnEnter="UnitOrCurrencyEdit_OnEnter" OnOutput="UnitOrCurrencyEdit_OnOutput" ShortList="True" Visible="False" Width="38"/>
+        <Component Name="BaseAmountKindEdit" Class="Com.Ctrl.IEdit" Caption="@ContractTermsOfPayment:BaseAmountKindEdit=База расчета платежа" Enabled="False" HasCaption="True" OnOutput="BaseAmountKindEdit_OnOutput" Width="54"/>
+        <Component Name="BaseAmountKindEdit1" Class="Com.Ctrl.IEdit" Excluded="True" CellFormat="EnumFormat" Field="Positions.BaseAmountKind" HasCaption="True" ListAsString="Сумма договора|0;Сумма поставки/отгрузки|1" OnEnter="BaseAmountKindEdit_OnEnter" Width="54"/>
+      </Component>
+      <Inherited Name="TabsFrame" After="PositionsFrame"/>
+    </Inherited>
+  </Inherited>
+</Resource>

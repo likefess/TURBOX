@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Bas.DiaGen.ManualLayout">
+    <Component Name="VarContainer" Class="Com.IVarContainer">
+      <Component Name="SelfContainer" Class="Com.ISubContainer"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="RootGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" HasCaption="True">
+        <Component Name="DefaultGroup" Class="Com.Ctrl.IGroup">
+          <Component Name="DefaultStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="20"/>
+          <Component Name="StylesGroup" Class="Com.Ctrl.IGroup" Excluded="True">
+            <Component Name="StylesStatic" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@Diagram:StylesStatic=Стили" FixSize="True" Width="20"/>
+            <Component Name="NodeStyleButton" Class="Com.Ctrl.IButton" Caption="@Diagram:NodeStyle=Стиль узла" OnClick="NodeStyleOnClick"/>
+            <Component Name="LinkStyleButton" Class="Com.Ctrl.IButton" Caption="@Diagram:LinkStyle=Стиль связи" OnClick="LinkStyleOnClick"/>
+            <Component Name="AccentStyleButton" Class="Com.Ctrl.IButton" Caption="@Diagram:AccentStyle=Подсветка" OnClick="AccentStyleOnClick"/>
+          </Component>
+          <Component Name="ScaleGroup" Class="Com.Ctrl.IGroup">
+            <Component Name="DefaultScaleEdit" Class="Com.RepCtrl.IEditSub" Caption="@Diagram:Scale=Масштаб" CaptionWidth="20" FixSize="True" LinkName="DefaultScale" OnChange="RefreshTuner" OnDraw="ScaleOnDraw" OnOutput="ScaleOnOutput" SubContainer="SelfContainer" ValueType="VarInteger" Width="12"/>
+            <Component Name="ScaleStatic" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="%" FixSize="True" Width="8"/>
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

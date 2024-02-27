@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.SysFields">
+  <Inherited HelpContext="Bas.Администрирование.Настройки.Календарные дни" Hierarchical="False">
+    <Inherited Name="Current" Class="Bas.Rec.Ref.CalendarDay" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Component Name="DDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Current.DDate" Width="30"/>
+          <Component Name="DSign" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="EnumFormat" Field="Current.DSign" Width="50"/>
+          <Component Name="DType" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.Calendar" Field="Current.DType" LookupField="Code" Width="50"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

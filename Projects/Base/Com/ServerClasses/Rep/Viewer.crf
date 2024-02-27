@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm" HelpContext="Com.Com.Reports.Default">
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+    </Component>
+    <Component Name="VarContainer" Class="Com.IVarContainer"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="SettingsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+        <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" AutoSize="True" MaxButton="5">
+          <Component Name="ButtonFromRpt" Class="Com.Ctrl.IButton" Caption="@Rep:GetFromReport=Заполнить из отчёта" ImageName="SelectItem" OnClick="ButtonFromRpt_OnClick" Printed="False" Visible="False"/>
+          <Component Name="ButtonRefresh" Class="Com.Ctrl.IButton" Caption="@Cmd:Refresh=Обновить" Command="Commands.RefreshForm" ImageName="Refresh" Printed="False"/>
+          <Component Name="ButtonChooseR" Class="Com.Ctrl.IButton" Caption="@Rep:ChooseReport=Выбрать отчёт" ImageName="Com.Reports" OnClick="ButtonChooseROnClick" Printed="False"/>
+          <Component Name="ButtonSetup" Class="Com.Ctrl.IButton" Caption="@Cmd:Setup=Настройки" ImageName="Setup" OnClick="ButtonSetup_OnClick" Printed="False"/>
+          <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Caption="@Cmd:Close=Закрыть" Command="Commands.CloseForm" ImageName="Close" Printed="False"/>
+          <Component Name="ButtonPrint" Class="Com.Ctrl.IButton" Caption="@Cmd:Print=Печать" Command="Commands.Print" ImageName="Print" Printed="False"/>
+          <Component Name="HeaderSeparator" Class="Com.Cmd2.ISeparator"/>
+          <Component Name="ExportGroup" Class="Com.Ctrl.IListButton" Caption="@Cmd:Export=Экспорт" ImageName="ExportRec">
+            <Component Name="btnExportTXT" Class="Com.Ctrl.IButton" Caption="@ExportTXT=Text (txt)" OnClick="btnExportAs_OnClick"/>
+            <Component Name="btnExportRTF" Class="Com.Ctrl.IButton" Caption="@ExportRTF=Rich Text (rtf)" OnClick="btnExportAs_OnClick"/>
+            <Component Name="btnExportODT" Class="Com.Ctrl.IButton" Caption="@ExportODT=OpenDocument Text (odt)" OnClick="btnExportAs_OnClick"/>
+            <Component Name="btnExportODS" Class="Com.Ctrl.IButton" Caption="@ExportODS=OpenDocument Spreadsheet (ods)" OnClick="btnExportAs_OnClick"/>
+            <Component Name="btnExportCSV" Class="Com.Ctrl.IButton" Caption="@ExportCSV=Comma-separated values (csv)" OnClick="btnExportAs_OnClick"/>
+            <Component Name="btnExportDBF" Class="Com.Ctrl.IButton" Caption="@ExportDBF=DBase(dbf)" OnClick="btnExportAs_OnClick"/>
+            <Component Name="btnSep1" Class="Com.Ctrl.IButton" Caption="-"/>
+            <Component Name="ButtonExport" Class="Com.Ctrl.IButton" Caption="@ExportDlg=Экспорт в других форматах..." Command="Commands.ExportCmd"/>
+          </Component>
+          <Component Name="ButtonHelp" Class="Com.Ctrl.IButton" Caption="@Cmd:Help=Помощь" Command="Commands.Help" ImageName="Help"/>
+        </Component>
+        <Component Name="DateFrame" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+        <Component Name="ParamFrame" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@Rep:Params=Параметры отчета"/>
+        <Component Name="SubheadFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Visible="False">
+          <Component Name="SubheadGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="SubheadCtrl" Class="Com.Ctrl.IStatic"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="MainFrame" Class="Com.Ctrl.IFrame" Margins="4" Orientation="WithTabs" ShowTabs="False">
+        <Component Name="ReportFrame" Class="Com.Ctrl.IReportFrame" Caption="@Viewer:Report=Отчет"/>
+        <Component Name="ChartFrame" Class="Com.Ctrl.IFrame" Caption="@Viewer:Chart=График" ScrollerStyle="ScrollerNone" Visible="False">
+          <Component Name="Chart" Class="Com.Ctrl.IChart" AutoRebuild="True" OnDblClick="ChartOnDblClick" SeriesKind="skPie"/>
+        </Component>
+        <Component Name="GridFrame" Class="Com.Ctrl.IFrame" Excluded="True" Caption="@Viewer:Grid=Таблица"/>
+        <Component Name="TextFrame" Class="Com.Ctrl.IFrame" Caption="CRF" ScrollerStyle="ScrollerNone" Visible="False">
+          <Component Name="ReportText" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Multiline="True" Width="400" Wrap="True"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

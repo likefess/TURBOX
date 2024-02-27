@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IMenu">
+  <Inherited Caption="@ContractManagement_ContractSpecialist=Специалист по работе с договорами">
+    <Inherited Name="MainGroup">
+      <Component Name="MasterData" Class="Com.Cmd2.IGroup" Caption="@ContractManagement:MasterData=Базовая НСИ" Columns="6">
+        <Component Name="MenuGroup_MasterRefs" Class="Com.Cmd2.IGroup" Caption="@Menu.Group:MasterRefs=Базовые справочники" Columns="6" Rows="3">
+          <Component Name="MenuItem_InfobaseCmdUnitsCur" Class="Com.Cmd2.IItem" Command="Commands.Cmd_UnitsCur"/>
+          <Component Name="MenuItem_InfobaseCmdCurrencies" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Currencies"/>
+          <Component Name="MenuItem_InfobaseCmdUnitsOfMeasure" Class="Com.Cmd2.IItem" Command="Commands.Cmd_UnitsOfMeasure"/>
+          <Component Name="MenuItem_InfobaseCmdCountries" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Countries"/>
+          <Component Name="MenuItem_InfobaseCmdRegions" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Regions"/>
+          <Component Name="MenuItem_InfobaseCmdBanks" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Banks"/>
+          <Component Name="MenuItem_InfobaseCmdAddrTypes" Class="Com.Cmd2.IItem" Command="Commands.Cmd_AddrTypes"/>
+          <Component Name="MenuItem_InfobaseCmdVAT" Class="Com.Cmd2.IItem" Command="Commands.Cmd_VAT"/>
+          <Component Name="MenuItem_InfobaseCmdResources" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Resources"/>
+          <Component Name="MenuItem_InfobaseCmdOurCompanies" Class="Com.Cmd2.IItem" Command="Commands.Cmd_OurCompanies"/>
+          <Component Name="MenuItem_InfobaseCmdDivisions" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Divisions"/>
+          <Component Name="MenuItem_InfobaseCmdEmployees" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Employees"/>
+          <Component Name="MenuItem_InfobaseCmdContraparties" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Contraparties"/>
+          <Component Name="MenuItem_InfobaseCmdBankDetails" Class="Com.Cmd2.IItem" Command="Commands.Cmd_BankDetails"/>
+          <Component Name="MenuItem_InfobaseCmdAddresses" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Addresses"/>
+        </Component>
+        <Component Name="MenuGroup_Refs" Class="Com.Cmd2.IGroup" Caption="@Menu.Group:Refs=Справочники" Columns="6">
+          <Component Name="MenuItem_InfobaseCmdContractClassification" Class="Com.Cmd2.IItem" Command="Commands.Cmd_ContractClassification" Enabled="True"/>
+          <Component Name="MenuItem_InfobaseCmdContractStatus" Class="Com.Cmd2.IItem" Command="Commands.Cmd_ContractStatus" Enabled="True"/>
+          <Component Name="MenuItem_InfobaseCmdContractRescissionReason" Class="Com.Cmd2.IItem" Command="Commands.Cmd_ContractRescissionReason" Enabled="True"/>
+        </Component>
+        <Component Name="MenuGroup_FinDim" Class="Com.Cmd2.IGroup" Caption="@Menu.Group:FinDim=Бюджетные аналитики" Columns="6">
+          <Component Name="MenuItem_InfobaseCmdBGI" Class="Com.Cmd2.IItem" Command="Commands.Cmd_BGI"/>
+          <Component Name="MenuItem_InfobaseCmdCFR" Class="Com.Cmd2.IItem" Command="Commands.Cmd_CFR"/>
+          <Component Name="MenuItem_InfobaseCmdProject" Class="Com.Cmd2.IItem" Command="Commands.Cmd_cmdProject"/>
+          <Component Name="MenuItem_InfobaseCmdSource" Class="Com.Cmd2.IItem" Command="Commands.Cmd_FundSource"/>
+        </Component>
+        <Component Name="MenuGroup_Oper" Class="Com.Cmd2.IGroup" Caption="@Menu.Group:Oper=Заполнение НСИ" Columns="6">
+          <Component Name="MenuItem_InfobaseCmdSelectOurCompany" Class="Com.Cmd2.IItem" Command="Commands.SelectOurCompany"/>
+        </Component>
+      </Component>
+      <Component Name="Docs" Class="Com.Cmd2.IGroup" Caption="@ContractManagement:Docs=Документы" Columns="6">
+        <Component Name="MenuItem_InfobaseCmdContract" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Contract"/>
+        <Component Name="MenuItem_InfobaseCmdSpec" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Spec"/>
+      </Component>
+      <Component Name="Reports" Class="Com.Cmd2.IGroup" Caption="@ContractManagement:Reports=Отчеты" Columns="6">
+        <Component Name="Cmd_ContractReport" Class="Com.Cmd2.IItem" Command="Commands.Cmd_ContractReport"/>
+        <Component Name="Cmd_ContractConcludedCanceledReport" Class="Com.Cmd2.IItem" Command="Commands.Cmd_ContractConcludedCanceledReport"/>
+        <Component Name="Cmd_ContractPeriodReport" Class="Com.Cmd2.IItem" Command="Commands.Cmd_ContractPeriodReport"/>
+        <Component Name="Cmd_ContractExecutionReport" Class="Com.Cmd2.IItem" Command="Commands.Cmd_ContractExecutionReport"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

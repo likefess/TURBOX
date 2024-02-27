@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Cmd2.ICommandGroup" Caption="@Menu:InfobaseCommands=Рабочие команды" ShortName="Infobase">
+    <Component Name="CommandCenter" Class="Com.ComManaging.ExecProcedure" Caption="@Menu:MainMenu=Главное меню" CommandProc="OpenCommandCenter" IconName="Com.bars"/>
+    <Component Name="StartHomePage" Class="Com.ComManaging.ExecProcedure" Caption="@Menu.Module:HomePage=Стартовая форма" CommandProc="CallStartPage" IconName="Com.home"/>
+    <Component Name="SelectModule" Class="Com.ComManaging.ExecProcedure" Excluded="True" Caption="@Menu:SelectModule=Главное меню" CommandProc="DoSelectModule" IconName="Home"/>
+    <Component Name="Modules" Class="Com.Cmd2.ICommandGroup" Caption="@Menu:Modules=Модули" IconName="modules"/>
+    <Component Name="Cmd" Class="Com.Cmd2.ICommandGroup" Caption="@Menu:CommonComands=Общие команды">
+      <Component Name="Help" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:Help=Помощь" CommandName="Kernel.Help.Help" CommandProc="Help_CommandProc" IconName="Com.Help" NeedContext="True"/>
+      <Component Name="Print" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:Print=Печать" CommandName="Kernel.File.Print" CommandProc="Print_CommandProc" IconName="Com.print"/>
+      <Component Name="ExportCmd" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:Export=Экспорт" CommandProc="ExportCmd_CommandProc" IconName="Com.Export" ShortName="Export"/>
+      <Component Name="ImportCmd" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:Import=Импорт" CommandProc="ImportCmd_CommandProc" IconName="Com.Import" ShortName="Import"/>
+      <Component Name="CloseForm" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:Close=Закрыть" CommandName="Kernel.Window.Close" CommandProc="CloseForm_CommandProc" IconName="Com.Close" ShortName="Close"/>
+      <Component Name="RefreshForm" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:Refresh=Обновить" CommandProc="RefreshForm_CommandProc" IconName="Com.Refresh" ShortName="Refresh"/>
+      <Component Name="ReportsCard" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:ReportsCard=Отчёты" FormClassName="Com.Tab.Service.Report" IconName="Com.chart-line"/>
+      <Component Name="InsertRow" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:InsertRow=Добавить кадр" CommandName="Kernel.Edit.InsertObj" CommandProc="InsertRow_CommandProc" IconName="Com.InsertObj"/>
+      <Component Name="DeleteRow" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:DeleteRow=Удалить кадр" CommandName="Kernel.Edit.DeleteObj" CommandProc="DeleteRow_CommandProc" IconName="Com.DeleteObj"/>
+      <Component Name="RowUp" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:RowUp=Кадр вверх" CommandName="Kernel.Form.Run.StrokeMoveUp" CommandProc="RowUp_CommandProc" IconName="Com.PageUp"/>
+      <Component Name="RowDown" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:RowDown=Кадр вниз" CommandName="Kernel.Form.Run.StrokeMoveDown" CommandProc="RowDown_CommandProc" IconName="Com.PageDown"/>
+      <Component Name="DesignMode" Class="Com.ComManaging.ExecCommand" Caption="@Cmd:DesignMode=Дизайн-режим" CommandName="Kernel.Form.DesignMode"/>
+    </Component>
+    <Component Name="Move" Class="Com.Cmd2.ICommandGroup" Caption="@Menu:Move=Перемещение">
+      <Component Name="MovePageUp" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:PageUp=Экран вверх" CommandName="Kernel.Move.PageUp" CommandProc="MovePageUp_CommandProc" ShortName="PageUp"/>
+      <Component Name="MovePageDown" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:PageDown=Экран вниз" CommandName="Kernel.Move.PageDown" CommandProc="MovePageDown_CommandProc" ShortName="PageDown"/>
+    </Component>
+    <Component Name="Card" Class="Com.Cmd2.ICommandGroup" Caption="@Menu:Card=Картотеки">
+      <Component Name="CardExport" Class="Com.Cmd2.ICommandGroup">
+        <Component Name="CardExportTbd" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:ExportTbd=Экспорт в tbd" CommandProc="ExportTbd_CommandProc" IconName="Com.ExportRec" ShortName="tbd"/>
+        <Component Name="CardExportTbc" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:ExportTbc=Экспорт в tbc" CommandProc="ExportTbc_CommandProc" IconName="Com.ExportRec" ShortName="tbc"/>
+        <Component Name="CardExportXml" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:ExportXml=Экспорт в xml" CommandProc="ExportXml_CommandProc" IconName="Com.ExportRec" ShortName="xml"/>
+        <Component Name="CardExportDbf" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:ExportDbf=Экспорт в dbf" CommandProc="ExportDbf_CommandProc" IconName="Com.ExportRec" ShortName="dbf"/>
+        <Component Name="CardExportCsv" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:ExportCsv=Экспорт в csv" CommandProc="ExportCsv_CommandProc" IconName="Com.ExportRec" ShortName="csv"/>
+        <Component Name="CardExportOds" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:ExportOds=Экспорт в ods" CommandProc="ExportOds_CommandProc" IconName="Com.ExportRec" ShortName="ods"/>
+        <Component Name="CardExportOdt" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:ExportOdt=Экспорт в odt" CommandProc="ExportOdt_CommandProc" IconName="Com.ExportRec" ShortName="odt"/>
+      </Component>
+      <Component Name="CardFirst" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:FirstRec=Первая" CommandName="Kernel.Card.Run.FirstRec" CommandProc="CardFirst_CommandProc" IconName="Com.FirstItem" ShortName="FirstRec"/>
+      <Component Name="CardLast" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:LastRec=Последняя" CommandName="Kernel.Card.Run.LastRec" CommandProc="CardLast_CommandProc" IconName="Com.LastItem" ShortName="LastRec"/>
+      <Component Name="CardSelect" Class="Com.ComManaging.ExecProcedure" Excluded="True" Caption="@Cmd:SelectRec=Выбрать" CommandProc="CardSelect_CommandProc" IconName="Com.SelectItem" ShortName="SelectRec"/>
+      <Component Name="CardEdit" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:EditRec=Редактировать" CommandProc="EditRec_CommandProc" IconName="Com.EditItem" ShortName="Edit"/>
+      <Component Name="CardPost" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:PostRec=Записать" CommandProc="CardPost_CommandProc" IconName="Com.Post" ShortName="Post"/>
+      <Component Name="CardCancel" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:CancelRec=Отменить" CommandProc="CardCancel_CommandProc" IconName="Com.Cancel" ShortName="Cancel"/>
+      <Component Name="CardAdd" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:AddRec=Добавить" CommandProc="AddRec_CommandProc" IconName="Com.AddItem" ShortName="AddRec"/>
+      <Component Name="CardClone" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:CloneRec=Дублировать" CommandProc="CloneRec_CommandProc" IconName="Com.CloneItem" ShortName="CloneRec"/>
+      <Component Name="CardDelete" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:DeleteRec=Удалить" CommandProc="DeleteRec_CommandProc" IconName="Com.DeleteItem" ShortName="DeleteDec"/>
+      <Component Name="CardUndelete" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:UndeleteRec=Восстановить" CommandProc="UndeleteRec_CommandProc" IconName="Com.UndeleteItem" ShortName="UndeleteDec"/>
+      <Component Name="CardAddGroup" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:AddGroup=Добавить группу" CommandName="Kernel.Card.Run.AddGroup" CommandProc="AddGroup_CommandProc" IconName="Com.AddFolder" ShortName="AddGroup"/>
+      <Component Name="CardLeaveGroup" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:LeaveGroup=Выйти из группы" CommandName="Kernel.Card.Run.LeaveGroup" CommandProc="CardLeaveGroup_CommandProc" IconName="Com.LevelUp" ShortName="LeaveGroup"/>
+      <Component Name="CardFilter" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:Filter=Фильтр" CommandName="Kernel.Card.Run.Filter" CommandProc="FilterRec_CommandProc" IconName="Com.Filter" ShortName="Filter"/>
+      <Component Name="CardSearch" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:Search=Поиск" CommandName="Kernel.Find.Find" CommandProc="SearchRec_CommandProc" IconName="Com.Search" ShortName="Search"/>
+    </Component>
+    <Component Name="Edit" Class="Com.Cmd2.ICommandGroup" Caption="@Menu:Edit=Правка">
+      <Component Name="CutValue" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:CutValue=Вырезать" CommandName="Kernel.Edit.Cut" CommandProc="CutValue_CommandProc" IconName="Com.CutValue"/>
+      <Component Name="CopyValue" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:CopyValue=Копировать" CommandName="Kernel.Edit.Copy" CommandProc="CopyValue_CommandProc" IconName="Com.CopyValue"/>
+      <Component Name="PasteValue" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:PasteValue=Вставить" CommandName="Kernel.Edit.Paste" CommandProc="PasteValue_CommandProc" IconName="Com.PasteValue"/>
+      <Component Name="DeleteValue" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:DeleteValue=Удалить" CommandName="Kernel.Edit.Delete" CommandProc="DeleteValue_CommandProc" IconName="Com.DeleteValue"/>
+    </Component>
+    <Component Name="Design" Class="Com.Cmd2.ICommandGroup" Caption="@Menu:Design">
+      <Component Name="UpdateForm" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:UpdateForm=Обновить форму" CommandProc="DoUpdateForm" IconName="Refresh"/>
+      <Component Name="SetupRC" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:SetupRC=Настроить ролевой центр" CommandProc="DoSetupRC" IconName="Com.tools"/>
+    </Component>
+    <Component Name="Services" Class="Com.Cmd2.ICommandGroup" Caption="@Menu:Services=Сервисы" IconName="Com.Services">
+      <Component Name="InfobaseExplorer" Class="Com.ComManaging.ExecCommand" Caption="@Cmd:InfobaseExplorer=Просмотр записей" CommandName="Kernel.Service.InfobaseExplorer"/>
+      <Component Name="HistoryLog" Class="Com.ComManaging.ExecCommand" Caption="@Cmd:HistoryLog=История изменений" CommandName="Kernel.Service.HistoryLog" IconName="Com.History"/>
+      <Component Name="ReplConflicts" Class="Com.ComManaging.ExecCommand" Caption="@Cmd:ReplConflicts=Конфликты репликации" CommandName="Kernel.Service.ReplConflicts"/>
+      <Component Name="ImportRec" Class="Com.ComManaging.ExecCommand" Caption="@Cmd:ImportRec=Импорт записей" CommandName="Kernel.Service.ImportRec" IconName="Com.ImportRec"/>
+      <Component Name="ExportRec" Class="Com.ComManaging.ExecCommand" Caption="@Cmd:ExportRec=Экспорт записей" CommandName="Kernel.Service.ExportRec" IconName="Com.ExportRec"/>
+      <Component Name="GarbageCollect" Class="Com.ComManaging.ExecCommand" Caption="@Cmd:GarbageCollect=Сборка мусора" CommandName="Kernel.Service.GarbageCollect" IconName="Com.trash-alt"/>
+      <Component Name="CorrectRef" Class="Com.ComManaging.ExecCommand" Caption="@Cmd:CorrectRef=Коррекция ссылок" CommandName="Kernel.Service.CorrectRef"/>
+      <Component Name="ChangePassword" Class="Com.ComManaging.ExecProcedure" Caption="@Menu:ChangePassword=Изменить пароль" CommandProc="ChangePassword_CommandProc" IconName="Com.Key"/>
+      <Component Name="MainMenuConvertor" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="@Menu:MainMenuConvertor=Конвертация главного меню" FormClassName="Frm.MainMenuConvertor.FrmConvertor" IconName="Com.function"/>
+      <Component Name="Calculator" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:Calculator=Калькулятор" CommandProc="CalculatorCommandProc" IconName="Com.Calculation"/>
+    </Component>
+    <Component Name="Settings" Class="Com.Cmd2.ICommandGroup" Caption="@Menu:Settings=Настройки" IconName="Com.Settings"/>
+    <Component Name="RoleCenter" Class="Com.Cmd2.ICommandGroup">
+      <Component Name="RC_Report" Class="Com.ComManaging.UserReport" Caption="@TurboMenu:Report=Отчёт" IconName="Com.chart-line" MenuCaption="@TurboMenu:AddReport=Добавить отчёт"/>
+      <Component Name="RC_CallProc" Class="Com.ComManaging.UserCallProc" Caption="@TurboMenu:CallProc=Вызов процедуры" IconName="Com.function" MenuCaption="@TurboMenu:AddCallProc=Добавить процедуру"/>
+      <Component Name="RC_Command" Class="Com.ComManaging.UserCommand" Caption="@TurboMenu:Command=Команда" IconName="Com.Command" MenuCaption="@TurboMenu:AddCommand=Добавить команду"/>
+    </Component>
+    <Component Name="Jobs" Class="Com.Cmd2.ICommandGroup">
+      <Component Name="AsyncJob" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:AsyncJob=Хранимые задания" FormClassName="Com.Tab.Jobs.Persistent" IconName="Com.Tasks"/>
+      <Component Name="Workers" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:RobotControl=Исполнители заданий" FormClassName="Com.Tab.Jobs.Worker" IconName="Com.robot"/>
+      <Component Name="DispatcherState" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:DispatcherState=Статус диспетчера" FormClassName="Com.Service.Status" FormStyle="StackedWindow" IconName="Com.Report"/>
+      <Component Name="TestJobs" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:TestJobs=Тест Заданий" CommandProc="TestJobs_CommandProc"/>
+      <Component Name="TestJobs2" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:TestJobs2=Тест групповых заданий" CommandProc="TestJobs2_CommandProc"/>
+    </Component>
+  </Component>
+</Resource>

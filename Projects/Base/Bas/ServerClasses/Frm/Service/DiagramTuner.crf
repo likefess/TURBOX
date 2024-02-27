@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited HelpContext="Bas.Администрирование.Настройки.Настройки диаграмм">
+    <Inherited Name="EdtRec" Class="Bas.Rec.Service.Diagram" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="FEditMode" Class="Com.Fld.IVar" OnChange="FEditModeOnChange"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame" Margins="0">
+        <Inherited Name="Group1" HasCaption="True">
+          <Inherited Name="Name" Visible="True"/>
+          <Component Name="Mode" Class="Com.Ctrl.IEdit" AutoLookup="True" CellFormat="EnumFormat" Field="EdtRec.Mode" HasButton="True" OnChange="ModeOnChange"/>
+          <Component Name="Content" Class="Com.Ctrl.IEdit" Field="EdtRec.Content" OnChange="ContentOnChange"/>
+          <Component Name="Config" Class="Com.Ctrl.IEdit" Field="EdtRec.Config"/>
+        </Inherited>
+      </Inherited>
+      <Component Name="ConfigFrameExt" Class="Com.Ctrl.IFrame" After="FieldsFrame" AutoSize="True">
+        <Component Name="ConfigFrame" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+      </Component>
+      <Inherited Name="TabsFrame" After="ConfigFrameExt" Visible="True">
+        <Inherited Name="MainTab" AutoSize="False" Caption="@Diagram=Диаграмма">
+          <Component Name="ToolsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0xFF000004">
+            <Component Name="ToolsGroup" Class="Com.Ctrl.IGroup">
+              <Component Name="EditModeButton" Class="Com.Ctrl.IButton" Field="FEditMode" Hint="@Diagram:EditMode=Режим редактирования" ImageName="Com.Ctrl.Diagram.shapes" IsSwitch="True"/>
+              <Component Name="DebugButton" Class="Com.Ctrl.IButton" Hint="Debug" ImageName="Com.Debug" OnClick="DebugButtonOnClick"/>
+              <Component Name="EditGroup" Class="Com.Ctrl.IGroup" Visible="False">
+                <Component Name="ClearButton" Class="Com.Ctrl.IButton" Hint="@Diagram:Clear=Очистить" ImageName="Com.DeleteItem" OnClick="ClearButtonOnClick"/>
+              </Component>
+              <Component Name="ScaleGroup" Class="Com.Ctrl.IGroup">
+                <Component Name="ScaleToolStatic" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@Diagram:Scale=Масштаб:" Width="22"/>
+                <Component Name="AutoscaleButton" Class="Com.Ctrl.IButton" Hint="@Diagram:ScaleAuto=Автомасштаб" ImageName="Bas.zoom-auto" OnClick="AutoscaleButtonOnClick"/>
+                <Component Name="ScaleIncButton" Class="Com.Ctrl.IButton" Hint="@Diagram:ScaleInc=Приблизить" ImageName="Bas.zoom-in" OnClick="ScaleIncButtonOnClick"/>
+                <Component Name="ScaleDecButton" Class="Com.Ctrl.IButton" Hint="@Diagram:ScaleDec=Отдалить" ImageName="Bas.zoom-out" OnClick="ScaleDecButtonOnClick"/>
+                <Component Name="Scale100Button" Class="Com.Ctrl.IButton" Hint="@Diagram:Scale100=100%" ImageName="Bas.zoom-none" OnClick="Scale100ButtonOnClick"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="DiagramFrame" Class="Com.Ctrl.IFrame">
+            <Component Name="DiagramJS" Class="Com.Ctrl.IDiagramJS"/>
+          </Component>
+        </Inherited>
+        <Component Name="DatalinkFrame" Class="Com.Ctrl.IFrame" Caption="@Diagram:Data=Данные" Margins="4">
+          <Component Name="NodesBox" Class="Com.Ctrl.IBox" Caption="@Diagram:NodesBox=Узлы">
+            <Component Name="NodesTable" Class="Com.Ctrl.ITable" Adaptive="True" Freezed="True" IconName="Com.Settings" ManualControl="False" Numbering="False" OnClickIcon="TableOnClick" ShowIcon="True">
+              <Component Name="NElementsEdit" Class="Com.Ctrl.IEdit" Caption="@Diagram:NElementsEdit=Наименование" Enabled="False" MaxWidth="60"/>
+              <Component Name="NActionsEdit" Class="Com.Ctrl.IEdit" AutoLookup="True" ButtonStyle="ComboButton" Caption="@Diagram:ActionsEdit=Действие" CellFormat="EnumFormat" MaxWidth="40" OnChange="ActionsEditOnChange" ValueType="VarString"/>
+              <Component Name="NRecordsEdit" Class="Com.Ctrl.IEdit" Caption="@Diagram:RecordsEdit=Источник данных" CellFormat="ReferenceFormat" HasButton="True" OnChange="RecordsEditOnChange" OnEnter="RecordsEditOnEnter" OnHint="RecordsEditOnHint" OnOutput="RecordsEditOnOutput" ValueType="VarObject"/>
+            </Component>
+          </Component>
+          <Component Name="LinksBox" Class="Com.Ctrl.IBox" Caption="@Diagram:LinksBox=Связи">
+            <Component Name="LinksTable" Class="Com.Ctrl.ITable" Adaptive="True" Freezed="True" IconName="Com.Settings" ManualControl="False" Numbering="False" OnClickIcon="TableOnClick" ShowIcon="True">
+              <Component Name="LElementsEdit" Class="Com.Ctrl.IEdit" Caption="@Diagram:LElementsEdit=Наименование" Enabled="False" MaxWidth="60"/>
+              <Component Name="LActionsEdit" Class="Com.Ctrl.IEdit" AutoLookup="True" ButtonStyle="ComboButton" Caption="@Diagram:ActionsEdit=Действие" CellFormat="EnumFormat" MaxWidth="40" OnChange="ActionsEditOnChange" ValueType="VarString"/>
+              <Component Name="LRecordsEdit" Class="Com.Ctrl.IEdit" Caption="@Diagram:RecordsEdit=Источник данных" CellFormat="ReferenceFormat" HasButton="True" OnChange="RecordsEditOnChange" OnEnter="RecordsEditOnEnter" OnHint="RecordsEditOnHint" OnOutput="RecordsEditOnOutput" ValueType="VarObject"/>
+            </Component>
+          </Component>
+          <Component Name="ErrorBox" Class="Com.Ctrl.IBox" Caption="@Diagram:ErrorBox=Неопознанные">
+            <Component Name="ErrorTable" Class="Com.Ctrl.ITable" Adaptive="True" Freezed="True" IconName="Com.Settings" ManualControl="False" Numbering="False" OnClickIcon="TableOnClick" ShowIcon="True">
+              <Component Name="EElementsEdit" Class="Com.Ctrl.IEdit" Caption="@Diagram:EElementsEdit=Наименование" Enabled="False" MaxWidth="60"/>
+              <Component Name="EActionsEdit" Class="Com.Ctrl.IEdit" AutoLookup="True" ButtonStyle="ComboButton" Caption="@Diagram:ActionsEdit=Действие" CellFormat="EnumFormat" MaxWidth="40" OnChange="ActionsEditOnChange" ValueType="VarString"/>
+              <Component Name="ERecordsEdit" Class="Com.Ctrl.IEdit" Caption="@Diagram:RecordsEdit=Источник данных" CellFormat="ReferenceFormat" HasButton="True" OnChange="RecordsEditOnChange" OnEnter="RecordsEditOnEnter" OnHint="RecordsEditOnHint" OnOutput="RecordsEditOnOutput" ValueType="VarObject"/>
+              <Component Name="EDelButton" Class="Com.Ctrl.IButton" ImageName="Com.DeleteItem_1" OnClick="DelButtonOnClick"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

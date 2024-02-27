@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IEditor" HelpContext="Upr.СтруктураБизнеса.ТипыРеквизитов.ЭлектронноеПисьмо">
+    <Component Name="EdtRec" Class="CMP.Rec.Properties.IServiceMail" IsLibrary="1"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" Margins="5">
+      <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+        <Component Name="EditReceiver" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:ServiceMailReceiver=Адрес" Field="EdtRec.Receiver" ProcType="EdtRec.ProcType" Subtable="EdtRec.ReceiverRecords"/>
+        <Component Name="EditCopy" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:ServiceMailCopy=Копия" Field="EdtRec.Copy" ProcType="EdtRec.ProcType" Subtable="EdtRec.CopyRecords"/>
+        <Component Name="EditCCopy" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:ServiceMailCCopy=Скрытая копия" Field="EdtRec.CCopy" ProcType="EdtRec.ProcType" Subtable="EdtRec.CCopyRecords"/>
+        <Component Name="EditSubject" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:ServiceMailSubject=Тема" Field="EdtRec.Subject" ProcType="EdtRec.ProcType" Subtable="EdtRec.SubjectRecords"/>
+        <Component Name="EditBody" Class="Com.Ctrl.IEdit" Caption="@CMP:ServiceMailBody=Текст сообщения" Field="EdtRec.Body"/>
+        <Component Name="EditFormulaBody" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:ServiceMailBody=Текст сообщения" Field="EdtRec.Body" ProcType="EdtRec.ProcType" Subtable="EdtRec.BodyRecords"/>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="CheckBoxBodyIsFormula" Class="Com.Ctrl.ICheckBox" Caption="@CMP:ServiceMailBodyIsFormula=Сообщение является формулой" Field="EdtRec.BodyIsFormula" OnChange="CheckBoxBodyIsFormula_OnChange"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

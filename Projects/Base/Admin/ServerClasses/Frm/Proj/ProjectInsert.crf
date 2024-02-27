@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.Proj.ProjectCustMaster">
+  <Inherited FormIcon="Admin.Restore">
+    <Component Name="ProjectStruct" Class="Admin.Frm.Proj.ProjPA_Struct" IsLibrary="1" After="DistroStruct"/>
+    <Inherited Name="pmProj" After="ProjectStruct"/>
+    <Inherited Name="Variables">
+      <Component Name="subTblProjects" Class="Com.ISubtable" StructClass="Admin.Frm.Proj.ProjPA_Struct"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="btnBackLevel" Class="Com.Ctrl.IButton" Excluded="True" Enabled="False" HasCaption="False" ImageName="Com.LevelUp" OnClick="btnBackLevel_OnClick"/>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="FrameArchive" Caption="@Admin:ProjDistr_Step1=Дистрибутивы"/>
+        <Component Name="FrameProjects" Class="Com.Ctrl.IFrame" After="FrameArchive" AutoSize="False" Caption="@Admin:ProjDistr_Step2=Проекты" HasCaption="True">
+          <Component Name="frameInfo" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+            <Component Name="grpProjects" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="chbBackup" Class="Com.Ctrl.ICheckBox" Caption="@Admin:ProjDistrBackup=Создавать резервные копии обновляемых проектов" Width="60" Wrap="True"/>
+            </Component>
+          </Component>
+          <Component Name="frameList" Class="Com.Ctrl.IFrame" AutoSize="False" Margins="4">
+            <Component Name="tblProjects" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" ManualControl="False" PopupMenu="pmProj" Subtable="subTblProjects">
+              <Component Name="edNameP" Class="Com.Ctrl.IEdit" Caption="@Admin:ProjectListName=Проект" Enabled="False" Field="ProjectStruct.Name" MaxWidth="120" MinWidth="30" Width="50"/>
+              <Component Name="chbUsed" Class="Com.Ctrl.ICheckBox" Field="ProjectStruct.Used" HasCaption="True" MaxWidth="20" MinWidth="10" OnChange="chbUsed_OnChange" Width="16"/>
+              <Component Name="edAction" Class="Com.Ctrl.IEdit" Caption="@Admin:ProjDistrAction=Действие" Enabled="False" Field="ProjectStruct.Action" MaxWidth="50" MinWidth="10" Width="30"/>
+            </Component>
+          </Component>
+        </Component>
+        <Inherited Name="FrameProcess" After="FrameProjects" Caption="@Admin:ProjDistr_Step3=Установить"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

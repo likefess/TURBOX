@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Services.CommonDialog">
+  <Inherited>
+    <Component Name="LeftStruct" Class="Com.Services.SplitStruct" IsLibrary="1" After="#0"/>
+    <Component Name="RightStruct" Class="Com.Services.SplitStruct" IsLibrary="1"/>
+    <Component Name="Variables" Class="Com.IVarContainer"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="WebMainGroup">
+          <Inherited Name="InnerGroup">
+            <Component Name="SoloSplitEdit" Class="Com.Ctrl.IEdit" AutocompleteLimit="12" AutocompleteMode="acmOn" Caption="@ChooseSplit:SoloSplitEdit=Параметр" CellFormat="EnumFormat" OnAutocomplete="SplitEditOnAutocomplete" OnChange="SoloSplitEditOnChange" OnVerify="SoloSplitEditOnVerify" ValueType="VarString"/>
+            <Component Name="SoloContentEdit" Class="Com.Ctrl.IEdit" AutocompleteLimit="12" AutocompleteMode="acmOn" Caption="@ChooseSplit:ContentEdit=Разыменование" CellFormat="EnumFormat" OnAutocomplete="SoloContentEditOnAutocomplete" OnEnter="SoloContentEditOnEnter" OnVerify="SoloContentEditOnVerify" ValueType="VarString"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Component Name="SecondFrame" Class="Com.Ctrl.IFrame" After="MainFrame" AutoSize="True" Orientation="Vertical">
+        <Component Name="LeftFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+          <Component Name="LeftTable" Class="Com.Ctrl.ITable" CanDelete="True" CanInsert="True" CanMove="True" Numbering="False">
+            <Component Name="SplitEdit" Class="Com.Ctrl.IEdit" AutocompleteLimit="12" AutocompleteMode="acmOn" Caption="@ChooseSplit:SplitEdit=Разрезы" CellFormat="EnumFormat" Field="LeftStruct.Split" OnAutocomplete="SplitEditOnAutocomplete" OnEnter="SplitEditOnEnter" Width="60"/>
+            <Component Name="SplitFlag" Class="Com.Ctrl.ICheckBox" Caption="@ChooseSplit:SplitFlag=Кор." Field="LeftStruct.Flag" OnEnter="SplitFlagOnEnter" Width="10"/>
+          </Component>
+        </Component>
+        <Component Name="RightFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+          <Component Name="RightTable" Class="Com.Ctrl.ITable">
+            <Component Name="ContSplitEdit" Class="Com.Ctrl.IEdit" Caption="@ChooseSplit:ContSplitEdit=Выводить" CellFormat="EnumFormat" Field="RightStruct.Split" OnChange="ContSplitEditOnChange" OnDraw="ContSplitEditOnDraw" OnVerify="ContSplitEditOnVerify" Width="40"/>
+            <Component Name="ContentEdit" Class="Com.Ctrl.IEdit" AutocompleteLimit="12" AutocompleteMode="acmOn" Caption="@ChooseSplit:ContentEdit=Разыменование" CellFormat="EnumFormat" Field="RightStruct.Content" OnAutocomplete="ContentEditOnAutocomplete" OnEnter="ContentEditOnEnter" OnVerify="ContentEditOnVerify" Width="60"/>
+            <Component Name="CaptionEdit" Class="Com.Ctrl.IEdit" Caption="@ChooseSplit:CaptionEdit=Заголовок" Field="RightStruct.Caption" Width="40"/>
+            <Component Name="HideFlag" Class="Com.Ctrl.ICheckBox" Caption="@ChooseSplit:HideFlag=Не выводить" Field="RightStruct.Flag" Width="28"/>
+            <Component Name="ErrFlag" Class="Com.Ctrl.ICheckBox" Caption="@ChooseSplit:ErrFlag=Error" Field="RightStruct.Error" Visible="False" Width="28"/>
+          </Component>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

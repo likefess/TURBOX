@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited HelpContext="Biz.НСИ.Мастер-данные.Персональные данные физ лица">
+    <Inherited Name="EdtRec" Class="Biz.Rec.Data.PersonalData" IsLibrary="1"/>
+    <Component Name="ChangeFIO" Class="Biz.Rec.Service.PersonalData_ChangeFIO" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="Variables">
+      <Component Name="tblChangesFIO" Class="Com.ISubtable" StructClass="Biz.Rec.Service.PersonalData_ChangeFIO"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonClone" Excluded="True"/>
+        <Inherited Name="ButtonDelete" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" Visible="False"/>
+        <Component Name="grNaturaPerson" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150" Visible="False">
+          <Component Name="NaturaPersonName" Class="Com.Ctrl.IEdit" Caption="@ФИО" CardFileClass="Bas.Tab.Data.NaturalEntities" Field="EdtRec.Person" HasCaption="True" LookupField="Name" TabStop="True"/>
+          <Component Name="NaturaPersonCode" Class="Com.Ctrl.IEdit" Caption="Код" CaptionWidth="25" CardFileClass="Bas.Tab.Data.NaturalEntities" Enabled="False" Field="EdtRec.Person" HasCaption="True" LookupField="Code" MaxWidth="30" TabStop="True"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="frMainData" Class="Com.Ctrl.IFrame" AutoSize="True" HasCaption="False">
+            <Component Name="bxCitizenship" Class="Com.Ctrl.IBox" Caption="@Гражданство" HasCaption="True">
+              <Component Name="grCitizenship" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+                <Component Name="grCitizenship1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                  <Component Name="Residency" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.Countries" Field="EdtRec.Residency" HasCaption="True" LookupField="Name"/>
+                  <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                </Component>
+                <Component Name="grCitizenship2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150"/>
+                <Component Name="grCitizenship4" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150"/>
+              </Component>
+            </Component>
+            <Component Name="bxChangesFIO" Class="Com.Ctrl.IBox" Caption="@PersonalData.ChangesFIO:Title=Изменения ФИО" HasCaption="True">
+              <Component Name="frChangesFIO" Class="Com.Ctrl.IFrame" AutoSize="True">
+                <Component Name="tbChangesFIO" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Numbering="False" Subtable="tblChangesFIO"/>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

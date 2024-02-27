@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.ComFields">
+  <Inherited HelpContext="Bas.Администрирование.Сервисы.Хранимые задания">
+    <Inherited Name="Current" Class="Com.Rec.Jobs.Persistent" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="HeaderSeparator2" Class="Com.Cmd2.ISeparator"/>
+        <Component Name="ButtonExecute" Class="Com.Ctrl.IButton" Caption="@Jobs:AsyncExecute=Асинхронный запуск" ImageName="Com.chevron-double-right" OnClick="ButtonExecute_OnClick"/>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="BegTime" Class="Com.Ctrl.IEdit" After="Locked" Field="Current.BegTime" FieldFormat="dd.mm.yyyy hh:nn:ss" Width="35"/>
+          <Component Name="EndTime" Class="Com.Ctrl.IEdit" Field="Current.EndTime" FieldFormat="dd.mm.yyyy hh:nn:ss" Visible="False" Width="35"/>
+          <Component Name="JobCaption" Class="Com.Ctrl.IEdit" Caption="@Job:Persistent.Caption=Название" Field="Current.Caption" OnDrawEx="RunColor_OnDrawEx" OnOutputEx="JobCaption_OutputEx" Width="50"/>
+          <Component Name="Backer" Class="Com.Ctrl.IEdit" Field="Current.Backer" Width="40"/>
+          <Component Name="Funct" Class="Com.Ctrl.IEdit" Field="Current.Funct" OnDrawEx="RunColor_OnDrawEx" OnOutputEx="Funct_OutputEx" Visible="False" Width="50"/>
+          <Component Name="ParamText" Class="Com.Ctrl.IEdit" CanSort="False" Field="Current.ParamText" Visible="False" Width="40"/>
+          <Component Name="Flags" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Current.Flags" Width="12"/>
+          <Component Name="JobState" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Enabled="False" Field="Current.JobState" ListAsString="|0;Отправлено|1;Исполняется|2;Выполнено|4;Ошибка|8" Width="30"/>
+          <Component Name="CalcStep" Class="Com.Ctrl.IEdit" Enabled="False" Field="Current.CalcStep" Visible="False" Width="25"/>
+          <Component Name="WasRun" Class="Com.Ctrl.IEdit" Caption="@Job:Persistent.WasRun=Был запуск" Enabled="False" Field="Current.WasRun" Visible="False" Width="20"/>
+          <Inherited Name="Closed" Excluded="False" After="WasRun" Caption="@Job:Persistent.Closed=Завершено"/>
+          <Component Name="TopicName" Class="Com.Ctrl.IEdit" After="Closed" Field="Current.TopicName" Visible="False" Width="30"/>
+          <Component Name="WorkerSrv" Class="Com.Ctrl.IEdit" Enabled="False" Field="Current.WorkerSrv" Width="45"/>
+          <Component Name="WorkerID" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Enabled="False" Field="Current.WorkerID" Width="30"/>
+          <Component Name="WasError" Class="Com.Ctrl.ICheckBox" Caption="@Job:Persistent.WasError=Ошибка" Enabled="False" Field="Current.WasError" Visible="False" Width="15"/>
+          <Component Name="ResultText" Class="Com.Ctrl.IEdit" CanSort="False" Field="Current.ResultText" OnDrawEx="ClosedColor_OnDrawEx" Width="60"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

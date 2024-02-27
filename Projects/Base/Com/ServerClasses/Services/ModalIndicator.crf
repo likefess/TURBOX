@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Services.CommonDialog">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="WebMainGroup" CaptionWidth="30" MaxWidth="100" MinWidth="80">
+          <Inherited Name="InnerGroup">
+            <Component Name="CompIDEdit" Class="Com.Ctrl.IEdit" Caption="CompID" Color="0x00E0F0E0" Enabled="False" ValueType="VarString"/>
+            <Component Name="CaptionEdit" Class="Com.Ctrl.IEdit" Caption="@Indicator:Caption=Заголовок" ValueType="VarString"/>
+            <Component Name="FormatEdit" Class="Com.Ctrl.IEdit" Caption="@Indicator:Format=Формат" CellFormat="EnumFormat" ValueType="VarString"/>
+          </Inherited>
+        </Inherited>
+        <Component Name="HorzGroup1" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="100" MinWidth="80">
+          <Component Name="LeftColGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" FixSize="True" Width="30">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic"/>
+          </Component>
+          <Component Name="RightColGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="VisFlag" Class="Com.Ctrl.ICheckBox" Caption="@Indicator:Visible=Показывать на экране"/>
+            <Component Name="ShowUnitFlag" Class="Com.Ctrl.ICheckBox" Caption="@Indicator:ShowUnit=Показывать единицы измерения"/>
+            <Component Name="InvertFlag" Class="Com.Ctrl.ICheckBox" Caption="@Indicator:Invert=Обратный знак"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="ButtonsFrame">
+        <Inherited Name="ButtonsGroup" MaxWidth="100"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

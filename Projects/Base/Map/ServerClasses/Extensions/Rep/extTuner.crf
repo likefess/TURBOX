@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rep.Tuner">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="MainTuneFrame">
+          <Inherited Name="OutputBox">
+            <Inherited Name="WebOutputGroup">
+              <Inherited Name="WebOutputInnerGroup">
+                <Component Name="OutputMap" Class="Com.RepCtrl.IEditSub" AutoLookup="True" Caption="@Tune:OutputMap=Карта" CellFormat="EnumFormat" LinkName="OutputMap" ListAsString="@Tune:OutputHide=Не показывать|0;@Tune:OutputShow=Показывать|1" OnChange="OutputOnChange" SubContainer="ReportContainer" ValueType="VarInteger"/>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="IndicatorsFrame">
+          <Inherited Name="CurrentIndicatorFrame">
+            <Inherited Name="IndicatorBox">
+              <Inherited Name="IndicatorMain">
+                <Component Name="ShowOnMap" Class="Com.RepCtrl.IEditSubCurrent" Caption="@MapTune:ShowOnMap=Показать на карте" CellFormat="EnumFormat" LinkName="ShowOnMap" SubContainer="SubIndicators" ValueType="VarInteger"/>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Component Name="MapFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Tune:Map=Карта">
+          <Component Name="MapBox" Class="Com.Ctrl.IBox" Caption="@Tune:MapBox=Геоданные">
+            <Component Name="MapGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="MapSplitGroup" Class="Com.Ctrl.IGroup">
+                <Component Name="GeoDimension" Class="Com.RepCtrl.IEditSub" AutoLookup="True" Caption="@Tune:GeoDimension=Разбиение" CellFormat="EnumFormat" FixSize="True" LinkName="GeoDimension" OnChange="GeoDimensionOnChange" SubContainer="ReportContainer" ValueType="VarInteger" Width="30"/>
+                <Component Name="GeoSplit" Class="Com.RepCtrl.IEditSub" AutoLookup="True" CellFormat="EnumFormat" LinkName="GeoSplit" SubContainer="ReportContainer" ValueType="VarInteger"/>
+              </Component>
+              <Component Name="GeoSplitRef" Class="Com.RepCtrl.IEditSub" Caption="@Tune:GeoSplitRef=Разыменование" LinkName="GeoSplitRef" SubContainer="ReportContainer"/>
+              <Component Name="GeoShowValues" Class="Com.RepCtrl.IEditSub" Excluded="True" Caption="@Tune:GeoShowValues=Показатели" CellFormat="EnumFormat" Hint="@Tune:GeoShowValuesHint=Вид остатка/оборота из которого берётся значение" LinkName="GeoShowValues" SubContainer="ReportContainer" ValueType="VarInteger"/>
+              <Component Name="MapLegend" Class="Com.RepCtrl.IFlagSub" Excluded="True" Caption="@Tune:MapLegend=Показывать легенду" LinkName="MapLegend" SubContainer="ReportContainer"/>
+              <Component Name="MapLinkGroup" Class="Com.Ctrl.IGroup">
+                <Component Name="LinkPoints" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:LinkPoints=Соединять точки в линию" LinkName="LinkPoints" OnChange="LinkPointsOnChange" SubContainer="ReportContainer"/>
+                <Component Name="ShowMarkers" Class="Com.RepCtrl.IEditSub" AutoLookup="True" Caption="@Tune:ShowMarkers=Показывать маркеры точек" CaptionWidth="60" CellFormat="EnumFormat" LinkName="ShowMarkers" SubContainer="ReportContainer" ValueType="VarInteger"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

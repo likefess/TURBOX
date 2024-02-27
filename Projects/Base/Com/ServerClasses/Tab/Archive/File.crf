@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.CodeName">
+  <Inherited Caption="@AttachedFiles:TableCaption=Файлы" Hierarchical="True">
+    <Inherited Name="Current" Class="Com.Rec.Archive.File" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="8">
+        <Component Name="OpenFile" Class="Com.Ctrl.IButton" After="ButtonCancel" Caption="@Archive:btnOpenFiles=Открыть вложение (файл)" ImageName="Com.play" OnClick="OpenFile_OnClick"/>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Visible="False"/>
+        <Inherited Name="FrameCardFile">
+          <Component Name="Modified" Class="Com.Ctrl.IEdit" After="ExtId" Alignment="LeftAlign" Field="Current.UpdateDate" Visible="False" Width="35"/>
+          <Inherited Name="Name" Width="80"/>
+          <Inherited Name="Code" Visible="False"/>
+          <Component Name="FileName" Class="Com.Ctrl.IEdit" After="Code" Field="Current.FileName" Visible="False" Width="50"/>
+          <Component Name="FileSize" Class="Com.Ctrl.IEdit" Field="Current.FileSize" FieldFormat=",##0;;0" Width="22"/>
+          <Component Name="FileTime" Class="Com.Ctrl.IEdit" Field="Current.FileTime" Width="35"/>
+          <Component Name="Description" Class="Com.Ctrl.IEdit" Field="Current.Description" Visible="False"/>
+          <Component Name="CRC" Class="Com.Ctrl.IEdit" Field="Current.CRC" Visible="False" Width="20"/>
+          <Component Name="Hash" Class="Com.Ctrl.IEdit" Field="Current.Hash" Visible="False" Width="20"/>
+          <Component Name="Method" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="Current.StorageMethod" Width="20"/>
+          <Component Name="Partition" Class="Com.Ctrl.IEdit" Field="Current.Partition" Width="25"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

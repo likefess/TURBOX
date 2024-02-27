@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.CustomList">
+  <Inherited FormIcon="Admin.Scheduler">
+    <Component Name="TaskStruct" Class="Admin.Frm.Scheduler.Task_Struct" IsLibrary="1" After="#0"/>
+    <Component Name="Timer" Class="Com.ITimer" Active="False" Interval="5" OnTimer="Timer_OnTimer"/>
+    <Inherited Name="TableMenu" Excluded="False">
+      <Component Name="cmdAdd" Class="Com.ComManaging.ExecProcedure" After="TableSeparator1" Caption="@Admin:TaskAdd=Добавить задание" CommandProc="cmdAdd_CommandProc" IconName="Com.AddItem"/>
+      <Component Name="cmdEdit" Class="Com.ComManaging.ExecProcedure" Caption="@Form:EditButton=Редактировать" CommandProc="cmdEdit_CommandProc" IconName="Com.EditItem"/>
+      <Component Name="cmdDelete" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:TaskDelete=Удалить задание" CommandProc="cmdDelete_CommandProc" IconName="Com.DeleteItem"/>
+      <Component Name="pmSep1" Class="Com.Cmd2.ISeparator"/>
+      <Component Name="cmdRun" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:TaskRun=Запустить сейчас" CommandProc="cmdRun_CommandProc" IconName="Admin.Run"/>
+      <Component Name="cmdStop" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:TaskStop=Остановить выполнение" CommandProc="cmdStop_CommandProc" IconName="Admin.Stop"/>
+    </Inherited>
+    <Inherited Name="Variables">
+      <Inherited Name="Subtable" StructClass="Admin.Frm.Scheduler.Task_Struct"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ButtonAdd" Class="Com.Ctrl.IButton" After="#0" Caption="@Admin:TaskAdd=Добавить задание" Command="cmdAdd" ImageName="Com.AddItem"/>
+        <Component Name="ButtonEdit" Class="Com.Ctrl.IButton" Caption="@Form:EditButton=Редактировать" Command="cmdEdit" ImageName="Com.EditItem"/>
+        <Component Name="ButtonDelete" Class="Com.Ctrl.IButton" After="ButtonClose" Caption="@Admin:TaskDelete=Удалить задание" Command="cmdDelete" ImageName="Com.DeleteItem"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="frameData">
+          <Inherited Name="TableData" Adaptive="True" CanDelete="True" IconName="Admin.Scheduler" PopupMenu="TableMenu" ShowIcon="True">
+            <Component Name="edDescript" Class="Com.Ctrl.IEdit" Caption="@Admin:TaskDescript=Описание" Enabled="False" Field="TaskStruct.Descript" MaxWidth="120" MinWidth="20" Width="60"/>
+            <Component Name="edState" Class="Com.Ctrl.IEdit" Caption="@Admin:TaskState=Состояние" CellFormat="EnumFormat" Enabled="False" Field="TaskStruct.State" ListAsString="@Admin:TaskStateValue= |0&#xD;&#xA;Отключено|1&#xD;&#xA;Запущено|2&#xD;&#xA;Ожидание|3&#xD;&#xA;Неактивно|4&#xD;&#xA;Ошибка|5&#xD;&#xA;Завершено|6" MaxWidth="60" MinWidth="20" Width="30"/>
+            <Component Name="chbActive" Class="Com.Ctrl.ICheckBox" Excluded="True" Field="TaskStruct.Active" FixSize="True" OnChange="chbActive_OnChange" Width="12"/>
+            <Component Name="edWorkTime" Class="Com.Ctrl.IEdit" Caption="@Admin:TaskWord=Время работы" Enabled="False" Field="TaskStruct.WorkTime" MaxWidth="50" MinWidth="20" Width="30"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

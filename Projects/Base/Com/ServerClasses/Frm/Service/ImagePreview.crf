@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited ActiveControl="Name" CaptionAlign="RightAlign" CaptionWidth="20" OnPasteImage="BlankWIthFrames_OnPasteImage" OnShow="BlankWIthFrames_OnShow">
+    <Inherited Name="Variables">
+      <Component Name="Image1" Class="Com.Fld.IBlob"/>
+      <Component Name="ImageName" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="ImageFormat" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="3" Printed="False">
+        <Component Name="ChoseFile" Class="Com.Ctrl.IButton" After="ButtonOK" Caption="@Image:ChoseFile=Выбрать изображение" ImageName="Com.folder-open" OnClick="ChoseFile_OnClick"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" AutoSize="False" Orientation="Horizontal" Proportion="1">
+        <Component Name="PropFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="Name" Class="Com.Ctrl.IEdit" Caption="@Image:Name=Имя" Field="ImageName" MaxWidth="100" MinWidth="50" Width="100"/>
+            <Component Name="Dimensions" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Image:Sizes=Размеры" FixSize="True" OnOutput="Dimensions_OnOutput" OnVerify="Dimensions_OnVerify" Width="30"/>
+            <Component Name="Format" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" AutoLookup="True" Caption="@Image:Format=Формат" CellFormat="EnumFormat" Field="ImageFormat" FixSize="True" HasButton="True" ListAsString="BMP;PNG;JPG" OnChange="Format_OnChange" Width="20"/>
+            <Component Name="Size" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Размер" Enabled="False" FixSize="True" Width="30"/>
+          </Component>
+        </Component>
+        <Component Name="ImageFrame" Class="Com.Ctrl.IFrame" Margins="10" Proportion="1">
+          <Component Name="Picture1" Class="Com.Ctrl.IPicture" Center="True" Field="Image1" OnClick="Picture1_OnClick" ScaleByWheel="True" Shrink="True"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CMP.Frm.Pages.Page">
+  <Inherited HelpContext="Настройка.СтруктураБизнеса.ТипыПредставлений.НастройкаПредставлений.УправлениеПериодом">
+    <Inherited Name="Variables">
+      <Component Name="ShowPeriod" Class="Com.Fld.IVar" OnCalc="ShowPeriodOnCalc" OnChange="ShowPeriodOnChange"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Component Name="MainFrame" Class="Com.Ctrl.IFrame" After="#0" AutoSize="True">
+        <Component Name="MainGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+          <Component Name="Group3" Class="Com.Ctrl.IGroup">
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+            <Component Name="ShowPeriodFlag" Class="Com.Ctrl.ICheckBox" Caption="@CMP:ShowPeriodFlag=Отображать панель управления периодом" Field="ShowPeriod"/>
+          </Component>
+          <Component Name="Group4" Class="Com.Ctrl.IGroup">
+            <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+            <Component Name="OwnPeriodFlag" Class="Com.Ctrl.ICheckBox" Field="EdtRec.OwnPeriod" OnChange="OwnPeriodFlagOnChange"/>
+          </Component>
+        </Component>
+        <Component Name="OwnGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+          <Component Name="Group2" Class="Com.Ctrl.IGroup">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+            <Component Name="ShowTimeFlag" Class="Com.Ctrl.ICheckBox" Field="EdtRec.ShowTime"/>
+          </Component>
+          <Component Name="PropPeriod" Class="Com.Ctrl.IEdit" Field="EdtRec.PropPeriod" HasCaption="True" LookupField="Code" LookupFilter="not Closed and not РеквизитТаблицы and ТипЗначения in [5,7] and ТипПеречислимогоЗначения = 0" OnGetLookupFilter="Prop_OnGetLookupFilter"/>
+          <Component Name="PropBegDate" Class="Com.Ctrl.IEdit" Field="EdtRec.PropBegDate" HasCaption="True" LookupField="Code" LookupFilter="not Closed and not РеквизитТаблицы and ТипЗначения = 3" OnGetLookupFilter="Prop_OnGetLookupFilter"/>
+          <Component Name="PropEndDate" Class="Com.Ctrl.IEdit" Field="EdtRec.PropEndDate" HasCaption="True" LookupField="Code" LookupFilter="not Closed and not РеквизитТаблицы and ТипЗначения = 3" OnGetLookupFilter="Prop_OnGetLookupFilter"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

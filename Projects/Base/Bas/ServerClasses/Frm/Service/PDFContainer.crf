@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited OnShow="Form_OnShow">
+    <Inherited Name="Variables">
+      <Component Name="PDF" Class="Com.Fld.IBlob"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="3">
+        <Inherited Name="ButtonOK" Excluded="True"/>
+        <Inherited Name="HeaderSeparator" Excluded="True"/>
+        <Inherited Name="ButtonRefresh" Excluded="True"/>
+        <Inherited Name="ButtonPrint" Excluded="False"/>
+        <Component Name="ButtonFolder" Class="Com.Ctrl.IButton" After="ButtonPrint" Caption="@Открыть в папке" ImageName="Com.Folder" OnClick="ButtonFolder_OnClick"/>
+        <Inherited Name="ButtonExport" After="ButtonFolder"/>
+        <Inherited Name="ButtonHelp" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" AutoSize="False" Margins="0">
+        <Component Name="FramePDF" Class="Com.Ctrl.IFrame" AutoSize="False">
+          <Component Name="PDFView" Class="Com.Ctrl.IPDFView" Field="PDF"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

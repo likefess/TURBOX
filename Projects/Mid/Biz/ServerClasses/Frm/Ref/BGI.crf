@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited HelpContext="Biz.НСИ.Базовые справочники.Статьи БК">
+    <Inherited Name="EdtRec" Class="Biz.Rec.Ref.BGI" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Name" After="#0" Visible="True"/>
+          <Inherited Name="Code" After="Name" Visible="True"/>
+        </Inherited>
+        <Component Name="Group5" Class="Com.Ctrl.IGroup">
+          <Component Name="BegDate" Class="Com.Ctrl.IEdit" Caption="Дата начала" Field="EdtRec.BegDate"/>
+          <Component Name="EndDate" Class="Com.Ctrl.IEdit" Caption="Дата окончания" Field="EdtRec.EndDate"/>
+          <Component Name="Closed" Class="Com.Ctrl.ICheckBox" Caption="Завершен" Field="EdtRec.Closed"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+            <Component Name="CommentEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Comment" HasCaption="True"/>
+            <Component Name="Group3" Class="Com.Ctrl.IGroup">
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" Width="40"/>
+              <Component Name="IsRevenueCheckBox" Class="Com.Ctrl.ICheckBox" Field="EdtRec.IsRevenue" HasCaption="True" Width="100"/>
+            </Component>
+            <Component Name="Group4" Class="Com.Ctrl.IGroup">
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" Width="40"/>
+              <Component Name="VariableCostCheckBox" Class="Com.Ctrl.ICheckBox" Field="EdtRec.VariableCost" HasCaption="True" Width="100"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

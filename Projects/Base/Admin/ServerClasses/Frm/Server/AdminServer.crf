@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWithFrames">
+  <Inherited FormIcon="Admin.Server" HelpContext="Admin.Администрирование.Список серверов">
+    <Component Name="BGTimer" Class="Com.ITimer" After="#0" Active="False" Interval="5" OnTimer="BGTimer_OnTimer"/>
+    <Inherited Name="TableMenu" After="BGTimer"/>
+    <Inherited Name="Variables">
+      <Component Name="FldBackground" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame" AutoSize="False">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonOK" Excluded="True"/>
+        <Component Name="ButtonLicense" Class="Com.Ctrl.IButton" After="ButtonRefresh" Caption="@Admin:ButtonLicense=Лицензии" ImageName="Admin.License" OnClick="ButtonLicense_OnClick"/>
+        <Component Name="ButtonServices" Class="Com.Ctrl.IButton" Caption="@Admin:ButtonServices=Службы" ImageName="Admin.Services" OnClick="ButtonServices_OnClick"/>
+        <Component Name="ButtonScheduler" Class="Com.Ctrl.IButton" Caption="@Admin:ButtonScheduler=Планировщик" ImageName="Admin.Scheduler" OnClick="ButtonScheduler_OnClick"/>
+        <Component Name="ButtonEventLog" Class="Com.Ctrl.IButton" Caption="@Admin:ButtonEventLog=Журнал событий" ImageName="Com.Exclamation" OnClick="ButtonEventLog_OnClick"/>
+        <Component Name="ButtonConnUsers" Class="Com.Ctrl.IButton" Caption="@Admin:ButtonConnUsers=Подключённые пользователи" ImageName="Com.Users" OnClick="ButtonConnUsers_OnClick"/>
+        <Component Name="ListBtnSetting" Class="Com.Ctrl.IListButton" Caption="@Admin:ServerSetting=Настройки сервера" ImageName="Com.Settings_">
+          <Component Name="ButtonAuthSetting" Class="Com.Ctrl.IButton" Caption="@Admin:AuthServerSetting=Настройки сервера авторизации" ImageName="Com.key" OnClick="ButtonAuthSetting_OnClick"/>
+          <Component Name="ButtonLogsSetting" Class="Com.Ctrl.IButton" Caption="@Admin:LogsServerSetting=Настройки журнала событий" ImageName="Com.Exclamation" OnClick="ButtonLogsSetting_OnClick"/>
+          <Component Name="ButtonNetSetting" Class="Com.Ctrl.IButton" Caption="@Admin:NetSerrverSetting=Настройки сетевого сервиса" ImageName="Admin.ElConnections" OnClick="ButtonOnClick_Later"/>
+          <Component Name="ButtonDataSetting" Class="Com.Ctrl.IButton" Caption="@Admin:DataServerSetting=Настройки сервера данных" ImageName="Admin.database" OnClick="ButtonOnClick_Later"/>
+          <Component Name="ButtonCalcSetting" Class="Com.Ctrl.IButton" Caption="@Admin:CalcServerSetting=Настройки сервера расчётов" ImageName="Admin.CalcServ" OnClick="ButtonOnClick_Later"/>
+          <Component Name="ButtonWEBSetting" Class="Com.Ctrl.IButton" Caption="@Admin:WEBServerSetting=Настройки WEB сервера" ImageName="Com.Globe" OnClick="ButtonOnClick_Later"/>
+        </Component>
+        <Inherited Name="ButtonHelp" After="ListBtnSetting"/>
+        <Inherited Name="ButtonPrint" After="ButtonHelp"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" AutoSize="False">
+        <Component Name="FrameInfo" Class="Com.Ctrl.IFrame">
+          <Component Name="GroupInfo" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="50" MaxWidth="150" MinWidth="50">
+            <Component Name="lblName" Class="Com.Ctrl.IStatic" Caption="@Admin:ServerName=Имя" FixSize="True" Width="50"/>
+            <Component Name="edName" Class="Com.Ctrl.IEdit" Enabled="False"/>
+            <Component Name="lineName" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblAddress" Class="Com.Ctrl.IStatic" Caption="@Admin:ServerAddress=Адрес" FixSize="True" Width="50"/>
+            <Component Name="edAddress" Class="Com.Ctrl.IEdit" Enabled="False"/>
+            <Component Name="lineAddress" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblVersion" Class="Com.Ctrl.IStatic" Caption="@Admin:ServerVersion=Версия сервера" FixSize="True" Width="50"/>
+            <Component Name="edVersion" Class="Com.Ctrl.IEdit" Enabled="False"/>
+            <Component Name="lineVersion" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblOS" Class="Com.Ctrl.IStatic" Caption="@Admin:ServerOS=Версия ОС" FixSize="True" Width="50"/>
+            <Component Name="edOS" Class="Com.Ctrl.IEdit" Enabled="False"/>
+          </Component>
+          <Component Name="lineGrpInfo" Class="Com.Ctrl.INewLine"/>
+          <Component Name="GroupList" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="50" MaxWidth="250" MinWidth="50">
+            <Component Name="lblGroups" Class="Com.Ctrl.IStatic" Caption="@Admin:ServerGroups=Группы пользователей" FixSize="True" Width="50"/>
+            <Component Name="edGroups" Class="Com.Ctrl.IEdit" Enabled="False" OnClick="OnClick_ButtonUserGroup"/>
+            <Component Name="btnGroups" Class="Com.Ctrl.IButton" ImageName="Com.chevron-right" OnClick="OnClick_ButtonUserGroup"/>
+            <Component Name="lineGroups" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblUsers" Class="Com.Ctrl.IStatic" Caption="@Admin:ServerUsers=Пользователи" FixSize="True" Width="50"/>
+            <Component Name="edUsers" Class="Com.Ctrl.IEdit" Enabled="False" OnClick="OnClick_ButtonUser"/>
+            <Component Name="btnUser" Class="Com.Ctrl.IButton" ImageName="Com.chevron-right" OnClick="OnClick_ButtonUser"/>
+            <Component Name="lineUser" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblProjects" Class="Com.Ctrl.IStatic" Caption="@Admin:ServerProjects=Проекты" FixSize="True" Width="50"/>
+            <Component Name="edProjects" Class="Com.Ctrl.IEdit" Enabled="False" OnClick="OnClick_Project"/>
+            <Component Name="btnProjects" Class="Com.Ctrl.IButton" ImageName="Com.chevron-right" OnClick="OnClick_Project"/>
+            <Component Name="lineProjects" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblInfoBase" Class="Com.Ctrl.IStatic" Caption="@Admin:InfoBaseList=Информационные базы" FixSize="True" Width="50"/>
+            <Component Name="edInfoBase" Class="Com.Ctrl.IEdit" Enabled="False" OnClick="Onclick_InfoBase"/>
+            <Component Name="btnInfoBase" Class="Com.Ctrl.IButton" ImageName="Com.chevron-right" OnClick="Onclick_InfoBase"/>
+            <Component Name="lineInfobase" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblCalcBase" Class="Com.Ctrl.IStatic" Caption="@Admin:CalcBaseList=Расчетные базы" FixSize="True" Width="50"/>
+            <Component Name="edCalcBase" Class="Com.Ctrl.IEdit" Enabled="False" OnClick="OnClick_CalcBase"/>
+            <Component Name="btnCalcBase" Class="Com.Ctrl.IButton" ImageName="Com.chevron-right" OnClick="OnClick_CalcBase"/>
+            <Component Name="lineCalcbase" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblBackground" Class="Com.Ctrl.IStatic" Caption="@Admin:Background=Фоновые процессы" FixSize="True" Width="50"/>
+            <Component Name="edBackground" Class="Com.Ctrl.IEdit" Enabled="False" Field="FldBackground" OnClick="Onclick_Background"/>
+            <Component Name="btnBackground" Class="Com.Ctrl.IButton" ImageName="Com.chevron-right" OnClick="Onclick_Background"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Excluded="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

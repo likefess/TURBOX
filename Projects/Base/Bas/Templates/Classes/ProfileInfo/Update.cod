@@ -1,0 +1,30 @@
+﻿class inherited Bas.ProfileInfo.Update;
+
+inclass public
+
+--  #override;
+--  #help `Конвертация работает только в консольной версии клиента`;
+--  var ExecuteOnConsole :Logical = False;
+
+  #override;
+  #help `Номер версии конвертера`;
+  var ExecuteVersion :Numeric = 5.000; -- Минимально допустимое значение 5.001
+
+
+  #override;
+  #help `Метод конвертации`;
+  proc Execute (aVersionFromBase :Numeric);
+--  В случае множественной обработки версий использовать следующую конструкцию:
+--
+--    if    aVersionFromBase < 5.001 then
+--      -- промежуточная обработка
+--    elsif aVersionFromBase < 5.010 then
+--      -- промежуточная обработка
+--    elsif aVersionFromBase < ExecuteVersion then
+--      -- обработка по версии конвертера
+--    end;
+--
+--  Для однократной обработки использование переменной "aVersionFromBase" не обязательно.
+  end;
+
+end

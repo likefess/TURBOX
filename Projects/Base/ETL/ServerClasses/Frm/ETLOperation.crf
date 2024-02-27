@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Integration.Frm.DataProcessing">
+  <Inherited OnCancel="EditorOnCancel">
+    <Inherited Name="EdtRec" Class="ETL.Rec.ETLOperation" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Visible="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Component Name="EdOperType" Class="Com.Ctrl.IEdit" After="Code" Caption="@FieldName:OperType=Тип операции" CaptionWidth="40" CellFormat="EnumFormat" Field="EdtRec.OperationType" FixSize="True" ListAsString="@ETLOperation:EnumOperType=извлечение|0;преобразование|1;загрузка|2;файловые операции|3" OnChange="EdOperTypeOnChange" ValueType="VarInteger" Width="120"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

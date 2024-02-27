@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited Caption="Конвертация главного меню" FormIcon="Com.tools" OnShow="Frm_OnShow">
+    <Component Name="AllProjectsListSubtable" Class="Com.ISubtable" After="#0"/>
+    <Component Name="ProjectsListSubtable" Class="Com.ISubtable"/>
+    <Component Name="CommandsListSubtable" Class="Com.ISubtable"/>
+    <Component Name="CurPrjCmdListSubtable" Class="Com.ISubtable" OnAfterDelete="CurPrjCmdListSubtableOnAfterDelete"/>
+    <Component Name="PanelsListSubtable" Class="Com.ISubtable"/>
+    <Component Name="CurPrjPanelsListSubtable" Class="Com.ISubtable" OnAfterDelete="CurPrjPanelsListSubtableOnAfterDelete"/>
+    <Component Name="ModulesListSubtable" Class="Com.ISubtable"/>
+    <Component Name="CurPrjModulesListSubtable" Class="Com.ISubtable" OnAfterDelete="CurPrjModulesListSubtableOnAfterDelete"/>
+    <Inherited Name="RootFrame">
+      <Component Name="DefStruct" Class="Com.Frm.MainMenuConvertor.Data.InfoStruct" IsLibrary="1" After="#0"/>
+      <Inherited Name="FieldsFrame" AutoSize="False" Orientation="Horizontal">
+        <Component Name="FrameNavigation" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="BtnPreviouse" Class="Com.Ctrl.IButton" Caption="Назад" Enabled="False" ImageName="Com.Back" OnClick="BtnPreviouseOnClick"/>
+          <Component Name="BtnNext" Class="Com.Ctrl.IButton" Caption="Далее" ImageName="Com.Forward" OnClick="BtnNextOnClick" Wrap="True"/>
+        </Component>
+        <Component Name="FrameSteps" Class="Com.Ctrl.IFrame" Orientation="WithTabs" ShowTabs="True">
+          <Component Name="FrameProjects" Class="Com.Ctrl.IFrame" Caption="0. Проекты" Subtable="AllProjectsListSubtable">
+            <Component Name="EditPrjName0" Class="Com.Ctrl.IEdit" Caption="Проект" Field="DefStruct.Project" HasCaption="True" Width="60"/>
+            <Component Name="CheckBoxPrjInclude" Class="Com.Ctrl.ICheckBox" Caption="Обрабатывать" Field="DefStruct.Include" Width="30"/>
+          </Component>
+          <Component Name="FrameCommands" Class="Com.Ctrl.IFrame" Caption="1. Команды" HasCaption="True" Orientation="Horizontal" Visible="False">
+            <Component Name="FrameCmdToConvert" Class="Com.Ctrl.IFrame" CanResizeBySplit="True" Caption="Команды к распределению" HasCaption="True" MinSize="20" Size="60" SplitterAtRight="True" Subtable="CommandsListSubtable" UseSplitter="True">
+              <Component Name="ColumnsGroup1" Class="Com.Ctrl.IColumnsGroup" Caption="Команды к распределению" HasCaption="True">
+                <Component Name="edtCmdName" Class="Com.Ctrl.IEdit" Caption="Наименование" Enabled="False" Field="DefStruct.Entity" HasButton="False" LookupField="Name" OnOutput="FieldNameOnOutput" Width="60"/>
+                <Component Name="edtCmdCaption" Class="Com.Ctrl.IEdit" Caption="Заголовок" Enabled="False" Field="DefStruct.Entity" HasButton="False" LookupField="Caption" OnOutput="FieldCaptionOnOutput" Width="60"/>
+                <Component Name="edtCmdClass" Class="Com.Ctrl.IEdit" Caption="Класс" Enabled="False" Field="DefStruct.Entity" HasButton="False" OnOutput="FieldClassOnOutput" Width="60"/>
+                <Component Name="edtCmdAddInfo" Class="Com.Ctrl.IEdit" Caption="Доп. информация" Enabled="False" Field="DefStruct.Entity" HasButton="False" OnOutput="edtCmdAddInfoOnOutput" Width="80"/>
+                <Component Name="edtCmdProject" Class="Com.Ctrl.IEdit" ButtonStyle="ComboButton" Caption="Проект" CellFormat="EnumFormat" Enabled="False" Field="DefStruct.Project" HasButton="True" OnChange="edtCmdProjectOnChange" Width="60"/>
+              </Component>
+            </Component>
+            <Component Name="FrameCmdProjects" Class="Com.Ctrl.IFrame" CanHideBySplit="False" CanResizeBySplit="True" Caption="Проекты" HasCaption="True" Orientation="Vertical" SplitterAtRight="False" UseSplitter="False">
+              <Component Name="FrameProjectsList" Class="Com.Ctrl.IFrame" CanResizeBySplit="True" OnMove="FrameProjectsListOnMove" Size="80" SplitterAtRight="True" Subtable="ProjectsListSubtable" UseSplitter="True">
+                <Component Name="EditPrjName" Class="Com.Ctrl.IEdit" Caption="Проект" Field="DefStruct.Project" HasCaption="True" OnDraw="EditPrjNameOnDraw" Width="60"/>
+              </Component>
+              <Component Name="FrameProjectCommands" Class="Com.Ctrl.IFrame" CanResizeBySplit="True" Subtable="CurPrjCmdListSubtable">
+                <Component Name="ColumnsGroup2" Class="Com.Ctrl.IColumnsGroup" Caption="Команды проекта" HasCaption="True">
+                  <Component Name="edtCmdName1" Class="Com.Ctrl.IEdit" Caption="Наименование" Enabled="False" Field="DefStruct.Entity" OnOutput="FieldNameOnOutput" Width="60"/>
+                  <Component Name="edtCmdCaption1" Class="Com.Ctrl.IEdit" Caption="Заголовок" Enabled="False" Field="DefStruct.Entity" OnOutput="FieldCaptionOnOutput" Width="60"/>
+                  <Component Name="edtCmdClass1" Class="Com.Ctrl.IEdit" Caption="Класс" Enabled="False" Field="DefStruct.Entity" OnOutput="FieldClassOnOutput" Width="60"/>
+                  <Component Name="edtCmdAddInfo1" Class="Com.Ctrl.IEdit" Caption="Доп. информация" Enabled="False" Field="DefStruct.Entity" OnOutput="edtCmdAddInfoOnOutput" Width="60"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="FramePanels" Class="Com.Ctrl.IFrame" Caption="2. Панели" HasCaption="True" Visible="False">
+            <Component Name="FramePanelsToConvert" Class="Com.Ctrl.IFrame" CanResizeBySplit="True" MinSize="20" Size="60" SplitterAtRight="True" Subtable="PanelsListSubtable" UseSplitter="True">
+              <Component Name="ColumnsGroup3" Class="Com.Ctrl.IColumnsGroup" Caption="Панели к распределению">
+                <Component Name="edtPanelName" Class="Com.Ctrl.IEdit" Caption="Наименование" Enabled="False" Field="DefStruct.Entity" OnOutput="FieldNameOnOutput" Width="60"/>
+                <Component Name="edtPanelCaption" Class="Com.Ctrl.IEdit" Caption="Заголовок" Enabled="False" Field="DefStruct.Entity" OnOutput="FieldCaptionOnOutput" Width="80"/>
+                <Component Name="edtPanelProject" Class="Com.Ctrl.IEdit" ButtonStyle="ComboButton" Caption="Проект" CellFormat="EnumFormat" Enabled="False" Field="DefStruct.Project" HasButton="True" OnChange="edtPanelProjectOnChange" Width="60"/>
+              </Component>
+            </Component>
+            <Component Name="FramePanelsByProjects" Class="Com.Ctrl.IFrame" CanResizeBySplit="True" Orientation="Vertical">
+              <Component Name="FrameProjectsList1" Class="Com.Ctrl.IFrame" CanResizeBySplit="True" OnMove="FrameProjectsListOnMove" Size="80" SplitterAtRight="True" Subtable="ProjectsListSubtable" UseSplitter="True">
+                <Component Name="EditPrjName1" Class="Com.Ctrl.IEdit" Caption="Проект" Field="DefStruct.Project" HasCaption="True" OnDraw="EditPrjNameOnDraw" Width="60"/>
+              </Component>
+              <Component Name="FramePrjPanels" Class="Com.Ctrl.IFrame" CanResizeBySplit="True" Subtable="CurPrjPanelsListSubtable">
+                <Component Name="edtPanelName1" Class="Com.Ctrl.IEdit" Caption="Наименование" Enabled="False" Field="DefStruct.Entity" OnOutput="FieldNameOnOutput" Width="60"/>
+                <Component Name="edtPanelCaption1" Class="Com.Ctrl.IEdit" Caption="Заголовок" Enabled="False" Field="DefStruct.Entity" OnOutput="FieldCaptionOnOutput" Width="80"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="FrameModules" Class="Com.Ctrl.IFrame" Caption="3. Модули" HasCaption="True" Visible="False">
+            <Component Name="FrameModulesToConvert" Class="Com.Ctrl.IFrame" CanResizeBySplit="True" MinSize="20" Size="60" SplitterAtRight="True" Subtable="ModulesListSubtable" UseSplitter="True">
+              <Component Name="ColumnsGroup4" Class="Com.Ctrl.IColumnsGroup" Caption="Панели к распределению">
+                <Component Name="edtModuleName" Class="Com.Ctrl.IEdit" Caption="Наименование" Enabled="False" Field="DefStruct.Entity" OnOutput="FieldNameOnOutput" Width="60"/>
+                <Component Name="edtModuleCaption" Class="Com.Ctrl.IEdit" Caption="Заголовок" Enabled="False" Field="DefStruct.Entity" OnOutput="FieldCaptionOnOutput" Width="80"/>
+                <Component Name="edtModuleProject" Class="Com.Ctrl.IEdit" ButtonStyle="ComboButton" Caption="Проект" CellFormat="EnumFormat" Enabled="False" Field="DefStruct.Project" HasButton="True" OnChange="edtModuleProjectOnChange" Width="60"/>
+              </Component>
+            </Component>
+            <Component Name="FrameModulesByProjects" Class="Com.Ctrl.IFrame" CanResizeBySplit="True" Orientation="Vertical">
+              <Component Name="FrameProjectsList2" Class="Com.Ctrl.IFrame" CanResizeBySplit="True" OnMove="FrameProjectsListOnMove" Size="80" SplitterAtRight="True" Subtable="ProjectsListSubtable" UseSplitter="True">
+                <Component Name="EditPrjName2" Class="Com.Ctrl.IEdit" Caption="Проект" Field="DefStruct.Project" HasCaption="True" OnDraw="EditPrjNameOnDraw" Width="60"/>
+              </Component>
+              <Component Name="FramePrjModules" Class="Com.Ctrl.IFrame" CanResizeBySplit="True" Subtable="CurPrjModulesListSubtable">
+                <Component Name="edtModuleName1" Class="Com.Ctrl.IEdit" Caption="Наименование" Enabled="False" Field="DefStruct.Entity" OnOutput="FieldNameOnOutput" Width="60"/>
+                <Component Name="edtModuleCaption1" Class="Com.Ctrl.IEdit" Caption="Заголовок" Enabled="False" Field="DefStruct.Entity" OnOutput="FieldCaptionOnOutput" Width="80"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="FrameProcess" Class="Com.Ctrl.IFrame" Caption="4. Прогресс" HasCaption="True" Visible="False">
+            <Component Name="edtProjectsFolder" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Caption="Путь к каталогу проектов:" CaptionWidth="60" HasButton="True" OnLookup="edtProjectsFolderOnLookup" ValueType="VarString" Width="120"/>
+            <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+            <Component Name="btnStart" Class="Com.Ctrl.IButton" Alignment="CenterAlign" Caption="Старт" ImageName="Com.caret-right" ImageSize="24" OnClick="btnStartOnClick" Width="40"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

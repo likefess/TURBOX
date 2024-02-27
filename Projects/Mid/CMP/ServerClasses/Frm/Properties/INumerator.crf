@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IEditor" HelpContext="Стандарт.СтруктураБизнеса.ТипыРеквизитов.РаботаСНумератором">
+    <Component Name="EdtRec" Class="CMP.Rec.Properties.INumerator" IsLibrary="1"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" Margins="5">
+      <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+        <Component Name="EditNumeratorType" Class="Com.Ctrl.IEdit" Caption="@CMP:NumeratorNumeratorType=Тип нумератора" Field="EdtRec.NumeratorType" HasButton="True" OnChange="Edit_OnChange"/>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="CheckBoxEachObjectHasOwn" Class="Com.Ctrl.ICheckBox" Caption="@CMP:NumeratorEachObjectHasOwn=Каждый тип объекта имеет собственный нумератор" Field="EdtRec.EachObjectHasOwn"/>
+        </Component>
+        <Component Name="Group3" Class="Com.Ctrl.IGroup">
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="Static3" Class="Com.Ctrl.IStatic" Caption="Если тип нумератора не задан, то считается, что каждый тип процесса имеет свой собственный тип нумератора" FontSize="8"/>
+        </Component>
+        <Component Name="EditNumberingMethod" Class="Com.Ctrl.IEdit" Caption="@CMP:NumeratorNumberingMethod=Способ нумерации" CellFormat="EnumFormat" Field="EdtRec.NumberingMethod" ListAsString="Последовательная нумерация|1&#xD;&#xA;Процедура нумерации на ТБ.Скрипт|2" OnChange="Edit_OnChange"/>
+        <Component Name="Group4" Class="Com.Ctrl.IGroup">
+          <Component Name="EditNumberingDate" Class="Com.Ctrl.IEdit" Caption="@CMP:NumeratorNumberingDate=Нумеровать по" Field="EdtRec.NumberingDate" HasButton="True" OnChange="Edit_OnChange" OnGetLookupFilter="EditProperty_OnGetLookupFilter" Width="4"/>
+          <Component Name="EditStartOfNumbering" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.StartOfNumbering" ListAsString="С начала года&#xD;&#xA;С начала месяца&#xD;&#xA;С начала дня&#xD;&#xA;По точной дате" Width="1"/>
+        </Component>
+        <Component Name="EditProcedureNumbering" Class="Com.Ctrl.IEdit" Caption="@CMP:NumeratorProcedureNumbering=Процедура нумерации" Field="EdtRec.ProcedureNumbering"/>
+      </Component>
+      <Component Name="Table1" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="EdtRec.AdditionSplit">
+        <Component Name="DefStructAdditionSplit" Class="CMP.Rec.Properties.INumerator_AdditionSplit" IsLibrary="1"/>
+        <Component Name="ColumnsGroup1" Class="Com.Ctrl.IColumnsGroup" Caption="@CMP:NumeratorAdditionSplit=Дополнительные разрезы нумератора" HasCaption="True">
+          <Component Name="EditAdditionProperty" Class="Com.Ctrl.IEdit" Field="DefStructAdditionSplit.Property" HasCaption="False" OnGetLookupFilter="EditProperty_OnGetLookupFilter" Width="1"/>
+        </Component>
+      </Component>
+      <Component Name="Static4" Class="Com.Ctrl.IStatic"/>
+      <Component Name="Table2" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="EdtRec.NumberParts">
+        <Component Name="DefStructNumberParts" Class="CMP.Rec.Properties.INumerator_NumberParts" IsLibrary="1"/>
+        <Component Name="ColumnsGroup2" Class="Com.Ctrl.IColumnsGroup">
+          <Component Name="EditSourceType" Class="Com.Ctrl.IEdit" Caption="@CMP:NumeratorSourceType=Элемент, составляющий номер" CellFormat="EnumFormat" Field="DefStructNumberParts.SourceType" ListAsString="Произвольный текст&#xD;&#xA;Номер полученный из нумератора&#xD;&#xA;Префикс из настроек сервера&#xD;&#xA;Постфикс из настроек сервера&#xD;&#xA;Префикс из типа процесса&#xD;&#xA;Постфикс из типа процесса&#xD;&#xA;День&#xD;&#xA;Месяц&#xD;&#xA;Год&#xD;&#xA;День с начала года" Width="3"/>
+          <Component Name="EditMask" Class="Com.Ctrl.IEdit" Caption="@CMP:NumeratorMask=Значение" Field="DefStructNumberParts.Mask" Width="3"/>
+          <Component Name="EditLength" Class="Com.Ctrl.IEdit" Caption="@CMP:NumeratorLength=Длина" Field="DefStructNumberParts.Length" Width="1"/>
+        </Component>
+      </Component>
+      <Component Name="Group5" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+        <Component Name="EditExample" Class="Com.Ctrl.IEdit" Caption="@CMP:NumeratorExample=Пример номера:" OnOutput="EditExample_OnOutput"/>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

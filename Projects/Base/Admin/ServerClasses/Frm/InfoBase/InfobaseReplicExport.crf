@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.CustomMasterBG">
+  <Inherited FormIcon="Com.ExportRec">
+    <Component Name="SelectMemberStruct" Class="Admin.Frm.InfoBase.InfoBaseSelect_Struct" IsLibrary="1" After="Timer"/>
+    <Inherited Name="TableMenu" Excluded="True" After="SelectMemberStruct"/>
+    <Component Name="pmUsers" Class="Com.Ctrl.IPopupMenu" After="TableMenu">
+      <Component Name="cmdCloseFormUser" Class="Com.Cmd2.IItem" Command="Commands.CloseForm"/>
+      <Component Name="pmUserSep1" Class="Com.Cmd2.ISeparator"/>
+      <Component Name="cmdMarkUser" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:MarkAll=Выделить всё" CommandProc="cmdMarkUser_CommandProc" IconName="Admin.check"/>
+      <Component Name="cmdUnmarkUser" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:UnmarkAll=Очистить всё" CommandProc="cmdUnmarkUser_CommandProc" IconName="Admin.uncheck"/>
+      <Component Name="pmUserSep2" Class="Com.Cmd2.ISeparator"/>
+      <Component Name="cmdDesignModeUser" Class="Com.Cmd2.IItem" Command="Commands.DesignMode"/>
+    </Component>
+    <Inherited Name="Libraries" After="pmUsers"/>
+    <Inherited Name="Variables">
+      <Component Name="subTblMembers" Class="Com.ISubtable" StructClass="Admin.Frm.InfoBase.InfoBaseSelect_Struct"/>
+      <Component Name="FldMember" Class="Com.Fld.IVarLink" FieldName="FVarMember" ValueType="VarInteger"/>
+      <Component Name="FldNmbPacket" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldType" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldEmptyData" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldConflResolv" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldAbsentRecord" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldNoCreateSynchro" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldPacked" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldLog" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="FrameArchive" Excluded="True"/>
+        <Component Name="FrameOptions" Class="Com.Ctrl.IFrame" After="FrameArchive" Caption="@Admin:IBReplicExportMaster_Step1=Режимы" Margins="8">
+          <Component Name="frameType" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="grpType" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="rbtnStart" Class="Com.Ctrl.IRadioButton" Caption="@Admin:ReplicExport_TypeStart=Принудительная синхронизация всех записей" Field="FldType" OnChange="rbtnType_OnChange" StaticValue="0"/>
+              <Component Name="rbtnLast" Class="Com.Ctrl.IRadioButton" Caption="@Admin:ReplicExport_TypeLast=Модификации, происшедшие после последней выгрузки" Field="FldType" OnChange="rbtnType_OnChange" StaticValue="1"/>
+              <Component Name="rbtnFrom" Class="Com.Ctrl.IRadioButton" Caption="@Admin:ReplicExport_TypeFrom=Модификации, начиная с указанного пакета и до конца" Field="FldType" OnChange="rbtnType_OnChange" StaticValue="2"/>
+            </Component>
+            <Component Name="lineType" Class="Com.Ctrl.INewLine"/>
+          </Component>
+          <Component Name="frameExtra" Class="Com.Ctrl.IFrame">
+            <Component Name="boxExtra" Class="Com.Ctrl.IBox" Caption="@Admin:IBReplicImportMaster_OptionsExtra=Параметры">
+              <Component Name="grpOptions" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="chbEmptyData" Class="Com.Ctrl.ICheckBox" Caption="@Admin:ReplicExport_EmptyData=Разрешить создавать транспортный файл без данных" Field="FldEmptyData"/>
+                <Component Name="chbConflResolv" Class="Com.Ctrl.ICheckBox" Caption="@Admin:ReplicExport_ConflResolv=Проверять, что все конфликты репликации разрешены" Field="FldConflResolv"/>
+                <Component Name="chbAbsentRecord" Class="Com.Ctrl.ICheckBox" Caption="@Admin:ReplicExport_AbsentRecord=Воссоздавать записи, на которые есть ссылки" Field="FldAbsentRecord"/>
+                <Component Name="chbNoCreateSynchro" Class="Com.Ctrl.ICheckBox" Caption="@Admin:ReplicExport_NoCreateSynchro=Не делать синхронизацию записей, у которых изменилась схема репликации" Field="FldNoCreateSynchro"/>
+                <Component Name="chbPacked" Class="Com.Ctrl.ICheckBox" Caption="@Admin:ReplicExport_Packed=Упаковывать пакеты репликаций" Field="FldPacked"/>
+              </Component>
+              <Component Name="lineOptions1" Class="Com.Ctrl.INewLine"/>
+              <Component Name="lineOptions2" Class="Com.Ctrl.INewLine" Excluded="True"/>
+              <Component Name="grpLog" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="chbLog" Class="Com.Ctrl.ICheckBox" Caption="@Admin:ReplicExport_Log=Вести лог экспорта пакетов репликации" Field="FldLog"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="FrameUsersOrPacket" Class="Com.Ctrl.IFrame" AutoSize="False" Caption="@Admin:IBReplicExportMaster_Step2=Параметры">
+          <Component Name="UsersFrame" Class="Com.Ctrl.IFrame" AutoSize="False" Margins="4" ScrollerStyle="ScrollerBoth" Visible="True">
+            <Component Name="tblUsers" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" IconName="Com.User" ManualControl="False" Numbering="False" PopupMenu="pmUsers" ShowIcon="True" Subtable="subTblMembers">
+              <Component Name="chbSelected" Class="Com.Ctrl.ICheckBox" Enabled="True" Field="SelectMemberStruct.Used" MaxWidth="12" MinWidth="8" OnChange="chbSelected_OnChange" Width="10"/>
+              <Component Name="edUser" Class="Com.Ctrl.IEdit" Caption="@Admin:ReplicExport_Member=Участник репликации" Enabled="False" Field="SelectMemberStruct.Name"/>
+            </Component>
+          </Component>
+          <Component Name="PacketFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4" Visible="False">
+            <Component Name="grpPacket" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="lblMember" Class="Com.Ctrl.IStatic" Caption="@Admin:ReplicExport_Member=Участник репликации" FixSize="True" Width="50"/>
+              <Component Name="edMember" Class="Com.Ctrl.IEdit" ButtonStyle="ComboButton" CellFormat="EnumFormat" Field="FldMember" MinWidth="50" OnVerify="edMember_OnVerify" Width="100"/>
+              <Component Name="sepMember" Class="Com.Ctrl.IStatic" FixSize="True" Width="4"/>
+              <Component Name="lineMember" Class="Com.Ctrl.INewLine"/>
+              <Component Name="lblPacket" Class="Com.Ctrl.IStatic" Caption="@Admin:ReplicExport_FromPacket=Начиная с пакета №" FixSize="True" Width="50"/>
+              <Component Name="edPacket" Class="Com.Ctrl.IEdit" Field="FldNmbPacket" MinWidth="12" ValueType="VarInteger" Width="20"/>
+              <Component Name="sepPacket" Class="Com.Ctrl.IStatic" Width="80"/>
+            </Component>
+          </Component>
+        </Component>
+        <Inherited Name="FrameProcess" After="FrameUsersOrPacket" Caption="@Admin:IBReplicExportMaster_Step3=Выгрузка">
+          <Inherited Name="frameStatus">
+            <Inherited Name="grpStatus">
+              <Component Name="lblIBName" Class="Com.Ctrl.IStatic" After="#0" Caption="@Admin:InfoBase=Информационная база" MinWidth="80" Width="120"/>
+              <Component Name="lineIBName1" Class="Com.Ctrl.INewLine"/>
+              <Component Name="lineIBName2" Class="Com.Ctrl.INewLine"/>
+              <Inherited Name="lblStatus" After="lineIBName2"/>
+              <Component Name="lineStatus" Class="Com.Ctrl.INewLine" After="sepStatus"/>
+              <Component Name="lblCount" Class="Com.Ctrl.IStatic" Caption="@Admin:InfoBaseReplExport_Count=Записей" FixSize="True" Width="30"/>
+              <Component Name="edtCount" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" FieldFormat="#,##0" MinWidth="20" ValueType="VarInteger" Width="60"/>
+              <Component Name="sepCount" Class="Com.Ctrl.IStatic" Width="60"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

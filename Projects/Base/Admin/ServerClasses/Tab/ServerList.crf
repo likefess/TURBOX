@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.CodeName">
+  <Inherited Caption="@Admin:Administration=Администрирование" FormIcon="Admin.Administration" HelpContext="Admin.Администрирование.Список серверов">
+    <Inherited Name="Current" Class="Admin.Rec.ServerList" IsLibrary="1"/>
+    <Inherited Name="CardMenu" Excluded="False">
+      <Component Name="cmdEditItem" Class="Com.ComManaging.ExecProcedure" After="TableSeparator1" Caption="@Form:EditButton=Редактировать" CommandProc="cmdEditItem_CommandProc" IconName="Com.Setup"/>
+      <Inherited Name="cmdEdit" Excluded="True" After="cmdEditItem"/>
+      <Inherited Name="cmdAddGroup" Excluded="True"/>
+      <Inherited Name="cmdClone" Excluded="True"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonEditItem" ImageName="Com.EditItem" OnClick="OpenFormSetting"/>
+        <Inherited Name="ButtonSaveItem" Excluded="True"/>
+        <Inherited Name="ButtonCancel" Excluded="True"/>
+        <Inherited Name="ButtonCloneItem" Excluded="True"/>
+        <Inherited Name="ButtonAddFolder" Excluded="True"/>
+        <Inherited Name="ButtonFolderElement" Excluded="True"/>
+        <Inherited Name="ButtonRefresh" Excluded="True"/>
+        <Inherited Name="ButtonExport" Excluded="True"/>
+        <Inherited Name="ButtonImport" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="CardFile" Hierarchical="False" OnDrawRow="CardFile_OnDrawRow" OnOpenBlank="CardFile_OnOpenBlank" PopupMenu="CardMenu" ShowTotal="False"/>
+          <Inherited Name="ExtId" Excluded="True"/>
+          <Inherited Name="Name" Excluded="True"/>
+          <Inherited Name="Code" Caption="@Admin:ServerName=Наименование" MinWidth="30" Width="60"/>
+          <Component Name="edAddress" Class="Com.Ctrl.IEdit" Field="Current.Address" MinWidth="30" Width="60"/>
+          <Component Name="edPort" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Current.Port" MinWidth="4" VertAlignment="CenterAlign" Width="15"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

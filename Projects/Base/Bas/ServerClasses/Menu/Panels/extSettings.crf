@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="COM.Menu.Panels.Settings">
+  <Inherited>
+    <Inherited Name="MainGroup" Columns="2" Rows="2">
+      <Component Name="MenuGroup_AccesManagement" Class="Com.Cmd2.IGroup" After="#0" Caption="@Menu.Group:AccesManagement=Управление доступом" Columns="2" Rows="2">
+        <Component Name="MenuItem_InfobaseCmdRoles" Class="Com.Cmd2.IItem" Command="Commands.Roles"/>
+        <Component Name="MenuItem_InfobaseCmdUsers" Class="Com.Cmd2.IItem" Command="Commands.Users"/>
+        <Component Name="MenuItem_InfobaseCmdEntityRoles" Class="Com.Cmd2.IItem" Command="Commands.Cmd_EntityRoles"/>
+        <Component Name="MenuItem_InfobaseCmdEntities" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Entities"/>
+        <Component Name="MenuItem_InfobaseCmdAccessDemand" Class="Com.Cmd2.IItem" Command="Commands.Cmd_AccessDemand"/>
+      </Component>
+      <Inherited Name="GroupCommonSettings" Rows="11">
+        <Component Name="cmdInstSettings" Class="Com.Cmd2.IItem" After="cmdConfigSetting" Command="Commands.Cmd_InstSettings"/>
+        <Component Name="Cmd_NamedSettings" Class="Com.Cmd2.IItem" Command="Commands.Cmd_NamedSettings"/>
+        <Component Name="MenuItem_InfobaseCmdDiagrams" Class="Com.Cmd2.IItem" After="MenuItem_InfobaseCmdReportsCard" Command="Commands.Diagrams"/>
+        <Component Name="MenuItem_InfobaseCmdAnchors" Class="Com.Cmd2.IItem" Command="Commands.Anchors"/>
+        <Component Name="MenuItem_InfobaseCmdBranches" Class="Com.Cmd2.IItem" Command="Commands.Branches"/>
+        <Component Name="MenuItem_InfobaseCmdProcType" Class="Com.Cmd2.IItem" Command="Commands.ProcType"/>
+        <Component Name="MenuItem_InfobaseCmdNumeratorType" Class="Com.Cmd2.IItem" Command="Commands.NumeratorType"/>
+        <Component Name="MenuItem_InfobaseCmdNumerator" Class="Com.Cmd2.IItem" Command="Commands.Numerator"/>
+        <Component Name="MailSeparator" Class="Com.Cmd2.ISeparator" Caption="@Menu.Group:EMail=Электронная почта"/>
+        <Component Name="MenuItem_InfobaseEmail" Class="Com.Cmd2.IItem" Command="Commands.cmd_OpenEmailsTab"/>
+        <Component Name="MenuItem_InfobaseCmdEMailServer" Class="Com.Cmd2.IItem" Command="Commands.EMailServer"/>
+        <Component Name="Separator1" Class="Com.Cmd2.ISeparator" Caption="@Menu.Group:Calendar=Календари"/>
+        <Component Name="MenuItem_InfobaseCmdCalendarType" Class="Com.Cmd2.IItem" Command="Commands.CalendarType"/>
+        <Component Name="MenuItem_InfobaseCmdCalendarDays" Class="Com.Cmd2.IItem" Command="Commands.CalendarDays"/>
+        <Component Name="MenuItem_InfobaseCmdcmdProject" Class="Com.Cmd2.IItem" Command="Commands.Cmd_cmdProject"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

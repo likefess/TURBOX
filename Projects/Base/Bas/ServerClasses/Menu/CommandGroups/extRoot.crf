@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Menu.CommandGroups.Root">
+  <Inherited>
+    <Inherited Name="RoleCenter">
+      <Component Name="RC_Diagram" Class="Bas.ComManaging.UserDiagram" Caption="@TurboMenu:Diagram=Диаграмма" IconName="Com.Ctrl.diagram" MenuCaption="@TurboMenu:AddDiagram=Добавить диаграмму"/>
+    </Inherited>
+    <Inherited Name="Jobs">
+      <Component Name="Cmd_JobSettings" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:JobSettings=Настройки исполнителей" FormClassName="Bas.Frm.Service.JobSettings" IconName="Bas.user-cog"/>
+    </Inherited>
+    <Component Name="ProcType" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:ProcType=Типы процессов" FormClassName="Bas.Tab.Config.ProcType" IconName="Bas.ProcType"/>
+    <Component Name="NumeratorType" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:NumeratorType=Типы нумераторов" FormClassName="Bas.Tab.Config.NumeratorType" IconName="Bas.Numerator"/>
+    <Component Name="Numerator" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:Numerator=Нумераторы" FormClassName="Bas.Tab.Service.Numerator" IconName="Bas.Numerator"/>
+    <Component Name="CalendarType" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:CalendarType=Календари" FormClassName="Bas.Tab.Ref.Calendar" IconName="Bas.Calendar"/>
+    <Component Name="CalendarDays" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:CalendarDays=Календарные дни" FormClassName="Bas.Tab.Ref.CalendarDay" IconName="Bas.calendar-check"/>
+    <Component Name="ServFillEmpty" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:ServFillEmpty=Заполнение пустых кодов" FormClassName="Bas.Frm.Service.FillEmptyCode" IconName="Com.Table"/>
+    <Component Name="Reminders" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:Reminders=Все напоминания" FormClassName="Bas.Tab.Data.Reminders" IconName="Com.clock"/>
+    <Component Name="cmd_OpenEmailsTab" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:EMail=Почта" FormClassName="Bas.Tab.Data.Email" IconName="Bas.Mail"/>
+    <Component Name="Users" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:Users=Пользователи" FormClassName="Bas.Tab.Access.Users" IconName="Com.Users"/>
+    <Component Name="Roles" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:Roles=Роли доступа" FormClassName="Bas.Tab.Access.Roles" IconName="Com.UserRights"/>
+    <Component Name="Branches" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:Branches=Филиалы" FormClassName="Bas.Tab.Config.Branch" IconName="Bas.building"/>
+    <Component Name="EMailServer" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:EMailServer=Почтовые аккаунты" FormClassName="Bas.Tab.Config.EMailServer" IconName="Com.user-circle"/>
+    <Component Name="Anchors" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:Anchors=Якоря" FormClassName="Bas.Tab.Config.Participant" IconName="Bas.anchor"/>
+    <Component Name="Diagrams" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:Diagrams=Диаграммы" FormClassName="Bas.Tab.Service.Diagram" IconName="Com.Ctrl.diagram"/>
+    <Component Name="CurrentReminders" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:CurrentReminders=Текущие напоминания" CommandProc="GetCurrentReminders" IconName="Bas.bell"/>
+    <Component Name="OpenLog" Class="Com.ComManaging.OpenIForm" Caption="@Menu.Command:OpenLog=Протокол" FormClassName="Bas.Tab.Service.Log" IconName="Com.CardFile1"/>
+    <Component Name="Cmd_EntityRoles" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Bas.Frm.Ref.EntityRole" Caption="@Cmd:EntityRoles=Роли субъектов" FormClassName="Bas.Tab.Ref.EntityRoles" IconName="Bas.EntityRoles"/>
+    <Component Name="Cmd_Entities" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Bas.Frm.Data.Entity" Caption="@Cmd:Entities=Субъекты" FormClassName="Bas.Tab.Data.Entity" IconName="Bas.Entities"/>
+    <Component Name="Cmd_AccessDemand" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Bas.Frm.Access.Demand" Caption="@Cmd:AccessDemand=Заявки на доступ" FormClassName="Bas.Tab.Access.Demand" IconName="Bas.universal-access"/>
+    <Component Name="Cmd_cmdProject" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Bas.Frm.Ref.Project" Caption="@Cmd:cmdProject=Проекты" FormClassName="Bas.Tab.Ref.Project" IconName="Bas.Project"/>
+    <Component Name="Cmd_InstSettings" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:InstSettings=Настройки инсталляции" FormClassName="Bas.Frm.Service.InstSettings" IconName="Bas.user-cog"/>
+    <Component Name="Cmd_Employees" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:Employees=Сотрудники" FormClassName="Bas.Tab.Data.Employees" IconName="Bas.Employees"/>
+    <Component Name="Cmd_OurCompanies" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:OurCompanies=Наши предприятия" FormClassName="Bas.Tab.Data.OurCompanies" IconName="Bas.OurCompanies"/>
+    <Component Name="Cmd_Contraparties" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:Contraparties=Контрагенты" FormClassName="Bas.Tab.Data.Contraparties" IconName="Bas.Contraparties"/>
+    <Component Name="Cmd_Divisions" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:Divisions=Подразделения" FormClassName="Bas.Tab.Data.Divisions" IconName="Bas.Division"/>
+    <Component Name="Cmd_NaturalEntities" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:NaturalEntities=Физические лица" FormClassName="Bas.Tab.Data.NaturalEntities" IconName="Bas.NaturalEntity"/>
+    <Component Name="Cmd_NamedSettings" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:NamedSettings=Именованные настройки" FormClassName="Bas.Tab.Config.NamedSettings" IconName="Bas.puzzleOk"/>
+    <Component Name="Cmd_RecoveryWizard" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:RecoveryWizard=Восстановление ИБ" FormClassName="Bas.Recovery.Wizard" IconName="Bas.LoadingDocuments"/>
+  </Inherited>
+</Resource>

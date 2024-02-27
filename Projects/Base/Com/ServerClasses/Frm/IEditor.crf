@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IEditor">
+    <Component Name="EdtRec" Class="Com.Rec.IRecord" IsLibrary="1"/>
+    <Component Name="TableMenu" Class="Com.Ctrl.IPopupMenu" Excluded="True">
+      <Component Name="cmdCloseForm" Class="Com.Cmd2.IItem" Command="Commands.CloseForm"/>
+      <Component Name="TableSeparator1" Class="Com.Cmd2.ISeparator"/>
+      <Component Name="cmdCopyValue" Class="Com.Cmd2.IItem" Command="Commands.CopyValue"/>
+      <Component Name="cmdCutValue" Class="Com.Cmd2.IItem" Command="Commands.CutValue"/>
+      <Component Name="cmdPasteValue" Class="Com.Cmd2.IItem" Command="Commands.PasteValue"/>
+      <Component Name="cmdDeleteValue" Class="Com.Cmd2.IItem" Command="Commands.DeleteValue"/>
+      <Component Name="TableSeparator2" Class="Com.Cmd2.ISeparator"/>
+      <Component Name="cmdInsertRow" Class="Com.Cmd2.IItem" Command="Commands.InsertRow"/>
+      <Component Name="cmdDeleteRow" Class="Com.Cmd2.IItem" Command="Commands.DeleteRow"/>
+      <Component Name="cmdRowUp" Class="Com.Cmd2.IItem" Command="Commands.RowUp"/>
+      <Component Name="cmdRowDown" Class="Com.Cmd2.IItem" Command="Commands.RowDown"/>
+      <Component Name="TableSeparator3" Class="Com.Cmd2.ISeparator"/>
+      <Component Name="cmdDesignMode" Class="Com.Cmd2.IItem" Command="Commands.DesignMode"/>
+    </Component>
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    </Component>
+    <Component Name="Variables" Class="Com.IVarContainer"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame"/>
+  </Component>
+</Resource>

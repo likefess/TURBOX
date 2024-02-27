@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="FldLicenses" Class="Com.Fld.IVar" ValueType="VarString"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader">
+        <Component Name="btnInsert" Class="Com.Ctrl.IButton" Caption="@Admin:LicenseAdd=Добавить лицензию" ImageName="Com.PostClose" OnClick="btnInsert_OnClick" Width="40"/>
+        <Component Name="btnClose" Class="Com.Ctrl.IButton" Caption="@Закрыть" ImageName="Com.Close" OnClick="btnClose_OnClick"/>
+      </Component>
+      <Component Name="EditorFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="8">
+        <Component Name="Group" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" Width="100">
+          <Component Name="lblLicenses" Class="Com.Ctrl.IStatic" Caption="@Admin:LicenseInsertRem=Коды лицензий" Width="20"/>
+          <Component Name="lblSep" Class="Com.Ctrl.IStatic" FixSize="True" Width="4"/>
+          <Component Name="lblError" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@Admin:LicenseError=Ошибочные лицензии выделены &quot;--&quot;" FontColor="0x000000FF" Multiline="False" Visible="False" Width="60"/>
+          <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          <Component Name="edLicenses" Class="Com.Ctrl.IEdit" CanSort="False" Field="FldLicenses" Multiline="True" ValueType="VarString" Wrap="True"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

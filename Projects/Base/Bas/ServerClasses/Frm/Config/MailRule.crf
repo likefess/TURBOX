@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IEditorWithFrames">
+  <Inherited>
+    <Component Name="EdtRec" Class="Bas.Rec.Config.MailRule" IsLibrary="1" After="#0"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False">
+          <Component Name="ApplyButton" Class="Com.Ctrl.IButton" Caption="@MailRule:Apply=Применить правило к &quot;Входящим&quot;" ImageName="Com.move" OnClick="ApplyButtonOnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group1" Class="Com.Ctrl.IGroup">
+          <Component Name="edtMailAccount" Class="Com.Ctrl.IEdit" CanSelect="True" Field="EdtRec.MailAccount" FixSize="True" HasButton="True" HasCaption="True" LookupFilter="not Closed" TabStop="True" Width="80"/>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="10"/>
+          <Component Name="edtClosed" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CanSelect="True" Caption="@MailRule:Closed=Отключено" CellFormat="LogicalFormat" Field="EdtRec.Closed" HasCaption="True" TabStop="True" ValueType="VarLogical"/>
+        </Component>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" ByColumn="True">
+          <Component Name="edtName" Class="Com.Ctrl.IEdit" CanSelect="True" Field="EdtRec.Name" FixSize="True" HasCaption="True" TabStop="True" Width="120"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" ShowTabs="False" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="FilterBox" Class="Com.Ctrl.IBox" Caption="@EMailRule:Filter=Правила отбора писем">
+            <Component Name="FiltersTab" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@EMailRule:Filter=Правила отбора писем" Subtable="EdtRec.Filters">
+              <Component Name="FilterStruct" Class="Bas.Rec.Config.MailRule_Filter" IsLibrary="1"/>
+              <Component Name="edtConcatMethod" Class="Com.Ctrl.IEdit" Caption=" " CellFormat="EnumFormat" Field="FilterStruct.ConcatOper" HasCaption="True" ListAsString="@AND=И|0;@OR=ИЛИ|1" ValueType="VarInteger" Width="15"/>
+              <Component Name="edtFieldName" Class="Com.Ctrl.IEdit" AutoLookup="True" CellFormat="EnumFormat" Field="FilterStruct.FieldName" HasButton="True" HasCaption="True" OnChange="edtFieldNameOnChange" ValueType="VarString" Width="40"/>
+              <Component Name="edtMatchMethod" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="FilterStruct.MatchOper" HasButton="True" HasCaption="True" ValueType="VarInteger" Width="40"/>
+              <Component Name="edtMatchMask" Class="Com.Ctrl.IEdit" CanSelect="True" Field="FilterStruct.MatchMask" HasCaption="True" MinWidth="60" TabStop="True" ValueType="VarString" Width="60"/>
+              <Component Name="edtSample" Class="Com.Ctrl.IEdit" Caption="@MailRule:ValueSample=Пример значения" CellFormat="StringFormat" Color="0xFF000004" Enabled="False" Width="40"/>
+            </Component>
+          </Component>
+          <Component Name="ActionBox" Class="Com.Ctrl.IBox" Caption="@EMailRule:Actions=Действия">
+            <Component Name="ActionsTab" Class="Com.Ctrl.IFrame" Caption="@EMailRule:Actions=Действия">
+              <Component Name="ActionsHeader" Class="Com.Ctrl.IFrame" Excluded="True" AutoSize="True" Margins="10">
+                <Component Name="btnAddAction" Class="Com.Ctrl.IButton" Caption="@MailRule:AddAction=Добавить" HasCaption="True" ImageName="Com.plus"/>
+              </Component>
+              <Component Name="ActionsListFrame" Class="Com.Ctrl.IFrame" Subtable="EdtRec.Actions">
+                <Component Name="ActionStruct" Class="Bas.Rec.Config.MailRule_Action" IsLibrary="1"/>
+                <Component Name="edtAction" Class="Com.Ctrl.IEdit" AutoLookup="True" CellFormat="EnumFormat" Field="ActionStruct.ActionClassName" ValueType="VarString" Width="80"/>
+                <Component Name="btnSetupActionParams" Class="Com.Ctrl.IButton" ImageName="Com.angle-right" OnClick="btnSetupActionParamsOnClick"/>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

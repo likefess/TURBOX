@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Frm.Report.ReportByRecords">
+  <Inherited>
+    <Component Name="DataStruct" Class="Biz.Rec.Report.ContractShippingsReport_DataStruct" IsLibrary="1" After="#0"/>
+    <Inherited Name="Variables">
+      <Component Name="DataSubtable" Class="Com.ISubtable" After="#0"/>
+      <Component Name="CFR" Class="Com.Fld.IVar" Caption="@ContractShippingsReport:CFR=ЦФО" OnVerify="CFR_OnVerify" RecordClass="Biz.Rec.Ref.CFR" ValueType="VarObject"/>
+      <Component Name="BGI" Class="Com.Fld.IVar" Caption="@ContractShippingsReport:BGI=Статья бюджета" LookupFilter="Not Closed" OnVerify="BGI_OnVerify" RecordClass="Biz.Rec.Ref.BGI" ValueType="VarObject"/>
+      <Component Name="Project" Class="Com.Fld.IVar" Caption="@ContractShippingsReport:Project=Проект" RecordClass="Bas.Rec.Ref.Project" ValueType="VarObject"/>
+      <Component Name="Source" Class="Com.Fld.IVar" Caption="@ContractShippingsReport:Source=Источник" RecordClass="Biz.Rec.Ref.FundSource" ValueType="VarObject"/>
+      <Component Name="ShippingStatusType" Class="Com.Fld.IVar" Caption="@ContractShippingsReport:ShippingStatusType=Статус поставок/отгрузок" ValueType="VarInteger"/>
+      <Component Name="IndicatorsType" Class="Com.Fld.IVar" Caption="@ContractShippingsReport:IndicatorsType=Параметры учета" ValueType="VarInteger"/>
+      <Component Name="SplitType" Class="Com.Fld.IVar" Caption="@ContractShippingsReport:SplitType=Сегментация отчета" ValueType="VarInteger"/>
+      <Component Name="ReportType" Class="Com.Fld.IVar" Caption="@ContractShippingsReport:ReportType=Вид отчета" ValueType="VarInteger"/>
+      <Component Name="OnDate" Class="Com.Fld.IVar" Caption="@ContractShippingsReport:OnDate=Дата" ValueType="VarDate"/>
+      <Component Name="Contract" Class="Com.Fld.IVar" Caption="@ContractShippingsReport:Contract=Договор" OnChange="ContractOnChange" RecordClass="Biz.Rec.Data.Contract" ValueType="VarObject"/>
+      <Component Name="Partner" Class="Com.Fld.IVar" Caption="@ContractShippingsReport:Partner=Контрагент" OnChange="Partner_OnChange" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="Company" Class="Com.Fld.IVar" Caption="@ContractShippingsReport:Company=Предприятие" OnChange="Company_OnChange" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="ParamFrame">
+            <Inherited Name="ParamGroup" CaptionWidth="55">
+              <Component Name="CompanyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="Company" HasCaption="True" LookupField="Name" MaxWidth="150" ShortList="True" Wrap="True"/>
+              <Component Name="PartnerEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Contraparties" CellFormat="ReferenceFormat" Field="Partner" HasCaption="True" LookupField="Name"/>
+              <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+              <Component Name="ContractEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Field="Contract" HasCaption="True" LookupField="Code" Required="True"/>
+              <Component Name="OnDateEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="OnDate" HasCaption="True" Visible="False"/>
+              <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+              <Component Name="ReportTypeEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="ReportType" HasCaption="True" ListAsString="отчет по поставкам/отгрузкам|0;остатки товаров/услуг|1" OnChange="ReportTypeEditOnChange" Visible="False"/>
+              <Component Name="SplitTypeEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="SplitType" HasCaption="True" ListAsString="договор|0;доп. соглашение|1;спецификация|2" Visible="False"/>
+              <Component Name="NewLine3" Class="Com.Ctrl.INewLine"/>
+              <Component Name="IndicatorsTypeEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="IndicatorsType" HasCaption="True" ListAsString="количественный учет|0;суммовой учет|1;количественный и суммовой учет|2" OnChange="IndicatorsTypeEditOnChange" Visible="False"/>
+              <Component Name="ShippingStatusTypeEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="ShippingStatusType" HasCaption="True" ListAsString="план|0;факт|1;без учета статуса|2" Visible="False"/>
+              <Component Name="NewLine4" Class="Com.Ctrl.INewLine"/>
+              <Component Name="CFREdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="CFR" HasCaption="True" LookupField="Name" Visible="False"/>
+              <Component Name="BGIEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="BGI" HasCaption="True" LookupField="Name" Visible="False"/>
+              <Component Name="NewLine5" Class="Com.Ctrl.INewLine"/>
+              <Component Name="ProjectEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Field="Project" HasCaption="True" LookupField="Name" Visible="False"/>
+              <Component Name="SourceEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.FundSource" CellFormat="ReferenceFormat" Field="Source" HasCaption="True" LookupField="Name" Visible="False"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="AddTab" Visible="False">
+          <Inherited Name="ExtParamBox">
+            <Inherited Name="ExtParamTable">
+              <Inherited Name="DoSort" Visible="False"/>
+              <Inherited Name="SortInvert" Visible="False"/>
+              <Inherited Name="DoFilter" Visible="False"/>
+              <Inherited Name="FilterGroup" Visible="False"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="DataFrame">
+        <Inherited Name="DataTable" Subtable="DataSubtable">
+          <Component Name="RowTextEdit" Class="Com.Ctrl.IEdit" Caption="Номенклатура, ед. изм., цена" Field="DataStruct.RowText" OnClick="RowTextEditOnClick" OnDraw="RowTextEditOnDraw" Width="100"/>
+          <Component Name="SpecQty" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="DataStruct.SpecQty" FieldFormat=",##0.00;;-" HasCaption="True" Visible="False" Width="40"/>
+          <Component Name="SpecSum" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="DataStruct.SpecSum" FieldFormat=",##0.00;;-" HasCaption="True" Visible="False" Width="40"/>
+          <Component Name="ColumnsGroup1" Class="Com.Ctrl.IColumnsGroup" Caption="Поставлено/отгружено" HasCaption="True" Visible="True">
+            <Component Name="Qty" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="DataStruct.Qty" FieldFormat=",##0.00;;-" HasCaption="True" OnDraw="QtyOnDraw" Width="40"/>
+            <Component Name="Sum" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="DataStruct.Sum" FieldFormat=",##0.00;;-" HasCaption="True" OnDraw="SumOnDraw" Width="40"/>
+          </Component>
+          <Component Name="ColumnsGroup2" Class="Com.Ctrl.IColumnsGroup" Caption="Остаток(доступно к поставке/отгрузке)" HasCaption="True" Visible="True">
+            <Component Name="SaldoQty" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="DataStruct.Qty" FieldFormat=",##0.00;;-" HasCaption="True" OnOutput="SaldoQty_OnOutput" Visible="False" Width="40"/>
+            <Component Name="SaldoSum" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="DataStruct.Sum" FieldFormat=",##0.00;;-" HasCaption="True" OnOutput="SaldoSum_OnOutput" Visible="False" Width="40"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

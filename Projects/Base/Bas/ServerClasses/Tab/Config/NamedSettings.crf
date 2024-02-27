@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICardForm">
+  <Inherited HelpContext="Bas.Администрирование.Настройки.Диспетчер настроек">
+    <Inherited Name="Current" Class="Bas.Rec.Config.NamedSettings" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonFilters">
+          <Component Name="ButtonCopyOther" Class="Com.Ctrl.IButton" After="#0" Caption="@NamedSettings:CopyOther=Копировать себе" ImageName="Bas.puzzleCopy" OnClick="ButtonCopyOtherOnClick"/>
+          <Component Name="ButtonShowOther" Class="Com.Ctrl.IButton" Caption="@NamedSettings:ShowOther=Показывать настройки других пользователей" ImageName="Bas.puzzleEye" OnClick="ButtonShowOtherOnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="NavigatorFrame">
+        <Inherited Name="NavigatorGroup">
+          <Component Name="FormFilterEdit" Class="Com.Ctrl.IEdit" After="#0" AutoLookup="True" Caption="@NamedSettings:FormFilter=Показывать" CaptionWidth="30" CellFormat="EnumFormat" FixSize="True" ListAsString="@NamedSettings:FormFilterAll=Все формы|0;@NamedSettings:FormFilterRC=Ролевые центры|1" OnChange="FormFilterEditOnChange" ValueType="VarInteger" Width="40"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Component Name="Name" Class="Com.Ctrl.IEdit" Field="Current.Name"/>
+          <Component Name="FormEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Current.Form"/>
+          <Component Name="RecEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Current.RecID"/>
+          <Component Name="OwnEdit" Class="Com.Ctrl.ICheckBox" CanSort="False" Enabled="False" Field="Current.Own" FixSize="True" Width="10"/>
+          <Component Name="UserEdit" Class="Com.Ctrl.IEdit" Field="Current.User" Visible="False"/>
+          <Component Name="RoleEdit" Class="Com.Ctrl.IEdit" Field="Current.Role" Visible="False"/>
+          <Component Name="SettingsEdit" Class="Com.Ctrl.IEdit" CanSort="False" Caption="@NS:Settings=Настройки" Enabled="False" Field="Current.Settings"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.Event">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Biz.Rec.Data.ContractSpecification" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" ByColumn="False">
+          <Inherited Name="Code" Field="EdtRec.PrintedNumber"/>
+        </Inherited>
+        <Component Name="RegisterGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+          <Component Name="RegisterLeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+            <Component Name="PrintedNumber" Class="Com.Ctrl.IEdit" Caption="@ContractSpecification:Printed=Номер" Field="EdtRec.PrintedNumber" HasCaption="True"/>
+            <Component Name="Status" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.SpecificationStatus" CellFormat="ReferenceFormat" Field="EdtRec.Status" HasCaption="True" LookupField="Name" OnChange="Status_OnChange"/>
+          </Component>
+          <Component Name="RegisterRightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+            <Component Name="EventTime" Class="Com.Ctrl.IEdit" Field="EdtRec.EventTime" HasCaption="True" Required="True"/>
+            <Component Name="LockedGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="LockedStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+              <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Locked" HasCaption="True"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="CorrectedDocumentGroup" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+          <Component Name="CorrectedDocument" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.ContractSpecification" CellFormat="ReferenceFormat" Field="EdtRec.CorrectedDocument" HasCaption="True" LookupField="PrintedNumber" OnOutput="CorrectedDocumentOnOutput"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Margins="0">
+          <Component Name="ParentDocumentBox" Class="Com.Ctrl.IBox" Caption="@ContractSpecification:ParentDocumentBox=Связанный договор/дополнительное соглашение">
+            <Component Name="ContractGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+              <Component Name="Contract" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.Contract" HasCaption="True" OnOutput="Contract_OnOutput"/>
+              <Component Name="ContractSuppAgreement" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.ContractSuppAgreement" HasCaption="True" LookupField="PrintedNumber" OnOutput="ContractSuppAgreement_OnOutput"/>
+            </Component>
+            <Component Name="RegistrationGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+              <Component Name="RegisterNumber" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.ParentDocumentRegisterNumber" HasCaption="True"/>
+              <Component Name="RegistrationDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CellFormat="DateFormat" Enabled="False" Field="EdtRec.ParentDocumentRegisterDate" HasCaption="True" ValueType="VarDate"/>
+            </Component>
+            <Component Name="PeriodGroup" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+              <Component Name="StartDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CellFormat="DateFormat" Enabled="False" Field="EdtRec.ParentDocumentStartDate" HasCaption="True" ValueType="VarDate"/>
+              <Component Name="ExpirationDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CellFormat="DateFormat" Enabled="False" Field="EdtRec.ParentDocumentExpirationDate" HasCaption="True" ValueType="VarDate"/>
+            </Component>
+            <Component Name="OurCompanyGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+              <Component Name="Company" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ParentDocumentCompany" HasButton="False" HasCaption="True" LookupField="Name" OnEnter="ReadOnlyField_OnEnter"/>
+              <Component Name="Department" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ParentDocumentDepartment" HasButton="False" HasCaption="True" LookupField="Name" OnEnter="ReadOnlyField_OnEnter"/>
+              <Component Name="UserEmployee" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ParentDocumentUserEmployee" HasButton="False" HasCaption="True" LookupField="Name" OnEnter="ReadOnlyField_OnEnter"/>
+            </Component>
+            <Component Name="PartnerGroup" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+              <Component Name="Partner" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ContractPartner" HasButton="False" HasCaption="True" LookupField="Name" OnEnter="ReadOnlyField_OnEnter"/>
+              <Component Name="PartnerUser" Class="Com.Ctrl.IEdit" CaptionWidth="50" Enabled="False" Field="EdtRec.ContractPartnerUser" HasCaption="True"/>
+            </Component>
+            <Component Name="SubjectGroup" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+              <Component Name="Subject" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.Subject" HasCaption="True"/>
+            </Component>
+            <Component Name="CommentGroup" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+              <Component Name="Comment" Class="Com.Ctrl.IEdit" Field="EdtRec.Description" HasCaption="True"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="RowsTab" Class="Com.Ctrl.IFrame" Caption="@ContractSpecification:RowsTab=Позиции" ScrollerStyle="ScrollerHorz">
+          <Component Name="RowsFrameVert" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Vertical" ScrollerStyle="ScrollerHorz">
+            <Component Name="RowsFrameHorz" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Horizontal">
+              <Component Name="RowsSubtableFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone" Subtable="EdtRec.RowsSubtable">
+                <Component Name="ContractSpecification_Rows" Class="Biz.Rec.Data.ContractSpecification_Rows" IsLibrary="1"/>
+                <Component Name="Nomenclature" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Resources" CellFormat="ReferenceFormat" Field="ContractSpecification_Rows.Nomenclature" HasCaption="True" LookupField="Name" Width="100"/>
+                <Component Name="NomUnit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="ContractSpecification_Rows.NomUnit" HasCaption="True" LookupField="Code" Width="30"/>
+                <Component Name="Quantity" Class="Com.Ctrl.IEdit" Field="ContractSpecification_Rows.Quantity" HasCaption="True" Width="30"/>
+                <Component Name="Price" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="ContractSpecification_Rows.Price" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+                <Component Name="VATRate" Class="Com.Ctrl.IEdit" Field="ContractSpecification_Rows.VATRate" HasCaption="True" LookupField="ShortName" Width="30"/>
+                <Component Name="AmountWithoutVAT" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="ContractSpecification_Rows.AmountWithoutVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+                <Component Name="VATAmount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="ContractSpecification_Rows.VATAmount" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+                <Component Name="AmountIncludingVAT" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="ContractSpecification_Rows.AmountIncludingVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+              </Component>
+              <Component Name="TotalsSubtableFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone" Subtable="EdtRec.RowsSubtable_Totals" Visible="True">
+                <Component Name="ContractSpecification_Rows_Totals" Class="Biz.Rec.Data.ContractSpecification_Rows_Totals" IsLibrary="1"/>
+                <Component Name="TotalRowCaption" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="ContractSpecification_Rows_Totals.TotalCaption" FixSize="True" HasCaption="False" Width="100"/>
+                <Component Name="TotalNomUnit" Class="Com.Ctrl.IEdit" HasCaption="False" Width="30"/>
+                <Component Name="TotalQuantity" Class="Com.Ctrl.IEdit" HasCaption="False" Width="30"/>
+                <Component Name="TotalPrice" Class="Com.Ctrl.IEdit" HasCaption="False" Width="30"/>
+                <Component Name="TotalVATRate" Class="Com.Ctrl.IEdit" HasCaption="False" Width="30"/>
+                <Component Name="TotalsAmountWithoutVAT" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" Field="ContractSpecification_Rows_Totals.AmountWithoutVAT" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="False" Width="30"/>
+                <Component Name="TotalsVATAmount" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" Field="ContractSpecification_Rows_Totals.VATAmount" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="False" Width="30"/>
+                <Component Name="TotalsAmountIncVAT" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" Field="ContractSpecification_Rows_Totals.AmountIncludingVAT" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="False" Width="30"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

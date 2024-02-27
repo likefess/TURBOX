@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.CodeName">
+  <Inherited HelpContext="Bas.Администрирование.Настройки.Почтовые аккаунты" Hierarchical="False">
+    <Inherited Name="Current" Class="Bas.Rec.Config.MailAccount" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" After="Locked" Visible="False"/>
+          <Inherited Name="Code" Visible="False"/>
+          <Component Name="SenderAddr" Class="Com.Ctrl.IEdit" After="Code" Field="Current.SenderAddr" Width="40"/>
+          <Component Name="SenderName" Class="Com.Ctrl.IEdit" Field="Current.SenderName" Visible="False" Width="40"/>
+          <Component Name="SendProto" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="Current.SendProto" Width="20"/>
+          <Component Name="RecvProto" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="Current.RecvProto" Width="20"/>
+          <Component Name="SrvAddrSMTP" Class="Com.Ctrl.IEdit" Field="Current.SrvAddrSMTP" Visible="False" Width="40"/>
+          <Component Name="SrvPortSMTP" Class="Com.Ctrl.IEdit" Field="Current.SrvPortSMTP" Visible="False" Width="25"/>
+          <Component Name="SendByJob" Class="Com.Ctrl.IEdit" Caption="@MailAccount:SendByJobCol=Заданием" Field="Current.SendByJob" Width="25"/>
+          <Component Name="SendAsync" Class="Com.Ctrl.IEdit" Caption="@MailAccount:SendAsyncCol=Асинхронно" Field="Current.SendAsync" Width="25"/>
+          <Inherited Name="Closed" Excluded="False" After="SendAsync" Caption="@MailAccount:AccountNotActive=Аккаунт не используется" Enabled="True" Visible="True" Width="30"/>
+          <Component Name="SrvAddrPOP3" Class="Com.Ctrl.IEdit" After="Closed" Field="Current.SrvAddrPOP3" Visible="False" Width="40"/>
+          <Component Name="SrvPortPOP3" Class="Com.Ctrl.IEdit" Field="Current.SrvPortPOP3" Visible="False" Width="25"/>
+          <Component Name="SrvAddrIMAP" Class="Com.Ctrl.IEdit" Field="Current.SrvAddrIMAP" Visible="False" Width="40"/>
+          <Component Name="SrvPortIMAP" Class="Com.Ctrl.IEdit" Field="Current.SrvPortIMAP" Visible="False" Width="25"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

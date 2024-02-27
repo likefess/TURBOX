@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.CodeName">
+  <Inherited>
+    <Inherited Name="Current" Class="Com.Rec.Service.Report" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="8">
+        <Component Name="ButtonShowReport" Class="Com.Ctrl.IButton" Excluded="True" After="#0" Caption="@Report:ShowReport=Открыть отчёт" ImageName="Report" OnClick="ShowReport"/>
+        <Inherited Name="ButtonEditItem" ImageName="Setup"/>
+        <Component Name="ButtonNewWindow" Class="Com.Ctrl.IButton" After="ButtonEditItem" Caption="@Report:NewWindow=Открыть в новом окне" ImageName="Com.new-window" OnClick="NewWindowOnClick"/>
+        <Component Name="ButtonShortcutRC" Class="Com.Ctrl.IButton" After="ButtonImport" ImageName="Com.RC" OnClick="ButtonShortcutRCOnClick"/>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="CardFile" OnMove="CardFile_OnMove" OnOpenBlank="CardFile_OnOpenBlank"/>
+          <Inherited Name="Code" After="ExtId" Visible="False"/>
+          <Inherited Name="Name" After="Code"/>
+          <Component Name="RT" Class="Com.Ctrl.IEdit" Caption="@Report:RType=Тип" CellFormat="EnumFormat" Field="Current.RType" ValueType="VarInteger" Width="25"/>
+          <Component Name="CreateUserEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Current.CreateUser" Visible="False"/>
+          <Component Name="UpdateUserEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Current.UpdateUser" Visible="False"/>
+          <Component Name="CreateDateEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Current.CreateDate" Visible="False" Width="35"/>
+          <Component Name="UpdateDateEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Current.UpdateDate" Visible="False" Width="35"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

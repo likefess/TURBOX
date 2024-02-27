@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CMP.Frm.Pages.Page">
+  <Inherited HelpContext="Стандарт.СтруктураБизнеса.ТипыПредставлений.СписокОбъектов.СписокОбъектов">
+    <Inherited Name="EdtRec" Class="CMP.Rec.Views.IObjectsList" IsLibrary="1"/>
+    <Component Name="ColumnsStruct" Class="CMP.Rec.Views.IObjectsList_Columns" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="TableMenu" After="ColumnsStruct"/>
+    <Inherited Name="RootFrame">
+      <Component Name="TableBox" Class="Com.Ctrl.IBox" Caption="@CMP:TableBox=Настройки полей">
+        <Component Name="ClassFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="ClassGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+            <Component Name="ObjectClassEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.ObjectClassStr" HasButton="True" HasCaption="True" OnLookup="ObjectClassEditOnLookup"/>
+            <Component Name="ListProcTypeEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.ListProcType" HasCaption="True" OnChange="ListProcTypeEdit_OnChange"/>
+          </Component>
+        </Component>
+        <Component Name="TableFrame" Class="Com.Ctrl.IFrame" Margins="4">
+          <Component Name="Table" Class="Com.Ctrl.ITable" Adaptive="True" Freezed="False" IconName="Com.Settings" Numbering="False" OnClickIcon="TableOnClickIcon" ShowIcon="True" Subtable="EdtRec.ColumnList">
+            <Component Name="PropertyEdit" Class="Com.Ctrl.IEdit" Field="ColumnsStruct.Property" LookupField="Code" LookupFilter="not Closed and not РеквизитТаблицы and (ПолеДокумента &lt;> nil or ДопПолеДокумента &lt;> nil)" OnDrawEx="TableRowOnDraw" OnGetLookupFilter="PropertyEdit_OnGetLookupFilter"/>
+            <Component Name="CaptionEdit" Class="Com.Ctrl.IEdit" Field="ColumnsStruct.Caption" OnDrawEx="TableRowOnDraw"/>
+            <Component Name="WidthEdit" Class="Com.Ctrl.IEdit" Field="ColumnsStruct.Width" FixSize="True" OnDrawEx="TableRowOnDraw" Width="20"/>
+            <Component Name="OffFlag" Class="Com.Ctrl.ICheckBox" Field="ColumnsStruct.Off" FixSize="True" Width="12"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="ExtraBox" Class="Com.Ctrl.IBox" Caption="@CMP:ExtraSettings=Дополнительные настройки">
+        <Component Name="MainGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+          <Component Name="ColorFieldEdit" Class="Com.Ctrl.IEdit" Caption="@CMP:ColorFieldEdit=Поле цвета иконки" Field="EdtRec.ColorField" HasButton="True" OnLookup="ColorFieldEditOnLookup"/>
+          <Component Name="Group2" Class="Com.Ctrl.IGroup">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+            <Component Name="SaveSortingFlag" Class="Com.Ctrl.ICheckBox" Field="EdtRec.SaveSorting"/>
+          </Component>
+          <Component Name="Group3" Class="Com.Ctrl.IGroup">
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+            <Component Name="ShowHierarchyFlag" Class="Com.Ctrl.ICheckBox" Field="EdtRec.ShowHierarchy" OnChange="ShowHierarchyFlagOnChange"/>
+          </Component>
+          <Component Name="Group4" Class="Com.Ctrl.IGroup">
+            <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+            <Component Name="ShowTotalFlag" Class="Com.Ctrl.ICheckBox" Field="EdtRec.ShowTotal"/>
+          </Component>
+          <Component Name="Group5" Class="Com.Ctrl.IGroup">
+            <Component Name="Static4" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+            <Component Name="ExtSettingsFlag" Class="Com.Ctrl.ICheckBox" Field="EdtRec.ExtSettings" OnChange="ExtSettingsFlagOnChange"/>
+          </Component>
+        </Component>
+        <Component Name="HierarchyGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+          <Component Name="Group7" Class="Com.Ctrl.IGroup">
+            <Component Name="Static6" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+            <Component Name="GroupsNotFirstFlag" Class="Com.Ctrl.ICheckBox" Field="EdtRec.GroupsNotFirst"/>
+          </Component>
+          <Component Name="TreeRootTextEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.TreeRootText" HasCaption="True"/>
+          <Component Name="GroupFieldEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.GroupField" HasCaption="True"/>
+        </Component>
+        <Component Name="ExtraGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+          <Component Name="TreeClassEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.TreeClassStr" HasCaption="True"/>
+          <Component Name="CurrentGroupEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.CurrentGroup" HasCaption="True"/>
+        </Component>
+      </Component>
+      <Component Name="CardAccessBox" Class="Com.Ctrl.IBox" Caption="@CMP:CardAccessBox=Доступность команд">
+        <Component Name="CardAccessGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+          <Component Name="Group6" Class="Com.Ctrl.IGroup" ByColumn="True" FixSize="True" Width="50">
+            <Component Name="Static5" Class="Com.Ctrl.IStatic"/>
+          </Component>
+          <Component Name="CardAccessGroup1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="HideButtonAdd" Class="Com.Ctrl.ICheckBox" Field="EdtRec.HideButtonAdd"/>
+            <Component Name="HideButtonClone" Class="Com.Ctrl.ICheckBox" Field="EdtRec.HideButtonClone"/>
+            <Component Name="HideButtonAddFolder" Class="Com.Ctrl.ICheckBox" Field="EdtRec.HideButtonAddFolder"/>
+            <Component Name="HideButtonPanel" Class="Com.Ctrl.ICheckBox" Field="EdtRec.HideButtonPanel"/>
+          </Component>
+          <Component Name="CardAccessGroup2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="HideButtonFolderElement" Class="Com.Ctrl.ICheckBox" Field="EdtRec.HideButtonFolderElement"/>
+            <Component Name="HideButtonEdit" Class="Com.Ctrl.ICheckBox" Field="EdtRec.HideButtonEdit"/>
+            <Component Name="HideButtonDelete" Class="Com.Ctrl.ICheckBox" Field="EdtRec.HideButtonDelete"/>
+            <Component Name="CheckBox8" Class="Com.Ctrl.ICheckBox" Excluded="True"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="CardCaptionsBox" Class="Com.Ctrl.IBox" Caption="@CMP:CardCaptionsBox=Подсказки для кнопок">
+        <Component Name="CardCaptionsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+          <Component Name="CaptionButtonAdd" Class="Com.Ctrl.IEdit" Field="EdtRec.CaptionButtonAdd" HasCaption="True"/>
+          <Component Name="CaptionButtonClone" Class="Com.Ctrl.IEdit" Field="EdtRec.CaptionButtonClone" HasCaption="True"/>
+          <Component Name="CaptionButtonAddFolder" Class="Com.Ctrl.IEdit" Field="EdtRec.CaptionButtonAddFolder" HasCaption="True"/>
+          <Component Name="CaptionButtonFolderElement" Class="Com.Ctrl.IEdit" Field="EdtRec.CaptionButtonFolderElement" HasCaption="True"/>
+          <Component Name="CaptionButtonEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.CaptionButtonEdit" HasCaption="True"/>
+          <Component Name="CaptionButtonDelete" Class="Com.Ctrl.IEdit" Field="EdtRec.CaptionButtonDelete" HasCaption="True"/>
+          <Component Name="Edit7" Class="Com.Ctrl.IEdit" Excluded="True" HasCaption="True"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

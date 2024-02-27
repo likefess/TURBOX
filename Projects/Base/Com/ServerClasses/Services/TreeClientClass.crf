@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Services.TreeDialog">
+  <Inherited ModalHeight="200" ModalWidth="187">
+    <Component Name="ClientClassTree" Class="Com.Ctrl.Grids.ClientClassTree" After="#0"/>
+    <Inherited Name="TableMenu" After="ClientClassTree"/>
+    <Inherited Name="Variables">
+      <Inherited Name="CurrentVar" Excluded="True" ValueType="VarString"/>
+      <Component Name="CurrentValue" Class="Com.Fld.IVar" After="CurrentVar" ValueType="VarVariant"/>
+      <Inherited Name="SearchVar" After="CurrentValue"/>
+      <Component Name="CurrentVarClient" Class="Com.Fld.IVar" After="SearchVar" ValueType="VarVariant"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonClose" Excluded="True"/>
+        <Inherited Name="ButtonHelp" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="TreeGrid" TreeSource="ClientClassTree"/>
+      </Inherited>
+      <Inherited Name="SelectionFrame">
+        <Inherited Name="SelectionEdit" Field="CurrentVarClient"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

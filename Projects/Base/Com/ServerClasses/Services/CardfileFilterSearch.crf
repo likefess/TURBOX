@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Services.CommonDialog">
+  <Inherited>
+    <Component Name="PopupMenu" Class="Com.Ctrl.IPopupMenu" After="#0">
+      <Component Name="cmdInsertRow" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:InsertRow=Добавить кадр" CommandName="Kernel.Edit.InsertObj" CommandProc="InsertRow_CommandProc" IconName="Com.InsertObj"/>
+      <Component Name="cmdDeleteRow" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:DeleteRow=Удалить кадр" CommandName="Kernel.Edit.DeleteObj" CommandProc="DeleteRow_CommandProc" IconName="Com.DeleteObj"/>
+      <Component Name="cmdRowUp" Class="Com.ComManaging.ExecProcedure" Excluded="True" Caption="@Cmd:RowUp=Кадр вверх" CommandName="Kernel.Form.Run.StrokeMoveUp" CommandProc="RowUp_CommandProc" IconName="Com.PageUp"/>
+      <Component Name="cmdRowDown" Class="Com.ComManaging.ExecProcedure" Excluded="True" Caption="@Cmd:RowDown=Кадр вниз" CommandName="Kernel.Form.Run.StrokeMoveDown" CommandProc="RowDown_CommandProc" IconName="Com.PageDown"/>
+    </Component>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="ResultString" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="fsSubtable" Class="Com.ISubtable" StructClass="Com.Rec.Services.CardfileFilterSearchStruct"/>
+    </Component>
+    <Inherited Name="RootFrame" After="Variables" AutoSize="False" MaxSize="150">
+      <Component Name="fsTableFrame" Class="Com.Ctrl.IFrame" After="#0" AutoSize="False" MaxSize="100" ScrollerStyle="ScrollerVert">
+        <Component Name="fsTable" Class="Com.Ctrl.ITable" CanDelete="True" CanInsert="True" CanMove="True" FixSize="True" Numbering="False" OnDelete="fsTableOnDelete" OnInsert="fsTableOnInsert" PopupMenu="PopupMenu" Subtable="fsSubtable">
+          <Component Name="ButtonLeft" Class="Com.Ctrl.IButton" HasCaption="False" ImageName="Com.chevron-left" OnClick="ButtonLeftOnClick" Width="6"/>
+          <Component Name="ButtonRight" Class="Com.Ctrl.IButton" HasCaption="False" ImageName="Com.chevron-right" OnClick="ButtonRightOnClick" Width="6"/>
+          <Component Name="EditAndOr" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" AutoLookup="True" ButtonStyle="FolderButton" CellFormat="EnumFormat" MinWidth="15" OnEnter="EditAndOrOnEnter" OnOutputEx="EditListOnOutputEx" ValueType="VarString" Visible="True" Width="20"/>
+          <Component Name="EditName" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CanSelect="True" Caption="Поле" CellFormat="StringFormat" HasCaption="True" OnEnter="EditNameOnEnter" ValueType="VarString" Visible="False" Width="66"/>
+          <Component Name="EditName2" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CanSelect="True" Caption="Поле" CellFormat="StringFormat" HasCaption="True" ValueType="VarString" Width="66"/>
+          <Component Name="EditOperation" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" AutoLookup="True" ButtonStyle="ComboButton" CellFormat="EnumFormat" MinWidth="15" OnEnter="EditOperationOnEnter" OnOutputEx="EditListOnOutputEx" ValueType="VarString" Width="20"/>
+          <Component Name="EditValue" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" ButtonStyle="DefaultButton" Caption="Значение" CellFormat="CommonFormat" HasButton="True" ValueType="VarString" Visible="False" Width="119"/>
+          <Component Name="EditValue2" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" ButtonStyle="DefaultButton" Caption="Значение" CellFormat="CommonFormat" HasButton="True" OnChange="EditValue2OnChange" OnEnter="EditValueOnEnter" OnLookup="EditValueOnLookup" OnVerify="EditValueOnVerify" ValueType="VarString" Width="119"/>
+          <Component Name="EditStructure" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" ValueType="VarInteger" Visible="False"/>
+          <Component Name="EditExists" Class="Com.Ctrl.IEdit" CellFormat="LogicalFormat" ValueType="VarLogical" Visible="False"/>
+        </Component>
+      </Component>
+      <Component Name="fsTextFrame" Class="Com.Ctrl.IFrame" AutoSize="True" CanResizeBySplit="False" Visible="False">
+        <Component Name="EditResult" Class="Com.Ctrl.IEdit" CanSelect="True" CellFormat="StringFormat" Field="ResultString" OnEnter="EditResultOnEnter" ValueType="VarString" Width="225"/>
+      </Component>
+      <Inherited Name="MainFrame" After="fsTextFrame" AutoSize="True" FixSize="True" ScrollerStyle="ScrollerNone" Size="15">
+        <Inherited Name="WebMainGroup">
+          <Component Name="ListButtonFields" Class="Com.Ctrl.IListButton" After="#0" Caption="@Dlgs:FieldsAdd=Добавить...">
+            <Component Name="ButtonName" Class="Com.Ctrl.IButton" Caption="Name" OnClick="ButtonRowAddOnClick"/>
+            <Component Name="ButtonCode" Class="Com.Ctrl.IButton" Caption="Code" OnClick="ButtonRowAddOnClick"/>
+            <Component Name="ButtonDocID" Class="Com.Ctrl.IButton" Caption="DocID" OnClick="ButtonRowAddOnClick"/>
+            <Component Name="ButtonExtID" Class="Com.Ctrl.IButton" Caption="ExtID" OnClick="ButtonRowAddOnClick"/>
+            <Component Name="ButtonAllFields" Class="Com.Ctrl.IButton" Caption="Все поля" OnClick="ButtonAllFieldsOnClick"/>
+          </Component>
+          <Component Name="ListButtonAreaRule" Class="Com.Ctrl.IListButton" Alignment="CenterAlign" Caption="@Dlgs:WhereEntireCardfile=Где: Вся картотека" Width="75" Wrap="False">
+            <Component Name="ButtonAllCrd" Class="Com.Ctrl.IButton" Caption="Вся картотека" IsSwitch="False" OnClick="ButtonAllCrdOnClick"/>
+            <Component Name="ButtonCurGroup" Class="Com.Ctrl.IButton" Caption="Текущая группа" IsSwitch="False" OnClick="ButtonCurGroupOnClick"/>
+            <Component Name="ButtonCurSubGroup" Class="Com.Ctrl.IButton" Caption="Текущая группа с подгруппами" IsSwitch="False" OnClick="ButtonCurSubGroupOnClick"/>
+          </Component>
+          <Component Name="Static1inner2" Class="Com.Ctrl.IStatic" FixSize="True" Width="110"/>
+          <Component Name="ButtonAsText" Class="Com.Ctrl.IButton" ImageName="Com.EditItem" OnClick="ButtonAsTextOnClick" Width="10"/>
+          <Inherited Name="InnerGroup" After="ButtonAsText" Visible="False"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="ButtonsFrame" Size="20">
+        <Inherited Name="ButtonsGroup">
+          <Component Name="EditHistory" Class="Com.Ctrl.IEdit" After="#0" Alignment="LeftAlign" ButtonStyle="ComboButton" Caption="История" CellFormat="EnumFormat" ValueType="VarString" Visible="False" Width="6"/>
+          <Inherited Name="Static1left" After="EditHistory" Width="30"/>
+          <Component Name="ButtonSearch" Class="Com.Ctrl.IButton" After="ButtonSave" Caption="@Dlgs:OK=ОК" FixSize="True" OnClick="ButtonSearchOnClick" Width="30"/>
+          <Component Name="ButtonNext" Class="Com.Ctrl.IButton" Caption="@Dlgs:OnWard=Далее" FixSize="True" OnClick="ButtonSearchNextOnClick" Visible="False" Width="30"/>
+          <Component Name="ListButtonSearchNum" Class="Com.Ctrl.IListButton" ImageName="Com.angle-down" Width="5">
+            <Component Name="ButtonSearchFirst" Class="Com.Ctrl.IButton" Caption="@Dlgs:First=Первая" OnClick="ButtonSearchFirstOnClick"/>
+            <Component Name="ButtonSearchPrevious" Class="Com.Ctrl.IButton" Caption="@Dlgs:Previous=Предыдущая" OnClick="ButtonSearchPreviousOnClick"/>
+            <Component Name="ButtonSearchNext" Class="Com.Ctrl.IButton" Caption="@Dlgs:Next=Следующая" OnClick="ButtonSearchNextOnClick"/>
+            <Component Name="ButtonSearchLast" Class="Com.Ctrl.IButton" Caption="@Dlgs:Last=Последняя" OnClick="ButtonSearchLastOnClick"/>
+          </Component>
+          <Component Name="ListButtonSearchRule" Class="Com.Ctrl.IListButton" ImageName="Com.angle-down" Width="5">
+            <Component Name="ButtonSearchStart" Class="Com.Ctrl.IButton" Caption="@Dlgs:SearchFromTheBeginning=С начала" OnClick="ButtonSearchStartOnClick"/>
+            <Component Name="ButtonSearchEnd" Class="Com.Ctrl.IButton" Caption="@Dlgs:SearchFromTheEnd=С конца" OnClick="ButtonSearchEndOnClick"/>
+            <Component Name="ButtonSearchCurPosition" Class="Com.Ctrl.IButton" Caption="@Dlgs:SearchFromTheCurrentPosition=С текущей позиции" OnClick="ButtonSearchCurPositionOnClick"/>
+          </Component>
+          <Inherited Name="Static1inner" After="ListButtonSearchRule"/>
+          <Component Name="ButtonClear" Class="Com.Ctrl.IButton" After="Static1right" Caption="@Dlgs:Clear=Очистить" FixSize="True" OnClick="ButtonClearOnClick" Width="30"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

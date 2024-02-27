@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    </Component>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="BegDate" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="EndDate" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="Period" Class="Com.Fld.IVar" OnCalc="PeriodOnCalc" ValueType="VarInteger"/>
+      <Component Name="WithoutNavigation" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="OnlyOneView" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="FrameHeader" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Vertical">
+        <Component Name="FrameTopView" Class="Com.Ctrl.IFrame" AutoSize="False"/>
+        <Component Name="ButtonsFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="ButtonOK" Class="Com.Ctrl.IButton" Caption="@Cmd:PostClose=OK" FontSize="11" ImageName="PostClose" OnClick="ButtonOK_OnClick" Width="22"/>
+          <Component Name="ButtonCancel" Class="Com.Ctrl.IButton" Caption="@Cmd:Cancel=Отменить" ImageName="Cancel" OnClick="ButtonCancel_OnClick"/>
+          <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Caption="@Cmd:Close=Закрыть" Command="Commands.CloseForm" ImageName="Close"/>
+          <Component Name="ButtonPost" Class="Com.Ctrl.IButton" Caption="@Cmd:Apply=Применить" ImageName="Post" OnClick="ButtonPost_OnClick"/>
+          <Component Name="ButtonHelp" Class="Com.Ctrl.IButton" Caption="@Cmd:Help=Помощь" Command="Commands.Help" ImageName="Help"/>
+        </Component>
+      </Component>
+      <Component Name="FrameViews" Class="Com.Ctrl.IFrame" AutoSize="False" OnSwitch="FrameViews_OnSwitch" Orientation="WithTabs" ShowTabs="True"/>
+    </Component>
+  </Component>
+</Resource>

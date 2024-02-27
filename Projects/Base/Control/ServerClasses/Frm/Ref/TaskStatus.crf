@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited HelpContext="Control.Контроль поручений.Настройка.Настроечные справочники.Состояние поручения">
+    <Inherited Name="EdtRec" Class="Control.Rec.Ref.TaskStatus" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" ByColumn="False" Visible="True">
+          <Inherited Name="Name" After="#0" Visible="True" Width="80"/>
+          <Inherited Name="Code" After="Name" Visible="True"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Visible="True">
+          <Component Name="FrameMainBox" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@TaskStatus:Main=Основное">
+            <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="Group3" Class="Com.Ctrl.IGroup" ByColumn="True" CaptionWidth="50" Width="120">
+                <Component Name="Description" Class="Com.Ctrl.IEdit" Field="EdtRec.Description" HasCaption="True"/>
+                <Component Name="EntityRole" Class="Com.Ctrl.IEdit" CardFileClass="Control.Tab.Ref.EntityRoles" CellFormat="ReferenceFormat" Field="EdtRec.EntityRole" HasCaption="True" LookupField="Name" ShortList="True" ValueType="VarObject"/>
+                <Component Name="Group4" Class="Com.Ctrl.IGroup">
+                  <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                  <Component Name="IsClosedTask" Class="Com.Ctrl.ICheckBox" Field="EdtRec.IsClosedTask"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="EmailRolesBox" Class="Com.Ctrl.IBox" Caption="@TransitionRule:EmailRolesBox1=Отправка электронных писем при переходе">
+            <Component Name="Frame1" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="SendMailToResponsible" Class="Com.Ctrl.ICheckBox" Field="EdtRec.SendMailToResponsible" FixSize="False" Width="140"/>
+            </Component>
+            <Component Name="FrameEmailRoles" Class="Com.Ctrl.IFrame" Caption="@TransitionRule:EmailRolesSubtable=Кроме того отправлять сообщения следующим участникам" Subtable="EdtRec.EmailRoles">
+              <Component Name="SubtableEmailRoles" Class="Control.Rec.Ref.Status_EmailRoles" IsLibrary="1"/>
+              <Component Name="Role" Class="Com.Ctrl.IEdit" Field="SubtableEmailRoles.Role" LookupField="Name" Width="120"/>
+            </Component>
+          </Component>
+          <Component Name="FrameServiceBox" Class="Com.Ctrl.IBox" Caption="@TaskStatus:GroupFrame=Группа">
+            <Component Name="Group5" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="GroupDoc" Class="Com.Ctrl.IEdit" CardFileClass="Control.Tab.Ref.TaskStatusGroup" Field="EdtRec.GroupDoc" HasCaption="True" LookupField="Name" ShortList="True" Width="80"/>
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="20"/>
+              <Component Name="IsGroup" Class="Com.Ctrl.ICheckBox" Alignment="LeftAlign" Caption="@TaskStatus:Group=Группа" Field="EdtRec.IsGroup" Width="20"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="TransitionRulesDst" Class="Com.Ctrl.IFrame" Caption="@TaskStatus:TransitionRulesDstTab=Переходы В"/>
+        <Component Name="TransitionRulesSrc" Class="Com.Ctrl.IFrame" Caption="@TaskStatus:TransitionRulesSrcTab=Переходы ИЗ"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

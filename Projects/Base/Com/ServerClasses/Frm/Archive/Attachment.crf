@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited HelpContext="Bas.Администрирование.Система.Вложения" OnPasteImage="PasteImage_Run">
+    <Inherited Name="EdtRec" Class="Com.Rec.Archive.Attachment" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="Attachment_Files" Class="Com.Rec.Archive.Attachment_files" IsLibrary="1"/>
+      <Component Name="Attachment_NewFiles" Class="Com.Rec.Archive.Attachment_newfiles" IsLibrary="1"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" Excluded="True"/>
+        <Component Name="CommonFrame" Class="Com.Ctrl.IFrame" Caption="@Attachment:Common=Общее" Margins="10">
+          <Component Name="Group2" Class="Com.Ctrl.IGroup" ByColumn="True">
+            <Component Name="edtName" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" HasCaption="True" Width="160"/>
+          </Component>
+        </Component>
+        <Component Name="FilesFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Attachment:FilesFrame=Файлы" Margins="10">
+          <Component Name="FilesTable" Class="Com.Ctrl.ITable" CanInsert="False" Numbering="False" Subtable="EdtRec.Files">
+            <Component Name="btnOpenFileDefault" Class="Com.Ctrl.IButton" Hint="@Attachments:OpenFile=Открыть файл" ImageName="Com.play" OnClick="OpenFiles_OnClick"/>
+            <Component Name="NameCurrFile" Class="Com.Ctrl.IEdit" Caption="@Attachment:File=Файл" CardFileClass="Com.Tab.Archive.File" CellFormat="ReferenceFormat" Field="Attachment_Files.File" HasButton="True" LookupField="Name" Width="68"/>
+            <Component Name="btnJumpToCurrFile" Class="Com.Ctrl.IJumpButton" Field="Attachment_Files.File" JumpForm="Com.Frm.Archive.File"/>
+            <Component Name="btnCurrFileCommands" Class="Com.Ctrl.IListButton" ImageName="Com.chevron-down">
+              <Component Name="btnOpenFile" Class="Com.Ctrl.IButton" Caption="@Archive:btnOpenFiles=Открыть вложение (файл)" ImageName="Com.folder-open" OnClick="OpenFiles_OnClick"/>
+              <Component Name="btnOpenFileAs" Class="Com.Ctrl.IButton" Caption="@Archive:btnOpenFilesAs=Открыть в приложении" ImageName="Com.play-circle" OnClick="OpenFileAs_OnClick"/>
+              <Component Name="btnShowInFolder" Class="Com.Ctrl.IButton" Caption="@Archive:btnShowFiles=Показать в папке" ImageName="Com.Folder" OnClick="ShowFileInFolder_OnClick"/>
+              <Component Name="btnDeleteFile" Class="Com.Ctrl.IButton" Caption="@Archive:btnDelete=Удалить вложение" ImageName="Com.Trash" OnClick="DeleteFile_OnClick"/>
+            </Component>
+            <Component Name="MethodCurrFile" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Attachment:StorageMethod=Способ хранения" CellFormat="EnumFormat" Enabled="False" Field="Attachment_Files.File" LookupField="StorageMethod" Width="40"/>
+            <Component Name="SizeCurrFile" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Attachment:FilesSize=Размер" Enabled="False" Field="Attachment_Files.File" LookupField="FileSize" OnOutput="FileSize_OnOutput" Width="30"/>
+            <Component Name="TimeCurrFile" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Attachment:ModifTime=Время модификации" Enabled="False" Field="Attachment_Files.File" FormatOfDate="DateAndTime" LookupField="FileTime" Width="40"/>
+          </Component>
+        </Component>
+        <Component Name="AddingFilesFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Attachment:TableCaption=Вложения" Margins="10">
+          <Component Name="Table1" Class="Com.Ctrl.ITable" Numbering="False" Subtable="EdtRec.NewFiles">
+            <Component Name="NameAddingFile" Class="Com.Ctrl.IEdit" Caption="@Attachment:AddedFiles=Добавляемые файлы" Field="Attachment_NewFiles.NFullFileName" HasButton="True" HasCaption="True" OnLookup="NewFileLookup" Width="130"/>
+            <Component Name="SizeAddingFile" Class="Com.Ctrl.IEdit" Caption="@Attachment:NewFileSize=Размер" CellFormat="NumericFormat" Enabled="False" Field="Attachment_NewFiles.NFileSize" FieldFormat=",##0;;-" HasCaption="True" Width="30"/>
+            <Component Name="TimeAddingFile" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Attachment:NewFileDate=Время модификации" CellFormat="DateFormat" Enabled="False" Field="Attachment_NewFiles.NFileTime" FormatOfDate="DateAndTime" HasCaption="True" Width="40"/>
+          </Component>
+        </Component>
+        <Component Name="AttachmentsFrameMain" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Attachment:MainFrame=Общие данные" Margins="10">
+          <Component Name="Group4" Class="Com.Ctrl.IGroup" ByColumn="False">
+            <Component Name="btnAddFiles" Class="Com.Ctrl.IButton" Caption="@Attachment:btnAddFiles=Добавить файлы" Hint="@Attachment:btnAddFiles=Добавить файлы" OnClick="AddFiles_OnClick" Width="40"/>
+            <Component Name="btnAddImage" Class="Com.Ctrl.IButton" Caption="@Attachments:btnAddImage=Изображение" Hint="@Attachments:btnAddImageHint=Добавить изображение" OnClick="AddImage_OnClick" Width="40"/>
+            <Component Name="StorageMethodCommon" Class="Com.Ctrl.IEdit" Caption="@File:AttachmentCommonStorageMethod=Сохранять файлы" CellFormat="EnumFormat" Field="EdtRec.StorageMethodCommon" HasButton="True" Width="80" Wrap="False"/>
+          </Component>
+        </Component>
+        <Component Name="ArchGroupFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Attachment:ArchGroupFrame=Фрейм для группы архива" Margins="10">
+          <Component Name="Group3" Class="Com.Ctrl.IGroup" ByColumn="True">
+            <Component Name="ArchGroup" Class="Com.Ctrl.IEdit" Caption="@Attachment:ArchGroup=В группу архива" CardFileClass="Com.Tab.Archive.File" Field="EdtRec.ArchGroup" Hint="@Attachment:ArchGroupHint=Группа для добавления новых файлов" LookupField="Name" LookupFilter="IsGroup &lt;> 0" Width="160"/>
+            <Component Name="AddSignature" Class="Com.Ctrl.ICheckBox" Caption="@Attachment:AddSignature=Добавлять подпись" Field="EdtRec.AddSignature" Width="160"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

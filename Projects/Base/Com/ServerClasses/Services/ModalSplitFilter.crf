@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Services.CommonDialog">
+  <Inherited>
+    <Component Name="Variables" Class="Com.IVarContainer" After="#0">
+      <Component Name="IncArray" Class="Com.Fld.IArray"/>
+      <Component Name="ExcArray" Class="Com.Fld.IArray"/>
+    </Component>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame" OnSwitch="MainFrameOnSwitch" Orientation="WithTabs" ShowTabs="True">
+        <Component Name="ItemsFrame" Class="Com.Ctrl.IFrame" After="#0" AutoSize="True" Caption="@SplitFilter:AsItems=Перечисление">
+          <Component Name="IncludeFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="IncludeTable" Class="Com.Ctrl.ITable" CanDelete="True" CanInsert="True" CanMove="True" Numbering="False">
+              <Component Name="IncludeEdit" Class="Com.Ctrl.IEdit" Caption="@ModalSplitFilter:Include=Включать" Field="IncArray" OnLookup="ItemsEditOnLookup" Width="100"/>
+            </Component>
+          </Component>
+          <Component Name="ExcludeFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="ExcludeTable" Class="Com.Ctrl.ITable" CanDelete="True" CanInsert="True" CanMove="True" Numbering="False">
+              <Component Name="ExcludeEdit" Class="Com.Ctrl.IEdit" Caption="@ModalSplitFilter:Exclude=Исключать" Field="ExcArray" OnLookup="ItemsEditOnLookup" Width="100"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="TextFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@SplitFilter:AsText=Как текст" MinSize="40" Visible="False">
+          <Component Name="TextGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="TextEdit" Class="Com.Ctrl.IEdit" HasCaption="False" ValueType="VarString" Wrap="True"/>
+          </Component>
+        </Component>
+        <Inherited Name="WebMainGroup" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="ButtonsFrame">
+        <Inherited Name="ButtonsGroup" MaxWidth="100"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

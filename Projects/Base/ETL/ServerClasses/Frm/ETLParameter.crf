@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited OnCancel="EditorOnCancel">
+    <Inherited Name="EdtRec" Class="ETL.Rec.ETLParameters" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="VarParamValue" Class="Com.Fld.IVar" Excluded="True" OnCalc="SetValueFieldVar" OnChange="SetValueField" ValueType="VarVariant"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Code" Excluded="True"/>
+          <Inherited Name="Name" Caption="@ETLParameter:Name=Название" FixSize="True" FontBold="False" Visible="True" Width="120"/>
+          <Component Name="ParamType" Class="Com.Ctrl.IEdit" Caption="@FieldName:ParamType=Тип" CellFormat="EnumFormat" Field="EdtRec.ParamType" FixSize="True" HasCaption="True" OnChange="ParamTypeOnChange" ValueType="VarInteger" Width="120"/>
+          <Component Name="paramValue" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Значение" Field="EdtRec.ParamValue" FixSize="True" HasCaption="True" ValueType="VarString" Width="120"/>
+          <Component Name="paramValueVar" Class="Com.Ctrl.IEdit" Excluded="True" Alignment="LeftAlign" AutoLookup="False" Caption="Значение" Field="VarParamValue" FixSize="True" FormatOfDate="DateAndTime" HasButton="True" HasCaption="True" OnEnter="paramValueVarOnEnter" OnLookup="paramValueVarOnLookup" OnOutput="paramValueVarOnOutput" ValueType="VarVariant" Visible="False" Width="120"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Excluded="True">
+        <Inherited Name="MainTab" Excluded="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

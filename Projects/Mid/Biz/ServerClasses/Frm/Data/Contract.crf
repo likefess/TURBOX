@@ -1,0 +1,512 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Frm.Data.ContractBase">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Biz.Rec.Data.Contract" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="FinDocSubtable" Class="Com.ISubtable"/>
+      <Component Name="DocSubtable" Class="Com.ISubtable"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Component Name="UpdateContractSumsWithSuppAgrButton" Class="Com.Ctrl.IButton" After="#0" Caption="@Contract:UpdateContractSumsWithSuppAgrButton=Обновить сумму договора (с учетом дополнительных соглашений)" HasCaption="True" OnClick="UpdateContractSumsWithSuppAgrButton_OnClick"/>
+          <Component Name="UpdatePartnerRequisitesButton" Class="Com.Ctrl.IButton" Caption="@Contract:UpdatePartnerRequisitesButton=Обновить реквизиты субъекта/контрагента" Hint="@Contract:UpdatePartnerRequisitesButton=Обновить реквизиты субъекта/контрагента" OnClick="UpdatePartnerRequisitesButton_OnClick"/>
+          <Component Name="UpdatePartnerFinRequisitesButton" Class="Com.Ctrl.IButton" Caption="@Contract:UpdatePartnerFinRequisitesButton=Обновить финансовые реквизиты субъекта/контрагента" Hint="@Contract:UpdatePartnerFinRequisitesButton=Обновить финансовые реквизиты субъекта/контрагента" OnClick="UpdatePartnerFinRequisitesButton_OnClick"/>
+          <Component Name="CreateSuppAgreementButton" Class="Com.Ctrl.IButton" Caption="@Contract:CreateSuppAgreement=Создать дополнительное соглашение" Hint="@Contract:CreateSuppAgreementHint=Создать новое дополнительное соглашение и перейти в него" OnClick="CreateSuppAgreementButton_OnClick"/>
+          <Component Name="UpdateSuppAgreementButton" Class="Com.Ctrl.IButton" Caption="@Contract:UpdateSuppAgreementButton=Обновить список дополнительных соглашений" HasCaption="True" OnClick="UpdateSuppAgreementButton_OnClick"/>
+          <Inherited Name="CreateSpecificationButton" Caption="@Contract:CreateSpecification=Создать спецификацию к договору"/>
+          <Component Name="UpdateSpecificationButton" Class="Com.Ctrl.IButton" After="CreateSpecificationButton" Caption="@Contract:UpdateSpecificationButton=Обновить список спецификаций" HasCaption="True" OnClick="UpdateSpecificationButton_OnClick"/>
+          <Component Name="CreateShippings" Class="Com.Ctrl.IButton" Caption="@Contract:CreateShipping=Сформировать поставки/отгрузки товаров/услуг" HasCaption="True" OnClick="CreateShippings_OnClick"/>
+          <Component Name="CreatePaymentTimelines" Class="Com.Ctrl.IButton" Caption="@Contract:CreatePaymentTimelines=Сформировать/обновить график платежей" HasCaption="True" OnClick="CreatePaymentTimelines_OnClick"/>
+        </Inherited>
+        <Inherited Name="ButtonReports" Visible="True">
+          <Component Name="ButtonContractShippingsReport" Class="Com.Ctrl.IButton" Caption="@Contract:ButtonContractShippingsReport=Отчет по поставкам/отгрузкам товаров/услуг" HasCaption="True" OnClick="ButtonContractShippingsReportOnClick"/>
+          <Component Name="ButtonContractReport" Class="Com.Ctrl.IButton" Caption="@Contract:ButtonContractReport=Отчет по договорам (сводный)" HasCaption="True" OnClick="ButtonContractReport_OnClick"/>
+          <Component Name="ButtonConcludedCanceledReport" Class="Com.Ctrl.IButton" Caption="@Contract:ButtonConcludedCanceledReport=Отчет по количеству заключенных/расторгнутых договоров" HasCaption="True" OnClick="ButtonConcludedCanceledReport_OnClick"/>
+          <Component Name="ButtonPeriodReport" Class="Com.Ctrl.IButton" Caption="@Contract:ButtonPeriodReport=Отчет по срокам договоров" HasCaption="True" OnClick="ButtonPeriodReport_OnClick"/>
+          <Component Name="ButtonExecutionReport" Class="Com.Ctrl.IButton" Caption="@Contract:ButtonExecutionReport=Отчет об исполнении договоров" OnClick="ButtonExecutionReport_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Component Name="StatusColGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+            <Component Name="StatusGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="Status" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.ContractStatus" CellFormat="ReferenceFormat" Field="EdtRec.Status" HasCaption="True" LookupField="Name" OnChange="Status_OnChange"/>
+              <Component Name="StatusBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Inherited Name="CompanyEmployeeGroup">
+          <Inherited Name="Company" Required="True"/>
+        </Inherited>
+        <Component Name="GroupFF4" Class="Com.Ctrl.IGroup" After="CompanyEmployeeGroup" Adaptive="True" ByColumn="False" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+          <Component Name="ContractType" Class="Com.Ctrl.IEdit" Caption="@Contract:ContractType=Тип договора" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ContractSubject" HasCaption="True" LookupField="GroupDoc.Name"/>
+          <Component Name="ContractTypeBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+          <Component Name="ContractVariety" Class="Com.Ctrl.IEdit" Caption="@Contract:ContractVariety=Вид договора" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ContractSubject" HasCaption="True" LookupField="GroupDoc.GroupDoc.Name"/>
+          <Component Name="ContractVarietyBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+        </Component>
+        <Component Name="GroupFF5" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+          <Component Name="Partner" Class="Com.Ctrl.IEdit" Caption="@Contract:Partner=Контрагент" CardFileClass="Bas.Tab.Data.Contraparties" CellFormat="ReferenceFormat" Field="EdtRec.Partner" HasCaption="True" LookupField="Name" Required="True"/>
+          <Component Name="PartnerBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+          <Component Name="PartnerUser" Class="Com.Ctrl.IEdit" Caption="@Contract:PartnerUser=Администратор" Field="EdtRec.PartnerUser" HasCaption="True" Hint="@Contract:PartnerUserHint=Администратор"/>
+          <Component Name="PartnerUserBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+        </Component>
+        <Inherited Name="CheckBoxGroup">
+          <Component Name="Intragroup" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Intragroup" FixSize="True" HasCaption="True" Width="38"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab" Caption="@Contract:MainTab=Общие" Visible="True">
+          <Inherited Name="GeneralBox">
+            <Inherited Name="MainTabGroup">
+              <Component Name="RegistrationGroup" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="RegisterNumber" Class="Com.Ctrl.IEdit" Field="EdtRec.PrintedNumber" HasCaption="True"/>
+                <Component Name="RegisterNumberUpdateBtn" Class="Com.Ctrl.IButton" FixSize="True" Hint="@Contract:RegisterNumberUpdateBtn=Обновить регистрационный номер из номерной серии" ImageName="Com.Refresh" OnClick="RegisterNumberUpdateBtn_OnClick" Width="7.5"/>
+                <Component Name="RegistrationDate" Class="Com.Ctrl.IEdit" Field="EdtRec.RegistrationDate" HasCaption="True"/>
+                <Component Name="RegistrationDateStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Inherited Name="PeriodGroup">
+                <Inherited Name="PeriodLeftGroup">
+                  <Inherited Name="StartDateGroup">
+                    <Inherited Name="StartDate" OnVerify="StartDate_OnVerify" Required="True"/>
+                  </Inherited>
+                  <Component Name="ProlongationGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+                    <Component Name="ProlongationStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+                    <Component Name="ProlongationEdit" Class="Com.Ctrl.ICheckBox" Caption="@Contract:ProlongationEdit=Автоматически продлевать" Field="EdtRec.Prolongation" HasCaption="True" OnChange="ProlongationEdit_OnChange" OnVerify="ProlongationEdit_OnVerify"/>
+                    <Component Name="ProlongationEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                  </Component>
+                  <Component Name="IndefiniteGroupLeft" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+                    <Component Name="IndefiniteLeftStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+                    <Component Name="IndefiniteLeftEdit" Class="Com.Ctrl.ICheckBox" Caption="@Contract:IndefiniteEdit=Бесcрочный договор" Field="EdtRec.Indefinite" HasCaption="True" OnChange="IndefiniteEdit_OnChange" OnVerify="IndefiniteEdit_OnVerify"/>
+                    <Component Name="IndefiniteLeftBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                  </Component>
+                </Inherited>
+                <Inherited Name="PeriodRightGroup">
+                  <Inherited Name="ExpirationDateGroup">
+                    <Inherited Name="ExpirationDateEdit" OnVerify="ExpirationDateEdit_OnVerify" Required="True"/>
+                  </Inherited>
+                  <Component Name="ProlongationMonthsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+                    <Component Name="ProlongationMonthsEdit" Class="Com.Ctrl.IEdit" Caption="@Contract:ProlongationMonthsEdit=На" Field="EdtRec.ProlongationMonths" HasCaption="True" OnChange="ProlongationMonthsEdit_OnChange" OnEnter="ProlongationMonthsEdit_OnEnter" OnOutput="ProlongationMonthsEdit_OnOutput" OnVerify="ProlongationMonthsEdit_OnVerify"/>
+                    <Component Name="ProlongationMonthsBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                  </Component>
+                </Inherited>
+              </Inherited>
+              <Component Name="PeriodIndefiniteGroup" Class="Com.Ctrl.IGroup" After="PeriodGroup" Adaptive="True" ByColumn="False" MaxWidth="300">
+                <Component Name="PeriodIndefiniteLeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="StartDateIndefiniteGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+                    <Component Name="StartDateIndefinite" Class="Com.Ctrl.IEdit" Caption="@Contract:StartDate=Период действия с" Field="EdtRec.StartDate" HasCaption="True" OnVerify="StartDate_OnVerify" Required="True"/>
+                    <Component Name="StartDateIndefiniteBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                  </Component>
+                </Component>
+                <Component Name="PeriodIndefiniteRightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="IndefiniteGroupRight" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+                    <Component Name="IndefiniteRightStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+                    <Component Name="IndefiniteRightEdit" Class="Com.Ctrl.ICheckBox" Caption="@Contract:IndefiniteEdit=Бесcрочный договор" Field="EdtRec.Indefinite" HasCaption="True" OnChange="IndefiniteEdit_OnChange" OnVerify="IndefiniteEdit_OnVerify"/>
+                    <Component Name="IndefiniteRigthBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                  </Component>
+                </Component>
+              </Component>
+              <Component Name="ActualExpDateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="ActualExpDateGroup2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="ActualExpDateGroup3" Class="Com.Ctrl.IGroup" Adaptive="True">
+                    <Component Name="ActualExpDate" Class="Com.Ctrl.IEdit" Caption="@Contract:ActualExpDate=Акт. дата завершения" CellFormat="DateFormat" Enabled="False" Field="EdtRec.ActualExpDate" FormatOfDate="DateOnly" HasCaption="True" Hint="@Contract:ActualExpDateHint=Актуальная дата завершения действия договора"/>
+                    <Component Name="ActualExpDateBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                  </Component>
+                </Component>
+                <Component Name="RescissionDateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="RescissionDateGroup2" Class="Com.Ctrl.IGroup" Adaptive="True">
+                    <Component Name="RescissionDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Enabled="False" Field="EdtRec.RescissionDate" FormatOfDate="DateOnly" HasCaption="True"/>
+                    <Component Name="RescissionDateBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                  </Component>
+                </Component>
+              </Component>
+              <Inherited Name="SpecificationGroup">
+                <Inherited Name="AmountBySpecGroup">
+                  <Inherited Name="AmountBySpecGroup2">
+                    <Inherited Name="AmountBySpec" OnChange="AmountBySpec_OnChange"/>
+                  </Inherited>
+                </Inherited>
+              </Inherited>
+              <Inherited Name="CurrencyGroup">
+                <Inherited Name="Currency" Required="True"/>
+              </Inherited>
+              <Inherited Name="DepartmentGroup">
+                <Component Name="StoragePlace" Class="Com.Ctrl.IEdit" Field="EdtRec.StoragePlace" HasCaption="True"/>
+                <Component Name="StoragePlaceBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Inherited>
+              <Inherited Name="CommentGroup">
+                <Inherited Name="Comment" Caption="@Предмет договора" Field="EdtRec.GeneralComment"/>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Component Name="AssociatedContractsBox" Class="Com.Ctrl.IBox" After="GeneralBox" Caption="@Contract:AssociatedContractsBox=Связанные договоры">
+            <Component Name="AssociatedContractsSubtableFrame" Class="Com.Ctrl.IFrame" Sortable="True" Subtable="EdtRec.AssociatedContracts">
+              <Component Name="Contract_AssociatedContracts" Class="Biz.Rec.Data.Contract_AssociatedContracts" IsLibrary="1"/>
+              <Component Name="AssociatedContractCode" Class="Com.Ctrl.IEdit" Caption="@Contract:AssociatedContractCode=Код" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Field="Contract_AssociatedContracts.Contract" HasCaption="True" LookupField="Code" Width="50"/>
+              <Component Name="AssociatedContractEventTime" Class="Com.Ctrl.IEdit" Caption="@Contract:AssociatedContractEventTime=Дата" CellFormat="ReferenceFormat" Enabled="False" Field="Contract_AssociatedContracts.Contract" HasCaption="True" LookupField="EventTime" Width="25"/>
+            </Component>
+          </Component>
+          <Component Name="ContractSumsWithSuppAgr" Class="Com.Ctrl.IBox" After="ContractSumsBox" AutoSize="True" Caption="@Contract:ContractSumsWithSuppAgr=Сумма договора (с учетом дополнительных соглашений)">
+            <Component Name="ContractSumsWithSuppAgrVert" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Vertical" ScrollerStyle="ScrollerHorz">
+              <Component Name="ContractSumsWithSuppAgrHorz" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Horizontal">
+                <Component Name="ContractSumsWithSuppAgrSubtableFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Enabled="False" ScrollerStyle="ScrollerNone" Sortable="True" Subtable="EdtRec.ContractSumsWithSuppAgr">
+                  <Component Name="Contract_ContractSumsWithSuppAgr" Class="Biz.Rec.Data.Contract_ContractSumsWithSuppAgr" IsLibrary="1"/>
+                  <Component Name="ContractSumsWithSuppAgrVATRate" Class="Com.Ctrl.IEdit" Caption="@Contract:ContractSumsVATRate=Ставка НДС" CardFileClass="Biz.Tab.Ref.VAT" CellFormat="ReferenceFormat" Enabled="False" Field="Contract_ContractSumsWithSuppAgr.VATRate" HasCaption="True" LookupField="Name" Width="50"/>
+                  <Component Name="ContractSumsWithSuppAgrAmountWithoutVAT" Class="Com.Ctrl.IEdit" Caption="@Contract:ContractSumsAmountWithoutVAT=Сумма без НДС" CellFormat="NumericFormat" Enabled="False" Field="Contract_ContractSumsWithSuppAgr.AmountWithoutVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+                  <Component Name="ContractSumsWithSuppAgrVATAmount" Class="Com.Ctrl.IEdit" Caption="@Contract:ContractSumsVATAmount=Сумма НДС" CellFormat="NumericFormat" Enabled="False" Field="Contract_ContractSumsWithSuppAgr.VATAmount" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+                  <Component Name="ContractSumsWithSuppAgrAmountIncVAT" Class="Com.Ctrl.IEdit" Caption="@Contract:ContractSumsAmountIncVAT=Сумма с учетом НДС" CellFormat="NumericFormat" Enabled="False" Field="Contract_ContractSumsWithSuppAgr.AmountIncludingVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+                </Component>
+                <Component Name="ContractSumsWithSuppAgrTotalFrame" Class="Com.Ctrl.IFrame" ScrollerStyle="ScrollerNone" Subtable="EdtRec.ContractSumsWithSuppAgr_Totals" Visible="True">
+                  <Component Name="Contract_SumsWithSuppAgr_Totals" Class="Biz.Rec.Data.Contract_ContractSums_Totals" IsLibrary="1"/>
+                  <Component Name="TotalSuppAgrRowCaption" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="Contract_SumsWithSuppAgr_Totals.TotalCaption" FixSize="True" HasCaption="False" Width="50"/>
+                  <Component Name="TotalSuppAgrAmountWithoutVAT" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" Field="Contract_SumsWithSuppAgr_Totals.AmountWithoutVAT" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="False" Width="30"/>
+                  <Component Name="TotalSuppAgrVATAmount" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" Field="Contract_SumsWithSuppAgr_Totals.VATAmount" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="False" Width="30"/>
+                  <Component Name="TotalSuppAgrAmountIncVAT" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" Field="Contract_SumsWithSuppAgr_Totals.AmountIncludingVAT" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="False" Width="30"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="RequisitesTab" Class="Com.Ctrl.IFrame" Caption="@Contract:RequisitesTab=Реквизиты" Visible="True">
+          <Component Name="OurCompanyBox" Class="Com.Ctrl.IBox" Caption="@Contract:OurCompanyBox=Наши реквизиты">
+            <Component Name="OurCompanyGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+              <Component Name="CompanySignatoryEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="CompanySignatoryEdit" Class="Com.Ctrl.IEdit" Caption="@Contract:CompanySignatoryEdit=Подписант" Enabled="False" Field="EdtRec.Company" HasCaption="True" LookupField="Director.Name"/>
+                <Component Name="CompanySignatoryBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="CompanySignatoryPositionEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="CompanySignatoryPositionEdit" Class="Com.Ctrl.IEdit" Caption="@Contract:CompanySignatoryPositionEdit=Должность подписанта" Enabled="False" Field="EdtRec.Company" HasCaption="True" LookupField="DirectorsRole.Name"/>
+                <Component Name="CompanySignatoryPositionEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="CompanyPaymentAccountEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="CompanyPaymentAccountEdit" Class="Com.Ctrl.IEdit" Caption="@Contract:CompanyPaymentAccountEdit=Расчетный счет" Enabled="False" Field="EdtRec.Company" HasCaption="True" LookupField="MainBankDetails.Name"/>
+                <Component Name="CompanyPaymentAccountEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="CompanyBankGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+                <Component Name="CompanyBankNameEdit" Class="Com.Ctrl.IEdit" Caption="@Contract:CompanyBankNameEdit=Наименование банка" Enabled="False" Field="EdtRec.Company" HasCaption="True" LookupField="MainBankDetails.Bank.Name"/>
+                <Component Name="CompanyBankNameEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="CompanyRegisteredAddressEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="CompanyRegisteredAddressEdit" Class="Com.Ctrl.IEdit" Caption="@Contract:CompanyRegisteredAddressEdit=Юридический адрес" Enabled="False" Field="EdtRec.Company" HasCaption="True" LookupField="LegalAddress"/>
+                <Component Name="CompanyRegisteredAddressEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="CompanyPhysicalAddressEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="CompanyPhysicalAddressEdit" Class="Com.Ctrl.IEdit" Caption="@Contract:CompanyPhysicalAddressEdit=Фактический адрес" Enabled="False" Field="EdtRec.Company" HasCaption="True" LookupField="ActualAddress"/>
+                <Component Name="CompanyPhysicalAddressEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="PartnerBox" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@Contract:PartnerBox=Реквизиты субъекта/контрагента">
+            <Component Name="PartnerGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+              <Component Name="PartnerSignatoryEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="PartnerSignatoryEdit" Class="Com.Ctrl.IEdit" Caption="@Contract:PartnerSignatoryEdit=Подписант" Enabled="False" Field="EdtRec.PartnerSignatory" HasCaption="True"/>
+                <Component Name="PartnerSignatoryEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="PartnerSignatoryPositionEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="PartnerSignatoryPositionEdit" Class="Com.Ctrl.IEdit" Caption="@Contract:PartnerSignatoryPositionEdit=Должность подписанта" Enabled="False" Field="EdtRec.PartnerSignatoryPosition" HasCaption="True"/>
+                <Component Name="PartnerSignatoryPositionEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="PartnerPaymentAccountEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="PartnerPaymentAccountEdit" Class="Com.Ctrl.IEdit" Caption="@Contract:PartnerPaymentAccountEdit=Расчетный счет" CardFileClass="Biz.Tab.Data.BankDetails" CellFormat="ReferenceFormat" Field="EdtRec.PartnerPaymentAccount" HasCaption="True" LookupField="Name"/>
+                <Component Name="PartnerPaymentAccountEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="PartnerBankGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+                <Component Name="PartnerBankNameEdit" Class="Com.Ctrl.IEdit" Caption="@Contract:PartnerBankNameEdit=Наименование банка" CellFormat="ReferenceFormat" Field="EdtRec.PartnerBankName" HasCaption="True" LookupField="Name"/>
+                <Component Name="PartnerBankNameEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="PartnerRegisteredAddressEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="PartnerRegisteredAddressEdit" Class="Com.Ctrl.IEdit" Caption="@Contract:PartnerRegisteredAddressEdit=Юридический адрес" Enabled="False" Field="EdtRec.PartnerRegisteredAddress" HasCaption="True"/>
+                <Component Name="PartnerRegisteredAddressEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="PartnerPhysicalAddressEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="PartnerPhysicalAddressEdit" Class="Com.Ctrl.IEdit" Caption="@Contract:PartnerPhysicalAddressEdit=Фактический адрес" Field="EdtRec.PartnerPhysicalAddress" HasCaption="True"/>
+                <Component Name="PartnerPhysicalAddressEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="PartnerUserBox" Class="Com.Ctrl.IBox" Caption="@Contract:PartnerUserBox=Данные куратора контрагента">
+            <Component Name="PartnerUserGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+              <Component Name="PartnerUserPhoneEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="PartnerUserPhoneEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.PartnerUserPhone" HasCaption="True" Wrap="True"/>
+                <Component Name="PartnerUserPhoneEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="PartnerUserCellPhoneEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="PartnerUserCellPhoneEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.PartnerUserCellPhone" HasCaption="True" Wrap="True"/>
+                <Component Name="PartnerUserCellPhoneEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="PartnerUserEMailEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="PartnerUserEMailEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.PartnerUserEMail" HasCaption="True" Wrap="True"/>
+                <Component Name="PartnerUserEMailEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="PartnerUserPositionEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="PartnerUserPositionEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.PartnerUserPosition" HasCaption="True" Wrap="True"/>
+                <Component Name="PartnerUserPositionEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="PartnerUserAddContactsEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="PartnerUserAddContactsEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.PartnerUserAddContacts" HasCaption="True" Wrap="True"/>
+                <Component Name="PartnerUserAddContactsEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="PartnerFinanceBox" Class="Com.Ctrl.IBox" Caption="@Contract:PartnerFinanceBox=Финансовые реквизиты субъекта/контрагента">
+            <Component Name="PartnerFinanceGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+              <Component Name="PartnerFinNameEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="PartnerFinNameEdit" Class="Com.Ctrl.IEdit" Caption="@Contract:PartnerFinNameEdit=Получатель" Field="EdtRec.PartnerFinName" HasCaption="True" Hint="@Contract:PartnerFinNameEditHint=Наименование получателя"/>
+                <Component Name="PartnerFinNameEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="PartnerFinPaymentAccountEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="PartnerFinPaymentAccountEdit" Class="Com.Ctrl.IEdit" Caption="@Contract:PartnerFinPaymentAccountEdit=Расчетный счет" CardFileClass="Biz.Tab.Data.BankDetails" CellFormat="ReferenceFormat" Field="EdtRec.PartnerFinPaymentAccount" HasCaption="True" LookupField="Name"/>
+                <Component Name="PartnerFinPaymentAccountEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="PartnerFinBankNameEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="PartnerFinBankNameEdit" Class="Com.Ctrl.IEdit" Caption="@Contract:PartnerFinBankNameEdit=Наименование банка" CellFormat="ReferenceFormat" Field="EdtRec.PartnerFinBankName" HasCaption="True" LookupField="Name"/>
+                <Component Name="PartnerFinBankNameEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="СonsigneeBox" Class="Com.Ctrl.IBox" Caption="@Contract:СonsigneeBox=Данные о грузополучателе">
+            <Component Name="СonsigneeBoxGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+              <Component Name="СonsigneeGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="ConsigneeEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Contraparties" CellFormat="ReferenceFormat" Field="EdtRec.Consignee" HasCaption="True" Hint="@Contract:ConsigneeEditHint=Наименование грузополучателя" LookupField="Name"/>
+                <Component Name="ConsigneeEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="СonsigneeAddressGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="ConsigneeAddressEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.ConsigneeAddress" HasButton="True" HasCaption="True" OnLookup="ConsigneeAddressEdit_OnLookup"/>
+                <Component Name="ConsigneeAddressEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="AdditionalBox" Class="Com.Ctrl.IBox" Caption="@Contract:AdditionalBox=Дополнительно">
+            <Component Name="AddRequisitesGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+              <Component Name="RequisitesCommentEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.RequisitesComment" HasCaption="True" Multiline="True" Wrap="True"/>
+              <Component Name="RequisitesCommentEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="SuppAgreementsTab" Class="Com.Ctrl.IFrame" Caption="@Contract:SuppAgreementsTab=Дополнительные соглашения">
+          <Component Name="SuppAgreementFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Subtable="EdtRec.SuppAgreementsSub">
+            <Component Name="Contract_SuppAgreement" Class="Biz.Rec.Data.Contract_SuppAgreements" IsLibrary="1"/>
+            <Component Name="ShippingPeriodStartEdit2" Class="Com.Ctrl.IEdit" Caption="@SuppAgreement:PeriodStart=Дата" Enabled="False" Field="Contract_SuppAgreement.PeriodStart" FieldFormat="DD.MM.YYYY" FormatOfDate="DateOnly" HasCaption="True" LookupField="PeriodStart" Width="40"/>
+            <Component Name="ColumnsGroup1" Class="Com.Ctrl.IColumnsGroup" Caption="@SuppAgreement:PrintedNumber=Номер" HasCaption="True">
+              <Component Name="SuppAgreementNumberEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Contract_SuppAgreement.PrintedNumber" HasCaption="False" Width="25"/>
+              <Component Name="SuppAgreementNumberJumpButton" Class="Com.Ctrl.IJumpButton" HasCaption="False" OnClick="SuppAgreementNumberJumpButton_OnClick"/>
+            </Component>
+            <Component Name="SuppAgreementStatus" Class="Com.Ctrl.IEdit" Caption="@Contract:SuppAgreementStatus=Статус" CellFormat="ReferenceFormat" Enabled="False" Field="Contract_SuppAgreement.Status" HasCaption="True" LookupField="Name" Width="25"/>
+            <Component Name="SuppAgreementSumTypeEdit" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@SuppAgreement:SumType=Влияние на цену договора" CaptionWidth="30" CellFormat="EnumFormat" Enabled="False" Field="Contract_SuppAgreement.SumType" HasCaption="True" ListAsString="Заменяет|0;Изменяет|1" ShortList="True" ValueType="VarInteger" Width="50"/>
+            <Component Name="SuppAgreementAmountWithoutVATEdit" Class="Com.Ctrl.IEdit" Caption="@SuppAgreement:AmountWithoutVAT=Сумма без НДС" CellFormat="NumericFormat" Enabled="False" Field="Contract_SuppAgreement.TotalAmountWithoutVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="35"/>
+            <Component Name="SuppAgreementVATAmountEdit" Class="Com.Ctrl.IEdit" Caption="@SuppAgreement:VATAmount=Сумма НДС" CellFormat="NumericFormat" Enabled="False" Field="Contract_SuppAgreement.TotalVATAmount" FieldFormat=",##0.00;;-" HasCaption="True" Width="35"/>
+            <Component Name="SuppAgreementAmountIncludingVATEdit" Class="Com.Ctrl.IEdit" Caption="@SuppAgreement:AmountIncludingtVAT=Сумма с учетом НДС" CellFormat="NumericFormat" Enabled="False" Field="Contract_SuppAgreement.TotalAmountIncludingVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="35"/>
+          </Component>
+        </Component>
+        <Component Name="SpecificationsTab" Class="Com.Ctrl.IFrame" Caption="@Contract:SpecificationsTab=Спецификации">
+          <Component Name="SpecificationsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Subtable="EdtRec.SpecificationsSub">
+            <Component Name="Contract_Specification" Class="Biz.Rec.Data.Contract_Specification" IsLibrary="1"/>
+            <Component Name="SpecificationDate" Class="Com.Ctrl.IEdit" Caption="@Specification:Date=Дата" Enabled="False" Field="Contract_Specification.EventTime" FieldFormat="DD.MM.YYYY" FormatOfDate="DateOnly" HasCaption="True" LookupField="PeriodStart" Width="40"/>
+            <Component Name="ColumnsGroup2" Class="Com.Ctrl.IColumnsGroup" Caption="@Specificationt:PrintedNumber=Номер" HasCaption="True">
+              <Component Name="SpecificationNumberEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Contract_Specification.PrintedNumber" HasCaption="False" Width="25"/>
+              <Component Name="SpecificationNumberJumpButton" Class="Com.Ctrl.IJumpButton" HasCaption="False" OnClick="SpecificationNumberJumpButton_OnClick"/>
+            </Component>
+            <Component Name="SpecificationAmountWithoutVATEdit" Class="Com.Ctrl.IEdit" Caption="@Specificationt:AmountWithoutVAT=Сумма без НДС" CellFormat="NumericFormat" Enabled="False" Field="Contract_Specification.TotalAmountWithoutVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="35"/>
+            <Component Name="SpecificationVATAmountEdit" Class="Com.Ctrl.IEdit" Caption="@Specification:VATAmount=Сумма НДС" CellFormat="NumericFormat" Enabled="False" Field="Contract_Specification.TotalVATAmount" FieldFormat=",##0.00;;-" HasCaption="True" Width="35"/>
+            <Component Name="SpecificationAmountIncludingVATEdit" Class="Com.Ctrl.IEdit" Caption="@Specification:AmountIncludingtVAT=Сумма с учетом НДС" CellFormat="NumericFormat" Enabled="False" Field="Contract_Specification.TotalAmountIncludingVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="35"/>
+            <Component Name="SpecificationDuration" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Specification:Duration=Период" CellFormat="StringFormat" Enabled="False" Field="Contract_Specification.Duration" HasCaption="True" Width="45"/>
+            <Component Name="SpecificationDocName" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Specification:DocName=К документу" CellFormat="StringFormat" Enabled="False" Field="Contract_Specification.DocumentName" HasCaption="True" Width="25"/>
+            <Component Name="SpecificationDocDate" Class="Com.Ctrl.IEdit" Caption="@Specification:DocDate=Дата создания док-та" CellFormat="DateFormat" Enabled="False" Field="Contract_Specification.ParentDocumentPostingDate" FieldFormat="DD.MM.YYYY" FormatOfDate="DateOnly" HasCaption="True" Width="25"/>
+            <Component Name="SpecificationDocRegNumber" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Specification:DocRegNumber=Рег. № док-та" Enabled="False" Field="Contract_Specification.ParentDocumentRegisterNumber" HasCaption="True" Width="25"/>
+            <Component Name="SpecificationDocRegDate" Class="Com.Ctrl.IEdit" Caption="@Specification:SpecificationDocRegDate=Дата регистрации" CellFormat="DateFormat" Enabled="False" Field="Contract_Specification.ParentDocumentRegisterDate" FieldFormat="DD.MM.YYYY" FormatOfDate="DateOnly" HasCaption="True" Width="25"/>
+            <Component Name="SpecificationStatus" Class="Com.Ctrl.IEdit" Caption="@Specification:Status=Статус" CellFormat="ReferenceFormat" Enabled="False" Field="Contract_Specification.Status" HasCaption="True" LookupField="Name" Width="25"/>
+          </Component>
+        </Component>
+        <Component Name="FinanceTab" Class="Com.Ctrl.IFrame" Caption="@Contract:FinanceTab=Финансовые условия">
+          <Component Name="FinanceGeneralBox" Class="Com.Ctrl.IBox" Caption="@Contract:FinanceGeneralBox=Общие данные">
+            <Component Name="FinanceGeneralGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="TermsOfPaymentGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="TermsOfPaymentGroup2" Class="Com.Ctrl.IGroup" Adaptive="True">
+                  <Component Name="TermsOfPayment" Class="Com.Ctrl.IEdit" Caption="@Contract:TermsOfPayment=Условия оплаты" CardFileClass="Biz.Tab.Ref.ContractTermsOfPayment" CellFormat="ReferenceFormat" Field="EdtRec.TermsOfPayment" Hint="@Contract:TermsOfPaymentHint=Условия оплаты по договору" LookupField="Name" OnChange="TermsOfPayment_OnChange"/>
+                  <Component Name="TermsOfPayment_JumpBtn" Class="Com.Ctrl.IJumpButton" Field="EdtRec.TermsOfPayment" JumpForm="Biz.Frm.Ref.ContractTermsOfPayment"/>
+                </Component>
+                <Component Name="PaymentPeriodGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                  <Component Name="PaymentPeriodEdit" Class="Com.Ctrl.IEdit" Caption="@Contract:PaymentPeriodEdit=Периодичность" CellFormat="EnumFormat" Field="EdtRec.PaymentPeriod" Hint="@Contract:PaymentPeriodEditHint=Периодичность расчетов по договору (Т*)" ListAsString="Месяц|0;Квартал|1;Полугодие|2;Год|3"/>
+                  <Component Name="PaymentPeriodEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+              <Component Name="TermsOfPayment_DescriptionGroup" Class="Com.Ctrl.IGroup">
+                <Component Name="TermsOfPayment_Description" Class="Com.Ctrl.IEdit" Caption="@Contract:TermsOfPayment_Description=Описание" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.TermsOfPayment" LookupField="Description" Multiline="True" Wrap="True"/>
+                <Component Name="TermsOfPayment_DescriptionBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="CalendarGroup" Class="Com.Ctrl.IGroup">
+                <Component Name="CalendarEdit" Class="Com.Ctrl.IEdit" Caption="@Contract:CalendarEdit=Календарь" CardFileClass="Bas.Tab.Ref.Calendar" CellFormat="ReferenceFormat" Field="EdtRec.Calendar" HasCaption="True" LookupField="Code"/>
+                <Component Name="Calendar_JumpBtn" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Calendar" JumpForm="Bas.Frm.Ref.Calendar"/>
+              </Component>
+              <Component Name="DimensionsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="CFR" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="EdtRec.CFR" HasCaption="True" LookupField="Name"/>
+                <Component Name="CFRBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                <Component Name="BGI" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="EdtRec.BGI" HasCaption="True" LookupField="Name" LookupFilter="Not Closed"/>
+                <Component Name="BGIBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+                <Component Name="Project" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Field="EdtRec.Project" HasCaption="True" LookupField="Name"/>
+                <Component Name="ProjectBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                <Component Name="Source" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.FundSource" CellFormat="ReferenceFormat" Field="EdtRec.Source" HasCaption="True" LookupField="Name"/>
+                <Component Name="SourceBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="AdvancePaymentTypeStatic" Class="Com.Ctrl.IStatic" Excluded="True" Alignment="CenterAlign" Caption="@Contract:AdvancePaymentTypeStatic=Авансовые условия платежа/поступления" FontBold="True" FontItalic="True" StaticStyle="StaticHeader"/>
+              <Component Name="AdvancePaymentTypeEdit" Class="Com.Ctrl.IEdit" Excluded="True" Caption="@Contract:AdvancePaymentTypeEdit=Авансовые условия" CellFormat="EnumFormat" Field="EdtRec.AdvancePaymentType" ListAsString="% от основного договора|0;Сумма от основного договора|1;% от периода договора (в соответствии с установленной периодичностью договора)|2;Сумма от периода договора (в соответствии с установленной периодичностью договора)|3;Аванс не предусмотрен" MaxWidth="175"/>
+              <Component Name="AdvanceGroup" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" MaxWidth="300" MinWidth="150">
+                <Component Name="AdvanceValueEdit" Class="Com.Ctrl.IEdit" Caption="@Contract:AdvanceValueEdit=Числовое значение" Field="EdtRec.AdvanceValue" MaxWidth="40" OnEnter="AdvanceValueEdit_OnEnter"/>
+                <Component Name="AdvancePercentCurrency" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CellFormat="StringFormat" Enabled="False" FixSize="True" OnOutput="AdvancePercentCurrency_OnOutput" Width="12"/>
+                <Component Name="AdvancePeriodTypeEdit" Class="Com.Ctrl.IEdit" Caption="@Contract:AdvancePeriodTypeEdit=Периодичность аванса" CaptionWidth="45" CellFormat="EnumFormat" Enabled="False" FixSize="True" ListAsString="Месяц|0;Квартал|1;Полугодие|2;9 месяцев|3;Год|4" OnOutput="AdvancePeriodTypeEdit_OnOutput" Width="30"/>
+              </Component>
+              <Component Name="PostpaymentStatic" Class="Com.Ctrl.IStatic" Excluded="True" Alignment="CenterAlign" Caption="@Contract:PostpaymentStatic=Условие платежа/поступления для постоплаты" FontBold="True" FontItalic="True" StaticStyle="StaticHeader"/>
+              <Component Name="PostpaymentGroup" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" MaxWidth="300" MinWidth="150">
+                <Component Name="PostpaymentGroupStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                <Component Name="PostpaymentCheckBox" Class="Com.Ctrl.ICheckBox" Caption="@Contract:PostpaymentCheckBox=Отсрочка платежа предусмотрена" Field="EdtRec.Postpayment"/>
+              </Component>
+              <Component Name="PostpaymentValueEdit" Class="Com.Ctrl.IEdit" Excluded="True" Caption="@Contract:PostpaymentValueEdit=Количество дней" Field="EdtRec.PostpaymentValue" MaxWidth="40" OnEnter="PostpaymentValueEdit_OnEnter"/>
+            </Component>
+          </Component>
+          <Component Name="ShippingTimelineBox" Class="Com.Ctrl.IBox" Caption="@Contract:ShippingTimeline=График поставок/отгрузок товаров/услуг">
+            <Component Name="ShippingTimelineVert" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Vertical" ScrollerStyle="ScrollerHorz">
+              <Component Name="ShippingTimelineHorz" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Horizontal">
+                <Component Name="ShippingTimelineSubtableFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone" Sortable="True" Subtable="EdtRec.ShippingTimeline">
+                  <Component Name="Contract_ShippingTimeline" Class="Biz.Rec.Data.Contract_ShippingTimeline" IsLibrary="1"/>
+                  <Component Name="ShippingPeriodStartEdit" Class="Com.Ctrl.IEdit" Field="Contract_ShippingTimeline.PeriodStart" FormatOfDate="DateOnly" HasCaption="True" OnVerify="ShippingTimelineControl_OnVerify" Width="40"/>
+                  <Component Name="ShippingPeriodEndEdit" Class="Com.Ctrl.IEdit" Field="Contract_ShippingTimeline.PeriodEnd" FormatOfDate="DateOnly" HasCaption="True" OnVerify="ShippingTimelineControl_OnVerify" Width="40"/>
+                  <Component Name="ShippingDateEdit" Class="Com.Ctrl.IEdit" Field="Contract_ShippingTimeline.ShippingDate" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" OnVerify="ShippingTimelineControl_OnVerify" Width="40"/>
+                  <Component Name="ShippingAmountWithOutVatEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="Contract_ShippingTimeline.AmountWithOutVAT" FieldFormat=",##0.00;;-" HasCaption="True" OnChange="Shipping_AmountiWthoutVATEdit_OnChange" OnVerify="ShippingTimelineControl_OnVerify" Width="35"/>
+                  <Component Name="ShippingVATRate" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.VAT" CellFormat="ReferenceFormat" Field="Contract_ShippingTimeline.VATRate" HasCaption="True" LookupField="Name" OnChange="Shipping_RateVATEdit_OnChange" OnVerify="Shipping_Vat_OnVerify" Width="20"/>
+                  <Component Name="ShippingAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="Contract_ShippingTimeline.Amount" FieldFormat=",##0.00;;-" HasCaption="True" OnChange="Shipping_AmountEdit_OnChange" OnVerify="ShippingTimelineControl_OnVerify" Width="35"/>
+                  <Component Name="ShippingCFREdit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Contract_ShippingTimeline.CFR" HasCaption="True" LookupField="Name" OnVerify="ShippingTimelineDimension_OnVerify" Width="30"/>
+                  <Component Name="ShippingBGIEdit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Contract_ShippingTimeline.BGI" HasCaption="True" LookupField="Name" LookupFilter="Not Closed" OnVerify="ShippingTimelineDimension_OnVerify" Width="30"/>
+                  <Component Name="ShippingProjectEdit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Contract_ShippingTimeline.Project" HasCaption="True" LookupField="Name" OnVerify="ShippingTimelineDimension_OnVerify" Width="30"/>
+                  <Component Name="ShippingSourceEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.FundSource" CellFormat="ReferenceFormat" Field="Contract_ShippingTimeline.Source" HasCaption="True" LookupField="Name" OnVerify="ShippingTimelineDimension_OnVerify" Width="30"/>
+                  <Component Name="ShippingBySuppAgrCheckBox" Class="Com.Ctrl.ICheckBox" Caption="@Contract:ShippingByAddAgreementCheckBox=Поставка/отгрузка согласно ДС" Field="Contract_ShippingTimeline.BySuppAgreement" HasCaption="True" OnVerify="ShippingTimelineCheckBox_OnVerify" Width="40"/>
+                  <Component Name="ShippingSuppAgrNumEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.ContractSuppAgreement" CellFormat="ReferenceFormat" Field="Contract_ShippingTimeline.SuppAgreement" HasCaption="True" LookupField="PrintedNumber" OnEnter="ShippingSuppAgrNumEdit_OnEnter" OnLookup="ShippingSuppAgrNumEdit_OnLookup" Width="30"/>
+                  <Component Name="ShippingBySpecCheckBox" Class="Com.Ctrl.ICheckBox" Caption="@Contract:ShippingBySpecCheckBox=Поставка/отгрузка по спецификации" Field="Contract_ShippingTimeline.BySpec" HasCaption="True" OnVerify="ShippingTimelineCheckBox_OnVerify" Width="40"/>
+                  <Component Name="ShippingSpecNumEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.ContractSpecification" CellFormat="ReferenceFormat" Field="Contract_ShippingTimeline.Specification" HasCaption="True" LookupField="PrintedNumber" OnEnter="ShippingSpecNumEdit_OnEnter" OnLookup="ShippingSpecNumEdit_OnLookup" Width="30"/>
+                  <Component Name="ShippingShipping" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="Contract_ShippingTimeline.Shipping" HasCaption="True" LookupField="Name" Width="30"/>
+                  <Component Name="ShippingJumpButton" Class="Com.Ctrl.IJumpButton" Field="Contract_ShippingTimeline.Shipping" HasCaption="True" JumpForm="Biz.Frm.Data.ContractShipping"/>
+                  <Component Name="ShippingCreateShipping" Class="Com.Ctrl.ICheckBox" Caption="@Contract:ShippingCreateShipping=Сформировать поставку/отгрузку" Field="Contract_ShippingTimeline.CreateShipping" HasCaption="True" OnChange="ShippingCreateShipping_OnChange" OnVerify="ShippingTimelineCheckBox_OnVerify" Width="35"/>
+                  <Component Name="ShippingStatus" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Contract_ShippingTimeline.Status" HasCaption="True" ListAsString="План|0;Факт|1" Width="35"/>
+                </Component>
+                <Component Name="ShippingTimelineTotalsFrame" Class="Com.Ctrl.IFrame" ScrollerStyle="ScrollerNone" Subtable="EdtRec.ShippingTimeline_Totals" Visible="True">
+                  <Component Name="Contract_ShippingTimeline_Totals" Class="Biz.Rec.Data.Contract_ShippingTimeline_Totals" IsLibrary="1"/>
+                  <Component Name="ShippingTotalNum" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Visible="False" Width="10"/>
+                  <Component Name="ShippingTotalCaption" Class="Com.Ctrl.IEdit" Enabled="False" Field="Contract_ShippingTimeline_Totals.TotalCaption" HasCaption="False" Width="50"/>
+                  <Component Name="ShippingTotalPeriodEnd" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="40"/>
+                  <Component Name="ShippingTotalDate" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="40"/>
+                  <Component Name="ShippingTotalAmountWithOutRate" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="Contract_ShippingTimeline_Totals.AmountWithOutVat" FieldFormat=",##0.00;;-" HasCaption="False" Width="35"/>
+                  <Component Name="ShippingTotalVATRate" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="True" Width="20"/>
+                  <Component Name="ShippingTotalAmount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="Contract_ShippingTimeline_Totals.Amount" FieldFormat=",##0.00;;-" HasCaption="False" Width="35"/>
+                  <Component Name="ShippingTotalCFR" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="30"/>
+                  <Component Name="ShippingTotalBGI" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="30"/>
+                  <Component Name="ShippingTotalProject" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="30"/>
+                  <Component Name="ShippingTotalSource" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="30"/>
+                  <Component Name="ShippingTotalBySuppAgr" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="40"/>
+                  <Component Name="ShippingTotalSuppAgrNum" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="30"/>
+                  <Component Name="ShippingTotalBySpec" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="40"/>
+                  <Component Name="ShippingTotalSpecNum" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="30"/>
+                  <Component Name="ShippingTotalShipping" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="30"/>
+                  <Component Name="ShippingTotalJumpButton" Class="Com.Ctrl.IJumpButton" Enabled="False" Field="Contract_ShippingTimeline.Shipping" HasCaption="False" JumpForm="Biz.Tab.Data.ContractShipping"/>
+                  <Component Name="ShippingTotalCreateShipping" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="35"/>
+                  <Component Name="ShippingTotalStatus" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="35"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="PaymentTimelineBox" Class="Com.Ctrl.IBox" Caption="@Contract:PaymentTimelineBox=График платежей/поступлений">
+            <Component Name="PaymentTimelineVert" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Vertical" ScrollerStyle="ScrollerHorz">
+              <Component Name="PaymentTimelineHorz" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Horizontal">
+                <Component Name="PaymentTimelineSubtableFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone" Sortable="True" Subtable="EdtRec.PaymentTimeline">
+                  <Component Name="Contract_PaymentTimeline" Class="Biz.Rec.Data.Contract_PaymentTimeline" IsLibrary="1"/>
+                  <Component Name="PaymentDateEdit" Class="Com.Ctrl.IEdit" Field="Contract_PaymentTimeline.PaymentDate" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" Width="42"/>
+                  <Component Name="PaymentAmountWithoutVATEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="Contract_PaymentTimeline.AmountWithoutVAT" FieldFormat=",##0.00;;-" HasCaption="True" OnChange="AmountWithoutVATEdit_OnChange" Width="42"/>
+                  <Component Name="PaymentRateVATEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.VAT" CellFormat="ReferenceFormat" Field="Contract_PaymentTimeline.RateVAT" HasCaption="True" LookupField="Name" OnChange="RateVATEdit_OnChange" Width="42"/>
+                  <Component Name="PaymentAmountVATEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="Contract_PaymentTimeline.AmountVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="42"/>
+                  <Component Name="PaymentAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="Contract_PaymentTimeline.Amount" FieldFormat=",##0.00;;-" HasCaption="True" OnChange="AmountEdit_OnChange" Width="42"/>
+                  <Component Name="PaymentCFREdit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Contract_PaymentTimeline.CFR" HasCaption="True" LookupField="Name" Width="30"/>
+                  <Component Name="PaymentBGIEdit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Contract_PaymentTimeline.BGI" HasCaption="True" LookupField="Name" LookupFilter="Not Closed" Width="30"/>
+                  <Component Name="PaymentProjectEdit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Contract_PaymentTimeline.Project" HasCaption="True" LookupField="Name" Width="30"/>
+                  <Component Name="PaymentSourceEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.FundSource" CellFormat="ReferenceFormat" Field="Contract_PaymentTimeline.Source" HasCaption="True" LookupField="Name" Width="30"/>
+                  <Component Name="PaymentIsAdvPostpaymCheckBox" Class="Com.Ctrl.ICheckBox" Caption="@Contract:PaymentIsAdvancePostpaymentCheckBox=Аванс" Field="Contract_PaymentTimeline.IsAdvancePostpayment" HasCaption="True" Width="16"/>
+                  <Component Name="PaymentBySuppAgrCheckBox" Class="Com.Ctrl.ICheckBox" Caption="@Contract:PaymentByAddAgreementCheckBox=Поставка/отгрузка согласно ДС" Field="Contract_PaymentTimeline.BySuppAgreement" HasCaption="True" Width="40"/>
+                  <Component Name="PaymentSuppAgrNumEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.ContractSuppAgreement" CellFormat="ReferenceFormat" Field="Contract_PaymentTimeline.SuppAgreement" HasCaption="True" LookupField="PrintedNumber" OnEnter="PaymentSuppAgrNumEdit_OnEnter" Width="30"/>
+                  <Component Name="PaymentStatus" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Contract_PaymentTimeline.Status" HasCaption="True" ListAsString="План|0;Факт|1" Width="35"/>
+                  <Component Name="PaymentFactDocument" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="Contract_PaymentTimeline.FactDocument" HasCaption="True" OnEnter="PaymentFactDocument_OnEnter" Width="42"/>
+                </Component>
+                <Component Name="PaymentTimelineTotalsFrame" Class="Com.Ctrl.IFrame" ScrollerStyle="ScrollerNone" Subtable="EdtRec.PaymentTimeline_Totals" Visible="True">
+                  <Component Name="Contract_PaymentTimeline_Totals" Class="Biz.Rec.Data.Contract_PaymentTimeline_Totals" IsLibrary="1"/>
+                  <Component Name="PaymentTotalNum" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Visible="False" Width="10"/>
+                  <Component Name="PaymentTotalCaption" Class="Com.Ctrl.IEdit" Enabled="False" Field="Contract_PaymentTimeline_Totals.TotalCaption" HasCaption="False" Width="52"/>
+                  <Component Name="PaymentTotalAmountWithoutVAT" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="Contract_PaymentTimeline_Totals.AmountWithoutVAT" FieldFormat=",##0.00;;-" HasCaption="False" Width="42"/>
+                  <Component Name="PaymentTotalRateVAT" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="42"/>
+                  <Component Name="PaymentTotalAmountVAT" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="Contract_PaymentTimeline_Totals.AmountVAT" FieldFormat=",##0.00;;-" HasCaption="False" Width="42"/>
+                  <Component Name="PaymentTotalAmount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="Contract_PaymentTimeline_Totals.Amount" FieldFormat=",##0.00;;-" HasCaption="False" Width="42"/>
+                  <Component Name="PaymentTotalCFR" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="30"/>
+                  <Component Name="PaymentTotalBGI" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="30"/>
+                  <Component Name="PaymentTotalProject" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="30"/>
+                  <Component Name="PaymentTotalSource" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="30"/>
+                  <Component Name="PaymentTotalIsAdvPostpaym" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="16"/>
+                  <Component Name="PaymentTotalBySuppAgr" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="40"/>
+                  <Component Name="PaymentTotalSuppAgrNum" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="30"/>
+                  <Component Name="PaymentTotalStatus" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="35"/>
+                  <Component Name="PaymentTotalFactDocument" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="42"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="RescissionTab" Class="Com.Ctrl.IFrame" Caption="@Contract:RescissionTab=Расторжение" Margins="5" Visible="True">
+          <Component Name="RescissionGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+            <Component Name="RescissionDateEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="EdtRec.RescissionDate" FormatOfDate="DateOnly" HasCaption="True"/>
+            <Component Name="RescissionDateEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            <Component Name="RescissionReasonEdit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="EdtRec.RescissionReason" HasCaption="True" LookupField="Name"/>
+            <Component Name="RescissionReasonEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+            <Component Name="RescissionCommentEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.RescissionComment" HasCaption="True" Multiline="True" Wrap="True"/>
+            <Component Name="RescissionCommentEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+          </Component>
+        </Component>
+        <Component Name="RelatedDocsTab" Class="Com.Ctrl.IFrame" Caption="@Contract:RelatedDocsTab=Документы">
+          <Component Name="DocumentsBox" Class="Com.Ctrl.IBox" Caption="@Contract:DocumentsBox=Перечень документов">
+            <Component Name="DocumentsFrame" Class="Com.Ctrl.IFrame" Sortable="True" Subtable="DocSubtable">
+              <Component Name="Contract_Documents" Class="Biz.Rec.Data.Contract_Documents" IsLibrary="1"/>
+              <Component Name="DocCaption" Class="Com.Ctrl.IEdit" Caption="@Contract:DocCaption=Наименование документа" CellFormat="StringFormat" Enabled="False" Field="Contract_Documents.Caption" HasCaption="True" ValueType="VarString" Width="32" Wrap="True"/>
+              <Component Name="DocRecordGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@Contract:DocRecordGroup=Номер" HasCaption="True">
+                <Component Name="DocRecord" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="Contract_Documents.Document" HasCaption="False" LookupField="PrintedNumber" Width="50" Wrap="True"/>
+                <Component Name="DocRecordJumpBtn" Class="Com.Ctrl.IJumpButton" Field="Contract_Documents.Document" HasCaption="False" Printed="False"/>
+              </Component>
+              <Component Name="DocDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Contract:DocDate=Дата документа" CellFormat="DateFormat" Enabled="False" Field="Contract_Documents.EventTime" FormatOfDate="DateOnly" HasCaption="True" ValueType="VarDate" Width="23" Wrap="True"/>
+              <Component Name="DocSubject" Class="Com.Ctrl.IEdit" Caption="@Contract:DocSubject=Предмет" CellFormat="ReferenceFormat" Enabled="False" Field="Contract_Documents.Document" HasCaption="True" OnOutput="DocSubject_OnOutput" Width="60" Wrap="True"/>
+              <Component Name="DocStartDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Contract:DocStartDate=Дата начала действия" CellFormat="ReferenceFormat" Enabled="False" Field="Contract_Documents.Document" HasCaption="True" OnOutput="DocStartDate_OnOutput" Width="23" Wrap="True"/>
+              <Component Name="DocExpirationDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Contract:ExpirationDate=Дата окончания действия" CellFormat="ReferenceFormat" Enabled="False" Field="Contract_Documents.Document" HasCaption="True" OnOutput="DocExpirationDate_OnOutput" Width="23" Wrap="True"/>
+              <Component Name="DocSum" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Contract:DocSum=Сумма без НДС" CellFormat="NumericFormat" Enabled="False" Field="Contract_Documents.TotalAmountWithoutVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="35" Wrap="True"/>
+              <Component Name="DocSumVAT" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Contract:DocSumVAT=Сумма НДС" CellFormat="NumericFormat" Enabled="False" Field="Contract_Documents.TotalVATAmount" FieldFormat=",##0.00;;-" HasCaption="True" Width="35" Wrap="True"/>
+              <Component Name="DocSumTotal" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Contract:DocSumTotal=Всего сумма с НДС" CellFormat="NumericFormat" Enabled="False" Field="Contract_Documents.TotalAmountIncludingVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="35" Wrap="True"/>
+              <Component Name="UserEmpl" Class="Com.Ctrl.IEdit" Caption="@Contract:UserEmpl=Инициатор" CellFormat="ReferenceFormat" Enabled="False" Field="Contract_Documents.Document" HasCaption="True" OnOutput="UserEmpl_OnOutput" Width="50" Wrap="True"/>
+            </Component>
+          </Component>
+          <Component Name="FinDocumentsBox" Class="Com.Ctrl.IBox" Caption="@Contract:FinDocumentsBox=Финансовые документы">
+            <Component Name="FinDocumentsFrame" Class="Com.Ctrl.IFrame" Sortable="True" Subtable="FinDocSubtable">
+              <Component Name="Contract_FinDocuments" Class="Biz.Rec.Data.Contract_FinDocuments" IsLibrary="1"/>
+              <Component Name="FinDocCaption" Class="Com.Ctrl.IEdit" Caption="@Contract:FinDocCaption=Наименование документа" CellFormat="StringFormat" Enabled="False" Field="Contract_FinDocuments.Caption" HasCaption="True" ValueType="VarString" Width="63"/>
+              <Component Name="FinDocDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Contract:FinDocDate=Дата документа" CellFormat="ReferenceFormat" Enabled="False" Field="Contract_FinDocuments.Document" HasCaption="True" OnOutput="FinDocDate_OnOutput" Width="23"/>
+              <Component Name="FinDocRecordGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@Contract:FinDocRecordGroup=Номер документа" HasCaption="True">
+                <Component Name="FinDocRecord" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="Contract_FinDocuments.Document" HasCaption="False" OnOutput="FinDocRecord_OnOutput" Width="50"/>
+                <Component Name="FinDocRecordJumpBtn" Class="Com.Ctrl.IJumpButton" Field="Contract_FinDocuments.Document" HasCaption="False" OnClick="FinDocRecordJumpBtn_OnClick" Printed="False"/>
+              </Component>
+              <Component Name="FinDocSum" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Contract:FinDocSum=Сумма без НДС" CellFormat="NumericFormat" Enabled="False" FieldFormat=",##0.00;;-" HasCaption="True" OnOutput="FinDocSum_OnOutput" ValueType="VarNumeric" Width="35"/>
+              <Component Name="FinDocSumVAT" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Contract:FinDocSumVAT=Сумма НДС" CellFormat="NumericFormat" Enabled="False" FieldFormat=",##0.00;;-" HasCaption="True" OnOutput="FinDocSumVAT_OnOutput" ValueType="VarNumeric" Width="35"/>
+              <Component Name="FinDocSumTotal" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Contract:FinDocSumTotal=Всего сумма с НДС" CellFormat="NumericFormat" Enabled="False" FieldFormat=",##0.00;;-" HasCaption="True" OnOutput="FinDocSumTotal_OnOutput" ValueType="VarNumeric" Width="35"/>
+            </Component>
+          </Component>
+          <Component Name="RelatedDocsAddBox" Class="Com.Ctrl.IBox" Caption="@Contract:RelatedDocsAddBox=Дополнительно">
+            <Component Name="RelatedDocsAddGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+              <Component Name="RelatedDocsCommentEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.RelatedDocsComment" HasCaption="True" Multiline="True" Wrap="True"/>
+              <Component Name="RelatedDocsCommentEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

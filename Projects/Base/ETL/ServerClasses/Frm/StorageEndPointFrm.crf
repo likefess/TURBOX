@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm" HelpContext="ETL.ETL.Сервис.Настройки.Точка подключения к хранилищу ETL">
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" Excluded="True">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" MaxButton="4">
+        <Component Name="ListButton1" Class="Com.Ctrl.IListButton" Caption="проверка подключения" ImageName="Com.cogs">
+          <Component Name="BtnCheckConnection" Class="Com.Ctrl.IButton" Caption="Проверка подключения к хранилищу" Hint="Проверка подключения к хранилищу" ImageName="Com.Setup" OnClick="BtnCheckConnectionOnClick" Visible="False"/>
+        </Component>
+        <Component Name="ButtonOK" Class="Com.Ctrl.IButton" Caption="@ОК" ImageName="Com.CheckActive"/>
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Caption="@Cmd:Close=Закрыть" Command="Commands.CloseForm" ImageName="Close"/>
+        <Component Name="ButtonHelp" Class="Com.Ctrl.IButton" Caption="@Cmd:Help=Помощь" Command="Commands.Help" ImageName="Help"/>
+      </Component>
+      <Component Name="FieldsFrame" Class="Com.Ctrl.IFrame"/>
+    </Component>
+  </Component>
+</Resource>

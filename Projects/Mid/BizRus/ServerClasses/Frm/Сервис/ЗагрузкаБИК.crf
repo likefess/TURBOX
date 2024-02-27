@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWithFrames">
+  <Inherited HelpContext="BizRus.НСИ.Заполнение НСИ.ЗагрузкаБИКноваяформа">
+    <Inherited Name="Variables">
+      <Component Name="ПутьКСправочнику" Class="Com.Fld.IVar" Caption="@ЗагрузкаБИК:ПутьКСправочнику=Файл загрузки" ValueType="VarString"/>
+      <Component Name="ПриИзмененииДанных" Class="Com.Fld.IVar" Caption="@ЗагрузкаБИК:ПриИзмененииДанных=При несовпадении" ValueType="VarInteger"/>
+      <Component Name="Устанавливать_флЗавершать" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="Позиции" Class="Com.ISubtable"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonOK" Excluded="True" Visible="False"/>
+        <Component Name="кнЗагрузить" Class="Com.Ctrl.IButton" After="ButtonOK" Caption="@ЗагрузкаБИК:кнЗагрузить=Загрузить" ImageName="BizRus.import" OnClick="кнЗагрузить_OnClick"/>
+        <Inherited Name="ButtonClose" After="кнЗагрузить"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="Параметры" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+          <Component Name="Путь" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="ПутьКСправочнику" HasButton="True" HasCaption="True" OnLookup="Путь_OnLookup"/>
+          <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          <Component Name="ПриИзменении" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="ПриИзмененииДанных" FixSize="True" HasCaption="True" Hint="@ЗагрузкаБИК:ПриИзменении=Что делать, если есть различия между загружаемой и существующей записями (т.е. БИК одинаковый, но есть отличия хотя бы в одном из полей: &quot;Наименование&quot;, &quot;Населенный пункт&quot;, &quot;Корр. счет&quot;)" ListAsString="Перезаписывать|1;Добавлять|2;Вывести в отчет|3" Width="40"/>
+          <Component Name="Завершать" Class="Com.Ctrl.ICheckBox" Caption="@ЗагрузкаБИК:Завершать=Устанавливать &quot;Завершен&quot;" Field="Устанавливать_флЗавершать" HasCaption="True"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="Анализ повторяющихся и несовпадающих данных" HasCaption="True" Subtable="Позиции">
+          <Component Name="Структ" Class="BizRus.Rec.Сервис.ЗагрузкаБИК" IsLibrary="1"/>
+          <Component Name="БИК" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="Структ.БИК" HasCaption="True" Width="25" Wrap="True"/>
+          <Component Name="ДанныеФайла" Class="Com.Ctrl.IColumnsGroup" Caption="@ЗагрузкаБИК:ДанныеФайла=Данные файла" HasCaption="True">
+            <Component Name="НаименованиеИзФайла" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="Структ.НаименованиеИзФайла" HasCaption="True" Width="45" Wrap="True"/>
+            <Component Name="КорСчетИзФайла" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="Структ.КорСчетИзФайла" HasCaption="True" Width="45" Wrap="True"/>
+            <Component Name="НаселенныйПунктИзФайла" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="Структ.НаселенныйПунктИзФайла" HasCaption="True" Width="30" Wrap="True"/>
+            <Component Name="АдресИзФайла" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="Структ.АдресИзФайла" HasCaption="True" Width="45" Wrap="True"/>
+            <Component Name="кнДобавить" Class="Com.Ctrl.IButton" Hint="@ЗагрузкаБИК:кнДобавить=Добавить новую запись с данными из файла загрузки.  При этом все записи с этим БИК будут убраны из отчета." ImageName="Com.AddItem" OnClick="кнДобавить_OnClick"/>
+          </Component>
+          <Component Name="НашиДанные" Class="Com.Ctrl.IColumnsGroup" Caption="@ЗагрузкаБИК:НашиДанные=Наши данные" HasCaption="True">
+            <Component Name="НаименованиеНаше" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="Структ.НаименованиеНаше" HasCaption="True" Width="45" Wrap="True"/>
+            <Component Name="КорСчетНаш" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="Структ.КорСчетНаш" HasCaption="True" Width="45" Wrap="True"/>
+            <Component Name="НаселенныйПунктНаш" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="Структ.НаселенныйПунктНаш" HasCaption="True" Width="30" Wrap="True"/>
+            <Component Name="АдресНаш" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="Структ.АдресНаш" HasCaption="True" Width="45" Wrap="True"/>
+            <Component Name="кнОткрыть" Class="Com.Ctrl.IJumpButton" Field="Структ.ЗаписьСправочника" Hint="@ЗагрузкаБИК:кнОткрыть=Перейти к форме редактирования записи" JumpForm="Biz.Frm.Ref.Bank"/>
+            <Component Name="кнОбновить" Class="Com.Ctrl.IButton" Hint="@ЗагрузкаБИК:кнОбновить=Обновить запись в справочнике данными из файла загрузки. При этом текущая запись будет убрана из  отчета." ImageName="Com.Refresh" OnClick="кнОбновить_OnClick"/>
+            <Component Name="кнУдалить" Class="Com.Ctrl.IButton" Hint="@ЗагрузкаБИК:кнУдалить=Удалить запись (с проверкой использования).  При этом текущая запись будет убрана из отчета." ImageName="Com.DeleteItem_1" OnClick="кнУдалить_OnClick"/>
+          </Component>
+          <Component Name="Примечание" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="Структ.Примечание" HasCaption="True" Width="30" Wrap="True"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

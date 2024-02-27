@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.Event">
+  <Inherited HelpContext="Biz.НСИ.Мастер-данные.Спецификация" Hierarchical="False">
+    <Inherited Name="Current" Class="Biz.Rec.Data.ContractSpecification" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" Visible="False"/>
+          <Inherited Name="Code" Visible="False"/>
+          <Component Name="EventTime" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="Current.EventTime" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" ValueType="VarDate" Width="25"/>
+          <Component Name="PrintedNumber" Class="Com.Ctrl.IEdit" Field="Current.PrintedNumber" HasCaption="True" Width="25"/>
+          <Component Name="AmountWithoutVAT" Class="Com.Ctrl.IEdit" Caption="@Specificationt:AmountWithoutVAT=Сумма без НДС" CellFormat="NumericFormat" Field="Current.TotalAmountWithoutVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="35"/>
+          <Component Name="VATAmount" Class="Com.Ctrl.IEdit" Caption="@Specification:VATAmount=Сумма НДС" CellFormat="NumericFormat" Field="Current.TotalVATAmount" FieldFormat=",##0.00;;-" HasCaption="True" Width="35"/>
+          <Component Name="AmountIncludingVAT" Class="Com.Ctrl.IEdit" Caption="@Specification:AmountIncludingVAT=Сумма с учетом НДС" CellFormat="NumericFormat" Field="Current.TotalAmountIncludingVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="35"/>
+          <Component Name="Duration" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Specification:Duration=Период" Field="Current.Duration" HasCaption="True" Width="45"/>
+          <Component Name="DocName" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Specification:DocName=К документу" Field="Current.DocumentName" HasCaption="True" Width="25"/>
+          <Component Name="DocDate" Class="Com.Ctrl.IEdit" Caption="@Specification:DocDate=Дата создания док-та" CellFormat="DateFormat" Field="Current.ParentDocumentPostingDate" FieldFormat="DD.MM.YYYY" FormatOfDate="DateOnly" HasCaption="True" Width="25"/>
+          <Component Name="DocRegNumber" Class="Com.Ctrl.IEdit" Caption="@Specification:DocRegNumber=Рег. № док-та" Field="Current.ParentDocumentRegisterNumber" HasCaption="True" Width="25"/>
+          <Component Name="DocRegDate" Class="Com.Ctrl.IEdit" Caption="@Specification:DocRegDate=Дата регистрации" CellFormat="DateFormat" Field="Current.ParentDocumentRegisterDate" FieldFormat="DD.MM.YYYY" FormatOfDate="DateOnly" HasCaption="True" Width="25"/>
+          <Component Name="Status" Class="Com.Ctrl.IEdit" Caption="@Specification:Status=Статус" CellFormat="ReferenceFormat" Enabled="False" Field="Current.Status" LookupField="Name" Width="25"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

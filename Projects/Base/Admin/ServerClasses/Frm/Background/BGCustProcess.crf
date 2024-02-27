@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="Timer" Class="Com.ITimer" Interval="1" OnTimer="Timer_OnTimer"/>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="ProcessTime" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader">
+        <Component Name="btnBackground" Class="Com.Ctrl.IButton" Caption="@Admin:BtnBackground=Свернуть" Hint="@Admin:BtnBackgroundHint=Продолжить в фоновом режиме" ImageName="Admin.Background" OnClick="btnBackground_OnClick" Width="36"/>
+        <Component Name="btnCancel" Class="Com.Ctrl.IButton" Caption="@Admin:BtnCancel=Прервать" HasCaption="True" ImageName="Com.Error" OnClick="btnCancel_OnClick"/>
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Caption="@Закрыть" ImageName="Close" OnClick="ButtonClose_OnClick" Visible="False"/>
+      </Component>
+      <Component Name="FrameProcess" Class="Com.Ctrl.IFrame">
+        <Component Name="grpStatus" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+          <Component Name="lblStatus" Class="Com.Ctrl.IStatic" Caption="@Admin:ProcessStatus=Состояние" FixSize="True" Width="30"/>
+          <Component Name="edtStatus" Class="Com.Ctrl.IEdit" Enabled="False" MinWidth="80" ValueType="VarString" Width="120"/>
+          <Component Name="sepStatus" Class="Com.Ctrl.IStatic" FixSize="True" Width="4"/>
+        </Component>
+        <Component Name="lineProgress" Class="Com.Ctrl.INewLine"/>
+        <Component Name="grpDetail" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" Printed="False">
+          <Component Name="lblTable" Class="Com.Ctrl.IStatic" Caption="@Admin:InfobaseTables=Таблиц" FixSize="True" Width="30"/>
+          <Component Name="edPrTable" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" FieldFormat="#,##0" MinWidth="20" Width="60"/>
+          <Component Name="sepTable" Class="Com.Ctrl.IStatic" MinWidth="40" Width="60"/>
+        </Component>
+        <Component Name="grpTime" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MinWidth="80" Printed="False">
+          <Component Name="lblTime" Class="Com.Ctrl.IStatic" Caption="@Admin:JobTime=Время работы" FixSize="True" Width="30"/>
+          <Component Name="edTime" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" Field="ProcessTime" FixSize="True" ValueType="VarString" Width="24"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

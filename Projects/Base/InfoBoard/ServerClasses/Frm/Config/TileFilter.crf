@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="PArray" Class="Com.Fld.IArray" ValueType="VarString"/>
+    <Component Name="EArray" Class="Com.Fld.IArray" ValueType="VarString"/>
+    <Component Name="TArray" Class="Com.Fld.IArray" ValueType="VarString"/>
+    <Component Name="RArray" Class="Com.Fld.IArray" ValueType="VarString"/>
+    <Component Name="EmptyOpt" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" Margins="4">
+      <Component Name="ButtonsFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="ButtonsGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption="Фильтр панели" FontSize="14" Width="1"/>
+          <Component Name="ButtonSave" Class="Com.Ctrl.IButton" FontSize="14" ImageName="Com.PostClose" OnClick="ButtonSaveOnClick"/>
+          <Component Name="ButtonClose" Class="Com.Ctrl.IButton" FontSize="14" ImageName="Close" OnClick="ButtonCloseOnClick"/>
+        </Component>
+      </Component>
+      <Component Name="MainFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="OptionsFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="OptionsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="EmptyOptEdit" Class="Com.Ctrl.IEdit" Caption="Если фильтр пуст:" CellFormat="EnumFormat" Field="EmptyOpt" ListAsString="показывать все элементы;ничего не показывать" ValueType="VarLogical"/>
+          </Component>
+        </Component>
+        <Component Name="FilterFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+          <Component Name="FilterTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="True" CanInsert="True" CanMove="True" Numbering="False" OnDelete="FilterTableOnDelete">
+            <Component Name="ParamEdit" Class="Com.Ctrl.IEdit" Caption="Параметр/поле" CellFormat="EnumFormat" Field="PArray" Width="50"/>
+            <Component Name="EquEdit" Class="Com.Ctrl.IEdit" AutoLookup="True" Caption="=" CellFormat="EnumFormat" Field="EArray" FixSize="True" OnEnter="EquEditOnEnter" OnOutput="EquEditOnOutput" Width="12"/>
+            <Component Name="TileEdit" Class="Com.Ctrl.IEdit" AutoLookup="True" Caption="Фильтр из плитки" CellFormat="EnumFormat" Field="TArray" Width="70"/>
+            <Component Name="RepEdit" Class="Com.Ctrl.IEdit" AutoLookup="True" Caption="Части отчёта" CellFormat="EnumFormat" Field="RArray" OnEnter="RepEditOnEnter" Width="30"/>
+          </Component>
+        </Component>
+        <Component Name="WebMainGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="200">
+          <Component Name="InnerGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

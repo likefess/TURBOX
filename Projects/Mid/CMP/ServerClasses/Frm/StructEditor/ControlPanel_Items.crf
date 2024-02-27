@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CMP.Frm.StructEditor.Abstract">
+  <Inherited HelpContext="CMP.Студия компонентов (машина реквизитов).Панели управления">
+    <Inherited Name="FStruct" Class="CMP.Rec.Panels.IControlPanel_Items" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="MainGroup" CaptionWidth="50">
+          <Component Name="EditColNumber" Class="Com.Ctrl.IEdit" Excluded="True" Alignment="LeftAlign" Caption="@CMP:ControlPanelItemsColNumber=Номер столбца" Field="FStruct.ColNumber"/>
+          <Component Name="EditItemType" Class="Com.Ctrl.IEdit" Caption="@CMP:ControlPanelItemsItemType=Тип элемента" CellFormat="EnumFormat" Field="FStruct.ItemType" ListAsString="Кнопка&#xD;&#xA;Надпись&#xD;&#xA;Разделитель" OnChange="EditItemType_OnChange"/>
+          <Component Name="EditCaption" Class="Com.Ctrl.IEdit" Caption="@CMP:ControlPanelItemsCaption=Надпись" Field="FStruct.Caption"/>
+          <Component Name="EditColumnsCount" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@CMP:ControlPanelItemsColumnsCount=Количество столбцов в ролевом центре" Field="FStruct.ColumnsCount" OnOutput="EditColumnsCount_OnOutput"/>
+          <Component Name="EditIcon" Class="Com.Ctrl.IEdit" Caption="@CMP:ControlPanelItemsIcon=Иконка" Field="FStruct.IconName" HasButton="True" OnLookup="EditIcon_OnLookup"/>
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Excluded="True">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+            <Component Name="CheckBoxOff" Class="Com.Ctrl.ICheckBox" Caption="@CMP:ControlPanelItemsOff=Выключено" Field="FStruct.Off"/>
+          </Component>
+          <Component Name="EditVisibleCondition" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:ControlPanelItemsVisibleCondition=Условие" Field="FStruct.VisibilityCondition" Subtable="FStruct.ConditionRecords"/>
+          <Component Name="EditConditionType" Class="Com.Ctrl.IEdit" Caption="@CMP:ControlPanelItemsConditionType=Условие управляет" CellFormat="EnumFormat" Field="FStruct.ConditionType" ListAsString="доступностью|0&#xD;&#xA;видимостью|1"/>
+          <Component Name="EditHint" Class="Com.Ctrl.IEdit" Caption="@CMP:ControlPanelItemsHint=Подсказка" Field="FStruct.Hint"/>
+          <Component Name="EditProcedure" Class="Com.Ctrl.IEdit" Caption="@CMP:ControlPanelItemsProcedure=Процедура" CellFormat="EnumFormat" Field="FStruct.Procedure" OnChange="EditProcedure_OnChange"/>
+        </Inherited>
+      </Inherited>
+      <Component Name="ParameterFrame" Class="Com.Ctrl.IFrame"/>
+    </Inherited>
+  </Inherited>
+</Resource>

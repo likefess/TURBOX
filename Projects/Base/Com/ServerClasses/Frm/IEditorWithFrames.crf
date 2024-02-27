@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IEditor">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" PrimaryButton="ButtonOK">
+        <Component Name="ButtonOK" Class="Com.Ctrl.IButton" Caption="@Cmd:PostClose=OK" FontSize="11" ImageName="PostClose" OnClick="ButtonOK_OnClick" Width="22"/>
+        <Component Name="ButtonChildForms" Class="Com.Ctrl.IListButton" Excluded="True" Caption="@Cmd:ChildForms=Формы" ImageName="Com.ChildForms"/>
+        <Component Name="ButtonServices" Class="Com.Ctrl.IListButton" Excluded="True" Caption="@Cmd:Services=Сервисы" ImageName="Com.Services"/>
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Caption="@Cmd:Close=Закрыть" Command="Commands.CloseForm" ImageName="Close" OnClick="ButtonClose_OnClick"/>
+        <Component Name="HeaderSeparator" Class="Com.Cmd2.ISeparator"/>
+        <Component Name="ButtonPost" Class="Com.Ctrl.IButton" Caption="@Cmd:Post=Записать" Command="Commands.CardPost" ImageName="Post" OnClick="ButtonPost_OnClick"/>
+        <Component Name="ButtonCancel" Class="Com.Ctrl.IButton" Caption="@Cmd:Cancel=Отменить" Command="Commands.CardCancel" ImageName="Cancel" OnClick="ButtonCancel_OnClick"/>
+        <Component Name="ButtonClone" Class="Com.Ctrl.IButton" Caption="@Cmd:CloneItem=Дублировать" Command="Commands.CardClone" ImageName="CloneItem" OnClick="ButtonClone_OnClick"/>
+        <Component Name="ButtonDelete" Class="Com.Ctrl.IButton" Caption="@Cmd:DeleteItem=Удалить" Command="Commands.CardDelete" ImageName="DeleteItem" OnClick="ButtonDelete_OnClick"/>
+        <Component Name="ButtonRefresh" Class="Com.Ctrl.IButton" Caption="@Form:RefreshButton=Обновить" Command="Commands.RefreshForm" ImageName="Refresh" OnClick="ButtonRefresh_OnClick"/>
+        <Component Name="ButtonPrint" Class="Com.Ctrl.IButton" Excluded="True" Caption="@Cmd:Print=Печать" Command="Commands.Print" ImageName="Print" Printed="False"/>
+        <Component Name="ButtonExport" Class="Com.Ctrl.IButton" Excluded="True" Caption="@Cmd:ExportRec=Экспорт" Command="Commands.ExportCmd" ImageName="ExportRec" OnClick="ButtonExport_OnClick"/>
+        <Component Name="ButtonImport" Class="Com.Ctrl.IButton" Excluded="True" Caption="@Cmd:ImportRec=Импорт" Command="Commands.ImportCmd" ImageName="ImportRec"/>
+        <Component Name="ButtonHelp" Class="Com.Ctrl.IButton" Caption="@Cmd:Help=Помощь" Command="Commands.Help" ImageName="Help" OnClick="ButtonHelp_OnClick"/>
+      </Component>
+      <Component Name="FieldsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="5"/>
+      <Component Name="TabsFrame" Class="Com.Ctrl.IFrame" Orientation="WithTabs" ShowTabs="True" Visible="False">
+        <Component Name="MainTab" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Frm:MainTab=Основное" Margins="5"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

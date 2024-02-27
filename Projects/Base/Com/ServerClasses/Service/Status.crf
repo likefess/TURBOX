@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWithFrames">
+  <Inherited Caption="@Job:Status.Title=Статус диспетчера исполнителей">
+    <Component Name="Timer" Class="Com.ITimer" After="#0" Active="False" Interval="1" OnTimer="Timer_OnTimer"/>
+    <Inherited Name="TableMenu" After="Timer"/>
+    <Inherited Name="Variables">
+      <Component Name="ServersSubtable" Class="Com.ISubtable" StructClass="Com.Service.Status_ServersStruct"/>
+      <Component Name="ServersStruct" Class="Com.Service.Status_ServersStruct" IsLibrary="1"/>
+      <Component Name="TopicsSubtable" Class="Com.ISubtable" StructClass="Com.Service.Status_TopicsStruct"/>
+      <Component Name="TopicsStruct" Class="Com.Service.Status_TopicsStruct" IsLibrary="1"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="0">
+        <Inherited Name="ButtonOK" Excluded="True"/>
+        <Inherited Name="HeaderSeparator" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" Excluded="True"/>
+      <Inherited Name="TabsFrame" OnSwitch="TabsFrame_OnSwitch" Visible="True">
+        <Inherited Name="MainTab" Caption="@Form:Status.Dispatcher=Диспетчер">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="-1" MinWidth="1">
+            <Component Name="DispatchStatus" Class="Com.Ctrl.IEditEx" Caption="@Form:Status.DispatcherStatus=Статус" CellFormat="StringFormat" Enabled="False" HasCaption="True" MaxWidth="150" MinWidth="25" ValueType="VarString" Width="150">
+              <Component Name="DispStatusCaption" Class="Com.Ctrl.IStatic" FixSize="False" MaxWidth="30" MinWidth="15" Width="30"/>
+            </Component>
+            <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          </Component>
+          <Component Name="DispServers" Class="Com.Ctrl.ITable" Adaptive="True" ManualControl="True" Subtable="ServersSubtable">
+            <Component Name="ServerName" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="ServersStruct.ServerName" MaxWidth="80" MinWidth="15" Width="40"/>
+            <Component Name="ServerAddr" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="ServersStruct.ServerAddr" MaxWidth="80" MinWidth="15" Width="40"/>
+            <Component Name="TopicsName" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="ServersStruct.TopicsName" MaxWidth="100" MinWidth="15" Width="50"/>
+            <Component Name="UsedTopics" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CellFormat="EnumFormat" Enabled="False" Field="ServersStruct.UsedTopics" ListAsString="|0;Серверный|1;Консольный|2;Аварийный|3" MaxWidth="30" MinWidth="15" Width="30"/>
+            <Component Name="WasErrors" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CellFormat="LogicalFormat" Enabled="False" Field="ServersStruct.WasErrors" MaxWidth="25" MinWidth="15" Width="25"/>
+            <Component Name="MaxWorkers" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" Field="ServersStruct.MaxWorkers" FieldFormat=",##0;;-" MaxWidth="30" MinWidth="15" Width="30"/>
+            <Component Name="WorkersCnt" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" Field="ServersStruct.WorkersCnt" FieldFormat=",##0;;-" MaxWidth="30" MinWidth="15" Width="30"/>
+          </Component>
+        </Inherited>
+        <Component Name="TopicTab" Class="Com.Ctrl.IFrame" Caption="@Form:Status.Topics=Топики">
+          <Component Name="TopicsTable" Class="Com.Ctrl.ITable" Adaptive="True" ManualControl="False" Subtable="TopicsSubtable">
+            <Component Name="TopicName" Class="Com.Ctrl.IEdit" Enabled="False" Field="TopicsStruct.TopicName" MaxWidth="100" MinWidth="15" Width="50"/>
+            <Component Name="EnabledTopic" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Enabled="False" Field="TopicsStruct.EnabledTopic" MaxWidth="25" MinWidth="15" Width="25"/>
+            <Component Name="ListenerExist" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Enabled="False" Field="TopicsStruct.ListenerExist" MaxWidth="40" MinWidth="15" Width="40"/>
+            <Component Name="PipeQueue" Class="Com.Ctrl.IEdit" Enabled="False" Field="TopicsStruct.PipeQueue" FieldFormat=",##0;;-" MaxWidth="40" MinWidth="20" Width="40"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

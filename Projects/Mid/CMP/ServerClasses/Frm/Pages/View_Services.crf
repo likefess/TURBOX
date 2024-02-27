@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CMP.Frm.Pages.Page">
+  <Inherited HelpContext="Настройка.СтруктураБизнеса.ТипыПредставлений.НастройкаПредставлений.НастройкаСервисов">
+    <Inherited Name="EdtRec" Class="CMP.Rec.Views.IDocument" IsLibrary="1"/>
+    <Component Name="SettingsStruct" Class="CMP.Rec.Views.IDocument_Settings" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="TableMenu" After="SettingsStruct"/>
+    <Inherited Name="RootFrame">
+      <Component Name="TableFrame" Class="Com.Ctrl.IFrame" Margins="1">
+        <Component Name="Table" Class="Com.Ctrl.ITable" Adaptive="True" Freezed="False" IconName="Com.Settings" Numbering="False" OnClickIcon="TableOnClickIcon" OnInsert="TableOnInsert" ShowIcon="True" Subtable="EdtRec.ServiceSettings">
+          <Component Name="NewLineFlag" Class="Com.Ctrl.ICheckBox" Caption=" " Field="SettingsStruct.NewLine" FixSize="True" Width="8"/>
+          <Component Name="CompTypeEdit" Class="Com.Ctrl.IEdit" Caption="@CMP:ComTypeCaption=Тип" CellFormat="EnumFormat" Field="SettingsStruct.CompType" FixSize="True" ListAsString=" |0&#xD;&#xA;Фрейм|1&#xD;&#xA;Бокс|2" OnDrawEx="TableRowOnDraw" Width="20"/>
+          <Component Name="PropertyEdit" Class="Com.Ctrl.IEdit" Field="SettingsStruct.Property" LookupField="Code" LookupFilter="not РеквизитТаблицы" OnDrawEx="TableRowOnDraw" OnGetLookupFilter="PropertyEdit_OnGetLookupFilter"/>
+          <Component Name="CaptionEdit" Class="Com.Ctrl.IEdit" Field="SettingsStruct.Caption" OnDrawEx="TableRowOnDraw"/>
+          <Component Name="WidthGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@Width=Ширина" HasCaption="True">
+            <Component Name="CaptionWidthEdit" Class="Com.Ctrl.IEdit" Caption="@CMP:CaptionWidth=надписи" Field="SettingsStruct.CaptionWidth" FixSize="True" OnDrawEx="TableRowOnDraw" Width="20"/>
+            <Component Name="WidthEdit" Class="Com.Ctrl.IEdit" Caption="@CMP:PropertyWidth=поля" Field="SettingsStruct.Width" FixSize="True" OnDrawEx="TableRowOnDraw" Width="20"/>
+          </Component>
+          <Component Name="OffFlag" Class="Com.Ctrl.ICheckBox" Field="SettingsStruct.Off" FixSize="True" Width="12"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

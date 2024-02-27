@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.BaseMaster">
+  <Inherited>
+    <Inherited Name="TableMenu">
+      <Component Name="cmdFolderOpen" Class="Com.ComManaging.ExecProcedure" After="TableSeparator1" Caption="@Admin:ButtonOpen=Открыть" CommandProc="cmdFolderOpen_CommandProc" IconName="Com.folder-open"/>
+      <Component Name="cmdFolderCreate" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:CmdFolderCreate=Создать папку" CommandProc="cmdFolderCreate_CommandProc" IconName="Com.AddFolder"/>
+      <Component Name="cmdDelete" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:CmdDelete=Удалить" CommandProc="cmdDelete_CommandProc" IconName="Com.DeleteItem"/>
+      <Component Name="cmdRename" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:CmdRename=Переименовать" CommandProc="cmdRename_CommandProc" IconName="Com.EditItem"/>
+      <Inherited Name="cmdCopyValue" After="cmdRename"/>
+    </Inherited>
+    <Inherited Name="Variables">
+      <Component Name="subTblArchive" Class="Com.ISubtable"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Component Name="FrameArchive" Class="Com.Ctrl.IFrame" After="#0" AutoSize="False">
+          <Component Name="frameTable" Class="Com.Ctrl.IFrame" AutoSize="False" Margins="4" OnMove="frameTable_OnMove" ScrollerStyle="ScrollerBoth">
+            <Component Name="tblArchive" Class="Admin.Ctrl.ITableAdm" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" Numbering="False" OnCanSort="tblArchive_OnCanSort" OnDrawIcon="tblArchive_OnDrawIcon" OnGetDirectSort="tblArchive_OnGetDirectSort" PopupMenu="TableMenu" ShowIcon="True" Sortable="False" Subtable="subTblArchive">
+              <Component Name="edName" Class="Com.Ctrl.IEdit" Enabled="False" MaxWidth="150" MinWidth="30" OnClick="Archive_OpenFolder" OnDrawEx="edName_OnDrawEx" Width="50"/>
+              <Component Name="edSize" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Admin:ItemSize=Размер" Enabled="False" FieldFormat="#,##0" MaxWidth="80" MinWidth="20" OnClick="Archive_OpenFolder" OnOutputEx="edSize_OnOutputEx" Width="40"/>
+              <Component Name="edDateTime" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Admin:ItemDate=Дата" Enabled="False" FormatOfDate="DateAndTime" MaxWidth="80" MinWidth="20" OnClick="Archive_OpenFolder" Width="40"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="FrameProcess" Class="Com.Ctrl.IFrame" HasCaption="True">
+          <Component Name="frameStatus" Class="Com.Ctrl.IFrame" Margins="8">
+            <Component Name="grpStatus" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="lblStatus" Class="Com.Ctrl.IStatic" Caption="@Admin:ProcessStatus=Состояние" FixSize="True" Width="30"/>
+              <Component Name="edtStatus" Class="Com.Ctrl.IEdit" Enabled="False" MinWidth="80" Width="120"/>
+              <Component Name="sepStatus" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="4"/>
+            </Component>
+          </Component>
+        </Component>
+        <Inherited Name="MainTab" After="FrameProcess"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

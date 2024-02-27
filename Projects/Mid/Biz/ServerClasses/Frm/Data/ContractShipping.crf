@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Biz.Rec.Data.ContractShipping" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False">
+          <Component Name="AddRowsFromSpecButton" Class="Com.Ctrl.IButton" Caption="@ContractShipping:AddRowsFromSpecButton=Заполнить из спецификации" HasCaption="True" OnClick="AddRowsFromSpecButton_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" ByColumn="False" CaptionWidth="50">
+          <Inherited Name="Name" Visible="True"/>
+          <Component Name="ShippingDate" Class="Com.Ctrl.IEdit" CaptionWidth="50" Enabled="False" Field="EdtRec.ShippingDate" HasCaption="True"/>
+          <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          <Component Name="Company" Class="Com.Ctrl.IEdit" Caption="@ContractShipping:Company=Предприятие" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Contract" HasCaption="True" LookupField="Company.Name"/>
+          <Component Name="Partner" Class="Com.Ctrl.IEdit" Caption="@ContractShipping:Partner=Контрагент" CaptionWidth="50" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Contract" HasCaption="True" LookupField="Partner.Name"/>
+          <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+          <Component Name="ContractCode" Class="Com.Ctrl.IEdit" Caption="@ContractShipping:ContractCode=Номер договора" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Contract" HasCaption="True" LookupField="Code"/>
+          <Component Name="ContractEventTime" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@ContractShipping:ContractEventTime=Дата договора" CaptionWidth="50" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Contract" HasCaption="True" LookupField="EventTime"/>
+          <Component Name="NewLine3" Class="Com.Ctrl.INewLine"/>
+          <Component Name="SuppAgreementCode" Class="Com.Ctrl.IEdit" Caption="@ContractShipping:SuppAgreementCode=Номер ДС" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ContractSuppAgreement" HasCaption="True" LookupField="PrintedNumber"/>
+          <Component Name="SuppAgreementEventTime" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@ContractShipping:SuppAgreementEventTime=Дата ДС" CaptionWidth="50" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ContractSuppAgreement" HasCaption="True" LookupField="EventTime"/>
+          <Component Name="NewLine4" Class="Com.Ctrl.INewLine"/>
+          <Component Name="SpecCode" Class="Com.Ctrl.IEdit" Caption="@ContractShipping:SpecCode=Номер спецификации" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ContractSpecification" HasCaption="True" LookupField="PrintedNumber"/>
+          <Component Name="SpecEventTime" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@ContractShipping:SpecEventTime=Дата спецификации" CaptionWidth="50" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ContractSpecification" HasCaption="True" LookupField="EventTime"/>
+          <Component Name="NewLine5" Class="Com.Ctrl.INewLine"/>
+          <Component Name="StartDate" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.StartDate" HasCaption="True"/>
+          <Component Name="EndDate" Class="Com.Ctrl.IEdit" CaptionWidth="50" Enabled="False" Field="EdtRec.EndDate" HasCaption="True"/>
+        </Inherited>
+      </Inherited>
+      <Component Name="RowsFrame" Class="Com.Ctrl.IFrame" After="FieldsFrame">
+        <Component Name="RowsFrameVert" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Vertical" ScrollerStyle="ScrollerHorz">
+          <Component Name="RowsFrameHorz" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Horizontal">
+            <Component Name="RowsSubtableFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone" Subtable="EdtRec.Rows">
+              <Component Name="Shipping_Rows" Class="Biz.Rec.Data.ContractShipping_Rows" IsLibrary="1"/>
+              <Component Name="Nomenclature" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Resources" CellFormat="ReferenceFormat" Field="Shipping_Rows.Nomenclature" HasCaption="True" LookupField="Name" Width="60"/>
+              <Component Name="SKU" Class="Com.Ctrl.IEdit" Caption="@ContractShipping:SKU=Артикул" CellFormat="ReferenceFormat" Enabled="False" Field="Shipping_Rows.Nomenclature" HasCaption="True" LookupField="SKU" Width="40"/>
+              <Component Name="UnitOfMeasure" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UnitsOfMeasure" CellFormat="ReferenceFormat" Field="Shipping_Rows.UnitOfMeasure" HasCaption="True" LookupField="Code" Width="30"/>
+              <Component Name="Quantity" Class="Com.Ctrl.IEdit" Field="Shipping_Rows.Quantity" HasCaption="True" Width="30"/>
+              <Component Name="Price" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="Shipping_Rows.Price" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+              <Component Name="VATRate" Class="Com.Ctrl.IEdit" Caption="@ContractShipping:VATRate=Ставка НДС" Enabled="False" HasCaption="True" OnOutput="VATRate_OnOutput" Width="30"/>
+              <Component Name="AmountWithoutVAT" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="Shipping_Rows.AmountWithoutVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+              <Component Name="VATAmount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="Shipping_Rows.VATAmount" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+              <Component Name="AmountIncludingVAT" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="Shipping_Rows.AmountIncludingVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+            </Component>
+            <Component Name="TotalsSubtableFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone" Subtable="EdtRec.Rows_Totals" Visible="True">
+              <Component Name="Shipping_Rows_Totals" Class="Biz.Rec.Data.ContractShipping_Rows_Totals" IsLibrary="1"/>
+              <Component Name="TotalRowCaption" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="Shipping_Rows_Totals.TotalCaption" FixSize="True" HasCaption="False" Width="60"/>
+              <Component Name="TotalSKU" Class="Com.Ctrl.IEdit" HasCaption="False" Width="40"/>
+              <Component Name="TotalNomUnit" Class="Com.Ctrl.IEdit" HasCaption="False" Width="30"/>
+              <Component Name="TotalQuantity" Class="Com.Ctrl.IEdit" HasCaption="False" Width="30"/>
+              <Component Name="TotalPrice" Class="Com.Ctrl.IEdit" HasCaption="False" Width="30"/>
+              <Component Name="TotalVATRate" Class="Com.Ctrl.IEdit" HasCaption="False" Width="30"/>
+              <Component Name="TotalsAmountWithoutVAT" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" Field="Shipping_Rows_Totals.AmountWithoutVAT" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="False" Width="30"/>
+              <Component Name="TotalsVATAmount" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" Field="Shipping_Rows_Totals.VATAmount" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="False" Width="30"/>
+              <Component Name="TotalsAmountIncVAT" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" Field="Shipping_Rows_Totals.AmountIncludingVAT" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="False" Width="30"/>
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

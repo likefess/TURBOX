@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.CustomList">
+  <Inherited>
+    <Inherited Name="TableMenu" Excluded="False">
+      <Component Name="cmdOpen" Class="Com.ComManaging.ExecProcedure" After="TableSeparator1" Caption="@Admin:ButtonOpen=Открыть" CommandProc="cmdOpen_CommandProc" IconName="Com.folder-open"/>
+      <Component Name="cmdProperty" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:ButtonProperty=Свойства" CommandProc="cmdProperty_CommandProc" IconName="Com.tag" Visible="False"/>
+      <Component Name="cmdAdd" Class="Com.ComManaging.ExecProcedure" IconName="Com.AddItem"/>
+      <Component Name="cmdDel" Class="Com.ComManaging.ExecProcedure" IconName="Com.DeleteItem"/>
+      <Inherited Name="cmdCopyValue" After="cmdDel"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ButtonAddItem" Class="Com.Ctrl.IButton" After="#0" ImageName="Com.AddItem"/>
+        <Component Name="ButtonOpen" Class="Com.Ctrl.IButton" Caption="@Admin:ButtonOpen=Открыть" ImageName="Com.folder-open" OnClick="ButtonOpen_OnClick"/>
+        <Inherited Name="ButtonOK" After="ButtonOpen"/>
+        <Component Name="ButtonDeleteItem" Class="Com.Ctrl.IButton" After="HeaderSeparator" ImageName="Com.DeleteItem"/>
+        <Inherited Name="ButtonRefresh" After="ButtonDeleteItem"/>
+      </Inherited>
+      <Inherited Name="NavigatorFrame" Excluded="False">
+        <Inherited Name="grpNavigator">
+          <Component Name="btnNavBack" Class="Com.Ctrl.IButton" After="#0" Enabled="False" ImageName="Com.LevelUp" OnClick="ButtonBack_OnClick"/>
+          <Component Name="edtNavPath" Class="Com.Ctrl.IEdit" Enabled="False" Width="100"/>
+          <Component Name="sepNav" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="2"/>
+          <Inherited Name="edtFilter" Excluded="True" After="sepNav"/>
+          <Inherited Name="buttonFields" Excluded="True"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="frameData" OnMove="frameData_OnMove">
+          <Inherited Name="TableData" Adaptive="True" PopupMenu="TableMenu">
+            <Component Name="edName" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="True" MaxWidth="120" MinWidth="20" OnClick="ItemTable_OnClick" OnDrawEx="edName_OnDrawEx" OnHint="edName_OnHint" ValueType="VarString" Width="60"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab" Excluded="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

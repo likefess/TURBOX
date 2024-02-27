@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="ETL.Rec.IntegrationPackage" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="vSubtableView" Class="Com.ISubtableView" ParentSubtable="EdtRec.OperationLinks"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame" AutoSize="False">
+        <Component Name="CommonBox" Class="Com.Ctrl.IBox" After="#0" AutoSize="False">
+          <Component Name="LinkTable" Class="Com.Ctrl.ITable" Adaptive="True" Freezed="False" Numbering="False" Subtable="vSubtableView">
+            <Component Name="vDefPos_OperationLinks" Class="ETL.Rec.IntegrationPackage_OperationLinks" IsLibrary="1"/>
+            <Component Name="cCol1_PrevOp" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Fieldname:PreviousOperation=Предыдущая операция" CellFormat="EnumFormat" Field="vDefPos_OperationLinks.varPrevOperation" MaxWidth="120" MinWidth="50" Wrap="True"/>
+            <Component Name="cCol2_NextOp" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Fieldname:NextOperation=Следующая операция" CellFormat="EnumFormat" Field="vDefPos_OperationLinks.varNextOperation" MaxWidth="120" MinWidth="50" Wrap="True"/>
+            <Component Name="cCol3_ExecCond" Class="Com.Ctrl.IEdit" Caption="@Fieldname:ExecuteCondition=Условие выполнения" CellFormat="EnumFormat" Field="vDefPos_OperationLinks.ExecuteCondition" FixSize="True" ListAsString="@IntegrationPackage:EnumCondition=Всегда|0;При успешном|1;При ошибке|2" ValueType="VarInteger" Width="45"/>
+            <Component Name="cCol4_ErrProc" Class="Com.Ctrl.IEdit" Caption="@Fieldname:ErrorProcessing=Обработка ошибки" CellFormat="EnumFormat" Field="vDefPos_OperationLinks.ErrorProcessing" ListAsString="@IntegrationPackage:EnumErrorProcessing=Остановить пакет|0;Остановить операцию|1;Пропустить|2" ValueType="VarInteger" Visible="False" Width="45"/>
+          </Component>
+        </Component>
+        <Inherited Name="Group1" Excluded="True" After="CommonBox" Visible="False">
+          <Inherited Name="Code" Excluded="True"/>
+          <Inherited Name="Name" Excluded="True"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Excluded="True">
+        <Inherited Name="MainTab" Excluded="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

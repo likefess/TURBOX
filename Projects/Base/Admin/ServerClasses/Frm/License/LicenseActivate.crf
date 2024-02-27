@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.SimpleMaster">
+  <Inherited FormIcon="Com.key">
+    <Inherited Name="Variables">
+      <Component Name="FldNumber" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="FldKey" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="btnAction" Caption="@Admin:MasterNext=Далее"/>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Component Name="FrameGetCode" Class="Com.Ctrl.IFrame" After="#0" Caption="@Admin:LicenseActive_Step1=Получение ключа">
+          <Component Name="frameInfo" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="grpInfo1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="lblNumber1" Class="Com.Ctrl.IStatic" Caption="@Admin:LicenseActive_KeyNumber=Номер ключа" FixSize="True" Multiline="False" Width="40" Wrap="False"/>
+              <Component Name="edNumber1" Class="Com.Ctrl.IEdit" Enabled="False" Field="FldNumber" Multiline="False" Width="20" Wrap="False"/>
+              <Component Name="sepNumber1" Class="Com.Ctrl.IStatic" Width="40"/>
+              <Component Name="lineNumber" Class="Com.Ctrl.INewLine"/>
+              <Component Name="lblText" Class="Com.Ctrl.IStatic" Caption="@Admin:LicenseActive_Remark=Пройдите процедуру активации и скопируйте полученный код"/>
+              <Component Name="lineText" Class="Com.Ctrl.INewLine"/>
+              <Component Name="btnOpenURL" Class="Com.Ctrl.IButton" Caption="@Admin:License_GoToURL=Открыть страницу активации" OnClick="btnOpenURL_OnClick" Visible="False" Width="70"/>
+              <Component Name="lblTextURL" Class="Com.Ctrl.IStatic" Excluded="True" Caption="@Admin:License_GoToURL=Для активаци запустите браузер и перейдите по адресу" Visible="False"/>
+              <Component Name="lineURL" Class="Com.Ctrl.INewLine" Excluded="True"/>
+              <Component Name="lblURL" Class="Com.Ctrl.IStatic" Excluded="True" Visible="False"/>
+            </Component>
+          </Component>
+          <Component Name="frameBrowser" Class="Com.Ctrl.IFrame">
+            <Component Name="Browser" Class="Com.Ctrl.IBrowser"/>
+          </Component>
+        </Component>
+        <Component Name="FrameFinish" Class="Com.Ctrl.IFrame" Caption="@Admin:LicenseActive_Step2=Активация" Margins="8">
+          <Component Name="grpInfo2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="lblNumber2" Class="Com.Ctrl.IStatic" Caption="@Admin:LicenseActive_KeyNumber=Номер ключа" FixSize="True" Multiline="False" Width="40" Wrap="False"/>
+            <Component Name="edNumber2" Class="Com.Ctrl.IEdit" Enabled="False" Field="FldNumber" Multiline="False" Width="20" Wrap="False"/>
+            <Component Name="sepNumber2" Class="Com.Ctrl.IStatic" Width="40"/>
+            <Component Name="lineNumber2" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblKey" Class="Com.Ctrl.IStatic" Caption="@Admin:LicenseActive_Key=Код активации" FixSize="True" Multiline="False" Width="40" Wrap="False"/>
+            <Component Name="edKey" Class="Com.Ctrl.IEdit" Field="FldKey" Width="70"/>
+            <Component Name="sepKey" Class="Com.Ctrl.IStatic" Width="30"/>
+          </Component>
+        </Component>
+        <Inherited Name="MainTab" After="FrameFinish"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.User.CustomUserEdit">
+  <Inherited FormIcon="Com.User" HelpContext="Admin.Администрирование.Список серверов">
+    <Component Name="UserGroupStruct" Class="Admin.Frm.User.UserGroup_Struct" IsLibrary="1" After="#0"/>
+    <Inherited Name="TableMenu" After="UserGroupStruct"/>
+    <Inherited Name="Variables">
+      <Component Name="subTblGroup" Class="Com.ISubtable" StructClass="Admin.Frm.User.UserGroup_Struct"/>
+      <Component Name="FldKindUser" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="BoxMain">
+          <Inherited Name="GroupMain">
+            <Component Name="lblCapUser" Class="Com.Ctrl.IStatic" After="#0" FixSize="True" Width="40"/>
+            <Component Name="rbKindLocal" Class="Com.Ctrl.IRadioButton" Caption="@Admin:UserEdit_KindLocal=Локальный пользователь" Field="FldKindUser" OnChange="KindUser_OnChange" StaticValue="0" Width="40"/>
+            <Component Name="rbKindDomain" Class="Com.Ctrl.IRadioButton" Caption="@Admin:UserEdit_KindDomain=Пользователь домена" Field="FldKindUser" OnChange="KindUser_OnChange" StaticValue="1" Width="40"/>
+            <Component Name="sepKind1" Class="Com.Ctrl.IStatic" Excluded="True" Width="20"/>
+            <Component Name="sepKind2" Class="Com.Ctrl.IStatic" FixSize="True" Width="4"/>
+            <Component Name="lineKindUser" Class="Com.Ctrl.INewLine"/>
+            <Inherited Name="lblName" After="lineKindUser" Enabled="True"/>
+            <Inherited Name="edtName" OnVerify="edtName_OnVerify"/>
+            <Component Name="lblFullName" Class="Com.Ctrl.IStatic" After="lineName" Caption="@Admin:UserFullName=Полное имя" FixSize="True" Width="40"/>
+            <Component Name="edtFullName" Class="Com.Ctrl.IEdit" HasCaption="False" ValueType="VarString"/>
+            <Component Name="sepFullName" Class="Com.Ctrl.IStatic" FixSize="True" Width="4"/>
+            <Component Name="lineFullName" Class="Com.Ctrl.INewLine"/>
+            <Inherited Name="lblDescription" After="lineFullName"/>
+            <Inherited Name="edtSID" Enabled="False"/>
+          </Inherited>
+        </Inherited>
+        <Component Name="BoxUserGroup" Class="Com.Ctrl.IBox" Caption="@Admin:UserGroups=Группы" HasCaption="True">
+          <Component Name="tblGroup" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Freezed="False" HasCaption="False" ManualControl="False" Subtable="subTblGroup">
+            <Component Name="chbInclude" Class="Com.Ctrl.ICheckBox" Field="UserGroupStruct.Include" FixSize="True" MaxWidth="30" MinWidth="10" Width="10"/>
+            <Component Name="edGrpUserName" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" Field="UserGroupStruct.Name" MaxWidth="200" MinWidth="40" Width="100"/>
+          </Component>
+        </Component>
+        <Component Name="BoxPassword" Class="Com.Ctrl.IBox" Caption="@Admin:UserPassword=Пароль" HasCaption="True">
+          <Component Name="GroupPwd" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="200" MinWidth="50">
+            <Component Name="chbPasswordChange" Class="Com.Ctrl.ICheckBox" Caption="@Admin:UserPwdChange=Изменить пароль" OnChange="chbPasswordChange_OnChange"/>
+            <Component Name="sepPasswordChange" Class="Com.Ctrl.IStatic" FixSize="True" Width="4"/>
+            <Component Name="linePasswordChange" Class="Com.Ctrl.INewLine"/>
+            <Component Name="GroupPwdInput" Class="Com.Ctrl.IGroup">
+              <Component Name="prefPasswordNew" Class="Com.Ctrl.IStatic" FixSize="True" Width="10"/>
+              <Component Name="lblPasswordNew" Class="Com.Ctrl.IStatic" Caption="@Admin:UserPwdNew=Новый пароль" FixSize="True" Width="40"/>
+              <Component Name="edtPasswordNew" Class="Com.Ctrl.IPasswordEdit" HasCaption="False" ValueType="VarString"/>
+              <Component Name="sepPasswordNew" Class="Com.Ctrl.IStatic" FixSize="True" Width="4"/>
+              <Component Name="linePasswordNew" Class="Com.Ctrl.INewLine"/>
+              <Component Name="prefPasswordConfirm" Class="Com.Ctrl.IStatic" FixSize="True" Width="10"/>
+              <Component Name="lblPasswordConfirm" Class="Com.Ctrl.IStatic" Caption="@Admin:UserPwdConfirm=Подтверждение" Enabled="False" FixSize="True" Width="40"/>
+              <Component Name="edtPasswordConfirm" Class="Com.Ctrl.IPasswordEdit" Enabled="False" HasCaption="False" ValueType="VarString"/>
+              <Component Name="sepPasswordConfirm" Class="Com.Ctrl.IStatic" FixSize="True" Width="4"/>
+              <Component Name="linePasswordConfirm" Class="Com.Ctrl.INewLine" Excluded="True"/>
+            </Component>
+            <Component Name="linePwdInput" Class="Com.Ctrl.INewLine"/>
+            <Component Name="chbPasswordReplace" Class="Com.Ctrl.ICheckBox" Caption="@Admin:UserPwdReplace=Потребовать смену пароля при следующем входе"/>
+            <Component Name="sepPasswordReplace" Class="Com.Ctrl.IStatic" FixSize="True" Width="4"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

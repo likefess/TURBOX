@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" Margins="4">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader">
+        <Component Name="ButtonOK" Class="Com.Ctrl.IButton" Caption="@Cmd:PostClose=OK" ImageName="PostClose" OnClick="ButtonOK_OnClick"/>
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Caption="@Cmd:Close=Закрыть" Command="Commands.CloseForm" ImageName="Close"/>
+      </Component>
+      <Component Name="MainFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="MainGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MinWidth="100">
+          <Component Name="DebugGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="DebugHeader" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FontBold="True"/>
+            <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+            <Component Name="GroupEdit" Class="Com.Ctrl.IEdit" Caption="@MenuItemProps:Group=Группа" CaptionWidth="25" Enabled="False"/>
+            <Component Name="AfterEdit" Class="Com.Ctrl.IEdit" Caption="@MenuItemProps:After" CaptionWidth="25" Enabled="False"/>
+          </Component>
+          <Component Name="TextEdit" Class="Com.Ctrl.IEdit" Caption="@MenuItemProps:Text=Текст" CaptionWidth="25"/>
+          <Component Name="IconEdit" Class="Com.Ctrl.IEdit" Caption="@MenuItemProps:Icon=Картинка" CaptionWidth="25" HasButton="True" OnLookup="ChooseIcon"/>
+          <Component Name="ParamGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="ParamEdit" Class="Com.Ctrl.IEdit" Caption="@MenuItemProps:Param=Параметр" CaptionWidth="25" CellFormat="StringFormat" HasButton="True" OnChange="ParamEditOnChange" OnLookup="ParamEditOnLookup" OnOutput="ParamEditOnOutput" OnVerify="ParamEditOnVerify" ValueType="VarString"/>
+            <Component Name="ParamButton" Class="Com.Ctrl.IButton" ImageName="Com.JumpButton_" OnClick="ParamButtonOnClick"/>
+          </Component>
+          <Component Name="SettingEdit" Class="Com.Ctrl.IEdit" Caption="@MenuItemProps:Setting=Настройка" CaptionWidth="25" CellFormat="ReferenceFormat" HasButton="True" LookupField="Name" ShortList="True" ValueType="VarObject" Visible="False"/>
+          <Component Name="HideGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+            <Component Name="HideFlag" Class="Com.Ctrl.ICheckBox" Caption="@MenuItemProps:Hide=Не показывать на экране"/>
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

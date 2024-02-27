@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Frm.Data.PersonalData">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="frMainData">
+            <Component Name="bxIdentityDocument" Class="Com.Ctrl.IBox" After="#0" Caption="@Документ, удостоверяющий личность" HasCaption="True">
+              <Component Name="grIdentityDocument" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="110">
+                <Component Name="grDocument" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                  <Component Name="IdentityDocument" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.IDcards" Field="EdtRec.IdentityDocument" HasCaption="True" LookupField="IDtype.Name" OnGetLookupFilter="IdentityDocument_OnGetLookupFilter" OnOpenCardForm="IdentityDocument_OnOpenCardForm"/>
+                  <Component Name="btIdentityDocument" Class="Com.Ctrl.IJumpButton" Field="EdtRec.IdentityDocument" JumpForm="Biz.Frm.Data.IDcard"/>
+                </Component>
+                <Component Name="grIDSeriesNumber" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                  <Component Name="IDSeries" Class="Com.Ctrl.IEdit" Caption="@Серия" Enabled="False" Field="EdtRec.IdentityDocument" HasCaption="True" LookupField="Series"/>
+                  <Component Name="IDNumber" Class="Com.Ctrl.IEdit" Caption="@Номер" CaptionWidth="20" Enabled="False" Field="EdtRec.IdentityDocument" HasCaption="True" LookupField="Number"/>
+                  <Component Name="IDDateOfIssue" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Дата выдачи" CaptionWidth="28" Enabled="False" Field="EdtRec.IdentityDocument" HasCaption="True" LookupField="DateOfIssue" MaxWidth="35"/>
+                </Component>
+                <Component Name="IDIssuer" Class="Com.Ctrl.IEdit" Caption="@Кем выдан" Enabled="False" Field="EdtRec.IdentityDocument" HasCaption="True" LookupField="Issuer" Multiline="True" Width="120" Wrap="True"/>
+                <Component Name="grAuthority" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                  <Component Name="AuthorityID" Class="Com.Ctrl.IEdit" Caption="@Код подразделения" Enabled="False" Field="EdtRec.IdentityDocument" FixSize="True" HasCaption="True" LookupField="AuthorityID" Width="35"/>
+                  <Component Name="Static3" Class="Com.Ctrl.IStatic"/>
+                  <Component Name="DateOfExpir" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Дата окончания" Enabled="False" Field="EdtRec.IdentityDocument" HasCaption="True" LookupField="DateOfExpir" MaxWidth="35"/>
+                </Component>
+              </Component>
+            </Component>
+            <Inherited Name="bxCitizenship">
+              <Inherited Name="grCitizenship">
+                <Inherited Name="grCitizenship1">
+                  <Component Name="IsResident" Class="Com.Ctrl.IEdit" After="#0" Alignment="LeftAlign" Caption="Статус" CellFormat="EnumFormat" Field="EdtRec.Nonresident" FixSize="True" HasCaption="True" OnChange="IsResident_OnChange" Width="55"/>
+                  <Inherited Name="Static1" Excluded="True"/>
+                </Inherited>
+                <Inherited Name="grCitizenship2">
+                  <Component Name="INNIno" Class="Com.Ctrl.IEdit" Field="EdtRec.INNIno" FixSize="True" HasCaption="True" Width="55"/>
+                  <Component Name="INNInoSt" Class="Com.Ctrl.IStatic"/>
+                </Inherited>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

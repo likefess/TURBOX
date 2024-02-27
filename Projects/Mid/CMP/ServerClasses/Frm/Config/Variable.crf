@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited HelpContext="CMP.Студия компонентов (машина реквизитов).Переменные">
+    <Inherited Name="EdtRec" Class="CMP.Rec.Config.IVariable" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" MaxWidth="0">
+          <Component Name="CodeNameGroup" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True">
+            <Component Name="EditName" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" HasCaption="True"/>
+            <Component Name="EditCode" Class="Com.Ctrl.IEdit" CaptionWidth="20" Field="EdtRec.Code" FixSize="True" HasCaption="True" Width="40"/>
+          </Component>
+          <Inherited Name="Code" After="CodeNameGroup"/>
+          <Component Name="EditVariableType" Class="Com.Ctrl.IEdit" After="Name" CellFormat="EnumFormat" Field="EdtRec.VariableType" HasCaption="True" ListAsString="глобальная&#xD;&#xA;пользовательская&#xD;&#xA;сессии" OnChange="EditType_OnChange"/>
+          <Component Name="EditValueType" Class="Com.Ctrl.IEdit" Caption="@CMP:VariableValueType=Тип значения" CellFormat="EnumFormat" Field="EdtRec.ValueType" ListAsString="&lt;Не указан>&#xD;&#xA;Строка&#xD;&#xA;Число&#xD;&#xA;Дата&#xD;&#xA;Логический&#xD;&#xA;Ссылочный" OnChange="EditType_OnChange"/>
+          <Component Name="EditStringValue" Class="Com.Ctrl.IEdit" Caption="@CMP:VariableValue=Значение" Field="EdtRec.StringValue"/>
+          <Component Name="EditNumericValue" Class="Com.Ctrl.IEdit" Caption="@CMP:VariableValue=Значение" Field="EdtRec.NumericValue"/>
+          <Component Name="EditDateValue" Class="Com.Ctrl.IEdit" Caption="@CMP:VariableValue=Значение" Field="EdtRec.DateValue" HasButton="True"/>
+          <Component Name="Group2" Class="Com.Ctrl.IGroup">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="Значение" FixSize="True" Width="40"/>
+            <Component Name="CheckBoxLogicalValue" Class="Com.Ctrl.ICheckBox" Caption=" " Field="EdtRec.LogicalValue"/>
+          </Component>
+          <Component Name="EditCardFile" Class="Com.Ctrl.IEdit" Caption="@CMP:VariableCardFile=Картотека" Field="EdtRec.CardFile" HasButton="True" OnLookup="EditCardFile_OnLookup"/>
+          <Component Name="EditRecordValue" Class="Com.Ctrl.IEdit" Caption="@CMP:VariableValue=Значение" Enabled="False" Field="EdtRec.RecordValue" HasButton="True" LookupField="RecordDescription"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

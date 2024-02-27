@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited CaptionWidth="44" HelpContext="Control.Контроль поручений.Настройка.Настроечные справочники.Тип проекта">
+    <Inherited Name="EdtRec" Class="Control.Rec.Ref.TransRuleGroup" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" ByColumn="False">
+          <Inherited Name="Name" After="#0" Visible="True" Width="39"/>
+          <Inherited Name="Code" After="Name" CaptionWidth="22" Visible="True" Width="20"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="Group3" Class="Com.Ctrl.IGroup" ByColumn="True">
+              <Component Name="InitialStatus" Class="Com.Ctrl.IEditEx" CardFileClass="Control.Tab.Ref.TaskStatus" CellFormat="ReferenceFormat" Field="EdtRec.InitialStatus" HasCaption="True" LookupField="Name" ValueType="VarObject" Width="120">
+                <Component Name="JB_InitialStatus" Class="Com.Ctrl.IJumpButton"/>
+              </Component>
+              <Component Name="EMailServer" Class="Com.Ctrl.IEditEx" CardFileClass="Bas.Tab.Config.EMailServer" CellFormat="ReferenceFormat" Field="EdtRec.EMailServer" HasCaption="True" LookupField="Name" ValueType="VarObject">
+                <Component Name="JB_EMailServer" Class="Com.Ctrl.IJumpButton"/>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="TransRulesTab" Class="Com.Ctrl.IFrame" Caption="@TransRuleGroup:TransitionRulesList=Список правил перехода" ShowTabs="True" Visible="False"/>
+        <Component Name="TransitionRulesTab" Class="Com.Ctrl.IFrame" Caption="@TransRuleGroup:TransitionRulesList=Список правил перехода" Visible="True">
+          <Component Name="TabTransitionRule" Class="Control.Tab.Ref.TransitionRule" Caption="@TransRuleGroup:TransitionRulesList=Список правил перехода"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

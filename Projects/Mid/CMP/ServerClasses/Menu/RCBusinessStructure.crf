@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IRoleCenter">
+  <Inherited Caption="@CMP:Caption_BusinessStructure=Студия компонентов (структура бизнеса)" CaptionAlign="CenterAlign">
+    <Inherited Name="MainGroup" Columns="5" Orientation="Vertical">
+      <Component Name="Main" Class="Com.Cmd2.IGroup" Caption="@CmpRC:Structure=Структура" Columns="3" Orientation="Vertical" Rows="5">
+        <Component Name="Реквизиты" Class="Com.ComManaging.OpenIForm" Caption="@CmpRC:Properties=Реквизиты" FormClassName="CMP.Tab.Config.Properties" IconName="Bas.puzzle2"/>
+        <Component Name="Представления" Class="Com.ComManaging.OpenIForm" Caption="@CmpRC:Views=Представления" FormClassName="CMP.Tab.Config.Views" IconName="Com.sketch"/>
+        <Component Name="ТипыОбъектов" Class="Com.ComManaging.OpenIForm" Caption="@CmpRC:ObjTypes=Типы объектов" FormClassName="Bas.Tab.Config.ProcType" IconName="Bas.ProcType"/>
+        <Component Name="Переменные" Class="Com.ComManaging.OpenIForm" Caption="@CmpRC:Variables=Переменные" FormClassName="CMP.Tab.Config.Variables" IconName="Com.Calculation"/>
+        <Component Name="НастройкиКартотек" Class="Com.ComManaging.OpenIForm" Caption="@CmpRC:CardSettings=Настройки картотек" FormClassName="CMP.Tab.Config.CardfileSetup" IconName="Com.CardfileTree"/>
+        <Component Name="ПанелиУправления" Class="Com.ComManaging.OpenIForm" Caption="@CmpRC:Panels=Панели управления" FormClassName="CMP.Tab.Config.ControlPanels" IconName="Com.ChildForm"/>
+        <Component Name="ДополнительныеПрава" Class="Com.ComManaging.OpenIForm" Caption="@CmpRC:ExtraRights=Дополнительные права" FormClassName="CMP.Tab.Config.Appendants" IconName="Com.Settings"/>
+        <Component Name="BusinessStructure" Class="Com.ComManaging.ExecProcedure" Caption="@CmpRC:TypesDefault=Типы по умолчанию" CommandProc="BusinessStructure_CommandProc" IconName="Biz.sitemap"/>
+        <Component Name="OldBusinessStructure" Class="Com.ComManaging.ExecProcedure" Caption="@CmpRC:OldBusinessStructure=Старая форма СБ" IconName="Biz.sitemap" ProcName="Bas.ConsoleUtils.ОткрытьЕдинственныйЭкземплярБланка(Upr.Настройки.СтруктураБизнеса.блСтруктураБизнеса)" Visible="False"/>
+        <Component Name="CompileSurepProject" Class="Com.Cmd2.IItem" Command="Commands.CompileSuperProject"/>
+      </Component>
+      <Component Name="Data" Class="Com.Cmd2.IGroup" Excluded="True" Caption="@CmpRC:Data=Данные" Columns="1" Orientation="Vertical" Rows="5">
+        <Component Name="OpenObjectProcesses" Class="CMP.ComManaging.OpenObjectForm" AdvRTIForm="Upr.Rec.Данные.БазовыйПроцесс" Caption="Процессы" FormClassName="Frm.ObjectForm" IconName="Biz.GeneralLeger"/>
+      </Component>
+      <Component Name="References" Class="Com.Cmd2.IGroup" Caption="@CmpRC:References=Справочники" Columns="3" Orientation="Vertical" Rows="5">
+        <Component Name="Валюты" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Biz.Frm.Ref.UnitOrCurrency" Caption="Валюты и единицы" FormClassName="Biz.Tab.Ref.UnitsOrCurrencies" IconName="Biz.money-bill"/>
+        <Component Name="Ресурсы" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Biz.Frm.Data.Resource" Caption="Ресурсы" FormClassName="Biz.Tab.Data.Resources" IconName="Biz.Resource"/>
+        <Component Name="Субъекты" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Bas.Rec.Data.Entity" Caption="Субъекты" FormClassName="Bas.Tab.Data.Entity" IconName="Bas.Entities"/>
+        <Component Name="РолиСубъектов" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Bas.Frm.Ref.EntityRole" Caption="Роли субъектов" FormClassName="Bas.Tab.Ref.EntityRoles" IconName="Bas.EntityRoles"/>
+        <Component Name="СтатусыДвижений" Class="Com.ComManaging.ExecProcedure" Excluded="True" Caption="Статусы движений" IconName="Com.Reference" ProcName="Bas.ConsoleUtils.ОткрытьЕдинственныйЭкземплярКартотеки(Upr.Справочники.картСтатус)"/>
+        <Component Name="ТипыДвижений" Class="Com.ComManaging.ExecProcedure" Excluded="True" Caption="Типы движений" IconName="Com.Reference" ProcName="Bas.ConsoleUtils.ОткрытьЕдинственныйЭкземплярКартотеки(МашРек.Справочники.картТипДвижения)"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

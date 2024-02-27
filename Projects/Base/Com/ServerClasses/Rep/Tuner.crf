@@ -1,0 +1,586 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="VarContainer" Class="Com.IVarContainer">
+      <Component Name="ReportContainer" Class="Com.ISubContainer"/>
+      <Component Name="SubIndicators" Class="Com.ISubContainer" ItemClass="Com.Rep.IIndicator" OnAfterDelete="AfterIndicatorDelete" OnAfterInsert="AfterIndicatorInsert" OnListing="IndicatorsOnListing"/>
+      <Component Name="SubSplitByRows" Class="Com.ISubContainer" ItemClass="Com.Rep.ISplitParam" OnAfterDelete="AfterRowSplitDelete" OnAfterInsert="AfterRowSplitInsert" OnListing="SplitsOnListing"/>
+      <Component Name="SubSplitByCols" Class="Com.ISubContainer" ItemClass="Com.Rep.ISplitParam" OnAfterDelete="AfterColSplitDelete" OnAfterInsert="AfterColSplitInsert" OnListing="SplitsOnListing"/>
+      <Component Name="SubSplitByTabs" Class="Com.ISubContainer" ItemClass="Com.Rep.ISplitParam" OnAfterDelete="AfterTabSplitDelete" OnAfterInsert="AfterTabSplitInsert" OnListing="SplitsOnListing"/>
+      <Component Name="SubContentByRows" Class="Com.ISubContainer" ItemClass="Com.Rep.ISplitContent" OnAfterDelete="SubContentByRowsOnAfterDelete" OnAfterInsert="AfterRowContentInsert"/>
+      <Component Name="SubContentByCols" Class="Com.ISubContainer" ItemClass="Com.Rep.ISplitContent" OnAfterDelete="SubContentByColsOnAfterDelete" OnAfterInsert="AfterColContentInsert"/>
+      <Component Name="SubContentByTabs" Class="Com.ISubContainer" ItemClass="Com.Rep.ISplitContent" OnAfterDelete="SubContentByTabsOnAfterDelete" OnAfterInsert="AfterTabContentInsert"/>
+      <Component Name="SubExplain" Class="Com.ISubContainer" ItemClass="Com.Rep.IExplain" OnAfterInsert="SetComponentNameAfterInsert"/>
+      <Component Name="SubParameters" Class="Com.ISubContainer" ItemClass="Com.Rep.IRepControl" OnAfterDelete="SubParametersOnAfterDelete" OnAfterInsert="AfterParameterInsert"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="TopFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+        <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" AutoSize="True">
+          <Component Name="ButtonSave" Class="Com.Ctrl.IButton" ImageName="Com.PostClose" OnClick="ButtonSaveOnClick" Printed="False" Visible="False"/>
+          <Component Name="ButtonClose" Class="Com.Ctrl.IButton" ImageName="Close" OnClick="ButtonCloseOnClick" Printed="False" Visible="False"/>
+        </Component>
+        <Component Name="SubheaderFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Vertical">
+          <Component Name="BeforeDateFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="ChooseReport" Class="Com.Ctrl.IEdit" Caption="Report" CaptionWidth="20" CellFormat="EnumFormat" OnChange="ChooseReportOnChange" ValueType="VarString"/>
+            <Component Name="ButtonConfig" Class="Com.Ctrl.IButton" Caption="@Cmd:Tune=Настроить" ImageName="Com.Setup" OnClick="ButtonConfigOnClick" Printed="False"/>
+          </Component>
+          <Component Name="DateFrame" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+          <Component Name="AfterDateFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="ButtonPreview" Class="Com.Ctrl.IButton" Caption="@Tuner:Preview=Построить" ImageName="Com.Report" OnClick="ButtonPreviewOnClick" Printed="False" Visible="True"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="MainFrame" Class="Com.Ctrl.IFrame" Margins="4" Orientation="WithTabs" ShowTabs="True">
+        <Component Name="MainTuneFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Tune:Main=Основные">
+          <Component Name="MainTuneBox" Class="Com.Ctrl.IBox" Caption="@Tune:GrouprBox=Общие">
+            <Component Name="WebMainGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="TuneInnerGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50" MaxWidth="300">
+                <Component Name="TypeGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                  <Component Name="ReportType" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tuner:Report=Отчёт" CaptionWidth="16" CellFormat="EnumFormat" Enabled="False" FixSize="True" LinkName="ReportType" OnChange="ReportTypeOnChange" SubContainer="ReportContainer" ValueType="VarInteger" Width="34"/>
+                  <Component Name="ReportTypeText" Class="Com.Ctrl.IStatic" Excluded="True" Alignment="RightAlign" Caption="Отчет по справочнику" FixSize="True" Width="50"/>
+                  <Component Name="RepCaption" Class="Com.RepCtrl.IEditSub" FontBold="True" HasCaption="False" LinkName="Caption" OnChange="RepCaption_OnChange" SubContainer="ReportContainer" Width="120"/>
+                  <Component Name="RepCode" Class="Com.Ctrl.IEdit" Caption="@Code=Код" CaptionWidth="14" FixSize="True" OnChange="RepCodeOnChange" OnOutput="RepCodeOnOutput" Width="40"/>
+                </Component>
+                <Component Name="AccountGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                  <Component Name="AccountPlan" Class="Com.RepCtrl.IEditSub" CanSelect="True" Caption="@Tuner:Accounts=Счета" CaptionWidth="16" FixSize="True" HasButton="True" Hint="@Tuner:PlanHint=План счетов" LinkName="AccountPlan" OnChange="AccountPlanOnChange" OnLookup="AccountPlanOnLookup" SubContainer="ReportContainer" Width="34"/>
+                  <Component Name="AccountFilter" Class="Com.RepCtrl.IEditSub" AutocompleteMode="acmOn" HasButton="True" HasCaption="False" Hint="@Tuner:AccountsHint=Фильтр на счета" LinkName="AccountFilter" OnAutocomplete="AccountFilterOnAutocomplete" OnLookup="AccountFilterOnLookup" SubContainer="ReportContainer" Width="120"/>
+                </Component>
+                <Component Name="ParameterFilter" Class="Com.RepCtrl.IEditSub" AutocompleteMode="acmOn" Caption="@Tune:ParameterFilter=Фильтр на параметры" HasButton="True" Hint="@Tune:ParameterFilterHint=Фильтр на параметры отчёта" LinkName="ParameterFilter" OnLookup="ParameterFilterOnLookup" SubContainer="ReportContainer" Width="150"/>
+                <Component Name="PeriodGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                  <Component Name="OpenPeriod" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:OpenPeriod=Период при открытии" CellFormat="EnumFormat" FixSize="True" Hint="Автовыбор: Если текущая дата попадает в первую треть периода, автовыбор использует предыдущий период, иначе - текущий. Имеет смысл только для периодов: день, неделя, месяц, квартал, полугодие, год." LinkName="OpenPeriod" OnChange="OpenPeriodOnChange" SubContainer="ReportContainer" ValueType="VarInteger" Width="55"/>
+                  <Component Name="ReportPeriod" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="StringFormat" Enabled="False" OnOutput="ReportPeriodOnOutput" Width="34"/>
+                  <Component Name="HidePeriod" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:HidePeriod=Скрывать период" FixSize="True" LinkName="HidePeriod" OnChange="HidePeriodOnChange" SubContainer="ReportContainer" Width="40"/>
+                </Component>
+                <Component Name="AutobuildGroup" Class="Com.Ctrl.IGroup">
+                  <Component Name="AutobuildStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+                  <Component Name="AutobuildFlag" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AutobuildFlag=Строить при открытии" FixSize="True" LinkName="AutoBuild" SubContainer="ReportContainer" Width="55"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="SumFormatsBox" Class="Com.Ctrl.IBox" Caption="@Tune:HeaderBox=Остатки/обороты">
+            <Component Name="WebSumGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="110" MinWidth="50">
+              <Component Name="InnerSumGroup" Class="Com.Ctrl.IGroup" ByColumn="True" CaptionWidth="50">
+                <Component Name="BegSumFormats" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:BegSumFormats=Начальный остаток" CellFormat="EnumFormat" LinkName="BegSaldoFormat" OnChange="SumFormatsOnChange" SubContainer="ReportContainer" ValueType="VarInteger"/>
+                <Component Name="TurnSumFormats" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:TurnSumFormats=Оборот" CellFormat="EnumFormat" LinkName="TurnFormat" OnChange="SumFormatsOnChange" SubContainer="ReportContainer" ValueType="VarInteger"/>
+                <Component Name="EndSumFormats" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:EndSumFormats=Конечный остаток" CellFormat="EnumFormat" LinkName="EndSaldoFormat" OnChange="SumFormatsOnChange" SubContainer="ReportContainer" ValueType="VarInteger"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="OutputBox" Class="Com.Ctrl.IBox" Caption="@Tune:OutputBox=Формат вывода">
+            <Component Name="WebOutputGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="110" MinWidth="50">
+              <Component Name="WebOutputInnerGroup" Class="Com.Ctrl.IGroup" ByColumn="True" CaptionWidth="50">
+                <Component Name="FirstPage" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" AutoLookup="True" Caption="@Tune:FirstPage=Первая страница" CellFormat="EnumFormat" LinkName="FirstPage" OnChange="FirstPageOnChange" SubContainer="ReportContainer" ValueType="VarString"/>
+                <Component Name="OutputReport" Class="Com.RepCtrl.IEditSub" AutoLookup="True" Caption="@Tune:OutputReport=Отчёт" CellFormat="EnumFormat" LinkName="OutputReport" OnChange="OutputOnChange" SubContainer="ReportContainer" ValueType="VarInteger"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="DimensionsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Tune:Dimensions=Разрезы" Orientation="Vertical">
+          <Component Name="DimensionsListFrame" Class="Com.Ctrl.IFrame" CanResizeBySplit="True" Size="72" SplitterAtRight="True" UseSplitter="True">
+            <Component Name="SplitByRowsBox" Class="Com.Ctrl.IBox" Caption="@Tune:SplitByRows=Строки" Size="20">
+              <Component Name="SplitByRowsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4" OnMove="MoveDimension">
+                <Component Name="SplitByRowsTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="SubSplitByRows">
+                  <Component Name="SplitParam_SBR" Class="Com.RepCtrl.IEditSub" Caption="@Tune:SplitParam=Параметр" HasButton="True" LinkName="SplitParam" MinWidth="30" OnChange="RowSplitOnChange" OnDraw="SplitListHighlight" OnLookup="SplitParamOnLookup" OnOutput="SplitParamOnOutput" SubContainer="SubSplitByRows" Width="50"/>
+                  <Component Name="SplitParamEnbl_SBR" Class="Com.RepCtrl.IFlagSub" Alignment="CenterAlign" Caption="@Tune:SplitEnabled=Вкл." FixSize="True" Hint="@Tune:SplitEnabledHint=Включен в отчёт" LinkName="Enabled" OnDraw="SplitListHighlight" Width="10"/>
+                </Component>
+              </Component>
+              <Component Name="ContentByRowsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4" OnMove="MoveDimension" Visible="False">
+                <Component Name="ContentByRowsTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="SubContentByRows">
+                  <Component Name="RowContent" Class="Com.RepCtrl.IEditSub" Caption="@Tune:SplitContents=Выводить" HasButton="True" LinkName="Contents" MinWidth="30" OnChange="SplitContentOnChange" OnDraw="SplitListHighlight" OnLookup="RowContentsOnLookup" SubContainer="SubContentByRows" Width="50"/>
+                  <Component Name="RowContentEnbl" Class="Com.RepCtrl.IFlagSub" Alignment="CenterAlign" Caption="@Tune:SplitEnabled=Вкл." FixSize="True" Hint="@Tune:SplitEnabledHint=Включен в отчёт" LinkName="Enabled" OnDraw="SplitListHighlight" Width="10"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="SplitByColsBox" Class="Com.Ctrl.IBox" Caption="@Tune:SplitByCols=Столбцы" Size="20">
+              <Component Name="SplitByColsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4" OnMove="MoveDimension">
+                <Component Name="SplitByColsTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="SubSplitByCols">
+                  <Component Name="SplitParam_SBC" Class="Com.RepCtrl.IEditSub" Caption="@Tune:SplitParam=Параметр" HasButton="True" LinkName="SplitParam" MinWidth="30" OnChange="ColSplitOnChange" OnDraw="SplitListHighlight" OnLookup="SplitParamOnLookup" OnOutput="SplitParamOnOutput" SubContainer="SubSplitByCols" Width="50"/>
+                  <Component Name="SplitParamEnbl_SBC" Class="Com.RepCtrl.IFlagSub" Alignment="CenterAlign" Caption="@Tune:SplitEnabled=Вкл." FixSize="True" Hint="@Tune:SplitEnabledHint=Включен в отчёт" LinkName="Enabled" OnDraw="SplitListHighlight" Width="10"/>
+                </Component>
+              </Component>
+              <Component Name="ContentByColsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4" OnMove="MoveDimension" Visible="False">
+                <Component Name="ContentByColsTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="SubContentByCols">
+                  <Component Name="ColContent" Class="Com.RepCtrl.IEditSub" Caption="@Tune:SplitContents=Выводить" HasButton="True" LinkName="Contents" MinWidth="30" OnChange="SplitContentOnChange" OnDraw="SplitListHighlight" OnLookup="ColContentsOnLookup" SubContainer="SubContentByCols" Width="50"/>
+                  <Component Name="ColContentEnbl" Class="Com.RepCtrl.IFlagSub" Alignment="CenterAlign" Caption="@Tune:SplitEnabled=Вкл." FixSize="True" Hint="@Tune:SplitEnabledHint=Включен в отчёт" LinkName="Enabled" OnDraw="SplitListHighlight" Width="10"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="SplitByTabsBox" Class="Com.Ctrl.IBox" Caption="@Tune:SplitByTabs=Таблицы" Size="20">
+              <Component Name="SplitByTabsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4" OnMove="MoveDimension">
+                <Component Name="SplitByTabsTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="SubSplitByTabs">
+                  <Component Name="SplitParam_SBT" Class="Com.RepCtrl.IEditSub" Caption="@Tune:SplitParam=Параметр" HasButton="True" LinkName="SplitParam" MinWidth="30" OnChange="TabSplitOnChange" OnDraw="SplitListHighlight" OnLookup="SplitParamOnLookup" OnOutput="SplitParamOnOutput" SubContainer="SubSplitByTabs" Width="50"/>
+                  <Component Name="SplitParamEnbl_SBT" Class="Com.RepCtrl.IFlagSub" Alignment="CenterAlign" Caption="@Tune:SplitEnabled=Вкл." FixSize="True" Hint="@Tune:SplitEnabledHint=Включен в отчёт" LinkName="Enabled" OnDraw="SplitListHighlight" Width="10"/>
+                </Component>
+              </Component>
+              <Component Name="ContentByTabsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4" OnMove="MoveDimension" Visible="False">
+                <Component Name="ContentByTabsTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="SubContentByTabs">
+                  <Component Name="TabContent" Class="Com.RepCtrl.IEditSub" Caption="@Tune:SplitContents=Выводить" HasButton="True" LinkName="Contents" MinWidth="30" OnChange="SplitContentOnChange" OnDraw="SplitListHighlight" OnLookup="TabContentsOnLookup" SubContainer="SubContentByTabs" Width="50"/>
+                  <Component Name="TabContentEnbl" Class="Com.RepCtrl.IFlagSub" Alignment="CenterAlign" Caption="@Tune:SplitEnabled=Вкл." FixSize="True" Hint="@Tune:SplitEnabledHint=Включен в отчёт" LinkName="Enabled" OnDraw="SplitListHighlight" Width="10"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="DimensionsFrameProperties" Class="Com.Ctrl.IFrame">
+            <Component Name="SplitFrameProperties" Class="Com.Ctrl.IBox" Caption="@Tune:SplitParam=Параметр">
+              <Component Name="SplitPropertiesGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="SplitParamStatic" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:SplitParamName=Имя" CaptionWidth="30" Enabled="False" Hint="он невидим, но из него берётся наименование группы" LinkName="SplitParam" Visible="False"/>
+                <Component Name="SplitType_Properties" Class="Com.RepCtrl.IEditSubCurrent" Alignment="LeftAlign" Caption="@Tune:SplitType=Тип" CaptionWidth="30" CellFormat="EnumFormat" Enabled="False" LinkName="SplitType" ValueType="VarInteger"/>
+                <Component Name="CorrParam" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:CorrParam=Корр. параметр" LinkName="CorrParam" OnChange="CorrParamOnChange"/>
+                <Component Name="ReferenceFilterSplit" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:ReferenceFilter=Фильтр по спр" CaptionWidth="30" HasButton="True" Hint="@Tune:ReferenceFilterSplit_Hint=Фильтр разбиения по справочнику" LinkName="ReferenceFilter" OnLookup="ReferenceFilterOnLookup"/>
+                <Component Name="ReferenceFilter" Class="Com.RepCtrl.IEditSub" Caption="@Tune:ReferenceFilter=Фильтр по спр" CaptionWidth="30" HasButton="True" Hint="@Tune:ReferenceFilterSplit_Hint=Фильтр разбиения по справочнику" LinkName="ReferenceFilter" LinkToContainer="True" OnLookup="ReferenceFilterOnLookup" SubContainer="ReportContainer"/>
+                <Component Name="SplitSortGroup" Class="Com.Ctrl.IGroup">
+                  <Component Name="SplitSort" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:Sort=Упорядочить" FixSize="True" LinkName="Sort" Width="30"/>
+                  <Component Name="SplitSortOrder" Class="Com.RepCtrl.IEditSub" HasButton="True" HasCaption="False" LinkName="SortOrder" OnLookup="SplitSortOrderOnLookup"/>
+                </Component>
+                <Component Name="SplitPrimitiveTypeGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                  <Component Name="SplitRangeType" Class="Com.RepCtrl.IEditSubCurrent" Alignment="LeftAlign" Caption="@Tune:RangeType=Разбиение" CaptionWidth="30" CellFormat="EnumFormat" LinkName="RangeType" OnChange="SplitRangeTypeOnChange" ValueType="VarInteger"/>
+                  <Component Name="SplitRangeEnum" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:RangeEnum=Список значений" CaptionWidth="30" Hint="@Tune:RangeEnumHint=Значения вводятся через запятую, напр.: 01.01.2021, 02.02.2022" LinkName="RangeEnum" Wrap="True"/>
+                  <Component Name="SplitPeriodFunc" Class="Com.RepCtrl.IEditSubCurrent" Alignment="LeftAlign" Caption="@Tune:SplitPeriodFunc=Функция" CaptionWidth="30" CellFormat="EnumFormat" LinkName="PeriodFunc" ValueType="VarInteger"/>
+                  <Component Name="SplitDateScaleGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                    <Component Name="SplitRangeStartDate" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:RangeStart=Начальное значение" CaptionWidth="30" CellFormat="DateFormat" LinkName="RangeStartDate"/>
+                    <Component Name="SplitRangeGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                      <Component Name="SplitRangeStep" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:RangeStep=Шаг" CaptionWidth="30" LinkName="RangeStepInt"/>
+                      <Component Name="SplitRangePeriod" Class="Com.RepCtrl.IEditSubCurrent" Alignment="LeftAlign" Caption="@Tune:RangePeriod=Период" CaptionWidth="30" CellFormat="EnumFormat" LinkName="RangePeriod" ValueType="VarInteger"/>
+                    </Component>
+                  </Component>
+                  <Component Name="SplitIntScaleGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                    <Component Name="SplitRangeStepInt" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:RangeStep=Шаг" CaptionWidth="30" LinkName="RangeStepInt"/>
+                    <Component Name="SplitRangeStartInt" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:RangeStart=Начальное значение" LinkName="RangeStartInt"/>
+                  </Component>
+                  <Component Name="SplitNumScaleGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                    <Component Name="SplitRangeStepNum" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:RangeStep=Шаг" CaptionWidth="30" LinkName="RangeStepNum"/>
+                    <Component Name="SplitRangeStartNum" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:RangeStart=Начальное значение" LinkName="RangeStartNum"/>
+                  </Component>
+                </Component>
+                <Component Name="SplitPeriodGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                  <Component Name="SplitPeriodGroup1" Class="Com.Ctrl.IGroup" Adaptive="True">
+                    <Component Name="SplitPeriodStep" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:PeriodStep=Шаг" CaptionWidth="30" LinkName="PeriodStep" ValueType="VarInteger" Width="15"/>
+                    <Component Name="SplitPeriod" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:Period=Период" CellFormat="EnumFormat" HasCaption="False" LinkName="Period" ValueType="VarInteger"/>
+                  </Component>
+                  <Component Name="SplitLettering" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:Lettering=Прописью" LinkName="Lettering"/>
+                  <Component Name="SplitAllPeriods" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:AllPeriods=Все периоды" LinkName="AllPeriods"/>
+                  <Component Name="SplitAlignPeriod" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:AlignPeriod=Выравнивать" LinkName="AlignPeriod"/>
+                </Component>
+                <Component Name="SplitDebCreGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                  <Component Name="SplitDebCreBy" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:SplitDebCreBy=Вид" CaptionWidth="40" CellFormat="EnumFormat" LinkName="SplitDebCreBy" ValueType="VarInteger"/>
+                  <Component Name="SplitTabDebCaption" Class="Com.RepCtrl.IEditSub" Caption="@Tune:SplitTabDebCaption=Заголовок дебета" CaptionWidth="40" LinkName="TabDebCaption" SubContainer="ReportContainer"/>
+                  <Component Name="SplitTabCreCaption" Class="Com.RepCtrl.IEditSub" Caption="@Tune:SplitTabCreCaption=Заголовок кредита" CaptionWidth="40" LinkName="TabCreCaption" SubContainer="ReportContainer"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="ContentFrameProperties" Class="Com.Ctrl.IBox" Caption="@Tune:SplitContents=Выводить">
+              <Component Name="ContentPropertiesGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="ContentsStatic" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:ContentsName=Имя" CaptionWidth="30" Enabled="False" Hint="он невидим, но из него берётся наименование группы" LinkName="Contents" Visible="False"/>
+                <Component Name="ContentPropertiesRow" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                  <Component Name="Caption_Properties" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:Caption=Заголовок" CaptionWidth="30" LinkName="Caption"/>
+                  <Component Name="MinWidth_Properties" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:MinWidth=Мин.ширина" CaptionWidth="30" CellFormat="NumericFormat" LinkName="MinWidth" ValueType="VarNumeric"/>
+                  <Component Name="MaxWidth_Properties" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:MaxWidth=Макс.ширина" CaptionWidth="30" CellFormat="NumericFormat" LinkName="MaxWidth" ValueType="VarNumeric"/>
+                  <Component Name="UseMacro_Properties" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:UseIndents=Использовать отступы" Hint="@Tune:UseIndentsHint=Использовать отступы в иерархических отчетах" LinkName="UseMacro"/>
+                  <Component Name="Alignment_Properties" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:Alignment=Выравнивание" CaptionWidth="30" CellFormat="EnumFormat" LinkName="Alignment" ValueType="VarInteger"/>
+                  <Component Name="AfterIndicators_Properties" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:AfterIndicators=После показателей" LinkName="AfterIndicators"/>
+                </Component>
+                <Component Name="FormatNum_Properties" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:Format=Формат" CaptionWidth="30" CellFormat="StringFormat" LinkName="Format" ShortList="True"/>
+                <Component Name="FormatDat_Properties" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:Format=Формат" CaptionWidth="30" CellFormat="StringFormat" LinkName="Format" ShortList="True"/>
+                <Component Name="ContentOutputValueGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="30">
+                  <Component Name="ContentOutputType" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:OutputType=Выводить" CellFormat="EnumFormat" LinkName="OutputType" OnChange="ContentOutputTypeOnChange" ValueType="VarInteger"/>
+                  <Component Name="ContentOutputEnum" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:OutputEnum=Список значений" Hint="@Tune:OutputEnumHint=Значения вводятся в формате &quot;Описание|Значение&quot;, как для перечислимых полей" LinkName="OutputEnum" Multiline="True" Wrap="True"/>
+                  <Component Name="ContentOutputFunc" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:OutputFunc=Функция" Hint="@Tune:OutputFuncHint=Заполняется в формате &quot;ИмяПроекта.ИмяКласса.ИмяФункции&quot;.&#xD;&#xA;Может использоваться любая inclass-функция одного аргумента" LinkName="OutputFunc"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="IndicatorsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Tune:Indcators=Показатели" Orientation="Vertical">
+          <Component Name="IndicatorsListFrame" Class="Com.Ctrl.IFrame" CanResizeBySplit="True" Margins="8" OnMove="MoveIndicators" Size="72" SplitterAtRight="True" UseSplitter="True">
+            <Component Name="IndicatorsListTable" Class="Com.Ctrl.ITable" Adaptive="True" Freezed="True" Numbering="False" Subtable="SubIndicators">
+              <Component Name="IndCompID" Class="Com.RepCtrl.IEditSub" Caption="@Tune:IndCompID=Показатель" HasButton="True" LinkName="CompID" MinWidth="30" OnDraw="IndListHighlight" OnLookup="IndicatorOnLookup" OnOutput="IndicatorOnOutput" OnVerify="IndicatorOnVerify" Width="50"/>
+              <Component Name="IndVisible" Class="Com.RepCtrl.IFlagSub" Alignment="CenterAlign" Caption="@Tune:VisibleInd=Вд." FixSize="True" Hint="@Tune:VisibleIndHint=Видимость" LinkName="Visible" OnDraw="IndListHighlight" Width="10"/>
+              <Component Name="IndEnabled" Class="Com.RepCtrl.IFlagSub" Alignment="CenterAlign" Caption="@Tune:Active=Вкл." FixSize="True" Hint="@Tune:IndEnabledHint=Включен в отчёт" LinkName="Enabled" OnDraw="IndListHighlight" Width="10"/>
+            </Component>
+          </Component>
+          <Component Name="CurrentIndicatorFrame" Class="Com.Ctrl.IFrame">
+            <Component Name="IndicatorBox" Class="Com.Ctrl.IBox" Caption="@Tune:IndicatorBox=Основные">
+              <Component Name="IndicatorMain" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="IndicatorCaption" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:IndicatorsCaption=Заголовок" LinkName="Caption" SubContainer="SubIndicators"/>
+                <Component Name="IndicatorContentsList" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:IndicatorContents=Содержимое" CellFormat="EnumFormat" LinkName="Contents" OnChange="IndicatorContentsListOnChange" OnVerify="IndicatorContentsListOnVerify" SubContainer="SubIndicators" ValueType="VarString"/>
+                <Component Name="IndicatorContents" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:IndicatorContents=Содержимое" LinkName="Contents" OnChange="IndicatorContentsOnChange" SubContainer="SubIndicators"/>
+                <Component Name="IndicatorCorrValueGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                  <Component Name="IndicatorCorrValueStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                  <Component Name="IndicatorCorrValue" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:CorrValue=Корр. значение" LinkName="CorrValue" SubContainer="SubIndicators" Width="100"/>
+                  <Component Name="IndicatorCorrValue2" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:CorrValue=Корр. значение" LinkName="CorrValue2" SubContainer="SubIndicators" Width="100"/>
+                </Component>
+                <Component Name="IndicatorValueType" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:IndicatorsVarType=Тип значения" CellFormat="EnumFormat" LinkName="ValueType" OnChange="IndicatorValueTypeOnChange" SubContainer="SubIndicators" ValueType="VarInteger"/>
+                <Component Name="IndicatorFormula" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:IndicatorsFormula=Формула" LinkName="Formula" SubContainer="SubIndicators"/>
+                <Component Name="IndicatorGroup" Class="Com.RepCtrl.IEditSubCurrent" Caption="Группа" LinkName="Group" SubContainer="SubIndicators" Visible="False"/>
+                <Component Name="IndicatorGroupEdit" Class="Com.Ctrl.IEdit" Caption="@Tune:Group=Группа" CellFormat="EnumFormat" OnOutput="IndicatorGroupOnOutput" OnVerify="IndicatorGroupOnVerify" ValueType="VarInteger"/>
+              </Component>
+              <Component Name="IndicatorTrans" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="IndicatorCaptionTrans" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:IndicatorsCaption=Заголовок" LinkName="Caption" SubContainer="SubIndicators"/>
+                <Component Name="IndicatorContentsTrans" Class="Com.RepCtrl.IEditSubCurrent" ButtonStyle="LookupButton" Caption="@Tune:IndicatorContents=Содержимое" LinkName="Contents" OnChange="IndicatorContentsTransOnChange" OnLookup="IndicatorContentsTransOnLookup" OnVerify="IndicatorContentsTransOnVerify" SubContainer="SubIndicators"/>
+                <Component Name="IndicatorTransCorrValueGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                  <Component Name="IndicatorTransCorrValueStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                  <Component Name="IndicatorTransCorrValue" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:CorrValue=Корр. значение" LinkName="CorrValue" SubContainer="SubIndicators" Width="100"/>
+                  <Component Name="IndicatorTransCorrValue2" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:CorrValue=Корр. значение" LinkName="CorrValue2" SubContainer="SubIndicators" Width="100"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="IndicatorAddBox" Class="Com.Ctrl.IBox" Caption="@Tune:IndicatorAddBox=Дополнительно" Collapsed="True">
+              <Component Name="IndicatorAddCalc" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="IndicatorAccountFilterCalc" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:AccountFilter=Счета" HasButton="True" LinkName="AccountFilter" OnLookup="AccountFilterOnLookup" SubContainer="SubIndicators"/>
+                <Component Name="IndicatorParameterFilterCalc" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:ParameterFilter=Параметры" LinkName="ParameterFilter" OnLookup="ParameterFilterOnLookup" SubContainer="SubIndicators"/>
+                <Component Name="IndicatorAggregateCalc" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:IndicatorsAggregate=Итоговые значения" CellFormat="EnumFormat" LinkName="Aggregate" SubContainer="SubIndicators" ValueType="VarInteger"/>
+                <Component Name="IndicatorBegSaldoFormatCalc" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:BegSaldoFormat=Начальный остаток" CellFormat="EnumFormat" LinkName="BegSaldoFormat" SubContainer="SubIndicators" ValueType="VarInteger"/>
+                <Component Name="IndicatorTurnFormatCalc" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:TurnFormat=Оборот" CellFormat="EnumFormat" LinkName="TurnFormat" SubContainer="SubIndicators" ValueType="VarInteger"/>
+                <Component Name="IndicatorEndSaldoFormatCalc" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:EndSaldoFormat=Конечный остаток" CellFormat="EnumFormat" LinkName="EndSaldoFormat" SubContainer="SubIndicators" ValueType="VarInteger"/>
+                <Component Name="IndicatorShowFmtCalc" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:ShowFmt=Выводить" CellFormat="EnumFormat" LinkName="ShowFmt" SubContainer="SubIndicators" ValueType="VarInteger"/>
+              </Component>
+              <Component Name="IndicatorAddCustom" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="IndicatorCalcTimeCustom" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:CalcTime=Вычислять формулу" CellFormat="EnumFormat" LinkName="CalcTime" SubContainer="SubIndicators" ValueType="VarInteger"/>
+                <Component Name="IndicatorAggregateCustom" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:IndicatorsAggregate=Итоговые значения" CellFormat="EnumFormat" LinkName="Aggregate" SubContainer="SubIndicators" ValueType="VarInteger"/>
+                <Component Name="IndicatorInvertValueCustom" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:InvertValue=Обратный знак " LinkName="InvertValue" SubContainer="SubIndicators" Width="100"/>
+                <Component Name="IndicatorIncludeExplainCustom" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:IncludeExplainCustom=Включать в уточняющий отчёт" LinkName="IncludeExplain" SubContainer="SubIndicators" Width="100"/>
+                <Component Name="IndicatorBegSaldoFormatCustom" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:BegSaldoFormat=Начальный остаток" CellFormat="EnumFormat" LinkName="BegSaldoFormat" SubContainer="SubIndicators" ValueType="VarInteger"/>
+                <Component Name="IndicatorTurnFormatCustom" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:TurnFormat=Оборот" CellFormat="EnumFormat" LinkName="TurnFormat" SubContainer="SubIndicators" ValueType="VarInteger"/>
+                <Component Name="IndicatorEndSaldoFormatCustom" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:EndSaldoFormat=Конечный остаток" CellFormat="EnumFormat" LinkName="EndSaldoFormat" SubContainer="SubIndicators" ValueType="VarInteger"/>
+                <Component Name="IndicatorShowFmtCustom" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:ShowFmt=Выводить" CellFormat="EnumFormat" LinkName="ShowFmt" SubContainer="SubIndicators" ValueType="VarInteger"/>
+              </Component>
+              <Component Name="IndicatorAddMain" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="IndicatorAccountFilter" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:AccountFilter=Счета" HasButton="True" LinkName="AccountFilter" OnLookup="AccountFilterOnLookup" SubContainer="SubIndicators"/>
+                <Component Name="IndicatorParameterFilter" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:ParameterFilter=Параметры" LinkName="ParameterFilter" OnLookup="ParameterFilterOnLookup" SubContainer="SubIndicators"/>
+                <Component Name="IndicatorAggregate" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:IndicatorsAggregate=Итоговые значения" CellFormat="EnumFormat" LinkName="Aggregate" SubContainer="SubIndicators" ValueType="VarInteger"/>
+                <Component Name="IndicatorSwapNegValue" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:SwapNegValue=Отрицательный дебет в кредит" LinkName="SwapNegValue" SubContainer="SubIndicators" Width="100"/>
+                <Component Name="IndicatorInvertValue" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:InvertValue=Обратный знак" LinkName="InvertValue" SubContainer="SubIndicators" Width="100"/>
+                <Component Name="IndicatorBegSaldoFormat" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:BegSaldoFormat=Начальный остаток" CellFormat="EnumFormat" LinkName="BegSaldoFormat" SubContainer="SubIndicators" ValueType="VarInteger"/>
+                <Component Name="IndicatorTurnFormat" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:TurnFormat=Оборот" CellFormat="EnumFormat" LinkName="TurnFormat" SubContainer="SubIndicators" ValueType="VarInteger"/>
+                <Component Name="IndicatorEndSaldoFormat" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:EndSaldoFormat=Конечный остаток" CellFormat="EnumFormat" LinkName="EndSaldoFormat" SubContainer="SubIndicators" ValueType="VarInteger"/>
+                <Component Name="IndicatorShowFmt" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:ShowFmt=Выводить" CellFormat="EnumFormat" LinkName="ShowFmt" SubContainer="SubIndicators" ValueType="VarInteger"/>
+              </Component>
+              <Component Name="IndicatorAddTrans" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="IndicatorShowSeparate" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:ShowSeparate=Отдельным столбцом" LinkName="ShowSeparate" SubContainer="SubIndicators" Width="100"/>
+                <Component Name="IndicatorShowSaldo" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:ShowSaldo=Показывать сальдо (табличка после отчёта)" LinkName="ShowSaldo" SubContainer="SubIndicators" Width="100"/>
+                <Component Name="IndicatorShowColTotal" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:IndicatorsShowColTotal=Показывать итог по колонке" LinkName="ShowColTotal" SubContainer="SubIndicators" Width="100"/>
+                <Component Name="IndicatorShowRowTotal" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:IndicatorsShowRowTotal=Показывать итог по строке" LinkName="ShowRowTotal" SubContainer="SubIndicators" Width="100"/>
+                <Component Name="IndicatorOutputFmt" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:OutputFmt=Показывать Дт/Кт" CellFormat="EnumFormat" LinkName="OutputFmt" OnChange="IndicatorOutputFmtOnChange" SubContainer="SubIndicators" ValueType="VarInteger"/>
+                <Component Name="IndicatorSplitFmt" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:SplitFmt=Разделять" CellFormat="EnumFormat" LinkName="SplitFmt" SubContainer="SubIndicators" ValueType="VarInteger"/>
+                <Component Name="IndicatorSwapNegValueTrans" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:SwapNegValue=Отрицательный дебет в кредит" LinkName="SwapNegValue" SubContainer="SubIndicators" Width="100"/>
+                <Component Name="IndicatorShowTwoLines" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:ShowTwoLines=Управления показом расщепленных параметров в 2 строки" LinkName="ShowTwoLines" SubContainer="SubIndicators" Width="120"/>
+              </Component>
+              <Component Name="IndicatorOrderGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="IndicatorOrder" Class="Com.RepCtrl.IEditSub" Caption="@Tune:IndicatorOrder=Упорядочивать" CellFormat="StringFormat" HasButton="True" LinkName="RowOrder" OnLookup="IndicatorOrderOnLookup" SubContainer="ReportContainer"/>
+              </Component>
+            </Component>
+            <Component Name="IndicatorFormatBox" Class="Com.Ctrl.IBox" Caption="@Tune:IndicatorFormatBox=Формат" Collapsed="True">
+              <Component Name="IndicatorFormatGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="IndicatorPrepareFunc" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:IndicatorPrepareFunc=Функция перед построением" LinkName="PrepareFunc" SubContainer="SubIndicators"/>
+                <Component Name="IndicatorFormat" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:FormatInd=Формат" CellFormat="StringFormat" LinkName="Format" OnVerify="IndicatorFormatOnVerify" ShortList="True" SubContainer="SubIndicators" ValueType="VarString"/>
+                <Component Name="IndicatorMinWidth" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:IndicatorsWidthMin=Мин ширина" CellFormat="NumericFormat" FieldFormat=",##0;;-" LinkName="MinWidth" SubContainer="SubIndicators" ValueType="VarNumeric"/>
+                <Component Name="IndicatorMaxWidth" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:IndicatorsWidthMax=Мах ширина" CellFormat="NumericFormat" FieldFormat=",##0;;-" LinkName="MaxWidth" SubContainer="SubIndicators" ValueType="VarNumeric"/>
+                <Component Name="IndicatorShowUnit" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:IndicatorsShowUnit=Показывать ед.измерения" LinkName="ShowUnit" SubContainer="SubIndicators" Width="100"/>
+                <Component Name="IndicatorUnitMinWidth" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:IndicatorUnitMinWidth=Мин ширина ед.изм." CellFormat="NumericFormat" FieldFormat=",##0;;-" LinkName="UnitMinWidth" SubContainer="SubIndicators" ValueType="VarNumeric"/>
+                <Component Name="IndicatorUnitMaxWidth" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:IndicatorUnitMaxWidth=Мах ширина ед.изм." CellFormat="NumericFormat" FieldFormat=",##0;;-" LinkName="UnitMaxWidth" SubContainer="SubIndicators" ValueType="VarNumeric"/>
+                <Component Name="IndicatorAlignment" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:IndicatorsAlignment=Выравнивание" CellFormat="EnumFormat" LinkName="Alignment" SubContainer="SubIndicators" ValueType="VarInteger"/>
+              </Component>
+            </Component>
+            <Component Name="IndicatorConvertBox" Class="Com.Ctrl.IBox" Caption="@Tune:IndicatorConvertBox=В пересчете на" Collapsed="True">
+              <Component Name="IndicatorConvertGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="IndicatorConvertGroup1" Class="Com.Ctrl.IGroup">
+                  <Component Name="IndicatorConvertTo" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:IndicatorConvertTo=Единица изм." LinkName="ConvertToStr" SubContainer="SubIndicators"/>
+                  <Component Name="IndicatorConvertTo2" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:IndicatorConvertTo=Единица изм." HasCaption="False" LinkName="ConvertToStr2" SubContainer="SubIndicators"/>
+                </Component>
+                <Component Name="IndicatorConvertGroup2" Class="Com.Ctrl.IGroup">
+                  <Component Name="IndicatorConvertToBaseStatic" Class="Com.Ctrl.IStatic" Caption="@Tune:IndicatorConvertToBase=В базовых единицах" FixSize="True" Width="40"/>
+                  <Component Name="IndicatorConvertToBase" Class="Com.RepCtrl.IEditSubCurrent" Alignment="LeftAlign" Caption="@Tune:IndicatorConvertToBase=В базовых единицах" CellFormat="LogicalFormat" HasCaption="False" LinkName="ConvertToBase" SubContainer="SubIndicators"/>
+                  <Component Name="IndicatorConvertToBase2" Class="Com.RepCtrl.IEditSubCurrent" Alignment="LeftAlign" Caption="@Tune:IndicatorConvertToBase=В базовых единицах" CellFormat="LogicalFormat" HasCaption="False" LinkName="ConvertToBase2" SubContainer="SubIndicators"/>
+                </Component>
+                <Component Name="IndicatorConvertGroup3" Class="Com.Ctrl.IGroup">
+                  <Component Name="IndicatorConvertByParam" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:IndicatorConvertByParam=В пересчете по параметру" LinkName="ConvertByParam" SubContainer="SubIndicators"/>
+                  <Component Name="IndicatorConvertByParam2" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:IndicatorConvertByParam=В пересчете по параметру" HasCaption="False" LinkName="ConvertByParam2" SubContainer="SubIndicators"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="IndicatorLimitBox" Class="Com.Ctrl.IBox" Caption="@Tune:IndicatorLimitBox=Лимиты" Collapsed="True">
+              <Component Name="IndLimitSaldoGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                <Component Name="IndLimitSaldo_Active" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:Saldo=Остаток" LinkName="LimitActive_Saldo" OnChange="IndLimitSaldo_ActiveOnChange" SubContainer="SubIndicators" Width="30"/>
+                <Component Name="IndLimitSaldo_Kind" Class="Com.RepCtrl.IEditSubCurrent" CellFormat="EnumFormat" HasCaption="False" LinkName="LimitKind_Saldo" SubContainer="SubIndicators" ValueType="VarInteger"/>
+                <Component Name="IndLimitSaldo_Value" Class="Com.RepCtrl.IEditSubCurrent" CellFormat="NumericFormat" FieldFormat=",##0.######;;0" HasCaption="False" LinkName="LimitValue_Saldo" SubContainer="SubIndicators"/>
+              </Component>
+              <Component Name="IndLimitTurnGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                <Component Name="IndLimitTurn_Active" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:Turn=Оборот" LinkName="LimitActive_Turn" OnChange="IndLimitTurn_ActiveOnChange" SubContainer="SubIndicators" Width="30"/>
+                <Component Name="IndLimitTurn_Kind" Class="Com.RepCtrl.IEditSubCurrent" CellFormat="EnumFormat" HasCaption="False" LinkName="LimitKind_Turn" SubContainer="SubIndicators" ValueType="VarInteger"/>
+                <Component Name="IndLimitTurn_Value" Class="Com.RepCtrl.IEditSubCurrent" CellFormat="NumericFormat" FieldFormat=",##0.######;;0" HasCaption="False" LinkName="LimitValue_Turn" SubContainer="SubIndicators"/>
+              </Component>
+            </Component>
+            <Component Name="IndicatorColorBox" Class="Com.Ctrl.IBox" Caption="@Tune:IndicatorColorBox=Цветовая индикация" Collapsed="True">
+              <Component Name="IndicatorColorFormulaFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+                <Component Name="IndicatorColorFormulaGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                  <Component Name="IndicatorColorMode" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:IndicatorColorMode=Выделять цветом" CellFormat="EnumFormat" LinkName="ColorMode" SubContainer="SubIndicators" ValueType="VarInteger"/>
+                  <Component Name="IndicatorColorFormula" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:IndicatorColorFormula=Формула сравнения" LinkName="ColorFormula" SubContainer="SubIndicators"/>
+                </Component>
+              </Component>
+              <Component Name="IndicatorColorFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+                <Component Name="IndicatorColorTable" Class="Com.Ctrl.ITable" ManualControl="False" Numbering="False">
+                  <Component Name="IndicatorColorLess" Class="Com.RepCtrl.IEditSubCurrent" ButtonStyle="LookupButton" Caption="@Tune:IndicatorColorLess=Меньше значения" LinkName="ColorLess" OnDraw="IndicatorColorOnDraw" OnLookup="IndicatorColorOnLookup" SubContainer="SubIndicators" ValueType="VarInteger" Width="30"/>
+                  <Component Name="IndicatorColorEqual" Class="Com.RepCtrl.IEditSubCurrent" ButtonStyle="LookupButton" Caption="@Tune:IndicatorColorEqual=Равно значению" LinkName="ColorEqual" OnDraw="IndicatorColorOnDraw" OnLookup="IndicatorColorOnLookup" SubContainer="SubIndicators" ValueType="VarInteger" Width="30"/>
+                  <Component Name="IndicatorColorMore" Class="Com.RepCtrl.IEditSubCurrent" ButtonStyle="LookupButton" Caption="@Tune:IndicatorColorMore=Больше значения" LinkName="ColorMore" OnDraw="IndicatorColorOnDraw" OnLookup="IndicatorColorOnLookup" SubContainer="SubIndicators" ValueType="VarInteger" Width="30"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="AddTurnFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Tune:Addition=Дополнительно">
+          <Component Name="AddShowBox" Class="Com.Ctrl.IBox" Caption="@Tune:ShowBox=Включать в отчет" Collapsed="True">
+            <Component Name="Group10" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="TurnRowsShowTotals" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:ShowTotalRow=Итоговую строку" LinkName="ShowTotals" SubContainer="SubSplitByRows" Width="120"/>
+              <Component Name="TurnRowsShowTotalsAlways" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:WhenTheLineIsSingle=При одной строке" LinkName="ShowTotalsAlways" SubContainer="SubSplitByRows" Width="120"/>
+              <Component Name="TurnRowsShowTotalsFirst" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:TotalLineUpward=Итоговую строку сверху" LinkName="ShowTotalsFirst" SubContainer="SubSplitByRows" Width="120"/>
+              <Component Name="TurnRowsShowTotalsPercent" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:ShowTotalsInPerc=Итоговую строку в %" LinkName="ShowTotalsPercent" SubContainer="SubSplitByRows" Width="120"/>
+              <Component Name="TurnColsShowTotals" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:ShowTotalColumn=Итоговую колонку" LinkName="ShowTotals" SubContainer="SubSplitByCols" Width="120"/>
+              <Component Name="TurnColsShowTotalsAlways" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:WhenTheColumnIsOne=При одной колонке" LinkName="ShowTotalsAlways" SubContainer="SubSplitByCols" Width="120"/>
+              <Component Name="TurnColsShowTotalsFirst" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:TotalColumnOnLeft=Итоговую колонку слева" LinkName="ShowTotalsFirst" SubContainer="SubSplitByCols" Width="120"/>
+              <Component Name="TurnTabsShowTotals" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:ShowTotalTable=Итоговую таблицу" LinkName="ShowTotals" SubContainer="SubSplitByTabs" Width="120"/>
+              <Component Name="TurnTabsShowTotalsAlways" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:ForOneTable=При одной таблице" LinkName="ShowTotalsAlways" SubContainer="SubSplitByTabs" Width="120"/>
+              <Component Name="AddShowIndicatorRow" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:ShowIndicatorRow=Включать в отчёт строку показателей" LinkName="ShowIndicatorRow" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="AddShowDebCreRow" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:ShowDebCreRow=Включать в отчёт строку дебета/кредита" LinkName="ShowDebCreRow" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="AddShowSumKindRow" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:ShowSumKindRow=Включать в отчёт строку оборотов, остатков" LinkName="ShowSumKindRow" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="AddShowBeyondLimits" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:ShowBeyondLimits=Включать в отчёт строку Прочие" LinkName="ShowBeyondLimits" SubContainer="ReportContainer" Width="120"/>
+            </Component>
+          </Component>
+          <Component Name="HierarchyFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Tune:Hierarchy=Иерархия">
+            <Component Name="HierarchyRowsBox" Class="Com.Ctrl.IBox" Caption="@Tune:HierarchyRows=Иерархия по строкам" Collapsed="True">
+              <Component Name="HierarchyRowsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="HierarchySplitRow" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:RowSplitHierarchy=Выводить иерархию" LinkName="Hierarchy" SubContainer="SubSplitByRows" Width="120"/>
+                <Component Name="HierarchyLiveSplitRow" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:RowSplitLiveHierarchy=Раскрывать интерактивно" LinkName="LiveHierarchy" SubContainer="SubSplitByRows" Width="120"/>
+                <Component Name="HierarchyDepthRow" Class="Com.RepCtrl.IEditSub" Caption="@Tune:HierarchyDepth=Глубина, уровней" CaptionWidth="35" CellFormat="NumericFormat" FixSize="True" LinkName="HierarchyDepth" SubContainer="SubSplitByRows" ValueType="VarInteger" Width="30"/>
+                <Component Name="HierarchyFromRootRow" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:HierarchyFromRoot=Выводить от корня" LinkName="HierarchyFromRoot" SubContainer="SubSplitByRows" Width="120"/>
+                <Component Name="HierarchyGroupsFirstRow" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:GroupsFirst=Приоритет групп при упорядочивании" LinkName="GroupsFirst" SubContainer="SubSplitByRows" Width="120"/>
+                <Component Name="HierarchyGroupTotalsRow" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:GroupTotals=Выводить итоги" LinkName="GroupTotals" SubContainer="SubSplitByRows" Width="120"/>
+                <Component Name="HierarchyTotalsInHeaderRow" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:GroupTotalsInHeader=Итоги в заголовке" LinkName="GroupTotalsInHeader" SubContainer="SubSplitByRows" Width="120"/>
+              </Component>
+              <Component Name="HierarchyByParamGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="HierarchyByParam" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:HierarchyByParam=Иерархия параметров разбиения" LinkName="HierarchyByParam" SubContainer="SubSplitByRows" Width="120"/>
+                <Component Name="HierarchyByParamMergeGroups" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:HierarchyByParamMergeGroups=Выделять группы" LinkName="MergeGroups" SubContainer="SubSplitByRows" Width="120"/>
+                <Component Name="HierarchyByParamGroup2" Class="Com.Ctrl.IGroup" Adaptive="False">
+                  <Component Name="HierarchyByParamName" Class="Com.RepCtrl.IEditSub" AutoLookup="True" Caption="@Tune:HierarchyByParamName=Параметр" CaptionWidth="25" CellFormat="EnumFormat" FixSize="True" HasButton="True" LinkName="ParamHierarchyName" SubContainer="SubSplitByRows" ValueType="VarString" Width="60"/>
+                  <Component Name="HierarchyByParamDepth" Class="Com.RepCtrl.IEditSub" Caption="@Tune:HierarchyDepth=Уровень иерархии" CaptionWidth="40" CellFormat="NumericFormat" FixSize="True" LinkName="ParamHierarchyDepth" SubContainer="SubSplitByRows" ValueType="VarInteger" Width="12"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="HierarchyColsBox" Class="Com.Ctrl.IBox" Caption="@Tune:HierarchyCols=Иерархия по столбцам" Collapsed="True">
+              <Component Name="HierarchyColsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="HierarchySplitCol" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:ColSplitHierarchy=Выводить иерархию" LinkName="Hierarchy" SubContainer="SubSplitByCols" Width="120"/>
+                <Component Name="HierarchyFromRootCol" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:HierarchyFromRoot=Выводить от корня" LinkName="HierarchyFromRoot" SubContainer="SubSplitByCols" Width="120"/>
+              </Component>
+            </Component>
+            <Component Name="HierarchyTabsBox" Class="Com.Ctrl.IBox" Caption="@Tune:HierarchyTabs=Иерархия по таблицам" Collapsed="True">
+              <Component Name="HierarchyTabsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="HierarchySplitTab" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:TabSplitHierarchy=Выводить иерархию" LinkName="Hierarchy" SubContainer="SubSplitByTabs" Width="120"/>
+                <Component Name="HierarchyDepthTab" Class="Com.RepCtrl.IEditSub" Caption="@Tune:HierarchyDepth=Глубина, уровней" CaptionWidth="35" CellFormat="NumericFormat" FixSize="True" LinkName="HierarchyDepth" SubContainer="SubSplitByTabs" ValueType="VarInteger" Width="30"/>
+                <Component Name="HierarchyFromRootTab" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:HierarchyFromRoot=Выводить от корня" LinkName="HierarchyFromRoot" SubContainer="SubSplitByTabs" Width="120"/>
+                <Component Name="HierarchyGroupsFirstTab" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:GroupsFirst=Приоритет групп при упорядочивании" LinkName="GroupsFirst" SubContainer="SubSplitByTabs" Width="120"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="AddShowSplit" Class="Com.Ctrl.IBox" Caption="@Tune:ShowSplit=Настройка разбиения" Collapsed="True">
+            <Component Name="Group11" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="AddSumSplit" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:SumSplit=Разносить дебет с кредитом" LinkName="SumSplit" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="AddSumSplitBegSaldo" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:SumSplitBegSaldo=Разносить Дт/Кт: Начальный остаток" LinkName="SumSplitBegSaldo" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="AddSumSplitDebTurn" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:SumSplitDebTurn=Разносить Дт/Кт: Оборот по дебету" LinkName="SumSplitDebTurn" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="AddSumSplitCreTurn" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:SumSplitCreTurn=Разносить Дт/Кт: Оборот по кредиту" LinkName="SumSplitCreTurn" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="AddSumSplitEndSaldo" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:SumSplitEndSaldo=Разносить Дт/Кт: Конечный остаток" LinkName="SumSplitEndSaldo" SubContainer="ReportContainer" Width="120"/>
+            </Component>
+          </Component>
+          <Component Name="AddOtherBox" Class="Com.Ctrl.IBox" Caption="@Tune:AdditionBox=Прочие настройки" Collapsed="True">
+            <Component Name="Group6" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="AddLinkTables" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:LinkTables=Склеивание таблиц" LinkName="LinkTables" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="AddTabHeaderFirst" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:TabHeaderFirst=Заголовки таблиц сверху" LinkName="TabHeaderFirst" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="AddShowReportTotalRow" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:ShowReportTotalRow=Итоговая строка по отчёту" LinkName="ShowReportTotalRow" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="AddSwapDebCre" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:SwapDebCre=Кредит перед дебетом" LinkName="SwapDebCre" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="AddCalcSeparateSaldo" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:CalcSeparateSaldo=Учитывать разд. параметры" LinkName="CalcSeparateSaldo" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="AddFreezeHeader" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:FreezeHeader=Замораживать шапку" LinkName="FreezeHeader" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="AddFreezeSide" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:FreezeSide=Замораживать боковину" LinkName="FreezeSide" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="AddPrintHeaders" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:PrintHeaders=Печатать заголовки" LinkName="PrintHeaders" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="AddRowSplitCorrection" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:RowSplitCorrection=Коррекция визуализации разбиений" Hint="Если параметр разбиения участвует в фильтре то из отчета для такого разбиения будет убрана его визуализация" LinkName="RowSplitCorrection" SubContainer="ReportContainer" Width="120"/>
+            </Component>
+          </Component>
+          <Component Name="CalculateBox" Class="Com.Ctrl.IBox" Caption="@Tune:CalculateBox=Вычислять" Collapsed="True">
+            <Component Name="WebCalculateGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="CalculateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="CalcAllGroups" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:CalcAllGroups=Заполнять все группы отчёта" LinkName="CalcAllGroups" SubContainer="ReportContainer" Width="150"/>
+                <Component Name="DeleteEmptyTables" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:DeleteEmptyTables=Удалять пустые таблицы" LinkName="DeleteEmptyTables" SubContainer="ReportContainer" Width="150"/>
+                <Component Name="RowDelFunc" Class="Com.RepCtrl.IEditSub" Caption="@Tune:RowDelFunc=Формула удаления строк" LinkName="RowDelFunc" SubContainer="ReportContainer" Width="150"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="CaptionBox" Class="Com.Ctrl.IBox" Caption="@Tune:CaptionBox=Надписи" Collapsed="True">
+            <Component Name="WebCaptionGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="AddCaptionGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="ColCaptionBegS" Class="Com.RepCtrl.IEditSub" Caption="@Tune:ColCaptionBegS=Столбец нач.ост." LinkName="ColCaptionBegS" SubContainer="ReportContainer" Width="150"/>
+                <Component Name="ColCaptionTurn" Class="Com.RepCtrl.IEditSub" Caption="@Tune:ColCaptionTurn=Столбец оборот" LinkName="ColCaptionTurn" SubContainer="ReportContainer" Width="150"/>
+                <Component Name="ColCaptionEndS" Class="Com.RepCtrl.IEditSub" Caption="@Tune:ColCaptionEndS=Столбец кон.ост." LinkName="ColCaptionEndS" SubContainer="ReportContainer" Width="150"/>
+                <Component Name="DebCaptionBegS" Class="Com.RepCtrl.IEditSub" Caption="@Tune:DebCaptionBegS=Дебет нач.ост." LinkName="DebCaptionBegS" SubContainer="ReportContainer" Width="150"/>
+                <Component Name="DebCaptionTurn" Class="Com.RepCtrl.IEditSub" Caption="@Tune:DebCaptionTurn=Дебет оборот" LinkName="DebCaptionTurn" SubContainer="ReportContainer" Width="150"/>
+                <Component Name="DebCaptionEndS" Class="Com.RepCtrl.IEditSub" Caption="@Tune:DebCaptionEndS=Дебет кон.ост." LinkName="DebCaptionEndS" SubContainer="ReportContainer" Width="150"/>
+                <Component Name="CreCaptionBegS" Class="Com.RepCtrl.IEditSub" Caption="@Tune:CreCaptionBegS=Кредит нач.ост." LinkName="CreCaptionBegS" SubContainer="ReportContainer" Width="150"/>
+                <Component Name="CreCaptionTurn" Class="Com.RepCtrl.IEditSub" Caption="@Tune:CreCaptionTurn=Кредит оборот" LinkName="CreCaptionTurn" SubContainer="ReportContainer" Width="150"/>
+                <Component Name="CreCaptionEndS" Class="Com.RepCtrl.IEditSub" Caption="@Tune:CreCaptionEndS=Кредит кон.ост." LinkName="CreCaptionEndS" SubContainer="ReportContainer" Width="150"/>
+                <Component Name="NilCaption" Class="Com.RepCtrl.IEditSub" Caption="@Tune:NilCaption=Пустая аналитика" LinkName="NilCaption" SubContainer="ReportContainer" Width="150"/>
+                <Component Name="TotalColCaption" Class="Com.RepCtrl.IEditSub" Caption="@Tune:TotalColCaption=Итоговая колонка" LinkName="TotalColCaption" SubContainer="ReportContainer" Width="150"/>
+                <Component Name="TotalTabCaption" Class="Com.RepCtrl.IEditSub" Caption="@Tune:TotalTabCaption=Итоговая таблица" LinkName="TotalTabCaption" SubContainer="ReportContainer" Width="150"/>
+                <Component Name="TabDebCaption" Class="Com.RepCtrl.IEditSub" Caption="@Tune:TabDebCaption=Таблица Дебет" LinkName="TabDebCaption" SubContainer="ReportContainer" Width="150"/>
+                <Component Name="TabCreCaption" Class="Com.RepCtrl.IEditSub" Caption="@Tune:TabCreCaption=Таблица Кредит" LinkName="TabCreCaption" SubContainer="ReportContainer" Width="150"/>
+                <Component Name="ColSplitCaption" Class="Com.RepCtrl.IEditSub" Caption="@Tune:ColSplitCaption=Разбиение по столбцам" LinkName="ColSplitCaption" SubContainer="ReportContainer" Width="150"/>
+                <Component Name="LinkTablesCaption" Class="Com.RepCtrl.IEditSub" Caption="@Tune:LinkTablesCaption=Заголовок склеенных таблиц" LinkName="LinkTablesCaption" SubContainer="ReportContainer" Width="150"/>
+                <Component Name="EmptyReportCaption" Class="Com.RepCtrl.IEditSub" Caption="@Tune:EmptyReportCaption=Надпись при пустом отчёте" LinkName="EmptyReportCaption" SubContainer="ReportContainer" Width="150"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="AddTransFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Tune:Addition=Дополнительно">
+          <Component Name="AddTransMainBox" Class="Com.Ctrl.IBox" Caption="@Tune:AddTransMainBox=Состав отчёта">
+            <Component Name="AddTransMainGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="Tran_Operate" Class="Com.RepCtrl.IEditSub" Caption="@Tune:Tran_Operate=Режим обработки проводок" CaptionWidth="60" CellFormat="EnumFormat" LinkName="Tran_Operate" SubContainer="ReportContainer"/>
+              <Component Name="Tran_Consolidated" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:Tran_Consolidated=Сводные проводки с учетом:" LinkName="Tran_Consolidated" OnChange="Tran_ConsolidatedOnChange" SubContainer="ReportContainer"/>
+              <Component Name="TranConsolidateGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                <Component Name="Tran_ConsolidateDate" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:Tran_ConsolidateDate=Даты" LinkName="Tran_ConsolidateDate" SubContainer="ReportContainer"/>
+                <Component Name="Tran_ConsolidateAnalyt" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:Tran_ConsolidateAnalyt=Аналитики" LinkName="Tran_ConsolidateAnalyt" SubContainer="ReportContainer"/>
+                <Component Name="Tran_ConsolidateDoc" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:Tran_ConsolidateDoc=Документа" LinkName="Tran_ConsolidateDoc" SubContainer="ReportContainer"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="AddTransShowBox" Class="Com.Ctrl.IBox" Caption="@Tune:ShowBox=Включать в отчет" Collapsed="True">
+            <Component Name="AddTransShowGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="Tran_ShowDebet" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:Tran_ShowDebet=Счет по дебету" LinkName="Tran_ShowDebet" SubContainer="ReportContainer"/>
+              <Component Name="Tran_ShowCredit" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:Tran_ShowCredit=Счет по кредиту" LinkName="Tran_ShowCredit" SubContainer="ReportContainer"/>
+              <Component Name="Tran_ShowJurLink" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:Tran_ShowJurLink=Привязку к журналу" LinkName="Tran_ShowJurLink" SubContainer="ReportContainer"/>
+            </Component>
+          </Component>
+          <Component Name="AddTransOtherBox" Class="Com.Ctrl.IBox" Caption="@Tune:AdditionBox=Прочие настройки" Collapsed="True">
+            <Component Name="Group17" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="AddTransSwapDebCre" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:SwapDebCre=Кредит перед дебитом" LinkName="SwapDebCre" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="AddTransFreezeHeader" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:FreezeHeader=Замораживать шапку" LinkName="FreezeHeader" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="AddTransFreezeSide" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:FreezeSide=Замораживать боковину" LinkName="FreezeSide" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="AddTransPrintHeaders" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:PrintHeaders=Печатать заголовки" LinkName="PrintHeaders" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="AddTrans_ShowDescriptions" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AddTrans_ShowDescriptions=Описание вместо имени" LinkName="Tran_ShowDescriptions" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="AddTrans_PreciseBy" Class="Com.RepCtrl.IEditSub" Caption="@Tune:AddTrans_PreciseBy=При уточнении открывать" CaptionWidth="50" CellFormat="EnumFormat" LinkName="Tran_PreciseBy" SubContainer="ReportContainer" ValueType="VarInteger" Width="150"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="AddRefFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Tune:Addition=Дополнительно">
+          <Component Name="AddRefShowBox" Class="Com.Ctrl.IBox" Caption="@Tune:ShowBox=Включать в отчет" Collapsed="True">
+            <Component Name="AddRefShowGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="AddIncludeDeleted" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:IncludeDeleted=Включать в отчёт удалённые элементы" LinkName="IncludeDeleted" SubContainer="ReportContainer" Width="170"/>
+              <Component Name="AddOnlyUsed" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:OnlyUsed=Включать в отчёт только использованные элементы" LinkName="OnlyUsed" SubContainer="ReportContainer" Width="170"/>
+              <Component Name="AddShowTotalsRef" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:TotalsLine=Итоговую строку" LinkName="ShowTotals" SubContainer="SubSplitByRows" Width="120"/>
+              <Component Name="EmptyReportCaptionRef" Class="Com.RepCtrl.IEditSub" Caption="@Tune:EmptyReportCaption=Надпись при пустом отчёте" LinkName="EmptyReportCaption" SubContainer="ReportContainer" Width="150"/>
+            </Component>
+          </Component>
+          <Component Name="AddRefOtherBox" Class="Com.Ctrl.IBox" Caption="@Tune:AdditionBox=Прочие настройки" Collapsed="True">
+            <Component Name="AddRefOtherGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="AddRefFreezeHeader" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:FreezeHeader=Замораживать шапку" LinkName="FreezeHeader" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="AddRefFreezeSide" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:FreezeSide=Замораживать боковину" LinkName="FreezeSide" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="AddRefPrintHeaders" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:PrintHeaders=Печатать заголовки" LinkName="PrintHeaders" SubContainer="ReportContainer" Width="120"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="DrillDownFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Tune:DrillDown=Уточнения">
+          <Component Name="DrillDownListFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="DrillDownList" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Tune:DrillDownList=При уточнении данных" Margins="8">
+              <Component Name="DrillDownTable" Class="Com.Ctrl.ITable" Numbering="False" Subtable="SubExplain">
+                <Component Name="ReportName_DD" Class="Com.RepCtrl.IEditSub" Caption="@Tune:ReportName=Уточняющий отчет" HasButton="True" Hint="Код, если это отчёт из инф.базы, имя класса для проектного отчёта" LinkName="ReportName" OnLookup="ReportName_DDOnLookup" SubContainer="SubExplain" Width="50"/>
+                <Component Name="Caption_DD" Class="Com.RepCtrl.IEditSub" Caption="@Tune:Name=Наименование" LinkName="Caption" SubContainer="SubExplain" Width="50"/>
+                <Component Name="IndicatorName_DD" Class="Com.RepCtrl.IEditSub" Caption="@Tune:IndicatorName=Показатель" Hint="Показатель, для которого работает уточнение" LinkName="IndicatorName" SubContainer="SubExplain" Width="50"/>
+                <Component Name="DisableDefault_DD" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:DisableDefault=..." Hint="@Tune:DisableDefaultHint=Не показывать диалог уточнения по умолчанию" LinkName="DisableDefault" SubContainer="SubExplain" Width="10"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="IsInlineFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Visible="False">
+            <Component Name="IsInline_DD" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:IsInline=Интерактивное уточнение" LinkName="IsInline" SubContainer="SubExplain" Width="100"/>
+          </Component>
+          <Component Name="DrillDownOtherBox" Class="Com.Ctrl.IBox" Caption="@Tune:DrillDownOtherBox=При уточнении">
+            <Component Name="DrillDownOtherGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="DrillDownSplit" Class="Com.RepCtrl.IEditSub" Excluded="True" Caption="@Tune:DrillDownSplit=При уточнении разбиения" CaptionWidth="50" CellFormat="EnumFormat" SubContainer="ReportContainer" ValueType="VarInteger" Visible="False"/>
+              <Component Name="DrillDownSaldo" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:DrillDownSaldo=При уточнении остатков период от начала учета" LinkName="ExplainSaldoFromOrigin" SubContainer="ReportContainer" Width="120"/>
+              <Component Name="DrillDownTurn" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:DrillDownTurn=При уточнении оборотов период от начала учета" LinkName="ExplainTurnsFromOrigin" SubContainer="ReportContainer" Width="120"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="ParametersFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Tune:Parameters=Параметры" Orientation="Vertical">
+          <Component Name="ParametersListFrame" Class="Com.Ctrl.IFrame" CanResizeBySplit="True" Margins="8" OnMove="MoveParameter" Size="72" SplitterAtRight="True" UseSplitter="True">
+            <Component Name="ParametersListTable" Class="Com.Ctrl.ITable" Adaptive="True" Freezed="True" Numbering="False" Subtable="SubParameters">
+              <Component Name="ParamCompID" Class="Com.RepCtrl.IEditSub" Caption="@Tune:CompID=Наименование" LinkName="CompID" MinWidth="30" OnDraw="ParamHighlight" OnOutput="ParamOnOutput" OnVerify="ParamOnVerify" Width="50"/>
+              <Component Name="ParamVisible" Class="Com.RepCtrl.IFlagSub" Alignment="CenterAlign" Caption="@Tune:Visible=Вд." FixSize="True" Hint="@Tune:VisibleHint=Видимость" LinkName="Visible" OnDraw="ParamHighlight" Width="10"/>
+              <Component Name="ParamActive" Class="Com.RepCtrl.IFlagSub" Alignment="CenterAlign" Caption="@Tune:Active=Вкл." FixSize="True" Hint="@Tune:ActiveHint=Отключенный параметр не показывается на экране и не участвует в наложении фильтра" LinkName="Active" OnDraw="ParamHighlight" Width="10"/>
+            </Component>
+          </Component>
+          <Component Name="CurrentParameterFrame" Class="Com.Ctrl.IFrame">
+            <Component Name="ParameterLinkBox" Class="Com.Ctrl.IBox" Caption="@Tune:ParameterLinkBox=Общие">
+              <Component Name="ParameterLinkGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="ParamCaption" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:Caption=Заголовок" LinkName="Caption" SubContainer="SubParameters"/>
+                <Component Name="Group16" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="ParamValueType" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:ValueType=Тип параметра" CellFormat="EnumFormat" HasButton="True" LinkName="ValueType" ListAsString="varUnknown|0;varString|1;varInteger|2;varNumeric|3;varLogical|4;varDate|5;varObject|6;varVariant|7;varArray|8;varClass|9;varNull|10;varPointer|42;varInt64|48;varFunction|52" OnChange="ParamValueTypeOnChange" SubContainer="SubParameters" ValueType="VarInteger"/>
+                  <Component Name="ParamOperator" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:Operator=Условие" CaptionWidth="20" CellFormat="EnumFormat" FixSize="True" LinkName="Operator" SubContainer="SubParameters" ValueType="VarString" Width="15"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="ParameterRoleBox" Class="Com.Ctrl.IBox" Caption="@Tune:ParameterRoleBox=Роль параметра">
+              <Component Name="ParameterRoleGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="ParamAccFilter" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:AccFilter=Фильтр по счетам" LinkName="AccFilter" OnChange="ParamAccFilterOnChange" SubContainer="SubParameters"/>
+                <Component Name="ParamPlan" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:Plan=План счетов" LinkName="Plan" SubContainer="SubParameters" Visible="False"/>
+                <Component Name="ParamParameter" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:Parameter=Параметр отчета" HasButton="True" LinkName="Parameter" OnChange="ParamParameterOnChange" OnLookup="ParamParamOnLookup" OnVerify="ParamParameterOnVerify" SubContainer="SubParameters"/>
+                <Component Name="ParamParameterGroup1" Class="Com.Ctrl.IGroup">
+                  <Component Name="ParamParameterGroup2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" FixSize="True" Width="40">
+                    <Component Name="ParamParameterStatic1" Class="Com.Ctrl.IStatic"/>
+                  </Component>
+                  <Component Name="ParamParameterGroup3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                    <Component Name="ParamCorrParam" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:CorrParam=Корр. параметр" LinkName="CorrParam" SubContainer="SubParameters"/>
+                    <Component Name="ParamRefFilter" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:RefFilter=Фильтр по справочникам" LinkName="RefFilter" SubContainer="SubParameters"/>
+                  </Component>
+                </Component>
+                <Component Name="ParamSkipNil" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:SkipNil=Игнорировать пустые значения" LinkName="SkipNil" SubContainer="SubParameters"/>
+                <Component Name="ParamInvert" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:Invert=Инвертировать условие (not)" LinkName="Invert" SubContainer="SubParameters"/>
+                <Component Name="ParamDefault" Class="Com.RepCtrl.IEditSubCurrent" Excluded="True" Caption="@Tune:Default=Значение" Enabled="False" LinkName="DefaultStr" SubContainer="SubParameters"/>
+                <Component Name="ParamIndicators" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:ParamIndicators=Фильтр показателей" HasButton="True" LinkName="Indicators" OnLookup="ParamIndicatorsOnLookup" OnOutput="ParamIndicatorsOnOutput" SubContainer="SubParameters"/>
+              </Component>
+            </Component>
+            <Component Name="ParameterLookBox" Class="Com.Ctrl.IBox" Caption="@Tune:ParameterLookBox=Настройка поля ввода" Collapsed="True">
+              <Component Name="ParameterLookGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MinWidth="100">
+                <Component Name="ParamAutoBuild" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:AutoBuild=Перестраивать отчет при изменении" LinkName="AutoBuild" SubContainer="SubParameters"/>
+                <Component Name="ParamValueRequired" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:ValueRequired=Значение обязательно для построения отчета" LinkName="ValueRequired" SubContainer="SubParameters"/>
+                <Component Name="ParamNewLine" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:NewLine=Начинать с новой строки" LinkName="NewLine" SubContainer="SubParameters"/>
+                <Component Name="ParameterLookWidthGroup" Class="Com.Ctrl.IGroup">
+                  <Component Name="ParamWidth" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:Width=Ширина поля" LinkName="Width" SubContainer="SubParameters" ValueType="VarNumeric"/>
+                  <Component Name="ParamCaptionWidth" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:CaptionWidth=Ширина заголовка" LinkName="CaptionWidth" SubContainer="SubParameters" ValueType="VarNumeric"/>
+                </Component>
+                <Component Name="ParamCardfileGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                  <Component Name="ParamCardFileClass" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:CardFileClass=Картотека" HasButton="True" LinkName="CardFileClass" OnChange="ParamCardFileClassOnChange" OnLookup="ParamCardFileClassOnLookup" OnVerify="ParamCardFileClassOnVerify" SubContainer="SubParameters"/>
+                  <Component Name="CardfileButton" Class="Com.Ctrl.IButton" ImageName="Com.angle-right" OnClick="CardfileButtonOnClick"/>
+                </Component>
+                <Component Name="ParamCardfileGroup1" Class="Com.Ctrl.IGroup">
+                  <Component Name="ParamCardfileGroup2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" FixSize="True" Width="40">
+                    <Component Name="ParamCardfileStatic1" Class="Com.Ctrl.IStatic"/>
+                  </Component>
+                  <Component Name="ParamCardfileGroup3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                    <Component Name="ParamMultiSelect" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:MultiSelect=Множественный выбор" LinkName="MultiSelect" SubContainer="SubParameters"/>
+                    <Component Name="ParamShortList" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:ShortList=Использовать короткий список" LinkName="ShortList" SubContainer="SubParameters"/>
+                    <Component Name="ParamShowHierarchy" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:ShowHierarchy=Иерархический вид" LinkName="ShowHierarchy" SubContainer="SubParameters"/>
+                  </Component>
+                </Component>
+                <Component Name="ParamLookupField" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:LookupField=Поле обзора" HasButton="True" LinkName="LookupField" OnLookup="ParamLookupFieldOnLookup" SubContainer="SubParameters"/>
+                <Component Name="ParamLookupFilter" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:LookupFilter=Фильтр обзора" LinkName="LookupFilter" SubContainer="SubParameters"/>
+                <Component Name="ParamCellFormat" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:CellFormat=Формат ячейки" CellFormat="EnumFormat" HasButton="True" LinkName="CellFormat" ListAsString="CommonFormat|0;StringFormat|1;NumericFormat|2;DateFormat|3;LogicalFormat|4;EnumFormat|5;ReferenceFormat|6" OnChange="ParamCellFormatOnChange" SubContainer="SubParameters" ValueType="VarInteger"/>
+                <Component Name="ParamFieldFormat" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:FieldFormat=Формат поля" CellFormat="EnumFormat" LinkName="FieldFormat" SubContainer="SubParameters" ValueType="VarInteger"/>
+                <Component Name="ParamListAsString" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:ListAsString=Список строк" LinkName="ListAsString" SubContainer="SubParameters"/>
+                <Component Name="ParamDefaultFunc" Class="Com.RepCtrl.IEditSubCurrent" ButtonStyle="DefaultButton" Caption="@Tune:ParamDefaultFunc=Формула для умолчания" LinkName="DefaultFunc" OnLookup="ParamDefaultFuncOnLookup" SubContainer="SubParameters"/>
+                <Component Name="ParamPrepareFunc" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:ParamPrepareFunc=Функция при построении" Hint="@Tune:ParamPrepareFuncHint=Функция вызывается при подготовке отчёта к построению" LinkName="PrepareFunc" SubContainer="SubParameters"/>
+                <Component Name="ParamLookupFunc" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:ParamLookupFunc=Формула при обзоре" LinkName="LookupFunc" SubContainer="SubParameters"/>
+                <Component Name="ParamManualFunc" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:ParamManualFunc=Формула при изменении" Hint="@Tune:ParamManualFuncHint=Формула вычисляется при изменении значения параметра" LinkName="ManualFunc" SubContainer="SubParameters"/>
+                <Component Name="ParamDoNotSave" Class="Com.RepCtrl.IFlagSubCurrent" Caption="@Tune:DoNotSave=Не сохранять между сессиями" LinkName="DoNotSave" SubContainer="SubParameters"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CMP.Frm.Pages.Page">
+  <Inherited HelpContext="Стандарт.СтруктураБизнеса.ТипыПредставлений.Отчет.Отчет">
+    <Inherited Name="EdtRec" Class="CMP.Rec.Views.IReport" IsLibrary="1"/>
+    <Component Name="LinkedProps" Class="CMP.Rec.Views.IReport_LinkedProps" IsLibrary="1" After="EdtRec"/>
+    <Component Name="HiddenParams" Class="CMP.Rec.Views.IReport_HiddenParams" IsLibrary="1"/>
+    <Component Name="Conditions" Class="CMP.Rec.Views.IReport_Conditions" IsLibrary="1"/>
+    <Inherited Name="TableMenu" After="Conditions"/>
+    <Inherited Name="RootFrame">
+      <Component Name="MainFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+        <Component Name="MainGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+          <Component Name="ReportEdit" Class="Com.Ctrl.IEdit" Caption="Форма отчета" Field="EdtRec.Report" LookupField="Name" OnChange="ReportEditOnChange"/>
+        </Component>
+      </Component>
+      <Component Name="ConditionsBox" Class="Com.Ctrl.IBox" Caption="@CMP:ConditionsBox=Условия отбора (объединяются по ИЛИ)">
+        <Component Name="ConditionsFrame" Class="Com.Ctrl.IFrame" Margins="4">
+          <Component Name="ConditionsTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" ShowIcon="False" Subtable="EdtRec.Conditions">
+            <Component Name="ConditionsParam" Class="Com.Ctrl.IEdit" Field="Conditions.Param" HasButton="True" OnLookup="ConditionsParamOnLookup"/>
+            <Component Name="ConditionsCorrValue" Class="Com.Ctrl.ICheckBox" Field="Conditions.CorrValue" FixSize="True" Width="30"/>
+            <Component Name="ConditionsStrictEqual" Class="Com.Ctrl.ICheckBox" Field="Conditions.StrictEqual" FixSize="True" Width="20"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="HideBox" Class="Com.Ctrl.IBox" Caption="@CMP:HideBox=Скрытие параметров отчета">
+        <Component Name="HideFrame1" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="HideFrameGroup1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="HideParameters" Class="Com.Ctrl.ICheckBox" Field="EdtRec.HideParameters" OnChange="HideParametersOnChange"/>
+          </Component>
+        </Component>
+        <Component Name="HideFrame2" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+          <Component Name="HiddenParamsTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" ShowIcon="False" Subtable="EdtRec.HiddenParams">
+            <Component Name="HiddenParamsParam" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" AutoLookup="True" Caption="@CMP:HiddenParamsParam=Имена скрываемых параметров " CellFormat="EnumFormat" Field="HiddenParams.Param"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="LinkBox" Class="Com.Ctrl.IBox" Caption="@CMP:LinkBox=Связь реквизитов с параметрами отчета">
+        <Component Name="LinkedPropsTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" ShowIcon="False" Subtable="EdtRec.LinkedProps">
+          <Component Name="LinkedPropsProperty" Class="Com.Ctrl.IEdit" Field="LinkedProps.Property" OnDrawEx="TableRowOnDraw" OnGetLookupFilter="LinkedPropsProperty_OnGetLookupFilter" OnOutput="LinkedPropsProperty_OnOutput"/>
+          <Component Name="LinkedPropsParam" Class="Com.Ctrl.IEdit" AutoLookup="True" CellFormat="EnumFormat" Field="LinkedProps.Param" OnDrawEx="TableRowOnDraw"/>
+          <Component Name="LinkedPropsOff" Class="Com.Ctrl.ICheckBox" Field="LinkedProps.Off" FixSize="True" Width="12"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

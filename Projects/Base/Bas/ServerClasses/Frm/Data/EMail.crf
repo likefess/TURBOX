@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IEditorWithFrames">
+  <Inherited Class="Com.Frm.IBlankForm" ActiveControl="Subject" Caption="@EMail:FormTitle=Письмо" CaptionAlign="LeftAlign" OnPasteImage="Form_OnPasteImage" OnShow="Form_OnShow">
+    <Component Name="EdtRec" Class="Bas.Rec.Data.EMail" IsLibrary="1" After="#0"/>
+    <Inherited Name="Variables">
+      <Component Name="varReceivers" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="varCopies" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="varBlindCopies" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="7" Printed="False">
+        <Component Name="ButtonSend" Class="Com.Ctrl.IButton" After="#0" Caption="@Email:Send=Отправить" ImageName="Bas.Mail" OnClick="ButtonSend_OnClick" Width="35"/>
+        <Component Name="ButtonAnswer" Class="Com.Ctrl.IButton" Caption="@Email:Answer=Ответить" ImageName="Bas.reply" OnClick="ButtonAnswerOnClick"/>
+        <Component Name="ButtonAnswerAll" Class="Com.Ctrl.IButton" Caption="@Email:AnswerAll=Ответить всем" ImageName="Bas.reply-all" OnClick="ButtonAnswerAllOnClick"/>
+        <Component Name="ButtonForward" Class="Com.Ctrl.IButton" Caption="@Email:Forward=Переслать" ImageName="Bas.share" OnClick="ButtonForwardOnClick"/>
+        <Component Name="EditorList" Class="Com.Ctrl.IListButton">
+          <Component Name="TextEditorButton" Class="Com.Ctrl.IButton" Caption="Текст" ImageName="Com.Ctrl.Text" IsSwitch="True" OnClick="TextEditorButtonOnClick"/>
+          <Component Name="HtmlEditorButton" Class="Com.Ctrl.IButton" Caption="HTML" ImageName="Bas.html" IsSwitch="True" OnClick="HtmlEditorButtonOnClick"/>
+        </Component>
+        <Inherited Name="ButtonOK" Width="0"/>
+        <Component Name="ButtonSaveAsTemplate" Class="Com.Ctrl.IButton" After="ButtonClose" Caption="@Email:SaveAsTemplate=Сохранить как шаблон" ImageName="Com.Blank" OnClick="ButtonSaveAsTemplateOnClick"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="MainFieldsBox" Class="Com.Ctrl.IBox">
+          <Component Name="MainGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MinWidth="100">
+            <Component Name="ServerGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="MailServer" Class="Com.Ctrl.IEdit" Field="EdtRec.Server" HasCaption="True" LookupFilter="not Closed" OnChange="MailServer_OnChange"/>
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" Excluded="True" Alignment="CenterAlign" Caption="@Отправка" FixSize="True" Width="30"/>
+              <Component Name="ListEdit1" Class="Com.Ctrl.IEdit" Excluded="True" CellFormat="EnumFormat" Field="SendMode" FixSize="True" ListAsString="На клиенте;На сервере;Роботом" Width="35"/>
+              <Component Name="cbOnServer" Class="Com.Ctrl.ICheckBox" Excluded="True" Caption="@На сервере" FixSize="True" Width="30"/>
+              <Component Name="cbUseRobot" Class="Com.Ctrl.ICheckBox" Excluded="True" Caption="@Роботом" FixSize="True" Width="30"/>
+            </Component>
+            <Component Name="MsgID" Class="Com.Ctrl.IEdit" Field="EdtRec.MsgID" HasCaption="True"/>
+            <Component Name="edtSender" Class="Com.Ctrl.IEdit" Field="EdtRec.Sender" HasCaption="True"/>
+            <Component Name="edtReceivers" Class="Com.Ctrl.IEdit" Caption="@EMail:Receiver=Кому" CardFileClass="Bas.Tab.Data.Entity" Field="varReceivers" HasButton="True" OnChange="edtReceiversOnChange" OnLookup="edtReceiversOnLookup" OnOutput="edtReceiversOnOutput"/>
+            <Component Name="edtCopies" Class="Com.Ctrl.IEdit" Caption="@EMail:Copy=Копия" CardFileClass="Bas.Tab.Data.Entity" Field="varCopies" HasButton="True" OnChange="edtCopiesOnChange" OnLookup="edtCopiesOnLookup" OnOutput="edtCopiesOnOutput"/>
+            <Component Name="edtBlindCopies" Class="Com.Ctrl.IEdit" Caption="@EMail:BlindCopy=Скрытая копия" CardFileClass="Bas.Tab.Data.Entity" Field="varBlindCopies" HasButton="True" OnChange="edtBlindCopiesOnChange" OnLookup="edtBlindCopiesOnLookup" OnOutput="edtBlindCopiesOnOutput"/>
+            <Component Name="Subject" Class="Com.Ctrl.IEdit" Field="EdtRec.Subject" HasCaption="True"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Component Name="BodyFrame" Class="Com.Ctrl.IFrame" After="FieldsFrame" AutoSize="False" OnSwitch="BodyFrameOnSwitch" Orientation="WithTabs" ShowTabs="True">
+        <Component Name="HTMLViewFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@EMail:Preview=Содержимое" Margins="5" MinSize="150" ScrollerStyle="ScrollerNone">
+          <Component Name="HTMLViewer" Class="Com.Ctrl.IBrowser" OnClick="HTMLViewerOnClick" OnUpgrade="HTMLViewerOnUpgrade" SeparateLinks="True"/>
+        </Component>
+        <Component Name="TextFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@EMail:Content.Text=Текст" Margins="5" MinSize="100" ScrollerStyle="ScrollerNone">
+          <Component Name="TextGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="TextEdit" Class="Com.Ctrl.IEdit" CanSelect="True" Field="EdtRec.Text" Multiline="True" OnChange="TextOnChange" Wrap="True"/>
+          </Component>
+        </Component>
+        <Component Name="HTMLFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@EMAIL:Content.HTML=HTML" Margins="5" MinSize="100" ScrollerStyle="ScrollerNone">
+          <Component Name="HtmlGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="HtmlEdit" Class="Com.Ctrl.IEdit" CanSelect="True" Field="EdtRec.HTML" Multiline="True" OnChange="HtmlEditOnChange" Wrap="True"/>
+          </Component>
+        </Component>
+        <Component Name="FrameAttachmentsForm" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@EMAIL:Attachments=Вложения" MinSize="100"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

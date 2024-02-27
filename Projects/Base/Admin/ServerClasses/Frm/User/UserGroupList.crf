@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.User.CustomUserList">
+  <Inherited FormIcon="Admin.UserGroup" HelpContext="Admin.Администрирование.Список серверов">
+    <Component Name="UserGroupStruct" Class="Admin.Frm.User.UserGroup_Struct" IsLibrary="1" After="#0"/>
+    <Inherited Name="Variables">
+      <Inherited Name="Subtable" StructClass="Admin.Frm.User.UserGroup_Struct"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="frameData">
+          <Inherited Name="TableData" IconName="Admin.UserGroup" OnClickIcon="TableData_OnClickIcon">
+            <Inherited Name="edName" Field="UserGroupStruct.Name"/>
+            <Inherited Name="chbEnabled" Field="UserGroupStruct.Enabled" OnChange="chbEnabled_OnChange" OnVerify="chbEnabled_OnVerify"/>
+            <Inherited Name="edDescription" Field="UserGroupStruct.Descript"/>
+            <Inherited Name="edSID" Excluded="True" Field="UserGroupStruct.SID"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

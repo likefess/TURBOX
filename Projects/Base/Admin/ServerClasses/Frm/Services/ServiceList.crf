@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.CustomList">
+  <Inherited FormIcon="Admin.Services">
+    <Component Name="ServiceStruct" Class="Admin.Frm.Services.Service_Struct" IsLibrary="1" After="#0"/>
+    <Component Name="Timer" Class="Com.ITimer" Active="False" Interval="2" OnTimer="Timer_OnTimer"/>
+    <Inherited Name="TableMenu" Excluded="False" After="Timer">
+      <Component Name="cmdStart" Class="Com.ComManaging.ExecProcedure" After="TableSeparator1" Caption="@Admin:ServiceStart=Запустить" CommandProc="cmdStart_CommandProc" IconName="Admin.Run"/>
+      <Component Name="cmdStop" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:ServiceStop=Остановить" CommandProc="cmdStop_CommandProc" IconName="Admin.Stop"/>
+      <Component Name="cmdPause" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:ServicePause=Приостановить" CommandProc="cmdPause_CommandProc" IconName="Admin.Pause"/>
+      <Inherited Name="cmdCopyValue" After="cmdPause"/>
+    </Inherited>
+    <Inherited Name="Variables">
+      <Inherited Name="Subtable" StructClass="Admin.Frm.Services.Service_Struct"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ButtonStart" Class="Com.Ctrl.IButton" After="ButtonRefresh" Caption="@Admin:ServiceStart=Запустить" Command="cmdStart" ImageName="Admin.Run"/>
+        <Component Name="ButtonStop" Class="Com.Ctrl.IButton" Caption="@Admin:ServiceStop=Остановить" Command="cmdStop" ImageName="Admin.Stop"/>
+        <Component Name="ButtonPause" Class="Com.Ctrl.IButton" Caption="@Admin:ServicePause=Приостановить" Command="cmdPause" ImageName="Admin.Pause"/>
+        <Inherited Name="ButtonHelp" After="ButtonPause"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="frameData">
+          <Inherited Name="TableData" Adaptive="True" IconName="Admin.Services" PopupMenu="TableMenu" ShowIcon="True">
+            <Component Name="edName" Class="Com.Ctrl.IEdit" Caption="@Admin:ServiceName=Имя" Enabled="False" Field="ServiceStruct.Name" MaxWidth="120" MinWidth="40" Width="80"/>
+            <Component Name="edDescript" Class="Com.Ctrl.IEdit" Caption="@Admin:ServiceDescript=Название" Enabled="False" Field="ServiceStruct.Descript" MaxWidth="120" MinWidth="40" Width="80"/>
+            <Component Name="edState" Class="Com.Ctrl.IEdit" Caption="Статус" CellFormat="EnumFormat" Enabled="False" Field="ServiceStruct.State" ListAsString="@Admin:ServiceStatusValue=Остановлена|0&#xD;&#xA;Запускается|1&#xD;&#xA;Останавливается|2&#xD;&#xA;Работает|3&#xD;&#xA;Продолжается|4&#xD;&#xA;Приостанавливается|5&#xD;&#xA;Приостановлен|6" MaxWidth="50" MinWidth="20" Width="30"/>
+            <Component Name="chbPause" Class="Com.Ctrl.ICheckBox" Excluded="True" Caption="П" Enabled="False" Field="ServiceStruct.CanPause" FixSize="True" Width="12"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

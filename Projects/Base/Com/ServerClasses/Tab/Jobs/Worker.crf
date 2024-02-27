@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.ComFields">
+  <Inherited HelpContext="Bas.Администрирование.Сервисы.Исполнители заданий">
+    <Inherited Name="Current" Class="Com.Rec.Jobs.Worker" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="6">
+        <Inherited Name="ButtonAddItem" OnClick="ButtonRunDispatcher_OnClick"/>
+        <Inherited Name="ButtonEditItem" Excluded="True"/>
+        <Inherited Name="ButtonCloneItem" Excluded="True"/>
+        <Inherited Name="ButtonDeleteItem" Excluded="True"/>
+        <Inherited Name="ButtonAddFolder" Excluded="True"/>
+        <Inherited Name="ButtonFolderElement" Excluded="True"/>
+        <Inherited Name="ButtonExport" Excluded="True"/>
+        <Inherited Name="ButtonImport" Excluded="True"/>
+        <Component Name="ButtonStop1" Class="Com.Ctrl.IButton" After="ButtonImport" Caption="@Robots:Stop1=Остановить" ImageName="stop" OnClick="ButtonDeleteItem_OnClick"/>
+        <Component Name="ButtonStopAll" Class="Com.Ctrl.IButton" Caption="@Robots:StopAll=Остановить всех" ImageName="stop-circle" OnClick="ButtonStopAll_OnClick"/>
+        <Component Name="ButtonSettings" Class="Com.Ctrl.IButton" Caption="@Robots:Settings=Настройки" Enabled="False" OnClick="ButtonSettings_OnClick" Visible="False"/>
+        <Component Name="ButtonState" Class="Com.Ctrl.IButton" Caption="@Cmd:DispatcherState=Статус диспетчера" Command="Commands.DispatcherState"/>
+        <Inherited Name="ButtonHelp" After="ButtonState"/>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="CardFile" BeforeModify="Workers_BeforeModify"/>
+          <Inherited Name="ExtId" Caption="ID исполнителя" Enabled="False" Visible="True" Width="30"/>
+          <Inherited Name="CreateDate" Visible="True"/>
+          <Component Name="IsRobot" Class="Com.Ctrl.ICheckBox" Alignment="CenterAlign" Caption="@Workers:IsRobot=Это робот" Enabled="False" Field="Current.IsRobot" Width="20"/>
+          <Component Name="ToDelete" Class="Com.Ctrl.ICheckBox" Caption="@Workers:ToDelete=Удалить" Enabled="False" Field="Current.ToDelete" Visible="False" Width="15"/>
+          <Component Name="ColJobIdent" Class="Com.Ctrl.IEdit" Enabled="False" Field="Current.JobIdent" OnDrawEx="Ident_OnDrawEx" OnOutputEx="Ident_OnOutputEx" Width="50"/>
+          <Component Name="JobExtId" Class="Com.Ctrl.IEdit" Enabled="False" Field="Current.JobExtId" Visible="False" Width="30"/>
+          <Component Name="ServerName" Class="Com.Ctrl.IEdit" Enabled="False" Field="Current.ServerName" Width="50"/>
+          <Component Name="ServerAddr" Class="Com.Ctrl.IEdit" Enabled="False" Field="Current.ServerAddr" OnOutputEx="ServerAddr_OnOutputEx" Width="40"/>
+          <Component Name="PID" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="PID" Enabled="False" Field="Current.PID" Width="20"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

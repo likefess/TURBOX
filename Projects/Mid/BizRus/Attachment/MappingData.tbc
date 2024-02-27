@@ -1,0 +1,242 @@
+﻿TBCFile VER="3.4" [Created '27.11.2019 17:27:19' by 'Администратор']
+
+DESCRIPTION[
+Count=1
+CountByRef=0
+Integration.Mapping
+(
+  Count=1
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Integration.Mapping
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    MetaLock :Boolean
+    SubsysCode :Integer
+    ModuleCode :String
+    PartisCode :Integer
+    НеОтображаетсяВДереве :Boolean
+    Code :String(80)
+    Name :String(255)
+    Direction :Integer
+    InternalObjectType1 :String
+    ExtObject1 :Integration.ExternalObject
+    InternalObjectType2 :String
+    ExtObject2 :Integration.ExternalObject
+    FieldList :Struct array Integer
+    (
+      KeyField :Boolean
+      InteriorField1 :String
+      InteriorField2 :String
+      ExternalField1 :String
+      ExternalField2 :String
+      MatchingMethod :Integer
+      InternalDataType1 :Integer
+      InternalDataType2 :Integer
+      Formula :String
+      InterFieldType1 :Integer
+      InterFieldType2 :Integer
+      TableName1 :String
+      TableName2 :String
+      Extra1 :Boolean
+      Extra2 :Boolean
+      XMLNodes :String
+      VarField1 :Boolean
+      VarField2 :Boolean
+      PeriodicField1 :Boolean
+      PeriodicField2 :Boolean
+    )
+  )
+  ]
+
+]
+DATA[
+
+[Integration.Mapping
+  
+  {Integration.Mapping:"IPG8OULJA65S6B"}
+  (
+    Code = "fns_mapping"
+    Name = "FNS"
+    InternalObjectType1 = "Biz.Frm.Data.Entity"
+    FieldList = (
+      0:(
+        InteriorField1 = "Вид деятельности [ВидДеят]"
+        ExternalField1 = "Лицензии_ВидДеятельности"
+        InterFieldType1 = 1
+      )
+      1:(
+        InteriorField1 = "ОГРН [ОГРН]"
+        ExternalField1 = "Участия_ОГРН"
+        InterFieldType1 = 1
+      )
+      2:(
+        InteriorField1 = "Краткое название [ShortLegalName]"
+        ExternalField1 = "НаимСокрЮЛ"
+        InterFieldType1 = 1
+      )
+      3:(
+        InteriorField1 = "Рег. номер в ПФР [РегНомер]"
+        ExternalField1 = "ПФ_РегНомПФ"
+        InterFieldType1 = 1
+      )
+      4:(
+        InteriorField1 = "Месяц регистрации [МРегистр]"
+        ExternalField1 = "ДатаРег"
+        MatchingMethod = 1
+        Formula = "Мес"
+        InterFieldType1 = 1
+      )
+      5:(
+        InteriorField1 = "Год регистрации [ГРегистр]"
+        ExternalField1 = "ДатаРег"
+        MatchingMethod = 1
+        Formula = "Год"
+        InterFieldType1 = 1
+      )
+      6:(
+        InteriorField1 = "ОГРН [ОГРН]"
+        ExternalField1 = "ОГРН"
+        InterFieldType1 = 1
+      )
+      7:(
+        InteriorField1 = "ОГРН [ОГРН]"
+        ExternalField1 = "ОГРНИП"
+        InterFieldType1 = 1
+      )
+      8:(
+        InteriorField1 = "Код подчиненности [КодПодчиненности]"
+        ExternalField1 = "ФСС_КодФСС"
+        InterFieldType1 = 1
+      )
+      9:(
+        InteriorField1 = "Тип [PartyType]"
+        ExternalField1 = "ЮЛ"
+        InterFieldType1 = 2
+      )
+      10:(
+        InteriorField1 = "Тип [PartyType]"
+        ExternalField1 = "ИП"
+        InterFieldType1 = 2
+      )
+      11:(
+        InteriorField1 = "Должность [Рук_Должн]"
+        ExternalField1 = "Руководитель_Должн"
+        InterFieldType1 = 1
+      )
+      12:(
+        InteriorField1 = "ОКОПФ [ПравоваяФорма]"
+        ExternalField1 = "ОКОПФ"
+        MatchingMethod = 1
+        Formula = "Name"
+        InterFieldType1 = 6
+      )
+      13:(
+        InteriorField1 = "ИНН [ИНН]"
+        ExternalField1 = "ИНН"
+        InterFieldType1 = 1
+      )
+      14:(
+        InteriorField1 = "ИНН [ИНН]"
+        ExternalField1 = "ИННФЛ"
+        InterFieldType1 = 1
+      )
+      15:(
+        InteriorField1 = "Полное название [FullLegalName]"
+        ExternalField1 = "НаимПолнЮЛ"
+        InterFieldType1 = 1
+      )
+      16:(
+        InteriorField1 = "ОКВЭД [ОКВЭД]"
+        ExternalField1 = "ОснВидДеят_Код"
+        InterFieldType1 = 1
+      )
+      17:(
+        InteriorField1 = "Код ГНИ [КодГНИ]"
+        ExternalField1 = "НО_Учет"
+        MatchingMethod = 1
+        Formula = "Код"
+        InterFieldType1 = 1
+      )
+      18:(
+        InteriorField1 = "Наименование ГНИ [НаименованиеГНИ]"
+        ExternalField1 = "НО_Учет"
+        MatchingMethod = 1
+        Formula = "Наим"
+        InterFieldType1 = 1
+      )
+      19:(
+        InteriorField1 = "Вид деятельности [ВидДеят]"
+        ExternalField1 = "ОснВидДеят_Текст"
+        InterFieldType1 = 1
+      )
+      20:(
+        InteriorField1 = "Юридический адрес [LegalAddress]"
+        ExternalField1 = "Адрес_АдресПолн"
+        InterFieldType1 = 1
+      )
+      21:(
+        InteriorField1 = "ФСС [РегНомерФСС]"
+        ExternalField1 = "ФСС_РегНомФСС"
+        InterFieldType1 = 1
+      )
+      22:(
+        InteriorField1 = "ФИО [Рук_ФИО]"
+        ExternalField1 = "Руководитель_ФИОПолн"
+        InterFieldType1 = 1
+      )
+      23:(
+        InteriorField1 = "КПП [КодПричины]"
+        ExternalField1 = "КПП"
+        InterFieldType1 = 1
+      )
+      24:(
+        InteriorField1 = "Телефон [Конт_Тел]"
+        ExternalField1 = "НомТел"
+        InterFieldType1 = 1
+      )
+      25:(
+        InteriorField1 = "E_Mail [E_Mail]"
+        ExternalField1 = "E-mail"
+        InterFieldType1 = 1
+      )
+      26:(
+        InteriorField1 = "Фамилия [FamilyName]"
+        ExternalField1 = "ФИОПолн"
+        MatchingMethod = 1
+        Formula = "Фимилия"
+        InterFieldType1 = 1
+      )
+      27:(
+        InteriorField1 = "Имя [GivenName]"
+        ExternalField1 = "ФИОПолн"
+        MatchingMethod = 1
+        Formula = "Имя"
+        InterFieldType1 = 1
+      )
+      28:(
+        InteriorField1 = "Отчество [Patronym]"
+        ExternalField1 = "ФИОПолн"
+        MatchingMethod = 1
+        Formula = "Отчество"
+        InterFieldType1 = 1
+      )
+      29:(
+        InteriorField1 = "Пол [Gender]"
+        ExternalField1 = "Пол"
+        InterFieldType1 = 2
+      )
+    )
+  )
+]
+
+]

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.SysFields">
+  <Inherited>
+    <Inherited Name="Current" Class="Biz.Rec.Data.LabourRelations" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="EmplNumber" Class="Com.Ctrl.IEdit" Field="Current.EmplNumber" HasCaption="True" Hint="Табельный номер сотрудника " Required="True" Visible="True" Width="25" Wrap="True"/>
+          <Component Name="Person" Class="Com.Ctrl.IEdit" Caption="ФИО" CardFileClass="Bas.Tab.Data.NaturalEntities" Field="Current.Person" HasCaption="True" Hint="Ссылка на справочник физ.лиц" LookupField="Name" Required="True" Visible="True" Width="50"/>
+          <Component Name="Company" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="Current.Company" HasCaption="True" Hint="Ссылка на справочник наших предприятий " LookupField="Name" Required="True" Visible="True" Width="45" Wrap="True"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

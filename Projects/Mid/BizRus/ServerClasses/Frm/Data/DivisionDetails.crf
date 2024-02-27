@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="BizRus.Rec.Data.DivisionDetails" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" MaxWidth="230">
+          <Inherited Name="Name" Visible="True"/>
+          <Component Name="Описание" Class="Com.Ctrl.IEdit" Field="EdtRec.Описание" HasCaption="True"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="@Основные реквизиты">
+          <Component Name="Frame1" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="грОсновное" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="КПП" Class="Com.Ctrl.IEdit" CaptionWidth="110" Field="EdtRec.КПП" HasCaption="True" Required="True"/>
+              <Component Name="ОКВЭД" Class="Com.Ctrl.IEdit" CaptionWidth="110" Field="EdtRec.ОКВЭД" HasCaption="True"/>
+              <Component Name="ОКП" Class="Com.Ctrl.IEdit" CaptionWidth="110" Field="EdtRec.ОКП" HasCaption="True"/>
+              <Component Name="ОКАТО" Class="Com.Ctrl.IEdit" CaptionWidth="110" Field="EdtRec.ОКАТО" HasCaption="True"/>
+              <Component Name="ОКТМО" Class="Com.Ctrl.IEdit" CaptionWidth="110" Field="EdtRec.ОКТМО" HasCaption="True"/>
+              <Component Name="СтрахНом" Class="Com.Ctrl.IEdit" CaptionWidth="110" Field="EdtRec.СтрахНом" HasCaption="True"/>
+              <Component Name="ИндексПодразд" Class="Com.Ctrl.IEdit" CaptionWidth="110" Field="EdtRec.ИндексПодразд" HasCaption="True"/>
+              <Component Name="Руководитель" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.NaturalEntities" Field="EdtRec.Руководитель" HasCaption="True" LookupField="Name" OnLookup="Руководитель_OnLookup"/>
+              <Component Name="Ответственный" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.NaturalEntities" Field="EdtRec.Ответственный" HasCaption="True" LookupField="Name" OnLookup="Ответственный_OnLookup"/>
+            </Component>
+          </Component>
+          <Component Name="Frame2" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="бксСвидетельство" Class="Com.Ctrl.IBox" Caption="@Свидетельство о постановке на учет в налоговом органе" HasCaption="True">
+              <Component Name="грСвидетельство" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Серия" Class="Com.Ctrl.IEdit" Field="EdtRec.Серия" HasCaption="True" Width="40"/>
+                <Component Name="Номер" Class="Com.Ctrl.IEdit" CaptionWidth="20" Field="EdtRec.Номер" HasCaption="True" Width="50"/>
+                <Component Name="Дата" Class="Com.Ctrl.IEdit" CaptionWidth="20" Field="EdtRec.Дата" FieldFormat="'&quot;'dd'&quot;' mmmm yyyy" FormatOfDate="DateOnly" HasCaption="True" Width="50"/>
+                <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+                <Component Name="Наим_НИ" Class="Com.Ctrl.IEdit" CaptionWidth="70" Field="EdtRec.Наим_НИ" HasCaption="True" Multiline="True" Width="100" Wrap="True"/>
+                <Component Name="Код_НИ" Class="Com.Ctrl.IEdit" CaptionWidth="20" Field="EdtRec.Код_НИ" HasCaption="True" Width="30"/>
+              </Component>
+            </Component>
+            <Component Name="бксАдрес" Class="Com.Ctrl.IBox" Caption="@Адрес налогового органа" HasCaption="True">
+              <Component Name="грСубъект1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="НаимСубъект" Class="Com.Ctrl.IEdit" CaptionWidth="70" Field="EdtRec.НаимСубъект" HasCaption="True" Width="80"/>
+                <Component Name="КодСубъекта" Class="Com.Ctrl.IEdit" CaptionWidth="30" Field="EdtRec.КодСубъекта" HasCaption="True" Width="40"/>
+              </Component>
+              <Component Name="грСубъект2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Индекс" Class="Com.Ctrl.IEdit" CaptionWidth="70" Field="EdtRec.Индекс" HasCaption="True" Width="80"/>
+                <Component Name="Код_Кладр" Class="Com.Ctrl.IEdit" CaptionWidth="30" Field="EdtRec.Код_Кладр" HasCaption="True" Width="40"/>
+              </Component>
+              <Component Name="грРегион" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Регион" Class="Com.Ctrl.IEdit" CaptionWidth="70" Field="EdtRec.Регион" HasCaption="True" Multiline="True" Width="100" Wrap="True"/>
+                <Component Name="кнРегион" Class="Com.Ctrl.IButton" ImageName="BizRus.map-signs" OnClick="кнРегион_OnClick"/>
+              </Component>
+              <Component Name="грРайон" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Район" Class="Com.Ctrl.IEdit" CaptionWidth="70" Field="EdtRec.Район" HasCaption="True" Multiline="True" Width="100" Wrap="True"/>
+                <Component Name="кнРайон" Class="Com.Ctrl.IButton" ImageName="BizRus.map-signs" OnClick="кнРайон_OnClick"/>
+              </Component>
+              <Component Name="грГород" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Город" Class="Com.Ctrl.IEdit" CaptionWidth="70" Field="EdtRec.Город" HasCaption="True" Multiline="True" Width="100" Wrap="True"/>
+                <Component Name="кнГород" Class="Com.Ctrl.IButton" ImageName="BizRus.map-signs" OnClick="кнГород_OnClick"/>
+              </Component>
+              <Component Name="грНасПункт" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="НасПункт" Class="Com.Ctrl.IEdit" Caption="Населенный пункт  (село, поселок и т.д.)" CaptionWidth="70" Field="EdtRec.НасПункт" HasCaption="True" Multiline="True" Width="100" Wrap="True"/>
+                <Component Name="кнНасПункт" Class="Com.Ctrl.IButton" ImageName="BizRus.map-signs" OnClick="кнНасПункт_OnClick"/>
+              </Component>
+              <Component Name="грУлица" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Улица" Class="Com.Ctrl.IEdit" Caption="Улица  (проспект, переулок и т.д.)" CaptionWidth="70" Field="EdtRec.Улица" HasCaption="True" Multiline="True" Width="100" Wrap="True"/>
+                <Component Name="кнУлица" Class="Com.Ctrl.IButton" ImageName="BizRus.map-signs" OnClick="кнУлица_OnClick"/>
+              </Component>
+              <Component Name="грДом" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Дом" Class="Com.Ctrl.IEdit" CaptionWidth="70" Field="EdtRec.Дом" HasCaption="True" Width="30"/>
+                <Component Name="кнДом" Class="Com.Ctrl.IButton" ImageName="BizRus.map-signs" OnClick="кнДом_OnClick"/>
+                <Component Name="Корп" Class="Com.Ctrl.IEdit" CaptionWidth="25" Field="EdtRec.Корп" HasCaption="True" Width="30"/>
+                <Component Name="Кварт" Class="Com.Ctrl.IEdit" CaptionWidth="25" Field="EdtRec.Кварт" HasCaption="True" Width="30"/>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

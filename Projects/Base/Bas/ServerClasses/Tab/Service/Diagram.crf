@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.CodeName">
+  <Inherited HelpContext="Bas.Администрирование.Настройки.Настройки диаграмм">
+    <Inherited Name="Current" Class="Bas.Rec.Service.Diagram" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ButtonShowDiagram" Class="Com.Ctrl.IButton" Excluded="True" After="#0" Caption="@Diagram:ShowDiagram=Открыть диаграмму" ImageName="Report" OnClick="ShowDiagram"/>
+        <Inherited Name="ButtonEditItem" ImageName="Setup"/>
+        <Component Name="ButtonNewWindow" Class="Com.Ctrl.IButton" After="ButtonEditItem" Caption="@Report:NewWindow=Открыть в новом окне" ImageName="Com.new-window" OnClick="NewWindowOnClick"/>
+        <Component Name="ButtonShortcutRC" Class="Com.Ctrl.IButton" After="ButtonImport" ImageName="Com.RC" OnClick="ButtonShortcutRCOnClick"/>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="CardFile" OnOpenBlank="CardFile_OnOpenBlank"/>
+          <Component Name="CreateUserEdit" Class="Com.Ctrl.IEdit" After="ExtId" Enabled="False" Field="Current.CreateUser" Visible="False"/>
+          <Component Name="UpdateUserEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Current.UpdateUser" Visible="False"/>
+          <Component Name="CreateDateEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Current.CreateDate" Visible="False" Width="35"/>
+          <Component Name="UpdateDateEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Current.UpdateDate" Visible="False" Width="35"/>
+          <Inherited Name="Code" Excluded="True"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

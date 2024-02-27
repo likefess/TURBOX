@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CMP.Frm.StructEditor.Abstract">
+  <Inherited>
+    <Inherited Name="FStruct" Class="CMP.Rec.Views.IDocument_Settings" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="MainGroup">
+          <Component Name="FStructOff" Class="Com.Ctrl.ICheckBox" Excluded="True" Field="FStruct.Off"/>
+          <Component Name="FStructMovingType" Class="Com.Ctrl.IEdit" Excluded="True" Field="FStruct.MovingType"/>
+          <Component Name="FStructProperty" Class="Com.Ctrl.IEdit" Field="FStruct.Property" OnChange="FStructPropertyOnChange" OnGetLookupFilter="FStructProperty_OnGetLookupFilter"/>
+          <Component Name="FStructCaption" Class="Com.Ctrl.IEdit" Field="FStruct.Caption"/>
+          <Component Name="FStructHint" Class="Com.Ctrl.IEdit" Field="FStruct.Hint"/>
+          <Component Name="FStructVisibilityCondition" Class="CMP.Ctrl.IFormulaEdit" Field="FStruct.VisibilityCondition" ProcType="FRecord.ProcType" Subtable="FStruct.ConditionRecords"/>
+          <Component Name="FStructLookupFieldSave" Class="Com.Ctrl.IEdit" Field="FStruct.LookupFieldSave" HasButton="True" OnDraw="FStructLookupFieldSave_OnDraw" OnLookup="FStructLookupFieldSave_OnLookup" OnOutput="FStructLookupFieldSave_OnOutput"/>
+          <Component Name="FormatOrFormulaGroup" Class="Com.Ctrl.IGroup">
+            <Component Name="FormulaStatic" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="True" Width="40"/>
+            <Component Name="FormatOrFormula" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" FixSize="True" ValueType="VarLogical" Width="40"/>
+            <Component Name="FStructOutputFormatSave" Class="Com.Ctrl.IEdit" Field="FStruct.OutputFormatSave"/>
+            <Component Name="FStructOutputFormulaSave" Class="CMP.Ctrl.IFormulaEdit" Field="FStruct.OutputFormulaSave" ProcType="FRecord.ProcType" Subtable="FStruct.OutputFormulaRecords"/>
+          </Component>
+          <Component Name="HeaderStatic1" Class="Com.Ctrl.IStatic" Excluded="True" Color="0x00FAFAFA"/>
+        </Inherited>
+      </Inherited>
+      <Component Name="CellBox" Class="Com.Ctrl.IBox" Caption="@CMP:CellBox=Настройки клетки">
+        <Component Name="MainFlagGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+          <Component Name="MainFlagGroup1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" FixSize="True" Width="40">
+            <Component Name="MainFlagStrut" Class="Com.Ctrl.IStatic"/>
+          </Component>
+          <Component Name="MainFlagGroup2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="FStructNewLine" Class="Com.Ctrl.ICheckBox" Field="FStruct.NewLine"/>
+          </Component>
+          <Component Name="MainFlagGroup3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="FStructNotPrinted" Class="Com.Ctrl.ICheckBox" Field="FStruct.NotPrinted"/>
+          </Component>
+        </Component>
+        <Component Name="CellFlagGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+          <Component Name="CellFlagGroup1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" FixSize="True" Width="40">
+            <Component Name="CellFlagStrut" Class="Com.Ctrl.IStatic"/>
+          </Component>
+          <Component Name="CellFlagGroup2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="FStructReadOnly" Class="Com.Ctrl.ICheckBox" Field="FStruct.ReadOnly"/>
+            <Component Name="FStructHasButton" Class="Com.Ctrl.ICheckBox" Field="FStruct.HasButton"/>
+            <Component Name="FStructRequired" Class="Com.Ctrl.ICheckBox" Field="FStruct.Required"/>
+          </Component>
+          <Component Name="CellFlagGroup3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="CellFlagGroup4" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="FStructMultiline" Class="Com.Ctrl.ICheckBox" Field="FStruct.Multiline"/>
+              <Component Name="FStructSort" Class="Com.Ctrl.ICheckBox" Excluded="True" Field="FStruct.Sort"/>
+            </Component>
+            <Component Name="FStructWrap" Class="Com.Ctrl.ICheckBox" Field="FStruct.Wrap"/>
+            <Component Name="FStructTabStop" Class="Com.Ctrl.ICheckBox" Field="FStruct.TabStop"/>
+          </Component>
+        </Component>
+        <Component Name="CellGroup" Class="Com.Ctrl.IGroup" ByColumn="True" HasCaption="True">
+          <Component Name="FStructWidth" Class="Com.Ctrl.IEdit" Field="FStruct.Width" Width="28"/>
+          <Component Name="FStructAlignment" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="FStruct.Alignment"/>
+          <Component Name="CellFontGroup1" Class="Com.Ctrl.IGroup" HasCaption="True">
+            <Component Name="FStructFontName" Class="Com.Ctrl.IEdit" Field="FStruct.FontName"/>
+            <Component Name="FStructFontBold" Class="Com.Ctrl.ICheckBox" Field="FStruct.FontBold"/>
+            <Component Name="FStructFontItalic" Class="Com.Ctrl.ICheckBox" Field="FStruct.FontItalic"/>
+          </Component>
+          <Component Name="FStructFontSize" Class="Com.Ctrl.IEdit" Field="FStruct.FontSize" Width="28"/>
+          <Component Name="FStructFontColor" Class="Com.Ctrl.IColorEdit" Field="FStruct.FontColor" Width="28"/>
+          <Component Name="FStructFieldColor" Class="Com.Ctrl.IColorEdit" Field="FStruct.FieldColor" Width="28"/>
+          <Component Name="CellFontGroup2" Class="Com.Ctrl.IGroup">
+            <Component Name="CellStrut" Class="Com.Ctrl.IStatic" Width="40"/>
+            <Component Name="CellHyperlink" Class="Com.Ctrl.IStatic" Hint="@StaticFontHint=Вернуть стандартный вид клетки" OnClick="CellHyperlinkOnClick" StaticStyle="StaticHyperlink" Width="30"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="LabelBox" Class="Com.Ctrl.IBox" Caption="@CMP:LabelBox=Настройки надписи">
+        <Component Name="LabelGroup" Class="Com.Ctrl.IGroup" ByColumn="True" HasCaption="True">
+          <Component Name="FStructCaptionWidth" Class="Com.Ctrl.IEdit" Field="FStruct.CaptionWidth" Width="28"/>
+          <Component Name="FStructCaptionAlignment" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="FStruct.CaptionAlignment"/>
+          <Component Name="LabelFontGroup1" Class="Com.Ctrl.IGroup" HasCaption="True">
+            <Component Name="FStructCaptionFontName" Class="Com.Ctrl.IEdit" Field="FStruct.CaptionFontName"/>
+            <Component Name="FStructCaptionFontBold" Class="Com.Ctrl.ICheckBox" Field="FStruct.CaptionFontBold"/>
+            <Component Name="FStructCaptionFontItalic" Class="Com.Ctrl.ICheckBox" Field="FStruct.CaptionFontItalic"/>
+          </Component>
+          <Component Name="FStructCaptionFontSize" Class="Com.Ctrl.IEdit" Field="FStruct.CaptionFontSize" Width="28"/>
+          <Component Name="FStructCaptionFontColor" Class="Com.Ctrl.IColorEdit" Field="FStruct.CaptionFontColor" Width="28"/>
+          <Component Name="FStructCaptionFieldColor" Class="Com.Ctrl.IColorEdit" Field="FStruct.CaptionFieldColor" Width="28"/>
+          <Component Name="LabelFontGroup2" Class="Com.Ctrl.IGroup">
+            <Component Name="LabelStrut" Class="Com.Ctrl.IStatic" Width="40"/>
+            <Component Name="LabelHyperlink" Class="Com.Ctrl.IStatic" Hint="@LabelHyperlink.Hint=Вернуть стандартный вид надписи" OnClick="LabelHyperlinkOnClick" StaticStyle="StaticHyperlink" Width="30"/>
+          </Component>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

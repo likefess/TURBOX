@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited FormIcon="InfoBoard.kanban">
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="G1Button" Class="Com.Ctrl.IButton" Caption="Метки" OnClick="G1ButtonOnClick"/>
+        <Component Name="G2Button" Class="Com.Ctrl.IButton" Caption="Программно" OnClick="G2ButtonOnClick"/>
+        <Component Name="G3Button" Class="Com.Ctrl.IButton" Caption="Табличка" OnClick="G3ButtonOnClick"/>
+        <Component Name="G4Button" Class="Com.Ctrl.IButton" Caption="Простой" OnClick="G4ButtonOnClick"/>
+        <Component Name="G5Button" Class="Com.Ctrl.IButton" Caption="Training log" OnClick="G5ButtonOnClick"/>
+        <Component Name="G6Button" Class="Com.Ctrl.IButton" Caption="Big data" OnClick="G6ButtonOnClick"/>
+        <Component Name="Static1" Class="Com.Ctrl.IStatic" Width="10"/>
+        <Component Name="SvgButton" Class="Com.Ctrl.IButton" Caption="svg" OnClick="SvgButtonOnClick"/>
+        <Component Name="JsButton" Class="Com.Ctrl.IButton" Caption="config" OnClick="JsButtonOnClick"/>
+        <Component Name="TraceButton" Class="Com.Ctrl.IButton" Caption="trace all" OnClick="TraceButtonOnClick"/>
+        <Component Name="ChronoButton" Class="Com.Ctrl.IButton" Caption="chrono" OnClick="ChronoButtonOnClick"/>
+        <Component Name="StaticLog" Class="Com.Ctrl.IStatic" Width="50"/>
+        <Component Name="Group6" Class="Com.Ctrl.IGroup">
+          <Component Name="Edit1" Class="Com.Ctrl.IEdit" Caption="width" CaptionWidth="20" ValueType="VarString" Width="20"/>
+          <Component Name="Edit2" Class="Com.Ctrl.IEdit" Caption="height" CaptionWidth="20" ValueType="VarString" Width="20"/>
+          <Component Name="ArrowsButton" Class="Com.Ctrl.IButton" Hint="Показать стрелки" ImageName="Com.Forward" OnClick="ArrowsButtonOnClick"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" ShowTabs="False" Visible="True">
+        <Inherited Name="MainTab" ScrollerStyle="ScrollerNone">
+          <Component Name="JscGantt1" Class="InfoBoard.Ctrl.JscGantt" ArrowWidth="2" Caption="Milestones" ContainerHeight="200" FoldGroups="True" LegendAlignment="orLeft" LegendAlignSide="orBottom" LegendPlace="plInside" MarginLeftRight="4" OnClick="GanttOnClick" OnRender="JscGantt1OnRender" ShowGroups="True" TimeAxisCrosshair="True" Visible="False">
+            <Component Name="SummerTasks" Class="InfoBoard.Ctrl.Jsc.Tasks" Caption="Лето">
+              <Component Name="JunTask" Class="InfoBoard.Ctrl.Jsc.Task" BeginDate="01.06.2022" Caption="Июнь" EndDate="01.07.2022"/>
+              <Component Name="JulTask" Class="InfoBoard.Ctrl.Jsc.Task" BeginDate="01.07.2022" Caption="Июль" EndDate="01.08.2022" ParentID="JunTask"/>
+              <Component Name="AugTask" Class="InfoBoard.Ctrl.Jsc.Task" BeginDate="01.08.2022" Caption="Август" EndDate="01.09.2022" ParentID="JulTask,JunTask"/>
+            </Component>
+            <Component Name="AllMilestones" Class="InfoBoard.Ctrl.Jsc.Milestones" Caption="Milestones" OnClick="AllMilestonesOnClick" ShowLegendValue="False">
+              <Component Name="Milestone1" Class="InfoBoard.Ctrl.Jsc.Milestone"/>
+            </Component>
+          </Component>
+          <Component Name="JscGantt2" Class="InfoBoard.Ctrl.JscGantt" ArrowWidth="4" EmptyAsMarker="mrFivePointStar" LegendAlignment="orLeft" LegendAlignSide="orBottom" OnClick="GanttOnClick" TimeAxisCrosshair="True" Visible="False"/>
+          <Component Name="JscGantt3" Class="InfoBoard.Ctrl.JscGantt" Caption="Первый квартал 2022" DefaultTick="%name&#xD;&#xA;%high&#xD;&#xA;%low" LegendAlignment="orRight" LegendAlignSide="orBottom" LegendTemplate="%icon %name" OnClick="GanttOnClick" ShowGroups="True" TableWidth="100px&#xD;&#xA;80px&#xD;&#xA;80px" TaskHeader="name&#xD;&#xA;high&#xD;&#xA;low" TimeAxisCrosshair="True" TimeAxisLabel="Ось по умолчанию" TimeAxisMax="01.04.2022" TimeAxisMin="01.01.2022" Visible="False">
+            <Component Name="Quarter1" Class="InfoBoard.Ctrl.Jsc.Tasks" Caption="Первый квартал">
+              <Component Name="Task3Jan" Class="InfoBoard.Ctrl.Jsc.Task" BeginDate="01.01.2022" Caption="Январь" EndDate="01.02.2022"/>
+              <Component Name="Task3Feb" Class="InfoBoard.Ctrl.Jsc.Task" BeginDate="01.02.2022" Caption="Февраль" EndDate="01.03.2022"/>
+              <Component Name="Task3Mar" Class="InfoBoard.Ctrl.Jsc.Task" BeginDate="01.03.2022" Caption="Март" EndDate="01.04.2022"/>
+            </Component>
+            <Component Name="Milestones1" Class="InfoBoard.Ctrl.Jsc.Milestones" Caption="Астрономия">
+              <Component Name="Equinox" Class="InfoBoard.Ctrl.Jsc.Milestone" BeginDate="20.03.2022 15:33:23" MarkerType="mrSplit" Task="Task3Mar"/>
+            </Component>
+            <Component Name="Milestones2" Class="InfoBoard.Ctrl.Jsc.Milestones" Caption="И др." MarkerSize="12" MarkerType="mrSplitReverse" Task="Task3Jan">
+              <Component Name="Milestone2" Class="InfoBoard.Ctrl.Jsc.Milestone" BeginDate="20.03.2022"/>
+              <Component Name="Milestone3" Class="InfoBoard.Ctrl.Jsc.Milestone" BeginDate="21.03.2022"/>
+            </Component>
+            <Component Name="TimeframeNewYear" Class="InfoBoard.Ctrl.Jsc.Timeframe" BeginDate="31.12.2021" Caption="Новый год" EndDate="09.01.2022"/>
+            <Component Name="Timeframe23feb" Class="InfoBoard.Ctrl.Jsc.Timeframe" BeginDate="23.02.2022" Caption="День защитника Отечества" Color="0x000000FF" LegendName="23 февраля"/>
+            <Component Name="Timeframe8mar" Class="InfoBoard.Ctrl.Jsc.Timeframe" BeginDate="06.03.2022" Caption="Международный женский день" EndDate="08.03.2022" LegendName="8 марта"/>
+            <Component Name="AxisMon" Class="InfoBoard.Ctrl.Jsc.Axis" Caption="Ось Месяцы" Crosshair="True" Format="dd.MM.yyyy" MajorColor="0x00FF00FF" MajorStep="1" MajorUnit="tuMonth"/>
+            <Component Name="AxisWeeks" Class="InfoBoard.Ctrl.Jsc.Axis" Excluded="True" Caption="Ось Недели-Дни" Crosshair="True" MajorStep="1" MajorUnit="tuWeek" MinorStep="1" MinorUnit="tuDay" Position="orTop"/>
+          </Component>
+          <Component Name="JscGantt4" Class="InfoBoard.Ctrl.JscGantt" ContainerHeight="200" OnClick="GanttOnClick" Palette="fiveColor46" Visible="False">
+            <Component Name="TasksDep1" Class="InfoBoard.Ctrl.Jsc.Tasks" Caption="Отдел А" OnClick="TasksDep1OnClick" Opacity="0.75">
+              <Component Name="UserVasya" Class="InfoBoard.Ctrl.Jsc.Task" BeginDate="01.01.2022" Caption="@Vasya=Вася" CompleteHatchStyle="hsDarkDownwardDiagonal" CompleteValue="0.33" EndDate="05.01.2022"/>
+              <Component Name="UserPetya" Class="InfoBoard.Ctrl.Jsc.Task" BeginDate="04.01.2022" Caption="@Petya=Петя" EndDate="08.01.2022"/>
+            </Component>
+            <Component Name="TasksDep2" Class="InfoBoard.Ctrl.Jsc.Tasks" Caption="Отдел Б" Opacity="0.75">
+              <Component Name="TaskMasha" Class="InfoBoard.Ctrl.Jsc.Task" BeginDate="03.01.2022" Caption="Маша" EndDate="06.01.2022" OnClick="MashaOnClick"/>
+            </Component>
+          </Component>
+          <Component Name="TxtGroup" Class="Com.Ctrl.IGroup" Adaptive="True" Visible="False">
+            <Component Name="TxtEdit" Class="Com.Ctrl.IEdit" HasCaption="False" Multiline="True" VertAlignment="LeftAlign"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

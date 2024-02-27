@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited FormIcon="Com.calendar-star" ModalHeight="62">
+    <Inherited Name="RootFrame" AutoSize="True">
+      <Inherited Name="HeaderFrame" Excluded="True"/>
+      <Inherited Name="FieldsFrame" AutoSize="False" Margins="0" Orientation="Vertical">
+        <Component Name="Frame1" Class="Com.Ctrl.IFrame" AutoSize="False">
+          <Component Name="Calendar" Class="Com.Ctrl.ICalendar"/>
+        </Component>
+        <Component Name="Frame2" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0xFE00000A" FixSize="True" Margins="3" UseSplitter="False">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="ButtonOK1" Class="Com.Ctrl.IButton" Caption="Выбор" FontName="Verdana" FontSize="9" OnClick="ButtonOK_OnClick" Width="25"/>
+            <Component Name="ButtonClose1" Class="Com.Ctrl.IButton" Caption="Отмена" FontColor="0x00000000" FontName="Verdana" FontSize="9" OnClick="ButtonClose1OnClick" Width="25"/>
+            <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" Caption="⠀" FontSize="71"/>
+            </Component>
+            <Component Name="ListButtonPrecission" Class="Com.Ctrl.IListButton" Caption="Перейти к..." FontName="Verdana" FontSize="9" Visible="True" Width="25">
+              <Component Name="ButtonToMonth" Class="Com.Ctrl.IButton" Caption="Началу месяца"/>
+              <Component Name="ButtonToYear" Class="Com.Ctrl.IButton" Caption="Началу года" OnClick="ButtonToYearOnClick"/>
+              <Component Name="ButtonToQuarter" Class="Com.Ctrl.IButton" Caption="Началу квартала" OnClick="ButtonToQuarterOnClick"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Excluded="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

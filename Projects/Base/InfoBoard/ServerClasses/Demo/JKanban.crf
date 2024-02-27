@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited FormIcon="InfoBoard.kanban">
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="AddBoardButton" Class="Com.Ctrl.IButton" Caption="AddBoard" OnClick="AddBoardButtonOnClick"/>
+        <Component Name="AddItemButton" Class="Com.Ctrl.IButton" Caption="AddItem" OnClick="AddItemButtonOnClick"/>
+        <Component Name="ClearBoardsButton" Class="Com.Ctrl.IButton" Caption="ClearBoards" OnClick="ClearBoardsButtonOnClick"/>
+        <Component Name="TestIButton" Class="Com.Ctrl.IButton" Caption="Test I" OnClick="TestIButtonOnClick"/>
+        <Component Name="TestIIButton" Class="Com.Ctrl.IButton" Caption="Test II" OnClick="TestIIButtonOnClick"/>
+        <Component Name="Static1" Class="Com.Ctrl.IStatic" Width="10"/>
+        <Component Name="UseTranBox" Class="Com.Ctrl.ICheckBox" Caption="Use batch" Width="25"/>
+        <Component Name="Add100Button" Class="Com.Ctrl.IButton" Caption="Add 100" OnClick="Add100ButtonOnClick"/>
+        <Component Name="Add1000Button" Class="Com.Ctrl.IButton" Caption="Add 1000" OnClick="Add1000ButtonOnClick"/>
+        <Component Name="BrowserButton" Class="Com.Ctrl.IListButton" Hint="Web engine" ImageName="Com.Globe" Width="7">
+          <Component Name="IeButton" Class="Com.Ctrl.IButton" Caption="IE" IsSwitch="True" OnClick="IeButtonOnClick"/>
+          <Component Name="EdgeButton" Class="Com.Ctrl.IButton" Caption="Edge" IsSwitch="True" OnClick="EdgeButtonOnClick"/>
+        </Component>
+        <Component Name="RefreshButton" Class="Com.Ctrl.IButton" ImageName="Com.Refresh" OnClick="RefreshButtonOnClick"/>
+        <Component Name="StaticLog" Class="Com.Ctrl.IStatic" Width="100"/>
+      </Inherited>
+      <Inherited Name="TabsFrame" ShowTabs="False" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="Kanban1" Class="InfoBoard.Ctrl.JKanban">
+            <Component Name="backlog" Class="InfoBoard.Ctrl.JKBoard" Caption="Backlog"/>
+            <Component Name="ready" Class="InfoBoard.Ctrl.JKBoard" Caption="Ready" DragToBoards="progress, done"/>
+            <Component Name="progress" Class="InfoBoard.Ctrl.JKBoard" Caption="In progress" DragToBoards="ready, done"/>
+            <Component Name="test" Class="InfoBoard.Ctrl.JKBoard" Caption="In test" DragToBoards="ready, done"/>
+            <Component Name="done" Class="InfoBoard.Ctrl.JKBoard" Caption="Done" DragToBoards="-"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

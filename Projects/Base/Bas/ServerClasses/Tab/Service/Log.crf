@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.CodeName">
+  <Inherited HelpContext="Bas.Администрирование.Сервисы.Протокол">
+    <Inherited Name="Current" Class="Bas.Rec.Service.Log" IsLibrary="1"/>
+    <Component Name="EventParamsSubtable" Class="Com.ISubtable" After="Current"/>
+    <Inherited Name="CardMenu" After="EventParamsSubtable"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree">
+          <Inherited Name="CardTree" CanCopy="False" CanDelete="False" CanInsert="False" CanMove="False"/>
+        </Inherited>
+        <Inherited Name="FrameCardFile" Orientation="Horizontal">
+          <Inherited Name="CardFile" CanCopy="False" CanDelete="False" CanEdit="False" CanInsert="False" CanMove="False" GroupsFirst="False" Hierarchical="True" OnDrawRow="CardFileOnDrawRow"/>
+          <Component Name="EventTime" Class="Com.Ctrl.IEdit" After="Closed" Alignment="CenterAlign" Caption="@Logging:EventTime=Время события" CellFormat="DateFormat" Field="Current.EventTime" FieldFormat="dd.mm.yyyy hh:nn:ss.zzz" Width="40"/>
+          <Component Name="EventType" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Logging:EventType=Категория события" CellFormat="EnumFormat" Field="Current.EventType" ListAsString="Трейс|-2;Отладка|-1;Информация|0;Предупреждение|1;Ошибка|2;Протокол|3;Критическая ошибка|4;Папка протоколов|100" Width="30"/>
+          <Component Name="EventTemplate" Class="Com.Ctrl.IEdit" Caption="@Log:Template=Класс события" Field="Current.EventTemplate" Width="40"/>
+          <Inherited Name="Code" After="EventTemplate" Caption="@Log:Code=Код события" Visible="False"/>
+          <Inherited Name="Name" After="Code" Caption="@Log:Msg=Сообщение" Width="80"/>
+          <Component Name="Events" Class="Com.Ctrl.IEdit" After="Name" Caption="@Logging:VisibleEvents=Всего событий" CellFormat="NumericFormat" Field="Current.VisibleEvents" Width="20"/>
+          <Component Name="Errors" Class="Com.Ctrl.IEdit" Caption="@Logging:ErrorsCount=Ошибок" CellFormat="NumericFormat" Field="Current.VisibleErrors" Width="20"/>
+          <Component Name="Warnings" Class="Com.Ctrl.IEdit" Caption="@Logging:VisibleWarnings=Предупреждений" CellFormat="NumericFormat" Field="Current.VisibleWarnings" Width="20"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

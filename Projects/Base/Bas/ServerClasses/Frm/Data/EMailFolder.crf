@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IEditorWithFrames">
+  <Inherited Caption="@EMail:GroupFormTitle=Папка писем" OnShow="EditorOnShow">
+    <Component Name="EdtRec" Class="Bas.Rec.Data.EMail" IsLibrary="1" After="#0"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+          <Component Name="edtMailAccount" Class="Com.Ctrl.IEdit" CanSelect="True" Field="EdtRec.Server" HasCaption="True" TabStop="True"/>
+          <Component Name="edtFolderName" Class="Com.Ctrl.IEdit" CanSelect="True" Caption="@EMail:FolderName=Имя папки" Field="EdtRec.Name" HasCaption="True" TabStop="True"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

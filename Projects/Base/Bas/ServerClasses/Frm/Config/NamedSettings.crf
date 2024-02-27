@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IEditorWithFrames">
+  <Inherited HelpContext="Bas.Администрирование.Настройки.Диспетчер настроек">
+    <Inherited Name="EdtRec" Class="Bas.Rec.Config.NamedSettings" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ToolButton" Class="Com.Ctrl.IButton" After="ButtonOK" ImageName="Com.tools" OnClick="ToolButtonOnClick" Visible="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="Frame1" Class="Com.Ctrl.IFrame">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="Group2" Class="Com.Ctrl.IGroup">
+              <Component Name="EditForm" Class="Com.Ctrl.IEdit" CaptionWidth="30" Enabled="False" Field="EdtRec.Form" HasCaption="True"/>
+              <Component Name="EditRecID" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.RecID"/>
+            </Component>
+            <Component Name="EditName" Class="Com.Ctrl.IEdit" CaptionWidth="30" Field="EdtRec.Name" HasCaption="True"/>
+            <Component Name="Group3" Class="Com.Ctrl.IGroup">
+              <Component Name="EditUser" Class="Com.Ctrl.IEdit" CaptionWidth="30" Field="EdtRec.User" HasCaption="True"/>
+              <Component Name="EditRole" Class="Com.Ctrl.IEdit" CaptionWidth="20" Field="EdtRec.Role" HasCaption="True"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="SettingsBox" Class="Com.Ctrl.IBox">
+          <Component Name="SettingsGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="EditSettings" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.Settings" Multiline="True" Wrap="True"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

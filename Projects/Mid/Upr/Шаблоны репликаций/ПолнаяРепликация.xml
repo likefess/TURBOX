@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<ReplicationTemplate Version="3.0">
+  <Projects>
+    <Project Name="СИС2">
+      <Group Name="Служебные">
+        <Document Name="Семафор" Publisher="False" Subscriber="False" ConflPriority="0"/>
+        <Document Name="Нумератор" Publisher="False" Subscriber="False" ConflPriority="0"/>
+      </Group>
+    </Project>
+    <Project Name="Управление">
+      <Group Name="Настройки">
+        <Document Name="ПараметрыСервера" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition=" " DownloadRefDocuments="False"/>
+      </Group>
+      <Group Name="Справочники">
+        <Document Name="Функция" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition=" " DownloadRefDocuments="False"/>
+      </Group>
+    </Project>
+    <Project Name="Kernel">
+      <Group Name="Fixed" Publisher="False" Subscriber="False"/>
+    </Project>
+    <Project Name="МашинаРеквизитов">
+      <Group Name="Настройки">
+        <Document Name="Функция">
+          ДатыКомпиляции-
+          <Fields Name="ЛогикаДокумента" FieldsDeleted="True"/>
+          <Fields Name="ЗаписиДляФормулМетаданных" FieldsDeleted="True"/>
+        </Document>
+      </Group>
+    </Project>
+  </Projects>
+</ReplicationTemplate>

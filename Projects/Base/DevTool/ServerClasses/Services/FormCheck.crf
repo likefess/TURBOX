@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited CaptionAlign="LeftAlign">
+    <Inherited Name="TableMenu" Excluded="False">
+      <Component Name="cmdOpen" Class="Com.ComManaging.ExecProcedure" After="TableSeparator1" Caption="@Cmd:IOpen=Открыть" CommandProc="cmdOpen_CommandProc" IconName="Com.folder-open"/>
+      <Component Name="cmdOpenModal" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:IOpen=Открыть модально" CommandProc="cmdOpenModal_CommandProc" IconName="Com.folder-open"/>
+      <Inherited Name="cmdCopyValue" Excluded="True"/>
+      <Inherited Name="cmdCutValue" Excluded="True"/>
+      <Inherited Name="cmdPasteValue" Excluded="True"/>
+      <Inherited Name="cmdDeleteValue" Excluded="True"/>
+      <Inherited Name="cmdInsertRow" Excluded="True"/>
+      <Inherited Name="cmdDeleteRow" Excluded="True"/>
+      <Inherited Name="cmdRowUp" Excluded="True"/>
+      <Inherited Name="cmdRowDown" Excluded="True"/>
+    </Inherited>
+    <Inherited Name="Variables">
+      <Component Name="BaseClassName" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="ResultsTab" Class="Com.ISubtable" StructClass="DevTool.Struct.FormCheck"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonOK" OnClick="ButtonRun_OnClick"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" AutoSize="False">
+        <Component Name="ParamFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="430" MinWidth="100">
+            <Component Name="ClassEdit" Class="Com.Ctrl.IEditEx" Caption="@Frm:BaseClass=Базовый класс" Field="BaseClassName" HasButton="True"/>
+          </Component>
+        </Component>
+        <Component Name="ResultsFrame" Class="Com.Ctrl.IFrame" Margins="5">
+          <Component Name="Table1" Class="Com.Ctrl.ITable" Adaptive="True" IconName="Com.Blank" Numbering="False" OnClickIcon="Table1_OnClickIcon" OnDrawIcon="Table1_OnDrawIcon" PopupMenu="TableMenu" ShowIcon="True" Sortable="True" Subtable="ResultsTab">
+            <Component Name="CheckStuct" Class="DevTool.Struct.FormCheck" IsLibrary="1"/>
+            <Component Name="ListButton1" Class="Com.Ctrl.IListButton" Excluded="True" ImageName="Com.angle-down">
+              <Component Name="ButOpen" Class="Com.Ctrl.IButton" Caption="Open" OnClick="ButOpen_OnClick"/>
+            </Component>
+            <Component Name="NameEdit" Class="Com.Ctrl.IEdit" Caption="Name" Enabled="False" Field="CheckStuct.Name" MaxWidth="200" MinWidth="50" OnClick="NameEdit_OnClick" Width="100"/>
+            <Component Name="ErrorEdit" Class="Com.Ctrl.IEdit" Caption="Error" Enabled="False" Field="CheckStuct.Error" MaxWidth="200" MinWidth="50" Width="100"/>
+            <Component Name="TimeEdit" Class="Com.Ctrl.IEdit" Caption="Time" Enabled="False" Field="CheckStuct.Time" FixSize="True" Width="20"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

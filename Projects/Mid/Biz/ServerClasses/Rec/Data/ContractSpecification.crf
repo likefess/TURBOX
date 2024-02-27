@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rec.CodeName">
+  <Inherited Class="Biz.Rec.Data.ContractSpecification">
+    <Component Name="EventTime" Class="Com.Fld.IField" Excluded="True" FieldName="EventTime"/>
+    <Component Name="Status" Class="Com.Fld.IField" FieldName="Status" OnChange="Status_OnChange"/>
+    <Component Name="IsCorrective" Class="Com.Fld.IField" FieldName="IsCorrective"/>
+    <Component Name="CorrectedDocument" Class="Com.Fld.IField" Caption="@ContractSpecification:CorrectedDocument=Корректирует" FieldName="CorrectedDocument" OnChange="CorrectedDocument_OnChange" ValueType="VarObject"/>
+    <Component Name="Contract" Class="Com.Fld.IField" Caption="@ContractSpecification:Contract=Договор" FieldName="Contract"/>
+    <Component Name="ContractSuppAgreement" Class="Com.Fld.IField" Caption="@ContractSpecification:ContractSuppAgreement=Доп. соглашение" FieldName="ContractSuppAgreement"/>
+    <Component Name="ParentDocument" Class="Com.Fld.IVar" OnCalc="ParentDocument_OnCalc"/>
+    <Component Name="ParentDocumentPostingDate" Class="Com.Fld.ILink" Caption="@ContractSpecification:ParentDocumentPostingDate=Дата создания" Field="ParentDocument" FieldName="EventTime"/>
+    <Component Name="ParentDocumentRegisterNumber" Class="Com.Fld.ILink" Caption="@ContractSpecification:ParentDocumentPostingDate=Рег. номер" Field="ParentDocument" FieldName="PrintedNumber"/>
+    <Component Name="ParentDocumentRegisterDate" Class="Com.Fld.ILink" Caption="@ContractSpecification:ParentDocumentRegisterDate=Дата регистрации" Field="ParentDocument" FieldName="RegistrationDate"/>
+    <Component Name="ParentDocumentCompany" Class="Com.Fld.ILink" Caption="@ContractSpecification:ParentDocumentCompany=Организация" Field="ParentDocument" FieldName="Company"/>
+    <Component Name="ParentDocumentDepartment" Class="Com.Fld.ILink" Caption="@ContractSpecification:ParentDocumentDepartment=Поздразделение" Field="ParentDocument" FieldName="Department"/>
+    <Component Name="ParentDocumentCurrency" Class="Com.Fld.ILink" Caption="@ContractSpecification:ParentDocumentCurrency=Валюта" Field="ParentDocument" FieldName="Currency"/>
+    <Component Name="ParentDocumentUserEmployee" Class="Com.Fld.ILink" Caption="@ContractSpecification:ParentDocumentUserEmployee=Пользователь" Field="ParentDocument" FieldName="UserEmployee"/>
+    <Component Name="ContractPartner" Class="Com.Fld.ILink" Caption="@ContractSpecification:ContractPartner=Контрагент" Field="Contract" FieldName="Partner"/>
+    <Component Name="ContractPartnerUser" Class="Com.Fld.ILink" Caption="@ContractSpecification:ContractPartnerUser=Куратор контрагента" Field="Contract" FieldName="PartnerUser"/>
+    <Component Name="ParentDocumentStartDate" Class="Com.Fld.ILink" Caption="@ContractSpecification:ParentDocumentStartDate=Период действия с" Field="ParentDocument" FieldName="StartDate"/>
+    <Component Name="ParentDocumentExpirationDate" Class="Com.Fld.ILink" Caption="@ContractSpecification:ParentDocumentExpirationDate=по" Field="ParentDocument" FieldName="ExpirationDate"/>
+    <Component Name="Subject" Class="Com.Fld.IField" Caption="@ContractSpecification:Subject=Назначение договора" FieldName="Subject"/>
+    <Component Name="RowsSubtable" Class="Com.ISubtable" OnAfterDelete="RowsSubtable_OnAfterDelete" StructClass="Biz.Rec.Data.ContractSpecification_Rows" SubtableName="Rows"/>
+    <Component Name="RowsSubtable_Totals" Class="Com.ISubtable" StructClass="Biz.Rec.Data.ContractSpecification_Rows_Totals"/>
+    <Component Name="TotalAmountWithoutVAT" Class="Com.Fld.IField" Caption="@ContractSpecification:TotalAmountWithoutVAT=Сумма без НДС" FieldName="TotalAmountWithoutVAT"/>
+    <Component Name="TotalVATAmount" Class="Com.Fld.IField" Caption="@ContractSpecification:TotalVATAmount=Сумма НДС" FieldName="TotalVATAmount"/>
+    <Component Name="TotalAmountIncludingVAT" Class="Com.Fld.IField" Caption="@ContractSpecification:TotalAmountIncludingVAT=Сумма с НДС" FieldName="TotalAmountIncludingVAT"/>
+    <Component Name="Duration" Class="Com.Fld.IVar" OnCalc="Duration_OnCalc" ValueType="VarString"/>
+    <Component Name="DocumentName" Class="Com.Fld.IVar" OnCalc="DocumentName_OnCalc" ValueType="VarString"/>
+  </Inherited>
+</Resource>

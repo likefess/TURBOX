@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IRoleCenter">
+  <Inherited Caption="@ControlRC:User=РМ пользователя">
+    <Inherited Name="MainGroup" Orientation="Vertical">
+      <Component Name="LeftPanel" Class="Com.Cmd2.IGroup" Orientation="Horizontal">
+        <Component Name="MainData" Class="Com.Cmd2.IGroup" Caption="@ControlRC:MainData= " Columns="1" Orientation="Vertical" Rows="4">
+          <Component Name="NewTask" Class="Com.Cmd2.IItem" Command="Commands.Cmd_ContrNewTask"/>
+          <Component Name="TasksList" Class="Com.Cmd2.IItem" Command="Commands.Cmd_TasksList"/>
+          <Component Name="TasksCardfile" Class="Com.Cmd2.IItem" Command="Commands.Cmd_TasksCardfile"/>
+          <Component Name="KernelQuit" Class="Com.ComManaging.ExecCommand" Excluded="True" CommandName="Kernel.Service.Quit"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

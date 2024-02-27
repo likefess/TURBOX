@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Logging.EventLog">
+  <Inherited>
+    <Inherited Name="EventsTemplates">
+      <Component Name="JobError" Class="Bas.Logging.EventTemplate" Description="@Job:EventJobError=Ошибка при исполнении задания" EventLevel="llAdmin" EventType="logError" MessageTemplate="%s" Params="SerializedJob" Visible="True">
+        <Component Name="JobErrorHandler" Class="Bas.Logging.ILogEventHandler" Caption="@Job:JobErrorHandlerCaption=Открыть задание" Handler="CallJobErrorHandler"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

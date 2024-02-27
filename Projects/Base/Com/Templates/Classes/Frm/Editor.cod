@@ -1,0 +1,40 @@
+﻿--Param Title :String "&Описание"
+--Param RecClass :class Com.Rec.IRecord "Класс записи"
+--Param EdtBaseClass :class Com.Frm.IEditorWithFrames "Унаследован от"
+
+class inherited &{%EdtBaseClass%|Com.Frm.IEditorWithFrames}&{ "%Title%"}
+
+import Com.Def
+
+inclass public
+
+  #Override
+  var RecordClass  :Class &{%RecClass%|Com.Rec.IRecord}&{ := %RecClass%}
+
+inclass private
+
+  #Override
+  var UseResource  :Logical := True
+
+inobject public
+
+  #Override
+  var EdtRec :&{%RecClass%|Com.Rec.IRecord}
+
+
+inobject private
+
+--------------------------------------------------------------------------------
+---{{ Обработчики событий класса
+
+---}}
+
+
+--  #Override
+--  proc Init
+--    inherited Init
+--    -- Программная инициализация
+--  end
+
+
+end

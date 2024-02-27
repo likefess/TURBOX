@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.User.CustomUserList">
+  <Inherited FormIcon="Com.User" HelpContext="Admin.Администрирование.Список серверов">
+    <Component Name="UserListStruct" Class="Admin.Frm.User.UserList_Struct" IsLibrary="1" After="#0"/>
+    <Inherited Name="Variables">
+      <Inherited Name="Subtable" StructClass="Admin.Frm.User.UserList_Struct"/>
+      <Component Name="LicenseUsed" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="LicenseMax" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="LicenseStd" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="NavigatorFrame" Excluded="False"/>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="frameData">
+          <Inherited Name="TableData" IconName="Com.User" OnClickIcon="TableData_OnClickIcon" Sortable="True">
+            <Inherited Name="edName" Field="UserListStruct.Name"/>
+            <Inherited Name="chbEnabled" Field="UserListStruct.Enabled" OnChange="chbEnabled_OnChange"/>
+            <Inherited Name="edDescription" Field="UserListStruct.Descript"/>
+            <Inherited Name="edSID" Excluded="True" Field="UserListStruct.SID"/>
+            <Component Name="chbBuiltIn" Class="Com.Ctrl.ICheckBox" Excluded="True" Caption="@Admin:ItemBiultIn=Встр" Enabled="False" Field="UserListStruct.BuiltIn" Width="20"/>
+            <Component Name="edFullName" Class="Com.Ctrl.IEdit" Excluded="True" Alignment="LeftAlign" Caption="@Admin:UserFullName=Полное имя" Enabled="False" Field="UserListStruct.Full_Name" OnClick="User_OnClick" ValueType="VarString" Width="100"/>
+          </Inherited>
+        </Inherited>
+        <Component Name="BoxLicensing" Class="Com.Ctrl.IBox" AutoSize="True" Collapsed="True" OnVerifyCollapsed="BoxLicensing_OnVerifyCollapsed">
+          <Component Name="GroupLicensing" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250" MinWidth="20" Width="40">
+            <Component Name="edLicenseUsed" Class="Com.Ctrl.IEditEx" Alignment="CenterAlign" Enabled="False" Field="LicenseUsed" FieldFormat=",0;;-" MaxWidth="25" MinWidth="10" Width="20">
+              <Component Name="edLicenseLabel" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@Admin:LicenseUsed=Занято" FixSize="False" MaxWidth="25" MinWidth="20" Width="20"/>
+            </Component>
+            <Component Name="edLicenseMax" Class="Com.Ctrl.IEditEx" Alignment="CenterAlign" Enabled="False" Field="LicenseMax" FieldFormat=",0;;-" MaxWidth="25" MinWidth="10" Width="20">
+              <Component Name="edLicenseMaxLabel" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@Admin:LicenseTurboUserCount=Мест версии Макс." FixSize="False" MaxWidth="50" MinWidth="20" Width="45"/>
+            </Component>
+            <Component Name="edLicenseStd" Class="Com.Ctrl.IEditEx" Alignment="CenterAlign" Enabled="False" Field="LicenseStd" FieldFormat=",0;;-" MaxWidth="25" MinWidth="10" Width="20">
+              <Component Name="edLicenseStdLabel" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@Admin:LicenseBusinessUserCount=Мест версии Бизнес" FixSize="False" MaxWidth="50" MinWidth="20" Width="45"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

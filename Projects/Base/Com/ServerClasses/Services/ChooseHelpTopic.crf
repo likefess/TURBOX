@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited ModalWidth="156">
+    <Inherited Name="Variables">
+      <Component Name="Var1" Class="Com.Fld.IVar" ValueType="VarVariant"/>
+    </Inherited>
+    <Inherited Name="RootFrame" ScrollerStyle="ScrollerNone">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ButtonSearch" Class="Com.Ctrl.IButton" After="#0" ImageName="Com.Find" OnClick="ButtonSearch_OnClick"/>
+        <Inherited Name="ButtonOK" Excluded="True"/>
+        <Inherited Name="ButtonRefresh" Excluded="True"/>
+        <Inherited Name="ButtonHelp" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" AutoSize="False" ScrollerStyle="ScrollerVert">
+        <Component Name="SearchFrame" Class="Com.Ctrl.IFrame" Size="7" Visible="False">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" FixSize="True">
+            <Component Name="EditSearch" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="True" Field="Var1" Hint="Поиск" ValueType="VarString" Visible="True"/>
+          </Component>
+        </Component>
+        <Component Name="TopicFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="1"/>
+      </Inherited>
+      <Inherited Name="TabsFrame" Excluded="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

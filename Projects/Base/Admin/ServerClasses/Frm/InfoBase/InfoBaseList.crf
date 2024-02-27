@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.CustomTree">
+  <Inherited FormIcon="Admin.Infobase" HelpContext="Admin.Администрирование.Список серверов">
+    <Component Name="Timer" Class="Com.ITimer" Excluded="True" After="#0" Active="False" Interval="5" OnTimer="Timer_OnTimer"/>
+    <Component Name="InfoBaseListStruct" Class="Admin.Frm.InfoBase.InfoBaseList_Struct" IsLibrary="1"/>
+    <Inherited Name="TableMenu" After="InfoBaseListStruct">
+      <Component Name="cmdCreate" Class="Com.ComManaging.ExecProcedure" After="cmdProperty" Caption="@Admin:InfobaseNew_Caption=Создать базу" CommandProc="cmdCreate_CommandProc" IconName="Com.InsertObj"/>
+      <Inherited Name="cmdAdd" After="cmdCreate" Caption="@Admin:InfobaseAdd_Caption=Добавить базу" CommandProc="cmdAdd_CommandProc" Visible="False"/>
+      <Component Name="cmdCreateFromReplic" Class="Com.ComManaging.ExecProcedure" After="cmdAdd" Caption="@Admin:InfobaseCreateFromReplic_Caption=Создать из синхрореплики" CommandProc="cmdCreateFromReplic_CommandProc" IconName="Admin.ReplSchema" Visible="False"/>
+      <Component Name="cmdRebuild" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:InfobaseRebuild=Реогранизовать базу" CommandProc="cmdRebuild_CommandProc" IconName="Com.Setup"/>
+      <Inherited Name="cmdDel" After="cmdRebuild" Caption="@Admin:InfobaseDelete_Caption=Удалить базу/группу" CommandProc="cmdDel_CommandProc"/>
+      <Component Name="Separator1" Class="Com.Cmd2.ISeparator" After="cmdDel"/>
+      <Component Name="cmdBackup" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:InfobaseBackup_Caption=Архивировать базу" CommandProc="cmdBackup_CommandProc" IconName="Admin.Backup"/>
+      <Component Name="cmdRestore" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:InfobaseRestore_Caption=Восстановить базу" CommandProc="cmdRestore_CommandProc" IconName="Admin.Restore"/>
+      <Component Name="cgrMaintenance" Class="Com.Cmd2.ICommandGroup" Caption="@Admin:InfoBaseMaintenance=Обслуживание">
+        <Component Name="cmdMaintenErase" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:IBMaintenance_Erase=Стереть удалённые записи" CommandProc="cmdMaintenErase_CommandProc"/>
+        <Component Name="cmdMaintenReference" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:IBMaintenance_Reference=Восстановить ссылочную целостность" CommandProc="cmdMaintenReference_CommandProc"/>
+        <Component Name="cmdMaintenPath" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:IBMaintenance_Path=Восстанавить иерархические пути" CommandProc="cmdMaintenPath_CommandProc"/>
+        <Component Name="cmdMaintenTrim" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:IBMaintenance_Trim=Усечение протоколов" CommandProc="cmdMaintenTrim_CommandProc"/>
+      </Component>
+      <Component Name="Separator2" Class="Com.Cmd2.ISeparator"/>
+      <Component Name="cmdReplicImport" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:InfobaseReplicImport_Caption=Импорт данных репликации" CommandProc="cmdReplicImport_CommandProc" Visible="False"/>
+      <Component Name="cmdGroupAdd" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:InfobaseGroupAdd=Добавить группу" CommandProc="cmdGroupAdd_CommandProc" IconName="Com.AddFolder"/>
+      <Component Name="cmdLock" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:InfobaseLock_Caption=Заблокировать/разблокировать" CommandProc="cmdLock_CommandProc" IconName="Admin.lock"/>
+      <Inherited Name="cmdCopyValue" After="cmdLock"/>
+    </Inherited>
+    <Inherited Name="Variables">
+      <Inherited Name="Subtable" StructClass="Admin.Frm.InfoBase.InfoBaseList_Struct"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="listBtnAdd" Class="Com.Ctrl.IListButton" After="#0" ImageName="Com.AddItem">
+          <Component Name="ButtonCreate" Class="Com.Ctrl.IButton" Caption="@Admin:InfobaseNew_Caption=Создать базу" Command="cmdCreate" ImageName="Com.InsertObj"/>
+          <Component Name="ButtonAdd" Class="Com.Ctrl.IButton" Caption="@Admin:InfobaseAdd_Caption=Добавить базу" Command="cmdAdd" ImageName="Com.AddItem"/>
+          <Component Name="ButtonRestore" Class="Com.Ctrl.IButton" Caption="@Admin:InfobaseRestore_Caption=Восстановить базу" Command="cmdRestore" ImageName="Admin.Restore"/>
+          <Component Name="ButtonCreateFromReplic" Class="Com.Ctrl.IButton" Caption="@Admin:InfobaseCreateFromReplic_Caption=Создать из синхрореплики" Command="cmdCreateFromReplic" ImageName="Admin.ReplSchema"/>
+        </Component>
+        <Inherited Name="ButtonAddItem" Excluded="True" After="listBtnAdd" Caption="@Admin:InfobaseAdd_Caption=Восстановить базу" Enabled="False" Visible="False"/>
+        <Component Name="ButtonRebuild" Class="Com.Ctrl.IButton" After="HeaderSeparator" Caption="@Admin:InfobaseRebuild=Реогранизовать базу" Command="cmdRebuild" ImageName="Com.Setup"/>
+        <Inherited Name="ButtonDeleteItem" After="ButtonRebuild" Caption="@Admin:InfobaseDelete_Caption=Удалить базу/группу" Command="cmdDel"/>
+        <Component Name="ButtonBackup" Class="Com.Ctrl.IButton" After="ButtonDeleteItem" Caption="@Admin:InfobaseBackup_Caption=Архивировать базу" Command="cmdBackup"/>
+        <Component Name="listBtnMaintenance" Class="Com.Ctrl.IListButton" Caption="@Admin:InfoBaseMaintenance=Обслуживание">
+          <Component Name="ButtonMaintenErase" Class="Com.Ctrl.IButton" Caption="@Admin:IBMaintenance_Erase=Стереть удалённые записи" Command="cmdMaintenErase"/>
+          <Component Name="ButtonMaintenReference" Class="Com.Ctrl.IButton" Caption="@Admin:IBMaintenance_Reference=Восстановить ссылочную целостность" Command="cmdMaintenReference"/>
+          <Component Name="ButtonMaintenPath" Class="Com.Ctrl.IButton" Caption="@Admin:IBMaintenance_Path=Восстанавить иерархические пути" Command="cmdMaintenPath"/>
+          <Component Name="ButtonMaintenanceTrim" Class="Com.Ctrl.IButton" Caption="@Admin:IBMaintenance_Trim=Усечение протоколов" Command="cmdMaintenTrim"/>
+        </Component>
+        <Component Name="ButtonGroupAdd" Class="Com.Ctrl.IButton" Caption="@Admin:InfobaseGroupAdd=Добавить группу" Command="cmdGroupAdd" ImageName="Com.AddFolder"/>
+        <Component Name="ButtonLockItem" Class="Com.Ctrl.IButton" Caption="@Admin:InfobaseLock_Caption=Заблокировать/разблокировать" Command="cmdLock" ImageName="Admin.lock"/>
+        <Inherited Name="ButtonRefresh" After="ButtonLockItem"/>
+      </Inherited>
+      <Inherited Name="NavigatorFrame">
+        <Inherited Name="grpNavigator">
+          <Inherited Name="sepNav" Excluded="False"/>
+          <Inherited Name="edtFilter" Excluded="False"/>
+          <Inherited Name="buttonFields" Excluded="False"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="frameData">
+          <Inherited Name="TableData" OnDrawIcon="TableData_OnDrawIcon" ShowIcon="True">
+            <Inherited Name="edName" Caption="@Admin:InfobaseListName=Название" Field="InfoBaseListStruct.Name" MinWidth="40" Width="80"/>
+            <Component Name="edProjects" Class="Com.Ctrl.IEdit" Caption="@Admin:InfobaseProjects=Проекты" Enabled="False" Field="InfobaseListStruct.Projects" HasCaption="True" MaxWidth="200" MinWidth="40" OnClick="ItemTable_OnClick" Width="100"/>
+            <Component Name="edDBList" Class="Com.Ctrl.IEdit" Caption="@Admin:InfoBaseDBList=Базы данных" Enabled="False" Field="InfoBaseListStruct.DBList" MaxWidth="200" MinWidth="40" OnClick="ItemTable_OnClick" Width="100"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

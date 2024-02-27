@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IEditorWithFrames">
+  <Inherited HelpContext="Bas.Администрирование.Сервисы.Хранимые задания">
+    <Inherited Name="EdtRec" Class="Com.Rec.Jobs.Persistent" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False">
+          <Component Name="ButtonExecute" Class="Com.Ctrl.IButton" Caption="@Jobs:Execute=Синхронный запуск" ImageName="Com.chevron-right" OnClick="ExecuteJob"/>
+          <Component Name="ButtonAsyncExec" Class="Com.Ctrl.IButton" Caption="@Jobs:AsyncExecute=Асинхронный запуск" ImageName="Com.chevron-double-right" OnClick="AsyncExecuteJob"/>
+          <Component Name="ButtonDebugExec" Class="Com.Ctrl.IButton" Caption="@Jobs:ClientExecute=Синхронный запуск на клиенте" ImageName="Com.Debug" OnClick="ClientExecuteJob"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" HasCaption="True" MaxWidth="-1">
+          <Component Name="edtCaption" Class="Com.Ctrl.IEditEx" Field="EdtRec.Caption" MaxWidth="250" MinWidth="45" Width="160">
+            <Component Name="Static11" Class="Com.Ctrl.IStatic" FixSize="False" MaxWidth="45" MinWidth="15" Width="30"/>
+          </Component>
+          <Component Name="Static12" Class="Com.Ctrl.IStatic" MinWidth="1" Width="5"/>
+          <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          <Component Name="edtFunct" Class="Com.Ctrl.IEditEx" Field="EdtRec.Funct" MaxWidth="250" MinWidth="45" Width="160">
+            <Component Name="Static21" Class="Com.Ctrl.IStatic" FixSize="False" MaxWidth="45" MinWidth="15" Width="30"/>
+          </Component>
+          <Component Name="Static22" Class="Com.Ctrl.IStatic" MinWidth="1" Width="5"/>
+          <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+          <Component Name="edtParamText" Class="Com.Ctrl.IEditEx" Field="EdtRec.ParamText" MaxWidth="250" MinWidth="45" Width="160" Wrap="True">
+            <Component Name="Static31" Class="Com.Ctrl.IStatic" FixSize="False" MaxWidth="45" MinWidth="15" Width="30"/>
+          </Component>
+          <Component Name="Static32" Class="Com.Ctrl.IStatic" MinWidth="1" Width="5"/>
+          <Component Name="NewLine3" Class="Com.Ctrl.INewLine"/>
+          <Component Name="edtResultText" Class="Com.Ctrl.IEditEx" Enabled="False" Field="EdtRec.ResultText" Hint="@Jobs:ResultTextHint=Результат исполнения задания" MaxWidth="250" MinWidth="45" OnDrawEx="ClosedColor_OnDrawEx" Width="160" Wrap="True">
+            <Component Name="Static41" Class="Com.Ctrl.IStatic" FixSize="False" MaxWidth="45" MinWidth="15" Width="30"/>
+          </Component>
+          <Component Name="Static42" Class="Com.Ctrl.IStatic" MinWidth="1" Width="5"/>
+          <Component Name="NewLine4" Class="Com.Ctrl.INewLine" Excluded="True"/>
+        </Component>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" HasCaption="True" MaxWidth="-1">
+          <Component Name="edtFlags" Class="Com.Ctrl.IEditEx" Alignment="LeftAlign" ButtonStyle="LookupButton" Field="EdtRec.Flags" MaxWidth="110" MinWidth="15" OnLookup="edtFlags_OnLookup" Width="70">
+            <Component Name="Static51" Class="Com.Ctrl.IStatic" FixSize="False" MaxWidth="45" MinWidth="15" Width="30"/>
+          </Component>
+          <Component Name="edtExtId" Class="Com.Ctrl.IEditEx" Enabled="False" Field="EdtRec.ExtId" MaxWidth="105" MinWidth="15" Width="65">
+            <Component Name="Static52" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="False" MaxWidth="35" MinWidth="15" Width="25"/>
+          </Component>
+          <Component Name="Static53" Class="Com.Ctrl.IStatic" MinWidth="1" Width="5"/>
+          <Component Name="NewLine5" Class="Com.Ctrl.INewLine"/>
+          <Component Name="edtTopicName" Class="Com.Ctrl.IEditEx" ButtonStyle="LookupButton" Field="EdtRec.TopicName" MaxWidth="110" MinWidth="15" OnLookup="edtTopicName_OnLookup" Width="70">
+            <Component Name="Static61" Class="Com.Ctrl.IStatic" FixSize="False" MaxWidth="45" MinWidth="15" Width="30"/>
+          </Component>
+          <Component Name="edtBacker" Class="Com.Ctrl.IEditEx" Enabled="False" Field="EdtRec.Backer" MaxWidth="105" MinWidth="15" Width="65">
+            <Component Name="Static62" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="False" MaxWidth="35" MinWidth="15" Width="25"/>
+          </Component>
+          <Component Name="Static63" Class="Com.Ctrl.IStatic" MinWidth="1" Width="5"/>
+          <Component Name="NewLine6" Class="Com.Ctrl.INewLine"/>
+          <Component Name="edtBegTime" Class="Com.Ctrl.IEditEx" Enabled="False" Field="EdtRec.BegTime" FieldFormat="dd.mm.yy hh:mm:ss" MaxWidth="110" MinWidth="15" Width="70">
+            <Component Name="Static71" Class="Com.Ctrl.IStatic" FixSize="False" MaxWidth="45" MinWidth="15" Width="30"/>
+          </Component>
+          <Component Name="edtEndTime" Class="Com.Ctrl.IEditEx" Enabled="False" Field="EdtRec.EndTime" FieldFormat="dd.mm.yy hh:mm:ss" MaxWidth="105" MinWidth="15" Width="65">
+            <Component Name="Static72" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="False" MaxWidth="35" MinWidth="15" Width="25"/>
+          </Component>
+          <Component Name="Static73" Class="Com.Ctrl.IStatic" MinWidth="1" Width="5"/>
+          <Component Name="NewLine7" Class="Com.Ctrl.INewLine"/>
+          <Component Name="edtJobState" Class="Com.Ctrl.IEditEx" CellFormat="EnumFormat" Enabled="False" Field="EdtRec.JobState" ListAsString="|0;Отправлено|1;Исполняется|2;Выполнено|4;Ошибка|8" MaxWidth="110" MinWidth="15" Width="70">
+            <Component Name="Static81" Class="Com.Ctrl.IStatic" FixSize="False" MaxWidth="45" MinWidth="15" Width="30"/>
+          </Component>
+          <Component Name="Static82" Class="Com.Ctrl.IStatic" FixSize="False" MaxWidth="35" MinWidth="15" Width="25"/>
+          <Component Name="chkClosed" Class="Com.Ctrl.ICheckBox" Alignment="LeftAlign" Enabled="False" Field="EdtRec.Closed" MaxWidth="105" MinWidth="15" Width="65"/>
+          <Component Name="Static83" Class="Com.Ctrl.IStatic" MinWidth="1" Width="5"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Excluded="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

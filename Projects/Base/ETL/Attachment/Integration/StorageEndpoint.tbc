@@ -1,0 +1,168 @@
+﻿TBCFile VER="3.4" [Created '24.03.2023 10:07:21' by 'Администратор']
+
+DESCRIPTION[
+Count=1
+CountByRef=1
+Integration.EndPoint
+(
+  Count=1
+  CountByRef=0
+)
+Integration.EndPointType
+(
+  Count=0
+  CountByRef=1
+)
+]
+
+METADATA[
+
+  [Integration.EndPoint
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    НеОтображаетсяВДереве :Boolean
+    MetaLock :Boolean
+    SubsysCode :Integer
+    PartisCode :Integer
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    TypeFlow :Integration.EndPointType
+    Blocked :Boolean
+    MWGuid :String(36)
+    ObjectStruct :Integration.ObjectStruct
+    ExecOnServer :Boolean
+    ParameterList :Struct array Integer
+    (
+      PosName :String
+      PosType :Integer
+      AsNumeric :Real
+      AsString :Memo
+      AsInteger :Integer
+      AsDate :Date
+      AsLogical :Boolean
+      CardFile :String
+      AsRecord :Inherited IDRecord
+      posQuery :Boolean
+    )
+  )
+  ForeignKey Code
+  ]
+
+  [Integration.EndPointType
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    НеОтображаетсяВДереве :Boolean
+    MetaLock :Boolean
+    SubsysCode :Integer
+    PartisCode :Integer
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    TypeFlow :String
+    TypeFormat :String
+    GettingMiddleWare :Boolean
+    ProcClass :String
+    EPVersion :Integer
+    ParameterList :Struct array Integer
+    (
+      ParamName :String
+      ParamType :Integer
+      Required :Boolean
+      ParmDescription :String(850)
+      DefaultValue :String
+      CardFile :String
+    )
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Integration.EndPoint
+
+  {Integration.EndPoint:"ETLStorageEndPoint"}
+  (
+
+    Name = "ETLStorageEndPoint"
+    TypeFlow = {Integration.EndPointType:_8JJS925FUMP469}
+    ParameterList = (
+      0:(
+        PosName = "TransSize"
+        PosType = 2
+        AsInteger = 0
+      )
+      1:(
+        PosName = "Connector"
+        PosType = 1
+        AsString = "Turbo connector"
+      )
+      2:(
+        PosName = "ConnectionString"
+        PosType = 1
+        AsString = ""
+      )
+      3:(
+        PosName = "DataBaseType"
+        PosType = 1
+        AsString = "MSSQL"
+      )
+    )
+  )
+]
+
+[Integration.EndPointType
+
+  {Integration.EndPointType:"_8JJS925FUMP469"}
+  (
+    Name = "Хранилище SQL"
+    TypeFlow = "Хранилище SQL"
+    TypeFormat = "Хранилище SQL"
+    ProcClass = "ETL.Data.UniSQLStorage"
+    EPVersion = 2
+    ParameterList = (
+      0:(
+        ParamName = "TransSize"
+        ParamType = 2
+        ParmDescription = "Размер транзакции"
+        DefaultValue = "0"
+      )
+      1:(
+        ParamName = "ConnectionString"
+        ParamType = 1
+        Required = True
+        ParmDescription = "Параметры соединения"
+      )
+      2:(
+        ParamName = "Connector"
+        ParamType = 1
+        Required = True
+        ParmDescription = "Коннектор к Базе данных"
+      )
+      3:(
+        ParamName = "DataBaseType"
+        ParamType = 1
+        Required = True
+        ParmDescription = "Тип базы данных"
+        DefaultValue = "MSSQL"
+      )
+    )
+  )
+]
+
+]

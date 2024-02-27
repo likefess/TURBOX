@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IEditor" HelpContext="Upr.СтруктураБизнеса.ТипыРеквизитов.РаботаСотчетами.Default">
+    <Component Name="EdtRec" Class="CMP.Rec.Properties.IReport" IsLibrary="1"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" Margins="5">
+      <Component Name="Box1" Class="Com.Ctrl.IBox" Caption="@CMP:PropReportSettings=Настройки отчета">
+        <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="48">
+          <Component Name="EditReport" Class="Com.Ctrl.IEdit" Caption="@CMP:Report=Отчет" Field="EdtRec.ReportRecord" HasButton="True" OnChange="EditReport_OnChange"/>
+          <Component Name="Group2" Class="Com.Ctrl.IGroup">
+            <Component Name="EditFormulaBegDate" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:ReportFormulaBegDate=Период" Field="EdtRec.FormulaBegDate" ProcType="EdtRec.ProcType" Subtable="EdtRec.BegDateRecord" Width="10"/>
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" Width="1"/>
+            <Component Name="EditFormulaEndDate" Class="CMP.Ctrl.IFormulaEdit" Field="EdtRec.FormulaEndDate" ProcType="EdtRec.ProcType" Subtable="EdtRec.EndDateRecord" Width="10"/>
+          </Component>
+          <Component Name="Group3" Class="Com.Ctrl.IGroup">
+            <Component Name="EditIndicatorName" Class="Com.Ctrl.IEdit" Caption="@CMP:ReportIndicatorName=Показатель" CellFormat="EnumFormat" Field="EdtRec.IndicatorName" Width="4"/>
+            <Component Name="EditSumKind" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.SumKind" ListAsString="начальный остаток&#xD;&#xA;оборот&#xD;&#xA;конечный остаток" Width="3"/>
+            <Component Name="EditDebCre" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.DebCre" ListAsString="по дебету&#xD;&#xA;по кредиту&#xD;&#xA;свернутый" Width="2"/>
+          </Component>
+        </Component>
+        <Component Name="Table1" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="EdtRec.IndicatorsSettings">
+          <Component Name="DefStructIndicators" Class="CMP.Rec.Properties.IReport_Indicators" IsLibrary="1"/>
+          <Component Name="ColumnsGroup1" Class="Com.Ctrl.IColumnsGroup" Caption="@CMP:ReportIndicator=Дополнительные данные из отчета" HasCaption="True">
+            <Component Name="EditIndicatorProperty" Class="Com.Ctrl.IEdit" Caption="@CMP:ReportIndicatorProperty=Реквизит" Field="DefStructIndicators.Property" HasButton="True" OnGetLookupFilter="EditProperty_OnGetLookupFilter" Width="5"/>
+            <Component Name="ColumnsGroup2" Class="Com.Ctrl.IColumnsGroup" Caption="@CMP:ReportIndicatorIndicator=Показатель" HasCaption="True">
+              <Component Name="EditIndicatorIndicatorName" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="DefStructIndicators.IndicatorName" HasCaption="False" Width="5"/>
+              <Component Name="EditIndicatorSumKind" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="DefStructIndicators.SumKind" HasCaption="False" ListAsString="начальный остаток&#xD;&#xA;оборот&#xD;&#xA;конечный остаток" Width="3"/>
+              <Component Name="EditIndicatorDebCre" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="DefStructIndicators.DebCre" HasCaption="False" ListAsString="по дебету&#xD;&#xA;по кредиту&#xD;&#xA;свернутый" Width="2"/>
+            </Component>
+            <Component Name="CheckBoxIsMeasurer" Class="Com.Ctrl.ICheckBox" Caption="@CMP:ReportIndicatorIsMeasurer=Ед. изм." Field="DefStructIndicators.IsMeasurer" Width="1"/>
+          </Component>
+        </Component>
+        <Component Name="Static2" Class="Com.Ctrl.IStatic"/>
+        <Component Name="Table2" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" Numbering="False" Subtable="EdtRec.SplitSettings">
+          <Component Name="DefStructSplitSettings" Class="CMP.Rec.Properties.MatchingReportAndPositions" IsLibrary="1"/>
+          <Component Name="ColumnsGroup3" Class="Com.Ctrl.IColumnsGroup">
+            <Component Name="EditSplitSettingsSplit" Class="Com.Ctrl.IEdit" Caption="@CMP:ReportSplitSettingsSplit=Разбиение отчета" Enabled="False" Field="DefStructSplitSettings.Split" Width="7"/>
+            <Component Name="EditSplitSettingsProperty" Class="Com.Ctrl.IEdit" Caption="@CMP:ReportSplitSettingsProperty=Реквизит" Field="DefStructSplitSettings.Property" HasButton="True" OnGetLookupFilter="EditProperty_OnGetLookupFilter" Width="7"/>
+            <Component Name="CheckBoxSplitSettingsHierarchy" Class="Com.Ctrl.ICheckBox" Caption="@CMP:ReportSplitSettingsHierarchy=С учетом иерархии" Field="DefStructSplitSettings.Hierarchy" Width="2"/>
+          </Component>
+        </Component>
+        <Component Name="Static3" Class="Com.Ctrl.IStatic"/>
+        <Component Name="Group4" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="48">
+          <Component Name="EditPosCondition" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:ReportPosCondition=Условие заполнения строки" Field="EdtRec.PosCondition" ProcType="EdtRec.ProcType" Subtable="EdtRec.PosConditionRecord"/>
+          <Component Name="Group5" Class="Com.Ctrl.IGroup" Excluded="True">
+            <Component Name="Static4" Class="Com.Ctrl.IStatic" FixSize="True" Width="48"/>
+            <Component Name="CheckBoxWarning" Class="Com.Ctrl.ICheckBox" Caption="@CMP:ReportWarning=Вычислить при открытии документа"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="BoxSelectionCondition" Class="Com.Ctrl.IBox" Caption="@CMP:PropReportSelectionCondition=Условие отбора">
+        <Component Name="FrameSelectionCondition" Class="Com.Ctrl.IFrame"/>
+      </Component>
+      <Component Name="Box3" Class="Com.Ctrl.IBox" Caption="@CMP:PropReportDrillDownReport=Уточняющий отчет">
+        <Component Name="Group6" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="48">
+          <Component Name="EditExplainKernelReport" Class="Com.Ctrl.IEdit" Caption="@CMP:PropReportDrillDownReport=Уточняющий отчет" Field="EdtRec.DrillDownReport" HasButton="True" OnChange="EditExplainKernelReport_OnChange"/>
+        </Component>
+        <Component Name="TableExplainSettings" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="EdtRec.ExplainSettings">
+          <Component Name="DefStructExplainSettings" Class="CMP.Rec.Properties.IReport_ExplainParameters" IsLibrary="1"/>
+          <Component Name="ColumnsGroup4" Class="Com.Ctrl.IColumnsGroup" Caption="@CMP:ReportExplainSettings=Связь реквизитов с параметрами уточняющего отчета" HasCaption="True">
+            <Component Name="EditExplainSettingsParameterName" Class="Com.Ctrl.IEdit" Caption="@CMP:ReportExplainSettingsParameterName=Параметр" CellFormat="EnumFormat" Field="DefStructExplainSettings.ParameterName" Width="5"/>
+            <Component Name="EditExplainSettingsFormula" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:ReportExplainSettingsFormula=Формула" Field="DefStructExplainSettings.Formula" ProcType="EdtRec.ProcType" Subtable="DefStructExplainSettings.FormulaRecords" Width="8"/>
+            <Component Name="CheckBoxExplainSettingsReadOnly" Class="Com.Ctrl.ICheckBox" Caption="@CMP:ReportExplainSettingsReadOnly=Т/ч" Field="DefStructExplainSettings.ReadOnly"/>
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

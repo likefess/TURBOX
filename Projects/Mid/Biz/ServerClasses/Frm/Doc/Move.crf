@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IEditorWithFrames">
+  <Inherited>
+    <Component Name="FRecord" Class="Biz.Rec.Doc.Move" IsLibrary="1" After="#0"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="GeneralBox" Class="Com.Ctrl.IBox" Caption="@Process:GeneralBox.Title=Основные">
+            <Component Name="Group6" Class="Com.Ctrl.IGroup" Adaptive="True" Width="150">
+              <Component Name="Code" Class="Com.Ctrl.IEditEx" Caption="@Process:Code.Title=Код" CellFormat="StringFormat" Enabled="False" Field="FRecord.Code" Width="40" Wrap="False"/>
+              <Component Name="BegDate" Class="Com.Ctrl.IEditEx" Caption="@Process:CreatedOn.Title1=Создано" Field="FRecord.EventTime" Width="30"/>
+              <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Caption="@Process:Locked.Title=Замок" Field="FRecord.Locked"/>
+            </Component>
+            <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="40" Width="150">
+              <Component Name="Name" Class="Com.Ctrl.IEditEx" Caption="@Process:Name.Title=Наименование" CaptionWidth="40" CellFormat="StringFormat" Field="FRecord.Name" FontBold="True" Width="150"/>
+              <Component Name="Comment" Class="Com.Ctrl.IEditEx" Caption="@Process:Comment.Title=Комментарий" CaptionWidth="40" CellFormat="StringFormat" Field="FRecord.Description" Width="150"/>
+            </Component>
+          </Component>
+          <Component Name="ValueBox" Class="Com.Ctrl.IBox" Caption="@Process:ValueBox.Title=Значения">
+            <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="Quantity" Class="Com.Ctrl.IEditEx" CellFormat="NumericFormat" Field="FRecord.Quantity" HasCaption="True"/>
+              <Component Name="CurrentUnit" Class="Com.Ctrl.IEditEx" CardFileClass="Biz.Tab.Ref.UnitsOfMeasure" CellFormat="ReferenceFormat" Field="FRecord.CurrentUnit" HasCaption="True" LookupField="Name"/>
+            </Component>
+          </Component>
+          <Component Name="CategoryBox" Class="Com.Ctrl.IBox" Caption="@Process:CategoryBox.Title=Справочники">
+            <Component Name="Group4" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="Resource" Class="Com.Ctrl.IEditEx" CardFileClass="Biz.Tab.Data.Resources" CellFormat="ReferenceFormat" Field="FRecord.Resource" HasCaption="True" LookupField="Name"/>
+              <Component Name="BizAccount" Class="Com.Ctrl.IEditEx" CardFileClass="Biz.Tab.Data.BizAccount" CellFormat="ReferenceFormat" Field="FRecord.Account" HasCaption="True" LookupField="Name"/>
+              <Component Name="Entity" Class="Com.Ctrl.IEditEx" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Field="FRecord.Entity" HasCaption="True" LookupField="Name"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

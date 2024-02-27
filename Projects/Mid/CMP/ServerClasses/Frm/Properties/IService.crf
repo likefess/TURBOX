@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IEditor" HelpContext="Настройка.СтруктураБизнеса.ТипыРеквизитов.СервисныеПроцедуры.Default">
+    <Component Name="EdtRec" Class="CMP.Rec.Properties.IService" IsLibrary="1"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" Margins="5">
+      <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+        <Component Name="EditServiceProcedure" Class="Com.Ctrl.IEdit" Caption="@CMP.ServiceServiceProcedure=Процедура сервиса" CellFormat="EnumFormat" Field="EdtRec.ServiceProcedure" HasButton="True"/>
+        <Component Name="EditDisplayType" Class="Com.Ctrl.IEdit" Excluded="True" Caption="@CMP.ServiceDisplayType=Вид отображения" CellFormat="EnumFormat" ListAsString="Кнопка&#xD;&#xA;Гиперссылка"/>
+        <Component Name="EditConfirmationRequest" Class="Com.Ctrl.IEdit" Caption="@CMP.ServiceConfirmationRequest=Запрос на подтверждение" Field="EdtRec.ConfirmationRequest"/>
+        <Component Name="EditMessageAfterProcessing" Class="Com.Ctrl.IEdit" Caption="@CMP.ServiceMessageAfterProcessing=Сообщение после отработки сервиса" Field="EdtRec.MessageAfterProcessing"/>
+        <Component Name="EditApplyServiceToDocuments" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP.ServiceApplyServiceToDocuments=Применить сервис к документам" Field="EdtRec.CalcFormula" OnChange="Edit_OnChange" ProcType="EdtRec.ProcType" Subtable="EdtRec.CalcRecords"/>
+        <Component Name="EditDocProcessingOrder" Class="Com.Ctrl.IEdit" Caption="@CMP.ServiceDocProcessingOrder=Порядок обработки документов" Field="EdtRec.DocProcessingOrder"/>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="CheckBoxIsIterator" Class="Com.Ctrl.ICheckBox" Caption="@CMP.ServiceIsIterator=В картотечных представлениях применяется к выделенным документам" Field="EdtRec.IsIterator" OnChange="CheckBoxIsIterator_OnChange"/>
+        </Component>
+        <Component Name="EditPacketSize" Class="Com.Ctrl.IEdit" Caption="@CMP.ServicePacketSize=Размер пакета обработки" Field="EdtRec.PacketSize"/>
+        <Component Name="GroupOriginalSort" Class="Com.Ctrl.IGroup">
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="CheckOriginalSort" Class="Com.Ctrl.ICheckBox" Caption="@CMP.ServiceOriginalSort=Истиная сортировка" Field="EdtRec.OriginalSort"/>
+        </Component>
+        <Component Name="EditDocProcesingCondition" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP.ServiceDocProcesingCondition=Условие обработки документа" Field="EdtRec.DocProcesingCondition" ProcType="EdtRec.ProcType" Subtable="EdtRec.ProcesingCondRecord"/>
+        <Component Name="EditProcessCurrent" Class="Com.Ctrl.IEdit" Caption="@CMP.ServiceProcessCurrent=Если ни один процесс не выделен" CellFormat="EnumFormat" Field="EdtRec.ProcessCurrent" ListAsString="обработать все документы в картотеке&#xD;&#xA;обработать текущий документ в картотеке" OnChange="Edit_OnChange"/>
+        <Component Name="EditDocProcessingRequest" Class="Com.Ctrl.IEdit" Caption="@CMP.ServiceDocProcessingRequest=...при этом выдать запрос" Field="EdtRec.DocProcessingRequest"/>
+        <Component Name="EditLoadingFields" Class="Com.Ctrl.IEdit" Caption="@CMP.ServiceLoadingFields=Подзагружаемые поля" Field="EdtRec.LoadingFields"/>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

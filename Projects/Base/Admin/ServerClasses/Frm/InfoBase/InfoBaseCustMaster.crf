@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.CustomMasterBG">
+  <Inherited FormIcon="Admin.Infobase">
+    <Inherited Name="Variables">
+      <Component Name="FldPhysDataBase" Class="Com.Fld.IVarLink" FieldName="FPhysDataBase" ValueType="VarInteger"/>
+      <Component Name="FldGroupBase" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="FldSecurity" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Component Name="FrameDB" Class="Com.Ctrl.IFrame" After="FrameArchive" Margins="8">
+          <Component Name="frameDataBase" Class="Com.Ctrl.IFrame">
+            <Component Name="gbDataBase" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="lblDB" Class="Com.Ctrl.IStatic" Caption="@Admin:InfobaseRestoreDB=База данных" FixSize="True" Multiline="False" Width="40" Wrap="False"/>
+              <Component Name="edPhysDB" Class="Com.Ctrl.IEdit" ButtonStyle="ComboButton" CellFormat="EnumFormat" Field="FldPhysDataBase" MinWidth="40" OnVerify="edPhysDB_OnVerify" Width="80"/>
+              <Component Name="lineDB" Class="Com.Ctrl.INewLine"/>
+              <Component Name="gbOSSecurity" Class="Com.Ctrl.IGroup" ByColumn="False" MinWidth="80" Visible="False">
+                <Component Name="sepL_OSSecurity" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                <Component Name="rbOSSecurity" Class="Com.Ctrl.IRadioButton" Caption="@Admin:InfobaseOSsecurity=Проверка подлинности Windows" Field="FldSecurity" MinWidth="40" OnChange="Security_OnChange" StaticValue="0" Width="80"/>
+                <Component Name="sepR_OSSecurity" Class="Com.Ctrl.IStatic" Width="40"/>
+              </Component>
+              <Component Name="lineOSsecurity" Class="Com.Ctrl.INewLine"/>
+              <Component Name="gbDBUser" Class="Com.Ctrl.IGroup" ByColumn="False" MinWidth="80">
+                <Component Name="sepL_DBSecurity" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                <Component Name="rbDBSecurity" Class="Com.Ctrl.IRadioButton" Caption="@Admin:InfobaseDBSsecurity=Проверка подлинности СУБД" Field="FldSecurity" MinWidth="40" OnChange="Security_OnChange" StaticValue="1" Width="80"/>
+                <Component Name="sepR_DBSecurity" Class="Com.Ctrl.IStatic" Width="40"/>
+                <Component Name="lineSecurity" Class="Com.Ctrl.INewLine"/>
+                <Component Name="sepL_DBUser" Class="Com.Ctrl.IStatic" FixSize="True" Width="2"/>
+                <Component Name="lblDBUser" Class="Com.Ctrl.IStatic" Caption="@Admin:DBUser=Пользователь" FixSize="True" Multiline="False" Width="38" Wrap="False"/>
+                <Component Name="edLogin" Class="Com.Ctrl.IEdit" MinWidth="40" ValueType="VarString" Width="80"/>
+                <Component Name="sepR_DBUser" Class="Com.Ctrl.IStatic" Width="40"/>
+                <Component Name="lineLogin" Class="Com.Ctrl.INewLine"/>
+                <Component Name="sepL_DBPassword" Class="Com.Ctrl.IStatic" FixSize="True" Width="2"/>
+                <Component Name="lblDPPassword" Class="Com.Ctrl.IStatic" Caption="@Admin:Password=Пароль" FixSize="True" Multiline="False" Width="38" Wrap="False"/>
+                <Component Name="edPassword" Class="Com.Ctrl.IPasswordEdit" MinWidth="40" ValueType="VarString" Width="80"/>
+                <Component Name="sepR_DBPassword" Class="Com.Ctrl.IStatic" Width="40"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Inherited Name="FrameProcess" After="FrameDB">
+          <Inherited Name="frameStatus">
+            <Component Name="grpDetail" Class="Com.Ctrl.IGroup" After="grpStatus" Adaptive="True" ByColumn="False" Printed="False"/>
+            <Inherited Name="grpTime" After="grpDetail"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

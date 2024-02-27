@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IEditor">
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="EdtRec" Class="Upr.Rec.Данные.БазовыйПроцесс" IsLibrary="1"/>
+      <Component Name="DefStruct" Class="Upr.Rec.Данные.БазовыйПроцесс_ПрайсЛисты" IsLibrary="1"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="MainFrame" Class="Com.Ctrl.IFrame">
+        <Component Name="TablePrices" Class="Com.Ctrl.ITable" Subtable="EdtRec.ПрайсЛисты">
+          <Component Name="EditPrice" Class="Com.Ctrl.IEdit" Caption="@PricesView.Price=Прайс-лист" Field="DefStruct.Значение" Width="60"/>
+          <Component Name="EditCondition" Class="Com.Ctrl.IEdit" Caption="@PricesView.Condition=Условие" Field="DefStruct.Условие" Width="60"/>
+          <Component Name="EditBegDate" Class="Com.Ctrl.IEdit" Caption="@PricesView.BegDate=Дата начала действия" Field="DefStruct.ДатаНачала" Width="30"/>
+          <Component Name="EditEndDate" Class="Com.Ctrl.IEdit" Caption="@PricesView.EndDate=Дата окончания действия" Field="DefStruct.ДатаОкончания" Width="30"/>
+          <Component Name="EditStopped" Class="Com.Ctrl.IEdit" Caption="@PricesView.Stopped=Приостановлен" Field="DefStruct.Приостановлен" Width="30"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

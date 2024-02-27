@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IEditor">
+    <Component Name="EdtRec" Class="CMP.Rec.Properties.IFillingService" IsLibrary="1"/>
+    <Component Name="DefStructFillingActions" Class="CMP.Rec.Properties.IFillingService_Actions" IsLibrary="1"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" Margins="5">
+      <Component Name="Box1" Class="Com.Ctrl.IBox" Caption="@CMP:FillingSettingsFillingType=Настройка варианта заполнения">
+        <Component Name="Frame1" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="48">
+            <Component Name="EditMode" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceMode=Вариант переноса" CellFormat="EnumFormat" Field="EdtRec.Mode" ListAsString="Создать новый документ на основании данного|0&#xD;&#xA;Заполнить данный документ на основании существующего|1&#xD;&#xA;Заполнить документ из встроенного в него отчета|2&#xD;&#xA;Заполнить документ из отчета|3&#xD;&#xA;Создать новый документ на основании данного документа и отчета|4&#xD;&#xA;Заполнить существующий документ на основании его самого|5&#xD;&#xA;Заполнить существующий документ на основании данного|6" OnChange="EditMode_OnChange"/>
+            <Component Name="EditLinkProcType" Class="Com.Ctrl.IEdit" Caption=" " Field="EdtRec.LinkProcType" HasButton="True" HasCaption="True"/>
+            <Component Name="EditReport" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceReport=Отчет - источник" Field="EdtRec.Report" HasButton="True" OnChange="EditReport_OnChange" OnDraw="EditReport_OnDraw" OnOutput="EditReport_OnOutput"/>
+            <Component Name="EditReportMode" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceReportMode=Режим построения отчета" CellFormat="EnumFormat" Field="EdtRec.ReportMode" ListAsString="Модальный&#xD;&#xA;Фоновый" OnChange="Edit_OnChange"/>
+            <Component Name="EditDisaggregateMode" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceDisaggregateMode=Разбивка на документы" CellFormat="EnumFormat" Field="EdtRec.DisaggregateMode" ListAsString="Не разбивать&#xD;&#xA;По формуле разбиения&#xD;&#xA;По признакам разбиения в таблице" OnChange="Edit_OnChange"/>
+            <Component Name="EditConnectionType" Class="Com.Ctrl.IEdit" Excluded="True" Caption="@CMP:FillingServiceConnectionType=Вид связи между документами" CellFormat="EnumFormat"/>
+            <Component Name="EditWhenDeleting" Class="Com.Ctrl.IEdit" Excluded="True" Alignment="RightAlign" Caption="@CMP:FillingServiceWhenDeleting=При удалении документа-основания" CellFormat="EnumFormat" ListAsString="требовать очистки ссылки из созданного документа|0&#xD;&#xA;удалять ссылку автоматически|1"/>
+            <Component Name="EditLinkProperty" Class="Com.Ctrl.IEdit" Caption=" " Field="EdtRec.LinkProperty" HasButton="True" HasCaption="True" OnGetLookupFilter="EditReceiverProperty_OnGetLookupFilter"/>
+            <Component Name="EditSaveType" Class="Com.Ctrl.IEdit" Caption=" " CellFormat="EnumFormat" Field="EdtRec.SaveType" HasCaption="True" ListAsString="сразу&#xD;&#xA;вместе с основанием (до него)&#xD;&#xA;вместе с основанием (после него)" OnChange="EditSaveType_OnChange"/>
+            <Component Name="GroupNotAutoBuild" Class="Com.Ctrl.IGroup">
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="48"/>
+              <Component Name="CheckBoxNotAutoBuild" Class="Com.Ctrl.ICheckBox" Caption="@CMP:FillingServiceNotAutoBuild=Не строить отчет при открытии" Field="EdtRec.NotAutoBuild"/>
+            </Component>
+            <Component Name="Group3" Class="Com.Ctrl.IGroup" Excluded="True">
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="48"/>
+            </Component>
+            <Component Name="EditCreateMode" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceCreateMode=Создавать документ" CellFormat="EnumFormat" Field="EdtRec.CreateMode" ListAsString="Если отчет передал любые данные|0&#xD;&#xA;Если отчет передал табличные данные|2&#xD;&#xA;Всегда|1"/>
+            <Component Name="GroupPeriod" Class="Com.Ctrl.IGroup">
+              <Component Name="EditFormulaBegDate" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:FillingServiceFormulaBegDate=Период" Field="EdtRec.FormulaBegDate" ProcType="EdtRec.SourceProcType" Subtable="EdtRec.BegDateRecord" Width="10"/>
+              <Component Name="Static3" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" Width="1"/>
+              <Component Name="EditFormulaEndDate" Class="CMP.Ctrl.IFormulaEdit" Field="EdtRec.FormulaEndDate" HasCaption="False" ProcType="EdtRec.SourceProcType" Subtable="EdtRec.EndDateRecord" Width="10"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="FrameFilter" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+        <Component Name="Frame3" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="Group5" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="48">
+            <Component Name="EditOptionalFilter" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:FillingServiceFilter=Произвольный фильтр" Field="EdtRec.OptionalFilter" ProcType="EdtRec.ReceiverProcType" Subtable="EdtRec.FilterRecord"/>
+          </Component>
+          <Component Name="TableReportParameters" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="EdtRec.ReportParameters">
+            <Component Name="DefStructReportParameters" Class="CMP.Rec.Properties.IFillingService_ReportParameters" IsLibrary="1"/>
+            <Component Name="ColumnsGroup1" Class="Com.Ctrl.IColumnsGroup" Alignment="LeftAlign" Caption="@CMP:FillingServiceLinkParametersReport=Связь реквизитов с параметрами отчета" HasCaption="True">
+              <Component Name="EditReportParametersPropery" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceReportParametersPropery=Реквизит" Field="DefStructReportParameters.Property" OnGetLookupFilter="EditSourceProperty_OnGetLookupFilter"/>
+              <Component Name="EditReportParametersParameter" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceReportParametersParameter=Параметр отчета" CellFormat="EnumFormat" Field="DefStructReportParameters.Parameter"/>
+              <Component Name="CheckBoxReportParametersReadOnly" Class="Com.Ctrl.ICheckBox" Caption="@CMP:FillingServiceReportParametersReadOnly=Т/ч" Field="DefStructReportParameters.ReadOnly" FixSize="True" Width="11"/>
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="Box2" Class="Com.Ctrl.IBox" Caption="@CMP:FillingServiceSettingsCommonFilling=Настройка переноса шапки">
+        <Component Name="Table2" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="EdtRec.FillingDoc">
+          <Component Name="ColumnsGroup2" Class="Com.Ctrl.IColumnsGroup" Alignment="LeftAlign" Caption="@CMP:FillingServiceFillingDocTitle=Настройка переноса шапки из документа" HasCaption="True">
+            <Component Name="EditFillingDocType" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceFillingDocType=Тип" CellFormat="EnumFormat" Field="DefStructFillingActions.FieldType" ListAsString="Реквизит&#xD;&#xA;Поле&#xD;&#xA;Доп. поле" Width="25"/>
+            <Component Name="EditFillingDocDestination" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceFillingDocDestination=Приемник" Field="DefStructFillingActions.Property" OnGetLookupFilter="EditReceiverProperty_OnGetLookupFilter" Width="45"/>
+            <Component Name="EditFillingDocCondition" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:FillingServiceFillingDocCondition=Условие" Field="DefStructFillingActions.ConditionFormula" ProcType="EdtRec.SourceProcType" Subtable="DefStructFillingActions.ConditionRecords" Width="40"/>
+            <Component Name="EditFillingDocFormula" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:FillingServiceFillingDocFormula=Формула" Field="DefStructFillingActions.Formula" ProcType="EdtRec.SourceProcType" Subtable="DefStructFillingActions.FormulaRecords" Width="90"/>
+          </Component>
+        </Component>
+        <Component Name="TableFillingReport" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" OnInsert="TableFillingReport_OnInsert" Subtable="EdtRec.FillingReport">
+          <Component Name="ColumnsGroup8" Class="Com.Ctrl.IColumnsGroup" Alignment="LeftAlign" Caption="@CMP:FillingServiceFillingDocTitle=Настройка переноса шапки из документа" HasCaption="True">
+            <Component Name="EditFillingReportType" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceFillingDocType=Тип" CellFormat="EnumFormat" Field="DefStructFillingActions.FieldType" ListAsString="Реквизит&#xD;&#xA;Поле&#xD;&#xA;Доп. поле" Width="25"/>
+            <Component Name="EditFillingReportDestination" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceFillingDocDestination=Приемник" Field="DefStructFillingActions.Property" OnGetLookupFilter="EditReceiverProperty_OnGetLookupFilter" Width="45"/>
+            <Component Name="EditFillingReportCondition" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceFillingDocCondition=Условие" Field="DefStructFillingActions.ConditionFormula" Width="40"/>
+            <Component Name="EditFillingReportFormula" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceFillingDocFormula=Формула" Field="DefStructFillingActions.Formula" Width="90"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="Box3" Class="Com.Ctrl.IBox" Caption="@CMP:FillingServiceSettingsTableFilling=Настройка табличного переноса">
+        <Component Name="Group6" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="48">
+          <Component Name="GroupCreateNewPositions" Class="Com.Ctrl.IGroup">
+            <Component Name="Static4" Class="Com.Ctrl.IStatic" FixSize="True" Width="48"/>
+            <Component Name="CheckBoxCreateNewPositions" Class="Com.Ctrl.ICheckBox" Caption="@CMP:FillingServiceCreateNewPositions=При заполнении создавать новые учетные движения" Field="EdtRec.CreateNewPositions" OnChange="CheckBox_OnChange"/>
+          </Component>
+          <Component Name="FormulaEditPosCondition" Class="CMP.Ctrl.IFormulaEdit" Caption=" " Field="EdtRec.PosCondition" HasCaption="True" ProcType="EdtRec.SourceProcType" Subtable="EdtRec.PosConditionRecord"/>
+        </Component>
+        <Component Name="TableMovingType" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="EdtRec.MovingTypes">
+          <Component Name="DefStructMovingType" Class="CMP.Rec.Properties.IFillingService_MovingType" IsLibrary="1"/>
+          <Component Name="ColumnsGroup3" Class="Com.Ctrl.IColumnsGroup">
+            <Component Name="EditMovingType" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceMovingType=Создавать строчку с типом движения" Field="DefStructMovingType.MovingType" HasButton="True"/>
+            <Component Name="FormulaEditFormula" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:FillingServiceFormula=если строка исходного документа удовлетворяет условию" Field="DefStructMovingType.Formula" ProcType="EdtRec.SourceProcType" Subtable="DefStructMovingType.FormulaRecords"/>
+            <Component Name="EditFormula" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceFormula=если строка исходного документа удовлетворяет условию" Field="DefStructMovingType.Formula" HasButton="True"/>
+          </Component>
+        </Component>
+        <Component Name="GroupDisaggregateFormula" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="48">
+          <Component Name="EditDisaggregateFormula" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:FillingServiceDisaggregateFormula=Формула разбиения" Field="EdtRec.DisaggregateFormula" ProcType="EdtRec.SourceProcType" Subtable="EdtRec.DisaggregateRecord"/>
+          <Component Name="EditDisaggregateRepFormula" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceDisaggregateFormula=Формула разбиения" Field="EdtRec.DisaggregateFormula" HasButton="True"/>
+          <Component Name="EditDisaggregateProperty" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceDisaggregateProperty=Записать значение в реквизит" Field="EdtRec.DisaggregateProperty" HasButton="True"/>
+        </Component>
+        <Component Name="TableMatching" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="EdtRec.Matching">
+          <Component Name="DefStructMatching" Class="CMP.Rec.Properties.MatchingReportAndPositions" IsLibrary="1"/>
+          <Component Name="ColumnsGroup4" Class="Com.Ctrl.IColumnsGroup">
+            <Component Name="EditMatchingSplit" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceMatchingSplit=Разбиение отчета" Field="DefStructMatching.Split"/>
+            <Component Name="EditMatchingProperty" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceMatchingProperty=Соответствующий реквизит" Field="DefStructMatching.Property" HasButton="True" OnGetLookupFilter="EditSourceProperty_OnGetLookupFilter"/>
+          </Component>
+        </Component>
+        <Component Name="Static8" Class="Com.Ctrl.IStatic"/>
+        <Component Name="TableFillingRepTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" OnInsert="TableFillingRepTable_OnInsert" Subtable="EdtRec.FillingRepTable">
+          <Component Name="ColumnsGroup5" Class="Com.Ctrl.IColumnsGroup">
+            <Component Name="EditFillingRepTableFieldType" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceFillingRepTableFieldType=Тип приемника" CellFormat="EnumFormat" Field="DefStructFillingActions.FieldType" ListAsString="Реквизит&#xD;&#xA;Поле&#xD;&#xA;Доп. поле"/>
+            <Component Name="EditFillingRepTableProperty" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceFillingRepTableProperty=Приемник данных таблицы" Field="DefStructFillingActions.Property" HasButton="True" OnGetLookupFilter="EditReceiverProperty_OnGetLookupFilter"/>
+            <Component Name="EditFillingRepTableConditionFormula" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:FillingServiceFillingRepTableConditionFormula=при условии" Field="DefStructFillingActions.ConditionFormula" ProcType="EdtRec.SourceProcType" Subtable="DefStructFillingActions.ConditionRecords"/>
+            <Component Name="EditFillingRepTableFormula" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:FillingServiceFillingRepTableFormula=заполнять по формуле из отчета" Field="DefStructFillingActions.Formula" ProcType="EdtRec.SourceProcType" Subtable="DefStructFillingActions.FormulaRecords"/>
+            <Component Name="CheckBoxFillingRepTableIsKey" Class="Com.Ctrl.ICheckBox" Caption="@CMP:FillingServiceFillingRepTableIsKey=Ключ" Field="DefStructFillingActions.IsKey" FixSize="True" Width="12"/>
+            <Component Name="CheckBox1" Class="Com.Ctrl.ICheckBox" Excluded="True" Caption="Разбиение"/>
+          </Component>
+        </Component>
+        <Component Name="TableFillingTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" OnInsert="TableFillingTable_OnInsert" Subtable="EdtRec.FillingTable">
+          <Component Name="ColumnsGroup6" Class="Com.Ctrl.IColumnsGroup">
+            <Component Name="EditFillingTableFieldType" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceFillingTableFieldType=Тип приемника" CellFormat="EnumFormat" Field="DefStructFillingActions.FieldType" ListAsString="Реквизит&#xD;&#xA;Поле&#xD;&#xA;Доп. поле"/>
+            <Component Name="EditFillingTableProperty" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceFillingTableProperty=Приемник данных таблицы" Field="DefStructFillingActions.Property" HasButton="True" OnGetLookupFilter="EditReceiverProperty_OnGetLookupFilter"/>
+            <Component Name="EditFillingTableConditionFormula" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:FillingServiceFillingTableConditionFormula=при условии" Field="DefStructFillingActions.ConditionFormula" ProcType="EdtRec.SourceProcType" Subtable="DefStructFillingActions.ConditionRecords"/>
+            <Component Name="EditFillingTableFormula" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:FillingServiceFillingTableFormula=заполнять по формуле" Field="DefStructFillingActions.Formula" ProcType="EdtRec.SourceProcType" Subtable="DefStructFillingActions.FormulaRecords"/>
+            <Component Name="CheckBox2" Class="Com.Ctrl.ICheckBox" Excluded="True" Caption="Разбиение"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="Box4" Class="Com.Ctrl.IBox" Caption="@CMP:FillingServiceOtherSettings=Прочие настройки">
+        <Component Name="TableFillingAfter" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" OnInsert="TableFillingAfter_OnInsert" Subtable="EdtRec.FillingAfter">
+          <Component Name="ColumnsGroup7" Class="Com.Ctrl.IColumnsGroup" Caption="@CMP:FillingServiceFillingTableAfter=Настройка заполнения после переноса" HasCaption="True">
+            <Component Name="EditFillingTableAfterProperty" Class="Com.Ctrl.IEdit" Caption="@CMP:FillingServiceFillingTableAfterProperty=Затем заполнить реквизит" Field="DefStructFillingActions.Property" HasButton="True" OnGetLookupFilter="EditReceiverProperty_OnGetLookupFilter"/>
+            <Component Name="EditFillingTableAfterConditionFormula" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:FillingServiceFillingTableAfterConditionFormula=при условии" Field="DefStructFillingActions.ConditionFormula" ProcType="EdtRec.ReceiverProcType" Subtable="DefStructFillingActions.ConditionRecords"/>
+            <Component Name="EditFillingTableAfterFormula" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:FillingServiceFillingTableAfterFormula=по формуле" Field="DefStructFillingActions.Formula" ProcType="EdtRec.ReceiverProcType" Subtable="DefStructFillingActions.FormulaRecords"/>
+          </Component>
+        </Component>
+        <Component Name="Group9" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+          <Component Name="Static5" Class="Com.Ctrl.IStatic" Caption="Заполнение табличных реквизитов после переноса будет происходить только для добавления сервисом позиций" FontSize="8"/>
+        </Component>
+        <Component Name="GroupShowObject" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="48">
+          <Component Name="Group11" Class="Com.Ctrl.IGroup">
+            <Component Name="Static6" Class="Com.Ctrl.IStatic" FixSize="True" Width="48"/>
+            <Component Name="CheckBoxShowForm" Class="Com.Ctrl.ICheckBox" Field="EdtRec.ShowForm" OnChange="CheckBoxShowForm_OnChange"/>
+            <Component Name="EditView" Class="Com.Ctrl.IEdit" Field="EdtRec.View" HasButton="True" HasCaption="False" OnGetLookupFilter="EditReceiverProperty_OnGetLookupFilter" Width="13"/>
+          </Component>
+          <Component Name="Group13" Class="Com.Ctrl.IGroup">
+            <Component Name="Static7" Class="Com.Ctrl.IStatic" FixSize="True" Width="48"/>
+            <Component Name="CheckBoxShowModal" Class="Com.Ctrl.ICheckBox" Caption="@CMP:FillingServiceShowModal=Открывать модально" Field="EdtRec.ShowModal"/>
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

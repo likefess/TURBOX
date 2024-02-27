@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="PersonalData" Class="Com.Fld.IVar" RecordClass="Biz.Rec.Data.PersonalData" ValueType="VarObject"/>
+      <Component Name="NaturalPerson" Class="Com.Fld.IVar" OnChange="NaturalPerson_OnChange" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="Docu" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="Patronym_H" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="GivenName_H" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="Family_H" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="DateChange" Class="Com.Fld.IVar" ValueType="VarDate"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="120">
+            <Component Name="eDateChange" Class="Com.Ctrl.IEdit" Caption="@Дата изменения" Field="DateChange" FixSize="True" FormatOfDate="DateOnly" HasCaption="True" Width="35"/>
+            <Component Name="eFamily_H" Class="Com.Ctrl.IEdit" Caption="@Фамилия" Field="Family_H" HasCaption="True" Width="100"/>
+            <Component Name="eGivenName_H" Class="Com.Ctrl.IEdit" Caption="@Имя" Field="GivenName_H" HasCaption="True" Width="100"/>
+            <Component Name="ePatronym_H" Class="Com.Ctrl.IEdit" Caption="@Отчество" Field="Patronym_H" HasCaption="True" Width="100"/>
+            <Component Name="eDocu" Class="Com.Ctrl.IEdit" Caption="@Документ" Field="Docu" HasCaption="True" Multiline="True" Width="100" Wrap="True"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

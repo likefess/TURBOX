@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="ETL.Rec.IntegrationPackage" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="SubtableParams" Class="Com.ISubtable" StructClass="ETL.Rec.IntegrationPackage_Parameters"/>
+      <Component Name="SubtableTable" Class="Com.ISubtable" StructClass="ETL.Rec.IntegrationPackage_Operations"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="5">
+        <Component Name="btnRun" Class="Com.Ctrl.IButton" After="ButtonOK" Caption="@IntegrationPackage:BtnRun=Выполнить" ImageName="Com.play" OnClick="btnRunOnClick"/>
+        <Component Name="btnDebugRun" Class="Com.Ctrl.IButton" Hint="Выполнить (отладка)" ImageName="Com.cogs" OnClick="btnDebugRunOnClick" Visible="True"/>
+        <Inherited Name="ButtonServices" Excluded="False">
+          <Component Name="btnParameters" Class="Com.Ctrl.IButton" Excluded="True" Caption="Добавить переменную" HasCaption="True" ImageName="Com.Tasks" OnClick="btnParametersOnClick" Visible="False"/>
+          <Component Name="btnAddTask" Class="Com.Ctrl.IButton" Caption="@IntegrationPackage:BtnAddTask=Добавить расписание" ImageName="Com.AddItem" OnClick="btnAddTaskOnClick"/>
+          <Component Name="btnViewTask" Class="Com.Ctrl.IButton" Caption="@IntegrationPackage:ViewTask=Просмотр расписания" ImageName="Com.ChildForm" OnClick="btnViewTaskOnClick"/>
+          <Component Name="btnShowStructure" Class="Com.Ctrl.IButton" Caption="@IntegrationPackage:ListObjectStruct=Список структур хранилища" ImageName="Com.database" OnClick="btnShowStructureOnClick"/>
+        </Inherited>
+        <Inherited Name="ButtonClose" Visible="True"/>
+        <Inherited Name="ButtonReports" Excluded="True"/>
+        <Inherited Name="ButtonAnalytics" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Code" Excluded="True"/>
+          <Inherited Name="Name" Caption="@FieldName:Name=Наименование" FixSize="True" FontBold="False" ValueType="VarString" Visible="True" Width="115"/>
+        </Inherited>
+      </Inherited>
+      <Component Name="BoxOperation" Class="Com.Ctrl.IBox" After="FieldsFrame" AutoSize="False" Caption="@ClassName:ETLOperations=Операции">
+        <Component Name="TableOperations" Class="Com.Ctrl.ITable" Adaptive="True" Freezed="False" Subtable="EdtRec.Operations">
+          <Component Name="vDefPosTable" Class="ETL.Rec.IntegrationPackage_Operations" IsLibrary="1"/>
+          <Component Name="Edit1" Class="Com.Ctrl.IEdit" Excluded="True" AutoLookup="True" CardFileClass="ETL.Tab.ETLOperation" CellFormat="StringFormat" Field="vDefPosTable.Record" HasButton="True" LookupField="Name" ValueType="VarObject"/>
+          <Component Name="Col1_Operation1" Class="Com.Ctrl.IEdit" Excluded="True" AutoLookup="True" Caption="@Fieldname:Operation=Операция" CardFileClass="ETL.Tab.ETLOperation" CellFormat="ReferenceFormat" Field="vDefPosTable.Record" LookupField="Name" ValueType="VarObject" Width="90"/>
+          <Component Name="EdPrev1" Class="Com.Ctrl.IEditEx" Excluded="True" Caption="№ предыдущих операций" Field="vDefPosTable.prevOp" OnOutput="EdPrevOnOutput" ValueType="VarString" Width="60">
+            <Component Name="BtnPrev1" Class="Com.Ctrl.IButton" Excluded="True" Hint="Просмотр предыдущих операций" OnClick="BtnNextOnClick"/>
+          </Component>
+          <Component Name="EdNext1" Class="Com.Ctrl.IEditEx" Excluded="True" Caption="№ следующих операций" Field="vDefPosTable.nextOp" OnOutput="EdNextOnOutput" ValueType="VarString" Width="60">
+            <Component Name="BtnNext1" Class="Com.Ctrl.IButton" Excluded="True" Hint="Просмотр следующих операций" ImageName="Com.Settings_" OnClick="BtnNextOnClick"/>
+          </Component>
+          <Component Name="EditEx1" Class="Com.Ctrl.IEditEx" Excluded="True" CellFormat="ReferenceFormat" Field="vDefPosTable.Record" HasButton="False" LookupField="Name" ValueType="VarObject">
+            <Component Name="JumpButton2" Class="Com.Ctrl.IJumpButton" Excluded="True" JumpForm="ETL.Frm.ETLOperation"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="BoxParameters" Class="Com.Ctrl.IBox" AutoSize="False" Caption="@ETLParameters:ETLParameters=Переменные">
+        <Component Name="TableVariables" Class="Com.Ctrl.ITable" Adaptive="True" Freezed="False" Subtable="EdtRec.Parameters">
+          <Component Name="vDefPosParams" Class="ETL.Rec.IntegrationPackage_Parameters" IsLibrary="1"/>
+          <Component Name="edParamType" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Тип" CellFormat="EnumFormat" Field="vDefPosParams.ParamType" FixSize="True" HasCaption="True" ListAsString="@ETLParam:EnumParamType=неизвестно|0;строковый|1;int|2;num|3;logical|4;dateTime|5;Object|6;" ValueType="VarInteger" Width="35"/>
+        </Component>
+      </Component>
+      <Inherited Name="TabsFrame" Excluded="True">
+        <Inherited Name="MainTab" Excluded="True" Visible="False"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

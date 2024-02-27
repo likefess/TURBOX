@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CMP.Frm.PanelProcedures.IBasePanelProcedure">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="BusinessFunc" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Config.ProcType" ValueType="VarObject"/>
+      <Component Name="OpenProcessBlank" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="CreateGroup" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="ProcessGroup" Class="Com.Fld.IVar" RecordClass="Upr.Rec.Данные.БазовыйПроцесс" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50" HasCaption="True">
+        <Component Name="EditBusinessFunc" Class="Com.Ctrl.IEdit" Caption="@CMP:CreateBusinessProcessBusinessFunc=Тип объекта" Field="BusinessFunc" OnChange="Edit_OnChange"/>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="CheckBoxOpenProcessBlank" Class="Com.Ctrl.ICheckBox" Caption="@CMP:CreateBusinessProcessOpenProcessBlank=Открыть бланк процесса" Field="OpenProcessBlank" OnChange="CheckBox_OnChange"/>
+        </Component>
+        <Component Name="Group3" Class="Com.Ctrl.IGroup">
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="CheckBoxCreateGroup" Class="Com.Ctrl.ICheckBox" Caption="@CMP:CreateBusinessProcessCreateGroup=Создать группу" Field="CreateGroup" OnChange="CheckBox_OnChange"/>
+        </Component>
+        <Component Name="EditProcessGroup" Class="Com.Ctrl.IEdit" Caption="@CMP:CreateBusinessProcessProcessGroup=Группа процесса" Field="ProcessGroup" OnChange="Edit_OnChange"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

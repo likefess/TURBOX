@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Services.TreeDialog">
+  <Inherited>
+    <Component Name="IconTree" Class="Com.Ctrl.Grids.IconTree" After="#0"/>
+    <Inherited Name="TableMenu" After="IconTree"/>
+    <Inherited Name="Variables">
+      <Inherited Name="CurrentVar" ValueType="VarString"/>
+      <Component Name="CurrentVarWithProject" Class="Com.Fld.IVar" After="CurrentVar"/>
+      <Inherited Name="SearchVar" After="CurrentVarWithProject"/>
+      <Component Name="Image1" Class="Com.Fld.IBlob" After="SearchVar"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonClose" Excluded="True"/>
+        <Inherited Name="ButtonHelp" Excluded="True"/>
+      </Inherited>
+      <Component Name="FieldsFrame1" Class="Com.Ctrl.IFrame" After="SearchFrame" AutoSize="False" Margins="5" Orientation="Vertical" ScrollerStyle="ScrollerNone">
+        <Component Name="IconFrame" Class="Com.Ctrl.IFrame" AutoSize="False" MinSize="130" Size="150">
+          <Component Name="TreeGrid1" Class="Com.Ctrl.Grids.TreeGrid" OnFirstShow="TreeGridOnFirstShow" OnMove="TreeGridOnMove" OnSelect="TreeGridOnSelect" TreeSource="IconTree"/>
+        </Component>
+        <Component Name="IconPictureFrame" Class="Com.Ctrl.IFrame" FixSize="True" Orientation="Horizontal" ScrollerStyle="ScrollerNone" Size="60">
+          <Component Name="Picture1" Class="Com.Ctrl.IPicture" Field="Image1" Shrink="True" Stretch="True"/>
+        </Component>
+      </Component>
+      <Inherited Name="FieldsFrame" Excluded="True" After="FieldsFrame1">
+        <Inherited Name="TreeGrid" Excluded="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

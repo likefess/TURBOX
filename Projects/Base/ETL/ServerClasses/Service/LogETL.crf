@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Integration.Service.Log">
+  <Inherited>
+    <Inherited Name="EventsTemplates">
+      <Component Name="SimpleError" Class="Bas.Logging.EventTemplate" After="#0" EventLevel="llUser" EventType="logError" MessageTemplate="%s" Params="название операции, тип операции, ID пакета">
+        <Component Name="GoToFormHandler1" Class="Bas.Logging.ILogEventHandler" Caption="@Logging:GoToForm=Перейти к пакету" Enabled="True" Handler="OnOpenRecHandler" ParamIndex="0"/>
+      </Component>
+      <Component Name="ReportEventOperation" Class="Bas.Logging.EventTemplate" After="Trace" EventLevel="llUser" EventType="logInfo" MeasureDuration="False" MessageTemplate="@Logging:CustomMessage=Отчёт" Params="название операции, запись, тип операции, процессор, ID пакета, время начала, время выполнения, обработано записей, добавлено/изменено записей">
+        <Component Name="GoToOperation" Class="Bas.Logging.ILogEventHandler" Caption="@Logging:GoToForm=Перейти к операции" Enabled="True" Handler="GoToOperationHandler" ParamIndex="0"/>
+        <Component Name="GoToPacket" Class="Bas.Logging.ILogEventHandler" Caption="@Logging:GoToForm=Перейти к пакету" Enabled="True" Handler="GoToPacketHandler" ParamIndex="0"/>
+      </Component>
+      <Inherited Name="InformationEvent" Params="название, время"/>
+      <Inherited Name="ErrorEvent" MessageTemplate="%s" Params="название операции, тип операции, ID пакета, № записи с ошибкой, название записи с ошибкой, ключевые поля">
+        <Inherited Name="GoToFormHandler" Caption="@Logging:GoToForm=Перейти к пакету" Enabled="True" Handler="OnOpenRecHandler"/>
+      </Inherited>
+      <Component Name="Operation" Class="Bas.Logging.EventTemplate" After="ErrorEvent" EventLevel="llUser" EventType="logInfo" MessageTemplate="@Logging:Operation=Операция: [%s]"/>
+      <Component Name="CreateTable" Class="Bas.Logging.EventTemplate" EventLevel="llUser" EventType="logInfo" MessageTemplate="@Logging:CreateTable=Создание таблицы: %s" Params="время создания"/>
+      <Component Name="SetVariable" Class="Bas.Logging.EventTemplate" EventLevel="llUser" EventType="logInfo" MessageTemplate="%s" Params="Переменные"/>
+      <Component Name="SimpleOperation" Class="Bas.Logging.EventTemplate" EventLevel="llUser" EventType="logInfo" MessageTemplate="@Logging:CustomMess=Отчёт" Params="название операции, запись, тип операции, процессор, ID пакета, время начала, время выполнения"/>
+      <Inherited Name="ReportEvent" Params="класс, действие, всего операций, количество выполненных, порядок выполнения, время выполнения">
+        <Inherited Name="GoToSettings" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="DocEvent">
+        <Component Name="OpenRecordHandler1" Class="Bas.Logging.ILogEventHandler" Excluded="True" Caption="@Logging:OpenDocument=Открыть документ" Handler="GoToOperationHandler"/>
+        <Component Name="LogEventHandler1" Class="Bas.Logging.ILogEventHandler" Excluded="True" Caption="@Logging:OpenDocument=Открыть документ" Handler="GoToOperationHandler"/>
+      </Inherited>
+      <Inherited Name="ProcessorRun" Params="Класс обработки,Операция,Пакет">
+        <Inherited Name="ProcRunGoToSettings" Caption="@Logging:GoToOperation=Перейти к операции"/>
+        <Component Name="ProcRunGoToPacket" Class="Bas.Logging.ILogEventHandler" Caption="@Logging:GoToSettings=Перейти к пакету" Handler="ProcRunGoToPacket_Handler"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

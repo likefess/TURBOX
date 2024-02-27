@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Bas.Rec.Ref.Project" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" MinWidth="120">
+          <Component Name="Group2" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True">
+            <Component Name="Name1" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" FontBold="True" HasCaption="True" Visible="True" Width="60"/>
+            <Component Name="Code1" Class="Com.Ctrl.IEdit" CaptionWidth="24" Field="EdtRec.Code" HasCaption="True" Visible="True" Width="20"/>
+          </Component>
+          <Inherited Name="Code" Excluded="True" After="Group2"/>
+          <Inherited Name="Name" Excluded="True"/>
+          <Component Name="Comment1" Class="Com.Ctrl.IEdit" After="Name" Field="EdtRec.Description" HasCaption="True"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+            <Component Name="BegDate" Class="Com.Ctrl.IEditEx" Field="EdtRec.BegDate" HasCaption="True" OnVerify="BegDate_OnVerify">
+              <Component Name="EndDate" Class="Com.Ctrl.IEdit" Field="EdtRec.EndDate" HasCaption="True" OnVerify="EndDate_OnVerify"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.CustomList">
+  <Inherited FormIcon="Com.Exclamation">
+    <Component Name="LogStruct" Class="Admin.Frm.EventLog.EventLog_Struct" IsLibrary="1" After="#0"/>
+    <Inherited Name="TableMenu" Excluded="False" After="LogStruct">
+      <Component Name="cmdExport" Class="Com.ComManaging.ExecProcedure" After="TableSeparator1" Caption="@Admin:LogsServerExportShort=Экспорт" CommandProc="cmdExport_CommandProc" Description="@Admin:LogsServerExport=Экспорт в формате JSON" IconName="Com.ExportRec"/>
+      <Inherited Name="cmdCopyValue" After="cmdExport"/>
+    </Inherited>
+    <Inherited Name="Variables">
+      <Inherited Name="Subtable" StructClass="Admin.Frm.EventLog.EventLog_Struct"/>
+      <Component Name="FldResult" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="FldDateAll" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldDateFrom" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="FldDateTo" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="FldLogError" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldLogWarning" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldLogInformation" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ButtonLogsSetting" Class="Com.Ctrl.IButton" After="ButtonRefresh" Caption="@Admin:LogsServerSetting=Настройка журнала событий" ImageName="Com.Settings_" OnClick="ButtonLogsSetting_OnClick"/>
+        <Component Name="ButtonExport" Class="Com.Ctrl.IButton" Caption="@Admin:LogsServerExport=Экспорт в формате JSON" Command="cmdExport" ImageName="Com.ExportRec"/>
+        <Inherited Name="ButtonHelp" After="ButtonExport"/>
+      </Inherited>
+      <Component Name="ParametersFrame" Class="Com.Ctrl.IFrame" After="HeaderFrame" AutoSize="True" Margins="8">
+        <Component Name="grpSpanDate" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+          <Component Name="chbDateAll" Class="Com.Ctrl.ICheckBox" Caption="@Auth:EventLog_DateAll=За весь период" Field="FldDateAll" OnChange="chbDateAll_OnChange" Width="40"/>
+          <Component Name="sepDate1" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="8"/>
+          <Component Name="edDtFrom" Class="Com.Ctrl.IEdit" Caption="@Rep:From=с" CaptionWidth="10" CellFormat="DateFormat" Field="FldDateFrom" FormatOfDate="DateOnly" Width="30"/>
+          <Component Name="edDtTo" Class="Com.Ctrl.IEdit" Caption="@Rep:Until=до" CaptionWidth="10" CellFormat="DateFormat" Field="FldDateTo" FormatOfDate="DateOnly" Width="30"/>
+          <Component Name="sepDate2" Class="Com.Ctrl.IStatic" Width="60"/>
+          <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          <Component Name="lblEvent" Class="Com.Ctrl.IStatic" Caption="@Auth:EventLog_Title=Cобытия:" Width="44"/>
+          <Component Name="chbLogError" Class="Com.Ctrl.ICheckBox" Caption="@Auth:EventLog_SelectError=ошибки" Field="FldLogError" Width="24"/>
+          <Component Name="chbLogWarning" Class="Com.Ctrl.ICheckBox" Caption="@Auth:EventLog_SelectWarning=предупреждения" Field="FldLogWarning" Width="32"/>
+          <Component Name="chbLogNotification" Class="Com.Ctrl.ICheckBox" Caption="@Auth:EventLog_SelectNotification=уведомления" Field="FldLogInformation" Width="32"/>
+          <Component Name="sepEvent" Class="Com.Ctrl.IStatic" Width="40"/>
+          <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+          <Component Name="btnGetData" Class="Com.Ctrl.IButton" Caption="@Auth:EventLog_GetData=Получить данные" OnClick="btnGetData_OnClick" Width="48"/>
+        </Component>
+      </Component>
+      <Inherited Name="NavigatorFrame" After="ParametersFrame"/>
+      <Component Name="EventsFrame" Class="Com.Ctrl.IFrame" Excluded="True" After="NavigatorFrame" AutoSize="True">
+        <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True">
+          <Component Name="Edit1" Class="Com.Ctrl.IEdit" Field="FldResult" Multiline="True" Width="200" Wrap="True"/>
+        </Component>
+      </Component>
+      <Inherited Name="FieldsFrame" After="EventsFrame">
+        <Inherited Name="frameData">
+          <Inherited Name="TableData" Adaptive="True" IconName="Com.Exclamation" OnDrawIcon="TableData_OnDrawIcon" PopupMenu="TableMenu" ShowIcon="True">
+            <Component Name="edKind" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Admin:EventLog_Type=Тип" Enabled="False" Field="LogStruct.Kind" MaxWidth="60" MinWidth="20" OnClick="ItemTable_OnClick" OnOutputEx="edKind_OnOutputEx" Width="40"/>
+            <Component Name="edDate" Class="Com.Ctrl.IEdit" Caption="@Admin:EventLog_Date=Дата" CellFormat="DateFormat" Enabled="False" Field="LogStruct.Date" FormatOfDate="DateAndTime" MaxWidth="60" MinWidth="45" Multiline="False" OnClick="ItemTable_OnClick" Width="50" Wrap="False"/>
+            <Component Name="edEvent" Class="Com.Ctrl.IEdit" Caption="@Admin:EventLog_Name=Событие" Enabled="False" Field="LogStruct.Name" MaxWidth="200" MinWidth="40" OnClick="ItemTable_OnClick" Width="200"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

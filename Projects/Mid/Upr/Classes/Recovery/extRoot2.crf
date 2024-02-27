@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Recovery.Root">
+  <Inherited>
+    <Component Name="ТипОбъекта" Class="Bas.Recovery.Group" Caption="Восстановление типов объектов">
+      <Component Name="вибТипОбъекта" Class="Bas.Recovery.Method" Caption="Очистить скомпилированные структуры" Hint="Очистить скомпилированные структуры метаданных"/>
+    </Component>
+    <Component Name="Ресурс" Class="Bas.Recovery.Group" Caption="Восстановление ресурсов">
+      <Component Name="вибРесурс" Class="Bas.Recovery.Method" Caption="Восстановление иерархии классификации ресурсов" Hint="Проверка соответствия внутренних флагов ресурсов их типам с учетом иерархии справочника ресурсов"/>
+    </Component>
+    <Component Name="Процесс" Class="Bas.Recovery.Group" Caption="Восстановление процессов">
+      <Component Name="вибПроцесс" Class="Bas.Recovery.Method" Caption="Удалить значения старых доп.полей из базы данных" Hint="Удаление из информационной базы старых доп.полей" OnRecovery="вибПроцесс_ПриОбработке" OnSettings="вибПроцесс_ПриНастройке"/>
+    </Component>
+  </Inherited>
+</Resource>

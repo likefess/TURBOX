@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Services.CommonDialog">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="WebMainGroup">
+          <Inherited Name="InnerGroup">
+            <Component Name="FlagByTrans" Class="Com.Ctrl.ICheckBox" Caption="Отчет по проводкам" Width="120"/>
+            <Component Name="GroupByDays" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="FlagByDays" Class="Com.Ctrl.ICheckBox" Caption="Разбиение по" FixSize="True" Width="32"/>
+              <Component Name="EditByDays" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" HasCaption="False" ValueType="VarInteger"/>
+            </Component>
+            <Component Name="GroupByParams" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="FlagByParams" Class="Com.Ctrl.ICheckBox" Caption="Разбиение по параметрам" FixSize="True" Width="55"/>
+              <Component Name="EditByParams" Class="Com.Ctrl.IEdit" AutocompleteLimit="12" AutocompleteMode="acmOn" HasButton="True" HasCaption="False" OnAutocomplete="ParamsOnAutocomplete" OnLookup="EditByParamsOnLookup" OnVerify="ParamsOnVerify" ValueType="VarString"/>
+            </Component>
+            <Component Name="GroupByDocs" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="FlagByDocs" Class="Com.Ctrl.ICheckBox" Caption="Разбиение по документам" FixSize="True" Width="55"/>
+              <Component Name="EditByDocs" Class="Com.Ctrl.IEdit" AutocompleteLimit="12" AutocompleteMode="acmOn" HasButton="True" HasCaption="False" OnAutocomplete="DocsOnAutocomplete" OnLookup="EditByDocsOnLookup" OnVerify="DocsOnVerify" ValueType="VarString"/>
+            </Component>
+            <Component Name="FlagByAcc" Class="Com.Ctrl.ICheckBox" Caption="Разбиение по счетам" Width="120"/>
+            <Component Name="FlagByCorrAcc" Class="Com.Ctrl.ICheckBox" Caption="Разбиение по корр.счетам" Width="120"/>
+            <Component Name="StaticDefaultSeparator" Class="Com.Ctrl.IStatic" Visible="False"/>
+            <Component Name="DefaultActionFlag" Class="Com.Ctrl.ICheckBox" Caption="Использовать в дальнейшем для данного отчёта" Visible="False"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

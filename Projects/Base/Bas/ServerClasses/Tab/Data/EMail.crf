@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICardForm">
+  <Inherited FormIcon="Bas.mail-bulk" HelpContext="Bas.Администрирование.Настройки.Электронная почта" OnShow="CardFormOnShow">
+    <Inherited Name="Current" Class="Bas.Rec.Data.EMail" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="EMailAccount" Class="Com.Fld.IVar" Caption="@EMail:Account=Аккаунт" OnChange="EMailAccountOnChange" RecordClass="Bas.Rec.Config.MailAccount" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="7">
+        <Component Name="ButtonReceiveNext" Class="Com.Ctrl.IButton" After="ButtonClose" Caption="@EMail:Commands.GetNext=Получить еще" ImageName="Com.redo" OnClick="ButtonReceiveNextOnClick"/>
+        <Inherited Name="HeaderSeparator" After="ButtonReceiveNext"/>
+      </Inherited>
+      <Component Name="MailAccountFrame" Class="Com.Ctrl.IFrame" After="HeaderFrame" AutoSize="True">
+        <Component Name="MailAccauntGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+          <Component Name="edtEMailAccount" Class="Com.Ctrl.IEdit" Caption="@EMail:Account=Аккаунт" CardFileClass="Bas.Tab.Config.MailAccount" Field="EMailAccount" HasCaption="False" LookupField="Name" LookupFilter="not Closed"/>
+          <Component Name="RulesListButton" Class="Com.Ctrl.IListButton" Hint="@EMail:Rules=Правила обработки входящей почты" ImageName="Com.angle-down"/>
+        </Component>
+      </Component>
+      <Inherited Name="NavigatorFrame" After="MailAccountFrame"/>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree">
+          <Component Name="CardTreeHeader" Class="Com.Ctrl.IFrame" After="#0" AutoSize="True">
+            <Component Name="SendAndGetBtnGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="btnSendAndGet" Class="Com.Ctrl.IButton" Caption="@EMail:Commands.SendAndGet=Отправить и получить" Enabled="False" ImageName="Com.Refresh" ImageSize="16" OnClick="btnSendAndGetOnClick" Width="55"/>
+            </Component>
+            <Component Name="InBoxGroup" Class="Com.Ctrl.IGroup">
+              <Component Name="InBoxLabel" Class="Com.Ctrl.IStatic" Caption="@EMail:Label.InBox=Входящие" ImageName="Bas.inbox-in" ImageSize="24" OnClick="MailLabelOnClick" StaticStyle="StaticHyperlink" Width="50"/>
+              <Component Name="InBoxCnt" Class="Com.Ctrl.IStatic" Width="15"/>
+            </Component>
+            <Component Name="OutBoxGroup" Class="Com.Ctrl.IGroup">
+              <Component Name="OutBoxLabel" Class="Com.Ctrl.IStatic" Caption="@EMail:Label.Outbox=Отправленные" ImageName="Bas.inbox-out" ImageSize="24" OnClick="MailLabelOnClick" StaticStyle="StaticHyperlink" Width="50"/>
+              <Component Name="OutBoxCnt" Class="Com.Ctrl.IStatic" Width="15"/>
+            </Component>
+            <Component Name="OutcomingGroup" Class="Com.Ctrl.IGroup">
+              <Component Name="OutComingLabel" Class="Com.Ctrl.IStatic" Caption="@EMail:Label.Outcoming=Исходящие" ImageName="Com.inbox-out" ImageSize="24" OnClick="MailLabelOnClick" StaticStyle="StaticHyperlink" Width="50"/>
+              <Component Name="OutcomingCnt" Class="Com.Ctrl.IStatic" Width="15"/>
+            </Component>
+            <Component Name="ScheduledGroup" Class="Com.Ctrl.IGroup">
+              <Component Name="ScheduledLabel" Class="Com.Ctrl.IStatic" Caption="@EMail:Label.Scheduled=Запланированные" ImageName="Com.clock" ImageSize="24" OnClick="MailLabelOnClick" StaticStyle="StaticHyperlink" Width="50"/>
+              <Component Name="ScheduledCnt" Class="Com.Ctrl.IStatic" Width="15"/>
+            </Component>
+            <Component Name="DraftsGroup" Class="Com.Ctrl.IGroup">
+              <Component Name="DraftsLabel" Class="Com.Ctrl.IStatic" Caption="@EMail:Label.Drafts=Черновики" ImageName="Com.EditItem" ImageSize="24" OnClick="MailLabelOnClick" StaticStyle="StaticHyperlink" Width="50"/>
+              <Component Name="DraftsCnt" Class="Com.Ctrl.IStatic" Width="15"/>
+            </Component>
+            <Component Name="TemplatesGroup" Class="Com.Ctrl.IGroup">
+              <Component Name="TemplatesLabel" Class="Com.Ctrl.IStatic" Caption="@EMail:Label.Templates=Шаблоны писем" ImageName="Com.Blank" ImageSize="24" OnClick="MailLabelOnClick" StaticStyle="StaticHyperlink" Width="50"/>
+              <Component Name="TemplatesCnt" Class="Com.Ctrl.IStatic" Width="15"/>
+            </Component>
+            <Component Name="DeletedGroup" Class="Com.Ctrl.IGroup">
+              <Component Name="DeletedLabel" Class="Com.Ctrl.IStatic" Caption="@EMail:Label.Deleted=Удаленные" ImageName="Com.DeleteItem" ImageSize="24" OnClick="MailLabelOnClick" StaticStyle="StaticHyperlink" Width="50"/>
+              <Component Name="DeletedCnt" Class="Com.Ctrl.IStatic" Width="15"/>
+            </Component>
+            <Component Name="MailLabelsGrid" Class="Com.Ctrl.IGrid" Excluded="True" FreezeStyle="frzNone">
+              <Component Name="Columns" Class="Com.Ctrl.Grid.INode" AutoSize="asnOff" HasCaption="False" IsColumn="True">
+                <Component Name="MailsCount" Class="Com.Ctrl.Grid.INode" Enabled="False" HasCaption="False" Width="15"/>
+              </Component>
+              <Component Name="Rows" Class="Com.Ctrl.Grid.INode" AutoSize="asnOff" HasCaption="False" Height="8" IsColumn="False" Width="80">
+                <Component Name="InBox" Class="Com.Ctrl.Grid.INode" Caption="@EMail:Label.InBox=Входящие" Width="50"/>
+                <Component Name="OutBox" Class="Com.Ctrl.Grid.INode" Caption="@EMail:Label.OutBox=Отправленные"/>
+                <Component Name="Outcoming" Class="Com.Ctrl.Grid.INode" Caption="@EMail:Label.Outcoming=Исходящие"/>
+                <Component Name="Scheduled" Class="Com.Ctrl.Grid.INode" Caption="@EMail:Label.Scheduled=Запланированные"/>
+                <Component Name="Drafts" Class="Com.Ctrl.Grid.INode" Caption="@EMail:Label.Drafts=Черновики"/>
+                <Component Name="Deleted" Class="Com.Ctrl.Grid.INode" Caption="@EMail:Label.Deleted=Удаленные"/>
+              </Component>
+            </Component>
+            <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          </Component>
+          <Inherited Name="CardTree" Excluded="True" After="CardTreeHeader"/>
+          <Component Name="CardTreeBody" Class="Com.Ctrl.IFrame" After="CardTree" Proportion="1">
+            <Component Name="CardTree_" Class="Com.Ctrl.ICardTree" ShowRecords="False" TreeRoot="@EMail:AllFolders=Неразобранное"/>
+          </Component>
+          <Component Name="CardTreeFooter" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+        </Inherited>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="CardFile" OnDrawRow="CardFileOnDrawRow" OnOpenBlank="CardFileOnOpenBlank"/>
+          <Component Name="ColTime" Class="Com.Ctrl.IEdit" Field="Current.SendTime" Width="35"/>
+          <Component Name="ColSender" Class="Com.Ctrl.IEdit" CanSort="False" Caption="@EMail:Sender=Отправитель" ValueType="VarString" Width="50"/>
+          <Component Name="ColSubject" Class="Com.Ctrl.IEdit" Field="Current.Subject" OnColumnDraw="ColSubjectOnColumnDraw"/>
+          <Component Name="ColServer" Class="Com.Ctrl.IEdit" Field="Current.Server" Width="40"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

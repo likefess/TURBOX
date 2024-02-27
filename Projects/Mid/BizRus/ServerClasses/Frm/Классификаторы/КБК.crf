@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="BizRus.Rec.Классификаторы.КБК" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Code" Caption="Код" FixSize="True" Hint="Код КБК" OnVerify="CodeOnVerify" Required="True" Visible="True" Width="65"/>
+          <Inherited Name="Name" Caption="Наименование" Hint="Наименование КБК" Required="True" Visible="True" Wrap="True"/>
+        </Inherited>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+          <Component Name="ТипПлательщика" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.ТипПлательщика" HasCaption="True"/>
+          <Component Name="ТипПлатежа" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Enabled="False" Field="EdtRec.ТипПлатежа" HasCaption="True"/>
+        </Component>
+        <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+          <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Field="EdtRec.ДатаНачала" FixSize="True" HasCaption="True" OnVerify="ДатаНачала_OnVerify" Width="40"/>
+          <Component Name="ДатаОкончания" Class="Com.Ctrl.IEdit" Field="EdtRec.ДатаОкончания" FixSize="True" HasCaption="True" OnVerify="ДатаОкончания_OnVerify" Width="40"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

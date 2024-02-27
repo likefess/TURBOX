@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWithFrames">
+  <Inherited HelpContext="Biz.НСИ.Отчеты.Отчеты по договорам.Отчет по количеству заключенных_расторгнутых договоров">
+    <Component Name="DataStruct" Class="Biz.Rec.Report.ContractConcludedCanceled_DataStruct" IsLibrary="1" After="#0"/>
+    <Inherited Name="TableMenu" After="DataStruct"/>
+    <Inherited Name="Variables">
+      <Component Name="DataSubtable" Class="Com.ISubtable"/>
+      <Component Name="StartDate" Class="Com.Fld.IVar" Caption="@ContractConcludedCanceledReport:StartDate=За период с" ValueType="VarDate"/>
+      <Component Name="EndDate" Class="Com.Fld.IVar" Caption="@ContractConcludedCanceledReport:EndDate=По" ValueType="VarDate"/>
+      <Component Name="Company" Class="Com.Fld.IVar" Caption="@ContractConcludedCanceledReport:Company=Предприятие" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="Classification" Class="Com.Fld.IVar" Caption="@ContractConcludedCanceledReport:Classification=Классификация" RecordClass="Biz.Rec.Ref.ContractClassification" ValueType="VarObject"/>
+      <Component Name="Intragroup" Class="Com.Fld.IVar" Caption="@ContractConcludedCanceledReport:Intragroup=Внутригрупповые договоры" ValueType="VarLogical"/>
+      <Component Name="StatusContract" Class="Com.Fld.IVar" Caption="@ContractConcludedCanceledReport:StatusContract= Статус договора" RecordClass="Biz.Rec.Ref.ContractStatus" ValueType="VarObject"/>
+      <Component Name="StatusSuppAgr" Class="Com.Fld.IVar" Caption="@ContractConcludedCanceledReport:StatusSuppAgr= Статус доп. соглашения" RecordClass="Biz.Rec.Ref.ContractStatus" ValueType="VarObject"/>
+      <Component Name="Grouping" Class="Com.Fld.IVar" Caption="@ContractConcludedCanceledReport:Grouping=Группировка" ValueType="VarInteger"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="5">
+        <Inherited Name="ButtonOK" Excluded="True" Visible="False"/>
+        <Inherited Name="ButtonRefresh" After="ButtonOK" Hint="@ContractConcludedCanceledReport:ButtonRefresh=Обновить"/>
+        <Inherited Name="ButtonPrint" Excluded="False"/>
+        <Inherited Name="ButtonExport" Excluded="False"/>
+        <Inherited Name="ButtonHelp" Printed="False"/>
+        <Inherited Name="ButtonClose" After="ButtonHelp" Printed="False"/>
+      </Inherited>
+      <Component Name="ParamBox" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@ReportByRecords:ParamBox=Параметры" HasCaption="True">
+        <Component Name="ParamGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+          <Component Name="StartDateEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="StartDate" FormatOfDate="DateOnly" HasCaption="True" ValueType="VarDate"/>
+          <Component Name="EndDateEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="EndDate" FormatOfDate="DateOnly" HasCaption="True" ValueType="VarDate"/>
+          <Component Name="NewLine3" Class="Com.Ctrl.INewLine"/>
+          <Component Name="CompanyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="Company" HasCaption="True" LookupField="Name" OnGetLookupFilter="CompanyEdit_OnGetLookupFilter" ShortList="True"/>
+          <Component Name="ClassificationEdit" Class="Com.Ctrl.IListEdit" CellFormat="ReferenceFormat" Field="Classification" HasCaption="True" LookupField="Name"/>
+          <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="IntragroupCheckBox" Class="Com.Ctrl.ICheckBox" Field="Intragroup" HasCaption="True"/>
+          <Component Name="NewLine4" Class="Com.Ctrl.INewLine"/>
+          <Component Name="StatusContractEdit" Class="Com.Ctrl.IListEdit" CardFileClass="Biz.Tab.Ref.ContractStatus" CellFormat="ReferenceFormat" Field="StatusContract" HasCaption="True" LookupField="Name"/>
+          <Component Name="StatusSuppAgrEdit" Class="Com.Ctrl.IListEdit" CardFileClass="Biz.Tab.Ref.ContractStatus" CellFormat="ReferenceFormat" Field="StatusSuppAgr" HasCaption="True" LookupField="Name"/>
+          <Component Name="NewLine5" Class="Com.Ctrl.INewLine"/>
+          <Component Name="GroupingEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Grouping" HasCaption="True" ListAsString="нет|0;по контрагентам|1;по кураторам|2"/>
+        </Component>
+      </Component>
+      <Component Name="DataFrame" Class="Com.Ctrl.IFrame" Subtable="DataSubtable">
+        <Component Name="ValueIsGroup" Class="Com.Ctrl.ICheckBox" Enabled="False" Field="DataStruct.ValueIsGroup" HasCaption="False" Visible="False" Width="15"/>
+        <Component Name="ValueGroup" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="DataStruct.ValueGroup" HasCaption="False" Visible="False" Width="50" Wrap="True"/>
+        <Component Name="ValueTxt" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="DataStruct.ValueTxt" HasCaption="False" OnDraw="ValueTxt_OnDraw" Width="125" Wrap="True"/>
+        <Component Name="ValueIntGr" Class="Com.Ctrl.IColumnsGroup" Caption="@ContractConcludedCanceled_DataStruct:ValueInt=Количество" HasCaption="True">
+          <Component Name="ValueInt" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.ValueInt" HasCaption="False" OnClick="ValueInt_OnClick" OnDraw="ValueInt_OnDraw" Width="25" Wrap="True"/>
+          <Component Name="ContractCardButton" Class="Com.Ctrl.IJumpButton" HasCaption="False" Hint="@ContractConcludedCanceled_DataStruct:ContractCardButton=Открыть картотеку" ImageName="Biz.list" OnClick="ContractCardButton_OnClick"/>
+        </Component>
+        <Component Name="ValueFilter" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="DataStruct.ValueCardFilter" HasCaption="False" Visible="False" Width="150" Wrap="True"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

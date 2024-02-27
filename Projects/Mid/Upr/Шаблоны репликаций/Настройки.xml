@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<ReplicationTemplate Version="3.0">
+  <Projects>
+    <Project Name="СИС2">
+      <Group Name="ПользовательскийКалендарь">
+        <Document Name="РабочийКалендарь" Publisher="True" Subscriber="True" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+      </Group>
+      <Group Name="Служебные">
+        <Document Name="Семафор" Publisher="False" Subscriber="False" ConflPriority="0"/>
+        <Document Name="Нумератор" Publisher="False" Subscriber="False" ConflPriority="0"/>
+        <Document Name="СловоФорма" Publisher="True" Subscriber="True" DownloadRefDocuments="True"/>
+        <Document Name="Тест" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+      </Group>
+      <Group Name="Настройки">
+        <Document Name="ИНИ" DownloadRefDocuments="True"/>
+        <Document Name="НастройкаКартотеки" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="Филиал" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="НастройкиПрограммы" DownloadRefDocuments="True"/>
+      </Group>
+    </Project>
+    <Project Name="Управление">
+      <Group Name="Данные">
+        <Document Name="Ресурс" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="Субъект" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="Процесс" Publisher="True" Subscriber="True" Condition="ЭлементСБ" DownloadRefDocuments="True">
+          <Fields Name="Позиции" FieldsDeleted="False">
+            УчЦенаОткуда,УчЦенаКуда,УчЦена2Откуда,УчЦена2Куда
+          </Fields>
+        </Document>
+        <Document Name="ПрикрепленныйДокумент" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="True" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="УчетнаяЦена" Publisher="True" Subscriber="True" ConflPriority="0" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+      </Group>
+      <Group Name="Настройки">
+        <Document Name="ПараметрыСтруктурыБизнеса" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition=" " DownloadRefDocuments="True"/>
+        <Document Name="ПараметрыСервера" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="ВариантСтоимостногоУчета" Publisher="True" Subscriber="True" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="ПанельУправления" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="НастройкаОтчета1Группы" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="True" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="НастройкаОтчета2Группы" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="True" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="УмолчанияЗаписей" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="НастройкиАвтоматическихРасчетов" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="True" Condition=" " DownloadRefDocuments="False"/>
+        <Document Name="СхемаРУЦ" Publisher="False" Subscriber="False" ConflPriority="0"/>
+        <Document Name="АвтоматическийРасчет" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="Переменная" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="ХранимыеДанныеОбАвтоматическихРасчетах" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+      </Group>
+      <Group Name="Справочники">
+        <Document Name="ЕдиницаИзмерения" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="Место" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="БанковскиеРеквизиты" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="Банк" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="ВидДеятельности" Publisher="True" Subscriber="True" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="РекламныйИсточник" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="РольСубъекта" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="СтатусДвижения" Publisher="True" Subscriber="True" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="Функция" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="ТипДвижения" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="Реквизит" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="СБК" Publisher="True" Subscriber="True" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="ВажностьПроцесса" Publisher="True" Subscriber="True" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="СостояниеПроцесса" Publisher="True" Subscriber="True" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="Представление" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="ТипНумератора" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="ТНВЭД" Publisher="True" Subscriber="True" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="МодификацияРесурса" Publisher="True" Subscriber="True" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="СерНомер" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="True" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="УпрКлассификацияРесурсов" Publisher="True" Subscriber="True" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="ПризнакРесурса" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="ТипСертификата" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="Сертификат" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="ДисконтнаяКарта" Publisher="True" Subscriber="True" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="Лимит" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="True" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="ПравилоПерехода" Publisher="True" Subscriber="True" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="РезультатИнвентаризации" Publisher="False" Subscriber="False" ConflPriority="0"/>
+        <Document Name="ШаблонНалоговыхРеквизитов" Publisher="True" Subscriber="True" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="КатегорияДолжностиИлиПрофессии" Publisher="True" Subscriber="True" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="ДолжностьПрофессия" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="Брэнд" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="ВидыПлатежныхКарт" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="КБК" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="ОКАТО" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="ПериодПланирования" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="Размер" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="СтатьяУправленческогоБаланса" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="Сценарий" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="Цвет" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="ШтрихКод" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+      </Group>
+      <Group Name="УправлениеДоступом">
+        <Document Name="ДопПрава" Publisher="True" Subscriber="True" ConflPriority="0" DeleteNoReplicate="False" FilterOutNoReplicate="False" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+      </Group>
+    </Project>
+    <Project Name="Kernel">
+      <Group Name="Macroses">
+        <Document Name="Dates" Publisher="False" Subscriber="False" ConflPriority="0"/>
+      </Group>
+      <Group Name="Settings">
+        <Document Name="File" Publisher="False" Subscriber="False" ConflPriority="0"/>
+        <Document Name="CommonFile" Publisher="True" Subscriber="True" DownloadRefDocuments="True"/>
+        <Document Name="User" Publisher="True" Subscriber="True" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+        <Document Name="Role" Publisher="True" Subscriber="True" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+      </Group>
+      <Group Name="Fixed" ConflPriority="0" Publisher="False" Subscriber="False"/>
+      <Group Name="Vars">
+        <Document Name="Float" DownloadRefDocuments="True"/>
+        <Document Name="Int" DownloadRefDocuments="True"/>
+        <Document Name="String" DownloadRefDocuments="True"/>
+        <Document Name="Date" DownloadRefDocuments="True"/>
+        <Document Name="Log" DownloadRefDocuments="True"/>
+        <Document Name="Reference" DownloadRefDocuments="True"/>
+      </Group>
+      <Document Name="Счета" Publisher="True" Subscriber="True" DownloadRefDocuments="True"/>
+      <Document Name="Отчеты" Publisher="True" Subscriber="True" ConflPriority="0" Condition="ЭлементСБ" DownloadRefDocuments="True"/>
+      <Document Name="APPlans" DownloadRefDocuments="True"/>
+    </Project>
+    <Project Name="МашинаРеквизитов">
+      <Group Name="Настройки">
+        <Document Name="Функция">
+          ДатыКомпиляции-
+          <Fields Name="ЛогикаДокумента" FieldsDeleted="True"/>
+          <Fields Name="ЗаписиДляФормулМетаданных" FieldsDeleted="True"/>
+        </Document>
+      </Group>
+    </Project>
+  </Projects>
+</ReplicationTemplate>

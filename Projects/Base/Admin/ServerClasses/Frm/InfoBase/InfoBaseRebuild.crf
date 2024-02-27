@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.InfoBase.InfoBaseCustProj">
+  <Inherited>
+    <Inherited Name="TableMenu">
+      <Component Name="cmdReset" Class="Com.ComManaging.ExecProcedure" After="cmdUnmarkProj" Caption="@Admin:IBRebuild_cmdReset=Первоначальные проекты" CommandProc="cmdReset_CommandProc" IconName="Com.undo"/>
+      <Inherited Name="Separator1" After="cmdReset"/>
+    </Inherited>
+    <Inherited Name="Variables">
+      <Component Name="FldRenameDir" Class="Com.Fld.IVar" After="#0" ValueType="VarLogical"/>
+      <Inherited Name="ProcessTime" After="FldRenameDir"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="FrameName">
+          <Component Name="grpNameComment" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True">
+            <Component Name="sepComment" Class="Com.Ctrl.IStatic" FixSize="True" Width="22"/>
+            <Component Name="lblComment" Class="Com.Ctrl.IStatic" Caption="@Admin:InfoBaseRebuild_Comment=Введите новое название информационной базы или оставьте поле названия без изменений, если переименование не требуется." Multiline="True" TabStop="False" Wrap="True"/>
+          </Component>
+          <Component Name="newLineComment" Class="Com.Ctrl.INewLine"/>
+          <Inherited Name="grpBaseName" After="newLineComment">
+            <Inherited Name="lblBaseName" Width="22"/>
+            <Component Name="newLineRename" Class="Com.Ctrl.INewLine"/>
+            <Component Name="sepReanameFolder" Class="Com.Ctrl.IStatic" FixSize="True" Width="22"/>
+            <Component Name="chbRenameFolder" Class="Com.Ctrl.ICheckBox" Caption="@Admin:InfobaseRebuild_RenameFolder=Переименовать папку с информационной базой (если возможно)" Enabled="False" Field="FldRenameDir"/>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="FrameDB" Margins="0">
+          <Inherited Name="frameDataBase" AutoSize="True" Margins="8"/>
+          <Component Name="frameOptions" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="8">
+            <Component Name="boxOptions" Class="Com.Ctrl.IBox" Caption="@Admin:InfobaseRebuild_Options=Параметры">
+              <Component Name="gbOptions" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="chbForceChange" Class="Com.Ctrl.ICheckBox" Caption="@Admin:InfobaseRebuild_ForceChange=Принудительно реорганизовать все таблицы"/>
+                <Component Name="chbExternalTables" Class="Com.Ctrl.ICheckBox" Caption="@Admin:InfobaseRebuild_ExternalTables=Проверить соответствие внешних записей их описанию"/>
+                <Component Name="chbDublicates" Class="Com.Ctrl.ICheckBox" Caption="@Admin:InfobaseRebuild_Dublicates=Проверить наличие дублирующихся значений полей"/>
+                <Component Name="chbDeleteConflict" Class="Com.Ctrl.ICheckBox" Caption="@Admin:InfobaseRebuild_DeleteConflict=Помечать конфликтные записи как удалённые "/>
+                <Component Name="lblLineD" Class="Com.Ctrl.IStatic" FixSize="True" Width="10"/>
+                <Component Name="chbDisconnect" Class="Com.Ctrl.ICheckBox" Caption="@Admin:InfobaseRebuild_Disconnect=Принудительное отключение всех пользователей"/>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="FramePreview" Class="Com.Ctrl.IFrame" After="FrameDB" Caption="@Admin:InfobaseRebuild_Step4=Изменения" Margins="8">
+          <Component Name="grpPreview" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="edPreview" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CanSelect="True" CanSort="False" Enabled="False" Multiline="True" TabStop="False" VertAlignment="LeftAlign" Visible="True" Wrap="True"/>
+            <Component Name="lblPreview" Class="Com.Ctrl.IStatic" Excluded="True" Alignment="LeftAlign" CanSelect="True" Multiline="True" StaticStyle="StaticHeader" TabStop="False" VertAlignment="LeftAlign" Visible="False"/>
+          </Component>
+        </Component>
+        <Inherited Name="FrameProcess" After="FramePreview" Caption="@Admin:InfobaseRebuild_Step5=Реорганизация">
+          <Inherited Name="frameStatus">
+            <Inherited Name="grpDetail">
+              <Component Name="lineTable" Class="Com.Ctrl.INewLine"/>
+              <Component Name="lblDocum" Class="Com.Ctrl.IStatic" Caption="@Admin:InfobaseDocuments=Документов" FixSize="True" Width="30"/>
+              <Component Name="edPrDocum" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" MinWidth="20" Width="60"/>
+              <Component Name="sepDocum" Class="Com.Ctrl.IStatic" MinWidth="40" Width="60"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

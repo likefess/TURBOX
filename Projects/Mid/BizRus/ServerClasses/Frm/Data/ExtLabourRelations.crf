@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Frm.Data.LabourRelations">
+  <Inherited OnVerify="OnVerify_">
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Basic_Gr">
+          <Inherited Name="Company" CardFileClass="Bas.Tab.Data.OurCompanies" OnChange="CompanyOnChange" ShortList="True"/>
+          <Inherited Name="Person" OnChange="PersonOnChange"/>
+          <Inherited Name="EmplNumber" Required="False"/>
+        </Inherited>
+        <Component Name="Division_Gr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+          <Component Name="Division" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" Field="EdtRec.Division" HasCaption="True" Hint="Подразделение, в которое принят/переведен сотрудник" OnChange="DivisionOnChange" OnGetLookupFilter="Division_OnGetLookupFilter" OnOpenCardForm="ConfigureCardDivision" Visible="True" Wrap="True"/>
+          <Component Name="Position" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.Positions" Field="EdtRec.Position" HasCaption="True" Hint="Должность, на которую принят/переведен сотрудник" Visible="True"/>
+        </Component>
+        <Component Name="Dates_Gr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+          <Component Name="StartDate" Class="Com.Ctrl.IEdit" Field="EdtRec.StartDate" HasCaption="True" Hint="Дата начала действия текущих трудовых отношений" MaxWidth="40" OnVerify="StartDateOnVerify" Visible="True"/>
+          <Component Name="ExpirationDate" Class="Com.Ctrl.IEdit" Field="EdtRec.ExpirationDate" HasCaption="True" Hint="Дата окончания действия текущих трудовых отношений" MaxWidth="40" OnVerify="ExpirationDateOnVerify" Visible="True"/>
+        </Component>
+        <Component Name="MPP_Gr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+          <Component Name="MPP" Class="Com.Ctrl.ICheckBox" Field="EdtRec.MPP" FixSize="True" HasCaption="True" Hint="Сотрудник является материально-ответственным лицом " Visible="True" Width="25"/>
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+          <Component Name="Cashier" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Cashier" FixSize="True" HasCaption="True" Hint="Сотрудник является кассиром" Visible="True" Width="25"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

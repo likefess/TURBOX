@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.CustomList">
+  <Inherited>
+    <Inherited Name="TableMenu" Excluded="False">
+      <Component Name="cmdInsertItem" Class="Com.ComManaging.ExecProcedure" After="TableSeparator1" Caption="@Form:AddButton=Добавить" CommandProc="cmdInsertItem_CommandProc" IconName="Com.AddItem"/>
+      <Component Name="cmdEditItem" Class="Com.ComManaging.ExecProcedure" Caption="@Form:EditButton=Редактировать" CommandProc="cmdEditItem_CommandProc" IconName="Com.EditItem"/>
+      <Component Name="cmdDeleteItem" Class="Com.ComManaging.ExecProcedure" Caption="@Form:DeleteButton=Удалить" CommandProc="cmdDeleteItem_CommandProc" Enabled="False" IconName="Com.DeleteItem"/>
+      <Inherited Name="cmdCopyValue" After="cmdDeleteItem"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ButtonAddItem" Class="Com.Ctrl.IButton" After="#0" Caption="@Form:AddButton=Добавить" Command="cmdInsertItem" ImageName="Com.AddItem"/>
+        <Component Name="ButtonEditItem" Class="Com.Ctrl.IButton" Caption="@Form:EditButton=Редактировать" Command="cmdEditItem" ImageName="Com.EditItem"/>
+        <Inherited Name="ButtonOK" After="ButtonEditItem"/>
+        <Component Name="ButtonDeleteItem" Class="Com.Ctrl.IButton" After="ButtonRefresh" Caption="@Form:DeleteButton=Удалить" Command="cmdDeleteItem" Enabled="False" ImageName="Com.DeleteItem"/>
+        <Component Name="ButtonAuthSetting" Class="Com.Ctrl.IButton" Caption="@Admin:AuthServerSetting=Настройка сервера авторизации" ImageName="Com.Settings_" OnClick="ButtonAuthSetting_OnClick"/>
+        <Inherited Name="ButtonHelp" After="ButtonAuthSetting"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="frameData" OnMove="TableData_OnMove">
+          <Inherited Name="TableData" Adaptive="True" CanDelete="True" OnDrawIcon="TableData_OnDrawIcon" PopupMenu="TableMenu" ShowIcon="True">
+            <Component Name="edName" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Admin:UserName=Имя" Enabled="False" MaxWidth="100" MinWidth="20" OnClick="User_OnClick" ValueType="VarString" Width="60"/>
+            <Component Name="chbEnabled" Class="Com.Ctrl.ICheckBox" Caption="@Admin:ItemEnabled=Разрешён" Enabled="True" MaxWidth="32" MinWidth="20" Width="24"/>
+            <Component Name="edDescription" Class="Com.Ctrl.IEdit" Caption="@Admin:UserDescription=Описание" Enabled="False" MaxWidth="200" MinWidth="40" OnClick="User_OnClick" ValueType="VarString" Width="120"/>
+            <Component Name="edSID" Class="Com.Ctrl.IEdit" Caption="@Admin:UserSID=SID" Enabled="False" MaxWidth="100" MinWidth="20" OnClick="User_OnClick" ValueType="VarString" Width="100"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

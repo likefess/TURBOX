@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IReportForm">
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    </Component>
+    <Component Name="Variables" Class="Com.IVarContainer"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader">
+        <Component Name="ButtonFromRpt" Class="Com.Ctrl.IButton" Caption="@Rep:GetFromReport=Заполнить из отчёта" OnClick="ButtonFromRpt_OnClick" Visible="False"/>
+        <Component Name="ButtonRefresh" Class="Com.Ctrl.IButton" Caption="@Cmd:Refresh=Обновить" Command="Commands.RefreshForm" ImageName="Refresh" OnClick="ButtonRefresh_OnClick"/>
+        <Component Name="ButtonSetup" Class="Com.Ctrl.IButton" Caption="@Cmd:Setup=Настройки" ImageName="Setup" OnClick="ButtonSetup_OnClick"/>
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Caption="@Cmd:Close=Закрыть" Command="Commands.CloseForm" ImageName="Close" OnClick="ButtonClose_OnClick"/>
+        <Component Name="ButtonPrint" Class="Com.Ctrl.IButton" Caption="@Cmd:Print=Печать" Command="Commands.Print" ImageName="Print" OnClick="ButtonPrint_OnClick"/>
+        <Component Name="ButtonExport" Class="Com.Ctrl.IButton" Caption="@Cmd:Export=Экспорт" Command="Commands.ExportCmd" ImageName="ExportRec" OnClick="ButtonExport_OnClick" Visible="False"/>
+        <Component Name="ButtonHelp" Class="Com.Ctrl.IButton" Caption="@Cmd:Help=Помощь" Command="Commands.Help" ImageName="Help" OnClick="ButtonHelp_OnClick"/>
+      </Component>
+      <Component Name="MainFrame" Class="Com.Ctrl.IFrame">
+        <Component Name="DateFrame" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+        <Component Name="ParamFrame" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@Rep:Params=Параметры отчета" Printed="False" Visible="False"/>
+        <Component Name="SubheadFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Visible="False">
+          <Component Name="SubheadGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="SubheadCtrl" Class="Com.Ctrl.IStatic"/>
+          </Component>
+        </Component>
+        <Component Name="ReportFRame" Class="Com.Ctrl.IReportFrame" Margins="8"/>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

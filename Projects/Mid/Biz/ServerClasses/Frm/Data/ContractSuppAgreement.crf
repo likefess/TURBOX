@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Frm.Data.ContractBase">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Biz.Rec.Data.ContractSuppAgreement" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" Visible="False"/>
+        <Component Name="RegistrationGroup" Class="Com.Ctrl.IGroup" After="Group1" Adaptive="True" ByColumn="False" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+          <Component Name="RegisterNumber" Class="Com.Ctrl.IEdit" Caption="@SuppAgreement:ReqisterName=Номер" Field="EdtRec.PrintedNumber" HasCaption="True"/>
+          <Component Name="RegisterNumberBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+          <Component Name="RegistrationDate" Class="Com.Ctrl.IEdit" Field="EdtRec.RegistrationDate" HasCaption="True"/>
+          <Component Name="RegistrationDateBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+        </Component>
+        <Inherited Name="ContractSubjectGroup">
+          <Inherited Name="ContractSubject" Caption="@ContractSuppAgreement:Subject=Предмет соглашения"/>
+          <Component Name="Status" Class="Com.Ctrl.IEdit" Caption="@ContractSuppAgreement:Status=Статус" CardFileClass="Biz.Tab.Ref.ContractStatus" CellFormat="ReferenceFormat" Field="EdtRec.Status" HasCaption="True" LookupField="Name" ShortList="True"/>
+          <Component Name="StatusBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="GeneralBox">
+            <Inherited Name="MainTabGroup">
+              <Inherited Name="PeriodGroup">
+                <Inherited Name="PeriodLeftGroup">
+                  <Inherited Name="StartDateGroup">
+                    <Inherited Name="StartDate" Required="True"/>
+                  </Inherited>
+                </Inherited>
+                <Inherited Name="PeriodRightGroup">
+                  <Inherited Name="ExpirationDateGroup">
+                    <Inherited Name="ExpirationDateEdit" Required="True"/>
+                    <Component Name="ExpirationDateEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                  </Inherited>
+                </Inherited>
+              </Inherited>
+              <Component Name="ChangeContractPeriodGroup" Class="Com.Ctrl.IGroup" After="PeriodGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="ChangeContractPeriodLeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="ChangeContractPeriodLeftGroup2" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+                    <Component Name="ChangeContractPeriodStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+                    <Component Name="ChangeContractPeriod" Class="Com.Ctrl.ICheckBox" Caption="@ContractSuppAgreement:ChangeContractPeriod=Изменяет период действия договора" Field="EdtRec.ChangeContractPeriod" HasCaption="True" OnChange="ChangeContractPeriod_OnChange"/>
+                    <Component Name="ChangeContractPeriodBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                  </Component>
+                </Component>
+                <Component Name="NewExpDateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="NewExpDateGroup2" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+                    <Component Name="NewExpDateEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.NewExpirationDate" HasCaption="True"/>
+                    <Component Name="NewExpDateBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                  </Component>
+                </Component>
+              </Component>
+              <Component Name="ChangeContractPeriodIndefiniteGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="ChangeContractPeriodIndefiniteStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+                <Component Name="ChangeContractPeriodIndefinite" Class="Com.Ctrl.ICheckBox" Caption="@ContractSuppAgreement:ChangeContractPeriod=Изменяет период действия договора" Field="EdtRec.ChangeContractPeriod" HasCaption="True" OnChange="ChangeContractPeriod_OnChange"/>
+                <Component Name="ChangeContractPeriodIndefiniteBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="ContractPeriodGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="ProlongationGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="ProlongationGroup2" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+                    <Component Name="ProlongationStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+                    <Component Name="ProlongationEdit" Class="Com.Ctrl.ICheckBox" Caption="@Contract:ProlongationEdit=Автоматически продлевать" Field="EdtRec.Prolongation" HasCaption="True"/>
+                    <Component Name="ProlongationEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                  </Component>
+                </Component>
+                <Component Name="ProlongationMonthsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="ProlongationMonthsGroup2" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+                    <Component Name="ProlongationMonthsEdit" Class="Com.Ctrl.IEdit" Caption="@Contract:ProlongationMonthsEdit=На" Field="EdtRec.ProlongationMonths" HasCaption="True" OnEnter="ProlongationMonthsEdit_OnEnter" OnOutput="ProlongationMonthsEdit_OnOutput"/>
+                    <Component Name="ProlongationMonthsBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                  </Component>
+                </Component>
+              </Component>
+              <Component Name="IndefiniteGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="IndefiniteStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+                <Component Name="IndefiniteEdit" Class="Com.Ctrl.ICheckBox" Caption="@Contract:IndefiniteEdit=Бесcрочный договор" Field="EdtRec.Indefinite" HasCaption="True" OnChange="IndefiniteEdit_OnChange"/>
+                <Component Name="IndefiniteBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Inherited Name="SpecificationGroup">
+                <Inherited Name="AmountBySpecGroup">
+                  <Inherited Name="AmountBySpecGroup2">
+                    <Inherited Name="AmountBySpec" Enabled="False"/>
+                  </Inherited>
+                </Inherited>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="ContractSumsBox" Caption="@SuppAgreement:ContractSumsBox=Сумма дополнительного соглашения">
+            <Component Name="SuppAgrreementSumTypeFRame" Class="Com.Ctrl.IFrame" After="#0">
+              <Component Name="SumTypeEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="50" MaxWidth="150">
+                <Component Name="SumTypeEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.SumType" HasCaption="True" ListAsString="Заменяет сумму договора|0;Уменьшает или увеличивает сумму договора|1" ShortList="True" ValueType="VarInteger"/>
+                <Component Name="SumTypeEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+            </Component>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

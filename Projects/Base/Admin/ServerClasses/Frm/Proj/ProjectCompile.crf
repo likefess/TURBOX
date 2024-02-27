@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.CustomMasterBG">
+  <Inherited FormIcon="Com.Compile">
+    <Inherited Name="Variables">
+      <Component Name="FldBuildClass" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldSubProject" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldSign" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldCheck" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="FrameArchive" Excluded="True"/>
+        <Component Name="FrameParameters" Class="Com.Ctrl.IFrame" After="FrameArchive" Caption="@Admin:ProjectCompile_Step1=Параметры">
+          <Component Name="grpParameters" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="chbBuildClass" Class="Com.Ctrl.ICheckBox" Caption="@Admin:ProjectCompile_OptBuild=Компилировать все классы" Field="FldBuildClass"/>
+            <Component Name="chbSubProject" Class="Com.Ctrl.ICheckBox" Caption="@Admin:ProjectCompile_OptAll=Компилировать с подпроектами" Field="FldSubProject"/>
+            <Component Name="chbSign" Class="Com.Ctrl.ICheckBox" Caption="@Admin:ProjectCompile_OptSign=Подписывать" Field="FldSign"/>
+            <Component Name="chbCheck" Class="Com.Ctrl.ICheckBox" Caption="@Admin:ProjectCompile_OptCheck=Проверять ресурсы" Field="FldCheck" OnChange="chbCheck_OnChange"/>
+          </Component>
+        </Component>
+        <Inherited Name="FrameProcess" After="FrameParameters" Caption="@Admin:ProjectCompile_Step2=Компиляция">
+          <Inherited Name="frameStatus">
+            <Inherited Name="grpStatus">
+              <Inherited Name="lblStatus" Width="40"/>
+            </Inherited>
+            <Component Name="grpDetail" Class="Com.Ctrl.IGroup" After="grpStatus" Adaptive="True" ByColumn="False" Printed="False">
+              <Component Name="lblProject" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="@Admin:ProjectCompile_Project=Проект" FixSize="True" Multiline="False" Width="40" Wrap="False"/>
+              <Component Name="edtProject" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" MinWidth="20" Width="60"/>
+              <Component Name="sepProject" Class="Com.Ctrl.IStatic" MinWidth="40" Width="60"/>
+              <Component Name="lineProject" Class="Com.Ctrl.INewLine"/>
+              <Component Name="lblClasses" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="@Admin:ProjectCompile_Classes=Классов" FixSize="True" Multiline="False" Width="40" Wrap="False"/>
+              <Component Name="edtClasses" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" MinWidth="20" Width="60"/>
+              <Component Name="sepClasses" Class="Com.Ctrl.IStatic" MinWidth="40" Width="60"/>
+              <Component Name="lineClasses" Class="Com.Ctrl.INewLine"/>
+              <Component Name="lblCodeRows" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="@Admin:ProjectCompile_CodeRows=Строк" FixSize="True" Multiline="False" Width="40" Wrap="False"/>
+              <Component Name="edtCodeRows" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" MinWidth="20" Width="60"/>
+              <Component Name="sepCodeRows" Class="Com.Ctrl.IStatic" MinWidth="40" Width="60"/>
+              <Component Name="lineCodeRows" Class="Com.Ctrl.INewLine"/>
+              <Component Name="lblWarnings" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="@Admin:ProjectCompile_Warnings=Предупреждений" FixSize="True" Multiline="False" Width="40" Wrap="False"/>
+              <Component Name="edtWarnings" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" MinWidth="20" Width="60"/>
+              <Component Name="sepWarnings" Class="Com.Ctrl.IStatic" MinWidth="40" Width="60"/>
+              <Component Name="lineWarnings" Class="Com.Ctrl.INewLine" Excluded="True"/>
+            </Component>
+            <Inherited Name="grpTime" After="grpDetail">
+              <Inherited Name="lblTime" Width="40"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

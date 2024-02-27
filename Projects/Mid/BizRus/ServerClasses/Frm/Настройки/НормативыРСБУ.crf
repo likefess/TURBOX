@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited WindowStyle="AutoDetect">
+    <Component Name="Норматив" Class="BizRus.Frm.Настройки.НормативыРСБУ_структура" IsLibrary="1" After="#0"/>
+    <Inherited Name="Variables">
+      <Component Name="Нормативы" Class="Com.ISubtable" StructClass="BizRus.Frm.Настройки.НормативыРСБУ_структура" Visible="True"/>
+      <Component Name="Значения" Class="Com.ISubtable" StructClass="BizRus.Frm.Настройки.НормативыРСБУ_структура" Visible="True"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame" Orientation="Vertical" Visible="True">
+        <Component Name="фрНормативы" Class="Com.Ctrl.IFrame" AutoSize="True" CanHideBySplit="False" CanResizeBySplit="True" Caption="@Нормативы" HasCaption="True" Sortable="False" SplitterAtRight="True" Subtable="Нормативы" UseSplitter="True" Visible="True"/>
+        <Component Name="фрЗначения" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Horizontal" ScrollerStyle="ScrollerVert" ShowTabs="True" UseSplitter="False">
+          <Component Name="фрЗначенияЗаголовок" Class="Com.Ctrl.IFrame" AutoSize="True" HasCaption="False">
+            <Component Name="грЗаголовок" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="ЗаголовокНорматива" Class="Com.Ctrl.IStatic" Caption="Значения норматива" FontSize="12" Width="150"/>
+            </Component>
+          </Component>
+          <Component Name="фрЗначенияНорматива" Class="Com.Ctrl.IFrame" Caption="@Описание нормативов" HasCaption="False" Subtable="Значения" Visible="True"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab" CanResizeBySplit="True" Orientation="Vertical" SplitterAtRight="True" UseSplitter="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICardForm">
+  <Inherited Caption="@ClassName:FieldsObjectStruct=Поля структуры объекта">
+    <Inherited Name="Current" Class="Integration.Rec.FieldObjectStruct" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Visible="True">
+          <Inherited Name="CardTree" GroupField="Name" ShowRecords="True" Visible="True"/>
+        </Inherited>
+        <Inherited Name="FrameCardFile">
+          <Component Name="TableOwner" Class="Com.Ctrl.IEdit" Field="Current.TableOwner" LookupField="Name"/>
+          <Component Name="Name" Class="Com.Ctrl.IEdit" Field="Current.Name"/>
+          <Component Name="FieldDescriptor" Class="Com.Ctrl.IEdit" Field="Current.FieldDescriptor"/>
+          <Component Name="FieldType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Current.FieldType" ListAsString="@DataType:Unknown=Неизвестный|0;@DataType:String=Строка|1;@DataType:Integer=Целое|2;@Datatype:Numeric=Числовой|3;@DataType:Logical=Логический|4;@DataType:Date=Дата|5;@DataType:Object=Объект|6"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IEditor" HelpContext="Стандарт.СтруктураБизнеса.ТипыРеквизитов.РедактированиеПериодическогоПоля">
+    <Component Name="EdtRec" Class="CMP.Rec.Properties.IPeriodicalField" IsLibrary="1"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" Margins="5">
+      <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+        <Component Name="EditDocField" Class="Com.Ctrl.IEdit" Caption="@CMP:PeriodicalFieldDocField=Поле" Field="EdtRec.FieldName" HasButton="True" OnChange="EditDocField_OnChange" OnLookup="EditDocField_OnLookup"/>
+        <Component Name="EditDateField" Class="Com.Ctrl.IEdit" Caption="@CMP:PeriodicalFieldDateField=Дата редактирования" Field="EdtRec.DateField" HasButton="True" OnGetLookupFilter="EditDateField_OnGetLookupFilter"/>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

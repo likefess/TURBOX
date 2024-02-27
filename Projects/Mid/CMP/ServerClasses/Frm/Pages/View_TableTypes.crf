@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CMP.Frm.Pages.Page">
+  <Inherited HelpContext="Настройка.СтруктураБизнеса.ТипыПредставлений.Документ.НастройкаДокумента.ТипДвижения">
+    <Inherited Name="EdtRec" Class="CMP.Rec.Views.IDocument" IsLibrary="1"/>
+    <Component Name="SettingsStruct" Class="CMP.Rec.Views.IDocument_TableType" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="RootFrame">
+      <Component Name="BoxTableTypes" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@CMP:ViesDocumentTableTypes=Типы движений" Margins="4">
+        <Component Name="Table" Class="Com.Ctrl.ITable" Adaptive="True" IconName="Com.Settings" Numbering="False" OnChangePosition="TableOnChangePosition" OnClickIcon="TableOnClickIcon" OnDelete="TableOnDelete" OnInsert="TableOnInsert" ShowIcon="True" Subtable="EdtRec.TableTypes">
+          <Component Name="MovingType" Class="Com.Ctrl.IEdit" Field="SettingsStruct.MovingType" LookupField="Code" OnChange="MovingOnChange"/>
+          <Component Name="CaptionEdit" Class="Com.Ctrl.IEdit" Field="SettingsStruct.Caption" OnChange="CaptionOnChange"/>
+        </Component>
+      </Component>
+      <Component Name="BoxesFrame" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.CustomMaster">
+  <Inherited>
+    <Component Name="ProjectAddStruct" Class="Admin.Frm.Proj.ProjAdd_Struct" IsLibrary="1" After="#0"/>
+    <Inherited Name="TableMenu">
+      <Component Name="cmdMarkProj" Class="Com.ComManaging.ExecProcedure" After="TableSeparator1" Caption="@Admin:MarkAll=Выделить всё" CommandProc="cmdMarkProj_CommandProc" IconName="Admin.check"/>
+      <Component Name="cmdUnmarkProj" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:UnmarkAll=Очистить всё" CommandProc="cmdUnmarkProj_CommandProc" IconName="Admin.uncheck"/>
+      <Inherited Name="cmdFolderOpen" Excluded="True"/>
+      <Inherited Name="cmdFolderCreate" Excluded="True"/>
+      <Inherited Name="cmdDelete" Excluded="True"/>
+      <Inherited Name="cmdRename" Excluded="True"/>
+    </Inherited>
+    <Inherited Name="Variables">
+      <Inherited Name="subTblArchive" StructClass="Admin.Frm.Proj.ProjAdd_Struct"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="FrameArchive" Caption="@Admin:ProjAdd_Step1=Проекты">
+          <Inherited Name="frameTable">
+            <Inherited Name="tblArchive">
+              <Inherited Name="edName" Caption="@Admin:ProjectListName=Проект" Field="ProjectAddStruct.Name" MaxWidth="80" Width="40"/>
+              <Component Name="edFolder" Class="Com.Ctrl.IEdit" After="edName" Caption="@Admin:ProjectAddFolder=Каталог" Enabled="False" Field="ProjectAddStruct.Folder" MaxWidth="150" MinWidth="30" OnOutputEx="edFolder_OnOutputEx" Width="60"/>
+              <Component Name="chbSelected" Class="Com.Ctrl.ICheckBox" Caption="@Admin:Selected=Выбран" Enabled="True" Field="ProjectAddStruct.Selected" FixSize="True" OnChange="chbSelected_OnChange" Width="20"/>
+              <Inherited Name="edSize" Excluded="True"/>
+              <Inherited Name="edDateTime" Excluded="True"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="FrameProcess" Caption="@Admin:ProjAdd_Step2=Добавление">
+          <Inherited Name="frameStatus">
+            <Component Name="grpDetail" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="lblProjects" Class="Com.Ctrl.IStatic" Caption="@Admin:ProjAddCount=Проектов" FixSize="True" Width="30"/>
+              <Component Name="edProjects" Class="Com.Ctrl.IEdit" Enabled="False" MinWidth="40" Width="60"/>
+              <Component Name="sepProjects" Class="Com.Ctrl.IStatic" MinWidth="40" Width="60"/>
+            </Component>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CMP.Frm.StructEditor.Abstract">
+  <Inherited>
+    <Inherited Name="FStruct" Class="CMP.Rec.Views.IObjectsList_Columns" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="MainGroup">
+          <Component Name="FStructProperty" Class="Com.Ctrl.IEdit" Field="FStruct.Property" OnChange="FStructPropertyOnChange" OnGetLookupFilter="FStructProperty_OnGetLookupFilter"/>
+          <Component Name="FStructCaption" Class="Com.Ctrl.IEdit" Field="FStruct.Caption"/>
+          <Component Name="FStructVisibilityCondition" Class="CMP.Ctrl.IFormulaEdit" Field="FStruct.VisibilityCondition" ProcType="FRecord.ProcType" Subtable="FStruct.ConditionRecords"/>
+          <Component Name="MainGroup1" Class="Com.Ctrl.IGroup" Adaptive="True" HasCaption="True">
+            <Component Name="FStructWidth" Class="Com.Ctrl.IEdit" Field="FStruct.Width"/>
+            <Component Name="FStructAlignment" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="FStruct.Alignment"/>
+          </Component>
+          <Component Name="FStructLookupFieldSave" Class="Com.Ctrl.IEdit" Field="FStruct.LookupFieldSave"/>
+          <Component Name="FStructOutputFormatSave" Class="Com.Ctrl.IEdit" Field="FStruct.OutputFormatSave"/>
+          <Component Name="FStructSort" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="FStruct.Sort"/>
+        </Inherited>
+        <Component Name="MainFlagGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+          <Component Name="MainFlagGroup1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" FixSize="True" Width="40">
+            <Component Name="MainFlagStrut" Class="Com.Ctrl.IStatic"/>
+          </Component>
+          <Component Name="MainFlagGroup2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="FStructSortBan" Class="Com.Ctrl.ICheckBox" Field="FStruct.SortBan"/>
+          </Component>
+          <Component Name="MainFlagGroup3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="FStructCanDesignate" Class="Com.Ctrl.ICheckBox" Field="FStruct.CanDesignate"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

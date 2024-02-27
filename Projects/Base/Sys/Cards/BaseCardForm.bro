@@ -1,0 +1,16 @@
+﻿[Options]
+Version=7
+Query=Record
+Hierarchical=1
+OnMove=Card_OnMove
+OnOpenBlank=Card_OnOpenBlank
+OnClick=Card_OnClick
+OnRearrange=Card_OnRearrange
+ColumnCount=0
+TreeVisible=1
+TreeWidth=196
+SubTableWidth=0
+SubTableHeight=0
+SubTableAlign=0
+TemplateVisible=0
+TemplateWidth=153

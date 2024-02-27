@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Services.Calculator.IBlankCalculator">
+  <Inherited Caption="@Cmd:Calculator=Калькулятор" WindowStyle="BlockedWindow">
+    <Component Name="Variables" Class="Com.IVarContainer" After="#0">
+      <Component Name="Var2" Class="Com.Fld.IVar" ValueType="VarVariant"/>
+      <Component Name="Var1" Class="Com.Fld.IVar" ValueType="VarVariant"/>
+    </Component>
+    <Inherited Name="RootFrame" AutoSize="True" ScrollerStyle="ScrollerNone">
+      <Inherited Name="FieldsFrame" Orientation="Vertical" Proportion="1" ScrollerStyle="ScrollerNone">
+        <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="114">
+          <Component Name="InputScreen" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" AutocompleteOn="True" ButtonStyle="ComboButton" Field="Var1" FontName="Arial" FontSize="9" Multiline="False" OnChange="InputScreenOnChange" TabStop="False" ValueType="VarString" Wrap="False"/>
+          <Component Name="OutputScreen" Class="Com.Ctrl.IEditEx" Alignment="LeftAlign" Field="Var2" FontName="Arial" FontSize="9" ValueType="VarVariant" Width="18">
+            <Component Name="Static25" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="=" Width="5"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Component Name="Buttons" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="5">
+        <Component Name="Button7" Class="Com.Ctrl.IButton" Caption="7" FontName="Arial" FontSize="9" OnClick="ButtonNumberOnClick" Width="12"/>
+        <Component Name="Static1" Class="Com.Ctrl.IStatic" Width="2"/>
+        <Component Name="Button8" Class="Com.Ctrl.IButton" Caption="8" FontName="Arial" FontSize="9" OnClick="ButtonNumberOnClick" Width="12"/>
+        <Component Name="Static2" Class="Com.Ctrl.IStatic" Width="2"/>
+        <Component Name="Button9" Class="Com.Ctrl.IButton" Caption="9" FontName="Arial" FontSize="8" OnClick="ButtonNumberOnClick" Width="12"/>
+        <Component Name="Static3" Class="Com.Ctrl.IStatic" Width="4"/>
+        <Component Name="Button10" Class="Com.Ctrl.IButton" Caption="&lt;-" FontName="Arial" FontSize="8" OnClick="Button10OnClick" Width="12"/>
+        <Component Name="Static10" Class="Com.Ctrl.IStatic" Width="2"/>
+        <Component Name="Button11" Class="Com.Ctrl.IButton" Caption="@Dlgs:Clear=Очистить" FontSize="8" Hint="@Dlgs:ResetCalcResults=Обнуление результатов вычисления" OnClick="Button11OnClick" Width="26"/>
+        <Component Name="Static22" Class="Com.Ctrl.IStatic" Width="4"/>
+        <Component Name="ListButtonPrecission" Class="Com.Ctrl.IListButton" Caption="@Dlgs:Precission=Точность" FontName="Arial" FontSize="9" Visible="True" Width="26">
+          <Component Name="ButtonPrecissionMax" Class="Com.Ctrl.IButton" Caption="@Dlgs:PrecissionMax=Максимальная" OnClick="ButtonPrecissionMaxOnClick"/>
+          <Component Name="ButtonPrecission2" Class="Com.Ctrl.IButton" Caption="@Dlgs:PrecissionTwo=2 знака" OnClick="ButtonPrecission2OnClick"/>
+          <Component Name="ButtonPrecission4" Class="Com.Ctrl.IButton" Caption="@Dlgs:PrecissionFour=4 знака" OnClick="ButtonPrecission4OnClick"/>
+          <Component Name="ButtonPrecission" Class="Com.Ctrl.IButton" Caption="@Dlgs:PrecissionOther=Другая..." OnClick="ButtonPrecissionOnClick"/>
+          <Component Name="ButtonHex" Class="Com.Ctrl.IButton" Caption="@Dlgs:Hexadecimal=Шестнадцатеричный" OnClick="ButtonHexOnClick"/>
+        </Component>
+        <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+        <Component Name="Button4" Class="Com.Ctrl.IButton" Caption="4" FontName="Arial" FontSize="9" OnClick="ButtonNumberOnClick" Width="12"/>
+        <Component Name="Static4" Class="Com.Ctrl.IStatic" Width="2"/>
+        <Component Name="Button5" Class="Com.Ctrl.IButton" Caption="5" FontName="Arial" FontSize="9" OnClick="ButtonNumberOnClick" Width="12"/>
+        <Component Name="Static5" Class="Com.Ctrl.IStatic" Width="2"/>
+        <Component Name="Button6" Class="Com.Ctrl.IButton" Caption="6" FontName="Arial" FontSize="9" OnClick="ButtonNumberOnClick" Width="12"/>
+        <Component Name="Static6" Class="Com.Ctrl.IStatic" Width="4"/>
+        <Component Name="Button12" Class="Com.Ctrl.IButton" Caption="*" FontName="Arial" FontSize="9" OnClick="ButtonSymbolOnClick" Width="12"/>
+        <Component Name="Static11" Class="Com.Ctrl.IStatic" Width="2"/>
+        <Component Name="Button13" Class="Com.Ctrl.IButton" Caption="/" FontName="Arial" FontSize="9" OnClick="ButtonSymbolOnClick" Width="12"/>
+        <Component Name="Static12" Class="Com.Ctrl.IStatic" Width="2"/>
+        <Component Name="Button14" Class="Com.Ctrl.IButton" Caption="(" FontName="Arial" FontSize="9" OnClick="ButtonSymbolOnClick" Width="12"/>
+        <Component Name="Static20" Class="Com.Ctrl.IStatic" Width="4"/>
+        <Component Name="Button23" Class="Com.Ctrl.IButton" Caption="@Dlgs:Select=Выбор" FontSize="8" Hint="@Dlgs:InputData=Ввод данных" OnClick="Button23OnClick" Width="26"/>
+        <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+        <Component Name="Button1" Class="Com.Ctrl.IButton" Caption="1" FontName="Arial" FontSize="9" OnClick="ButtonNumberOnClick" Width="12"/>
+        <Component Name="Static9" Class="Com.Ctrl.IStatic" Width="2"/>
+        <Component Name="Button2" Class="Com.Ctrl.IButton" Caption="2" FontName="Arial" FontSize="9" OnClick="ButtonNumberOnClick" Width="12"/>
+        <Component Name="Static8" Class="Com.Ctrl.IStatic" Width="2"/>
+        <Component Name="Button3" Class="Com.Ctrl.IButton" Caption="3" FontName="Arial" FontSize="9" OnClick="ButtonNumberOnClick" Width="12"/>
+        <Component Name="Static7" Class="Com.Ctrl.IStatic" Width="4"/>
+        <Component Name="Button15" Class="Com.Ctrl.IButton" Caption="+" FontName="Arial" FontSize="9" OnClick="ButtonSymbolOnClick" Width="12"/>
+        <Component Name="Static13" Class="Com.Ctrl.IStatic" Width="2"/>
+        <Component Name="Button16" Class="Com.Ctrl.IButton" Caption="-" FontName="Arial" FontSize="9" OnClick="ButtonSymbolOnClick" Width="12"/>
+        <Component Name="Static14" Class="Com.Ctrl.IStatic" Width="2"/>
+        <Component Name="Button17" Class="Com.Ctrl.IButton" Caption=")" FontName="Arial" FontSize="9" OnClick="ButtonSymbolOnClick" Width="12"/>
+        <Component Name="Static21" Class="Com.Ctrl.IStatic" Width="4"/>
+        <Component Name="Button24" Class="Com.Ctrl.IButton" Caption="@Dlgs:Cancel=Отмена" FontSize="8" Hint="@Dlgs:Cancel=Отмена" OnClick="Button24OnClick" Width="26"/>
+        <Component Name="NewLine3" Class="Com.Ctrl.INewLine"/>
+        <Component Name="Button0" Class="Com.Ctrl.IButton" Caption="0" FontName="Arial" FontSize="9" OnClick="ButtonNumberOnClick" Width="26"/>
+        <Component Name="Static15" Class="Com.Ctrl.IStatic" Width="2"/>
+        <Component Name="Button19" Class="Com.Ctrl.IButton" Caption="." FontName="Arial" FontSize="9" OnClick="ButtonSymbolOnClick" Width="12"/>
+        <Component Name="Static16" Class="Com.Ctrl.IStatic" Width="4"/>
+        <Component Name="Button20" Class="Com.Ctrl.IButton" Caption="=" FontName="Arial" FontSize="9" OnClick="Button20OnClick" Width="26"/>
+        <Component Name="Static17" Class="Com.Ctrl.IStatic" Width="2"/>
+        <Component Name="Button21" Class="Com.Ctrl.IButton" Caption="%" FontName="Arial" FontSize="9" OnClick="ButtonSymbolOnClick" Width="12"/>
+        <Component Name="Static18" Class="Com.Ctrl.IStatic" Width="4"/>
+        <Component Name="Button22" Class="Com.Ctrl.IButton" Caption="@Cmd:Help=Помощь" FontSize="8" OnClick="Button22OnClick" Width="26"/>
+        <Component Name="Static19" Class="Com.Ctrl.IStatic" Width="2"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

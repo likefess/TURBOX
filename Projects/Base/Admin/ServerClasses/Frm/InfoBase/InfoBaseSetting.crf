@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.Setting.CustomSetting">
+  <Inherited>
+    <Inherited Name="TableMenu" Excluded="False">
+      <Component Name="cmdServerAdd" Class="Com.ComManaging.ExecProcedure" After="TableSeparator2" Caption="@Admin:IBSetting_ServerAdd=Добавить сервер" CommandProc="cmdServerAdd_CommandProc" IconName="Com.InsertObj"/>
+      <Component Name="cmdServerDelete" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:IBSetting_ServerDelete=Удалить сервер" CommandProc="cmdServerDelete_CommandProc" IconName="Com.DeleteObj"/>
+      <Inherited Name="cmdInsertRow" Excluded="True" After="cmdServerDelete"/>
+      <Inherited Name="cmdDeleteRow" Excluded="True"/>
+      <Inherited Name="cmdRowUp" Excluded="True"/>
+      <Inherited Name="cmdRowDown" Excluded="True"/>
+    </Inherited>
+    <Component Name="CalcServerStruct" Class="Admin.Frm.InfoBase.IBCalcServer_Struct" IsLibrary="1" After="TableMenu"/>
+    <Inherited Name="Libraries" After="CalcServerStruct"/>
+    <Inherited Name="Variables">
+      <Component Name="subTblCalcServer" Class="Com.ISubtable" StructClass="Admin.Frm.InfoBase.IBCalcServer_Struct"/>
+      <Component Name="FldTurboAuth" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldWindowsAuth" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldSSOAuth" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldSAMLAuth" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldCheckBySID" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldUnicode" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldRunScript" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldDocID64" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldMakeLog" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame" Visible="False"/>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab" Excluded="False">
+          <Component Name="grpUserAuth" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="lblAuth" Class="Com.Ctrl.IStatic" Caption="@Admin:UserAuth_Title=Аутентификация"/>
+            <Component Name="lineUATitle" Class="Com.Ctrl.INewLine"/>
+            <Component Name="sepUA1" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+            <Component Name="chbTurboAuth" Class="Com.Ctrl.ICheckBox" Caption="@Admin:UserAuth_TurboAuth=Пользователи Турбо" Field="FldTurboAuth"/>
+            <Component Name="lineUA1" Class="Com.Ctrl.INewLine"/>
+            <Component Name="sepUA2" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+            <Component Name="chbWindowsAuth" Class="Com.Ctrl.ICheckBox" Caption="@Admin:UserAuth_WindowsAuth=Пользователи Windows" Field="FldWindowsAuth"/>
+            <Component Name="lineUA2" Class="Com.Ctrl.INewLine"/>
+            <Component Name="sepUA3" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+            <Component Name="chbSSOAuth" Class="Com.Ctrl.ICheckBox" Caption="@Admin:UserAuth_SSOAuth=Без ввода пароля (Single Sign-On)" Field="FldSSOAuth"/>
+            <Component Name="lineUA3" Class="Com.Ctrl.INewLine"/>
+            <Component Name="sepUA4" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+            <Component Name="chbSAMLAuth" Class="Com.Ctrl.ICheckBox" Caption="@Admin:UserAuth_SAMLAuth=Через Internet (SAML)" Field="FldSAMLAuth"/>
+            <Component Name="lineUA4" Class="Com.Ctrl.INewLine"/>
+          </Component>
+          <Component Name="grpOther" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="lblOther" Class="Com.Ctrl.IStatic" Caption="@Admin:IBSetting_OtherTitle=Прочее"/>
+            <Component Name="lineOthTitle" Class="Com.Ctrl.INewLine"/>
+            <Component Name="sepOth1" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+            <Component Name="chbUserCheckBySID" Class="Com.Ctrl.ICheckBox" Caption="@Admin:IBSetting_CheckBySID=Использовать SID для идентификации пользователей" Field="FldCheckBySID"/>
+            <Component Name="lineOth1" Class="Com.Ctrl.INewLine"/>
+            <Component Name="sepOth2" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+            <Component Name="chbRunScript" Class="Com.Ctrl.ICheckBox" Caption="@Admin:IBSetting_RunSQLScript=Запустить SQL-скрипт после реорганизации информационной базы" Field="FldRunScript"/>
+            <Component Name="lineOth2" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lineOthAdd1" Class="Com.Ctrl.INewLine" Excluded="True"/>
+            <Component Name="sepOth3" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+            <Component Name="chbUnicode" Class="Com.Ctrl.ICheckBox" Caption="@Admin:IBSetting_Unicode=Юникодные строки" Field="FldUnicode"/>
+            <Component Name="lineOth3" Class="Com.Ctrl.INewLine"/>
+            <Component Name="sepOth4" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+            <Component Name="chbDocID64" Class="Com.Ctrl.ICheckBox" Caption="@Admin:IBSetting_DocIDx64=64-х разрядные DocID" Field="FldDocID64"/>
+            <Component Name="lineOth4" Class="Com.Ctrl.INewLine" Excluded="True"/>
+          </Component>
+          <Component Name="grpLog" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="sepLog1" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+            <Component Name="chbMakeLog" Class="Com.Ctrl.ICheckBox" Caption="@Admin:IBSetting_MakeLog=Вести журнал изменений" Field="FldMakeLog"/>
+          </Component>
+        </Inherited>
+        <Component Name="CalcServerTab" Class="Com.Ctrl.IFrame" AutoSize="False" Caption="@Admin:IBSetting_CalcServer=Сереверы расчётов" Margins="5" ScrollerStyle="ScrollerBoth">
+          <Component Name="tblCalcServer" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="True" CanInsert="True" CanMove="False" Freezed="True" HasCaption="True" Numbering="False" PopupMenu="TableMenu" ShowIcon="False" Sortable="False" Subtable="subTblCalcServer">
+            <Component Name="chbActive" Class="Com.Ctrl.ICheckBox" Field="CalcServerStruct.Active" FixSize="True" Hint="@Admin:IBSetting_ActiveHint=Признак активности" MaxWidth="12" MinWidth="8" Width="8"/>
+            <Component Name="edServer" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Admin:IBSetting_CalcServer=Сервер расчётов" Field="CalcServerStruct.Server" MaxWidth="160" MinWidth="40" Width="80"/>
+            <Component Name="edBase" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Admin:IBSetting_CalcBase=Расчётная база" Field="CalcServerStruct.Base" MaxWidth="200" MinWidth="40" Width="100"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited CaptionAlign="LeftAlign" OnShow="BlankWIthFrames_OnShow">
+    <Inherited Name="TableMenu" Excluded="False">
+      <Component Name="cmdTraceRef" Class="Com.ComManaging.ExecProcedure" After="TableSeparator1" Caption="@Cmd:ITreceRef=Ссылки на объекты" CommandProc="cmdTraceRef_CommandProc"/>
+      <Component Name="cmdGotoSource" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:GotoSource=К описанию" CommandProc="cmdGotoSource_CommandProc"/>
+      <Inherited Name="cmdInsertRow" Excluded="True"/>
+      <Inherited Name="cmdDeleteRow" Excluded="True"/>
+    </Inherited>
+    <Inherited Name="Variables">
+      <Component Name="BaseClassName" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="ResultsTab" Class="Com.ISubtable" StructClass="DevTool.Struct.ClassStruct"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonOK" Excluded="True" OnClick="ButtonRun_OnClick"/>
+        <Inherited Name="ButtonRefresh" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" AutoSize="False">
+        <Component Name="ParamFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="260" MinWidth="100">
+            <Component Name="ClassEdit" Class="Com.Ctrl.IEditEx" AutocompleteMode="acmOn" Caption="@Frm:BaseClass=Базовый класс" Field="BaseClassName" HasButton="True" OnAutocomplete="ClassEdit_OnAutocomplete" OnChange="ClassEdit_OnChange"/>
+            <Component Name="ButRefresh" Class="Com.Ctrl.IButton" ImageName="Com.Refresh" OnClick="ButRefresh_OnClick"/>
+          </Component>
+        </Component>
+        <Component Name="ResultsFrame" Class="Com.Ctrl.IFrame" Margins="5">
+          <Component Name="Table1" Class="Com.Ctrl.ITable" Adaptive="True" IconName="Com.Blank" Numbering="False" OnDrawIcon="Table1_OnDrawIcon" PopupMenu="TableMenu" ShowIcon="True" Sortable="True" Subtable="ResultsTab">
+            <Component Name="ClassStuct" Class="DevTool.Struct.ClassStruct" IsLibrary="1"/>
+            <Component Name="NameCol" Class="Com.Ctrl.IEdit" Caption="Класс" Enabled="False" Field="ClassStuct.Name" MaxWidth="200" MinWidth="50" OnClick="NameCol_OnClick" OnOutput="NameCol_OnOutput" Width="100"/>
+            <Component Name="CountCol" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Кол. объектов" Enabled="False" Field="ClassStuct.ObjCount" MaxWidth="50" MinWidth="50" Width="50"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

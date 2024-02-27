@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IEditorWithFrames">
+  <Inherited HelpContext="CMP.Студия компонентов (машина реквизитов).Типы по умолчанию">
+    <Component Name="EdtRec" Class="CMP.Rec.Config.BusinessStructure" IsLibrary="1" After="#0"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="TypesTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="EdtRec.DefaultTypes">
+          <Component Name="DefStruct" Class="CMP.Rec.Config.BusinessStructure_DefaultType" IsLibrary="1"/>
+          <Component Name="EditRecordClass" Class="Com.Ctrl.IEdit" Caption="@CMP:BusinessStructure_RecordClass=Класс записи" Field="DefStruct.RecordClassStr" HasButton="True" MaxWidth="100" OnLookup="EditRecordClass_OnLookup" OnVerify="EditRecordClass_OnVerify" Width="60"/>
+          <Component Name="EditObjType" Class="Com.Ctrl.IEdit" Caption="@CMP:BusinessStructure_ObjType=Тип" Field="DefStruct.ObjType" MaxWidth="100" Width="60"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Excluded="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CMP.Frm.PanelProcedures.IBasePanelProcedure">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="View" Class="Com.Fld.IVar" RecordClass="CMP.Rec.Views.IView" ValueType="VarObject"/>
+      <Component Name="Modal" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50" HasCaption="True">
+        <Component Name="EditView" Class="Com.Ctrl.IEdit" Caption="@CMP:OpenViewView=Представление" Field="View" OnChange="Edit_OnChange"/>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="CheckBoxModal" Class="Com.Ctrl.ICheckBox" Caption="@CMP:OpenViewModal=Модально" Field="Modal" OnChange="CheckBox_OnChange"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

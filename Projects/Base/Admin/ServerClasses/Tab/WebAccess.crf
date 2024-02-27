@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.CodeName">
+  <Inherited Caption="@Admin:WebAccess=Настройки WEB доступа" FormIcon="Com.Globe" HelpContext="Admin.Администрирование.Настройки WEB доступа">
+    <Inherited Name="Current" Class="Admin.Rec.WEBAccess" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonFilters">
+          <Inherited Name="ButtonHideClosed" Excluded="True"/>
+          <Inherited Name="ButtonHierarchicalView" Visible="False"/>
+        </Inherited>
+        <Component Name="ButtonAdminLogin" Class="Com.Ctrl.IButton" After="ButtonClose" Caption="@Admin:CmdAdminLogin=Логин/Пароль администратора" ImageName="Com.key" OnClick="ButtonAdminLogin_OnClick"/>
+        <Inherited Name="ButtonAddFolder" Excluded="True"/>
+        <Inherited Name="ButtonFolderElement" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="CardFile" CanEdit="True" CanOpen="False" OnDrawRow="CardFile_OnDrawRow" SortOrder="Priority"/>
+          <Inherited Name="Code" After="ExtId" MinWidth="30" Width="60"/>
+          <Inherited Name="Name" Excluded="True" After="Code"/>
+          <Component Name="Mask" Class="Com.Ctrl.IEdit" Field="Current.Mask" MinWidth="30" Width="0"/>
+          <Component Name="Priority" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Current.Priority" MinWidth="10" Width="30"/>
+          <Component Name="Verdict" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Current.Verdict" ListAsString="Запрещен|0&#xD;&#xA;Разрешен|1&#xD;&#xA;По умолчанию|2&#xD;&#xA;" MinWidth="10" Width="30"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

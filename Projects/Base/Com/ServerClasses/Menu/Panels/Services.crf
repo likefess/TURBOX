@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IMenu">
+  <Inherited Caption="@Menu.Panel:Services=Сервисы" FormIcon="Com.Services">
+    <Inherited Name="MainGroup">
+      <Component Name="GroupInfobase" Class="Com.Cmd2.IGroup" Caption="@Menu:Group.Infobase=Информац. база" Columns="2" Orientation="Vertical">
+        <Component Name="Separator1" Class="Com.Cmd2.ISeparator" Caption="@Menu.Group:Explore=Записи"/>
+        <Component Name="MenuItem_KernelInfobaseExplorer" Class="Com.Cmd2.IItem" Command="Commands.InfobaseExplorer"/>
+        <Component Name="MenuItem_KernelHistoryLog" Class="Com.Cmd2.IItem" Command="Commands.HistoryLog"/>
+        <Component Name="MenuItem_KernelReplConflicts" Class="Com.Cmd2.IItem" Command="Commands.ReplConflicts"/>
+        <Component Name="Separator2" Class="Com.Cmd2.ISeparator" Caption="@Menu.Group:ImportExport=Импорт/Экспорт"/>
+        <Component Name="MenuItem_KernelImportRec" Class="Com.Cmd2.IItem" Command="Commands.ImportRec"/>
+        <Component Name="MenuItem_KernelExportRec" Class="Com.Cmd2.IItem" Command="Commands.ExportRec"/>
+        <Component Name="Separator3" Class="Com.Cmd2.ISeparator" Caption="@Menu.Group:Service=Обслуживание"/>
+        <Component Name="MenuItem_KernelGarbageCollect" Class="Com.Cmd2.IItem" Command="Commands.GarbageCollect"/>
+        <Component Name="MenuItem_KernelCorrectRef" Class="Com.Cmd2.IItem" Command="Commands.CorrectRef"/>
+      </Component>
+      <Component Name="MenuGroup_Robots" Class="Com.Cmd2.IGroup" Caption="@Menu:Group.Robots=Задания, исполнители" Columns="2" Rows="2">
+        <Component Name="MenuItem_InfobaseCmdRobotControl" Class="Com.Cmd2.IItem" Command="Commands.Workers"/>
+        <Component Name="MenuItem_InfobaseCmdAsyncJob" Class="Com.Cmd2.IItem" Command="Commands.AsyncJob"/>
+        <Component Name="MenuItem_DispatcherState" Class="Com.Cmd2.IItem" Command="Commands.DispatcherState"/>
+      </Component>
+      <Component Name="MenuGroup_RobotTests" Class="Com.Cmd2.IGroup" Caption="@Menu:Group.RobotTests=Тесты исполнителей" Columns="2" Rows="2">
+        <Component Name="MenuItem_InfobaseCmdTestJobs" Class="Com.Cmd2.IItem" Command="Commands.TestJobs"/>
+        <Component Name="MenuItem_TestJobs2" Class="Com.Cmd2.IItem" Command="Commands.TestJobs2"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

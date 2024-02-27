@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.CodeName">
+  <Inherited>
+    <Inherited Name="Current" Class="ETL.Rec.ETLParameters" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="VarParamValue" Class="Com.Fld.IVar" Excluded="True" After="#0" OnCalc="VarParamValueOnCalc" ValueType="VarVariant"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True">
+          <Inherited Name="CardTree" Excluded="True"/>
+        </Inherited>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="ExtId" Excluded="True"/>
+          <Inherited Name="Name" FixSize="True"/>
+          <Inherited Name="Code" Excluded="True"/>
+          <Component Name="ParamType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Current.ParamType" FixSize="True" ValueType="VarInteger" Width="60"/>
+          <Component Name="paramValue" Class="Com.Ctrl.IEdit" Caption="Значение" Field="Current.FieldValueVar"/>
+          <Component Name="edOwnerPackage" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.OwnerPackage" FixSize="True" LookupField="Name" ValueType="VarObject" Width="60"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

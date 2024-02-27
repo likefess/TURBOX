@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.Event">
+  <Inherited>
+    <Inherited Name="Current" Class="Biz.Rec.Data.ContractSuppAgreement" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" Visible="False"/>
+          <Inherited Name="Code" Visible="False"/>
+          <Component Name="RegistrationDate" Class="Com.Ctrl.IEdit" CaptionWidth="37" Field="Current.RegistrationDate" FixSize="True" HasCaption="True" MaxWidth="30" Width="40"/>
+          <Component Name="RegisterNumber" Class="Com.Ctrl.IEdit" Caption="@SuppAgreement:ReqisterName=Номер" CaptionWidth="50" Field="Current.PrintedNumber" HasCaption="True" Width="50"/>
+          <Component Name="ContractSubject" Class="Com.Ctrl.IEdit" Caption="@ContractSuppAgreement:Subject=Предмет соглашения" CellFormat="ReferenceFormat" Field="Current.ContractSubject" HasCaption="True" LookupField="Name" Width="50"/>
+          <Component Name="Status" Class="Com.Ctrl.IEdit" Caption="@ContractSuppAgreement:Status=Статус" CaptionWidth="17" CardFileClass="Biz.Tab.Ref.ContractStatus" CellFormat="ReferenceFormat" Field="Current.Status" HasCaption="True" LookupField="Name" MaxWidth="45" MinWidth="30" ShortList="True" Width="30"/>
+          <Component Name="Contract" Class="Com.Ctrl.IEdit" Field="Current.Contract" HasCaption="True" LookupField="Code" Width="50"/>
+          <Component Name="Company" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="Current.Company" HasCaption="True" LookupField="Name" ShortList="True" Width="50"/>
+          <Component Name="UserEmployee" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.UserEmployee" HasCaption="True" LookupField="Name" Width="50"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

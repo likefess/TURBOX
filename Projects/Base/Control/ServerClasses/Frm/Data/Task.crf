@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.Event">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Control.Rec.Data.Task" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" ByColumn="False" CaptionWidth="32">
+          <Inherited Name="Name" After="#0" Visible="True" Width="95"/>
+          <Inherited Name="Code" Excluded="True" After="Name"/>
+          <Component Name="PrintedNumber" Class="Com.Ctrl.IEdit" CaptionWidth="15" Field="EdtRec.PrintedNumber" HasCaption="True" Width="30" Wrap="False"/>
+        </Inherited>
+        <Component Name="Group7" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+          <Component Name="Group2" Class="Com.Ctrl.IGroup" ByColumn="True" CaptionWidth="32">
+            <Component Name="Comment" Class="Com.Ctrl.IEdit" Field="EdtRec.Description" HasCaption="True" Multiline="True"/>
+            <Component Name="Group4" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="RespRoleNameButton" Class="Com.Ctrl.IButton" Alignment="RightAlign" Enabled="False" Field="EdtRec.RespRoleName" FixSize="True" OnClick="RespRoleName_OnClick" Width="32"/>
+              <Component Name="Responsible" Class="Com.Ctrl.IEditEx" CardFileClass="Bas.Tab.Data.Employees" Field="EdtRec.Responsible" FontBold="True" LookupField="Name" Wrap="False">
+                <Component Name="JumpButton1" Class="Com.Ctrl.IJumpButton"/>
+              </Component>
+            </Component>
+            <Component Name="Group11" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="TaskStatus" Class="Com.Ctrl.IEditEx" CardFileClass="Control.Tab.Ref.TaskStatus" Field="EdtRec.TaskStatus" FontBold="True" HasCaption="True" LookupField="Name" Width="120"/>
+              <Component Name="ChangeStatusButton" Class="Com.Ctrl.IButton" Caption="@Task:ChangeStatusButton=Сменить состояние" ImageName="Control.Transition" OnClick="ClickChangeStatusButton" Width="50"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="ProjectBox" Class="Com.Ctrl.IBox" Caption="@Task:ProjectBox=Проект, предприятие, подразделение">
+            <Component Name="Group6" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="Group3" Class="Com.Ctrl.IGroup" ByColumn="True" CaptionWidth="32">
+                <Component Name="Project" Class="Com.Ctrl.IEditEx" CardFileClass="Bas.Tab.Ref.Project" Field="EdtRec.Project" FontBold="True" HasCaption="True" LookupField="Name" Wrap="False">
+                  <Component Name="JumpButton2" Class="Com.Ctrl.IJumpButton"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="TimeBox" Class="Com.Ctrl.IBox" Caption="@Task:TimeBox=Категория, важность, сроки">
+            <Component Name="Group9" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="Group10" Class="Com.Ctrl.IGroup" ByColumn="True" CaptionWidth="32">
+                <Component Name="Category" Class="Com.Ctrl.IEditEx" CardFileClass="Control.Tab.Ref.TaskCategory" Field="EdtRec.Category" HasCaption="True" LookupField="Name" ShortList="True">
+                  <Component Name="ReviewDate" Class="Com.Ctrl.IEdit" Field="EdtRec.ReviewDate" HasCaption="True"/>
+                </Component>
+                <Component Name="Importance" Class="Com.Ctrl.IEditEx" CardFileClass="Control.Tab.Ref.TaskImportance" Field="EdtRec.Importance" HasCaption="True" LookupField="Name" ShortList="True"/>
+                <Component Name="Priority" Class="Com.Ctrl.IEditEx" CardFileClass="Control.Tab.Ref.TaskPriority" Field="EdtRec.Priority" HasCaption="True" LookupField="Name" ShortList="True">
+                  <Component Name="WhoSetThePrio" Class="Com.Ctrl.IEdit" Caption="@Task:SetBy=установил" Enabled="False" Field="EdtRec.WhoSetThePrio" HasCaption="True" LookupField="Name" Wrap="False"/>
+                </Component>
+                <Component Name="EventTime" Class="Com.Ctrl.IEditEx" Field="EdtRec.EventTime" HasCaption="True">
+                  <Component Name="Deadline" Class="Com.Ctrl.IEdit" Field="EdtRec.Deadline" HasCaption="True"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="AllocatedStaffTab" Class="Com.Ctrl.IFrame" Caption="@Task:AllocatedStaffBox1=Участники">
+          <Component Name="AllocatedStaffList" Class="Com.Ctrl.IFrame" Subtable="EdtRec.AllocatedStaff">
+            <Component Name="StructAllocatedStaff" Class="Control.Rec.Data.Task_AllocatedStaff" IsLibrary="1"/>
+            <Component Name="Staff" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Employees" Field="StructAllocatedStaff.Staff" LookupField="Name" Width="80"/>
+            <Component Name="Role" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.EntityRoles" Field="StructAllocatedStaff.Role" LookupField="Name" ShortList="True" Width="60"/>
+          </Component>
+        </Component>
+        <Component Name="SubTasksFrame" Class="Com.Ctrl.IFrame" Caption="@Task:Subtasks=Подзадачи"/>
+        <Component Name="HistoryFrame" Class="Com.Ctrl.IFrame" Caption="@Task:StatusHistory=История состояний">
+          <Component Name="FrameStatusHistory" Class="Com.Ctrl.IFrame" Subtable="EdtRec.HistoryOfStatus">
+            <Component Name="StructHistoryOfTransitions" Class="Control.Rec.Data.Task_HistoryOfTransitions" IsLibrary="1"/>
+            <Component Name="TimeOfTransition" Class="Com.Ctrl.IEdit" Enabled="False" Field="StructHistoryOfTransitions.TimeOfTransition" Width="38"/>
+            <Component Name="OldStatus" Class="Com.Ctrl.IEdit" Enabled="False" Field="StructHistoryOfTransitions.OldStatus" LookupField="Name" Width="30"/>
+            <Component Name="NewStatus" Class="Com.Ctrl.IEdit" Enabled="False" Field="StructHistoryOfTransitions.NewStatus" LookupField="Name" Width="30"/>
+            <Component Name="Person" Class="Com.Ctrl.IEdit" Enabled="False" Field="StructHistoryOfTransitions.Person" LookupField="Name" Width="50"/>
+            <Component Name="HistoryComment" Class="Com.Ctrl.IEdit" Field="StructHistoryOfTransitions.Comment" Width="60"/>
+          </Component>
+        </Component>
+        <Component Name="ChatFrame" Class="Com.Ctrl.IFrame" Caption="@Task:Chat=Обсуждение">
+          <Component Name="Chat" Class="Com.Ctrl.IFrame" Subtable="EdtRec.Discussion">
+            <Component Name="StructChat" Class="Control.Rec.Data.Task_Chat" IsLibrary="1"/>
+            <Component Name="Time" Class="Com.Ctrl.IEdit" Enabled="False" Field="StructChat.Time" FormatOfDate="DateAndTime" Width="38"/>
+            <Component Name="ChatPerson" Class="Com.Ctrl.IEdit" Enabled="False" Field="StructChat.Person" LookupField="Name" Width="50"/>
+            <Component Name="ChatComment" Class="Com.Ctrl.IEdit" Field="StructChat.Comment" OnChange="inputChatMessage" OnVerify="verifyChatMessage" Width="70"/>
+          </Component>
+        </Component>
+        <Component Name="DependenciesFrame" Class="Com.Ctrl.IFrame" Caption="@Task:Dependencies=Зависимости">
+          <Component Name="DependencesName" Class="Com.Ctrl.IFrame" FixSize="True" Size="12"/>
+          <Component Name="Dependences" Class="Com.Ctrl.IFrame" Subtable="EdtRec.Dependences">
+            <Component Name="StructDependences" Class="Control.Rec.Data.Task_Dependences" IsLibrary="1"/>
+            <Component Name="PreviousTask" Class="Com.Ctrl.IEdit" Caption="@Task:PrevTaskName=Название" CardFileClass="Control.Tab.Data.Task" Field="StructDependences.PreviousTask" LookupField="Name" Width="120"/>
+            <Component Name="PrevTaskState" Class="Com.Ctrl.IEdit" Caption="@Task:PrevTaskState=Состояние" CardFileClass="Control.Tab.Ref.TaskStatus" Enabled="False" Field="StructDependences.PrevTaskState" LookupField="Name" Width="40"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

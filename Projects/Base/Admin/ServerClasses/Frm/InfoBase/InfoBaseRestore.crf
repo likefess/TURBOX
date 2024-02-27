@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.InfoBase.InfoBaseCustArchive">
+  <Inherited FormIcon="Admin.Restore">
+    <Component Name="SelectBaseStruct" Class="Admin.Frm.InfoBase.InfoBaseSelect_Struct" IsLibrary="1" After="RestoreStruct"/>
+    <Inherited Name="TableMenu" After="SelectBaseStruct"/>
+    <Inherited Name="Variables">
+      <Component Name="subTblSelectBase" Class="Com.ISubtable" StructClass="Admin.Frm.InfoBase.InfoBaseSelect_Struct"/>
+      <Component Name="FldRestoreName" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="FldNewBaseName" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Component Name="FrameSelect" Class="Com.Ctrl.IFrame" After="FrameArchive" AutoSize="False" Caption="@Admin:InfoBaseRestore_Step2=Выбор базы">
+          <Component Name="tblSelectBase" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" ManualControl="False" Numbering="False" Subtable="subTblSelectBase">
+            <Component Name="edNameBase" Class="Com.Ctrl.IEdit" Caption="@Admin:InfoBaseName=Наименование" Enabled="False" Field="SelectBaseStruct.Name" MaxWidth="150" MinWidth="30" Width="100"/>
+            <Component Name="chbUsed" Class="Com.Ctrl.ICheckBox" Field="SelectBaseStruct.Used" HasCaption="True" MaxWidth="20" MinWidth="10" OnChange="chbUsed_OnChange" Width="16"/>
+          </Component>
+        </Component>
+        <Component Name="FrameName" Class="Com.Ctrl.IFrame" Caption="@Admin:InfoBaseRestore_Step3=Имя базы" Margins="8">
+          <Component Name="gbNameFolder" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MinWidth="40">
+            <Component Name="lblNameInBackup" Class="Com.Ctrl.IStatic" Caption="@Admin:InfobaseNameInBackue=Название в файле резервной копии" MinWidth="40"/>
+            <Component Name="lineSepInBackup" Class="Com.Ctrl.INewLine"/>
+            <Component Name="edInBackup" Class="Com.Ctrl.IEdit" Enabled="False" Field="FldRestoreName" FontBold="True" MinWidth="40" TabStop="False" ValueType="VarString" Width="50"/>
+            <Component Name="lineInBackup" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblNameNew" Class="Com.Ctrl.IStatic" Caption="@Admin:InfobaseNameNew=Название" MinWidth="40"/>
+            <Component Name="lblNameExist" Class="Com.Ctrl.IStatic" Caption="@Admin:InfobaseNameExist=Установить базу c именем" MinWidth="40" Visible="False"/>
+            <Component Name="lineSepNewName" Class="Com.Ctrl.INewLine"/>
+            <Component Name="edNewName" Class="Com.Ctrl.IEdit" Field="FldNewBaseName" MinWidth="40" OnVerify="edBaseName_OnVerify" ValueType="VarString" Width="50"/>
+            <Component Name="lineNewName" Class="Com.Ctrl.INewLine" Excluded="True"/>
+          </Component>
+          <Component Name="gbIBGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MinWidth="40">
+            <Component Name="lblGroup" Class="Com.Ctrl.IStatic" Caption="@Admin:InfobaseGroup=Группа" MinWidth="40"/>
+            <Component Name="lineSepGroup" Class="Com.Ctrl.INewLine"/>
+            <Component Name="edGroup" Class="Com.Ctrl.IEdit" Enabled="False" Field="FldGroupBase" MinWidth="40" ValueType="VarString" Width="50"/>
+          </Component>
+        </Component>
+        <Inherited Name="FrameDB" After="FrameName" Caption="@Admin:InfoBaseRestore_Step4=Размещение">
+          <Inherited Name="frameDataBase">
+            <Component Name="gbRestore" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True" ByColumn="False" MinWidth="80">
+              <Component Name="lblNameRestore" Class="Com.Ctrl.IStatic" Caption="@Admin:InfobaseRestoreName=Информационная база" MinWidth="40"/>
+              <Component Name="lineSepRestore" Class="Com.Ctrl.INewLine"/>
+              <Component Name="edRestore" Class="Com.Ctrl.IEdit" Enabled="False" Field="FldNewBaseName" FontBold="True" MinWidth="40" TabStop="False" ValueType="VarString" Width="50"/>
+              <Component Name="lineRestore" Class="Com.Ctrl.INewLine"/>
+            </Component>
+            <Inherited Name="gbDataBase" After="gbRestore"/>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="FrameProcess" Caption="@Admin:InfoBaseRestore_Step5=Восстановить">
+          <Inherited Name="frameStatus">
+            <Inherited Name="grpStatus" MinWidth="80">
+              <Component Name="lblIBName" Class="Com.Ctrl.IStatic" After="#0" Caption="@Admin:InfobaseRestoreNewBase=Имя базы" FixSize="True" Width="30"/>
+              <Component Name="edIBName" Class="Com.Ctrl.IEdit" Enabled="False" Field="FldNewBaseName" MinWidth="80" ValueType="VarString" Width="120"/>
+              <Component Name="lineIBName" Class="Com.Ctrl.INewLine"/>
+              <Inherited Name="lblStatus" After="lineIBName"/>
+            </Inherited>
+            <Component Name="lineProgress" Class="Com.Ctrl.INewLine" Excluded="True" After="grpStatus"/>
+            <Inherited Name="grpDetail" After="lineProgress" Visible="False">
+              <Component Name="lblTable" Class="Com.Ctrl.IStatic" Caption="@Admin:InfobaseTables=Таблиц" FixSize="True" Width="30"/>
+              <Component Name="edPrTable" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" MinWidth="20" Width="60"/>
+              <Component Name="sepTable" Class="Com.Ctrl.IStatic" MinWidth="40" Width="60"/>
+              <Component Name="lineTable" Class="Com.Ctrl.INewLine"/>
+              <Component Name="lblDocum" Class="Com.Ctrl.IStatic" Caption="@Admin:InfobaseDocuments=Документов" FixSize="True" Width="30"/>
+              <Component Name="edPrDocum" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" MinWidth="20" Width="60"/>
+              <Component Name="sepDocum" Class="Com.Ctrl.IStatic" MinWidth="40" Width="60"/>
+              <Component Name="lineDocum" Class="Com.Ctrl.INewLine" Excluded="True"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

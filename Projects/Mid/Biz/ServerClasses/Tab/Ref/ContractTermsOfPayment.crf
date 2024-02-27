@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.CodeName">
+  <Inherited HelpContext="Biz.НСИ.Мастер-данные.Условия оплаты по договору">
+    <Inherited Name="Current" Class="Biz.Rec.Ref.ContractTermsOfPayment" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Code" After="ExtId" HasCaption="True"/>
+          <Inherited Name="Name" After="Code" HasCaption="True"/>
+          <Component Name="Company" Class="Com.Ctrl.IEdit" After="Name" CellFormat="ReferenceFormat" Field="Current.Company" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="ShortName" Class="Com.Ctrl.IEdit" Field="Current.ShortName" HasCaption="True" Width="40"/>
+          <Inherited Name="CreateDate" After="ShortName"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

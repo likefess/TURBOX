@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm" Caption="Просмотр источника данных">
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    </Component>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="MaxRecOnPage" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="PageNum" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" MaxButton="4">
+        <Component Name="ButtonRun" Class="Com.Ctrl.IButton" Excluded="True" ImageName="Com.play" OnClick="RunDS" Visible="False"/>
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Caption="@Закрыть" Command="Commands.CloseForm" ImageName="Close"/>
+      </Component>
+      <Component Name="BtnFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="btnPreviousPage" Class="Com.Ctrl.IButton" Caption="Пред. страница" Enabled="False" ImageName="Com.chevron-left" OnClick="PreviousPage" Width="-35"/>
+        <Component Name="btnNextPage" Class="Com.Ctrl.IButton" Caption="След. страница" Enabled="False" ImageName="Com.angle-right" OnClick="NextPage" Width="-35"/>
+        <Component Name="StCurPage" Class="Com.Ctrl.IStatic" Caption="  Текущая страница" Enabled="True" FixSize="True" Multiline="False" Width="40" Wrap="False"/>
+        <Component Name="EdPageNum" Class="Com.Ctrl.IEdit" Enabled="False" Field="PageNum" Width="12"/>
+        <Component Name="edRecOnPage" Class="Com.Ctrl.IEdit" Caption="  Кол-во записей на странице" CaptionWidth="60" Enabled="False" Field="MaxRecOnPage" Width="12"/>
+      </Component>
+      <Component Name="FrameWithTable" Class="Com.Ctrl.IFrame" AutoSize="False">
+        <Component Name="DataTable" Class="Com.Ctrl.ITable" ManualControl="False"/>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

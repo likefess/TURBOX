@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Services.Calculator.IBlankCalculator">
+  <Inherited Caption="@Cmd:Calculator=Калькулятор">
+    <Component Name="Variables" Class="Com.IVarContainer" After="#0">
+      <Component Name="Var1" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Component>
+    <Inherited Name="RootFrame" Caption="Калькулятор">
+      <Inherited Name="FieldsFrame" Margins="10">
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="60">
+          <Component Name="EditEx1" Class="Com.Ctrl.IEditEx" Caption="@Dlgs:Precission=Точность" CellFormat="StringFormat" Field="Var1" OnDraw="EditEx1OnDraw" ValueType="VarString">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Width="25"/>
+          </Component>
+        </Component>
+        <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="60">
+          <Component Name="Button1" Class="Com.Ctrl.IButton" Caption="@Dlgs:Select=Выбор" OnClick="EnterAccur"/>
+          <Component Name="Button2" Class="Com.Ctrl.IButton" Caption="@Dlgs:Cancel=Отмена" OnClick="CloseWin"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

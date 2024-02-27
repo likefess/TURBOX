@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.Setting.CustomSetting">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="FldTurboAuth" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldWindowsAuth" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldSSOAuth" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldSAMLAuth" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldDomain" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="FldPWDchange" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldPWDcache" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldPWDverifySSPI" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldSSPIprovider" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldPWDMinLength" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldPWDUppercase" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldPWDLowercase" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldPWDDigit" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldPWDPunctuation" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldPWDValidity" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldPWDPeriodicity" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldPWDAlarmHour" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldPWDObsolete" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldPWDDifferent" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldPWDHistory" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldLicenseMode" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldAlarmDaySwitch" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldAlarmDayValue" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldOnePerComputer" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldServerEnable" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldServerNeedLogin" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldRemoteAddr" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="FldRemoteUser" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="FldRemotePWD" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="FldKeyRepeatCount" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldKeyVerifying" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldKeyVerifyPeriod" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldKeyLogging" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldKeyUseProxy" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldKeyProxyAddr" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="FldKeyProxyUser" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="FldKeyProxyPWD" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="FldLoginIdleTime" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldAttemptCount" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldBlockTime" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldClientIdleTime" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame" Visible="False"/>
+      <Inherited Name="TabsFrame">
+        <BuiltIn Name="SideMargins" Top="6"/>
+        <Component Name="UsersFrame" Class="Com.Ctrl.IFrame" After="#0" Caption="@Admin:AuthServer_Users=Пользватели">
+          <Component Name="grpUserAuth" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="lblAuth" Class="Com.Ctrl.IStatic" Caption="@Admin:UserAuth_Title=Аутентификация"/>
+            <Component Name="lineUATitle" Class="Com.Ctrl.INewLine"/>
+            <Component Name="sepUA1" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+            <Component Name="chbTurboAuth" Class="Com.Ctrl.ICheckBox" Caption="@Admin:UserAuth_TurboAuth=Пользователи Турбо" Field="FldTurboAuth"/>
+            <Component Name="lineUA1" Class="Com.Ctrl.INewLine"/>
+            <Component Name="sepUA2" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+            <Component Name="chbWindowsAuth" Class="Com.Ctrl.ICheckBox" Caption="@Admin:UserAuth_WindowsAuth=Пользователи Windows" Field="FldWindowsAuth"/>
+            <Component Name="lineUA2" Class="Com.Ctrl.INewLine"/>
+            <Component Name="sepUA3" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+            <Component Name="chbSSOAuth" Class="Com.Ctrl.ICheckBox" Caption="@Admin:UserAuth_SSOAuth=Без ввода пароля (Single Sign-On)" Field="FldSSOAuth"/>
+            <Component Name="lineUA3" Class="Com.Ctrl.INewLine"/>
+            <Component Name="sepUA4" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+            <Component Name="chbSAMLAuth" Class="Com.Ctrl.ICheckBox" Caption="@Admin:UserAuth_SAMLAuth=Через Internet (SAML)" Field="FldSAMLAuth"/>
+            <Component Name="lineUA4" Class="Com.Ctrl.INewLine"/>
+          </Component>
+          <Component Name="grpPolicy" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="lblLoginIdleTime" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_LoginIdleTime=Время неактивности логина до блокировки (часов)" Width="150" Wrap="False"/>
+            <Component Name="edLoginIdleTime" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FldLoginIdleTime" FieldFormat="#0" OnVerify="IntervalHours_OnVerify" Width="30"/>
+            <Component Name="sepPolicy1" Class="Com.Ctrl.IStatic" Width="30"/>
+            <Component Name="linePolicy1" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblLoginAttemptCount" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_LoginAttemptCount=Количество неудачных попыток входа до блокировки логина" Width="150" Wrap="False"/>
+            <Component Name="edLoginAttemptCount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FldAttemptCount" FieldFormat="#0" OnVerify="EditorVerify_NegativeValue" Width="30"/>
+            <Component Name="sepPolicy2" Class="Com.Ctrl.IStatic" Width="30"/>
+            <Component Name="linePolicy2" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblLoginBlockTime" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_LoginBlockTime=Время блокировки (минут)" Width="150" Wrap="False"/>
+            <Component Name="edLoginBlockTime" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FldBlockTime" FieldFormat="#0" OnVerify="edLoginBlockTime_OnVerify" Width="30"/>
+            <Component Name="sepPolicy3" Class="Com.Ctrl.IStatic" Width="30"/>
+            <Component Name="linePolicy3" Class="Com.Ctrl.INewLine"/>
+            <Component Name="linePolicy4" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblClientIdleTime" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_ClientIdleTime=Время неактивности пользователя до закрытия сессии (минут)" Width="150" Wrap="False"/>
+            <Component Name="edClientIdleTime" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FldClientIdleTime" FieldFormat="#0" OnVerify="edClientIdleTime_OnVerify" Width="30"/>
+            <Component Name="sepPolicy4" Class="Com.Ctrl.IStatic" Width="30"/>
+          </Component>
+          <Component Name="lineUser" Class="Com.Ctrl.INewLine"/>
+          <Component Name="grpDomain" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="lblDomain" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_Domain=Известные домены"/>
+            <Component Name="lineDomainTitle" Class="Com.Ctrl.INewLine"/>
+            <Component Name="edDomain" Class="Com.Ctrl.IEdit" Field="FldDomain" Multiline="False" Wrap="True"/>
+          </Component>
+        </Component>
+        <Component Name="PasswordFrame" Class="Com.Ctrl.IFrame" Caption="@Admin:AuthServer_Password=Пароли">
+          <Component Name="frmParameters" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="grpPassword" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="chbPWDchange" Class="Com.Ctrl.ICheckBox" Caption="@Admin:AuthServer_PWDChange=Разрешить смену пароля пользователем" Field="FldPWDchange"/>
+              <Component Name="linePWD1" Class="Com.Ctrl.INewLine"/>
+              <Component Name="chbPWDcache" Class="Com.Ctrl.ICheckBox" Caption="@Admin:AuthServer_PWDCache=Разрешить кэширование паролей" Field="FldPWDcache"/>
+              <Component Name="linePWD2" Class="Com.Ctrl.INewLine"/>
+              <Component Name="chbPWDverifySSPI" Class="Com.Ctrl.ICheckBox" Caption="@Admin:AuthServer_PWDVerifySSPI=Использовать SSPI для проверки паролей Windows" Field="FldPWDverifySSPI" OnChange="chbPWDverifySSPI_OnChange"/>
+              <Component Name="linePWD3" Class="Com.Ctrl.INewLine"/>
+              <Component Name="sepProvider1" Class="Com.Ctrl.IStatic" FixSize="True" Width="10"/>
+              <Component Name="lblProvider" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_Provider=Протокол" FixSize="True" Width="20"/>
+              <Component Name="edProvider" Class="Com.Ctrl.IEdit" ButtonStyle="ComboButton" CellFormat="EnumFormat" Field="FldSSPIprovider" ListAsString="NTLM;Kerberos;" Width="30"/>
+              <Component Name="sepProvider2" Class="Com.Ctrl.IStatic" Width="60"/>
+              <Component Name="linePWD4" Class="Com.Ctrl.INewLine" Excluded="True"/>
+            </Component>
+            <Component Name="linePWDframe" Class="Com.Ctrl.INewLine" Excluded="True"/>
+          </Component>
+          <Component Name="boxLength" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@Admin:AuthServer_PWDLength=Параметры паролей" ShowTabs="False">
+            <Component Name="lblPWDMinLength" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_PWDMinLength=Минимальная длина пароля" Width="120"/>
+            <Component Name="edPWDMinLenth" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FldPWDMinLength" FieldFormat="#0" OnVerify="edPWDMinLenth_OnVerify" Width="30"/>
+            <Component Name="lineLengthFrame" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblUppercase" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_PWDUppercase=- прописных букв" Multiline="False" Width="120" Wrap="False"/>
+            <Component Name="edUppercase" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FldPWDUppercase" FieldFormat="#0" OnVerify="EditorVerify_NegativeValue" Width="30"/>
+            <Component Name="linePWD5" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblLowercase" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_PWDLowercase=- строчных букв" FixSize="True" Multiline="False" Width="120" Wrap="False"/>
+            <Component Name="edLowercase" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FldPWDLowercase" FieldFormat="#0" OnVerify="EditorVerify_NegativeValue" Width="30"/>
+            <Component Name="linePWD6" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblDigit" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_PWDDigit=- цифр" FixSize="True" Multiline="False" Width="120" Wrap="False"/>
+            <Component Name="edDigit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FldPWDDigit" FieldFormat="#0" OnVerify="EditorVerify_NegativeValue" Width="30"/>
+            <Component Name="linePWD7" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblPunctuation" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_PWDPunctuation=- знаков препинания" Multiline="False" Width="120" Wrap="False"/>
+            <Component Name="edPunctuation" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FldPWDPunctuation" FieldFormat="#0" OnVerify="EditorVerify_NegativeValue" Width="30"/>
+            <Component Name="linePWD8" Class="Com.Ctrl.INewLine" Excluded="True"/>
+          </Component>
+          <Component Name="boxPolicyPassword" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@Admin:PasswordPolicy_Title=Политики паролей" ShowTabs="False">
+            <Component Name="lblValidity" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_PasswordValidity=Срок действия пароля (часов)" Width="120"/>
+            <Component Name="edValidity" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FldPWDValidity" FieldFormat="#0" OnVerify="IntervalHours_OnVerify" Width="30"/>
+            <Component Name="sepPP1" Class="Com.Ctrl.IStatic" Excluded="True" Width="60"/>
+            <Component Name="linePP1" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblIntervalChange" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_PasswordIntervalChange=Минимальный интервал между сменами пароля (часов)" Width="120"/>
+            <Component Name="edIntervalChange" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FldPWDPeriodicity" FieldFormat="#0" OnVerify="IntervalHours_OnVerify" Width="30"/>
+            <Component Name="linePP2" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblPPAlarm" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_PasswordExpirationAlarm=Предупреждать об устаревании пароля за (часов)" Width="120"/>
+            <Component Name="edPPAlarm" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FldPWDAlarmHour" FieldFormat="#0" OnVerify="IntervalHours_OnVerify" Width="30"/>
+            <Component Name="linePP3" Class="Com.Ctrl.INewLine" Excluded="True"/>
+            <Component Name="grpObsolete" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="sepObsolete1" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+              <Component Name="lblBehavior" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_PasswordObsolete=при устаревании пароля:" Width="30"/>
+              <Component Name="rbtnMustChange" Class="Com.Ctrl.IRadioButton" Caption="@Admin:AuthServer_PasswordMustChange=принудительное требование смены пароля" Field="FldPWDObsolete" StaticValue="0" Width="60"/>
+              <Component Name="linePP4" Class="Com.Ctrl.INewLine"/>
+              <Component Name="sepObsolete2" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+              <Component Name="sepObsolete3" Class="Com.Ctrl.IStatic" Width="30"/>
+              <Component Name="rbtnBlockAccount" Class="Com.Ctrl.IRadioButton" Caption="@Admin:AuthServer_BlockAccount=блокировка учетной записи" Field="FldPWDObsolete" StaticValue="1" Width="60"/>
+              <Component Name="linePP5" Class="Com.Ctrl.INewLine"/>
+            </Component>
+            <Component Name="linePP6" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblDifferent" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_PasswordDifferent=Минимальное отличие нового пароля от текущего" Width="120"/>
+            <Component Name="edDifferent" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FldPWDDifferent" FieldFormat="#0" OnVerify="edDifferent_OnVerify" Width="30"/>
+            <Component Name="linePP7" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblHistory" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_PasswordHistory=Количество сохраняемых паролей для сравнения" Width="120"/>
+            <Component Name="edHistory" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FldPWDHistory" FieldFormat="#0" OnVerify="edHistory_OnVerify" Width="30"/>
+          </Component>
+        </Component>
+        <Component Name="LicenseFrame" Class="Com.Ctrl.IFrame" Caption="@Admin:AuthServer_License=Лицензии">
+          <Component Name="frmLocalRbtn" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <BuiltIn Name="SideMargins" Bottom="3"/>
+            <Component Name="grpLocalRbtn" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="rbLicenseLocal" Class="Com.Ctrl.IRadioButton" Caption="@Admin:AuthServer_LicenseLocal=Использовать локальные лицензии" Field="FldLicenseMode" OnChange="LicenseMode_OnChange" StaticValue="0"/>
+            </Component>
+          </Component>
+          <Component Name="frmLocalCtrl" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="grpLocalCtrl" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="chbAlarmDay" Class="Com.Ctrl.ICheckBox" Caption="@Admin:AuthServer_LicenseExpirationAlarm=Выдавать предупреждение об окончании срока действия лицензий за (дней)" Field="FldAlarmDaySwitch" OnChange="chbAlarmDay_OnChange"/>
+              <Component Name="lineLocal1" Class="Com.Ctrl.INewLine"/>
+              <Component Name="sepAlarmDay" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+              <Component Name="edAlarmDay" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FldAlarmDayValue" FieldFormat="#0" FixSize="True" OnVerify="edAlarmDay_OnVerify" Width="20"/>
+              <Component Name="lineLocal2" Class="Com.Ctrl.INewLine"/>
+              <Component Name="chbOnePerComputer" Class="Com.Ctrl.ICheckBox" Caption="@Admin:AuthServer_OnePerComputer=Несколько подключений с одного компьютера снимают одну лицензию" Field="FldOnePerComputer"/>
+              <Component Name="lineLocal3" Class="Com.Ctrl.INewLine"/>
+              <Component Name="chbNetLicense" Class="Com.Ctrl.ICheckBox" Caption="@Admin:AuthServer_CanNetense=Разрешить выдачу сетевых лицензий" Field="FldServerEnable" OnChange="chbNetLicense_OnChange"/>
+              <Component Name="lineLocal4" Class="Com.Ctrl.INewLine"/>
+              <Component Name="sepNeedLogin" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+              <Component Name="chbServerNeedLogin" Class="Com.Ctrl.ICheckBox" Caption="@Admin:AuthServer_ServerNeedLogin=Требовать авторизацию" Field="FldServerNeedLogin"/>
+            </Component>
+          </Component>
+          <Component Name="frmRemoteRbtn" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <BuiltIn Name="SideMargins" Bottom="3" Top="3"/>
+            <Component Name="grpRemoteRbtn" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="rbLicenseRemote" Class="Com.Ctrl.IRadioButton" Caption="@Admin:AuthServer_LicenseRemote=Использовать сетевой сервер лицензий" Field="FldLicenseMode" OnChange="LicenseMode_OnChange" StaticValue="1"/>
+            </Component>
+          </Component>
+          <Component Name="frmRemoteCtrl" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="grpRemoteCtrl" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="lblRemoteAddress" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_Address=Адрес" FixSize="True" Width="30"/>
+              <Component Name="edRemoteAddress" Class="Com.Ctrl.IEdit" Field="FldRemoteAddr" Width="50"/>
+              <Component Name="sepRemoteAddress" Class="Com.Ctrl.IStatic" Width="20"/>
+              <Component Name="lineRemote1" Class="Com.Ctrl.INewLine"/>
+              <Component Name="lblRemoteUser" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_User=Пользователь" FixSize="True" Width="30"/>
+              <Component Name="edRemoteUser" Class="Com.Ctrl.IEdit" Field="FldRemoteUser" OnChange="RemoteUser_Change" Width="50"/>
+              <Component Name="sepRemoteUser" Class="Com.Ctrl.IStatic" Width="20"/>
+              <Component Name="lineRemote2" Class="Com.Ctrl.INewLine"/>
+              <Component Name="lblRemotePassword" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_Password=Пароль" FixSize="True" Width="30"/>
+              <Component Name="edRemotePassword" Class="Com.Ctrl.IPasswordEdit" Field="FldRemotePWD" OnChange="RemoteUser_Change" Width="50"/>
+              <Component Name="sepRemotePassword" Class="Com.Ctrl.IStatic" Width="20"/>
+              <Component Name="lineRemote3" Class="Com.Ctrl.INewLine"/>
+              <Component Name="sepCheck" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+              <Component Name="btnCheck" Class="Com.Ctrl.IButton" Caption="@Admin:AuthServer_RemoteCheck=Проверить" Enabled="True" OnClick="btnCheck_OnClick" Width="34"/>
+            </Component>
+          </Component>
+          <Component Name="frmDemoRbtn" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <BuiltIn Name="SideMargins" Top="3"/>
+            <Component Name="grpDemoRbtn" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="rbLicenseDemo" Class="Com.Ctrl.IRadioButton" Caption="@Admin:AuthServer_LicenseDemo=Работать без лицензии, в демо-режиме" Field="FldLicenseMode" OnChange="LicenseMode_OnChange" StaticValue="2"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="KeyProtectFrame" Class="Com.Ctrl.IFrame" Caption="@Admin:AuthServer_Protect=Ключи защиты">
+          <Component Name="frmLocalKey" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="grpKeyCheck" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="lblKeyCheckPeriod" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_KeyRepeatCount=Количество попыток опроса" Width="60"/>
+              <Component Name="sepKeyCheck" Class="Com.Ctrl.IStatic" FixSize="True" Width="10"/>
+              <Component Name="edKeyCheckPeriod" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FldKeyRepeatCount" FieldFormat="#0" OnVerify="edKeyCheckPeriod_OnVerify" Width="20"/>
+              <Component Name="sepKeyCheckPeriod" Class="Com.Ctrl.IStatic" Width="80"/>
+              <Component Name="lineKeyCheck" Class="Com.Ctrl.INewLine"/>
+              <Component Name="chbVerifying" Class="Com.Ctrl.ICheckBox" Caption="@Admin:AuthServer_KeyVerifying=Периодически выполнять проверку ключа" Field="FldKeyVerifying" OnChange="chbVerifying_OnChange"/>
+            </Component>
+            <Component Name="grpKeyVerify" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="sepVerify1" Class="Com.Ctrl.IStatic" FixSize="True" Width="10"/>
+              <Component Name="lblKeyVerifyPeriod" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_KeyVerifyPeriod=Период проверки (секунд)" Width="60"/>
+              <Component Name="edKeyVerifyPeriod" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FldKeyVerifyPeriod" FieldFormat="#0" OnVerify="edKeyVerifyPeriod_OnVerify" Width="20"/>
+              <Component Name="sepKeyVerifyPeriod" Class="Com.Ctrl.IStatic" Width="80"/>
+              <Component Name="lineKeyVerify" Class="Com.Ctrl.INewLine"/>
+              <Component Name="sepVerify2" Class="Com.Ctrl.IStatic" FixSize="True" Width="10"/>
+              <Component Name="chbLogging" Class="Com.Ctrl.ICheckBox" Caption="@Admin:AuthServer_KeyVerifyLogging=Протоколировать неудачные попытки" Field="FldKeyLogging"/>
+            </Component>
+          </Component>
+          <Component Name="boxINetKey" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@Admin:AuthServer_INetKey=Интернет ключ">
+            <Component Name="grpINetKeyUseProxy" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="chbUseProxy" Class="Com.Ctrl.ICheckBox" Caption="@Admin:AuthServer_INetKeyUseProxy=Использовать прокси-сервер" Field="FldKeyUseProxy" OnChange="chbUseProxy_OnChange"/>
+            </Component>
+            <Component Name="grpINetKeyProxy" Class="Com.Ctrl.IGroup">
+              <Component Name="sepKeyProxyAddress1" Class="Com.Ctrl.IStatic" FixSize="True" Width="10"/>
+              <Component Name="lblKeyProxyAddress" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_Address=Адрес" FixSize="True" Width="30"/>
+              <Component Name="edKeyProxyAddress" Class="Com.Ctrl.IEdit" Field="FldKeyProxyAddr" Width="50"/>
+              <Component Name="sepKeyProxyAddress2" Class="Com.Ctrl.IStatic" Width="20"/>
+              <Component Name="lineKeyProxy1" Class="Com.Ctrl.INewLine"/>
+              <Component Name="sepKeyProxyUser1" Class="Com.Ctrl.IStatic" FixSize="True" Width="10"/>
+              <Component Name="lblKeyProxyUser" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_User=Пользователь" FixSize="True" Width="30"/>
+              <Component Name="edKeyProxyUser" Class="Com.Ctrl.IEdit" Field="FldKeyProxyUser" OnChange="KeyProxyUser_Change" Width="50"/>
+              <Component Name="sepKeyProxyUser2" Class="Com.Ctrl.IStatic" Width="20"/>
+              <Component Name="lineKeyProxy2" Class="Com.Ctrl.INewLine"/>
+              <Component Name="sepKeyProxyPassword1" Class="Com.Ctrl.IStatic" FixSize="True" Width="10"/>
+              <Component Name="lblKeyProxyPassword" Class="Com.Ctrl.IStatic" Caption="@Admin:AuthServer_Password=Пароль" FixSize="True" Width="30"/>
+              <Component Name="edKeyProxyPassword" Class="Com.Ctrl.IPasswordEdit" Field="FldKeyProxyPWD" OnChange="KeyProxyUser_Change" Width="50"/>
+              <Component Name="sepKeyProxyPassword2" Class="Com.Ctrl.IStatic" Width="20"/>
+            </Component>
+          </Component>
+        </Component>
+        <Inherited Name="MainTab" After="KeyProtectFrame"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.Proj.ProjectCustMaster">
+  <Inherited FormIcon="Admin.Backup">
+    <Component Name="BackupStruct" Class="Admin.Frm.Proj.ProjBackup_Struct" IsLibrary="1" After="DistroStruct"/>
+    <Inherited Name="pmProj" After="BackupStruct"/>
+    <Inherited Name="Variables">
+      <Component Name="subTblProject" Class="Com.ISubtable" StructClass="Admin.Frm.Proj.ProjBackup_Struct"/>
+      <Component Name="FldFileName" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="FlagSource" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FlagBinary" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FlagHelp" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FlagEncode" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldCodeOpen" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Component Name="FrameProjects" Class="Com.Ctrl.IFrame" After="#0" Caption="@Admin:ProjBackup_Step1=Проекты">
+          <Component Name="frameFlag" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+            <Component Name="grpSubProject" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="chbSubProject" Class="Com.Ctrl.ICheckBox" Caption="@Admin:ProjectBackupIncSub=Автоматически выбирать подпроекты"/>
+            </Component>
+          </Component>
+          <Component Name="framePrjSelect" Class="Com.Ctrl.IFrame" AutoSize="False" Margins="4">
+            <Component Name="tblPrjSelect" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" ManualControl="False" Numbering="False" OnDrawIcon="tblPrjSelect_OnDrawIcon" PopupMenu="pmProj" ShowIcon="True" Subtable="subTblProject">
+              <Component Name="edPrjName" Class="Com.Ctrl.IEdit" Enabled="False" Field="BackupStruct.Name" MaxWidth="100" MinWidth="20" OnClick="Project_OpenGroup" OnDrawEx="edPrjName_OnDrawEx" OnOutputEx="edPrjName_OnOutputEx" Width="50"/>
+              <Component Name="edPrjHead" Class="Com.Ctrl.IEdit" Caption="@Admin:ProjectListTitle=Название" Enabled="False" Field="BackupStruct.Head" MaxWidth="120" MinWidth="20" OnClick="Project_OpenGroup" Width="60"/>
+              <Component Name="chbSelected" Class="Com.Ctrl.ICheckBox" Caption="@Admin:Selected=Выбран" Field="BackupStruct.Selected" FixSize="True" OnChange="chbSelected_OnChange" OnVerify="chbSelected_OnVerify" Width="20"/>
+            </Component>
+          </Component>
+        </Component>
+        <Inherited Name="FrameArchive" After="FrameProjects" Caption="@Admin:ProjBackup_Step2=Дистрибутив">
+          <Component Name="frameFile" Class="Com.Ctrl.IFrame" After="#0" AutoSize="True" Margins="4">
+            <Component Name="grpFile" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="lblFile" Class="Com.Ctrl.IStatic" Caption="@Admin:ProjectBackupName=Имя" FixSize="True" Width="16" Wrap="False"/>
+              <Component Name="edFile" Class="Com.Ctrl.IEdit" Field="FldFileName" OnVerify="edFile_OnVerify" Width="100"/>
+            </Component>
+          </Component>
+          <Inherited Name="frameTable" After="frameFile"/>
+        </Inherited>
+        <Component Name="FrameParameters" Class="Com.Ctrl.IFrame" After="FrameArchive" Caption="@Admin:ProjBackup_Step3=Параметры">
+          <Component Name="frameOptions" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="6">
+            <Component Name="grpBackupName" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="lblBpkName" Class="Com.Ctrl.IStatic" Caption="@Admin:ProjectBackupNamePrmt=Дистрибутив" FixSize="True" Width="30" Wrap="False"/>
+              <Component Name="edBpkName" Class="Com.Ctrl.IEdit" Enabled="False" Field="FldFileName" OnOutputEx="edBpkName_OnOutputEx" ValueType="VarString" Width="80"/>
+              <Component Name="lineFile" Class="Com.Ctrl.INewLine"/>
+              <Component Name="sepPackrd" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+              <Component Name="chbPacked" Class="Com.Ctrl.ICheckBox" Caption="@Admin:ProjectBackupPacked=Упакованный формат"/>
+            </Component>
+            <Component Name="grpOptions" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="chbSource" Class="Com.Ctrl.ICheckBox" Caption="@Admin:ProjBackup_Source=Публиковать исходные тексты" Field="FlagSource" OnChange="chbBinarySource_OnChange"/>
+              <Component Name="chbBinary" Class="Com.Ctrl.ICheckBox" Caption="@Admin:ProjBackup_Binary=Публиковать двоичные файлы" Field="FlagBinary" OnChange="chbBinarySource_OnChange"/>
+              <Component Name="chbHelp" Class="Com.Ctrl.ICheckBox" Caption="@Admin:ProjBackup_Help=Публиковать файлы помощи" Field="FlagHelp"/>
+              <Component Name="chbEcnode" Class="Com.Ctrl.ICheckBox" Caption="@Admin:ProjBackup_Encode=Кодировать исходные тексты" Field="FlagEncode" OnChange="chbEcnode_OnChange"/>
+            </Component>
+          </Component>
+          <Component Name="frameEncode" Class="Com.Ctrl.IFrame" Orientation="WithTabs" ShowTabs="True" Visible="False">
+            <Component Name="tabPassword" Class="Com.Ctrl.IFrame" Caption="Пароль" Margins="6">
+              <Component Name="grpPassword" Class="Com.Ctrl.IGroup" Adaptive="False">
+                <Component Name="lblPassword" Class="Com.Ctrl.IStatic" Caption="@Admin:Password=Пароль" FixSize="True" Width="46" Wrap="False"/>
+                <Component Name="edPassword" Class="Com.Ctrl.IPasswordEdit" ValueType="VarString" Width="60"/>
+                <Component Name="linePassword" Class="Com.Ctrl.INewLine"/>
+                <Component Name="lblConfirmPassword" Class="Com.Ctrl.IStatic" Caption="@Admin:ProjBackup_PwrdConfitm=Подтверждение" FixSize="True" Width="46" Wrap="False"/>
+                <Component Name="edConfirm" Class="Com.Ctrl.IPasswordEdit" ValueType="VarString" Width="60"/>
+              </Component>
+            </Component>
+            <Component Name="tabKey" Class="Com.Ctrl.IFrame" Caption="Ключ" Margins="6">
+              <Component Name="grpKey" Class="Com.Ctrl.IGroup" Adaptive="False">
+                <Component Name="lblMasterKey" Class="Com.Ctrl.IStatic" Caption="@Admin:ProjBackup_MasterKey=Главный ключ" FixSize="True" Width="46" Wrap="False"/>
+                <Component Name="edMasterKey" Class="Com.Ctrl.IEdit" OnVerify="edMasterKey_OnVerify" ValueType="VarString" Width="60"/>
+                <Component Name="lineKey" Class="Com.Ctrl.INewLine"/>
+                <Component Name="lblOpenCode" Class="Com.Ctrl.IStatic" Caption="@Admin:ProjBackup_OpenCodeCap=Лицензия на открытие" FixSize="True" Width="46" Wrap="False"/>
+                <Component Name="edOpenCode" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="FldCodeOpen" ListAsString="@Admin:ProjBackup_OpenCodeVal=Нет|0&#xD;&#xA;Исходные тексты|911" Width="60"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Inherited Name="FrameProcess" After="FrameParameters" Caption="@Admin:ProjBackup_Step4=Публикация">
+          <Inherited Name="frameStatus">
+            <Inherited Name="grpStatus">
+              <Inherited Name="lblStatus" Width="40"/>
+            </Inherited>
+            <Component Name="grpDetail" Class="Com.Ctrl.IGroup" After="grpStatus" Adaptive="True" ByColumn="False" Printed="False">
+              <Component Name="lblCount" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="@Admin:ItemSize=Размер" FixSize="True" Multiline="False" Width="40" Wrap="False"/>
+              <Component Name="edCount" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" MinWidth="20" Width="60"/>
+              <Component Name="sepCount" Class="Com.Ctrl.IStatic" MinWidth="40" Width="60"/>
+            </Component>
+            <Component Name="grpMove" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" Printed="False" Visible="False">
+              <Component Name="lblMove" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="@Admin:InfoBaseBackup_Move=Передано байт" FixSize="True" Multiline="False" Width="40" Wrap="False"/>
+              <Component Name="edMove" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" MinWidth="20" Width="60"/>
+              <Component Name="sepMove" Class="Com.Ctrl.IStatic" MinWidth="40" Width="60"/>
+            </Component>
+            <Inherited Name="grpTime" After="grpMove">
+              <Inherited Name="lblTime" Width="40"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

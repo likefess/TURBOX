@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWithFrames">
+  <Inherited Caption="@Настройки программы" CaptionWidth="50">
+    <Inherited Name="Variables">
+      <Component Name="Design" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="Density" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+      <Component Name="UseButtonSet" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonOK" HasCaption="True" Width="30"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="Box1" Class="Com.Ctrl.IBox" Caption="@Настройки интерфейса">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="200" MinWidth="100">
+            <Component Name="EdtDesign" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Версия дизайна" Field="Design" OnChange="EdtDesign_OnChange" OnDrawEx="EdtDesign_OnDrawEx" OnOutputEx="EdtDesign_OnOutputEx"/>
+            <Component Name="EdtDensity" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Плотность интерфейса" Field="Density" OnChange="EdtDensity_OnChange" OnDrawEx="EdtDensity_OnDrawEx" OnOutputEx="EdtDensity_OnOutputEx"/>
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" FontSize="1"/>
+            <Component Name="CheckBoxUseButtonSet" Class="Com.Ctrl.ICheckBox" Caption="Использовать наборы кнопок" Field="UseButtonSet" OnChange="CheckBoxUseButtonSet_OnChange"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Component Name="Timer" Class="Com.ITimer" After="#0" Active="False" Interval="5" OnTimer="Timer_OnTimer"/>
+    <Component Name="UsersSource" Class="Admin.Frm.ConnectedUsers.ConnUsersSource"/>
+    <Inherited Name="TableMenu" Excluded="False" After="UsersSource" Visible="True">
+      <Component Name="cmdDisconnect" Class="Com.ComManaging.ExecProcedure" After="TableSeparator1" Caption="@Admin:ConnectUser_Disconnect=Отключить" CommandProc="cmdDisconnect_CommandProc" IconName="Admin.ServerDisconnect"/>
+      <Inherited Name="cmdCopyValue" Excluded="True" After="cmdDisconnect"/>
+      <Inherited Name="cmdCutValue" Excluded="True"/>
+      <Inherited Name="cmdPasteValue" Excluded="True"/>
+      <Inherited Name="cmdDeleteValue" Excluded="True"/>
+      <Inherited Name="TableSeparator2" Excluded="True"/>
+      <Inherited Name="cmdInsertRow" Excluded="True"/>
+      <Inherited Name="cmdDeleteRow" Excluded="True"/>
+      <Inherited Name="cmdRowUp" Excluded="True"/>
+      <Inherited Name="cmdRowDown" Excluded="True"/>
+    </Inherited>
+    <Inherited Name="Variables">
+      <Component Name="FldKindTree" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldRefresh" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonOK" Visible="False"/>
+        <Inherited Name="ButtonRefresh" After="ButtonClose"/>
+        <Inherited Name="HeaderSeparator" After="ButtonRefresh"/>
+        <Component Name="ButtonDisconnect" Class="Com.Ctrl.IButton" After="HeaderSeparator" Caption="@Admin:ConnectUser_Disconnect=Отключить" Command="cmdDisconnect" ImageName="Admin.ServerDisconnect"/>
+        <Inherited Name="ButtonHelp" After="ButtonDisconnect"/>
+        <Inherited Name="ButtonPrint" After="ButtonHelp"/>
+      </Inherited>
+      <Component Name="OptionsFrame" Class="Com.Ctrl.IFrame" After="HeaderFrame" AutoSize="True" Margins="5">
+        <Component Name="grpOptions" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+          <Component Name="lblKindTree" Class="Com.Ctrl.IStatic" Caption="@Admin:ConnectUser_GroupBy=Группировать по" FixSize="True" Multiline="False" Width="40" Wrap="False"/>
+          <Component Name="edtKindTree" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="FldKindTree" FixSize="True" ListAsString="@Admin:ConnectUsers_Connections=подключению|0&#xD;&#xA;типу подключения|1" Multiline="False" OnChange="edtKindTree_OnChange" Width="60" Wrap="False"/>
+          <Component Name="sepKindTree" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+          <Component Name="lblRefreshTitle" Class="Com.Ctrl.IStatic" Caption="@Admin:ConnectUser_RefreshTitle=Период обновления" FixSize="True" Multiline="False" Width="40" Wrap="False"/>
+          <Component Name="edtRefresh" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FldRefresh" FieldFormat="#0" FixSize="True" OnChange="edtRefresh_OnChange" Width="20"/>
+          <Component Name="lblRefreshTime" Class="Com.Ctrl.IStatic" Caption="@Admin:ConnectUser_RefreshTime=сек"/>
+        </Component>
+      </Component>
+      <Inherited Name="FieldsFrame" After="OptionsFrame" AutoSize="False">
+        <Component Name="TreeGrid" Class="Admin.Ctrl.TreeGridAdm" MaxCols="11" OnFirstShow="TreeGrid_OnFirstShow" PopupMenu="TableMenu" TreeSource="UsersSource"/>
+      </Inherited>
+      <Inherited Name="TabsFrame" Excluded="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

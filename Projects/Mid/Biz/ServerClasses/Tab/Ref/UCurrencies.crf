@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Tab.Ref.UnitsOrCurrencies">
+  <Inherited Filter="IsCurrency = 1" HelpContext="Biz.НСИ.Базовые справочники.Валюты">
+    <Inherited Name="Current" Class="Biz.Rec.Ref.UCurrency" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="DigitalCode" Class="Com.Ctrl.IEdit" After="UnitKind" Field="Current.DigitalCode" Width="30"/>
+          <Component Name="ISOCode" Class="Com.Ctrl.IEdit" Field="Current.ISOCode" Width="30"/>
+          <Inherited Name="Closed" After="ISOCode"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited HelpContext="InfoBoard.Работа с панелями.Панели">
+    <Inherited Name="EdtRec" Class="InfoBoard.Rec.Data.Panel" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Component Name="MainFrame" Class="Com.Ctrl.IFrame" After="HeaderFrame" AutoSize="True" Orientation="Vertical">
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="200">
+          <Component Name="NameEdit" Class="Com.Ctrl.IEdit" Caption="@CodeName:Name=Название" Field="EdtRec.Name" FontBold="True"/>
+          <Component Name="AliasEdit" Class="Com.Ctrl.IEdit" Caption="@InfoBoard.Alias:Title=Псевдоним" Field="EdtRec.Alias"/>
+        </Component>
+      </Component>
+      <Inherited Name="FieldsFrame" Excluded="True" After="MainFrame"/>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="GridFrame_old" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="GridFormatEdit_old" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@InfoBoard.Layout=Размещать панели" CellFormat="EnumFormat" Field="EdtRec.Layout" ListAsString="@InfoBoard.FormPanel:HorzLayout=Горизонтально|0;@InfoBoard.FormPanel:VertLayout=Вертикально|1" Width="40"/>
+            <Component Name="GridEdit_old" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@InfoBoard.FormPanel:Title=Форма панели" CellFormat="EnumFormat" Field="EdtRec.ArrayPanel" Width="40"/>
+            <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+            <Component Name="ProportionsEdit_old" Class="Com.Ctrl.IEdit" Caption="@InfoBoard.Proportion:Title=Пропорция панели" Field="EdtRec.Proportion" Width="40"/>
+            <Component Name="FixSizeEdit_old" Class="Com.Ctrl.IEdit" Caption="@InfoBoard.FixSize:Title=Фикс.размер" Field="EdtRec.HSize" Width="20"/>
+            <Component Name="ResizableFlag_old" Class="Com.Ctrl.ICheckBox" Caption="@InfoBoard.Resize:Title=Изменение размера" Field="EdtRec.Resize" Width="42"/>
+          </Component>
+          <Component Name="GridFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="GridFormatEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@InfoBoard.Layout=Вложенные панели размещать" CaptionWidth="60" CellFormat="EnumFormat" Field="EdtRec.Layout" ListAsString="@InfoBoard.FormPanel:HorzLayout=Сверху вниз|0;@InfoBoard.FormPanel:VertLayout=Слева направо|1;@InfoBoard.FormPanel:PageLayout=Страницами|2" Width="40"/>
+            <Component Name="BlendedReportFlag" Class="Com.Ctrl.ICheckBox" Field="EdtRec.BlendedReport" Hint="@InfoBoard:BlendedReport.Hint=Элементы панели могут уходить за пределы одного экрана" Width="40"/>
+          </Component>
+          <Component Name="TilesFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Vertical">
+            <Component Name="TileListFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Tiles" Margins="4" OnMove="MoveTiles">
+              <Component Name="TileListTable" Class="Com.Ctrl.ITable" Numbering="False" OnChangePosition="TileListTable_OnChangePosition" OnDelete="TileListTable_OnDelete" OnInsert="TileListTable_OnInsert" Subtable="EdtRec.Elements">
+                <Component Name="TileColumns" Class="Com.Ctrl.IColumnsGroup" Caption="@InfoBoard.FieldClass:Title=Тип класса" HasCaption="True">
+                  <Component Name="TypeEdit" Class="Com.Ctrl.IEdit" AutoLookup="True" Caption="@InfoBoard.FieldClass:Title=Тип класса" CellFormat="EnumFormat" HasCaption="False" OnChange="TileTypeOnChange" OnOutputEx="TypeEditOnOutputEx" ValueType="VarString" Width="70"/>
+                  <Component Name="TileLeftButton" Class="Com.Ctrl.IButton" HasCaption="False" ImageName="Com.FirstItem" OnClick="TileLeftButtonOnClick"/>
+                  <Component Name="TileRightButton" Class="Com.Ctrl.IButton" HasCaption="False" ImageName="Com.LastItem" OnClick="TileRightButtonOnClick"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="CurrentTileFrame" Class="Com.Ctrl.IFrame" Orientation="Horizontal" Visible="False">
+              <Component Name="CurrentMainGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="120">
+                <Component Name="CurrentTileHeader" Class="Com.Ctrl.IStatic" FontBold="True"/>
+                <Component Name="CurrentSizeGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                  <Component Name="PanelSizeEdit" Class="Com.Ctrl.IEdit" AutoLock="True" Caption="Размер" CaptionWidth="20" CellFormat="NumericFormat" FixSize="True" LookupField="PanelSize" OnChange="TileOnChange" OnOutput="TileOnOutput" ValueType="VarInteger" Width="15"/>
+                  <Component Name="PanelStyleEdit" Class="Com.Ctrl.IEdit" AutoLock="True" CellFormat="EnumFormat" HasCaption="False" ListAsString="пропорционально|0;пропорционально, изменяемый|1;мм, фиксированный|2" LookupField="PanelStyle" OnChange="TileOnChange" OnOutput="TileOnOutput" ValueType="VarInteger"/>
+                </Component>
+                <Component Name="TileCaptionEdit" Class="Com.Ctrl.IEdit" AutoLock="True" Caption="Заголовок" CaptionWidth="35" CellFormat="StringFormat" OnChange="TileCaptionEditOnChange" OnOutput="TileCaptionEditOnOutput"/>
+              </Component>
+              <Component Name="CurrentCommonGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="120" MinWidth="30">
+                <Component Name="DataGroup" Class="Com.Ctrl.IGroup" Adaptive="True" Width="70">
+                  <Component Name="DataEdit" Class="Com.Ctrl.IEdit" AutoLock="True" ButtonStyle="LookupButton" CellFormat="StringFormat" HasCaption="False" OnChange="DataEditOnChange" OnLookup="DataEditOnLookup" OnOutput="DataEditOnOutput" OnVerify="DataEditOnVerify" Width="70"/>
+                  <Component Name="TileJump" Class="Com.Ctrl.IButton" Hint="Показать панель" ImageName="Com.JumpButton" OnClick="TileJumpOnClick"/>
+                </Component>
+                <Component Name="ShowZoomFlag" Class="InfoBoard.Ctrl.ITileFlag" AutoLock="True" Caption="Показывать в отдельном окне" LookupField="ShowZoom" OnChange="TileFlagOnChange" OnOutputEx="TileFlagOnOutputEx"/>
+                <Component Name="ShowRefreshFlag" Class="InfoBoard.Ctrl.ITileFlag" AutoLock="True" Caption="Показывать кнопку &quot;Обновить&quot;" LookupField="ShowRefresh" OnChange="TileFlagOnChange" OnOutputEx="TileFlagOnOutputEx"/>
+                <Component Name="FilterGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                  <Component Name="SetFilterFlag" Class="InfoBoard.Ctrl.ITileFlag" AutoLock="True" Caption="Влияет на фильтр" LookupField="CanSetFilter" OnChange="TileFlagOnChange" OnOutputEx="TileFlagOnOutputEx"/>
+                  <Component Name="GetFilterFlag" Class="InfoBoard.Ctrl.ITileFlag" AutoLock="True" Caption="Зависит от фильтра" LookupField="CanGetFilter" OnChange="TileFlagOnChange" OnOutputEx="TileFlagOnOutputEx"/>
+                </Component>
+              </Component>
+              <Component Name="CurrentProperties" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="120" MinWidth="30"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="LookTab" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Frm:Look=Внешний вид" Margins="5">
+          <Component Name="Frame1" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="LookGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="35" MaxWidth="100" MinWidth="60">
+              <Component Name="ShowFrameMarginsFlag" Class="Com.Ctrl.ICheckBox" Caption="@InfoBoard:ShowFrameMargins=Показывать отступы и границы" Field="EdtRec.ShowFrameMargins"/>
+              <Component Name="ColorsGroup" Class="Com.Ctrl.IGroup">
+                <Component Name="GridColorEdit" Class="Com.Ctrl.IEdit" Caption="@InfoBoard:PanelColor=Фон панели" Field="EdtRec.Color" OnDraw="ColorEditOnDraw" OnEnter="GridColorEditOnEnter" Width="20"/>
+                <Component Name="GridColorLink" Class="Com.Ctrl.IStatic" Caption="@InfoBoard:SetupColor=Настроить" OnClick="ColorLinkOnClick" StaticStyle="StaticHyperlink" Width="25"/>
+              </Component>
+              <Component Name="HeaderColorsGroup" Class="Com.Ctrl.IGroup">
+                <Component Name="HeaderColorEdit" Class="Com.Ctrl.IEdit" Caption="@InfoBoard:HeaderColor=Фон заголовков" Field="EdtRec.HeaderColor" OnDraw="ColorEditOnDraw" OnEnter="GridColorEditOnEnter" Width="20"/>
+                <Component Name="HeaderColorLink" Class="Com.Ctrl.IStatic" Caption="@InfoBoard:SetupColor=Настроить" OnClick="HeaderColorLinkOnClick" StaticStyle="StaticHyperlink" Width="25"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="Box1" Class="Com.Ctrl.IBox" Caption="Отладочная настройка отступов">
+            <Component Name="Group3" Class="Com.Ctrl.IGroup" ByColumn="True" CaptionWidth="40">
+              <Component Name="OuterMarginsEdit" Class="Com.Ctrl.IEdit" Caption="Внешний отступ" Field="EdtRec.OuterMargins" Width="25"/>
+              <Component Name="InnerMarginsEdit" Class="Com.Ctrl.IEdit" Caption="Внутренний отступ" Field="EdtRec.InnerMargins" Width="25"/>
+              <Component Name="BevelStyleEdit" Class="Com.Ctrl.IEdit" Caption="Вид обводки" CellFormat="EnumFormat" Field="EdtRec.BevelStyle" ListAsString="нет;бледная;яркая" Width="25"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

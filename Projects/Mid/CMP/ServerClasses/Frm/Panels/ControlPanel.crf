@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited HelpContext="CMP.Студия компонентов (машина реквизитов).Панели управления">
+    <Inherited Name="EdtRec" Class="CMP.Rec.Panels.IControlPanel" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="ColCount" Class="Com.Fld.IVar" OnCalc="ColCount_OnCalc" ValueType="VarInteger"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ButtonTest" Class="Com.Ctrl.IButton" After="ButtonClose" Hint="Тест панели" ImageName="Bas.puzzleCopy" OnClick="ButtonTest_OnClick"/>
+        <Inherited Name="ButtonReports" After="ButtonTest"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" CaptionWidth="50" MaxWidth="0">
+          <Component Name="CodeNameGroup" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True" HasCaption="True">
+            <Component Name="EditName" Class="Com.Ctrl.IEdit" Field="EdtRec.Name"/>
+            <Component Name="EditCode" Class="Com.Ctrl.IEdit" CaptionWidth="40" Field="EdtRec.Code" FixSize="True" Width="80"/>
+          </Component>
+          <Inherited Name="Code" After="CodeNameGroup"/>
+          <Component Name="EditPanelTitle" Class="Com.Ctrl.IEdit" After="Name" Caption="@CMP:ControlPanelPanelTitle=Надпись в заголовке" Field="EdtRec.PanelTitle"/>
+          <Component Name="EditHelpContext" Class="Com.Ctrl.IEdit" Caption="@CMP:ControlPanelHelpContext=Тема помощи" Field="EdtRec.HelpContext" HasButton="True" OnLookup="EditHelpContext_OnLookup"/>
+          <Component Name="Group2" Class="Com.Ctrl.IGroup">
+            <Component Name="EditColCount" Class="Com.Ctrl.IEdit" Caption="@CMP:ControlPanelColCount=Максимальное количество столбцов на панели" CaptionWidth="100" Field="ColCount" FixSize="True" OnChange="EditColCount_OnChange" OnVerify="EditColCount_OnVerify" Width="20"/>
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="10"/>
+            <Component Name="CheckBoxIsRoleCenter" Class="Com.Ctrl.ICheckBox" Caption="@CMP:ControlPanelIsRoleCenter=Это ролевой центр" Field="EdtRec.IsRoleCenter" MinWidth="40"/>
+          </Component>
+        </Inherited>
+        <Component Name="ItemsTable" Class="Com.Ctrl.ITable" Adaptive="True" CanInsert="True" Freezed="False" Numbering="False" OnClickIcon="ItemsTable_OnClickIcon" OnDrawIcon="ItemsTable_OnDrawIcon" OnInsert="ItemsTable_OnInsert" ShowIcon="True" Sortable="True" Subtable="EdtRec.Items">
+          <Component Name="DefStructItems" Class="CMP.Rec.Panels.IControlPanel_Items" IsLibrary="1"/>
+          <Component Name="EditColNumber" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CanSort="True" Caption="@CMP:ControlPanelItemsColNumber=Номер столбца" CellFormat="EnumFormat" Field="DefStructItems.ColNumber" FixSize="True" OnDraw="Edit_OnDraw" Width="17"/>
+          <Component Name="ColumnsGroup2" Class="Com.Ctrl.IColumnsGroup" Caption="Визуальный элемент" HasCaption="True">
+            <Component Name="EditItemType" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CanSort="False" Caption="@CMP:ControlPanelItemsItemType=Тип" CellFormat="EnumFormat" Enabled="False" Field="DefStructItems.ItemType" FixSize="True" ListAsString="Кнопка&#xD;&#xA;Надпись&#xD;&#xA;Разделитель" OnClick="Edit_OnClick" OnDraw="Edit_OnDraw" Width="25"/>
+            <Component Name="EditCaption" Class="Com.Ctrl.IEdit" CanSort="False" Caption="@CMP:ControlPanelItemsCaption=Параметры" Enabled="False" Field="DefStructItems.Caption" OnClick="Edit_OnClick" OnDraw="Edit_OnDraw" OnOutput="EditCaption_OnOutput"/>
+            <Component Name="CheckBoxOff" Class="Com.Ctrl.ICheckBox" CanSort="False" Caption="@CMP:ControlPanelItemsOff=Выкл" Field="DefStructItems.Off" FixSize="True" Width="15"/>
+            <Component Name="EditVisibleCondition" Class="CMP.Ctrl.IFormulaEdit" Excluded="True" CanSort="False" Caption="@CMP:ControlPanelItemsVisibleCondition=Условие" Field="DefStructItems.VisibilityCondition" OnDraw="Edit_OnDraw" Subtable="DefStructItems.ConditionRecords"/>
+            <Component Name="EditConditionType" Class="Com.Ctrl.IEdit" Excluded="True" CanSort="False" Caption="@CMP:ControlPanelItemsConditionType=Условие управляет" CellFormat="EnumFormat" Field="DefStructItems.ConditionType" FixSize="True" ListAsString="доступностью|0&#xD;&#xA;видимостью|1" OnDraw="Edit_OnDraw" Width="35"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

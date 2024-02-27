@@ -1,0 +1,3446 @@
+﻿TBCFile VER="3.4" [Created '12.11.2019 16:57:06' by 'Администратор']
+
+DESCRIPTION[
+Count=450
+CountByRef=0
+Biz.Ref.UnitOrCurrency
+(
+  Count=450
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Biz.Ref.UnitOrCurrency
+  (
+    Deleted :Boolean
+    Locked :Boolean
+    Closed :Boolean
+    Code :String(80)
+    Name :String(850)
+    DigitalCode :String(20)
+    ISOCode :String(3)
+    BaseUnit :Biz.Ref.UnitOrCurrency
+    ToMultiply :Boolean
+    Accuracy :Integer
+    IsCurrency :Integer
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Biz.Ref.UnitOrCurrency
+  
+  {Biz.Ref.UnitOrCurrency:"%"}
+  (
+    Name = "Процент"
+    DigitalCode = "744"
+    ToMultiply = True
+    Accuracy = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"ед"}
+  (
+    Name = "Единица"
+    DigitalCode = "642"
+    ToMultiply = True
+    Accuracy = 1
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"-"}
+  (
+    Closed = True
+    Name = "Стандарт"
+    DigitalCode = "152"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"м/ч"}
+  (
+    Closed = True
+    Name = "Метр в час"
+    DigitalCode = "231"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"л. с"}
+  (
+    Closed = True
+    Name = "Лошадиная сила"
+    DigitalCode = "251"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 л. с"}
+  (
+    Closed = True
+    Name = "Тысяча лошадиных сил"
+    DigitalCode = "252"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 л. с"}
+  (
+    Closed = True
+    Name = "Миллион лошадиных сил"
+    DigitalCode = "253"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"бит"}
+  (
+    Closed = True
+    Name = "Бит"
+    DigitalCode = "254"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"бай"}
+  (
+    Closed = True
+    Name = "Байт"
+    DigitalCode = "255"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кбайт"}
+  (
+    Closed = True
+    Name = "Килобайт"
+    DigitalCode = "256"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"Мбайт"}
+  (
+    Closed = True
+    Name = "Мегабайт"
+    DigitalCode = "257"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"бод"}
+  (
+    Closed = True
+    Name = "Бод"
+    DigitalCode = "258"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"Ом"}
+  (
+    Closed = True
+    Name = "Ом"
+    DigitalCode = "274"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кд"}
+  (
+    Closed = True
+    Name = "Кандела"
+    DigitalCode = "282"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"лк"}
+  (
+    Closed = True
+    Name = "Люкс"
+    DigitalCode = "283"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"лм"}
+  (
+    Closed = True
+    Name = "Люмен"
+    DigitalCode = "284"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"Гн"}
+  (
+    Closed = True
+    Name = "Генри"
+    DigitalCode = "287"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"K"}
+  (
+    Closed = True
+    Name = "Кельвин"
+    DigitalCode = "288"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"Н"}
+  (
+    Closed = True
+    Name = "Ньютон"
+    DigitalCode = "289"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"Гц"}
+  (
+    Closed = True
+    Name = "Герц"
+    DigitalCode = "290"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кГц"}
+  (
+    Closed = True
+    Name = "Килогерц"
+    DigitalCode = "291"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"МГц"}
+  (
+    Closed = True
+    Name = "Мегагерц"
+    DigitalCode = "292"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"Па"}
+  (
+    Closed = True
+    Name = "Паскаль"
+    DigitalCode = "294"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кПа"}
+  (
+    Closed = True
+    Name = "Килопаскаль"
+    DigitalCode = "297"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"МПа"}
+  (
+    Closed = True
+    Name = "Мегапаскаль"
+    DigitalCode = "298"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"атм"}
+  (
+    Closed = True
+    Name = "Физическая атмосфера (101325 Па)"
+    DigitalCode = "300"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"ат"}
+  (
+    Closed = True
+    Name = "Техническая атмосфера (98066,5 Па)"
+    DigitalCode = "301"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"ГБк"}
+  (
+    Closed = True
+    Name = "Гигабеккерель"
+    DigitalCode = "302"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"мКи"}
+  (
+    Closed = True
+    Name = "Милликюри"
+    DigitalCode = "304"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"Ки"}
+  (
+    Closed = True
+    Name = "Кюри"
+    DigitalCode = "305"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"г Д/И"}
+  (
+    Closed = True
+    Name = "Грамм делящихся изотопов"
+    DigitalCode = "306"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"мб"}
+  (
+    Closed = True
+    Name = "Миллибар"
+    DigitalCode = "308"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"бар"}
+  (
+    Closed = True
+    Name = "Бар"
+    DigitalCode = "309"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"гб"}
+  (
+    Closed = True
+    Name = "Гектобар"
+    DigitalCode = "310"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кб"}
+  (
+    Closed = True
+    Name = "Килобар"
+    DigitalCode = "312"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"Тл"}
+  (
+    Closed = True
+    Name = "Тесла"
+    DigitalCode = "313"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"Ф"}
+  (
+    Closed = True
+    Name = "Фарад"
+    DigitalCode = "314"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кг/м3"}
+  (
+    Closed = True
+    Name = "Килограмм на кубический метр"
+    DigitalCode = "316"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кг/см^2"}
+  (
+    Closed = True
+    Name = "Килограмм на квадратный сантиметр"
+    DigitalCode = "317"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"Бк"}
+  (
+    Closed = True
+    Name = "Беккерель"
+    DigitalCode = "323"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"Вб"}
+  (
+    Closed = True
+    Name = "Вебер"
+    DigitalCode = "324"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"уз"}
+  (
+    Closed = True
+    Name = "Узел (миля/ч)"
+    DigitalCode = "327"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"м/с"}
+  (
+    Closed = True
+    Name = "Метр в секунду"
+    DigitalCode = "328"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"об/с"}
+  (
+    Closed = True
+    Name = "Оборот в секунду"
+    DigitalCode = "330"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"об/мин"}
+  (
+    Closed = True
+    Name = "Оборот в минуту"
+    DigitalCode = "331"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"км/ч"}
+  (
+    Closed = True
+    Name = "Километр в час"
+    DigitalCode = "333"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"м/с2"}
+  (
+    Closed = True
+    Name = "Метр на секунду в квадрате"
+    DigitalCode = "335"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"мм вод. ст"}
+  (
+    Closed = True
+    Name = "Миллиметр водяного столба"
+    DigitalCode = "337"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"мм рт. ст"}
+  (
+    Closed = True
+    Name = "Миллиметр ртутного столба"
+    DigitalCode = "338"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"см вод. ст"}
+  (
+    Closed = True
+    Name = "Сантиметр водяного столба"
+    DigitalCode = "339"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"Кл/кг"}
+  (
+    Closed = True
+    Name = "Кулон на килограмм"
+    DigitalCode = "349"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 руб"}
+  (
+    Closed = True
+    Name = "Тысяча рублей"
+    DigitalCode = "384"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 руб"}
+  (
+    Closed = True
+    Name = "Миллион рублей"
+    DigitalCode = "385"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^9 руб"}
+  (
+    Closed = True
+    Name = "Миллиард рублей"
+    DigitalCode = "386"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^12 руб"}
+  (
+    Closed = True
+    Name = "Триллион рублей"
+    DigitalCode = "387"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^15 руб"}
+  (
+    Closed = True
+    Name = "Квадрильон рублей"
+    DigitalCode = "388"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"пасс.км"}
+  (
+    Closed = True
+    Name = "Пассажиро-километр"
+    DigitalCode = "414"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"пасс. мест"}
+  (
+    Closed = True
+    Name = "Пассажирское место (пассажирских мест)"
+    DigitalCode = "421"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 пасс.км"}
+  (
+    Closed = True
+    Name = "Тысяча пассажиро-километров"
+    DigitalCode = "423"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 пасс. км"}
+  (
+    Closed = True
+    Name = "Миллион пассажиро-километров"
+    DigitalCode = "424"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"пасс.поток"}
+  (
+    Closed = True
+    Name = "Пассажиропоток"
+    DigitalCode = "427"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"т.км"}
+  (
+    Closed = True
+    Name = "Тонно-километр"
+    DigitalCode = "449"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 т.км"}
+  (
+    Closed = True
+    Name = "Тысяча тонно-километров"
+    DigitalCode = "450"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 т. км"}
+  (
+    Closed = True
+    Name = "Миллион тонно-километров"
+    DigitalCode = "451"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 набор"}
+  (
+    Closed = True
+    Name = "Тысяча наборов"
+    DigitalCode = "479"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кг/с"}
+  (
+    Closed = True
+    Name = "Килограмм в секунду"
+    DigitalCode = "499"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"г/кВт.ч"}
+  (
+    Closed = True
+    Name = "Грамм на киловатт-час"
+    DigitalCode = "510"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кг/Гкал"}
+  (
+    Closed = True
+    Name = "Килограмм на гигакалорию"
+    DigitalCode = "511"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"т.ном"}
+  (
+    Closed = True
+    Name = "Тонно-номер"
+    DigitalCode = "512"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"авто т"}
+  (
+    Closed = True
+    Name = "Автотонна"
+    DigitalCode = "513"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"т.тяги"}
+  (
+    Closed = True
+    Name = "Тонна тяги"
+    DigitalCode = "514"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"дедвейт.т"}
+  (
+    Closed = True
+    Name = "Дедвейт-тонна"
+    DigitalCode = "515"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"т.танид"}
+  (
+    Closed = True
+    Name = "Тонно-танид"
+    DigitalCode = "516"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"чел/м2"}
+  (
+    Closed = True
+    Name = "Человек на квадратный метр"
+    DigitalCode = "521"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"чел/км2"}
+  (
+    Closed = True
+    Name = "Человек на квадратный километр"
+    DigitalCode = "522"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"т пар/ч"}
+  (
+    Closed = True
+    Name = "Тонна пара в час"
+    DigitalCode = "533"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"т/ч"}
+  (
+    Closed = True
+    Name = "Тонна в час"
+    DigitalCode = "534"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"т/сут"}
+  (
+    Closed = True
+    Name = "Тонна в сутки"
+    DigitalCode = "535"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"т/смен"}
+  (
+    Closed = True
+    Name = "Тонна в смену"
+    DigitalCode = "536"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 т/сез"}
+  (
+    Closed = True
+    Name = "Тысяча тонн в сезон"
+    DigitalCode = "537"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 т/год"}
+  (
+    Closed = True
+    Name = "Тысяча тонн в год"
+    DigitalCode = "538"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"чел.ч"}
+  (
+    Closed = True
+    Name = "Человеко-час"
+    DigitalCode = "539"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"чел.дн"}
+  (
+    Closed = True
+    Name = "Человеко-день"
+    DigitalCode = "540"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 чел.дн"}
+  (
+    Closed = True
+    Name = "Тысяча человеко-дней"
+    DigitalCode = "541"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 чел.ч"}
+  (
+    Closed = True
+    Name = "Тысяча человеко-часов"
+    DigitalCode = "542"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 усл. банк/ смен"}
+  (
+    Closed = True
+    Name = "Тысяча условных банок в смену"
+    DigitalCode = "543"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 ед/год"}
+  (
+    Closed = True
+    Name = "Миллион единиц в год"
+    DigitalCode = "544"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"посещ/смен"}
+  (
+    Closed = True
+    Name = "Посещение в смену"
+    DigitalCode = "545"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 посещ/смен"}
+  (
+    Closed = True
+    Name = "Тысяча посещений в смену"
+    DigitalCode = "546"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"пар/смен"}
+  (
+    Closed = True
+    Name = "Пара в смену"
+    DigitalCode = "547"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 пар/смен"}
+  (
+    Closed = True
+    Name = "Тысяча пар в смену"
+    DigitalCode = "548"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 т/год"}
+  (
+    Closed = True
+    Name = "Миллион тонн в год"
+    DigitalCode = "550"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"т перераб/сут"}
+  (
+    Closed = True
+    Name = "Тонна переработки в сутки"
+    DigitalCode = "552"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 т перераб/ сут"}
+  (
+    Closed = True
+    Name = "Тысяча тонн переработки в сутки"
+    DigitalCode = "553"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"ц перераб/сут"}
+  (
+    Closed = True
+    Name = "Центнер переработки в сутки"
+    DigitalCode = "554"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 ц перераб/ сут"}
+  (
+    Closed = True
+    Name = "Тысяча центнеров переработки в сутки"
+    DigitalCode = "555"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 гол/год"}
+  (
+    Closed = True
+    Name = "Тысяча голов в год"
+    DigitalCode = "556"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 гол/год"}
+  (
+    Closed = True
+    Name = "Миллион голов в год"
+    DigitalCode = "557"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 птицемест"}
+  (
+    Closed = True
+    Name = "Тысяча птицемест"
+    DigitalCode = "558"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 кур. несуш"}
+  (
+    Closed = True
+    Name = "Тысяча кур-несушек"
+    DigitalCode = "559"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"мин. заработн. плат"}
+  (
+    Closed = True
+    Name = "Минимальная заработная плата"
+    DigitalCode = "560"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 т пар/ч"}
+  (
+    Closed = True
+    Name = "Тысяча тонн пара в час"
+    DigitalCode = "561"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 пряд.верет"}
+  (
+    Closed = True
+    Name = "Тысяча прядильных веретен"
+    DigitalCode = "562"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 пряд.мест"}
+  (
+    Closed = True
+    Name = "Тысяча прядильных мест"
+    DigitalCode = "563"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"м3/с"}
+  (
+    Closed = True
+    Name = "Кубический метр в секунду"
+    DigitalCode = "596"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"м3/ч"}
+  (
+    Closed = True
+    Name = "Кубический метр в час"
+    DigitalCode = "598"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 м3/сут"}
+  (
+    Closed = True
+    Name = "Тысяча кубических метров в сутки"
+    DigitalCode = "599"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"доз"}
+  (
+    Closed = True
+    Name = "Доза"
+    DigitalCode = "639"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 доз"}
+  (
+    Closed = True
+    Name = "Тысяча доз"
+    DigitalCode = "640"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"канал"}
+  (
+    Closed = True
+    Name = "Канал"
+    DigitalCode = "661"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 га порц"}
+  (
+    Closed = True
+    Name = "Тысяча гектаров порций"
+    DigitalCode = "724"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"промилле"}
+  (
+    Closed = True
+    Name = "Промилле (0,1 процента)"
+    DigitalCode = "746"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"станц"}
+  (
+    Closed = True
+    Name = "Станция"
+    DigitalCode = "762"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"креп. спирта по массе"}
+  (
+    Closed = True
+    Name = "Крепость спирта по массе"
+    DigitalCode = "820"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"креп. спирта по объему"}
+  (
+    Closed = True
+    Name = "Крепость спирта по объему"
+    DigitalCode = "821"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кг H2О2"}
+  (
+    Closed = True
+    Name = "Килограмм пероксида водорода"
+    DigitalCode = "841"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кг 90% с/в"}
+  (
+    Closed = True
+    Name = "Килограмм 90%-го сухого вещества"
+    DigitalCode = "845"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"т 90% с/в"}
+  (
+    Closed = True
+    Name = "Тонна 90%-го сухого вещества"
+    DigitalCode = "847"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кг К2О"}
+  (
+    Closed = True
+    Name = "Килограмм оксида калия"
+    DigitalCode = "852"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кг КОН"}
+  (
+    Closed = True
+    Name = "Килограмм гидроксида калия"
+    DigitalCode = "859"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кг N"}
+  (
+    Closed = True
+    Name = "Килограмм азота"
+    DigitalCode = "861"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кг NaOH"}
+  (
+    Closed = True
+    Name = "Килограмм гидроксида натрия"
+    DigitalCode = "863"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кг Р2О5"}
+  (
+    Closed = True
+    Name = "Килограмм пятиокиси фосфора"
+    DigitalCode = "865"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кг U"}
+  (
+    Closed = True
+    Name = "Килограмм урана"
+    DigitalCode = "867"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"усл. ед"}
+  (
+    Name = "Условная единица"
+    DigitalCode = "876"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 усл. ед"}
+  (
+    Closed = True
+    Name = "Тысяча условных единиц"
+    DigitalCode = "877"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 усл. ед"}
+  (
+    Closed = True
+    Name = "Миллион условных единиц"
+    DigitalCode = "878"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"семей"}
+  (
+    Closed = True
+    Name = "Семья"
+    DigitalCode = "896"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 семей"}
+  (
+    Closed = True
+    Name = "Тысяча семей"
+    DigitalCode = "897"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 семей"}
+  (
+    Closed = True
+    Name = "Миллион семей"
+    DigitalCode = "898"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"домхоз"}
+  (
+    Closed = True
+    Name = "Домохозяйство"
+    DigitalCode = "899"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 домхоз"}
+  (
+    Closed = True
+    Name = "Тысяча домохозяйств"
+    DigitalCode = "900"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 домхоз"}
+  (
+    Closed = True
+    Name = "Миллион домохозяйств"
+    DigitalCode = "901"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"учен. мест"}
+  (
+    Closed = True
+    Name = "Ученическое место"
+    DigitalCode = "902"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 учен. мест"}
+  (
+    Closed = True
+    Name = "Тысяча ученических мест"
+    DigitalCode = "903"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"раб. мест"}
+  (
+    Closed = True
+    Name = "Рабочее место"
+    DigitalCode = "904"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 раб. мест"}
+  (
+    Closed = True
+    Name = "Тысяча рабочих мест"
+    DigitalCode = "905"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"посад. мест"}
+  (
+    Closed = True
+    Name = "Посадочное место"
+    DigitalCode = "906"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 посад. мест"}
+  (
+    Closed = True
+    Name = "Тысяча посадочных мест"
+    DigitalCode = "907"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"ном"}
+  (
+    Closed = True
+    Name = "Номер"
+    DigitalCode = "908"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кварт"}
+  (
+    Closed = True
+    Name = "Квартира"
+    DigitalCode = "909"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 кварт"}
+  (
+    Closed = True
+    Name = "Тысяча квартир"
+    DigitalCode = "910"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"коек"}
+  (
+    Closed = True
+    Name = "Койка"
+    DigitalCode = "911"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 коек"}
+  (
+    Closed = True
+    Name = "Тысяча коек"
+    DigitalCode = "912"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"том книжн. фонд"}
+  (
+    Closed = True
+    Name = "Том книжного фонда"
+    DigitalCode = "913"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 том. книжн. фонд"}
+  (
+    Closed = True
+    Name = "Тысяча томов книжного фонда"
+    DigitalCode = "914"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"усл. рем"}
+  (
+    Closed = True
+    Name = "Условный ремонт"
+    DigitalCode = "915"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"усл. рем/год"}
+  (
+    Closed = True
+    Name = "Условный ремонт в год"
+    DigitalCode = "916"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"смен"}
+  (
+    Closed = True
+    Name = "Смена"
+    DigitalCode = "917"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"л. авт"}
+  (
+    Closed = True
+    Name = "Лист авторский"
+    DigitalCode = "918"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"л. печ"}
+  (
+    Closed = True
+    Name = "Лист печатный"
+    DigitalCode = "920"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"л. уч.-изд"}
+  (
+    Closed = True
+    Name = "Лист учетно-издательский"
+    DigitalCode = "921"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"знак"}
+  (
+    Closed = True
+    Name = "Знак"
+    DigitalCode = "922"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"слово"}
+  (
+    Closed = True
+    Name = "Слово"
+    DigitalCode = "923"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"символ"}
+  (
+    Closed = True
+    Name = "Символ"
+    DigitalCode = "924"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"усл. труб"}
+  (
+    Closed = True
+    Name = "Условная труба"
+    DigitalCode = "925"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 пласт"}
+  (
+    Closed = True
+    Name = "Тысяча пластин"
+    DigitalCode = "930"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 доз"}
+  (
+    Closed = True
+    Name = "Миллион доз"
+    DigitalCode = "937"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 лист.оттиск"}
+  (
+    Closed = True
+    Name = "Миллион листов-оттисков"
+    DigitalCode = "949"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"ваг (маш).дн"}
+  (
+    Closed = True
+    Name = "Вагоно(машино)-день"
+    DigitalCode = "950"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 ваг (маш).ч"}
+  (
+    Closed = True
+    Name = "Тысяча вагоно-(машино)-часов"
+    DigitalCode = "951"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 ваг (маш).км"}
+  (
+    Closed = True
+    Name = "Тысяча вагоно-(машино)-километров"
+    DigitalCode = "952"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10 ^3мест.км"}
+  (
+    Closed = True
+    Name = "Тысяча место-километров"
+    DigitalCode = "953"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"ваг.сут"}
+  (
+    Closed = True
+    Name = "Вагоно-сутки"
+    DigitalCode = "954"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 поезд.ч"}
+  (
+    Closed = True
+    Name = "Тысяча поездо-часов"
+    DigitalCode = "955"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 поезд.км"}
+  (
+    Closed = True
+    Name = "Тысяча поездо-километров"
+    DigitalCode = "956"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 т.миль"}
+  (
+    Closed = True
+    Name = "Тысяча тонно-миль"
+    DigitalCode = "957"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 пасс.миль"}
+  (
+    Closed = True
+    Name = "Тысяча пассажиро-миль"
+    DigitalCode = "958"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"автомоб.дн"}
+  (
+    Closed = True
+    Name = "Автомобиле-день"
+    DigitalCode = "959"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 автомоб.т.дн"}
+  (
+    Closed = True
+    Name = "Тысяча автомобиле-тонно-дней"
+    DigitalCode = "960"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 автомоб.ч"}
+  (
+    Closed = True
+    Name = "Тысяча автомобиле-часов"
+    DigitalCode = "961"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 автомоб.мест. дн"}
+  (
+    Closed = True
+    Name = "Тысяча автомобиле-место-дней"
+    DigitalCode = "962"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"привед.ч"}
+  (
+    Closed = True
+    Name = "Приведенный час"
+    DigitalCode = "963"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"самолет.км"}
+  (
+    Closed = True
+    Name = "Самолето-километр"
+    DigitalCode = "964"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 км"}
+  (
+    Closed = True
+    Name = "Тысяча километров"
+    DigitalCode = "965"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 тоннаж. рейс"}
+  (
+    Closed = True
+    Name = "Тысяча тоннаже-рейсов"
+    DigitalCode = "966"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 т. миль"}
+  (
+    Closed = True
+    Name = "Миллион тонно-миль"
+    DigitalCode = "967"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 пасс. миль"}
+  (
+    Closed = True
+    Name = "Миллион пассажиро-миль"
+    DigitalCode = "968"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 тоннаж. миль"}
+  (
+    Closed = True
+    Name = "Миллион тоннаже-миль"
+    DigitalCode = "969"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 пасс. мест. миль"}
+  (
+    Closed = True
+    Name = "Миллион пассажиро-место-миль"
+    DigitalCode = "970"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"корм. дн"}
+  (
+    Closed = True
+    Name = "Кормо-день"
+    DigitalCode = "971"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"ц корм ед"}
+  (
+    Closed = True
+    Name = "Центнер кормовых единиц"
+    DigitalCode = "972"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 автомоб. км"}
+  (
+    Closed = True
+    Name = "Тысяча автомобиле-километров"
+    DigitalCode = "973"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 тоннаж. сут"}
+  (
+    Closed = True
+    Name = "Тысяча тоннаже-сут"
+    DigitalCode = "974"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"суго. сут."}
+  (
+    Closed = True
+    Name = "Суго-сутки"
+    DigitalCode = "975"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"штук в 20-футовом эквиваленте"}
+  (
+    Closed = True
+    Name = "Штук в 20-футовом эквиваленте (ДФЭ)"
+    DigitalCode = "976"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"канал. км"}
+  (
+    Closed = True
+    Name = "Канало-километр"
+    DigitalCode = "977"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"канал. конц"}
+  (
+    Closed = True
+    Name = "Канало-концы"
+    DigitalCode = "978"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 экз"}
+  (
+    Closed = True
+    Name = "Тысяча экземпляров"
+    DigitalCode = "979"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 доллар"}
+  (
+    Closed = True
+    Name = "Тысяча долларов"
+    DigitalCode = "980"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 корм ед"}
+  (
+    Closed = True
+    Name = "Тысяча тонн кормовых единиц"
+    DigitalCode = "981"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 корм ед"}
+  (
+    Closed = True
+    Name = "Миллион тонн кормовых единиц"
+    DigitalCode = "982"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"суд.сут"}
+  (
+    Closed = True
+    Name = "Судо-сутки"
+    DigitalCode = "983"
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"ЕдТР"}
+  (
+    Name = "Единица измерения для технологических ресурсов"
+    ToMultiply = True
+    Accuracy = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"руб"}
+  (
+    Name = "Российский рубль"
+    DigitalCode = "643"
+    ToMultiply = True
+    Accuracy = 2
+    IsCurrency = 1
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"usd"}
+  (
+    Name = "Доллар США"
+    DigitalCode = "840"
+    BaseUnit = {Biz.Ref.UnitOrCurrency:руб}
+    ToMultiply = True
+    Accuracy = 2
+    IsCurrency = 1
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"eur"}
+  (
+    Name = "Евро"
+    DigitalCode = "978"
+    BaseUnit = {Biz.Ref.UnitOrCurrency:руб}
+    ToMultiply = True
+    Accuracy = 2
+    IsCurrency = 1
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"млс"}
+  (
+    Closed = True
+    Name = "Миллисекунда"
+    DigitalCode = "353"
+    IsCurrency = 3
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"шт"}
+  (
+    Name = "Штука"
+    DigitalCode = "796"
+    ToMultiply = True
+    Accuracy = 2
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"боб"}
+  (
+    Closed = True
+    Name = "Бобина"
+    DigitalCode = "616"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"л."}
+  (
+    Closed = True
+    Name = "Лист"
+    DigitalCode = "625"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"100 л."}
+  (
+    Closed = True
+    Name = "Сто листов"
+    DigitalCode = "626"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"тыс станд. усл. кирп"}
+  (
+    Closed = True
+    Name = "Тысяча стандартных условных кирпичей"
+    DigitalCode = "630"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"gr; 144"}
+  (
+    Closed = True
+    Name = "Гросс (144 шт.)"
+    DigitalCode = "638"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"дюжина"}
+  (
+    Closed = True
+    Name = "Дюжина (12 шт.)"
+    DigitalCode = "641"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 ед"}
+  (
+    Closed = True
+    Name = "Тысяча единиц"
+    DigitalCode = "643"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 ед"}
+  (
+    Closed = True
+    Name = "Миллион единиц"
+    DigitalCode = "644"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"изд"}
+  (
+    Closed = True
+    Name = "Изделие"
+    DigitalCode = "657"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 компл"}
+  (
+    Closed = True
+    Name = "Тысяча комплектов"
+    DigitalCode = "673"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"100 ящ."}
+  (
+    Closed = True
+    Name = "Сто ящиков"
+    DigitalCode = "683"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"мест"}
+  (
+    Closed = True
+    Name = "Место"
+    DigitalCode = "698"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 мест"}
+  (
+    Closed = True
+    Name = "Тысяча мест"
+    DigitalCode = "699"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"набор"}
+  (
+    Closed = True
+    Name = "Набор"
+    DigitalCode = "704"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 ном"}
+  (
+    Closed = True
+    Name = "Тысяча номеров"
+    DigitalCode = "709"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"пар"}
+  (
+    Closed = True
+    Name = "Пара (2 шт.)"
+    DigitalCode = "715"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 пач"}
+  (
+    Closed = True
+    Name = "Тысяча пачек"
+    DigitalCode = "729"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"20"}
+  (
+    Closed = True
+    Name = "Два десятка"
+    DigitalCode = "730"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"1728"}
+  (
+    Closed = True
+    Name = "Большой гросс (12 гроссов)"
+    DigitalCode = "731"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10 пар"}
+  (
+    Closed = True
+    Name = "Десять пар"
+    DigitalCode = "732"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"дюжина пар"}
+  (
+    Closed = True
+    Name = "Дюжина пар"
+    DigitalCode = "733"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"посыл"}
+  (
+    Closed = True
+    Name = "Посылка"
+    DigitalCode = "734"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"часть"}
+  (
+    Closed = True
+    Name = "Часть"
+    DigitalCode = "735"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"рул"}
+  (
+    Name = "Рулон"
+    DigitalCode = "736"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"дюжина рул"}
+  (
+    Closed = True
+    Name = "Дюжина рулонов"
+    DigitalCode = "737"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"дюжина шт"}
+  (
+    Closed = True
+    Name = "Дюжина штук"
+    DigitalCode = "740"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"элем"}
+  (
+    Closed = True
+    Name = "Элемент"
+    DigitalCode = "745"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 рул"}
+  (
+    Closed = True
+    Name = "Тысяча рулонов"
+    DigitalCode = "751"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 стан"}
+  (
+    Closed = True
+    Name = "Тысяча станов"
+    DigitalCode = "761"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 тюбик"}
+  (
+    Closed = True
+    Name = "Тысяча тюбиков"
+    DigitalCode = "775"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 усл.туб"}
+  (
+    Closed = True
+    Name = "Тысяча условных тубов"
+    DigitalCode = "776"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"упак"}
+  (
+    Name = "Упаковка"
+    DigitalCode = "778"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 упак"}
+  (
+    Closed = True
+    Name = "Миллион упаковок"
+    DigitalCode = "779"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"дюжина упак"}
+  (
+    Closed = True
+    Name = "Дюжина упаковок"
+    DigitalCode = "780"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"100 упак"}
+  (
+    Closed = True
+    Name = "Сто упаковок"
+    DigitalCode = "781"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 упак"}
+  (
+    Closed = True
+    Name = "Тысяча упаковок"
+    DigitalCode = "782"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"чел"}
+  (
+    Closed = True
+    Name = "Человек"
+    DigitalCode = "792"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 чел"}
+  (
+    Closed = True
+    Name = "Тысяча человек"
+    DigitalCode = "793"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 чел"}
+  (
+    Closed = True
+    Name = "Миллион человек"
+    DigitalCode = "794"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"100 шт"}
+  (
+    Closed = True
+    Name = "Сто штук"
+    DigitalCode = "797"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"тыс. шт; 1000 шт"}
+  (
+    Closed = True
+    Name = "Тысяча штук"
+    DigitalCode = "798"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 шт"}
+  (
+    Closed = True
+    Name = "Миллион штук"
+    DigitalCode = "799"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^9 шт"}
+  (
+    Closed = True
+    Name = "Миллиард штук"
+    DigitalCode = "800"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^12 шт"}
+  (
+    Closed = True
+    Name = "Биллион штук (Европа); триллион штук"
+    DigitalCode = "801"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^18 шт"}
+  (
+    Closed = True
+    Name = "Квинтильон штук (Европа)"
+    DigitalCode = "802"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 экз"}
+  (
+    Closed = True
+    Name = "Миллион экземпляров"
+    DigitalCode = "808"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"яч"}
+  (
+    Closed = True
+    Name = "Ячейка"
+    DigitalCode = "810"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"ящ"}
+  (
+    Name = "Ящик"
+    DigitalCode = "812"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"гол"}
+  (
+    Closed = True
+    Name = "Голова"
+    DigitalCode = "836"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 пар"}
+  (
+    Closed = True
+    Name = "Тысяча пар"
+    DigitalCode = "837"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 пар"}
+  (
+    Closed = True
+    Name = "Миллион пар"
+    DigitalCode = "838"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"компл"}
+  (
+    Closed = True
+    Name = "Комплект"
+    DigitalCode = "839"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"секц"}
+  (
+    Closed = True
+    Name = "Секция"
+    DigitalCode = "840"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"бут"}
+  (
+    Name = "Бутылка"
+    DigitalCode = "868"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 бут"}
+  (
+    Closed = True
+    Name = "Тысяча бутылок"
+    DigitalCode = "869"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"ампул"}
+  (
+    Closed = True
+    Name = "Ампула"
+    DigitalCode = "870"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 ампул"}
+  (
+    Closed = True
+    Name = "Тысяча ампул"
+    DigitalCode = "871"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"флак"}
+  (
+    Closed = True
+    Name = "Флакон"
+    DigitalCode = "872"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 флак"}
+  (
+    Closed = True
+    Name = "Тысяча флаконов"
+    DigitalCode = "873"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 туб"}
+  (
+    Closed = True
+    Name = "Тысяча тубов"
+    DigitalCode = "874"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 кор"}
+  (
+    Closed = True
+    Name = "Тысяча коробок"
+    DigitalCode = "875"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"усл. шт"}
+  (
+    Closed = True
+    Name = "Условная штука"
+    DigitalCode = "879"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 усл. шт"}
+  (
+    Closed = True
+    Name = "Тысяча условных штук"
+    DigitalCode = "880"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"усл. банк"}
+  (
+    Closed = True
+    Name = "Условная банка"
+    DigitalCode = "881"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 усл. банк"}
+  (
+    Closed = True
+    Name = "Тысяча условных банок"
+    DigitalCode = "882"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 усл. банк"}
+  (
+    Closed = True
+    Name = "Миллион условных банок"
+    DigitalCode = "883"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"усл. кус"}
+  (
+    Closed = True
+    Name = "Условный кусок"
+    DigitalCode = "884"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 усл. кус"}
+  (
+    Closed = True
+    Name = "Тысяча условных кусков"
+    DigitalCode = "885"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 усл. кус"}
+  (
+    Closed = True
+    Name = "Миллион условных кусков"
+    DigitalCode = "886"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"усл. ящ"}
+  (
+    Closed = True
+    Name = "Условный ящик"
+    DigitalCode = "887"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 усл. ящ"}
+  (
+    Closed = True
+    Name = "Тысяча условных ящиков"
+    DigitalCode = "888"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"усл. кат"}
+  (
+    Closed = True
+    Name = "Условная катушка"
+    DigitalCode = "889"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 усл. кат"}
+  (
+    Closed = True
+    Name = "Тысяча условных катушек"
+    DigitalCode = "890"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"усл. плит"}
+  (
+    Closed = True
+    Name = "Условная плитка"
+    DigitalCode = "891"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 усл. плит"}
+  (
+    Closed = True
+    Name = "Тысяча условных плиток"
+    DigitalCode = "892"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"усл. кирп"}
+  (
+    Closed = True
+    Name = "Условный кирпич"
+    DigitalCode = "893"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 усл. кирп"}
+  (
+    Closed = True
+    Name = "Тысяча условных кирпичей"
+    DigitalCode = "894"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 усл. кирп"}
+  (
+    Closed = True
+    Name = "Миллион условных кирпичей"
+    DigitalCode = "895"
+    IsCurrency = 2
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"час"}
+  (
+    Name = "ч"
+    DigitalCode = "356"
+    ToMultiply = True
+    Accuracy = 2
+    IsCurrency = 3
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"дн"}
+  (
+    Name = "День"
+    ToMultiply = True
+    IsCurrency = 3
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"мес"}
+  (
+    Name = "Месяц"
+    DigitalCode = "362"
+    ToMultiply = True
+    IsCurrency = 3
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"День"}
+  (
+    Closed = True
+    Name = "дн"
+    IsCurrency = 3
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"мкс"}
+  (
+    Closed = True
+    Name = "Микросекунда"
+    DigitalCode = "352"
+    IsCurrency = 3
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"с"}
+  (
+    Closed = True
+    Name = "Секунда"
+    DigitalCode = "354"
+    IsCurrency = 3
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"мин"}
+  (
+    Closed = True
+    Name = "Минута"
+    DigitalCode = "355"
+    IsCurrency = 3
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"ч"}
+  (
+    Closed = True
+    Name = "час"
+    DigitalCode = "356"
+    IsCurrency = 3
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"сут; дн"}
+  (
+    Closed = True
+    Name = "Сутки"
+    DigitalCode = "359"
+    IsCurrency = 3
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"нед"}
+  (
+    Closed = True
+    Name = "Неделя"
+    DigitalCode = "360"
+    IsCurrency = 3
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"дек"}
+  (
+    Closed = True
+    Name = "Декада"
+    DigitalCode = "361"
+    IsCurrency = 3
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"полгода"}
+  (
+    Closed = True
+    Name = "Полугодие"
+    DigitalCode = "365"
+    IsCurrency = 3
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"г; лет"}
+  (
+    Closed = True
+    Name = "Год"
+    DigitalCode = "366"
+    IsCurrency = 3
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"деслет"}
+  (
+    Closed = True
+    Name = "Десятилетие"
+    DigitalCode = "368"
+    IsCurrency = 3
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"м"}
+  (
+    Name = "метр"
+    DigitalCode = "006"
+    ToMultiply = True
+    Accuracy = 2
+    IsCurrency = 4
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"см"}
+  (
+    Name = "сантиметр"
+    DigitalCode = "004"
+    BaseUnit = {Biz.Ref.UnitOrCurrency:м}
+    Accuracy = 1
+    IsCurrency = 4
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"мм"}
+  (
+    Name = "Миллиметр"
+    DigitalCode = "003"
+    IsCurrency = 4
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"дм"}
+  (
+    Closed = True
+    Name = "Дециметр"
+    DigitalCode = "005"
+    IsCurrency = 4
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"км; 10^3 м"}
+  (
+    Name = "Километр; тысяча метров"
+    DigitalCode = "008"
+    IsCurrency = 4
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"Мм; 10^6 м"}
+  (
+    Closed = True
+    Name = "Мегаметр; миллион метров"
+    DigitalCode = "009"
+    IsCurrency = 4
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"hm"}
+  (
+    Closed = True
+    Name = "Гектометр"
+    DigitalCode = "017"
+    IsCurrency = 4
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"пог. м"}
+  (
+    Closed = True
+    Name = "Погонный метр"
+    DigitalCode = "018"
+    IsCurrency = 4
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 пог. м"}
+  (
+    Closed = True
+    Name = "Тысяча погонных метров"
+    DigitalCode = "019"
+    IsCurrency = 4
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"усл. м"}
+  (
+    Closed = True
+    Name = "Условный метр"
+    DigitalCode = "020"
+    IsCurrency = 4
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"дюйм"}
+  (
+    Closed = True
+    Name = "Дюйм (25,4 мм)"
+    DigitalCode = "039"
+    IsCurrency = 4
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"фут"}
+  (
+    Closed = True
+    Name = "Фут (0,3048 м)"
+    DigitalCode = "041"
+    IsCurrency = 4
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"ярд"}
+  (
+    Closed = True
+    Name = "Ярд (0,9144 м)"
+    DigitalCode = "043"
+    IsCurrency = 4
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"mile"}
+  (
+    Closed = True
+    Name = "Миля (уставная) (1609,344 м)"
+    DigitalCode = "045"
+    IsCurrency = 4
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"миля"}
+  (
+    Closed = True
+    Name = "Морская миля (1852 м)"
+    DigitalCode = "047"
+    IsCurrency = 4
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 усл. м"}
+  (
+    Closed = True
+    Name = "Тысяча условных метров"
+    DigitalCode = "048"
+    IsCurrency = 4
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"км усл. труб"}
+  (
+    Closed = True
+    Name = "Километр условных труб"
+    DigitalCode = "049"
+    IsCurrency = 4
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"м2"}
+  (
+    Name = "Квадратный метр"
+    DigitalCode = "055"
+    ToMultiply = True
+    Accuracy = 2
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"мм2"}
+  (
+    Closed = True
+    Name = "Квадратный миллиметр"
+    DigitalCode = "050"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"см2"}
+  (
+    Closed = True
+    Name = "Квадратный сантиметр"
+    DigitalCode = "051"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"дм2"}
+  (
+    Closed = True
+    Name = "Квадратный дециметр"
+    DigitalCode = "053"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 дм2"}
+  (
+    Closed = True
+    Name = "Тысяча квадратных дециметров"
+    DigitalCode = "054"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 дм2"}
+  (
+    Closed = True
+    Name = "Миллион квадратных дециметров"
+    DigitalCode = "056"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 м2"}
+  (
+    Closed = True
+    Name = "Миллион квадратных метров"
+    DigitalCode = "057"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 м^2"}
+  (
+    Closed = True
+    Name = "Тысяча квадратных метров"
+    DigitalCode = "058"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"га"}
+  (
+    Closed = True
+    Name = "Гектар"
+    DigitalCode = "059"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 га"}
+  (
+    Closed = True
+    Name = "Тысяча гектаров"
+    DigitalCode = "060"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"км2"}
+  (
+    Closed = True
+    Name = "Квадратный километр"
+    DigitalCode = "061"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"усл. м2"}
+  (
+    Closed = True
+    Name = "Условный квадратный метр"
+    DigitalCode = "062"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 усл. м2"}
+  (
+    Closed = True
+    Name = "Тысяча условных квадратных метров"
+    DigitalCode = "063"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 усл. м2"}
+  (
+    Closed = True
+    Name = "Миллион условных квадратных метров"
+    DigitalCode = "064"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"дюйм2"}
+  (
+    Closed = True
+    Name = "Квадратный дюйм (645,16 мм2)"
+    DigitalCode = "071"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"фут2"}
+  (
+    Closed = True
+    Name = "Квадратный фут (0,092903 м2)"
+    DigitalCode = "073"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"ярд2"}
+  (
+    Closed = True
+    Name = "Квадратный ярд (0,8361274 м2)"
+    DigitalCode = "075"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"acre"}
+  (
+    Closed = True
+    Name = "Акр (4840 квадратных ярдов)"
+    DigitalCode = "077"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"mile2"}
+  (
+    Closed = True
+    Name = "Квадратная миля"
+    DigitalCode = "079"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"м2 общ. пл"}
+  (
+    Closed = True
+    Name = "Квадратный метр общей площади"
+    DigitalCode = "081"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 м2 общ. пл"}
+  (
+    Closed = True
+    Name = "Тысяча квадратных метров общей площади"
+    DigitalCode = "082"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 м2 общ. пл"}
+  (
+    Closed = True
+    Name = "Миллион квадратных метров общей площади"
+    DigitalCode = "083"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"м2 жил. пл"}
+  (
+    Closed = True
+    Name = "Квадратный метр жилой площади"
+    DigitalCode = "084"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 м2 жил. пл"}
+  (
+    Closed = True
+    Name = "Тысяча квадратных метров жилой площади"
+    DigitalCode = "085"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 м2 жил. пл"}
+  (
+    Closed = True
+    Name = "Миллион квадратных метров жилой площади"
+    DigitalCode = "086"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"м2 уч. лаб. здан"}
+  (
+    Closed = True
+    Name = "Квадратный метр учебно-лабораторных зданий"
+    DigitalCode = "087"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 м2 уч. лаб. здан"}
+  (
+    Closed = True
+    Name = "Тысяча квадратных метров учебно-лабораторных зданий"
+    DigitalCode = "088"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 м2 2 мм исч"}
+  (
+    Closed = True
+    Name = "Миллион квадратных метров в двухмиллиметровом исчислении"
+    DigitalCode = "089"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"а"}
+  (
+    Closed = True
+    Name = "Ар (100 м2)"
+    DigitalCode = "109"
+    IsCurrency = 5
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"м3"}
+  (
+    Name = "Кубический метр"
+    DigitalCode = "113"
+    ToMultiply = True
+    Accuracy = 3
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"мм3"}
+  (
+    Closed = True
+    Name = "Кубический миллиметр"
+    DigitalCode = "110"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"см3; мл"}
+  (
+    Closed = True
+    Name = "Кубический сантиметр; миллилитр"
+    DigitalCode = "111"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"л; дм3"}
+  (
+    Name = "Литр; кубический дециметр"
+    DigitalCode = "112"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 м3"}
+  (
+    Closed = True
+    Name = "Тысяча кубических метров"
+    DigitalCode = "114"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^9 м3"}
+  (
+    Closed = True
+    Name = "Миллиард кубических метров"
+    DigitalCode = "115"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"дкл"}
+  (
+    Closed = True
+    Name = "Декалитр"
+    DigitalCode = "116"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"дл"}
+  (
+    Closed = True
+    Name = "Децилитр"
+    DigitalCode = "118"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 дкл"}
+  (
+    Closed = True
+    Name = "Тысяча декалитров"
+    DigitalCode = "119"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 дкл"}
+  (
+    Closed = True
+    Name = "Миллион декалитров"
+    DigitalCode = "120"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"плотн. м3"}
+  (
+    Closed = True
+    Name = "Плотный кубический метр"
+    DigitalCode = "121"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"гл"}
+  (
+    Closed = True
+    Name = "Гектолитр"
+    DigitalCode = "122"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"усл. м3"}
+  (
+    Closed = True
+    Name = "Условный кубический метр"
+    DigitalCode = "123"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 усл. м3"}
+  (
+    Closed = True
+    Name = "Тысяча условных кубических метров"
+    DigitalCode = "124"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 м3 перераб. газа"}
+  (
+    Closed = True
+    Name = "Миллион кубических метров переработки газа"
+    DigitalCode = "125"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"Мл"}
+  (
+    Closed = True
+    Name = "Мегалитр"
+    DigitalCode = "126"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 плотн. м3"}
+  (
+    Closed = True
+    Name = "Тысяча плотных кубических метров"
+    DigitalCode = "127"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 пол. л"}
+  (
+    Closed = True
+    Name = "Тысяча полулитров"
+    DigitalCode = "128"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 пол. л"}
+  (
+    Closed = True
+    Name = "Миллион полулитров"
+    DigitalCode = "129"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 л; 1000 л"}
+  (
+    Closed = True
+    Name = "Тысяча литров; 1000 литров"
+    DigitalCode = "130"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"дюйм3"}
+  (
+    Closed = True
+    Name = "Кубический дюйм (16387,1 мм3)"
+    DigitalCode = "131"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"фут3"}
+  (
+    Closed = True
+    Name = "Кубический фут (0,02831685 м3)"
+    DigitalCode = "132"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"ярд3"}
+  (
+    Closed = True
+    Name = "Кубический ярд (0,764555 м3)"
+    DigitalCode = "133"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"fl oz (UK)"}
+  (
+    Closed = True
+    Name = "Жидкостная унция СК (28,413 см3)"
+    DigitalCode = "135"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"gill (UK)"}
+  (
+    Closed = True
+    Name = "Джилл СК (0,142065 дм3)"
+    DigitalCode = "136"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"pt (UK)"}
+  (
+    Closed = True
+    Name = "Пинта СК (0,568262 дм3)"
+    DigitalCode = "137"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"qt (UK)"}
+  (
+    Closed = True
+    Name = "Кварта СК (1,136523 дм3)"
+    DigitalCode = "138"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"gal (UK)"}
+  (
+    Closed = True
+    Name = "Галлон СК (4,546092 дм3)"
+    DigitalCode = "139"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"bu (UK)"}
+  (
+    Closed = True
+    Name = "Бушель СК (36,36874 дм3)"
+    DigitalCode = "140"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"fl oz (US)"}
+  (
+    Closed = True
+    Name = "Жидкостная унция США (29,5735 см3)"
+    DigitalCode = "141"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"gill (US)"}
+  (
+    Closed = True
+    Name = "Джилл США (11,8294 см3)"
+    DigitalCode = "142"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"liq pt (US)"}
+  (
+    Closed = True
+    Name = "Жидкостная пинта США (0,473176 дм3)"
+    DigitalCode = "143"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"liq qt (US)"}
+  (
+    Closed = True
+    Name = "Жидкостная кварта США (0,946353 дм3)"
+    DigitalCode = "144"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"gal (US)"}
+  (
+    Closed = True
+    Name = "Жидкостный галлон США (3,78541 дм3)"
+    DigitalCode = "145"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"barrel (US)"}
+  (
+    Closed = True
+    Name = "Баррель (нефтяной) США (158,987 дм3)"
+    DigitalCode = "146"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"dry pt (US)"}
+  (
+    Closed = True
+    Name = "Сухая пинта США (0,55061 дм3)"
+    DigitalCode = "147"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"dry qt (US)"}
+  (
+    Closed = True
+    Name = "Сухая кварта США (1,101221 дм3)"
+    DigitalCode = "148"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"dry gal (US)"}
+  (
+    Closed = True
+    Name = "Сухой галлон США (4,404884 дм3)"
+    DigitalCode = "149"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"bu (US)"}
+  (
+    Closed = True
+    Name = "Бушель США (35,2391 дм3)"
+    DigitalCode = "150"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"bbl (US)"}
+  (
+    Closed = True
+    Name = "Сухой баррель США (115,627 дм3)"
+    DigitalCode = "151"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 м3"}
+  (
+    Closed = True
+    Name = "Миллион кубических метров"
+    DigitalCode = "159"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 т"}
+  (
+    Closed = True
+    Name = "Килотонна"
+    DigitalCode = "170"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"БРТ"}
+  (
+    Closed = True
+    Name = "Брутто-регистровая тонна (2,8316 м3)"
+    DigitalCode = "181"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"л 100% спирта"}
+  (
+    Closed = True
+    Name = "Литр чистого (100%) спирта"
+    DigitalCode = "831"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"Гл 100% спирта"}
+  (
+    Closed = True
+    Name = "Гектолитр чистого (100%) спирта"
+    DigitalCode = "833"
+    IsCurrency = 6
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кг"}
+  (
+    Name = "килограмм"
+    DigitalCode = "166"
+    ToMultiply = True
+    Accuracy = 3
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"г"}
+  (
+    Name = "грамм"
+    DigitalCode = "163"
+    BaseUnit = {Biz.Ref.UnitOrCurrency:кг}
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"гг"}
+  (
+    Closed = True
+    Name = "Гектограмм"
+    DigitalCode = "160"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"мг"}
+  (
+    Closed = True
+    Name = "Миллиграмм"
+    DigitalCode = "161"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кар"}
+  (
+    Closed = True
+    Name = "Метрический карат"
+    DigitalCode = "162"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 кар"}
+  (
+    Closed = True
+    Name = "Тысяча каратов метрических"
+    DigitalCode = "165"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 кар"}
+  (
+    Closed = True
+    Name = "Миллион каратов метрических"
+    DigitalCode = "167"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"т"}
+  (
+    Name = "Тонна; метрическая тонна (1000 кг)"
+    DigitalCode = "168"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 т"}
+  (
+    Closed = True
+    Name = "Миллион тонн"
+    DigitalCode = "171"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"т усл. топл"}
+  (
+    Closed = True
+    Name = "Тонна условного топлива"
+    DigitalCode = "172"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"сг"}
+  (
+    Closed = True
+    Name = "Сантиграмм"
+    DigitalCode = "173"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 т усл. топл"}
+  (
+    Closed = True
+    Name = "Тысяча тонн условного топлива"
+    DigitalCode = "175"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 т усл. топл"}
+  (
+    Closed = True
+    Name = "Миллион тонн условного топлива"
+    DigitalCode = "176"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 т единовр. хран"}
+  (
+    Closed = True
+    Name = "Тысяча тонн единовременного хранения"
+    DigitalCode = "177"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 т перераб"}
+  (
+    Closed = True
+    Name = "Тысяча тонн переработки"
+    DigitalCode = "178"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"усл. т"}
+  (
+    Closed = True
+    Name = "Условная тонна"
+    DigitalCode = "179"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"т грп"}
+  (
+    Closed = True
+    Name = "Грузоподъемность в метрических тоннах"
+    DigitalCode = "185"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"lb"}
+  (
+    Closed = True
+    Name = "Фунт СК, США (0,45359237 кг)"
+    DigitalCode = "186"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"oz"}
+  (
+    Closed = True
+    Name = "Унция СК, США (28,349523 г)"
+    DigitalCode = "187"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"dr"}
+  (
+    Closed = True
+    Name = "Драхма СК (1,771745 г)"
+    DigitalCode = "188"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"gn"}
+  (
+    Closed = True
+    Name = "Гран СК, США (64,798910 мг)"
+    DigitalCode = "189"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"st"}
+  (
+    Closed = True
+    Name = "Стоун СК (6,350293 кг)"
+    DigitalCode = "190"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"qtr"}
+  (
+    Closed = True
+    Name = "Квартер СК (12,700586 кг)"
+    DigitalCode = "191"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"cwt"}
+  (
+    Closed = True
+    Name = "Центнер США (45,3592 кг)"
+    DigitalCode = "193"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"cwt (UK)"}
+  (
+    Closed = True
+    Name = "Длинный центнер СК (50,802345 кг)"
+    DigitalCode = "194"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"sht"}
+  (
+    Closed = True
+    Name = "Короткая тонна СК, США (0,90718474 т) [2*]"
+    DigitalCode = "195"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"lt"}
+  (
+    Closed = True
+    Name = "Длинная тонна СК, США (1,0160469 т) [2*]"
+    DigitalCode = "196"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"scr"}
+  (
+    Closed = True
+    Name = "Скрупул СК, США (1,295982 г)"
+    DigitalCode = "197"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"dwt"}
+  (
+    Closed = True
+    Name = "Пеннивейт СК, США (1,555174 г)"
+    DigitalCode = "198"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"drm"}
+  (
+    Closed = True
+    Name = "Драхма СК (3,887935 г)"
+    DigitalCode = "199"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"apoz"}
+  (
+    Closed = True
+    Name = "Унция СК, США (31,10348 г); тройская унция"
+    DigitalCode = "201"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"ц"}
+  (
+    Name = 
+      "Центнер (метрический) (100 кг); гектокилограмм; квинтал1 (метрический); де"
+      "цитонн"
+    DigitalCode = "206"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 ц"}
+  (
+    Closed = True
+    Name = "Тысяча центнеров"
+    DigitalCode = "207"
+    IsCurrency = 7
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"Вт"}
+  (
+    Closed = True
+    Name = "Ватт"
+    DigitalCode = "212"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"B.h.p."}
+  (
+    Closed = True
+    Name = "Эффективная мощность (245,7 ватт)"
+    DigitalCode = "213"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кВт"}
+  (
+    Closed = True
+    Name = "Киловатт"
+    DigitalCode = "214"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"МВт; 10^3 кВт"}
+  (
+    Closed = True
+    Name = "Мегаватт; тысяча киловатт"
+    DigitalCode = "215"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"В"}
+  (
+    Closed = True
+    Name = "Вольт"
+    DigitalCode = "222"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кВ"}
+  (
+    Closed = True
+    Name = "Киловольт"
+    DigitalCode = "223"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"В.А"}
+  (
+    Closed = True
+    Name = "Вольт-ампер"
+    DigitalCode = "226"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кВ.А"}
+  (
+    Closed = True
+    Name = "Киловольт-ампер"
+    DigitalCode = "227"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"МВ.А"}
+  (
+    Closed = True
+    Name = "Мегавольт-ампер (тысяча киловольт-ампер)"
+    DigitalCode = "228"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"квар"}
+  (
+    Closed = True
+    Name = "Киловар"
+    DigitalCode = "230"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"ккал"}
+  (
+    Closed = True
+    Name = "Килокалория"
+    DigitalCode = "232"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"Гкал"}
+  (
+    Closed = True
+    Name = "Гигакалория"
+    DigitalCode = "233"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 Гкал"}
+  (
+    Closed = True
+    Name = "Тысяча гигакалорий"
+    DigitalCode = "234"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 Гкал"}
+  (
+    Closed = True
+    Name = "Миллион гигакалорий"
+    DigitalCode = "235"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кал/ч"}
+  (
+    Closed = True
+    Name = "Калория в час"
+    DigitalCode = "236"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"ккал/ч"}
+  (
+    Closed = True
+    Name = "Килокалория в час"
+    DigitalCode = "237"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"Гкал/ч"}
+  (
+    Closed = True
+    Name = "Гигакалория в час"
+    DigitalCode = "238"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 Гкал/ч"}
+  (
+    Closed = True
+    Name = "Тысяча гигакалорий в час"
+    DigitalCode = "239"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 А.ч"}
+  (
+    Closed = True
+    Name = "Миллион ампер-часов"
+    DigitalCode = "241"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^6 кВ.А"}
+  (
+    Closed = True
+    Name = "Миллион киловольт-ампер"
+    DigitalCode = "242"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"Вт.ч"}
+  (
+    Closed = True
+    Name = "Ватт-час"
+    DigitalCode = "243"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кВт.ч"}
+  (
+    Closed = True
+    Name = "Киловатт-час"
+    DigitalCode = "245"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"МВт.ч; 10^3 кВт.ч"}
+  (
+    Closed = True
+    Name = "Мегаватт-час; 1000 киловатт-часов"
+    DigitalCode = "246"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"ГВт.ч"}
+  (
+    Closed = True
+    Name = "Гигаватт-час (миллион киловатт-часов)"
+    DigitalCode = "247"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^9 кВт.ч"}
+  (
+    Closed = True
+    Name = "Миллиард киловатт-часов"
+    DigitalCode = "249"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 кВ.А Р"}
+  (
+    Closed = True
+    Name = "Тысяча киловольт-ампер реактивных"
+    DigitalCode = "250"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"А.ч"}
+  (
+    Closed = True
+    Name = "Ампер-час (3,6 кКл)"
+    DigitalCode = "263"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"10^3 А.ч"}
+  (
+    Closed = True
+    Name = "Тысяча ампер-часов"
+    DigitalCode = "264"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"Кл"}
+  (
+    Closed = True
+    Name = "Кулон"
+    DigitalCode = "270"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"Дж"}
+  (
+    Closed = True
+    Name = "Джоуль"
+    DigitalCode = "271"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кДж"}
+  (
+    Closed = True
+    Name = "Килоджоуль"
+    DigitalCode = "273"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"Btu"}
+  (
+    Closed = True
+    Name = "Британская тепловая единица (1,055 кДж)"
+    DigitalCode = "275"
+    IsCurrency = 8
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"кВ.А Р"}
+  (
+    Closed = True
+    Name = "Киловольт-ампер реактивный"
+    DigitalCode = "248"
+    IsCurrency = 9
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"град. C"}
+  (
+    Name = "Градус Цельсия"
+    DigitalCode = "280"
+    IsCurrency = 9
+  )
+  
+  {Biz.Ref.UnitOrCurrency:"град. F"}
+  (
+    Name = "Градус Фаренгейта"
+    DigitalCode = "281"
+    IsCurrency = 9
+  )
+]
+
+]

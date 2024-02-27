@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="CMP.Tab.IObjectsList">
+    <Component Name="Current" Class="Bas.Rec.BasObject" IsLibrary="1"/>
+    <Component Name="EdtRec" Class="Bas.Rec.BasObject" IsLibrary="1"/>
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+    </Component>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="HierarchicalView" Class="Com.Fld.IVarLink" FieldName="FShowHierarchy" OnChange="ChangeHierarchicalView"/>
+      <Component Name="ShowDeleted" Class="Com.Fld.IVar" OnChange="ChangeShowDeleted" ValueType="VarLogical"/>
+      <Component Name="OnlyActive" Class="Com.Fld.IVar" OnChange="OnlyActive_OnChange" ValueType="VarLogical"/>
+      <Component Name="CurrentTreeGroup" Class="Com.Fld.IVar"/>
+      <Component Name="Period" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="BegDate" Class="Com.Fld.IVar" OnChange="Period_OnChange" ValueType="VarDate"/>
+      <Component Name="EndDate" Class="Com.Fld.IVar" OnChange="Period_OnChange" ValueType="VarDate"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" Orientation="Vertical">
+      <Component Name="MainFrame" Class="Com.Ctrl.IFrame">
+        <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" MaxButton="6">
+          <Component Name="ButtonSelectItem" Class="Com.Ctrl.IButton" Caption="@Form:SelectButton=Выбрать" FontSize="11" ImageName="SelectItem" OnClick="ButtonSelectItem_OnClick" Width="32"/>
+          <Component Name="ButtonAddItem" Class="Com.Ctrl.IButton" Caption="@Form:AddButton=Добавить" Command="Commands.CardAdd" ImageName="AddItem"/>
+          <Component Name="ButtonEditItem" Class="Com.Ctrl.IButton" Caption="@Form:EditButton=Редактировать" Command="Commands.CardEdit" ImageName="EditItem"/>
+          <Component Name="ButtonSaveItem" Class="Com.Ctrl.IButton" Caption="@Cmd:SaveItem=Сохранить" Command="Commands.CardPost" Enabled="False" ImageName="Com.SaveItem"/>
+          <Component Name="ButtonCancel" Class="Com.Ctrl.IButton" Caption="@Cmd:Cancel=Отменить" Command="Commands.CardCancel" Enabled="False" ImageName="Com.Cancel"/>
+          <Component Name="ButtonFilters" Class="Com.Ctrl.IListButton" Caption="@Form:Filters=Фильтры" ImageName="Filters">
+            <Component Name="ButtonCommonFilter" Class="Com.Ctrl.IButton" Caption="@Cmd:CommonFilter=Унив. фильтр" Command="Commands.CardFilter" ImageName="CommonFilter"/>
+            <Component Name="ButtonNavigationPanel" Class="Com.Ctrl.IButton" Caption="@Cmd:NavigationPanel=Панель навигации" IsSwitch="True" OnClick="ButtonNavigationPanel_OnClick"/>
+            <Component Name="ButtonHierarchicalView" Class="Com.Ctrl.IButton" Caption="@Cmd:HierarchicalView=Иерархический вид" Field="HierarchicalView" IsSwitch="True"/>
+            <Component Name="ButtonHideClosed" Class="Com.Ctrl.IButton" Caption="@Com:HideClosed=Только действующие" Field="OnlyActive" IsSwitch="True"/>
+            <Component Name="ButtonShowDeleted" Class="Com.Ctrl.IButton" Caption="@Cmd:ShowDeleted=Удаленные записи" Field="ShowDeleted" IsSwitch="True"/>
+          </Component>
+          <Component Name="ButtonCloneItem" Class="Com.Ctrl.IButton" Caption="@Form:CloneButton=Дублировать" Command="Commands.CardClone" ImageName="CloneItem"/>
+          <Component Name="ButtonDeleteItem" Class="Com.Ctrl.IButton" Caption="@Form:DeleteButton=Удалить" Command="Commands.CardDelete" ImageName="DeleteItem"/>
+          <Component Name="ButtonAddFolder" Class="Com.Ctrl.IButton" Caption="@Form:AddFolder=Добавить группу" Command="Commands.CardAddGroup" ImageName="AddFolder"/>
+          <Component Name="ButtonFolderElement" Class="Com.Ctrl.IButton" Caption="@Form:FolderElement=Группа/элемент" ImageName="FolderElement" OnClick="ButtonFolderElement_OnClick"/>
+          <Component Name="ButtonRefresh" Class="Com.Ctrl.IButton" Caption="@Form:RefreshButton=Обновить" Command="Commands.RefreshForm" ImageName="Refresh"/>
+          <Component Name="ButtonExport" Class="Com.Ctrl.IButton" Caption="@Form:ExportButton=Экспорт" Command="Commands.ExportCmd" ImageName="ExportRec"/>
+          <Component Name="ButtonImport" Class="Com.Ctrl.IButton" Caption="@Form:ImportButton=Импорт" Command="Commands.ImportCmd" ImageName="ImportRec"/>
+          <Component Name="ButtonHelp" Class="Com.Ctrl.IButton" Caption="@Form:HelpButton=Помощь" Command="Commands.Help" ImageName="Help"/>
+        </Component>
+        <Component Name="PeriodFrame" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+        <Component Name="FilterFrame" Class="Com.Ctrl.IFrame" AutoSize="True" CanHideBySplit="True" CanResizeBySplit="True" SplitterAtRight="True" UseSplitter="True"/>
+        <Component Name="CardFrame" Class="Com.Ctrl.IFrame" Orientation="Vertical">
+          <Component Name="FrameCardTree" Class="Com.Ctrl.IFrame" CanHideBySplit="True" CanResizeBySplit="True" FixSize="True" ScrollerStyle="ScrollerNone" Size="80" SplitterAtRight="True" UseSplitter="True">
+            <Component Name="CardTree" Class="Com.Ctrl.ICardTree"/>
+          </Component>
+          <Component Name="FrameCardFile" Class="Com.Ctrl.IFrame" ScrollerStyle="ScrollerNone">
+            <Component Name="CardFile" Class="Com.Ctrl.ICardFile" OnOpenBlank="CardFile_OnOpenBlank"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="ServiceFrame" Class="Com.Ctrl.IFrame" AutoSize="True" CanHideBySplit="True" CanResizeBySplit="True" UseSplitter="True"/>
+    </Component>
+  </Component>
+</Resource>

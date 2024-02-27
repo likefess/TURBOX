@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IEditor" HelpContext="Настройка.СтруктураБизнеса.ТипыРеквизитов.Лимиты.Лимит">
+    <Component Name="EdtRec" Class="CMP.Rec.Properties.ILimit" IsLibrary="1"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" Margins="5">
+      <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+        <Component Name="EditConditionFormula" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:LimitConditionFormula=Условие применения" Field="EdtRec.ConditionFormula" ProcType="EdtRec.ProcType" Subtable="EdtRec.ConditionRecords"/>
+        <Component Name="EditMessageFormula" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:LimitMessageFormula=Сообщение при нарушении" Field="EdtRec.MessageFormula" ProcType="EdtRec.ProcType" Subtable="EdtRec.MessageRecords"/>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="CheckBoxOnlyWarning" Class="Com.Ctrl.ICheckBox" Caption="@CMP:LimitOnlyWarning=Только предупреждение" Field="EdtRec.OnlyWarning"/>
+        </Component>
+        <Component Name="Group3" Class="Com.Ctrl.IGroup">
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="CheckBoxOnlyNotEmpty" Class="Com.Ctrl.ICheckBox" Caption="@CMP:LimitOnlyNotEmpty=Не отображать пустое сообщение" Field="EdtRec.OnlyNotEmpty"/>
+        </Component>
+      </Component>
+      <Component Name="Table1" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="EdtRec.PerformActions">
+        <Component Name="DefStructPerform" Class="CMP.Rec.Properties.ILimit_Actions" IsLibrary="1"/>
+        <Component Name="ColumnsGroup1" Class="Com.Ctrl.IColumnsGroup" Caption="@CMP:LimitPerformActions=Действия при выполнении лимита" HasCaption="True">
+          <Component Name="EditPerformProperty" Class="Com.Ctrl.IEdit" Caption="@CMP:Property=Реквизит" Field="DefStructPerform.Property" OnGetLookupFilter="EditProperty_OnGetLookupFilter" Width="1"/>
+          <Component Name="EditPerformFormula" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:Formula=Формула" Field="DefStructPerform.Formula" ProcType="EdtRec.ProcType" Subtable="DefStructPerform.FormulaRecords" Width="3"/>
+        </Component>
+      </Component>
+      <Component Name="Static3" Class="Com.Ctrl.IStatic"/>
+      <Component Name="Table2" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="EdtRec.BreachActions">
+        <Component Name="DefStructBreach" Class="CMP.Rec.Properties.ILimit_Actions" IsLibrary="1"/>
+        <Component Name="ColumnsGroup2" Class="Com.Ctrl.IColumnsGroup" Caption="@CMP:LimitBreachActions=Действия при нарушении лимита" HasCaption="True">
+          <Component Name="EditBreachProperty" Class="Com.Ctrl.IEdit" Caption="@CMP:Property=Реквизит" Field="DefStructPerform.Property" OnGetLookupFilter="EditProperty_OnGetLookupFilter" Width="1"/>
+          <Component Name="EditBreachFormula" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:Formula=Формула" Field="DefStructPerform.Formula" ProcType="EdtRec.ProcType" Subtable="DefStructBreach.FormulaRecords" Width="3"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

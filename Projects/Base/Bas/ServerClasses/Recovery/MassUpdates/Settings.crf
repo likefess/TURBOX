@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited ModalHeight="200" ModalWidth="240">
+    <Component Name="ChoosingStruct" Class="Bas.Recovery.MassUpdates.Settings_Struct" IsLibrary="1" After="#0"/>
+    <Inherited Name="Variables">
+      <Component Name="RecoverySubtable" Class="Com.ISubtable" StructClass="Bas.Recovery.MassUpdates.Settings_Struct"/>
+    </Inherited>
+    <Inherited Name="RootFrame" AutoSize="False">
+      <Inherited Name="HeaderFrame" MaxButton="3">
+        <Inherited Name="ButtonRefresh" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" AutoSize="False">
+        <Component Name="RecoveryTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" ManualControl="False" Numbering="False" Sortable="False" Subtable="RecoverySubtable">
+          <Component Name="edtRecCaption" Class="Com.Ctrl.IEdit" Caption="@BaseRecovery:Description=Наименование" Enabled="False" Field="ChoosingStruct.RecoveryCaption" MaxWidth="200" MinWidth="30" Width="100"/>
+          <Component Name="chkRecChoice" Class="Com.Ctrl.ICheckBox" Caption="@BaseRecovery:Choice=Выбор" Field="ChoosingStruct.RecoveryChoice" MaxWidth="30" MinWidth="15" Width="15"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Excluded="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

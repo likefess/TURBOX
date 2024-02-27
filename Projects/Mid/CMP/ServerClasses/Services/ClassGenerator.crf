@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm" HelpContext="CMP.Администрирование.Сервисы.Генератор классов">
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    </Component>
+    <Component Name="TableMenu" Class="Com.Ctrl.IPopupMenu" Excluded="True">
+      <Component Name="cmdCloseForm" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:Close=Закрыть" CommandName="Kernel.Window.Close" CommandProc="CloseForm_CommandProc" IconName="Com.Close"/>
+      <Component Name="TableSeparator1" Class="Com.Cmd2.ISeparator"/>
+      <Component Name="cmdInsertRow" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:InsertRow=Добавить кадр" CommandName="Kernel.Edit.InsertObj" CommandProc="InsertRow_CommandProc" IconName="Com.InsertObj"/>
+      <Component Name="cmdDeleteRow" Class="Com.ComManaging.ExecProcedure" Caption="@Cmd:DeleteRow=Удалить кадр" CommandName="Kernel.Edit.DeleteObj" CommandProc="DeleteRow_CommandProc" IconName="Com.DeleteObj"/>
+      <Component Name="TableSeparator2" Class="Com.Cmd2.ISeparator"/>
+      <Component Name="cmdDesignMode" Class="Com.Cmd2.IItem" Command="Commands.DesignMode"/>
+    </Component>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="Settings" Class="Com.ISubtable" StructClass="CMP.Services.ClassGenerator_Struct"/>
+      <Component Name="Subtables" Class="Com.ISubtable" StructClass="CMP.Services.ClassGenerator_Subtable"/>
+      <Component Name="SubStruct" Class="Com.ISubtable" StructClass="CMP.Services.ClassGenerator_SubStruct"/>
+      <Component Name="JurFields" Class="Com.ISubtable" StructClass="CMP.Services.ClassGenerator_JurFrom"/>
+      <Component Name="DefStruct" Class="CMP.Services.ClassGenerator_Struct" IsLibrary="1"/>
+      <Component Name="DefSubtable" Class="CMP.Services.ClassGenerator_Subtable" IsLibrary="1"/>
+      <Component Name="DefSubStruct" Class="CMP.Services.ClassGenerator_SubStruct" IsLibrary="1"/>
+      <Component Name="DefJurFrom" Class="CMP.Services.ClassGenerator_JurFrom" IsLibrary="1"/>
+      <Component Name="VarPage" Class="Com.Fld.IVar" OnChange="VarPageOnChange" ValueType="VarInteger"/>
+      <Component Name="VarProjectName" Class="Com.Fld.IVar" OnCalc="VarProjectName_OnCalc" ValueType="VarString"/>
+      <Component Name="VarClassName" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="VarBaseClassStr" Class="Com.Fld.IVar" OnChange="VarBaseClassStr_OnChange" ValueType="VarString"/>
+      <Component Name="VarBaseClass" Class="Com.Fld.IVar" OnCalc="VarBaseClass_OnCalc" ValueType="VarVariant"/>
+      <Component Name="VarBaseClassRecord" Class="Com.Fld.IVar" OnCalc="VarBaseClassRecord_OnCalc" ValueType="VarVariant"/>
+      <Component Name="VarBaseClassSigns" Class="Com.Fld.IVar" OnCalc="VarBaseClassSigns_OnCalc" ValueType="VarArray"/>
+      <Component Name="VarClassDescription" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="VarHierarchy" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="VarExtends" Class="Com.Fld.IVar" OnChange="VarExtends_OnChange" ValueType="VarLogical"/>
+      <Component Name="VarGenerateLis" Class="Com.Fld.IVar" OnChange="VarGenerateFlag_OnChange" ValueType="VarLogical"/>
+      <Component Name="VarRefClassName" Class="Com.Fld.IVar" OnCalc="VarRefClassName_OnCalc" ValueType="VarString"/>
+      <Component Name="VarNotGenerateFrm" Class="Com.Fld.IVar" OnChange="VarGenerateFlag_OnChange" ValueType="VarLogical"/>
+      <Component Name="VarFrmBasClassStr" Class="Com.Fld.IVar" OnCalc="VarFrmBasClassStr_OnCalc" ValueType="VarString"/>
+      <Component Name="VarNotGenerateTab" Class="Com.Fld.IVar" OnChange="VarGenerateFlag_OnChange" ValueType="VarLogical"/>
+      <Component Name="VarTabBasClassStr" Class="Com.Fld.IVar" OnCalc="VarTabBasClassStr_OnCalc" ValueType="VarString"/>
+      <Component Name="VarToMainMenu" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="VarToRoleCenter" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="VarMainMenu" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="VarMainMenuIco" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="VarRoleCenter" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="VarJurHeader" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="VarJurPosition" Class="Com.Fld.IVar" OnChange="VarGenerateFlag_OnChange" ValueType="VarLogical"/>
+      <Component Name="VarDirection" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="VarExtProcess" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="VarExtEntity" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="VarExtResource" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="VarUpdateMode" Class="Com.Fld.IVar" OnCalc="VarUpdateMode_OnCalc" ValueType="VarLogical"/>
+      <Component Name="VarJurName" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="VarJurTitle" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="VarJurRecord" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="VarJurFilter" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="VarJurDate" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="VarJurEnabled" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="VarJurRecClass" Class="Com.Fld.IVar" OnCalc="VarJurRecClassOnCalc" ValueType="VarClass"/>
+      <Component Name="VarJurOpType" Class="Com.Fld.IVar" OnChange="VarJurOpTypeOnChange" ValueType="VarInteger"/>
+      <Component Name="VarJurDomain" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="VarJurPlan" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="VarJurAccount" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="VarJurAccType" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" MaxButton="4">
+        <Component Name="ButtonOK" Class="Com.Ctrl.IButton" Excluded="True" Caption="@Cmd:PostClose=OK" ImageName="PostClose" OnClick="ButtonOK_OnClick"/>
+        <Component Name="ButtonGenerate" Class="Com.Ctrl.IButton" Caption="@CmpGenerator:GenerateClasses=Сгенерировать классы" ImageName="Com.play-circle" OnClick="ButtonGenerate_OnClick"/>
+        <Component Name="ButtonCompile" Class="Com.Ctrl.IButton" Caption="@CmpGenerator:CompileAndReorganize=Компилировать проект и реорганизовать базу" ImageName="Com.Compile" OnClick="ButtonCompile_OnClick"/>
+        <Component Name="ButtonClear" Class="Com.Ctrl.IButton" Caption="@CmpGenerator:ClearPage=Очистить страницу" ImageName="Com.times-circle" OnClick="ButtonClearOnClick"/>
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Caption="@Cmd:Close=Закрыть" Command="Commands.CloseForm" ImageName="Close"/>
+        <Component Name="ButtonGenerateMtl" Class="Com.Ctrl.IButton" Caption="@CmpGenerator:CreateMTL=Создать mtl-файл" ImageName="Com.database" OnClick="ButtonGenerateMtl_OnClick"/>
+        <Component Name="ButtonGenerateRec" Class="Com.Ctrl.IButton" Caption="@CmpGenerator:CreateRec=Создать rec-файл" ImageName="Com.tag" OnClick="ButtonGenerateRec_OnClick"/>
+        <Component Name="ButtonGenerateFrm" Class="Com.Ctrl.IButton" Caption="@CmpGenerator:CreateFrm=Создать frm-файл" ImageName="Com.Blanks" OnClick="ButtonGenerateFrm_OnClick"/>
+        <Component Name="ButtonGenerateTab" Class="Com.Ctrl.IButton" Caption="@CmpGenerator:CreateTab=Создать tab-файл" ImageName="Com.Cardfile" OnClick="ButtonGenerateTab_OnClick"/>
+        <Component Name="ButtonGenerateLis" Class="Com.Ctrl.IButton" Caption="@CmpGenerator:CreateLis=Создать lis-файл" ImageName="Com.Accounts" OnClick="ButtonGenerateLis_OnClick"/>
+        <Component Name="ButtonRefresh" Class="Com.Ctrl.IButton" Excluded="True" Caption="@Form:RefreshButton=Обновить" Command="Commands.RefreshForm" ImageName="Refresh"/>
+        <Component Name="ButtonHelp" Class="Com.Ctrl.IButton" Caption="@Cmd:Help=Помощь" Command="Commands.Help" ImageName="Help"/>
+      </Component>
+      <Component Name="PagesFrame" Class="Com.Ctrl.IFrame" OnSwitch="PagesFrameOnSwitch" Orientation="WithTabs" ShowTabs="True">
+        <Component Name="ReferencesTab" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@CmpGenerator:ReferencesTab=Справочники" Margins="5">
+          <Component Name="ClassesTab" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="MainFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="35" MaxWidth="200" MinWidth="100">
+                <Component Name="FlagsGroup" Class="Com.Ctrl.IGroup">
+                  <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="35"/>
+                  <Component Name="CheckBoxExtends" Class="Com.Ctrl.ICheckBox" Caption="@CmpGenerator:ClassExtendsion=Расширение класса" Field="VarExtends" FixSize="True" OnChange="CheckBoxExtendsOnChange" Width="50"/>
+                  <Component Name="CheckBoxHierarchy" Class="Com.Ctrl.ICheckBox" Caption="@CmpGenerator:HierarchyClass=Иерархический класс" Field="VarHierarchy" FixSize="True" Width="50"/>
+                </Component>
+                <Component Name="ClassNameGroup" Class="Com.Ctrl.IGroup">
+                  <Component Name="EditClassName" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:ClassName=Имя класса" Field="VarClassName" Hint="@CmpGenerator:ClassNameHint=Имя класса в формате [ИмяГруппы.]ИмяКлассаЗаписей&#xD;&#xA;Строка должна удовлетворять правилам идентификатора с точкой в качестве разделителя групп" OnChange="EditClassName_OnChange" OnVerify="EditClassName_OnVerify"/>
+                  <Component Name="ButtonSelect1" Class="Com.Ctrl.IButton" Hint="@CmpGenerator:ButtonSelectHint=Классы текущего проекта" ImageName="Com.folder-tree" OnClick="ButtonSelectMtlOnClick"/>
+                </Component>
+                <Component Name="EditClassDescription" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:ClassDescription=Описание" Field="VarClassDescription" Hint="@CmpGenerator:ClassDescriptionHint=Описание класса в формате @КлючОписания=Описание"/>
+                <Component Name="BaseClassGroup" Class="Com.Ctrl.IGroup">
+                  <Component Name="EditBaseClass" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:BaseClass=Базовый класс" Field="VarBaseClassStr" HasButton="True" OnChange="EditBaseClass_OnChange" OnLookup="EditBaseClass_OnLookup" OnVerify="EditBaseClass_OnVerify"/>
+                  <Component Name="ButtonFieldsDefault" Class="Com.Ctrl.IButton" Hint="@CmpGenerator:ButtonFieldsDefault=Добавить поля по умолчанию" ImageName="Com.InsertObj" OnClick="ButtonFieldsDefaultOnClick"/>
+                </Component>
+                <Component Name="FrmGroup" Class="Com.Ctrl.IGroup">
+                  <Component Name="CheckBoxGenerateFrm" Class="Com.Ctrl.ICheckBox" Caption="@CmpGenerator:GenerateFrmFile=Класс формы" Field="VarNotGenerateFrm" FixSize="True" Hint="@CmpGenerator:GenerateFrmFileHint=Создать форму-редактор" OnChange="CheckBoxNot_OnChange" Width="35"/>
+                  <Component Name="EditFrmBaseClass" Class="Com.Ctrl.IEdit" AutoLookup="True" CellFormat="EnumFormat" Field="VarFrmBasClassStr" HasCaption="False" ListAsString="EditorWithFrames|Com.Frm.IEditorWithFrames;CodeName|Com.Frm.ICodeName"/>
+                </Component>
+                <Component Name="TabGroup" Class="Com.Ctrl.IGroup">
+                  <Component Name="CheckBoxGenerateTab" Class="Com.Ctrl.ICheckBox" Caption="@CmpGenerator:GenerateTabFile=Класс картотеки" Field="VarNotGenerateTab" FixSize="True" Hint="@CmpGenerator:GenerateTabFileHint=Создать картотеку" OnChange="CheckBoxNot_OnChange" Width="35"/>
+                  <Component Name="EditTabBaseClass" Class="Com.Ctrl.IEdit" AutoLookup="True" CellFormat="EnumFormat" Field="VarTabBasClassStr" HasCaption="False" ListAsString="CardForm|Com.Frm.ICardForm;CodeName|Com.Tab.CodeName;BasObject|Bas.Tab.BasObject"/>
+                </Component>
+                <Component Name="MainMenuGroup" Class="Com.Ctrl.IGroup">
+                  <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="35"/>
+                  <Component Name="AddToMainMenu" Class="Com.Ctrl.ICheckBox" Caption="@CmpGenerator:AddToMenu=В главное меню" Field="VarToMainMenu" FixSize="True" Hint="@CmpGenerator:AddToMenuHint=Добавлять команду в главное меню" Width="40"/>
+                  <Component Name="MainMenu" Class="Com.Ctrl.IEdit" Field="VarMainMenu" FixSize="True" Hint="Имя панели в главном меню, используется только если панель по умолчанию ещё не создана" OnChange="MainMenuOnChange" Width="40"/>
+                  <Component Name="MainMenuIco" Class="Com.Ctrl.IEdit" Field="VarMainMenuIco" HasButton="True" Hint="Иконка главного меню, используется только если панель по умолчанию ещё не создана" OnLookup="MainMenuIcoOnLookup"/>
+                </Component>
+                <Component Name="RoleCenterGroup" Class="Com.Ctrl.IGroup">
+                  <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="35"/>
+                  <Component Name="AddToRoleCenter" Class="Com.Ctrl.ICheckBox" Caption="@CmpGenerator:AddToRoleCenter=В ролевой центр" Field="VarToRoleCenter" FixSize="True" Hint="@CmpGenerator:AddToRoleCenterHint=Добавлять команду в ролевой центр" Width="40"/>
+                  <Component Name="RoleCenter" Class="Com.Ctrl.IEdit" Field="VarRoleCenter" FixSize="True" Hint="Имя ролевого центра, используется только если ролевой центр по умолчанию ещё не создан" OnChange="RoleCenterOnChange" Width="40"/>
+                </Component>
+                <Component Name="RefGroup" Class="Com.Ctrl.IGroup">
+                  <Component Name="CheckBoxGenerateLis" Class="Com.Ctrl.ICheckBox" Caption="@CmpGenerator:GenerateLisFile=Имя аналитики" Field="VarGenerateLis" FixSize="True" Hint="@CmpGenerator:GenerateLisFileHint=Создать аналитический справочник" Width="35"/>
+                  <Component Name="EditRefClassName" Class="Com.Ctrl.IEdit" Field="VarRefClassName" FixSize="True" HasCaption="False" OnLookup="EditRefClassName_OnLookup" OnVerify="EditRefClassName_OnVerify" Width="80"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="ExtBox" Class="Com.Ctrl.IBox" Caption="@CmpGenerator:ExtBox=Расширение базовых проектов">
+              <Component Name="ExtRefGroup" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="True" MaxWidth="200" MinWidth="100">
+                <Component Name="ExtRefLabel" Class="Com.Ctrl.IStatic" Caption="@CmpGenerator:ExtendsReference=Добавлять аналитику в" Width="85"/>
+                <Component Name="ExtJurHeader" Class="Com.Ctrl.ICheckBox" Caption="шапку журнала УчетныеОперДвижения" Field="VarJurHeader" Width="85"/>
+                <Component Name="ExtPosGroup" Class="Com.Ctrl.IGroup">
+                  <Component Name="ExtJurPositions" Class="Com.Ctrl.ICheckBox" Caption="позиции журнала УчетныеОперДвижения" Field="VarJurPosition" Width="85"/>
+                  <Component Name="CheckBoxDirection" Class="Com.Ctrl.ICheckBox" Caption="@CmpGenerator:CheckBoxDirection=разделять откуда/куда" Field="VarDirection" FixSize="True" Width="50"/>
+                </Component>
+                <Component Name="ExtProcess" Class="Com.Ctrl.ICheckBox" Caption="расширение спрПроцесс (refProcess)" Field="VarExtProcess" Width="85"/>
+                <Component Name="ExtEntity" Class="Com.Ctrl.ICheckBox" Caption="расширение спрСубъект (refEntity)" Field="VarExtEntity" Width="85"/>
+                <Component Name="ExtResource" Class="Com.Ctrl.ICheckBox" Caption="расширение спрРесурс (refResource)" Field="VarExtResource" Width="85"/>
+              </Component>
+            </Component>
+            <Component Name="SpaceFrame1" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="Static4" Class="Com.Ctrl.IStatic"/>
+            </Component>
+            <Component Name="TabFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="Table1" Class="Com.Ctrl.ITable" Subtable="Settings">
+                <Component Name="EditFieldName" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:FieldName=Имя поля" Field="DefStruct.FieldName" HasButton="True" OnChange="EditFieldNameOnChange" OnLookup="EditFieldNameOnLookup" OnVerify="EditFieldName_OnVerify"/>
+                <Component Name="EditFieldType" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:FieldType=Тип поля" CellFormat="EnumFormat" Field="DefStruct.FieldType" ListAsString="String;Integer;Numeric;Logical;Date;Record;Text" Width="25"/>
+                <Component Name="EditFieldSubType" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:FieldSubType=Уточнение типа" Field="DefStruct.FieldSubType" HasButton="True" Hint="@CmpGenerator:FieldSubTypeHint=Для типа String здесь можно указать ограничение размера (20, 80, MaxStr и т.п.)&#xD;&#xA;Для типа Record здесь необходимо указать класс записи (IRecord)&#xD;&#xA;Для других типов поле не имеет смысла" OnEnter="EditFieldSubType_OnEnter" OnLookup="EditFieldSubType_OnLookup" OnVerify="EditFieldSubType_OnVerify" Width="50"/>
+                <Component Name="EditFieldDescription" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:FieldDescription=Описание" Field="DefStruct.FieldDescription" Hint="@CmpGenerator:FieldDescriptionHint=Описание поля в формате @КлючОписания=Описание" OnVerify="EditFieldDescription_OnVerify"/>
+                <Component Name="CheckBoxAddRec" Class="Com.Ctrl.ICheckBox" Caption="@CmpGenerator:AddRec=Запись (Rec)" Field="DefStruct.NotAddRec" OnChange="CheckBoxNot_OnChange" Width="15"/>
+                <Component Name="CheckBoxAddFrm" Class="Com.Ctrl.ICheckBox" Caption="@CmpGenerator:AddFrm=Форма (Frm)" Field="DefStruct.NotAddFrm" OnChange="CheckBoxNot_OnChange" Width="15"/>
+                <Component Name="CheckBoxAddTab" Class="Com.Ctrl.ICheckBox" Caption="@CmpGenerator:AddTab=Список (Tab)" Field="DefStruct.NotAddTab" OnChange="CheckBoxNot_OnChange" Width="15"/>
+                <Component Name="CheckBoxAddLis" Class="Com.Ctrl.ICheckBox" Caption="@CmpGenerator:AddLis=Аналитика (Lis)" Field="DefStruct.AddLis" Width="22"/>
+              </Component>
+            </Component>
+            <Component Name="SpaceFrame2" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="Static5" Class="Com.Ctrl.IStatic"/>
+            </Component>
+            <Component Name="SubtabFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="TabFrame1" Class="Com.Ctrl.IFrame" AutoSize="True">
+                <Component Name="Table2" Class="Com.Ctrl.ITable" OnDelete="Table2OnDelete" Subtable="Subtables">
+                  <Component Name="EditSubtabName" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:SubtableName=Имя подтаблицы" CellFormat="EnumFormat" Field="DefSubtable.FieldName" OnVerify="EditSubtabName_OnVerify"/>
+                  <Component Name="EditSubtabDescription" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:FieldDescription=Описание" Field="DefSubtable.FieldTitle" Hint="@CmpGenerator:FieldDescriptionHint=Описание поля в формате @КлючОписания=Описание" OnVerify="EditFieldDescription_OnVerify"/>
+                </Component>
+              </Component>
+              <Component Name="TabFrame2" Class="Com.Ctrl.IFrame" AutoSize="True">
+                <Component Name="Table3" Class="Com.Ctrl.ITable" OnInsert="Table3OnInsert" Subtable="SubStruct">
+                  <Component Name="EditSubtableName" Class="Com.Ctrl.IEdit" AutoLookup="True" Caption="@CmpGenerator:SubtableName=Имя подтаблицы" CellFormat="EnumFormat" Field="DefSubStruct.FieldSubtable" OnVerify="EditSubtableName_OnVerify"/>
+                  <Component Name="EditSubFieldName" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:FieldName=Имя поля" Field="DefSubStruct.FieldName" HasButton="True" OnChange="EditSubFieldNameOnChange" OnLookup="EditSubFieldNameOnLookup" OnVerify="EditSubFieldName_OnVerify"/>
+                  <Component Name="EditSubFieldType" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:FieldType=Тип поля" CellFormat="EnumFormat" Field="DefSubStruct.FieldType" ListAsString="String;Integer;Numeric;Logical;Date;Record;Text" Width="25"/>
+                  <Component Name="EditSubFieldSubType" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:FieldSubType=Уточнение типа" Field="DefSubStruct.FieldSubType" HasButton="True" Hint="@CmpGenerator:FieldSubTypeHint=Для типа String здесь можно указать ограничение размера (20, 80, MaxStr и т.п.)&#xD;&#xA;Для типа Record здесь необходимо указать класс записи (IRecord)&#xD;&#xA;Для других типов поле не имеет смысла" OnEnter="EditFieldSubType_OnEnter" OnLookup="EditFieldSubType_OnLookup" OnVerify="EditFieldSubType_OnVerify" Width="50"/>
+                  <Component Name="EditSubFieldDescription" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:FieldDescription=Описание" Field="DefSubStruct.FieldDescription" Hint="@CmpGenerator:FieldDescriptionHint=Описание поля в формате @КлючОписания=Описание" OnVerify="EditFieldDescription_OnVerify"/>
+                  <Component Name="CheckSubBoxAddRec" Class="Com.Ctrl.ICheckBox" Caption="@CmpGenerator:AddRec=Запись (Rec)" Field="DefSubStruct.NotAddRec" OnChange="CheckBoxNot_OnChange" Width="15"/>
+                  <Component Name="CheckSubBoxAddFrm" Class="Com.Ctrl.ICheckBox" Caption="@CmpGenerator:AddFrm=Форма (Frm)" Field="DefSubStruct.NotAddFrm" OnChange="CheckBoxNot_OnChange" Width="15"/>
+                  <Component Name="CheckSubBoxAddTab" Class="Com.Ctrl.ICheckBox" Excluded="True" Caption="@CmpGenerator:AddTab=Список (Tab)" Field="DefSubStruct.NotAddTab" OnChange="CheckBoxNot_OnChange" Width="15"/>
+                  <Component Name="CheckSubBoxAddLis" Class="Com.Ctrl.ICheckBox" Excluded="True" Caption="@CmpGenerator:AddLis=Аналитика (Lis)" Field="DefSubStruct.AddLis" Width="22"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="DocumentsTab" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@CmpGenerator:DocumentsTab=Документы" Margins="5"/>
+        <Component Name="JournalsTab" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@CmpGenerator:JournalsTab=Журналы" Margins="5">
+          <Component Name="FrameJurMain" Class="Com.Ctrl.IFrame">
+            <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="35" MaxWidth="200" MinWidth="100">
+              <Component Name="GroupJurName" Class="Com.Ctrl.IGroup">
+                <Component Name="EditJurName" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:JurName=Журнал" Field="VarJurName" OnChange="EditJurNameOnChange" OnVerify="EditRefClassName_OnVerify"/>
+                <Component Name="ButtonSelectJur" Class="Com.Ctrl.IButton" ImageName="Com.folder-tree" OnClick="ButtonSelectJurOnClick"/>
+                <Component Name="ButtonGenerateReport" Class="Com.Ctrl.IButton" Hint="@CmpGenerator:JurReportHint=Сформировать проектный отчёт по умолчанию" ImageName="Com.chart-line" OnClick="ButtonGenerateReportOnClick"/>
+              </Component>
+              <Component Name="EditJurTitle" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:JurTitle=Описание" Field="VarJurTitle" Hint="@CmpGenerator:ClassDescriptionHint=Описание класса в формате @КлючОписания=Описание"/>
+              <Component Name="GroupJurRecord" Class="Com.Ctrl.IGroup">
+                <Component Name="EditJurRecord" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Caption="@CmpGenerator:JurRecord=Класс записи" Field="VarJurRecord" OnChange="EditJurRecordOnChange" OnDrawEx="DefaultOnDrawEx" OnLookup="EditJurRecordOnLookup" OnOutputEx="EditJurRecordOnOutputEx" OnVerify="EditBaseClass_OnVerify"/>
+                <Component Name="ButtonJurDefault" Class="Com.Ctrl.IButton" Hint="@CmpGenerator:ButtonJurDefault=Добавить поля по умолчанию" ImageName="Com.InsertObj" OnClick="ButtonJurDefaultOnClick"/>
+              </Component>
+              <Component Name="EditJurFilter" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:JurFilter=Фильтр" Field="VarJurFilter" OnDrawEx="DefaultOnDrawEx" OnOutputEx="EditJurFilterOnOutputEx"/>
+              <Component Name="GroupJurFields" Class="Com.Ctrl.IGroup">
+                <Component Name="EditJurDate" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Caption="@CmpGenerator:JurDate=Поле даты" Field="VarJurDate" FixSize="True" OnDrawEx="DefaultOnDrawEx" OnLookup="EditJurDateOnLookup" OnOutputEx="EditJurDateOnOutputEx" OnVerify="EditJurDateOnVerify" Width="40"/>
+                <Component Name="EditJurEnabled" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Caption="@CmpGenerator:JurEnabled=Поле доступность" CaptionWidth="40" Field="VarJurEnabled" FixSize="True" OnLookup="EditJurEnabledOnLookup" OnVerify="EditJurEnabledOnVerify" Width="40"/>
+              </Component>
+              <Component Name="EditJurOpType" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:JurOper=Операция" CellFormat="EnumFormat" Field="VarJurOpType" FixSize="True" OnChange="EditJurOpTypeOnChange" Width="120"/>
+              <Component Name="GroupJurAcc" Class="Com.Ctrl.IGroup" ByColumn="True">
+                <Component Name="GroupJurAcc1" Class="Com.Ctrl.IGroup">
+                  <Component Name="EditJurDomain" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:JurDomain=Область учета" CellFormat="EnumFormat" Field="VarJurDomain" FixSize="True" Hint="@CmpGenerator:JurDomainHint=Раздел многомерного куба содержащий изолированные данные многомерного учета" OnChange="EditJurDomainOnChange" Width="60"/>
+                  <Component Name="EditJurAccount" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:JurAccount=Счет" CaptionWidth="20" Field="VarJurAccount" FixSize="True" HasButton="True" Hint="@CmpGenerator:JurAccountHint=Дополнительная классификация второго уровня для плана" OnChange="EditJurAccountOnChange" OnLookup="EditJurAccountOnLookup" Width="40"/>
+                </Component>
+                <Component Name="GroupJurAcc2" Class="Com.Ctrl.IGroup">
+                  <Component Name="EditJurPlan" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:JurPlan=План счетов" Field="VarJurPlan" FixSize="True" HasButton="True" Hint="@CmpGenerator:JurPlanHint=Описание раздела (набора) для первичной классификации данных области учета (может быть несколько в рамках одной области учета)" OnChange="EditJurPlanOnChange" OnLookup="EditJurPlanOnLookup" Width="60"/>
+                  <Component Name="EditJurAccType" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:JurAccType=Тип" CaptionWidth="20" Field="VarJurAccType" FixSize="True" HasButton="True" Hint="@CmpGenerator:JurAccTypeHint=Метод типизации счетов для присвоения однородного (одинакового) перечня аналитических признаков многомерного куба" OnLookup="EditJurAccTypeOnLookup" Width="40"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="SpaceFrame3" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="Static6" Class="Com.Ctrl.IStatic"/>
+          </Component>
+          <Component Name="FrameJurFields" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="TableJurFields" Class="Com.Ctrl.ITable" Subtable="JurFields">
+              <Component Name="FlagJurStruct" Class="Com.Ctrl.ICheckBox" Caption="@CmpGenerator:JurStruct=Позиции" Field="DefJurFrom.FieldStruct" OnChange="FlagJurStructOnChange" Width="20"/>
+              <Component Name="EditJurFrom" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Caption="@CmpGenerator:JurFrom=Из поля" Field="DefJurFrom.FieldFrom" OnChange="EditJurFromOnChange" OnLookup="EditJurFromOnLookup" OnVerify="EditJurFromOnVerify"/>
+              <Component Name="EditJurType" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Caption="@CmpGenerator:JurType=Тип поля" Field="DefJurFrom.FieldType" OnEnter="EditJurTypeOnEnter" OnLookup="EditJurTypeOnLookup"/>
+              <Component Name="EditJurField" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:JurField=Имя поля" Field="DefJurFrom.FieldName" OnDrawEx="DefaultOnDrawEx" OnOutputEx="EditJurFieldOnOutputEx" OnVerify="EditJurFieldOnVerify"/>
+              <Component Name="EditJurCurrency" Class="Com.Ctrl.IEdit" AutoLookup="True" Caption="@CmpGenerator:JurCurrency=Валюта" CellFormat="EnumFormat" Field="DefJurFrom.FieldCurrency" OnChange="EditJurCurrencyOnChange" OnEnter="EditJurCurrencyOnEnter" OnVerify="EditJurCurrencyOnVerify"/>
+              <Component Name="EditJurParamLink" Class="Com.Ctrl.IEdit" Caption="@CmpGenerator:JurParamLink=Параметр счета" CellFormat="EnumFormat" Field="DefJurFrom.ParamLink" ListAsString="Не добавлять в тип счета;Добавлять в тип и привязывать к записи;Добавлять в тип и заполнять в операции" Width="80"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="LogsTab" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@CmpGenerator:LogTab=Лог" Margins="5" Visible="False"/>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

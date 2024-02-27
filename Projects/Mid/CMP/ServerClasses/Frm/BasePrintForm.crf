@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IEditor">
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="PDF" Class="Com.Fld.IBlob"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" MaxButton="2">
+        <Component Name="ButtonPDF" Class="Com.Ctrl.IButton" ImageName="CMP.PDF" OnClick="ButtonPDF_OnClick"/>
+        <Component Name="ButtonHTML" Class="Com.Ctrl.IButton" ImageName="CMP.HTML" OnClick="ButtonHTML_OnClick"/>
+      </Component>
+      <Component Name="TabFrame" Class="Com.Ctrl.IFrame" AutoSize="False" Margins="5" Orientation="WithTabs" ShowTabs="True">
+        <Component Name="FrameForPDF" Class="Com.Ctrl.IFrame" AutoSize="False" Caption="PDF">
+          <Component Name="PDFView" Class="Com.Ctrl.IPdfViewJS" Blob="PDF"/>
+        </Component>
+        <Component Name="FrameForHTML" Class="Com.Ctrl.IFrame" AutoSize="False" Caption="HTML">
+          <Component Name="Browser" Class="Com.Ctrl.IBrowser"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

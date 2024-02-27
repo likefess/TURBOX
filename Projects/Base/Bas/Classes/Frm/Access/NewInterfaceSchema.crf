@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited ActiveControl="SchemaNameEdit">
+    <Inherited Name="Variables">
+      <Component Name="SchemaName" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="BaseSchemaName" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonHelp" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+          <Component Name="SchemaNameEdit" Class="Com.Ctrl.IEdit" Caption="@Access:IntfSchemaName=Имя схемы" Field="SchemaName" OnVerify="SchemaNameEdit_OnVerify"/>
+          <Component Name="BaseNameEdit" Class="Com.Ctrl.IEdit" Caption="@Access:IntfSchemaBase=Создана на основании" Enabled="False" Field="BaseSchemaName"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

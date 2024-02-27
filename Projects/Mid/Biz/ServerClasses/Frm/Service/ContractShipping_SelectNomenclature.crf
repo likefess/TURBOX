@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    </Component>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="DataSubtable" Class="Com.ISubtable"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" MaxButton="4">
+        <Component Name="ButtonAdd" Class="Com.Ctrl.IButton" Caption="@ContractShipping_SelectNomenclature:ButtonAdd=Добавить" FontSize="11" ImageName="Com.AddItem" OnClick="ButtonAdd_OnClick" Width="35"/>
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Caption="@Cmd:Close=Закрыть" Command="Commands.CloseForm" ImageName="Close"/>
+        <Component Name="ButtonRefresh" Class="Com.Ctrl.IButton" Command="Commands.RefreshForm" Hint="@ContractShipping_SelectNomenclature:ButtonRefresh=Обновить" ImageName="Com.Refresh"/>
+        <Component Name="ButtonHelp" Class="Com.Ctrl.IButton" Caption="@Cmd:Help=Помощь" Command="Commands.Help" ImageName="Help"/>
+      </Component>
+      <Component Name="RowsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Subtable="DataSubtable">
+        <Component Name="SelectNomencatureStruct" Class="Biz.Rec.Service.ContractShipping_SelectNomenclatureStruct" IsLibrary="1"/>
+        <Component Name="Nomenclature" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Resources" CellFormat="ReferenceFormat" Enabled="False" Field="SelectNomencatureStruct.Nomenclature" HasCaption="True" LookupField="Name" Width="40"/>
+        <Component Name="SKU" Class="Com.Ctrl.IEdit" Caption="@ContractShipping_SelectNomenclature:SKU=Артикул" CardFileClass="Biz.Tab.Data.Resources" CellFormat="ReferenceFormat" Enabled="False" Field="SelectNomencatureStruct.Nomenclature" HasCaption="True" LookupField="SKU" Width="30"/>
+        <Component Name="Quantity" Class="Com.Ctrl.IEdit" Enabled="False" Field="SelectNomencatureStruct.Quantity" HasCaption="True" Width="30"/>
+        <Component Name="QtyForSelect" Class="Com.Ctrl.IEdit" Field="SelectNomencatureStruct.QtyForSelect" HasCaption="True" Width="30"/>
+        <Component Name="UnitOfMeasure" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="SelectNomencatureStruct.UnitOfMeasure" HasCaption="True" LookupField="Code" Width="30"/>
+        <Component Name="Price" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="SelectNomencatureStruct.Price" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+        <Component Name="VATRate" Class="Com.Ctrl.IEdit" Caption="@ContractShipping_SelectNomenclature:VATRate=Ставка НДС" Enabled="False" Field="SelectNomencatureStruct.VATRate" HasCaption="True" Width="30"/>
+        <Component Name="AmountWithoutVAT" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="SelectNomencatureStruct.AmountWithoutVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+        <Component Name="VATAmount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="SelectNomencatureStruct.VATAmount" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+        <Component Name="AmountIncludingVAT" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="SelectNomencatureStruct.AmountIncludingVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

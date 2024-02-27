@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited HelpContext="Bas.Администрирование.Сервисы.Протокол" OnShow="Form_OnShow">
+    <Inherited Name="EdtRec" Class="Bas.Rec.Service.Log" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" After="#0">
+          <Component Name="edtEventTime" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.EventTime" FormatOfDate="DateAndTime" HasCaption="True"/>
+          <Component Name="edtEventType" Class="Com.Ctrl.IEdit" Excluded="True" Alignment="CenterAlign" CellFormat="EnumFormat" Enabled="False" Field="EdtRec.EventType" ListAsString="@Logging:Info=Информация|0;@Logging:Warning=Предупреждение|1;@Logging:Error=Ошибка|2;@Logging:LogFile=Протокол|3;@Logging:LogFolder=Папка протоколов|100"/>
+        </Component>
+        <Inherited Name="Group1" After="Group2">
+          <Component Name="EventTemplate" Class="Com.Ctrl.IEdit" After="Code" Enabled="False" Field="EdtRec.EventTemplate" FixSize="True" HasCaption="True" Visible="True" Width="60"/>
+          <Inherited Name="Name" After="EventTemplate" Caption="@Log:Msg=Сообщение" Enabled="False" FixSize="True" Multiline="True" Visible="True" Width="120" Wrap="True"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" ShowTabs="False" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="EventHandlersFrame" Class="Com.Ctrl.IFrame" FixSize="True" Size="10" Visible="False">
+            <Component Name="EventHandlersGroup" Class="Com.Ctrl.IGroup"/>
+          </Component>
+          <Component Name="ParamsFrame" Class="Com.Ctrl.IFrame" OnMove="ParamsFrameOnMove">
+            <Component Name="ParamsTable" Class="Com.Ctrl.ITable" Adaptive="True" ManualControl="False">
+              <Component Name="ParName" Class="Com.Ctrl.IEdit" Caption="@Log:ParName=Имя параметра" Enabled="False" MaxWidth="100" MinWidth="50" OnOutput="ParNameOnOutput" Width="50"/>
+              <Component Name="ParValue" Class="Com.Ctrl.IEdit" Caption="@Log:ParValue=Значение параметра" Enabled="False" MaxWidth="200" MinWidth="50" Multiline="True" OnOutput="ParValueOnOutput" Width="100"/>
+              <Component Name="ParActions" Class="Com.Ctrl.IListButton" FixSize="True" ImageName="Com.Ctrl.ListButton" Width="10"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

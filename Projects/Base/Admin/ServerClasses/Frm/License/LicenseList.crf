@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.CustomList">
+  <Inherited FormIcon="Admin.License" HelpContext="Admin.Администрирование.Список серверов">
+    <Component Name="LicenseListStruct" Class="Admin.Frm.License.License_Struct" IsLibrary="1" After="#0"/>
+    <Inherited Name="TableMenu" Excluded="False" After="LicenseListStruct">
+      <Component Name="cmdAdd" Class="Com.ComManaging.ExecProcedure" After="TableSeparator1" Caption="@Admin:LicenseAdd=Добавить лицензию" CommandProc="cmdAdd_CommandProc" IconName="Com.AddItem"/>
+      <Component Name="cmdDelete" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:LicenseDelete=Удалить лицензию" CommandProc="cmdDelete_CommandProc" IconName="Com.DeleteItem"/>
+      <Component Name="cmdCheck" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:LicenseCheck=Проверить лицензию" CommandProc="cmdCheck_CommandProc" IconName="Admin.check-double"/>
+      <Component Name="pmSep1" Class="Com.Cmd2.ISeparator"/>
+      <Component Name="cmdMarkAll" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:MarkAll=Выделить всё" CommandProc="cmdMarkAll_CommandProc" IconName="Admin.check"/>
+      <Component Name="cmdUnmarkAll" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:UnmarkAll=Очистить всё" CommandProc="cmdUnmarkAll_CommandProc" IconName="Admin.uncheck"/>
+      <Inherited Name="cmdCopyValue" After="cmdUnmarkAll"/>
+    </Inherited>
+    <Inherited Name="Variables">
+      <Inherited Name="Subtable" StructClass="Admin.Frm.License.License_Struct"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ButtonAdd" Class="Com.Ctrl.IButton" After="#0" Caption="@Admin:LicenseAdd=Добавить лицензию" Command="cmdAdd" ImageName="Com.AddItem"/>
+        <Inherited Name="ButtonOK" After="ButtonAdd"/>
+        <Component Name="ButtonDelete" Class="Com.Ctrl.IButton" After="ButtonRefresh" Caption="@Admin:LicenseDelete=Удалить лицензию" Command="cmdDelete" ImageName="Com.DeleteItem"/>
+        <Component Name="ButtonAuthSetting" Class="Com.Ctrl.IButton" Caption="@Admin:AuthServerSetting=Настройка сервера авторизации" ImageName="Com.Settings_" OnClick="ButtonAuthSetting_OnClick"/>
+        <Inherited Name="ButtonHelp" After="ButtonAuthSetting"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="frameData">
+          <Inherited Name="TableData" Adaptive="False" IconName="Admin.License" PopupMenu="TableMenu" ShowIcon="True">
+            <Component Name="chbSelect" Class="Com.Ctrl.ICheckBox" Caption="*" Field="LicenseListStruct.Select" FixSize="True" OnChange="chbSelect_OnChange" Width="12"/>
+            <Component Name="edCode" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Admin:LicenseCode=Код лицензии" Enabled="False" Field="LicenseListStruct.Code" MaxWidth="120" MinWidth="40" ValueType="VarString" Width="84"/>
+            <Component Name="edDescript" Class="Com.Ctrl.IEdit" Caption="@Admin:LicenseDescript=Проект" Enabled="False" Field="LicenseListStruct.Descript" MaxWidth="120" MinWidth="40" Width="60"/>
+            <Component Name="edKey" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Admin:LicenseKey=Код" Field="LicenseListStruct.Product" FixSize="True" OnOutputEx="edKey_OnOutputEx" Width="30"/>
+            <Component Name="edKeyNumber" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Admin:LicenseKeyNumber=Ключ" Enabled="False" Field="LicenseListStruct.KeyNumber" Width="20"/>
+            <Component Name="edExpire" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Admin:LicenseExpire=До даты" Enabled="False" Field="LicenseListStruct.ExpireDt" FixSize="True" Width="28"/>
+            <Component Name="edUserCount" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Admin:LicenseUserCount=Мест" Enabled="False" Field="LicenseListStruct.UserCount" FieldFormat="#,##0" Width="20"/>
+            <Component Name="edUsed" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Admin:LicenseUsed=Занято" Enabled="False" Field="LicenseListStruct.Used" FieldFormat="#,##0" OnOutputEx="edUsed_OnOutputEx" Width="20"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

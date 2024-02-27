@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Control.Frm.Ref.TransitionRule">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="BoxFunctions" Class="Com.Ctrl.IBox" Caption="@Функции" Collapsed="True">
+          <Component Name="TabFunctions" Class="Com.Ctrl.IFrame" Margins="8" ShowTabs="True" Subtable="EdtRec.Функции">
+            <Component Name="FunctionsStruct" Class="Upr.Rec.Справочники.ПравилоПерехода_Функции" IsLibrary="1"/>
+            <Component Name="Значение" Class="Com.Ctrl.IEdit" Caption="@Значение" CardFileClass="Bas.Tab.Config.ProcType" Field="FunctionsStruct.Значение" LookupField="Name" Width="85"/>
+            <Component Name="Strictly" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Строго" Field="FunctionsStruct.Strictly" Width="25"/>
+          </Component>
+        </Component>
+        <Component Name="BoxMode" Class="Com.Ctrl.IBox" Caption="@Режим создания документа" Collapsed="True">
+          <Component Name="Group6" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+            <Component Name="СпособСозданияДокумента" Class="Com.Ctrl.IEdit" Caption="@При переходе" CaptionWidth="50" CellFormat="EnumFormat" Field="EdtRec.СпособСозданияДокумента" ValueType="VarInteger" Width="110"/>
+            <Component Name="TypDoc" Class="Com.Ctrl.IEdit" Caption="@Тип документа" CaptionWidth="50" CardFileClass="Bas.Tab.Config.ProcType" CellFormat="ReferenceFormat" Field="EdtRec.ТипСоздаваемогоОД" LookupField="Name" ValueType="VarObject" Width="110"/>
+            <Component Name="PostService" Class="Com.Ctrl.IEdit" Caption="@Затем применить сервис" CaptionWidth="50" CellFormat="ReferenceFormat" Field="EdtRec.СервисДляСозданногоДокумента" LookupField="Name" ValueType="VarObject" Width="110"/>
+            <Component Name="Service" Class="Com.Ctrl.IEdit" Caption="@Сервис" CaptionWidth="50" CellFormat="ReferenceFormat" Field="EdtRec.СервисСозданияНаОсновании" LookupField="Name" ValueType="VarObject" Width="110"/>
+            <Component Name="Group7" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+              <Component Name="OpenDoc" Class="Com.Ctrl.ICheckBox" Caption="@Открывать созданный документ" Field="EdtRec.ОткрыватьСозданныйДокумент" Width="80"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

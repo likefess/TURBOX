@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="CurrentVar" Class="Com.Fld.IVar" ValueType="VarUnknown"/>
+      <Component Name="SearchVar" Class="Com.Fld.IVar" OnChange="SearchVarOnChange" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonOK" Caption="@Demo:ButtonOK=Выбрать" FontSize="11" ImageName="Com.SelectItem" Width="30"/>
+        <Inherited Name="HeaderSeparator" Excluded="True"/>
+        <Inherited Name="ButtonRefresh" Visible="False"/>
+      </Inherited>
+      <Component Name="SearchFrame" Class="Com.Ctrl.IFrame" Excluded="True" After="HeaderFrame" AutoSize="True" Margins="5">
+        <Component Name="SearchEdit" Class="Com.Ctrl.IEdit" Field="SearchVar" ImageName="Com.Search" ImageSize="12"/>
+      </Component>
+      <Inherited Name="FieldsFrame" After="SearchFrame" AutoSize="False" MinSize="100">
+        <Component Name="TreeGrid" Class="Com.Ctrl.Grids.TreeGrid" OnFirstShow="TreeGridOnFirstShow" OnMove="TreeGridOnMove" OnSelect="TreeGridOnSelect"/>
+      </Inherited>
+      <Component Name="SelectionFrame" Class="Com.Ctrl.IFrame" After="FieldsFrame" AutoSize="True" Margins="5">
+        <Component Name="SelectionEdit" Class="Com.Ctrl.IEdit" Caption="Текущий элемент" Enabled="False" Field="CurrentVar" HasCaption="False" Width="100"/>
+      </Component>
+      <Inherited Name="TabsFrame" After="SelectionFrame"/>
+    </Inherited>
+  </Inherited>
+</Resource>

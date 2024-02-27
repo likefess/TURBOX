@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CMP.Frm.StructEditor.Abstract">
+  <Inherited>
+    <Inherited Name="FStruct" Class="CMP.Rec.Views.IDocument_TableType" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="MainGroup" CaptionWidth="50">
+          <Component Name="FStructMovingType" Class="Com.Ctrl.IEdit" Field="FStruct.MovingType"/>
+          <Component Name="FStructCaption" Class="Com.Ctrl.IEdit" Field="FStruct.Caption"/>
+          <Component Name="FStructHint" Class="Com.Ctrl.IEdit" Field="FStruct.Hint"/>
+          <Component Name="FStructVisibilityCondition" Class="CMP.Ctrl.IFormulaEdit" Field="FStruct.VisibilityCondition" Subtable="FStruct.ConditionRecords"/>
+        </Inherited>
+      </Inherited>
+      <Component Name="LabelBox" Class="Com.Ctrl.IBox" Caption="@CMP:LabelBox=Настройки надписи">
+        <Component Name="LabelGroup" Class="Com.Ctrl.IGroup" ByColumn="True" HasCaption="True">
+          <Component Name="LabelFontGroup3" Class="Com.Ctrl.IGroup" Adaptive="True" HasCaption="True">
+            <Component Name="FStructCaptionAlignment" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="FStruct.CaptionAlignment" FixSize="True" Width="60"/>
+            <Component Name="FStructNotPrinted" Class="Com.Ctrl.ICheckBox" Field="FStruct.NotPrinted"/>
+          </Component>
+          <Component Name="LabelFontGroup1" Class="Com.Ctrl.IGroup" HasCaption="True">
+            <Component Name="FStructCaptionFontName" Class="Com.Ctrl.IEdit" Field="FStruct.CaptionFontName"/>
+            <Component Name="FStructCaptionFontBold" Class="Com.Ctrl.ICheckBox" Field="FStruct.CaptionFontBold"/>
+            <Component Name="FStructCaptionFontItalic" Class="Com.Ctrl.ICheckBox" Field="FStruct.CaptionFontItalic"/>
+          </Component>
+          <Component Name="FStructCaptionFontSize" Class="Com.Ctrl.IEdit" Field="FStruct.CaptionFontSize" Width="28"/>
+          <Component Name="FStructCaptionFontColor" Class="Com.Ctrl.IColorEdit" Field="FStruct.CaptionFontColor" Width="28"/>
+          <Component Name="FStructCaptionFieldColor" Class="Com.Ctrl.IColorEdit" Field="FStruct.CaptionFieldColor" Width="28"/>
+          <Component Name="LabelFontGroup2" Class="Com.Ctrl.IGroup">
+            <Component Name="LabelStrut" Class="Com.Ctrl.IStatic" Width="40"/>
+            <Component Name="LabelHyperlink" Class="Com.Ctrl.IStatic" Hint="@LabelHyperlink.Hint=Вернуть стандартный вид надписи" OnClick="LabelHyperlinkOnClick" StaticStyle="StaticHyperlink" Width="30"/>
+          </Component>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

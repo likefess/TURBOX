@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IEditor" HelpContext="Upr.СтруктураБизнеса.ТипыРеквизитов.СервисСворПозиций">
+    <Component Name="EdtRec" Class="CMP.Rec.Properties.IServiceMergePositions" IsLibrary="1"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" Margins="5">
+      <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+        <Component Name="Group2" Class="Com.Ctrl.IGroup">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="CheckBoxCreateNewPosition" Class="Com.Ctrl.ICheckBox" Caption="@CMP.ServiceMergePositionsCreateNewPosition=Создавать новые учетные движения" Field="EdtRec.CreateNewPosition" OnChange="CheckBox_OnChange"/>
+        </Component>
+        <Component Name="EditMovingType" Class="Com.Ctrl.IEdit" Caption="@CMP.ServiceMergePositionsMovingType=Тип нового движения" Field="EdtRec.MovingType" HasButton="True"/>
+        <Component Name="EditConditionFormula" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP.ServiceMergePositionsConditionFormula=Условия обработки позиций" Field="EdtRec.ConditionFormula" ProcType="EdtRec.ProcType" Subtable="EdtRec.ConditionRecord"/>
+      </Component>
+      <Component Name="Table1" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="EdtRec.UniqueProperties">
+        <Component Name="DefStructUnique" Class="CMP.Rec.Properties.IServiceMergePositions_Settings" IsLibrary="1"/>
+        <Component Name="ColumnsGroup1" Class="Com.Ctrl.IColumnsGroup" Caption="@CMP.ServiceMergePositionsUniqueProperties=Реквизиты, которые должны остаться уникальными" HasCaption="True">
+          <Component Name="EditUniqueProperty" Class="Com.Ctrl.IEdit" Field="DefStructUnique.Property" HasCaption="False" OnGetLookupFilter="EditProperty_OnGetLookupFilter" Width="1"/>
+        </Component>
+      </Component>
+      <Component Name="Static2" Class="Com.Ctrl.IStatic"/>
+      <Component Name="Table2" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" OnInsert="Table2_OnInsert" Subtable="EdtRec.AggrProperties">
+        <Component Name="DefStructAggr" Class="CMP.Rec.Properties.IServiceMergePositions_Settings" IsLibrary="1"/>
+        <Component Name="ColumnsGroup2" Class="Com.Ctrl.IColumnsGroup" Caption="@CMP.ServiceMergePositionsAggrProperties=Реквизиты, которые нужно суммировать / конкатенировать" HasCaption="True">
+          <Component Name="EditAggrProperty" Class="Com.Ctrl.IEdit" Caption="@CMP:Property=Реквизит" Field="DefStructAggr.Property" OnGetLookupFilter="EditProperty_OnGetLookupFilter" Width="5"/>
+          <Component Name="EditSign" Class="Com.Ctrl.IEdit" Caption="@CMP:Sign=Разделитель" Field="DefStructAggr.Sign" Width="1"/>
+        </Component>
+      </Component>
+      <Component Name="Static3" Class="Com.Ctrl.IStatic"/>
+      <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="50">
+        <Component Name="Static4" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+        <Component Name="CheckBoxNotResetFields" Class="Com.Ctrl.ICheckBox" Caption="@CMP.ServiceMergePositionsNotResetFields=Не обнулять все поля, имеющие разные значения в сворачиваемых позициях" Field="EdtRec.NotResetFields" OnChange="CheckBox_OnChange"/>
+      </Component>
+      <Component Name="Table3" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" OnInsert="Table3_OnInsert" Subtable="EdtRec.ClearedProperties">
+        <Component Name="DefStructCleared" Class="CMP.Rec.Properties.IServiceMergePositions_Settings" IsLibrary="1"/>
+        <Component Name="ColumnsGroup3" Class="Com.Ctrl.IColumnsGroup" Caption="@CMP.ServiceMergePositionsClearedProperties=Реквизиты, значения которых нужно обнулить" HasCaption="True">
+          <Component Name="EditClearedProperty" Class="Com.Ctrl.IEdit" Field="DefStructCleared.Property" HasCaption="False" OnGetLookupFilter="EditProperty_OnGetLookupFilter" Width="1"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

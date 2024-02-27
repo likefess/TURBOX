@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Integration.Rec.DataProcessing" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False">
+          <Component Name="btRun" Class="Com.Ctrl.IButton" Caption="@Setting:Run=Выполнить" ImageName="Com.Settings" OnClick="Onclick_RunSetting"/>
+          <Component Name="btnAsyncRun" Class="Com.Ctrl.IButton" Caption="@Setting:RunAsync=Выполнить асинхронно" ImageName="Com.Settings" OnClick="Onclick_LoadUnloadAsync"/>
+          <Component Name="btnAddTask" Class="Com.Ctrl.IButton" Caption="@Integration:BtAddTask=Добавить расписание" ImageName="Com.AddItem" OnClick="btnAddTaskOnClick"/>
+          <Component Name="btnViewTask" Class="Com.Ctrl.IButton" Caption="@Integration:BtRun=Просмотр расписания" ImageName="Com.ChildForm" OnClick="btnViewTaskOnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame" Margins="10">
+        <Inherited Name="Group1">
+          <Inherited Name="Name" After="#0" Caption="@FieldName:Name=Наименование" CaptionWidth="40" FixSize="True" FontBold="False" Visible="True" Width="120" Wrap="False"/>
+          <Inherited Name="Code" Excluded="True" After="Name"/>
+          <Component Name="edProcessorVar" Class="Com.Ctrl.IEdit" CaptionWidth="40" CellFormat="EnumFormat" Field="EdtRec.ProcessorVar" FixSize="True" HasCaption="True" OnChange="ProcessorVarOnChange" ValueType="VarString" Width="120" Wrap="False"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" ShowTabs="False" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="CommonBox" Class="Com.Ctrl.IBox" AutoSize="False" Caption="@BoxNameName:Common=Основное">
+            <Component Name="ParamsGroup" Class="Com.Ctrl.IGroup" ByColumn="True"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Frm.Report.ReportByRecords">
+  <Inherited HelpContext="Biz.НСИ.Отчеты.Отчеты по договорам.Отчет об исполнении договоров">
+    <Component Name="DataStruct" Class="Biz.Rec.Report.ContractExecutionReport_DataStruct" IsLibrary="1" After="ExtParamStruct"/>
+    <Inherited Name="TableMenu" After="DataStruct"/>
+    <Inherited Name="Variables">
+      <Component Name="DataSubtable" Class="Com.ISubtable"/>
+      <Component Name="OnDate" Class="Com.Fld.IVar" Caption="@ContractExecutionReport:OnDate=По состоянию на" ValueType="VarDate"/>
+      <Component Name="Company" Class="Com.Fld.IVar" Caption="@ContractExecutionReport:Company=Предприятие" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="Classification" Class="Com.Fld.IVar" Caption="@ContractExecutionReport:Classification=Классификация" RecordClass="Biz.Rec.Ref.ContractClassification" ValueType="VarObject"/>
+      <Component Name="Intragroup" Class="Com.Fld.IVar" Caption="@ContractExecutionReport:Intragroup=Внутригрупповые договоры" ValueType="VarLogical"/>
+      <Component Name="GroupByPartner" Class="Com.Fld.IVar" Caption="@ContractExecutionReport:GroupByPartner=Группировка по контрагентам" OnChange="GroupByPartner_OnChange" ValueType="VarLogical"/>
+      <Component Name="ActiveOnly" Class="Com.Fld.IVar" Caption="@ContractExecutionReport:ActiveOnly=Только действующие договоры" ValueType="VarLogical"/>
+      <Component Name="AmountsVisibleOption" Class="Com.Fld.IVar" Caption="@ContractExecutionReport:AmountsVisibleOption=Параметры фильтрации" OnChange="AmountsVisibleOption_OnChange" ValueType="VarInteger"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="ParamFrame">
+            <Inherited Name="ParamGroup" CaptionWidth="50">
+              <Component Name="OnDateEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="OnDate" FormatOfDate="DateOnly" HasCaption="True" ValueType="VarDate"/>
+              <Component Name="CompanyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="Company" HasCaption="True" LookupField="Name" OnGetLookupFilter="CompanyEdit_OnGetLookupFilter" ShortList="True"/>
+              <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+              <Component Name="ClassificationEdit" Class="Com.Ctrl.IListEdit" CellFormat="ReferenceFormat" Field="Classification" HasCaption="True" LookupField="Name"/>
+              <Component Name="AmountsVisibleOptionEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="AmountsVisibleOption" HasCaption="True" ListAsString="только суммы поставки/отгрузки|0;только суммы платежей/поступлений|1;суммы поставки/отгрузки и платежей/поступлений|2"/>
+              <Component Name="NewLine4" Class="Com.Ctrl.INewLine"/>
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+              <Component Name="IntragroupCheckBox" Class="Com.Ctrl.ICheckBox" Field="Intragroup" FixSize="True" HasCaption="True" Width="56" Wrap="True"/>
+              <Component Name="ActiveOnlyCheckBox" Class="Com.Ctrl.ICheckBox" Field="ActiveOnly" FixSize="True" HasCaption="True" Width="64" Wrap="True"/>
+              <Component Name="GroupByPartnerCheckBox" Class="Com.Ctrl.ICheckBox" Field="GroupByPartner" FixSize="True" HasCaption="True" Width="62" Wrap="True"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="DataFrame">
+        <Inherited Name="DataTable" Subtable="DataSubtable">
+          <Component Name="IsTotalRow" Class="Com.Ctrl.ICheckBox" Excluded="True" Enabled="False" Field="DataStruct.IsTotalRow" HasCaption="False" Width="50" Wrap="True"/>
+          <Component Name="Partner" Class="Com.Ctrl.IEdit" Caption="@ContractExecutionReport:Partner=Наименование контрагента" CardFileClass="Bas.Tab.Data.Contraparties" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Partner" HasCaption="True" LookupField="Name" OnDraw="DataField_OnDraw" Width="50" Wrap="True"/>
+          <Component Name="PrintedNumberGr" Class="Com.Ctrl.IColumnsGroup" Caption="@ContractExecutionReport:DocGroup=Номер договора" FixSize="True" HasCaption="True" Width="47.2">
+            <Component Name="PrintedNumber" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Contract" HasCaption="False" Hint="@ContractExecutionReport:DocGroupHint=Перейти к договору" LookupField="PrintedNumber" OnClick="PrintedNumber_OnClick" OnDraw="DataField_OnDraw" Width="40" Wrap="True"/>
+            <Component Name="DocJumpButton" Class="Com.Ctrl.IJumpButton" Field="DataStruct.Contract" HasCaption="False" Hint="@ContractExecutionReport:DocGroupHint=Перейти к договору" JumpForm="Biz.Frm.Data.Contract" Printed="False" Visible="False"/>
+          </Component>
+          <Component Name="RegistrationDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@ContractExecutionReport:RegistrationDate=Дата договора" Enabled="False" Field="DataStruct.RegistrationDate" FormatOfDate="DateOnly" HasCaption="True" OnDraw="DataField_OnDraw" Width="22" Wrap="True"/>
+          <Component Name="IsIntragroup" Class="Com.Ctrl.ICheckBox" Caption="@ContractExecutionReport:Intragroup=Внутригрупповой" Enabled="False" Field="DataStruct.Intragroup" HasCaption="True" OnDraw="DataField_OnDraw" Width="34" Wrap="True"/>
+          <Component Name="ContractSubject" Class="Com.Ctrl.IEdit" Caption="@ContractExecutionReport:ContractSubject=Назначение договора" CardFileClass="Biz.Tab.Ref.ContractClassification" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.ContractSubject" HasCaption="True" LookupField="Name" OnDraw="DataField_OnDraw" Width="80" Wrap="True"/>
+          <Component Name="Description" Class="Com.Ctrl.IEdit" Caption="@Contract:Description=Предмет договора" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Contract" HasCaption="True" LookupField="Description" Width="80" Wrap="True"/>
+          <Component Name="PeriodGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@ContractExecutionReport:PeriodGroup=Срок действия договора" HasCaption="True">
+            <Component Name="PeriodStart" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@ContractExecutionReport:PeriodStart=дата начала " Enabled="False" Field="DataStruct.PeriodStart" FormatOfDate="DateOnly" HasCaption="True" OnDraw="DataField_OnDraw" Width="22" Wrap="True"/>
+            <Component Name="PeriodEnd" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@ContractExecutionReport:PeriodEnd=дата окончания" Enabled="False" Field="DataStruct.PeriodEnd" FormatOfDate="DateOnly" HasCaption="True" OnDraw="DataField_OnDraw" Width="22" Wrap="True"/>
+            <Component Name="MonthCount" Class="Com.Ctrl.IEdit" Caption="@ContractReport:MonthCount=месяцев" CellFormat="NumericFormat" Field="DataStruct.MonthCount" FieldFormat="#" Width="20"/>
+          </Component>
+          <Component Name="ProlongationMonths" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@ContractExecutionReport:ProlongationMonths=Срок пролонгации договора" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.ProlongationMonths" FieldFormat=",##0;;-" HasCaption="True" OnDraw="DataField_OnDraw" Width="27" Wrap="True"/>
+          <Component Name="AmountWithSA" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.AmountWithSA" FieldFormat=",##0.00;;-" HasCaption="True" OnDraw="DataField_OnDraw" ValueType="VarNumeric" Width="40" Wrap="True"/>
+          <Component Name="VATAmountWithSA" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.VATAmountWithSA" FieldFormat=",##0.00;;-" HasCaption="True" OnDraw="DataField_OnDraw" ValueType="VarNumeric" Width="40" Wrap="True"/>
+          <Component Name="AmountIncVATWithSA" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.AmountIncVATWithSA" FieldFormat=",##0.00;;-" HasCaption="True" OnDraw="DataField_OnDraw" ValueType="VarNumeric" Width="40" Wrap="True"/>
+          <Component Name="ShippingAmount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.ShippingAmount" FieldFormat=",##0.00;;-" HasCaption="True" OnDraw="DataField_OnDraw" ValueType="VarNumeric" Width="40" Wrap="True"/>
+          <Component Name="PaymentAmount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.PaymentAmount" FieldFormat=",##0.00;;-" HasCaption="True" OnDraw="DataField_OnDraw" ValueType="VarNumeric" Width="40" Wrap="True"/>
+          <Component Name="ShippingAmountSaldo" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.ShippingAmountSaldo" FieldFormat=",##0.00;;-" HasCaption="True" OnDraw="DataField_OnDraw" ValueType="VarNumeric" Width="40" Wrap="True"/>
+          <Component Name="PaymentAmountSaldo" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.PaymentAmountSaldo" FieldFormat=",##0.00;;-" HasCaption="True" OnDraw="DataField_OnDraw" ValueType="VarNumeric" Width="40" Wrap="True"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

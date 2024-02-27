@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Logging.EventLog">
+  <Inherited StorageKind="logDatabaseStorage">
+    <Inherited Name="EventsTemplates">
+      <Component Name="SrvConnectionError" Class="Bas.Logging.EventTemplate" After="#0" Description="@EMailLog:SrvConnectionError=Ошибка при подключении к почтовому серверу" EventLevel="llAdmin" EventType="logError" MessageTemplate="%s:%s" Params="Account, ServerType,Protocol">
+        <Component Name="JumpToAccountRec2" Class="Bas.Logging.ILogEventHandler" Caption="@EMail.Logging:JumpMailAccount=Открыть карточку аккаунта" Handler="JumpToAccountRecHandler" IconName="Com.Ctrl.JumpButton" ParamIndex="1"/>
+      </Component>
+      <Component Name="EMailSendSuccess" Class="Bas.Logging.EventTemplate" Description="@EMailLog:EMailSendSuccess=Успешная отправка сообщения" EventLevel="llAdmin" EventType="logInfo" Params="Account,Content">
+        <Component Name="JumpToAccountRec" Class="Bas.Logging.ILogEventHandler" Caption="@EMail.Logging:JumpMailAccount=Открыть карточку аккаунта" Handler="JumpToAccountRecHandler" IconName="Com.Ctrl.JumpButton" ParamIndex="1"/>
+        <Component Name="JumpToMailRec" Class="Bas.Logging.ILogEventHandler" Caption="@EMail.Logging:JumpMail=Открыть письмо" Handler="JumpToMailRecHandler" IconName="Com.Ctrl.JumpButton" ParamIndex="2"/>
+      </Component>
+      <Component Name="EMailSendError" Class="Bas.Logging.EventTemplate" Description="@EMailLog:EMailSendError=Ошибка при отправке письма" EventLevel="llAdmin" EventType="logError" MessageTemplate="%s: %s" Params="Account,Content">
+        <Component Name="JumpToAccountRec1" Class="Bas.Logging.ILogEventHandler" Caption="@EMail.Logging:JumpMailAccount=Открыть карточку аккаунта" Handler="JumpToAccountRecHandler" IconName="Com.Ctrl.JumpButton" ParamIndex="1"/>
+        <Component Name="JumpToMailRec1" Class="Bas.Logging.ILogEventHandler" Caption="@EMail.Logging:JumpMail=Открыть письмо" Handler="JumpToMailRecHandler" IconName="Com.Ctrl.JumpButton" ParamIndex="2"/>
+      </Component>
+      <Component Name="ReceiveMailsError" Class="Bas.Logging.EventTemplate" Description="@EMailLog:ReceiveMailsError=Ошибка при получении писем" EventLevel="llAdmin" EventType="logError" MessageTemplate="%s:%s" Params="Account">
+        <Component Name="JumpToAccountRec3" Class="Bas.Logging.ILogEventHandler" Caption="@EMail.Logging:JumpMailAccount=Открыть карточку аккаунта" Handler="JumpToAccountRecHandler" IconName="Com.Ctrl.JumpButton" ParamIndex="1"/>
+      </Component>
+      <Component Name="DelMailError" Class="Bas.Logging.EventTemplate" Description="@EMailLog:DelMailError=Ошибка при удалении письма" EventLevel="llAdmin" EventType="logError" MessageTemplate="%s:%s" Params="Account,EMailId">
+        <Component Name="JumpToAccountRec4" Class="Bas.Logging.ILogEventHandler" Caption="@EMail.Logging:JumpMailAccount=Открыть карточку аккаунта" Handler="JumpToAccountRecHandler" IconName="Com.Ctrl.JumpButton" ParamIndex="1"/>
+      </Component>
+      <Component Name="MailServerOk" Class="Bas.Logging.EventTemplate" Description="@EMailLog:MailServerOk=Работа почтового сервера восстановлена" EventLevel="llAdmin" EventType="logInfo" Params="Account">
+        <Component Name="JumpToAccountRec5" Class="Bas.Logging.ILogEventHandler" Caption="@EMail.Logging:JumpMailAccount=Открыть карточку аккаунта" Handler="JumpToAccountRecHandler" IconName="Com.Ctrl.JumpButton" ParamIndex="1"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

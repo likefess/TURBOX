@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Frm.Data.Contract">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="RequisitesTab">
+          <Inherited Name="OurCompanyBox">
+            <Inherited Name="OurCompanyGroup">
+              <Inherited Name="CompanyBankGroup">
+                <Component Name="ОрганизацияБИК" Class="Com.Ctrl.IEdit" After="#0" Caption="@Contract:ОрганизацияБИК=БИК" Enabled="False" Field="EdtRec.Company" HasCaption="True" LookupField="MainBankDetails.Bank.БИК"/>
+                <Component Name="ОрганизацияБИККнСтат" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Inherited>
+              <Component Name="ОрганизацияРук_ОснованиеГруппа" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="ОрганизацияРук_Основание" Class="Com.Ctrl.IEdit" Caption="@Contract:ОрганизацияРук_Основание=Действует на основании" Enabled="False" Field="EdtRec.Company" HasCaption="True" LookupField="Руководитель_Основание"/>
+                <Component Name="ОрганизацияРук_ОснованиеКнСтат" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="ОрганизацияРук_ФИОРодГруппа" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="ОрганизацияРук_ФИОРод" Class="Com.Ctrl.IEdit" Caption="@Contract:ОрганизацияРук_ФИОРод=ФИО в род. падеже" Enabled="False" Field="EdtRec.Company" HasCaption="True" LookupField="Руководитель_ФИО_РП"/>
+                <Component Name="ОрганизацияРук_ФИОРодКнСтат" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="ОрганизацияИНН_КППГруппа" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+                <Component Name="ОрганизацияИНН" Class="Com.Ctrl.IEdit" Caption="@Contract:ОрганизацияИНН=ИНН" Enabled="False" Field="EdtRec.Company" HasCaption="True" LookupField="ИНН"/>
+                <Component Name="ОрганизацияИННКнСтат" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                <Component Name="ОрганизацияКПП" Class="Com.Ctrl.IEdit" Caption="@Contract:ОрганизацияКПП=КПП" Enabled="False" Field="EdtRec.Company" HasCaption="True" LookupField="КодПричины"/>
+                <Component Name="ОрганизацияКППКнСтат" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="ОрганизацияТелефонГруппа" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="ОрганизацияТелефон" Class="Com.Ctrl.IEdit" Caption="@Contract:ОрганизацияТелефон=Телефон" Enabled="False" Field="EdtRec.Company" HasCaption="True" LookupField="Конт_Тел"/>
+                <Component Name="ОрганизацияТелефонКнСтат" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="PartnerBox">
+            <Inherited Name="PartnerGroup">
+              <Inherited Name="PartnerBankGroup">
+                <Component Name="КонтрагентБИК" Class="Com.Ctrl.IEdit" After="#0" Caption="@Contract:КонтрагентБИК=БИК" Enabled="False" Field="EdtRec.КонтрагентБИК" HasCaption="True"/>
+                <Component Name="КонтрагентБИККнСтат" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Inherited>
+              <Component Name="КонтрагентРук_ОснованиеГруппа" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="КонтрагентРук_Основание" Class="Com.Ctrl.IEdit" Caption="@Contract:КонтрагентРук_Основание=Действует на основании" Enabled="False" Field="EdtRec.КонтрагентРук_Основание" HasCaption="True"/>
+                <Component Name="КонтрагентРук_ОснованиеКнСтат" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="КонтрагентРук_ФИОРодГруппа" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="КонтрагентРук_ФИОРод" Class="Com.Ctrl.IEdit" Caption="@Contract:КонтрагентРук_ФИОРод=ФИО в род. падеже" Enabled="False" Field="EdtRec.КонтрагентРук_ФИОРод" HasCaption="True"/>
+                <Component Name="КонтрагентРук_ФИОРодКнСтат" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="КонтрагентИНН_КППГруппа" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+                <Component Name="КонтрагентИНН" Class="Com.Ctrl.IEdit" Caption="@Contract:КонтрагентИНН=ИНН" Enabled="False" Field="EdtRec.КонтрагентИНН" HasCaption="True"/>
+                <Component Name="КонтрагентИННКнСтат" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                <Component Name="КонтрагентКПП" Class="Com.Ctrl.IEdit" Caption="@Contract:КонтрагентКПП=КПП" Enabled="False" Field="EdtRec.КонтрагентКПП" HasCaption="True"/>
+                <Component Name="КонтрагентКППКнСтат" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="КонтрагентТелефонГруппа" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="КонтрагентТелефон" Class="Com.Ctrl.IEdit" Caption="@Contract:КонтрагентТелефон=Телефон" Enabled="False" Field="EdtRec.КонтрагентТелефон" HasCaption="True"/>
+                <Component Name="КонтрагентТелефонКнСтат" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="PartnerFinanceBox">
+            <Inherited Name="PartnerFinanceGroup">
+              <Component Name="КонтрагентФинИНН_КППГруппа" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+                <Component Name="КонтрагентФинИНН" Class="Com.Ctrl.IEdit" Caption="@Contract:КонтрагентФинИНН=ИНН" Field="EdtRec.КонтрагентФинИНН" HasCaption="True"/>
+                <Component Name="КонтрагентФинИННКнСтат" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                <Component Name="КонтрагентФинКПП" Class="Com.Ctrl.IEdit" Caption="@Contract:КонтрагентФинКПП=КПП" Field="EdtRec.КонтрагентФинКПП" HasCaption="True"/>
+                <Component Name="КонтрагентФинКППКнСтат" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="КонтрагентФинБИКГруппа" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="КонтрагентФинБИК" Class="Com.Ctrl.IEdit" Caption="@Contract:КонтрагентФинБИК=БИК" Enabled="False" Field="EdtRec.КонтрагентФинБИК" HasCaption="True"/>
+                <Component Name="КонтрагентФинБИККнСтат" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="СonsigneeBox">
+            <Inherited Name="СonsigneeBoxGroup">
+              <Component Name="ГрузополучательИНН_КППГруппа" Class="Com.Ctrl.IGroup" After="СonsigneeGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+                <Component Name="ГрузополучательИНН" Class="Com.Ctrl.IEdit" Caption="@Contract:ГрузополучательИНН=ИНН" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Consignee" HasCaption="True" LookupField="ИНН"/>
+                <Component Name="ГрузополучательИННКнСтат" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                <Component Name="ГрузополучательКПП" Class="Com.Ctrl.IEdit" Caption="@Contract:ГрузополучательКПП=КПП" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Consignee" HasCaption="True" LookupField="КодПричины"/>
+                <Component Name="ГрузополучательКППКнСтат" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="FinanceTab">
+          <Inherited Name="FinanceGeneralBox">
+            <Inherited Name="FinanceGeneralGroup">
+              <Inherited Name="DimensionsGroup">
+                <Inherited Name="BGI" Excluded="True"/>
+                <Component Name="СТЗ" Class="Com.Ctrl.IEdit" After="BGI" CardFileClass="BizRus.Tab.Ref.СТЗ" CellFormat="ReferenceFormat" Field="EdtRec.СТЗ" HasCaption="True" LookupField="Name"/>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="ShippingTimelineBox">
+            <Inherited Name="ShippingTimelineVert">
+              <Inherited Name="ShippingTimelineHorz">
+                <Inherited Name="ShippingTimelineSubtableFrame">
+                  <Inherited Name="ShippingBGIEdit" Excluded="True"/>
+                  <Component Name="ПоставкаСТЗ" Class="Com.Ctrl.IEdit" After="ShippingBGIEdit" CardFileClass="BizRus.Tab.Ref.СТЗ" CellFormat="ReferenceFormat" Field="Contract_ShippingTimeline.СТЗ" HasCaption="True" LookupField="Name" OnEnter="ShippingTimelineDimension_OnEnter" Width="30"/>
+                </Inherited>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

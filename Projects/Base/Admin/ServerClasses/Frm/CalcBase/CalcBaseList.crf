@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.CustomList">
+  <Inherited FormIcon="Admin.Infobase" HelpContext="Admin.Администрирование.Список серверов">
+    <Component Name="Timer" Class="Com.ITimer" After="#0" Active="False" Interval="2" OnTimer="Timer_OnTimer"/>
+    <Component Name="CalcBaseListStruct" Class="Admin.Frm.CalcBase.CalcBaseList_Struct" IsLibrary="1"/>
+    <Inherited Name="TableMenu" Excluded="False" After="CalcBaseListStruct">
+      <Component Name="cmdProperty" Class="Com.ComManaging.ExecProcedure" After="TableSeparator1" Caption="@Admin:ButtonProperty=Свойства" CommandProc="cmdProperty_CommandProc" IconName="Com.tag" Visible="False"/>
+      <Component Name="cmdRun" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:Calcbase.Run=Загрузить" CommandProc="cmdRun_CommandProc" IconName="Com.play-circle"/>
+      <Component Name="cmdStop" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:Calcbase.Stop=Выгрузить" CommandProc="cmdStop_CommandProc" IconName="Com.stop-circle"/>
+      <Inherited Name="cmdCopyValue" After="cmdStop"/>
+    </Inherited>
+    <Inherited Name="Variables">
+      <Inherited Name="Subtable" StructClass="Admin.Frm.CalcBase.CalcBaseList_Struct"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ButtonOpen" Class="Com.Ctrl.IButton" After="#0" Caption="@Admin:ButtonOpen=Открыть" Command="cmdProperty" ImageName="Com.tag"/>
+        <Inherited Name="ButtonOK" After="ButtonOpen"/>
+        <Component Name="ButtonRun" Class="Com.Ctrl.IButton" After="ButtonRefresh" Caption="@Admin:Calcbase.Run=Загрузить" Command="cmdRun" ImageName="Com.play-circle"/>
+        <Component Name="ButtonStop" Class="Com.Ctrl.IButton" Caption="@Admin:Calcbase.Stop=Выгрузить" Command="cmdStop" ImageName="Com.stop-circle"/>
+        <Inherited Name="ButtonHelp" After="ButtonStop"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="frameData">
+          <Inherited Name="TableData" IconName="Admin.Infobase" PopupMenu="TableMenu" ShowIcon="True">
+            <Component Name="edName" Class="Com.Ctrl.IEdit" Caption="@Admin:CalcBase.Name=Название" Enabled="False" Field="CalcBaseListStruct.Name" HasCaption="True" MaxWidth="0" MinWidth="40" OnClick="ItemTable_OnClick" Width="80"/>
+            <Component Name="edState" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Admin:CalcBase.State=Состояние" CellFormat="EnumFormat" Enabled="False" Field="CalcBaseListStruct.State" HasCaption="True" ListAsString="|0;stCreate|1;Загружаются данные|2;Работает|3;stError|4;stDisconnect|5;Выгружаются данные|6;stDestroy|7;" MaxWidth="55" MinWidth="30" OnClick="ItemTable_OnClick" OnOutputEx="edState_OnOutputEx" ShortList="True" Width="45"/>
+            <Component Name="edClients" Class="Com.Ctrl.IEdit" Caption="@Admin:CalcBase.Clients=Пользователей" Enabled="False" Field="CalcBaseListStruct.Clients" HasCaption="True" MaxWidth="40" MinWidth="30" Width="35"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.InfoBase.InfoBaseCustArchive">
+  <Inherited ActiveControl="edFile" FormIcon="Admin.Backup">
+    <Inherited Name="Variables">
+      <Component Name="FldTypeBackup" Class="Com.Fld.IVar" After="#0" ValueType="VarInteger"/>
+      <Component Name="FldFileName" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="FldBackup" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Inherited Name="ProcessTime" After="FldBackup"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="FrameArchive" AutoSize="True">
+          <Component Name="frameFile" Class="Com.Ctrl.IFrame" After="#0" AutoSize="True" Margins="4">
+            <Component Name="grpFile" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="lblFile" Class="Com.Ctrl.IStatic" Caption="@Admin:InfobaseBackupName=Имя архива" FixSize="True" Width="26" Wrap="False"/>
+              <Component Name="edFile" Class="Com.Ctrl.IEdit" Field="FldFileName" Width="100"/>
+            </Component>
+          </Component>
+          <Inherited Name="frameTable" After="frameFile"/>
+        </Inherited>
+        <Component Name="FrameParameters" Class="Com.Ctrl.IFrame" After="FrameArchive" Caption="@Admin:InfobaseBackup_Step2=Параметры" Margins="4">
+          <Component Name="grpBackupName" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="lblBpkNameOp" Class="Com.Ctrl.IStatic" Caption="@Admin:InfobaseBackupName=Имя архива" FixSize="True" Width="36" Wrap="False"/>
+            <Component Name="edBpkNameOp" Class="Com.Ctrl.IEdit" Enabled="False" Field="FldBackup" OnOutputEx="edBpkName_OnOutputEx" ValueType="VarString" Width="80"/>
+          </Component>
+          <Component Name="grType" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="lblType" Class="Com.Ctrl.IStatic" Caption="@Admin:InfobaseArchiveType=Формат архива" FixSize="True" Width="36" Wrap="False"/>
+            <Component Name="edType" Class="Com.Ctrl.IEdit" ButtonStyle="ComboButton" CellFormat="EnumFormat" Field="FldTypeBackup" ListAsString="@Admin:InfobaseBackup_Type=Средствами Турбо (bkpx)|0&#xD;&#xA;Средствами СУБД (bkpx + nXX)|1&#xD;&#xA;Средствами Турбо, версия 9 (bkp + tbb)|2&#xD;&#xA;Средствами СУБД, версия 9 (bkp + tbn + nXX)|3" OnVerify="edType_OnVerify" ValueType="VarInteger" Width="80"/>
+          </Component>
+          <Component Name="lineTypeOther" Class="Com.Ctrl.INewLine"/>
+          <Component Name="grOther" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="chbCompress" Class="Com.Ctrl.ICheckBox" Caption="@Admin:InfobaseBackup_Compress=Использовать сжатие" Width="80"/>
+            <Component Name="chbReplication" Class="Com.Ctrl.ICheckBox" Caption="@Admin:InfobaseBackup_Replication=Сохранять данные, необходимые для репликации" Width="80"/>
+            <Component Name="chbLogs" Class="Com.Ctrl.ICheckBox" Caption="@Admin:InfobaseBackup_Logs=Сохранять историю изменений и схему логирования" Width="80"/>
+          </Component>
+        </Component>
+        <Inherited Name="FrameDB" Excluded="True" After="FrameParameters"/>
+        <Inherited Name="FrameProcess" Caption="@Admin:InfobaseBackup_Step3=Архивирование">
+          <Inherited Name="frameStatus">
+            <Inherited Name="grpStatus">
+              <Component Name="lblBpkName" Class="Com.Ctrl.IStatic" After="#0" Caption="@Admin:InfobaseBackupName=Имя архива" FixSize="True" Width="38"/>
+              <Component Name="edBpkName" Class="Com.Ctrl.IEdit" Enabled="False" Field="FldBackup" MinWidth="80" OnOutputEx="edBpkName_OnOutputEx" ValueType="VarString" Width="120"/>
+              <Component Name="sepBpkName" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="4"/>
+              <Component Name="lineIBName" Class="Com.Ctrl.INewLine"/>
+              <Inherited Name="lblStatus" After="lineIBName" Width="38"/>
+            </Inherited>
+            <Inherited Name="grpDetail">
+              <Component Name="lblCount" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="@Admin:InfoBaseBackup_Count=Записей/структур" FixSize="True" Multiline="False" Width="38" Wrap="False"/>
+              <Component Name="edCount" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" MinWidth="20" Width="60"/>
+              <Component Name="sepCount" Class="Com.Ctrl.IStatic" MinWidth="40" Width="60"/>
+            </Inherited>
+            <Component Name="grpMove" Class="Com.Ctrl.IGroup" After="grpDetail" Adaptive="True" ByColumn="False" Printed="False" Visible="False">
+              <Component Name="lblMove" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="@Admin:InfoBaseBackup_Move=Передано байт" FixSize="True" Multiline="False" Width="38" Wrap="False"/>
+              <Component Name="edMove" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" MinWidth="20" Width="60"/>
+              <Component Name="sepMove" Class="Com.Ctrl.IStatic" MinWidth="40" Width="60"/>
+            </Component>
+            <Inherited Name="grpTime" After="grpMove">
+              <Inherited Name="lblTime" Width="38"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

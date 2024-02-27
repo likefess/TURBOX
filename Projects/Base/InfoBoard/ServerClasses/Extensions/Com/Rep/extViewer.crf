@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rep.Viewer">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame" Enabled="True" ShowTabs="True">
+        <Inherited Name="ChartFrame" Visible="True"/>
+        <Component Name="WebChartFrame" Class="Com.Ctrl.IFrame" After="ChartFrame" Caption="@Viewer:WebChart=WEB-график" ScrollerStyle="ScrollerNone" Visible="True">
+          <Component Name="WebChartBrowser" Class="Com.Ctrl.IBrowser" OnClickEx="WebChartOnClickEx"/>
+        </Component>
+        <Component Name="PictureFrame" Class="Com.Ctrl.IFrame" Caption="@Viewer:Gadget=Датчик" ScrollerStyle="ScrollerNone">
+          <Component Name="Gadget" Class="InfoBoard.Ctrl.IGadget" OnClick="GadgetOnClick"/>
+        </Component>
+        <Inherited Name="GridFrame" After="PictureFrame"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

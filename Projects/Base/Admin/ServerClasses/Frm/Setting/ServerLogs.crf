@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.Setting.CustomSetting">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="FldJournal" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldUseSize" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldUseDays" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldSize" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldDays" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+          <Component Name="rbtnJurTurbo" Class="Com.Ctrl.IRadioButton" Caption="@Admin:LogsServer_JournalTurbo=Использовать журнал Турбо" Field="FldJournal" StaticValue="0" Width="40"/>
+          <Component Name="newLine1" Class="Com.Ctrl.INewLine"/>
+          <Component Name="rbtnJurWindows" Class="Com.Ctrl.IRadioButton" Caption="@Admin:LogsServer_JournalWindows=Использовать журнал Windows" Field="FldJournal" StaticValue="1" Width="40"/>
+          <Component Name="newLine2" Class="Com.Ctrl.INewLine"/>
+          <Component Name="newLine2_1" Class="Com.Ctrl.INewLine"/>
+          <Component Name="lblLimit" Class="Com.Ctrl.IStatic" Caption="@Admin:LogsServer_Limit=Ограничения размера журнала"/>
+          <Component Name="newLine3" Class="Com.Ctrl.INewLine"/>
+          <Component Name="newLine3_1" Class="Com.Ctrl.INewLine" Excluded="True"/>
+          <Component Name="sepSize1" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+          <Component Name="chbSize" Class="Com.Ctrl.ICheckBox" Caption="@Admin:LogsServer_JournalSize=Максимальный размер журнала (КБ)" Field="FldUseSize" OnChange="chbSize_OnChange" Width="60"/>
+          <Component Name="edSize" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FldSize" FieldFormat="#0" FixSize="True" OnVerify="EditorVerify_NegativeValue" Width="40"/>
+          <Component Name="sepSize2" Class="Com.Ctrl.IStatic" Width="60"/>
+          <Component Name="newLine4" Class="Com.Ctrl.INewLine"/>
+          <Component Name="sepDays1" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+          <Component Name="chbDays" Class="Com.Ctrl.ICheckBox" Caption="@Admin:LogsServer_JournalDays=Затирать события старее (дней)" Field="FldUseDays" OnChange="chbDays_OnChange" Width="60"/>
+          <Component Name="edDays" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FldDays" FieldFormat="#0" FixSize="True" OnVerify="EditorVerify_NegativeValue" Width="40"/>
+          <Component Name="sepDays2" Class="Com.Ctrl.IStatic" Width="60"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Excluded="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

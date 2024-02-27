@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWithFrames">
+  <Inherited>
+    <Component Name="PropertyStruct" Class="Admin.Frm.EventLog.EvLogProp_Struct" IsLibrary="1" After="#0"/>
+    <Inherited Name="TableMenu" Excluded="False" After="PropertyStruct">
+      <Inherited Name="cmdCopyValue" Excluded="True"/>
+      <Inherited Name="cmdCutValue" Excluded="True"/>
+      <Inherited Name="cmdPasteValue" Excluded="True"/>
+      <Inherited Name="cmdDeleteValue" Excluded="True"/>
+      <Inherited Name="TableSeparator2" Excluded="True"/>
+      <Inherited Name="cmdInsertRow" Excluded="True"/>
+      <Inherited Name="cmdDeleteRow" Excluded="True"/>
+      <Inherited Name="cmdRowUp" Excluded="True"/>
+      <Inherited Name="cmdRowDown" Excluded="True"/>
+    </Inherited>
+    <Inherited Name="Variables">
+      <Component Name="FldDescription" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="FldDate" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="Subtable" Class="Com.ISubtable" StructClass="Admin.Frm.EventLog.EvLogProp_Struct"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ButtonPrev" Class="Com.Ctrl.IButton" After="#0" Caption="@Auth:EventLogProperty_Prev=Предыдущее событие" ImageName="Admin.arrow-alt-up" OnClick="ButtonPrev_OnClick"/>
+        <Component Name="ButtonNext" Class="Com.Ctrl.IButton" Caption="@Auth:EventLogProperty_Next=Следующее событие" ImageName="Admin.arrow-alt-down" OnClick="ButtonNext_OnClick"/>
+        <Inherited Name="ButtonOK" Excluded="True" After="ButtonNext"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="grpDescript" Class="Com.Ctrl.IGroup" Adaptive="True">
+          <Component Name="edDate" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" Field="FldDate" FormatOfDate="DateAndTime" MaxWidth="60" MinWidth="30" ValueType="VarDate" Width="40"/>
+          <Component Name="sepDate" Class="Com.Ctrl.IStatic" MaxWidth="300" MinWidth="40" Width="120"/>
+          <Component Name="lineDate" Class="Com.Ctrl.INewLine"/>
+          <Component Name="edDescript" Class="Com.Ctrl.IEdit" Enabled="False" Field="FldDescription" Width="100"/>
+        </Component>
+        <Component Name="lineFieldsFrame" Class="Com.Ctrl.INewLine" Excluded="True"/>
+      </Inherited>
+      <Component Name="PropertyFrame" Class="Com.Ctrl.IFrame" After="FieldsFrame" AutoSize="True" Margins="5" ScrollerStyle="ScrollerBoth" Visible="False">
+        <Component Name="grpProperty" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False"/>
+      </Component>
+      <Component Name="TableFrame" Class="Com.Ctrl.IFrame">
+        <Component Name="frameData" Class="Com.Ctrl.IFrame" AutoSize="False" Margins="5" ScrollerStyle="ScrollerBoth">
+          <Component Name="TableData" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" Numbering="False" ShowIcon="False" Sortable="False" Subtable="Subtable">
+            <Component Name="edName" Class="Com.Ctrl.IEdit" Caption="@Admin:EventLogProperty_Name=Свойство" Enabled="False" Field="PropertyStruct.Name" MaxWidth="60" MinWidth="30" VertAlignment="LeftAlign" Width="40"/>
+            <Component Name="edEvent" Class="Com.Ctrl.IEdit" Caption="@Admin:EventLogProperty_Value=Значение" Enabled="False" Field="PropertyStruct.Datum" MaxWidth="300" MinWidth="40" Multiline="True" Width="300" Wrap="True"/>
+          </Component>
+        </Component>
+      </Component>
+      <Inherited Name="TabsFrame" Excluded="True" After="TableFrame"/>
+    </Inherited>
+  </Inherited>
+</Resource>

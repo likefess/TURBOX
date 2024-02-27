@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited ModalHeight="150" ModalWidth="210">
+    <Inherited Name="TableMenu" Excluded="False">
+      <Inherited Name="cmdInsertRow" Excluded="True"/>
+      <Inherited Name="cmdDeleteRow" Excluded="True"/>
+      <Inherited Name="cmdRowUp" Excluded="True"/>
+      <Inherited Name="cmdRowDown" Excluded="True"/>
+      <Inherited Name="cmdDesignMode" Excluded="True"/>
+      <Component Name="ExecProcedure1" Class="Com.ComManaging.ExecProcedure" Caption="Undo" CommandProc="ExecProcedure1_CommandProc" IconName="Com.redo"/>
+    </Inherited>
+    <Inherited Name="Variables">
+      <Component Name="CurrentValue" Class="Com.Fld.IVar" ValueType="VarVariant"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Enabled="False" Visible="False"/>
+      <Inherited Name="FieldsFrame" Excluded="True"/>
+      <Inherited Name="TabsFrame" AutoSize="False" Orientation="Horizontal" ShowTabs="False" Visible="True">
+        <Inherited Name="MainTab" AutoSize="False">
+          <Component Name="ClassesGrid" Class="Com.Ctrl.IGrid" OnClickNode="GridNode_OnClick" PopupMenu="TableMenu"/>
+        </Inherited>
+        <Component Name="ServiceTab" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="1" UseSplitter="True">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="-1" MinWidth="1" Width="1">
+            <Component Name="CurrentValueEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="CurrentValue" OnOutput="CurrentValue_OnOutput"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

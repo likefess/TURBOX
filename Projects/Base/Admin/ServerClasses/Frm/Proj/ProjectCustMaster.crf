@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.CustomMasterBG">
+  <Inherited>
+    <Component Name="DistroStruct" Class="Admin.Frm.Proj.ProjDistro_Struct" IsLibrary="1" After="Timer"/>
+    <Component Name="pmProj" Class="Com.Ctrl.IPopupMenu">
+      <Component Name="cmdCloseFormProj" Class="Com.Cmd2.IItem" Command="Commands.CloseForm"/>
+      <Component Name="pmProjSep1" Class="Com.Cmd2.ISeparator"/>
+      <Component Name="cmdMarkProj" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:MarkAll=Выделить всё" CommandProc="cmdMarkProj_CommandProc" IconName="Admin.check"/>
+      <Component Name="cmdUnmarkProj" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:UnmarkAll=Очистить всё" CommandProc="cmdUnmarkProj_CommandProc" IconName="Admin.uncheck"/>
+      <Component Name="pmProjSep2" Class="Com.Cmd2.ISeparator"/>
+      <Component Name="cmdDesignModeProj" Class="Com.Cmd2.IItem" Command="Commands.DesignMode"/>
+    </Component>
+    <Inherited Name="Variables">
+      <Inherited Name="subTblArchive" StructClass="Admin.Frm.Proj.ProjDistro_Struct"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="FrameArchive">
+          <Inherited Name="frameTable">
+            <Inherited Name="tblArchive" Sortable="True">
+              <Inherited Name="edName" Caption="@Admin:ProjDistrName=Название" Field="DistroStruct.Name"/>
+              <Inherited Name="edSize" Field="DistroStruct.Size"/>
+              <Inherited Name="edDateTime" Field="DistroStruct.Date"/>
+              <Component Name="edProjects" Class="Com.Ctrl.IEdit" Caption="@Admin:ProjDistrProjects=Проекты" Enabled="False" Field="DistroStruct.Projects" MaxWidth="200" MinWidth="20" Width="80"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

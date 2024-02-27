@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.CustomDialog">
+  <Inherited ActiveControl="edNewName" Caption="@Admin:BckpRename=Переименовать архив" FormIcon="Com.EditItem">
+    <Component Name="FldFolder" Class="Com.Fld.IVarLink" After="#0" FieldName="FVarFolder" ValueType="VarInteger"/>
+    <Inherited Name="RootFrame" After="FldFolder">
+      <Inherited Name="TopFrame" AutoSize="True">
+        <Inherited Name="grpText">
+          <Component Name="lblOldName" Class="Com.Ctrl.IStatic" Caption="@Admin:IBRenameOldName=Архив" FixSize="True" Multiline="False" Width="24" Wrap="False"/>
+          <Component Name="edOldName" Class="Com.Ctrl.IEdit" Enabled="False" ValueType="VarString" Width="100"/>
+          <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          <Component Name="lblNewName" Class="Com.Ctrl.IStatic" Caption="@Admin:IBRenameNewName=Новое имя" FixSize="True" Multiline="False" Width="24" Wrap="False"/>
+          <Component Name="edNewName" Class="Com.Ctrl.IEdit" OnVerify="edName_OnVerify" ValueType="VarString" Width="100"/>
+        </Inherited>
+        <Component Name="grpFolder" Class="Com.Ctrl.IGroup" Adaptive="True">
+          <Component Name="lblFolder" Class="Com.Ctrl.IStatic" Caption="@Admin:IBRenameFolder=Папка" FixSize="True" Multiline="False" Width="24" Wrap="False"/>
+          <Component Name="edFolder" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="FldFolder"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

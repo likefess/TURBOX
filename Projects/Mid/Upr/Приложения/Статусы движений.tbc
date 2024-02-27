@@ -1,0 +1,43 @@
+﻿TBCFile VER="3.1" [Created '19.04.2006 22:07:27' by 'Администратор']
+
+DESCRIPTION[
+RecordCount=1
+ByRefCount=0
+]
+
+METADATA[
+
+  [Управление.Справочники.СтатусДвижения
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    IsMeta :Boolean
+    ЗамокЭлементаСБ :Boolean
+    КодПодсистемы :Integer
+    Code :String(80)
+    Name :String(300)
+    СистемныйКод :Integer
+    Цвет :Integer
+    Проводить :Boolean
+    Комментарий :String
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+  [Управление.Справочники.СтатусДвижения
+  
+  {Управление.Справочники.СтатусДвижения:"Факт"}
+  (
+    IsMeta = Истина
+    Name = "Факт"
+    СистемныйКод = 301
+    Цвет = 16777215
+    Проводить = Истина
+  )
+  ]
+
+]

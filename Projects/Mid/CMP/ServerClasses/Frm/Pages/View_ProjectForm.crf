@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CMP.Frm.Pages.Page">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="CMP.Rec.Views.IProjectForm" IsLibrary="1"/>
+    <Component Name="SettingsStruct" Class="CMP.Rec.Views.IProjectForm_Settings" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="TableMenu" After="SettingsStruct"/>
+    <Inherited Name="RootFrame">
+      <Component Name="MainBox" Class="Com.Ctrl.IBox" Caption="@CMP:ProjectFormBox=Общие настройки" Margins="4">
+        <Component Name="MainGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50" HasCaption="True">
+          <Component Name="FormClassEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.FormClass" HasButton="True" HasCaption="True" OnLookup="FormClassEdit_OnLookup"/>
+        </Component>
+      </Component>
+      <Component Name="TableBox" Class="Com.Ctrl.IBox" Caption="@CMP:ProjectFormBoxTable=Дополнительные настройки">
+        <Component Name="Table" Class="Com.Ctrl.ITable" Adaptive="True" Freezed="False" IconName="Com.Settings" Numbering="False" OnClickIcon="TableOnClickIcon" ShowIcon="True" Subtable="EdtRec.ExtraSettings">
+          <Component Name="ContainerEdit" Class="Com.Ctrl.IEdit" Field="SettingsStruct.ContainerName" HasButton="True" OnDrawEx="TableRowOnDraw" OnLookup="ContainerEdit_OnLookup"/>
+          <Component Name="PreviousEdit" Class="Com.Ctrl.IEdit" Field="SettingsStruct.PreviousName" OnAutocomplete="PreviousEdit_OnAutocomplete" OnDrawEx="TableRowOnDraw" ShortList="True"/>
+          <Component Name="NewLineFlag" Class="Com.Ctrl.ICheckBox" Caption=" " Field="SettingsStruct.NewLine" FixSize="True" Width="8"/>
+          <Component Name="PropertyEdit" Class="Com.Ctrl.IEdit" Field="SettingsStruct.Property" LookupField="Code" LookupFilter="not РеквизитТаблицы" OnDrawEx="TableRowOnDraw" OnGetLookupFilter="PropertyEdit_OnGetLookupFilter"/>
+          <Component Name="CaptionEdit" Class="Com.Ctrl.IEdit" Field="SettingsStruct.Caption" OnDrawEx="TableRowOnDraw"/>
+          <Component Name="WidthGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@Width=Ширина" HasCaption="True">
+            <Component Name="CaptionWidthEdit" Class="Com.Ctrl.IEdit" Caption="@CMP:CaptionWidth=надписи" Field="SettingsStruct.CaptionWidth" FixSize="True" OnDrawEx="TableRowOnDraw" Width="20"/>
+            <Component Name="WidthEdit" Class="Com.Ctrl.IEdit" Caption="@CMP:PropertyWidth=поля" Field="SettingsStruct.Width" FixSize="True" OnDrawEx="TableRowOnDraw" Width="20"/>
+          </Component>
+          <Component Name="OffFlag" Class="Com.Ctrl.ICheckBox" Field="SettingsStruct.Off" FixSize="True" Width="12"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

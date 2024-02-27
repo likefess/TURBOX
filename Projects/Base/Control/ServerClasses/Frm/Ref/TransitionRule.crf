@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited HelpContext="Control.Контроль поручений.Настройка.Настроечные справочники.Все правила перехода">
+    <Inherited Name="EdtRec" Class="Control.Rec.Ref.TransitionRule" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame" Visible="True">
+        <Inherited Name="Group1" Excluded="True"/>
+        <Component Name="NameFrame" Class="Com.Ctrl.IFrame">
+          <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+            <Component Name="Group4" Class="Com.Ctrl.IGroup">
+              <Component Name="Name1" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" FontBold="True" HasCaption="True"/>
+              <Component Name="Code1" Class="Com.Ctrl.IEdit" Field="EdtRec.Code" HasCaption="True"/>
+            </Component>
+            <Component Name="Comment" Class="Com.Ctrl.IEdit" Field="EdtRec.Comment" HasCaption="True"/>
+            <Component Name="RuleGroup" Class="Com.Ctrl.IEditEx" CardFileClass="Control.Tab.Ref.TransRuleGroup" Field="EdtRec.ProjectType" HasCaption="True" LookupField="Name">
+              <Component Name="JumpButton1" Class="Com.Ctrl.IJumpButton"/>
+            </Component>
+            <Component Name="StatusSrc" Class="Com.Ctrl.IEditEx" CardFileClass="Control.Tab.Ref.TaskStatus" Field="EdtRec.StatusSrc" HasCaption="True" LookupField="Name" OnChange="StatusSrcOnChange">
+              <Component Name="StatusDst" Class="Com.Ctrl.IEdit" CaptionWidth="40" CardFileClass="Control.Tab.Ref.TaskStatus" Field="EdtRec.StatusDst" HasCaption="True" LookupField="Name" OnChange="StatusSrcOnChange"/>
+            </Component>
+            <Component Name="Group3" Class="Com.Ctrl.IGroup">
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+              <Component Name="PersistResp" Class="Com.Ctrl.ICheckBox" Field="EdtRec.PersistResp" FixSize="False" Width="100"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

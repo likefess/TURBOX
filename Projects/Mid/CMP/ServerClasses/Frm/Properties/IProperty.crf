@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IEditorWithFrames">
+  <Inherited HelpContext="CMP.Студия компонентов (машина реквизитов).Реквизит">
+    <Inherited Name="EdtRec" Class="CMP.Rec.Properties.IProperty" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="VarSourceType" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="VarFormatOrFormula" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Name" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" FontBold="True" HasCaption="True" Visible="True" Width="2"/>
+            <Component Name="Code" Class="Com.Ctrl.IEdit" CaptionWidth="20" Field="EdtRec.Code" HasCaption="True" MaxWidth="60" Visible="True" Width="1"/>
+          </Component>
+          <Component Name="EditPropertyClass" Class="Com.Ctrl.IEdit" Caption="@CMP:ClassProperty=Класс реализации" Field="EdtRec.PropertyClassSave" HasButton="True" HasCaption="True" OnChange="EditPropertyClass_OnChange" OnDrawEx="EditPropertyClass_OnDrawEx" OnLookup="EditPropertyClass_OnLookup" OnOutputEx="EditPropertyClass_OnOutputEx" OnVerify="EditPropertyClass_OnVerify"/>
+          <Component Name="Group4" Class="Com.Ctrl.IGroup">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+            <Component Name="CheckBoxIsTable" Class="Com.Ctrl.ICheckBox" Caption="@CMP:PropertyIsTable=Табличный реквизит" Field="EdtRec.IsTable" OnChange="CheckBoxIsTable_OnChange"/>
+          </Component>
+          <Component Name="GroupValueType" Class="Com.Ctrl.IGroup">
+            <Component Name="EditCellFormat" Class="Com.Ctrl.IEdit" Caption="@CMP:PropertyValueType=Тип значения" CellFormat="EnumFormat" Field="EdtRec.CellFormatSave" ListAsString="Произвольный|0&#xD;&#xA;Строка|1&#xD;&#xA;Целый|7&#xD;&#xA;Число|2&#xD;&#xA;Дата|3&#xD;&#xA;Логический|4&#xD;&#xA;Перечислимый|5&#xD;&#xA;Ссылочный|6" OnChange="EditCellFormat_OnChange"/>
+            <Component Name="EditEnumType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.EnumType" ListAsString="целый&#xD;&#xA;строка&#xD;&#xA;логический" OnChange="EditEnumType_OnChange"/>
+          </Component>
+          <Component Name="EditRecordClass" Class="Com.Ctrl.IEdit" Caption="@CMP:PropertyRecordClass=Класс записи" Field="EdtRec.RecordClassSave" HasButton="True" OnLookup="EditRecordClass_OnLookup" OnVerify="EditRecordClass_OnVerify"/>
+          <Component Name="EditProcType" Class="Com.Ctrl.IEdit" Caption="@CMP:ProcType=Тип объекта" Field="EdtRec.ProcType" OnChange="EditProcType_OnChange"/>
+          <Component Name="GroupSource" Class="Com.Ctrl.IGroup">
+            <Component Name="EditSourceType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="VarSourceType" FixSize="True" ListAsString="Связан с полем|0&#xD;&#xA;Связан с доп. полем|1&#xD;&#xA;Вычисляется по формуле|2&#xD;&#xA;Связан с переменной|3" OnChange="EditSourceType_OnChange" Width="50"/>
+            <Component Name="EditFieldName" Class="Com.Ctrl.IEdit" Field="EdtRec.FieldName" HasButton="True" OnAutocomplete="EditFieldName_OnAutocomplete" OnLookup="EditFieldName_OnLookup" OnVerify="EditFieldName_OnVerify"/>
+            <Component Name="EditExtraFieldName" Class="Com.Ctrl.IEdit" Field="EdtRec.ExtraFieldName"/>
+            <Component Name="EditCalcFormula" Class="CMP.Ctrl.IFormulaEdit" Field="EdtRec.CalcFormula" ProcType="EdtRec.ProcType" Subtable="EdtRec.CalcRecords"/>
+            <Component Name="EditVariable" Class="Com.Ctrl.IEdit" Field="EdtRec.Variable"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" ShowTabs="False" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="Box1" Class="Com.Ctrl.IBox" Caption="Ввод/вывод">
+            <Component Name="Group6" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="48">
+              <Component Name="GroupOutput" Class="Com.Ctrl.IGroup">
+                <Component Name="EditFormatOrFormula" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="VarFormatOrFormula" FixSize="True" ListAsString="Формат вывода|0&#xD;&#xA;Формула вывода|1" OnChange="Edit_OnChange" Width="48"/>
+                <Component Name="StaticFieldFormat" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@CMP:PropertyOutputFormula=Формула вывода" FixSize="True" Width="48"/>
+                <Component Name="EditOutputFormula" Class="CMP.Ctrl.IFormulaEdit" Field="EdtRec.OutputFormulaSave" ProcType="EdtRec.ProcType" Subtable="EdtRec.OutputFormulaRecords"/>
+                <Component Name="EditOutputFormat" Class="Com.Ctrl.IEdit" Field="EdtRec.OutputFormat"/>
+              </Component>
+              <Component Name="EditFormatOfDate" Class="Com.Ctrl.IEdit" Caption="@CMP:PropertyFormatOfDate=Ввод даты" CellFormat="EnumFormat" Field="EdtRec.FormatOfDate" ListAsString="Только дата&#xD;&#xA;Только время&#xD;&#xA;Дата и время"/>
+              <Component Name="EditListAsString" Class="Com.Ctrl.IEdit" Caption="@CMP:PropertyListAsString=Варианты строк" Field="EdtRec.ListAsString" Multiline="True"/>
+              <Component Name="EditCardFile" Class="Com.Ctrl.IEdit" Caption="@CMP:PropertyCardFile=Картотека" Field="EdtRec.CardFile" HasButton="True" OnLookup="EditCardFile_OnLookup" OnVerify="EditCardFile_OnVerify"/>
+              <Component Name="GroupCanManualInput" Class="Com.Ctrl.IGroup">
+                <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="48"/>
+                <Component Name="CheckBoxCanManualInput" Class="Com.Ctrl.ICheckBox" Caption="@CMP:PropertyCanManualInput=Разрешить ручной ввод" Field="EdtRec.CanManualInput"/>
+              </Component>
+              <Component Name="EditEnabledWithLock" Class="Com.Ctrl.IEdit" Caption="@CMP:PropertyEnabledWithLock=Всегда доступен" CellFormat="EnumFormat" Field="EdtRec.EnabledWithLock" ListAsString="По умолчанию&#xD;&#xA;Да&#xD;&#xA;Нет"/>
+            </Component>
+          </Component>
+          <Component Name="Box2" Class="Com.Ctrl.IBox" Caption="Умолчания">
+            <Component Name="Frame1" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+            <Component Name="Frame2" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="Group7" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="48">
+                <Component Name="EditCalcFormula2" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:PropertyCalcFormula=Формула" Field="EdtRec.CalcFormula" ProcType="EdtRec.ProcType" Subtable="EdtRec.CalcRecords"/>
+                <Component Name="EditCaption" Class="Com.Ctrl.IEdit" Caption="@CMP:PropertyCaption=Заголовок" Field="EdtRec.Caption"/>
+                <Component Name="EditHint" Class="Com.Ctrl.IEdit" Caption="@CMP:PropertyHint=Подсказка" Field="EdtRec.Hint"/>
+                <Component Name="EditCaptionWidth" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@CMP:PropertyCaptionWidth=Ширина надписи" Field="EdtRec.CaptionWidth"/>
+                <Component Name="EditControlWidth" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@CMP:PropertyControlWidth=Ширина столбца" Field="EdtRec.ControlWidth"/>
+                <Component Name="EditLookupField" Class="Com.Ctrl.IEdit" Caption="@CMP:PropertyLookupField=Разыменование" Field="EdtRec.LookupField" HasButton="True" OnLookup="EditLookupField_OnLookup"/>
+                <Component Name="EditAlignment" Class="Com.Ctrl.IEdit" Excluded="True" Caption="@CMP:PropertyAlignment=Выравнивание" CellFormat="EnumFormat" Field="EdtRec.Alignment" ListAsString=" |0&#xD;&#xA;По левому краю&#xD;&#xA;По правому краю&#xD;&#xA;По центру"/>
+                <Component Name="EditComment" Class="Com.Ctrl.IEdit" Caption="@CMP:ProcTypeComment=Комментарий" Field="EdtRec.CommentText"/>
+                <Component Name="Group3" Class="Com.Ctrl.IGroup">
+                  <Component Name="CheckBoxHasButton" Class="Com.Ctrl.ICheckBox" Caption="@CMP:PropertyHasButton=Кнопка обзора" Field="EdtRec.HasButton"/>
+                  <Component Name="CheckBoxPrinted" Class="Com.Ctrl.ICheckBox" Caption="@CMP:PropertyPrinted=Не печатать" Field="EdtRec.NotPrinted"/>
+                  <Component Name="CheckBoxWrap" Class="Com.Ctrl.ICheckBox" Caption="@CMP:PropertyWrap=Сворачивать строки" Field="EdtRec.Wrap"/>
+                  <Component Name="CheckBoxCanSort" Class="Com.Ctrl.ICheckBox" Caption="@CMP:PropertyCanSort=Сортировка" Field="EdtRec.CanSort"/>
+                  <Component Name="CheckBoxMultiline" Class="Com.Ctrl.ICheckBox" Caption="@CMP:PropertyMultiline=Многострочность" Field="EdtRec.Multiline"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

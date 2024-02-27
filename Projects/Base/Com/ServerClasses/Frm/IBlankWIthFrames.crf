@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankWIthFrames">
+    <Component Name="TableMenu" Class="Com.Ctrl.IPopupMenu" Excluded="True">
+      <Component Name="cmdCloseForm" Class="Com.Cmd2.IItem" Command="Commands.CloseForm"/>
+      <Component Name="TableSeparator1" Class="Com.Cmd2.ISeparator"/>
+      <Component Name="cmdCopyValue" Class="Com.Cmd2.IItem" Command="Commands.CopyValue"/>
+      <Component Name="cmdCutValue" Class="Com.Cmd2.IItem" Command="Commands.CutValue"/>
+      <Component Name="cmdPasteValue" Class="Com.Cmd2.IItem" Command="Commands.PasteValue"/>
+      <Component Name="cmdDeleteValue" Class="Com.Cmd2.IItem" Command="Commands.DeleteValue"/>
+      <Component Name="TableSeparator2" Class="Com.Cmd2.ISeparator"/>
+      <Component Name="cmdInsertRow" Class="Com.Cmd2.IItem" Command="Commands.InsertRow"/>
+      <Component Name="cmdDeleteRow" Class="Com.Cmd2.IItem" Command="Commands.DeleteRow"/>
+      <Component Name="cmdRowUp" Class="Com.Cmd2.IItem" Command="Commands.RowUp"/>
+      <Component Name="cmdRowDown" Class="Com.Cmd2.IItem" Command="Commands.RowDown"/>
+      <Component Name="TableSeparator3" Class="Com.Cmd2.ISeparator"/>
+      <Component Name="cmdDesignMode" Class="Com.Cmd2.IItem" Command="Commands.DesignMode"/>
+    </Component>
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    </Component>
+    <Component Name="Variables" Class="Com.IVarContainer"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader">
+        <Component Name="ButtonOK" Class="Com.Ctrl.IButton" Caption="@ОК" ImageName="PostClose" OnClick="ButtonOK_OnClick"/>
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Caption="@Cmd:Close=Закрыть" Command="Commands.CloseForm" ImageName="Close" OnClick="ButtonClose_OnClick"/>
+        <Component Name="HeaderSeparator" Class="Com.Cmd2.ISeparator"/>
+        <Component Name="ButtonRefresh" Class="Com.Ctrl.IButton" Caption="@Form:RefreshButton=Обновить" Command="Commands.RefreshForm" ImageName="Refresh" OnClick="ButtonRefresh_OnClick"/>
+        <Component Name="ButtonPrint" Class="Com.Ctrl.IButton" Excluded="True" Caption="@Cmd:Print=Печать" Command="Commands.Print" ImageName="Print" OnClick="ButtonPrint_OnClick" Printed="False"/>
+        <Component Name="ButtonExport" Class="Com.Ctrl.IButton" Excluded="True" Caption="@Cmd:Export=Экспорт" Command="Commands.ExportCmd" ImageName="ExportRec" OnClick="ButtonExport_OnClick" Printed="False"/>
+        <Component Name="ButtonHelp" Class="Com.Ctrl.IButton" Caption="@Cmd:Help=Помощь" Command="Commands.Help" ImageName="Help" OnClick="ButtonHelp_OnClick"/>
+      </Component>
+      <Component Name="FieldsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="5"/>
+      <Component Name="TabsFrame" Class="Com.Ctrl.IFrame" Orientation="WithTabs" ShowTabs="True" Visible="False">
+        <Component Name="MainTab" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Form:MainTab=Основное"/>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

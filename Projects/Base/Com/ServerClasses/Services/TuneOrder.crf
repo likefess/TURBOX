@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Services.CommonDialog">
+  <Inherited Caption="@RepOrder:CaptionOrder=Параметры упорядочивания">
+    <Component Name="Variables" Class="Com.IVarContainer" After="#0">
+      <Component Name="KeyArray" Class="Com.Fld.IArray" ValueType="VarString"/>
+      <Component Name="DirArray" Class="Com.Fld.IArray" ValueType="VarLogical"/>
+      <Component Name="ISTArray" Class="Com.Fld.IArray" ValueType="VarInteger"/>
+      <Component Name="IDCArray" Class="Com.Fld.IArray" ValueType="VarInteger"/>
+      <Component Name="ColArray" Class="Com.Fld.IArray" ValueType="VarInteger"/>
+    </Component>
+    <Inherited Name="RootFrame">
+      <Inherited Name="ButtonsFrame" After="#0">
+        <Inherited Name="ButtonsGroup">
+          <Inherited Name="ButtonSave" Excluded="True"/>
+          <Inherited Name="Static1inner" Excluded="True"/>
+          <Inherited Name="ButtonClose" Excluded="True"/>
+          <Inherited Name="Static1right" Excluded="True"/>
+          <Component Name="ButtonSave1" Class="Com.Ctrl.IButton" ImageName="Com.PostClose" OnClick="ButtonSaveOnClick"/>
+          <Component Name="ButtonClose1" Class="Com.Ctrl.IButton" ImageName="Close" OnClick="ButtonCloseOnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="MainFrame" After="ButtonsFrame">
+        <Inherited Name="WebMainGroup" Excluded="True"/>
+        <Component Name="SubheaderFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="SubheaderGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="IndOrderFlag" Class="Com.Ctrl.ICheckBox" Caption="@RepOrder:IndicatorOrder=Упорядочивать по показателям" OnChange="IndOrderFlagOnChange"/>
+          </Component>
+        </Component>
+        <Component Name="SplitsFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="KeyEdit1" Class="Com.Ctrl.IEdit" Caption="@RepOrder:Split=Разбиение" Field="KeyArray" HasButton="True" OnLookup="KeyOnLookup"/>
+          <Component Name="DirEdit1" Class="Com.Ctrl.IEdit" Caption="@RepOrder:Direction=Направление" CellFormat="EnumFormat" Field="DirArray" ListAsString="По возрастанию|0;По убыванию|1"/>
+        </Component>
+        <Component Name="IndicatorsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Visible="False">
+          <Component Name="IndOrderFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="KeyEdit2" Class="Com.Ctrl.IEdit" AutoLookup="True" Caption="@RepOrder:Indicator=Показатель" CellFormat="EnumFormat" Field="KeyArray" HasButton="True" OnChange="KeyIndOnChange" Width="50"/>
+            <Component Name="DirEdit2" Class="Com.Ctrl.IEdit" Caption="@RepOrder:Direction=Направление" CellFormat="EnumFormat" Field="DirArray" ListAsString="По возрастанию|0;По убыванию|1" Width="40"/>
+            <Component Name="ISTEdit" Class="Com.Ctrl.IEdit" Caption="@RepOrder:SaldoTurn=Остаток-Оборот" CellFormat="EnumFormat" Field="ISTArray" OnChange="ISTEditOnChange" Width="32"/>
+            <Component Name="IDCEdit" Class="Com.Ctrl.IEdit" Caption="@RepOrder:DebCre=Дебит-Кредит" CellFormat="EnumFormat" Field="IDCArray" OnEnter="IDCEditOnEnter" Width="32"/>
+            <Component Name="ColEdit" Class="Com.Ctrl.IEdit" Caption="@RepOrder:Column=Столбец" Field="ColArray" Width="20"/>
+          </Component>
+          <Component Name="IndOptionsFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="LimitEdit" Class="Com.Ctrl.IEdit" Caption="@RepOrder:LimitRows2=Отображать первые" FieldFormat="0" ValueType="VarInteger" Width="15"/>
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" Caption="@RepOrder:LimitRows2=строк(и)" Width="20"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

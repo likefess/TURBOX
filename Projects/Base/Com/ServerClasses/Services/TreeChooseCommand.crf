@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Services.TreeDialog">
+  <Inherited>
+    <Component Name="CommandTree" Class="Com.Ctrl.Grids.CommandTree" After="#0"/>
+    <Inherited Name="TableMenu" After="CommandTree"/>
+    <Inherited Name="Variables">
+      <Inherited Name="CurrentVar" ValueType="VarString"/>
+      <Component Name="CurrentVarShortName" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonClose" Excluded="True"/>
+        <Inherited Name="ButtonHelp" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="TreeGrid" TreeSource="CommandTree"/>
+      </Inherited>
+      <Inherited Name="SelectionFrame">
+        <Inherited Name="SelectionEdit" Field="CurrentVarShortName"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

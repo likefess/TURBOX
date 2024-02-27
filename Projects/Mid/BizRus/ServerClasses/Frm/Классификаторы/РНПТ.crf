@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IEditorWithFrames">
+  <Inherited OnVerify="OnVerify_">
+    <Component Name="edtRec" Class="BizRus.Rec.Классификаторы.РНПТ" IsLibrary="1" After="#0"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame" Orientation="Vertical">
+        <Component Name="Group_Code" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="30" MaxWidth="300" MinWidth="30" Width="200">
+          <Component Name="Code" Class="Com.Ctrl.IEdit" Field="edtRec.Code" FontBold="True" FontItalic="True" HasCaption="True" MinWidth="70" Visible="True" Wrap="True"/>
+          <Component Name="Closed" Class="Com.Ctrl.ICheckBox" Caption="Не используется" Field="edtRec.Closed" HasCaption="True"/>
+          <Component Name="Static_Code" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+        </Component>
+        <Component Name="Group_Предприятие" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="30" MaxWidth="300" MinWidth="30" Width="200">
+          <Component Name="Предприятие" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="edtRec.Company" HasCaption="True" MinWidth="70" Visible="True" Width="70" Wrap="True"/>
+          <Component Name="Страна_Предприятие" Class="Com.Ctrl.IJumpButton" Field="edtRec.Company"/>
+        </Component>
+        <Component Name="Group_Страна" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="30" MaxWidth="300" MinWidth="30" Width="200">
+          <Component Name="Страна" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.Countries" Field="edtRec.Страна" HasCaption="True" MinWidth="70" Visible="True" Width="70" Wrap="True"/>
+          <Component Name="Страна_JumpButton" Class="Com.Ctrl.IJumpButton" Field="edtRec.Страна"/>
+        </Component>
+        <Component Name="Group_ТНВЭД" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="30" MaxWidth="300" MinWidth="30">
+          <Component Name="ТНВЭД" Class="Com.Ctrl.IEdit" CardFileClass="BizRus.Tab.Классификаторы.ТНВЭД" Field="edtRec.ТНВЭД" HasCaption="True" LookupField="Код" MaxWidth="50" MinWidth="30" OnOpenCardForm="НастроитьКартотекуТНВЭД" Visible="True" Width="50" Wrap="True"/>
+          <Component Name="ТНВЭД_Имя" Class="Com.Ctrl.IEdit" Enabled="False" Field="edtRec.ТНВЭД" HasCaption="False" LookupField="Имя" MinWidth="40" Visible="True" Width="200" Wrap="True"/>
+          <Component Name="ТНВЭД_JumpButton" Class="Com.Ctrl.IJumpButton" Field="edtRec.ТНВЭД"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

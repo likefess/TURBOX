@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IEditor">
+    <Component Name="EdtRec" Class="CMP.Rec.Properties.IReport" IsLibrary="1"/>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="Mode" Class="Com.Fld.IVar" OnChange="Mode_OnChange" ValueType="VarInteger"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="TableSelectionCondition" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False">
+        <Component Name="DefStructFilter" Class="CMP.Rec.Properties.IProperty_SelectionCondition" IsLibrary="1"/>
+        <Component Name="ColumnsGroupTable" Class="Com.Ctrl.IColumnsGroup" Alignment="LeftAlign" Caption="@CMP:FillingServiceFormFilterTitleDefault=Условие отбора для отчета" HasCaption="True">
+          <Component Name="CheckBoxDenial" Class="Com.Ctrl.ICheckBox" Caption="@CMP:SelectionConditionDenial=Не" Field="DefStructFilter.Denial" Hint="@CMP:SelectionConditionHintDenial=Если флаг взведен, то строка условия &#xD;&#xA;отрицается (выполняется логическая функция НЕ)" Width="8"/>
+          <Component Name="EditField" Class="Com.Ctrl.IEdit" Caption="@CMP:SelectionConditionField=Поле" Field="DefStructFilter.Field" HasButton="True" OnLookup="EditField_OnLookup" Width="50"/>
+          <Component Name="EditSign" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="DefStructFilter.Sign" FixSize="True" Hint="@CMP:SelectionConditionHintSign=Знак условия, который будет связывать поле и значение, вычисленное по формуле" ListAsString="IS|IS&#xD;&#xA;=|=&#xD;&#xA;&lt;>|&lt;>&#xD;&#xA;>|>&#xD;&#xA;&lt;|&lt;&#xD;&#xA;>=|>=&#xD;&#xA;&lt;=|&lt;=" Width="12"/>
+          <Component Name="EditFormula" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:SelectionConditionFormula=Формула" Field="DefStructFilter.Formula" ProcType="EdtRec.ProcType" Subtable="DefStructFilter.FormulaRecords" Width="62"/>
+          <Component Name="EditLink" Class="Com.Ctrl.IEdit" Caption="@CMP:SelectionConditionLink=Связка" CellFormat="EnumFormat" Field="DefStructFilter.Link" Hint="@CMP:SelectionConditionHintLink=Логическая связка строк условий, если &#xD;&#xA;их несколько. " ListAsString="|&#xD;&#xA;И|and&#xD;&#xA;ИЛИ|or&#xD;&#xA;/|/" Width="17"/>
+          <Component Name="CheckBoxWithoutEmpty" Class="Com.Ctrl.ICheckBox" Caption="@CMP:SelectionConditionWithoutEmpty=Игнор. пуст." Field="DefStructFilter.WithoutEmpty" Hint="@CMP:SelectionConditionHintWithoutEmpty=Если флаг взведен, то пустое значение,&#xD;&#xA;вычисленное по формуле, будет игнорировано. &#xD;&#xA;В этом случае строка условия будет исключена &#xD;&#xA;из списка условий. &#xD;&#xA;Если же флаг не взведен, то пустое значение, вычисленное по формуле - будет принято как пустое значение в условии. &#xD;&#xA;Например: СерийныйНомер = &quot;&quot;" Width="23"/>
+        </Component>
+      </Component>
+      <Component Name="Static1" Class="Com.Ctrl.IStatic"/>
+    </Component>
+  </Component>
+</Resource>

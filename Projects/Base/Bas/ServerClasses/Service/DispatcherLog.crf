@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Logging.EventLog">
+  <Inherited>
+    <Inherited Name="EventsTemplates">
+      <Inherited Name="Error" MessageTemplate="%s"/>
+      <Component Name="Start" Class="Bas.Logging.EventTemplate" Excluded="True" EventLevel="llCustomiser" EventType="logInfo" MessageTemplate="%s"/>
+      <Component Name="Timeout" Class="Bas.Logging.EventTemplate" Excluded="True" EventLevel="llCustomiser" EventType="logInfo" MessageTemplate="@Jobs:Info.IdleTimeout=Таймаут простоя (%i сек)"/>
+      <Component Name="JobRestarted" Class="Bas.Logging.EventTemplate" Excluded="True" EventLevel="llCustomiser" EventType="logInfo" MessageTemplate="@Jobs:Info.JobRestarted=Задание '%s' перезапущено"/>
+      <Component Name="DispatcherServiceError" Class="Bas.Logging.EventTemplate" Excluded="True" EventLevel="llCustomiser" EventType="logError" MessageTemplate="@Jobs:Error.Dispatcher.ServiceStartupError=Ошибка запуска службы диспетчера исполнителей '%s'"/>
+      <Component Name="Dispatcher" Class="Bas.Logging.EventTemplate" Excluded="True" EventLevel="llCustomiser" EventType="logInfo" MessageTemplate="@Jobs:Info.Dispatcher.Run=Диспетчер %s"/>
+      <Component Name="DispatcherError" Class="Bas.Logging.EventTemplate" Excluded="True" EventLevel="llCustomiser" EventType="logError" MessageTemplate="%s"/>
+      <Component Name="DispatcherStop" Class="Bas.Logging.EventTemplate" Excluded="True" EventLevel="llCustomiser" EventType="logInfo" MessageTemplate="@Jobs:Info.Dispatcher.Uptime=Время работы = %i сек"/>
+      <Component Name="Worker" Class="Bas.Logging.EventTemplate" Excluded="True" EventLevel="llCustomiser" EventType="logInfo" MessageTemplate="@Jobs:Info.Worker.Run=Исполнитель '%s' %s"/>
+      <Component Name="WorkerError" Class="Bas.Logging.EventTemplate" Excluded="True" EventLevel="llCustomiser" EventType="logError" MessageTemplate="%s"/>
+      <Component Name="WorkerStoped" Class="Bas.Logging.EventTemplate" Excluded="True" EventLevel="llCustomiser" EventType="logInfo" MessageTemplate="@Jobs:Info.Worker.Stopped=Исполнитель '%s' остановлен (осталось = %s)"/>
+      <Component Name="RobotService" Class="Bas.Logging.EventTemplate" Excluded="True" EventLevel="llCustomiser" EventType="logInfo" MessageTemplate="@Jobs:Info.Robot.StartService=Запуск службы исполнителей-роботов"/>
+      <Component Name="RobotServiceError" Class="Bas.Logging.EventTemplate" Excluded="True" EventLevel="llCustomiser" EventType="logError" MessageTemplate="%s"/>
+      <Component Name="Robot" Class="Bas.Logging.EventTemplate" Excluded="True" EventLevel="llCustomiser" EventType="logInfo" MessageTemplate="@Jobs:Info.Robot.Run=Исполнитель-робот '%s' %s"/>
+      <Component Name="RobotError" Class="Bas.Logging.EventTemplate" Excluded="True" EventLevel="llCustomiser" EventType="logError" MessageTemplate="%s"/>
+      <Component Name="RobotStoped" Class="Bas.Logging.EventTemplate" Excluded="True" EventLevel="llCustomiser" EventType="logInfo" MessageTemplate="@Jobs:Info.Robot.Stopped=Исполнитель-робот '%s' остановлен (осталось = %s)"/>
+      <Component Name="EmergencyRobot" Class="Bas.Logging.EventTemplate" Excluded="True" EventLevel="llCustomiser" EventType="logInfo" MessageTemplate="@Jobs:Info.EmergencyRobot.Run=Аварийный исполнитель-робот '%s' %s"/>
+      <Component Name="EmergencyRobotError" Class="Bas.Logging.EventTemplate" Excluded="True" EventLevel="llCustomiser" EventType="logError" MessageTemplate="%s"/>
+      <Component Name="EmergencyRobotStoped" Class="Bas.Logging.EventTemplate" Excluded="True" EventLevel="llCustomiser" EventType="logInfo" MessageTemplate="@Jobs:Info.EmergencyRobot.Stopped=Аварийный исполнитель-робот '%s' остановлен (осталось = %s)"/>
+      <Component Name="ListenerError" Class="Bas.Logging.EventTemplate" Excluded="True" EventLevel="llCustomiser" EventType="logError" MessageTemplate="@Jobs:Error.Listener=Исполнитель '%s': %s"/>
+      <Component Name="ListenerStop" Class="Bas.Logging.EventTemplate" Excluded="True" EventLevel="llCustomiser" EventType="logInfo" MessageTemplate="@Jobs:Info.Listener.Uptime=Время работы = %i сек, количество выполненных заданий = %i"/>
+    </Inherited>
+  </Inherited>
+</Resource>

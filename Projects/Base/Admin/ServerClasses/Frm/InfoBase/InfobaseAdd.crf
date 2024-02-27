@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.InfoBase.InfoBaseCustMaster">
+  <Inherited ActiveControl="tblArchive">
+    <Component Name="DisabledStruct" Class="Admin.Frm.InfoBase.InfoBaseDisabled_Struct" IsLibrary="1" After="Timer"/>
+    <Component Name="ProjectStruct" Class="Admin.Frm.InfoBase.IBAddProject_Struct" IsLibrary="1"/>
+    <Inherited Name="TableMenu" After="ProjectStruct">
+      <Inherited Name="cmdFolderOpen" Caption="@Admin:InfoBaseAdd_Select=Выбрать" IconName="Com.SelectItem"/>
+      <Inherited Name="cmdFolderCreate" Excluded="True"/>
+      <Inherited Name="cmdDelete" Excluded="True"/>
+      <Inherited Name="cmdRename" Excluded="True"/>
+    </Inherited>
+    <Inherited Name="Variables">
+      <Inherited Name="subTblArchive" StructClass="Admin.Frm.InfoBase.InfoBaseDisabled_Struct"/>
+      <Component Name="subTblProjects" Class="Com.ISubtable" StructClass="Admin.Frm.InfoBase.IBAddProject_Struct"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="FrameArchive" Caption="@Admin:InfobaseAdd_Step1=База">
+          <Inherited Name="frameTable">
+            <Inherited Name="tblArchive">
+              <Inherited Name="edName" Caption="@Admin:InfobaseAdd_IB=Инф.база" Field="DisabledStruct.Name" MaxWidth="80" MinWidth="20" Width="40"/>
+              <Component Name="edInfobase" Class="Com.Ctrl.IEdit" After="edName" Caption="@Admin:InfobaseAdd_File=Каталог" Field="DisabledStruct.InfoBases" MaxWidth="150" MinWidth="30" OnClick="Archive_OpenFolder" Width="80"/>
+              <Inherited Name="edSize" Excluded="True" After="edInfobase" Visible="False"/>
+              <Inherited Name="edDateTime" Excluded="True" Visible="False"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Component Name="FrameProjects" Class="Com.Ctrl.IFrame" After="FrameArchive" AutoSize="False" Caption="@Admin:InfobaseAdd_Step2=Проекты" Margins="4">
+          <Component Name="tblProjects" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" ManualControl="False" Numbering="False" OnDrawIcon="tblProjects_OnDrawIcon" ShowIcon="True" Subtable="subTblProjects">
+            <Component Name="edPrjName" Class="Com.Ctrl.IEdit" Caption="@Admin:ProjectListName=Проект" Enabled="False" Field="ProjectStruct.Name" MaxWidth="100" MinWidth="20" OnDrawEx="edPrjItem_OnDrawEx" Width="60"/>
+            <Component Name="edPrjHead" Class="Com.Ctrl.IEdit" Caption="@Admin:ProjectListTitle=Название" Field="ProjectStruct.Head" MaxWidth="120" MinWidth="20" OnDrawEx="edPrjItem_OnDrawEx" Width="80"/>
+          </Component>
+        </Component>
+        <Inherited Name="FrameDB" After="FrameProjects" Caption="@Admin:InfoBaseAdd_Step3=Размещение">
+          <Inherited Name="frameDataBase">
+            <Inherited Name="gbDataBase">
+              <Inherited Name="gbDBUser">
+                <Inherited Name="edLogin" OnChange="edLogin_OnChange"/>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="FrameProcess" Caption="@Admin:InfobaseAdd_Step4=Добавление">
+          <Inherited Name="frameStatus">
+            <Inherited Name="grpTime" Visible="False"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

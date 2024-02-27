@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Recovery.Root">
+  <Inherited>
+    <Inherited Name="References">
+      <Inherited Name="LoadReferences">
+        <Component Name="ContractStatus" Class="Bas.Recovery.MassUpdates.File" Caption="Статусы договоров" FileName="Biz.Ref.Статусы договоров.tbc" ExecuteVersion="5.019"/>
+        <Component Name="SpecificationStatus" Class="Bas.Recovery.MassUpdates.File" Caption="Статусы спецификаций" FileName="Biz.Ref.Статусы спецификаций.tbc" ExecuteVersion="5.024"/>
+        <Component Name="Factuality" Class="Bas.Recovery.MassUpdates.File" Caption="Реалистичность события" FileName="Biz.Ref.Реалистичность события.tbc" ExecuteVersion="5.02"/>
+      </Inherited>
+    </Inherited>
+    <Inherited Name="UpdateIB">
+      <Inherited Name="UpdConverter">
+        <Component Name="CheckVATRates" Class="Bas.Recovery.MassUpdates.Class" Caption="Проверить ставки НДС" ProcessingClass="Biz.ProfileInfo.CheckVATRates"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

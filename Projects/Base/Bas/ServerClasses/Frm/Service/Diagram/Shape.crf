@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.Service.Diagram.Item">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainBox" Caption="@Diagram:Shape=Узел">
+        <Inherited Name="MainFrame1">
+          <Component Name="ShapeGroup" Class="Com.Ctrl.IGroup" After="IdentGroup">
+            <Component Name="ShapeType" Class="Com.Ctrl.IEdit" Caption="@Diagram:ShapeType=Вид фигуры" CellFormat="EnumFormat" OnChange="ShapeTypeOnChange" ValueType="VarInteger" Width="60"/>
+          </Component>
+          <Component Name="SizeGroup" Class="Com.Ctrl.IGroup">
+            <Component Name="ShapeWidth" Class="Com.Ctrl.IEdit" Caption="@Diagram:ShapeWidthHeight=Ширина, Высота" ValueType="VarNumeric" Width="28"/>
+            <Component Name="SizeStatic" Class="Com.Ctrl.IStatic" Caption="," Width="4"/>
+            <Component Name="ShapeHeight" Class="Com.Ctrl.IEdit" ValueType="VarNumeric" Width="28"/>
+            <Component Name="SyncConnectionsFlag" Class="Com.Ctrl.ICheckBox" Caption="@Diagram:SyncConnections=Перемещать связи" OnChange="SyncConnectionsFlagOnChange"/>
+          </Component>
+          <Component Name="PointGroup" Class="Com.Ctrl.IGroup">
+            <Component Name="XEdit" Class="Com.Ctrl.IEdit" Caption="@Diagram:XYPosition=Позиция X, Y" ValueType="VarNumeric" Width="28"/>
+            <Component Name="PointStatic" Class="Com.Ctrl.IStatic" Caption="," Width="4"/>
+            <Component Name="YEdit" Class="Com.Ctrl.IEdit" ValueType="VarNumeric" Width="28"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

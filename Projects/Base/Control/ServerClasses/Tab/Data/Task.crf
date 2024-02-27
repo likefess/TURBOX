@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.Event">
+  <Inherited HelpContext="Control.Контроль поручений.Данные и справочники.Основные данные.Поручения" Hierarchical="True">
+    <Inherited Name="Current" Class="Control.Rec.Data.Task" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Code" Visible="False"/>
+          <Component Name="PrintedNumber" Class="Com.Ctrl.IEdit" Field="Current.PrintedNumber" Width="20"/>
+          <Component Name="TaskStatus" Class="Com.Ctrl.IEdit" Field="Current.TaskStatus" LookupField="Name" Width="30"/>
+          <Component Name="Responsible" Class="Com.Ctrl.IEdit" Field="Current.Responsible" LookupField="Name" Width="30"/>
+          <Component Name="Importance" Class="Com.Ctrl.IEdit" Field="Current.Importance" LookupField="Name" OnColumnDraw="ImportanceOnDraw" Width="20"/>
+          <Component Name="Priority" Class="Com.Ctrl.IEdit" Field="Current.Priority" LookupField="Name" OnColumnDraw="PriorityOnDraw" Width="20"/>
+          <Component Name="Deadline" Class="Com.Ctrl.IEdit" Field="Current.Deadline" Width="24"/>
+          <Component Name="Project" Class="Com.Ctrl.IEdit" Field="Current.Project" LookupField="Name" Width="30"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

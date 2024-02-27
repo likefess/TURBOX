@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Frm.Report.ReportByRecords">
+  <Inherited HelpContext="Biz.НСИ.Отчеты.Отчеты по договорам.Отчет по срокам договоров">
+    <Component Name="DataStruct" Class="Biz.Rec.Report.ContractPeriodReport_DataStruct" IsLibrary="1" After="ExtParamStruct"/>
+    <Inherited Name="TableMenu" After="DataStruct"/>
+    <Inherited Name="Variables">
+      <Component Name="DataSubtable" Class="Com.ISubtable"/>
+      <Component Name="StartDate" Class="Com.Fld.IVar" Caption="@ContractPeriodReport:StartDate=За период с" ValueType="VarDate"/>
+      <Component Name="EndDate" Class="Com.Fld.IVar" Caption="@ContractPeriodReport:EndDate=По" ValueType="VarDate"/>
+      <Component Name="Company" Class="Com.Fld.IVar" Caption="@ContractPeriodReport:Company=Предприятие" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="Intragroup" Class="Com.Fld.IVar" Caption="@ContractPeriodReport:Intragroup=Внутригрупповые договоры" ValueType="VarLogical"/>
+      <Component Name="Classification" Class="Com.Fld.IVar" Caption="@ContractPeriodReport:Classification=Классификация" RecordClass="Biz.Rec.Ref.ContractClassification" ValueType="VarObject"/>
+      <Component Name="Status" Class="Com.Fld.IVar" Caption="@ContractPeriodReport:StatusEdit= Статус" RecordClass="Biz.Rec.Ref.ContractStatus" ValueType="VarObject"/>
+      <Component Name="FilterOption" Class="Com.Fld.IVar" Caption="@ContractPeriodReport:FilterOption=Параметры фильтрации" ValueType="VarInteger"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab" Caption="@ContractPeriodReport:MainTab=Параметры">
+          <Inherited Name="ParamFrame">
+            <Inherited Name="ParamGroup" CaptionWidth="50">
+              <Component Name="StartDateEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="StartDate" FormatOfDate="DateOnly" HasCaption="True" ValueType="VarDate"/>
+              <Component Name="EndDateEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="EndDate" FormatOfDate="DateOnly" HasCaption="True" ValueType="VarDate"/>
+              <Component Name="NewLine3" Class="Com.Ctrl.INewLine"/>
+              <Component Name="CompanyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="Company" HasCaption="True" LookupField="Name" OnGetLookupFilter="CompanyEdit_OnGetLookupFilter" ShortList="True"/>
+              <Component Name="ClassificationEdit" Class="Com.Ctrl.IListEdit" CellFormat="ReferenceFormat" Field="Classification" HasCaption="True" LookupField="Name"/>
+              <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+              <Component Name="IntragroupCheckBox" Class="Com.Ctrl.ICheckBox" Field="Intragroup" HasCaption="True"/>
+              <Component Name="NewLine4" Class="Com.Ctrl.INewLine"/>
+              <Component Name="StatusEdit" Class="Com.Ctrl.IListEdit" CardFileClass="Biz.Tab.Ref.ContractStatus" CellFormat="ReferenceFormat" Field="Status" HasCaption="True" LookupField="Name"/>
+              <Component Name="FilterOptionEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="FilterOption" HasCaption="True" ListAsString="Действующие договоры|0;Договоры, заключенные в выбранный период|1;Договоры, срок действия которых заканчивается в выбранный период|2;Договоры, подлежащие пролонгации в выбранный период|3"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="DataFrame">
+        <Inherited Name="DataTable" Subtable="DataSubtable">
+          <Component Name="Partner" Class="Com.Ctrl.IEdit" Caption="@ContractPeriodReport:Partner=Наименование контрагента" CardFileClass="Bas.Tab.Data.Contraparties" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Partner" HasCaption="True" LookupField="Name" Width="50" Wrap="True"/>
+          <Component Name="PrintedNumberGr" Class="Com.Ctrl.IColumnsGroup" Caption="@ContractPeriodReport:DocGroup=Номер регистрации договора" FixSize="True" HasCaption="True" Width="47.2">
+            <Component Name="PrintedNumber" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Contract" HasCaption="False" Hint="@ContractPeriodReport:DocGroupHint=Перейти к договору" LookupField="PrintedNumber" OnClick="PrintedNumber_OnClick" Width="40" Wrap="True"/>
+            <Component Name="DocJumpButton" Class="Com.Ctrl.IJumpButton" Caption="@ContractPeriodReport:DocGroupHint=Перейти к договору" Field="DataStruct.Contract" HasCaption="False" JumpForm="Biz.Frm.Data.Contract" Printed="False" Visible="False"/>
+          </Component>
+          <Component Name="RegistrationDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@ContractPeriodReport:RegistrationDate=Дата договора" Enabled="False" Field="DataStruct.RegistrationDate" FormatOfDate="DateOnly" HasCaption="True" Width="22" Wrap="True"/>
+          <Component Name="IsIntragroup" Class="Com.Ctrl.ICheckBox" Caption="@ContractPeriodReport:Intragroup=Внутригрупповой" Enabled="False" Field="DataStruct.Intragroup" HasCaption="True" Width="34" Wrap="True"/>
+          <Component Name="ContractSubject" Class="Com.Ctrl.IEdit" Caption="@ContractPeriodReport:ContractSubject=Назначение договора" CardFileClass="Biz.Tab.Ref.ContractClassification" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.ContractSubject" HasCaption="True" LookupField="Name" Width="80" Wrap="True"/>
+          <Component Name="Description" Class="Com.Ctrl.IEdit" Caption="@Contract:Description=Предмет договора" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Contract" HasCaption="True" LookupField="Description" Width="80" Wrap="True"/>
+          <Component Name="PeriodGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@ContractPeriodReport:PeriodGroup=Срок действия договора" HasCaption="True">
+            <Component Name="PeriodStart" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@ContractPeriodReport:PeriodStart=дата начала " Enabled="False" Field="DataStruct.PeriodStart" FormatOfDate="DateOnly" HasCaption="True" Width="22" Wrap="True"/>
+            <Component Name="PeriodEnd" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@ContractPeriodReport:PeriodEnd=дата окончания" Enabled="False" Field="DataStruct.PeriodEnd" FormatOfDate="DateOnly" HasCaption="True" Width="22" Wrap="True"/>
+            <Component Name="MonthCount" Class="Com.Ctrl.IEdit" Caption="@ContractReport:MonthCount=месяцев" CellFormat="NumericFormat" Field="DataStruct.MonthCount" FieldFormat="#" Width="20"/>
+            <Component Name="ProlongationMonths" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@ContractPeriodReport:ProlongationMonths=срок пролонгации договора" Enabled="False" Field="DataStruct.ProlongationMonths" HasCaption="True" Width="27" Wrap="True"/>
+          </Component>
+          <Component Name="HasSuppAgreements" Class="Com.Ctrl.ICheckBox" Caption="@ContractPeriodReport:HasSuppAgreements=Наличие доп. соглашений" Enabled="False" Field="DataStruct.HasSuppAgreements" HasCaption="True" Width="25" Wrap="True"/>
+          <Component Name="HasSpecs" Class="Com.Ctrl.ICheckBox" Caption="@ContractPeriodReport:HasSpecs=Наличие спецификаций" Enabled="False" Field="DataStruct.HasSpecs" HasCaption="True" Width="29" Wrap="True"/>
+          <Component Name="AmountGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@ContractPeriodReport:AmountGroup=Сумма по договору" HasCaption="True">
+            <Component Name="Amount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.Amount" FieldFormat=",##0.00;;-" HasCaption="True" ValueType="VarNumeric" Width="40" Wrap="True"/>
+            <Component Name="VATAmount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.VATAmount" FieldFormat=",##0.00;;-" HasCaption="True" ValueType="VarNumeric" Width="40" Wrap="True"/>
+            <Component Name="AmountIncVAT" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.AmountIncVAT" FieldFormat=",##0.00;;-" HasCaption="True" ValueType="VarNumeric" Width="40" Wrap="True"/>
+          </Component>
+          <Component Name="AmountWithSAGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@ContractPeriodReport:AmountWithSAGroup=Сумма по договору с учетом доп. соглашений" HasCaption="True">
+            <Component Name="AmountWithSA" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.AmountWithSA" FieldFormat=",##0.00;;-" HasCaption="True" ValueType="VarNumeric" Width="40" Wrap="True"/>
+            <Component Name="VATAmountWithSA" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.VATAmountWithSA" FieldFormat=",##0.00;;-" HasCaption="True" ValueType="VarNumeric" Width="40" Wrap="True"/>
+            <Component Name="AmountIncVATWithSA" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.AmountIncVATWithSA" FieldFormat=",##0.00;;-" HasCaption="True" ValueType="VarNumeric" Width="40" Wrap="True"/>
+          </Component>
+          <Component Name="ContractStatus" Class="Com.Ctrl.IEdit" Caption="@ContractPeriodReport:ContractStatus=Статус договора" CardFileClass="Biz.Tab.Ref.ContractStatus" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Status" HasCaption="True" LookupField="Name" Width="20" Wrap="True"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

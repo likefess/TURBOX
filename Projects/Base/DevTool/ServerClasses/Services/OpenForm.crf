@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited ActiveControl="FormNameEdit" CaptionAlign="LeftAlign" OnShow="BlankWIthFrames_OnShow">
+    <Inherited Name="Variables">
+      <Component Name="FormName" Class="Com.Fld.IVar" OnChange="FormName_OnChange" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonOK" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True">
+          <Component Name="FormNameEdit" Class="Com.Ctrl.IEdit" AutocompleteMode="acmOn" Caption="@Form" Field="FormName" OnAutocomplete="FormNameEdit_OnAutocomplete"/>
+        </Component>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+          <Component Name="Button1" Class="Com.Ctrl.IButton" Caption="@Show" OnClick="Button1_OnClick"/>
+          <Component Name="Button2" Class="Com.Ctrl.IButton" Caption="@Show modal" OnClick="Button2_OnClick"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

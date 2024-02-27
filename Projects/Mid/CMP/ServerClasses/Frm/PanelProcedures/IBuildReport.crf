@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CMP.Frm.PanelProcedures.IBasePanelProcedure">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="Report" Class="Com.Fld.IVar" RecordClass="Com.Rec.Service.Report" ValueType="VarObject"/>
+      <Component Name="AskPeriod" Class="Com.Fld.IVar" Excluded="True" ValueType="VarLogical"/>
+      <Component Name="AutoBuild" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="Modal" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="AccountFilter" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="ParameterFilter" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50" HasCaption="True">
+        <Component Name="EditReport" Class="Com.Ctrl.IEdit" Caption="@CMP:BuildReportPartReport=Отчет" Field="Report" OnChange="Edit_OnChange"/>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Excluded="True">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="CheckBoxAskPeriod" Class="Com.Ctrl.ICheckBox" Caption="@CMP:BuildReportPartAskPeriod=Запрашивать период" Field="AskPeriod" OnChange="CheckBox_OnChange"/>
+        </Component>
+        <Component Name="Group3" Class="Com.Ctrl.IGroup">
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="CheckBoxAutoBuild" Class="Com.Ctrl.ICheckBox" Caption="@CMP:BuildReportPartAutoBuild=Строить автоматически" Field="AutoBuild" OnChange="CheckBox_OnChange"/>
+        </Component>
+        <Component Name="Group4" Class="Com.Ctrl.IGroup">
+          <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="CheckBoxModal" Class="Com.Ctrl.ICheckBox" Caption="@CMP:BuildReportPartModal=Модально" Field="Modal" OnChange="CheckBox_OnChange"/>
+        </Component>
+        <Component Name="EditAccountFilter" Class="Com.Ctrl.IEdit" Caption="@CMP:BuildReportPartAccountFilter=Ограничение на счета" Field="AccountFilter" OnChange="Edit_OnChange"/>
+        <Component Name="EditParameterFilter" Class="Com.Ctrl.IEdit" Caption="@CMP:BuildReportPartParameterFilter=Ограничение на параметры" Field="ParameterFilter" OnChange="Edit_OnChange"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

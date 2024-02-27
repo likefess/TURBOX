@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.Service.Diagram.Item">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainBox" Caption="@Diagram:Connection=Связь">
+        <Inherited Name="MainFrame1">
+          <Component Name="ItemsGroup" Class="Com.Ctrl.IGroup" After="IdentGroup">
+            <Component Name="SourceItem" Class="Com.Ctrl.IEdit" AutoLookup="True" Caption="@Diagram:Items=Соединяет" CellFormat="EnumFormat" ValueType="VarString" Width="53"/>
+            <Component Name="SourceButton" Class="Com.Ctrl.IButton" Hint="@Diagram:SourceButtonHint=Перейти к связанному объекту" ImageName="Com.JumpButton_"/>
+            <Component Name="ItemsStatic" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="," Width="4"/>
+            <Component Name="TargetItem" Class="Com.Ctrl.IEdit" AutoLookup="True" CellFormat="EnumFormat" ValueType="VarString" Width="53"/>
+            <Component Name="TargetButton" Class="Com.Ctrl.IButton" Hint="@Diagram:TargetButtonHint=Перейти к связанному объекту" ImageName="Com.JumpButton_"/>
+          </Component>
+          <Component Name="WayPointsGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="WayPoints" Class="Com.Ctrl.IEdit" Caption="@Diagram:WayPoints=Координаты" Hint="@Diagram:WayPointsHint=Координаты соединительной линии в формате x1,y1;x2,y2 линии" ValueType="VarString"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+      <Component Name="MarkerStartBox" Class="Com.Ctrl.IBox" After="MainBox" AutoSize="True" Caption="@Diagram:MarkerStartLabel=Маркер начала">
+        <Component Name="MarkerStartFrame" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+      </Component>
+      <Component Name="MarkerEndBox" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@Diagram:MarkerEndLabel=Маркер окончания">
+        <Component Name="MarkerEndFrame" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

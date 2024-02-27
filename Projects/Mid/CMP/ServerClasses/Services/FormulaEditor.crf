@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="CMP.Services.FormulaEditor" HelpContext="CMP.Студия компонентов (машина реквизитов).Редактор формул">
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="SubtableRecords" Class="Com.ISubtable"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="FrameJS" Class="Com.Ctrl.IFrame" Excluded="True" Orientation="Vertical">
+        <Component Name="FrameLJS" Class="Com.Ctrl.IFrame" Size="35">
+          <Component Name="StaticJS" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="по формуле" FixSize="True" Width="35"/>
+        </Component>
+        <Component Name="FrameRJS" Class="Com.Ctrl.IFrame" Margins="0" Proportion="1">
+          <Component Name="FormulaJS" Class="Com.Ctrl.IQuillJS" OnTextChange="ChangeFormula"/>
+        </Component>
+      </Component>
+      <Component Name="FrameText" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="GroupText" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="35">
+          <Component Name="StaticText" Class="Com.Ctrl.IStatic"/>
+          <Component Name="FormulaEdit" Class="Com.Ctrl.IEdit" Caption="по формуле" Multiline="True" OnAutocomplete="FormulaEdit_OnAutocomplete" OnChange="FormulaEdit_OnChange" OnEnter="FormulaEdit_OnEnter" OnOutput="FormulaEdit_OnOutput" OnVerify="FormulaEdit_OnVerify" UseMacro="True" Wrap="True"/>
+        </Component>
+      </Component>
+      <Component Name="FrameRecs" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Vertical">
+        <Component Name="FrameLRecs" Class="Com.Ctrl.IFrame" Size="35">
+          <Component Name="GroupLRecs" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="StaticL" Class="Com.Ctrl.IStatic" Width="1"/>
+            <Component Name="PropButton" Class="Com.Ctrl.IButton" Hint="@CMP:FormulaPropButton=Реквизит" ImageName="Bas.puzzle2" OnClick="PropButton_OnClick"/>
+            <Component Name="RecButton" Class="Com.Ctrl.IButton" Hint="@CMP:FormulaRecButton=Запись" ImageName="Com.database" OnClick="RecButton_OnClick"/>
+            <Component Name="FieldsButton" Class="Com.Ctrl.IButton" ImageName="Bas.LoadingDocuments" OnClick="FieldsButton_OnClick"/>
+          </Component>
+        </Component>
+        <Component Name="FrameRRecs" Class="Com.Ctrl.IFrame" Margins="2" Proportion="1">
+          <Component Name="RecordsTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="True" CanInsert="True" CanMove="True" Freezed="False" HasCaption="False" ManualControl="True" OnChangePosition="RecordsTable_OnChangePosition" OnDelete="RecordsTable_OnDelete" OnInsert="RecordsTable_OnInsert" Subtable="SubtableRecords">
+            <Component Name="EditType" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Enabled="False" FixSize="True" OnOutput="EditType_OnOutput" Width="8"/>
+            <Component Name="RecordEdit" Class="Com.Ctrl.IEdit" AutocompleteMode="acmOn" ButtonStyle="LookupButton" CellFormat="ReferenceFormat" OnChange="RecordEdit_OnChange" OnEnter="RecordEdit_OnEnter" OnGetLookupFilter="RecordEdit_OnGetLookupFilter" OnLookup="RecordEdit_OnLookup" OnOutput="RecordEdit_OnOutput" ValueType="VarObject"/>
+            <Component Name="Button3" Class="Com.Ctrl.IButton" Excluded="True" Caption="Поле..." Width="20"/>
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

@@ -1,0 +1,43 @@
+﻿--Param Title :String "&Описание"
+--Param RecClass :class Com.Rec.IRecord "Класс записи"
+--Param TabBaseClass :class Com.Frm.ICardForm "Унаследован от"
+
+class inherited &{%TabBaseClass%|Com.Frm.ICardForm}&{ "%Title%"}
+
+import Com.Def
+
+inclass public
+
+  #Override
+  var RecordClass :Class &{%RecClass%|Com.Rec.IRecord}&{ := %RecClass%}
+
+--  #Override
+--  var EditorClass :Class Frm.IEditor
+
+inclass private
+
+  #Override
+  var UseResource  :Logical := True
+
+inobject public
+
+  #Override
+  stored var Current :&{%RecClass%|Com.Rec.IRecord}
+
+
+inobject private
+
+--------------------------------------------------------------------------------
+---{{ Обработчики событий класса
+
+---}}
+
+
+--  #Override
+--  proc Init
+--    inherited Init
+--    -- Программная инициализация
+--  end
+
+
+end

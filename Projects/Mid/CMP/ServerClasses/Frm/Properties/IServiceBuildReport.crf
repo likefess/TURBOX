@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IEditor" HelpContext="Стандарт.СтруктураБизнеса.ТипыРеквизитов.СервисныеПроцедуры.ПостроитьОтчет">
+    <Component Name="EdtRec" Class="CMP.Rec.Properties.IServiceBuildReport" IsLibrary="1"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" Margins="5">
+      <Component Name="Frame1" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+          <Component Name="EditReport" Class="Com.Ctrl.IEdit" Caption="@CMP:ServiceBuildReport=Отчет" Field="EdtRec.Report" HasButton="True" OnChange="Edit_OnChange"/>
+          <Component Name="Group2" Class="Com.Ctrl.IGroup">
+            <Component Name="EditFormulaBegDate" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:ServiceBuildReportFormulaBegDate=Период" Field="EdtRec.FormulaBegDate" ProcType="EdtRec.ProcType" Subtable="EdtRec.BegDateRecord" Width="10"/>
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" Width="1"/>
+            <Component Name="EditFormulaEndDate" Class="CMP.Ctrl.IFormulaEdit" Field="EdtRec.FormulaEndDate" ProcType="EdtRec.ProcType" Subtable="EdtRec.EndDateRecord" Width="10"/>
+          </Component>
+          <Component Name="Group3" Class="Com.Ctrl.IGroup">
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+            <Component Name="CheckBoxAskPeriod" Class="Com.Ctrl.ICheckBox" Caption="@CMP:ServiceBuildReportAskPeriod=Запрашивать период" Field="EdtRec.AskPeriod"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="FrameSelectionCondition" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+      <Component Name="Frame3" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="Table1" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="EdtRec.ReportParameters">
+          <Component Name="DefStructRepParam" Class="CMP.Rec.Properties.IFillingService_ReportParameters" IsLibrary="1"/>
+          <Component Name="ColumnsGroup1" Class="Com.Ctrl.IColumnsGroup" Caption="@CMP:ServiceBuildReportRepParam=Связь реквизитов с параметрами отчета" HasCaption="True">
+            <Component Name="EditProperty" Class="Com.Ctrl.IEdit" Caption="@CMP:ServiceBuildReportRepParamProperty=Реквизит" Field="DefStructRepParam.Property" HasButton="True" OnGetLookupFilter="EditProperty_OnGetLookupFilter" Width="8"/>
+            <Component Name="EditParameter" Class="Com.Ctrl.IEdit" Caption="@CMP:ServiceBuildReportRepParamParameter=Параметр отчета..." CellFormat="EnumFormat" Field="DefStructRepParam.Parameter" HasButton="True" Width="8"/>
+            <Component Name="CheckBoxReadOnly" Class="Com.Ctrl.ICheckBox" Caption="@CMP:ServiceBuildReportRepParamReadOnly=Т/ч" Field="DefStructRepParam.ReadOnly" Width="1"/>
+          </Component>
+        </Component>
+        <Component Name="Static5" Class="Com.Ctrl.IStatic" Excluded="True"/>
+        <Component Name="Group4" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+          <Component Name="EditReportFormat" Class="Com.Ctrl.IEdit" Caption="@CMP:ServiceBuildReportReportFormat=Формат" CellFormat="EnumFormat" Enabled="False" Field="EdtRec.ReportFormat" ListAsString="TPL&#xD;&#xA;JPG&#xD;&#xA;GIF&#xD;&#xA;PNG&#xD;&#xA;RTF&#xD;&#xA;HTML&#xD;&#xA;BMP&#xD;&#xA;CSV" OnChange="Edit_OnChange"/>
+          <Component Name="EditFileFormula" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:ServiceBuildReportFileFormula=Файл" ProcType="EdtRec.ProcType"/>
+          <Component Name="EditExportSettings" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:ServiceBuildReportExportSettings=Опции экспорта" ProcType="EdtRec.ProcType"/>
+          <Component Name="GroupAutoBuild" Class="Com.Ctrl.IGroup">
+            <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+            <Component Name="CheckBoxAutoBuild" Class="Com.Ctrl.ICheckBox" Caption="@CMP:ServiceBuildReportAutoBuild=Строить автоматически" Field="EdtRec.AutoBuild"/>
+          </Component>
+          <Component Name="GroupShowModal" Class="Com.Ctrl.IGroup">
+            <Component Name="Static4" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+            <Component Name="CheckBoxShowModal" Class="Com.Ctrl.ICheckBox" Caption="@CMP:ServiceBuildReportShowModal=Открыть модально" Field="EdtRec.ShowModal"/>
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

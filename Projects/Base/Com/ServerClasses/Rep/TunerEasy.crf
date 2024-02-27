@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rep.Tuner">
+  <Inherited>
+    <Inherited Name="VarContainer">
+      <Inherited Name="SubParameters" OnAfterDelete="SubParametersOnAfterDelete" OnListing="ParametersOnListing"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TopFrame">
+        <Inherited Name="SubheaderFrame">
+          <Inherited Name="AfterDateFrame">
+            <Component Name="TopListButton" Class="Com.Ctrl.IListButton" After="#0" ImageName="Com.angle-down">
+              <Component Name="ButtonAutorefresh" Class="Com.Ctrl.IButton" Caption="@Tuner:Autorefresh=Автообновление" ImageName="Com.automatic-flash" IsSwitch="True"/>
+              <Component Name="ButtonFreeze" Class="Com.Ctrl.IButton" Caption="@Tuner:Freeze=Замораживать шапку и боковину" ImageName="Com.cell-frozen" IsSwitch="True"/>
+            </Component>
+            <Component Name="ButtonRefresh" Class="Com.Ctrl.IButton" Caption="@Tuner:Refresh=Обновить" ImageName="Com.Refresh" OnClick="ButtonRefreshOnClick" Printed="False" Visible="True"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Component Name="EasyFrame" Class="Com.Ctrl.IFrame" After="TopFrame" Margins="4" Orientation="Vertical">
+        <Component Name="EasySettingsFrame" Class="Com.Ctrl.IFrame" CanResizeBySplit="True" FixSize="True" Size="64" SplitterAtRight="True" UseSplitter="True">
+          <Component Name="EasyMainBox" Class="Com.Ctrl.IBox" Caption="@Tune:GrouprBox=Общие" Margins="4">
+            <Component Name="EasyMainFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+              <Component Name="EasyMainGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="20" MinWidth="40">
+                <Component Name="EasyRepCaption" Class="Com.RepCtrl.IEditSub" Caption="@Name=Имя" FontBold="True" LinkName="Caption" OnChange="RepCaption_OnChange" SubContainer="ReportContainer" Width="40"/>
+                <Component Name="EasyAccPlan" Class="Com.RepCtrl.IEditSub" Caption="@Tuner:Plan=План" HasButton="True" Hint="@Tuner:PlanHint=План счетов" LinkName="AccountPlan" OnChange="AccountPlanOnChange" OnLookup="AccountPlanOnLookup" SubContainer="ReportContainer" Width="40"/>
+                <Component Name="EasyAccFilter" Class="Com.RepCtrl.IEditSub" AutocompleteMode="acmOn" Caption="@Tuner:Accounts=Счета" HasButton="True" Hint="@Tuner:AccountsHint=Фильтр на счета" LinkName="AccountFilter" OnAutocomplete="AccountFilterOnAutocomplete" OnLookup="AccountFilterOnLookup" SubContainer="ReportContainer" Width="40"/>
+                <Component Name="EasyParameters" Class="Com.RepCtrl.IEditSub" Caption="@Tune:EasyParameterFilter=Условия" HasButton="True" Hint="@Tune:ParameterFilterHint=Фильтр на параметры отчёта" LinkName="ParameterFilter" OnLookup="ParameterFilterOnLookup" SubContainer="ReportContainer" Width="40"/>
+                <Component Name="EasySumEdit" Class="Com.Ctrl.IEdit" AutoLookup="True" Caption="@Tune:ShowFmt=Выводить" CaptionWidth="20" CellFormat="EnumFormat" ValueType="VarString" Width="30"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="EasySplitBox" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@Tune:Dimensions=Разрезы" Margins="4">
+            <Component Name="EasyRowsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+              <Component Name="EasyRowsTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="SubSplitByRows">
+                <Component Name="EasyRowsColumnsGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@Tune:SplitByRows=Строки" HasCaption="True">
+                  <Component Name="EasyRows" Class="Com.RepCtrl.IEditSub" HasButton="True" HasCaption="False" LinkName="SplitParam" MinWidth="40" OnDraw="EasySplitOnDraw" OnLookup="EasySplitOnLookup" OnOutput="EasySplitOnOutput" SubContainer="SubSplitByRows" UseMacro="True" Width="40"/>
+                  <Component Name="EasyRowsButton" Class="Com.Ctrl.IListButton" HasCaption="False" ImageName="Com.chevron-down" OnDraw="EasySplitButtonOnDraw"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="EasyColsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+              <Component Name="EasyColsTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="SubSplitByCols">
+                <Component Name="EasyColsColumnsGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@Tune:SplitByCols=Столбцы" HasCaption="True">
+                  <Component Name="EasyCols" Class="Com.RepCtrl.IEditSub" HasButton="True" HasCaption="False" LinkName="SplitParam" MinWidth="40" OnDraw="EasySplitOnDraw" OnLookup="EasySplitOnLookup" OnOutput="EasySplitOnOutput" SubContainer="SubSplitByCols" UseMacro="True" Width="40"/>
+                  <Component Name="EasyColsButton" Class="Com.Ctrl.IListButton" HasCaption="False" ImageName="Com.chevron-down" OnDraw="EasySplitButtonOnDraw"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="EasyTabsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+              <Component Name="EasyTabsTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="SubSplitByTabs">
+                <Component Name="EasyTabsColumnsGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@Tune:SplitByTabs=Таблицы" HasCaption="True">
+                  <Component Name="EasyTabs" Class="Com.RepCtrl.IEditSub" HasButton="True" HasCaption="False" LinkName="SplitParam" MinWidth="40" OnDraw="EasySplitOnDraw" OnLookup="EasySplitOnLookup" OnOutput="EasySplitOnOutput" SubContainer="SubSplitByTabs" UseMacro="True" Width="40"/>
+                  <Component Name="EasyTabsButton" Class="Com.Ctrl.IListButton" HasCaption="False" ImageName="Com.chevron-down" OnDraw="EasySplitButtonOnDraw"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="EasyIndBox" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@Tune:Indcators=Показатели" Margins="4">
+            <Component Name="EasyIndsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+              <Component Name="EasyIndsTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="SubIndicators">
+                <Component Name="EasyIndsColumnsGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@Tune:Indcators=Показатели" HasCaption="True">
+                  <Component Name="EasyInds" Class="Com.RepCtrl.IEditSub" HasButton="True" HasCaption="False" LinkName="CompID" MinWidth="40" OnDraw="EasyIndsOnDraw" OnLookup="EasyIndsOnLookup" OnOutput="EasyIndOnOutput" OnVerify="IndicatorOnVerify" SubContainer="SubIndicators" UseMacro="True" Width="40"/>
+                  <Component Name="EasyIndsButton" Class="Com.Ctrl.IListButton" HasCaption="False" ImageName="Com.chevron-down"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="EasyParamBox" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@Tune:Parameters=Параметры" Margins="4">
+            <Component Name="EasyPrmsFrame" Class="Com.Ctrl.IFrame" Margins="4">
+              <Component Name="EasyPrmsTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="SubParameters">
+                <Component Name="EasyPrmsColumnsGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@Tune:Parameters=Параметры" HasCaption="True">
+                  <Component Name="EasyPrms" Class="Com.RepCtrl.IEditSub" HasButton="True" HasCaption="False" LinkName="CompID" MinWidth="40" OnDraw="EasyPrmsOnDraw" OnLookup="EasyPrmsOnLookup" OnOutput="ParamOnOutput" OnVerify="ParamOnVerify" SubContainer="SubParameters" UseMacro="True" Width="40"/>
+                  <Component Name="EasyPrmsButton" Class="Com.Ctrl.IListButton" HasCaption="False" ImageName="Com.chevron-down"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="EasyPreviewFrame" Class="Com.Ctrl.IFrame"/>
+      </Component>
+      <Inherited Name="MainFrame" Visible="False"/>
+    </Inherited>
+  </Inherited>
+</Resource>

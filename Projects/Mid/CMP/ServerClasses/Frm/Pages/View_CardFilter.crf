@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CMP.Frm.Pages.Page">
+  <Inherited HelpContext="Стандарт.СтруктураБизнеса.ТипыПредставлений.СписокОбъектов.СписокОбъектов">
+    <Inherited Name="EdtRec" Class="CMP.Rec.Views.IObjectsList" IsLibrary="1"/>
+    <Component Name="FieldFilter" Class="CMP.Rec.Views.IObjectsList_FieldFilter" IsLibrary="1" After="EdtRec"/>
+    <Component Name="ProcTypeFilter" Class="CMP.Rec.Views.IObjectsList_ProcTypeFilter" IsLibrary="1"/>
+    <Component Name="MovingTypeFilter" Class="CMP.Rec.Views.IObjectsList_MovingTypeFilter" IsLibrary="1"/>
+    <Component Name="PriorFilter" Class="CMP.Rec.Views.IObjectsList_PriorFilter" IsLibrary="1"/>
+    <Component Name="SettingsStruct" Class="CMP.Rec.Views.IDocument_Settings" IsLibrary="1"/>
+    <Inherited Name="TableMenu" After="SettingsStruct"/>
+    <Inherited Name="RootFrame">
+      <Component Name="FilterBox" Class="Com.Ctrl.IBox" Caption="@CMP:FilterBox=Основные">
+        <Component Name="MainFilterFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+          <Component Name="MainFilterGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="48">
+            <Component Name="Group2" Class="Com.Ctrl.IGroup">
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="48"/>
+              <Component Name="WithoutPos" Class="Com.Ctrl.ICheckBox" Field="EdtRec.WithoutPos"/>
+            </Component>
+            <Component Name="PeriodFilterGroup" Class="Com.Ctrl.IGroup">
+              <Component Name="FieldDateFilter" Class="Com.Ctrl.IEdit" AutoLookup="True" CellFormat="EnumFormat" Field="EdtRec.FieldDateFilter" HasCaption="True"/>
+              <Component Name="PeriodIs" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.PeriodIs"/>
+            </Component>
+            <Component Name="ChoosePeriodEffect" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.ChoosePeriodEffect" HasCaption="True"/>
+          </Component>
+        </Component>
+        <Component Name="FieldFilterFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+          <Component Name="FieldsTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="EdtRec.FieldFilter">
+            <Component Name="FieldsTableGroup" Class="Com.Ctrl.IColumnsGroup" Alignment="LeftAlign" Caption="@CMP:FieldsTableGroup=Поля, по которым будет фильтроваться список" HasCaption="True">
+              <Component Name="FieldFilterValue" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="FieldFilter.Value" HasCaption="False"/>
+              <Component Name="FieldFilterStrict" Class="Com.Ctrl.ICheckBox" Field="FieldFilter.Strict" FixSize="True" HasCaption="False" Hint="@CMP:ViewCardFilterStrict=Строго" Width="8"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="ProcTypeFilterFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+          <Component Name="ProcTypesTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="EdtRec.ProcTypeFilter">
+            <Component Name="ProcTypesGroup" Class="Com.Ctrl.IColumnsGroup" Alignment="LeftAlign" Caption="@CMP:ProcTypeFilterValue=Фильтр на тип документа" HasCaption="True">
+              <Component Name="ProcTypeFilterValue" Class="Com.Ctrl.IEdit" Field="ProcTypeFilter.Value" HasCaption="False"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="MovingTypeFilterFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+          <Component Name="MovingsTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="EdtRec.MovingTypeFilter">
+            <Component Name="MovingsGroup" Class="Com.Ctrl.IColumnsGroup" Alignment="LeftAlign" Caption="@CMP:MovingTypeFilterValue=Фильтр на тип движения" HasCaption="True">
+              <Component Name="MovingTypeFilterValue" Class="Com.Ctrl.IEdit" Field="MovingTypeFilter.Value" HasCaption="False"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="CustomFilterFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="CustomFilterGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50" HasCaption="True">
+            <Component Name="CustomFilterEdit" Class="CMP.Ctrl.IFormulaEdit" Field="EdtRec.CustomFilterStr" ProcType="EdtRec.ProcType" Subtable="EdtRec.CustomFilterRec"/>
+            <Component Name="GroupFilterEdit" Class="CMP.Ctrl.IFormulaEdit" Field="EdtRec.GroupsStr" ProcType="EdtRec.ProcType" Subtable="EdtRec.GroupsRec"/>
+            <Component Name="TreeFilterEdit" Class="CMP.Ctrl.IFormulaEdit" Field="EdtRec.TreeFilterStr" ProcType="EdtRec.ProcType" Subtable="EdtRec.TreeFilterRec"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="ParamFilterBox" Class="Com.Ctrl.IBox" Caption="@CMP:ParamFilterBox=Параметрический фильтр">
+        <Component Name="ParamTableFrame" Class="Com.Ctrl.IFrame" Margins="4">
+          <Component Name="ParamTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" ShowIcon="False" Subtable="EdtRec.PriorFilter">
+            <Component Name="PriorFilterParam" Class="Com.Ctrl.IEdit" Field="PriorFilter.Param" HasButton="True" OnDrawEx="TableRowOnDraw" OnLookup="RecordFieldOnLookup"/>
+            <Component Name="PriorFilterSign" Class="Com.Ctrl.IEdit" AutoLookup="True" CellFormat="EnumFormat" Field="PriorFilter.Sign" FixSize="True" OnDrawEx="TableRowOnDraw" Width="15"/>
+            <Component Name="PriorFilterProperty" Class="Com.Ctrl.IEdit" Field="PriorFilter.Property" LookupField="Code" OnDrawEx="TableRowOnDraw" OnGetLookupFilter="PriorFilterProperty_OnGetLookupFilter"/>
+            <Component Name="PriorFilterAutorefresh" Class="Com.Ctrl.ICheckBox" Field="PriorFilter.Autorefresh" FixSize="True" Width="12"/>
+            <Component Name="PriorFilterOff" Class="Com.Ctrl.ICheckBox" Field="PriorFilter.Off" FixSize="True" Width="12"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="FilterSettingsBox" Class="Com.Ctrl.IBox" Caption="@CMP:FilterSettingsBox=Внешний вид">
+        <Component Name="TableFrame" Class="Com.Ctrl.IFrame" Margins="4"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

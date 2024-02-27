@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+    </Component>
+    <Component Name="VarContainer" Class="Com.IVarContainer"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" AutoSize="True" MaxButton="3">
+        <Component Name="ButtonRefresh" Class="Com.Ctrl.IButton" Caption="@Cmd:Refresh=Обновить" Command="Commands.RefreshForm" ImageName="Refresh" Printed="False"/>
+        <Component Name="ButtonSetup" Class="Com.Ctrl.IButton" Caption="@Cmd:Setup=Настройки" ImageName="Setup" OnClick="ButtonSetup_OnClick" Printed="False"/>
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Caption="@Cmd:Close=Закрыть" Command="Commands.CloseForm" ImageName="Close" Printed="False"/>
+        <Component Name="ButtonPrint" Class="Com.Ctrl.IButton" Caption="@Cmd:Print=Печать" Command="Commands.Print" ImageName="Print" Printed="False"/>
+        <Component Name="ButtonExport" Class="Com.Ctrl.IButton" Excluded="True" Caption="@Cmd:Export=Экспорт" Command="Commands.ExportCmd" ImageName="ExportRec" Printed="False"/>
+        <Component Name="ButtonHelp" Class="Com.Ctrl.IButton" Caption="@Cmd:Help=Помощь" Command="Commands.Help" ImageName="Help"/>
+      </Component>
+      <Component Name="MainFrame" Class="Com.Ctrl.IFrame" Margins="4">
+        <Component Name="ToolsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0xFF000004">
+          <Component Name="ViewGroup" Class="Com.Ctrl.IGroup">
+            <Component Name="ScaleStatic" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@Diagram:Scale=Масштаб:" Width="22"/>
+            <Component Name="AutoscaleButton" Class="Com.Ctrl.IButton" Hint="@Diagram:ScaleAuto=Автомасштаб" ImageName="Bas.zoom-auto" OnClick="AutoscaleButtonOnClick"/>
+            <Component Name="ScaleIncButton" Class="Com.Ctrl.IButton" Hint="@Diagram:ScaleInc=Приблизить" ImageName="Bas.zoom-in" OnClick="ScaleIncButtonOnClick"/>
+            <Component Name="ScaleDecButton" Class="Com.Ctrl.IButton" Hint="@Diagram:ScaleDec=Отдалить" ImageName="Bas.zoom-out" OnClick="ScaleDecButtonOnClick"/>
+            <Component Name="Scale100Button" Class="Com.Ctrl.IButton" Hint="@Diagram:Scale100=100%" ImageName="Bas.zoom-none" OnClick="Scale100ButtonOnClick"/>
+          </Component>
+        </Component>
+        <Component Name="DiagramFrame" Class="Com.Ctrl.IFrame">
+          <Component Name="DiagramJS" Class="Com.Ctrl.IDiagramJS"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

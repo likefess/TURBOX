@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.CustomTree">
+  <Inherited FormIcon="Admin.Project" HelpContext="Admin.Администрирование.Список серверов">
+    <Component Name="ProjectListStruct" Class="Admin.Frm.Proj.ProjectList_Struct" IsLibrary="1" After="#0"/>
+    <Inherited Name="TableMenu" After="ProjectListStruct">
+      <Inherited Name="cmdAdd" Caption="@Admin:ProjButtonAdd=Добавить проекты" CommandProc="cmdAdd_CommandProc"/>
+      <Inherited Name="cmdDel" Caption="@Admin:ProjButtonDelete=Удалить проект" CommandProc="cmdDel_CommandProc"/>
+      <Component Name="Separator1" Class="Com.Cmd2.ISeparator" After="cmdDel"/>
+      <Component Name="cmdBackup" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:ProjectBackup=Опубликовать проекты" CommandProc="cmdBackup_CommandProc" IconName="Admin.Backup"/>
+      <Component Name="cmdInsert" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:ProjButtonInsert=Установить проекты" CommandProc="cmdInsert_CommandProc" IconName="Admin.Restore"/>
+      <Component Name="Separator2" Class="Com.Cmd2.ISeparator"/>
+      <Component Name="cmdCompile" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:ProjectCompile=Компилировать проект" CommandProc="cmdCompile_CommandProc" IconName="Com.Compile"/>
+      <Inherited Name="cmdCopyValue" After="cmdCompile"/>
+    </Inherited>
+    <Inherited Name="Variables">
+      <Inherited Name="Subtable" StructClass="Admin.Frm.Proj.ProjectList_Struct"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="lbtnAdd" Class="Com.Ctrl.IListButton" After="#0" ImageName="Com.AddItem">
+          <Component Name="ButtonAdd" Class="Com.Ctrl.IButton" Caption="@Admin:ProjectAdd=Добавить проекты" Command="cmdAdd" ImageName="Com.AddItem"/>
+          <Component Name="ButtonInsert" Class="Com.Ctrl.IButton" Caption="@Admin:ProjectInsertBtn=Установить проекты" Command="cmdInsert" ImageName="Admin.Restore"/>
+        </Component>
+        <Inherited Name="ButtonAddItem" Excluded="True" After="lbtnAdd"/>
+        <Component Name="ButtonBackup" Class="Com.Ctrl.IButton" After="ButtonClose" Caption="@Admin:ProjectBackupBtn=Опубликовать проекты" Command="cmdBackup" ImageName="Admin.Backup"/>
+        <Inherited Name="ButtonDeleteItem" After="ButtonBackup" Caption="@Admin:ProjectDelete=Удалить проект" Command="cmdDel"/>
+        <Component Name="ButtonCompile" Class="Com.Ctrl.IButton" After="HeaderSeparator" Caption="@Admin:ProjectCompile=Компилировать проект" Command="cmdCompile" ImageName="Com.Compile"/>
+        <Inherited Name="ButtonRefresh" After="ButtonCompile"/>
+      </Inherited>
+      <Inherited Name="NavigatorFrame">
+        <Inherited Name="grpNavigator">
+          <Inherited Name="sepNav" Excluded="False"/>
+          <Inherited Name="edtFilter" Excluded="False"/>
+          <Inherited Name="buttonFields" Excluded="False"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="frameData">
+          <Inherited Name="TableData" OnDrawIcon="TableData_OnDrawIcon" ShowIcon="True">
+            <Inherited Name="edName" Caption="@Admin:ProjectListName=Проект" Field="ProjectListStruct.Name" MaxWidth="100" Width="50"/>
+            <Component Name="edHead" Class="Com.Ctrl.IEdit" Caption="@Admin:ProjectListTitle=Название" Enabled="False" Field="ProjectListStruct.Head" HasCaption="True" MaxWidth="120" MinWidth="20" OnClick="ItemTable_OnClick" Width="60"/>
+            <Component Name="edCompiled" Class="Com.Ctrl.IEdit" Caption="@Admin:ProjectListCompiled=Откомпилирован" Enabled="False" Field="ProjectListStruct.Compiled" MaxWidth="60" MinWidth="20" OnClick="ItemTable_OnClick" OnOutputEx="edCompiled_OnOutputEx" Width="40"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,52 @@
+﻿table.rep {
+    position: relative;
+    display: block;
+    width: 600px; /* Ограничим ширину для появления прокрутки */
+    overflow: hidden;
+}
+
+table.rep > thead {
+            position: relative;
+            width: 600px; /* Ограничим ширину для появления прокрутки */
+            overflow: visible;
+}
+
+table.rep > tbody {
+position: relative;
+width: 600px; /* Ограничим ширину для появления прокрутки */
+height: 200px; /* Ограничим высоту для появления прокрутки */
+overflow: auto;
+}
+
+table.rep tr.rowtotal, table.rep tr.row1, table.rep tr.row2 {
+display: table-row;
+}
+
+thead tr th.freeze, tbody tr td.freeze {
+position: relative;
+display: block;
+background-color: white;
+}
+
+.hdr1.BA8.S80.freeze, .hdr1.B8A.S80.freeze {
+margin-top: -1px;
+}
+
+.hdr1.B8A.S80.freeze {
+margin-bottom: -1px;
+}
+
+.hdr1.B0A, .hdr1.B06, .hdr1.B0A, .hdr1.B0A {
+padding-bottom: 0;
+}
+
+@media print { /* Стиль для печати */
+table.rep > thead {
+        width: auto !important;
+}
+
+table.rep > tbody {
+        width: auto !important;
+        height: auto !important;
+}
+}

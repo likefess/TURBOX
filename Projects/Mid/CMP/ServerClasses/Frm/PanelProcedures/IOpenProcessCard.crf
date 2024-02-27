@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CMP.Frm.PanelProcedures.IBasePanelProcedure">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="Period" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="BegDate" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="EndDate" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="Showing" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="SameWindow" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="SpecificProcess" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="NavigationFilter" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="NavigationTreeFilter" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="NavigationGroupList" Class="Com.Fld.IVar" ValueType="VarArray"/>
+      <Component Name="DisableHierarchical" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="DisableTree" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="DisableProcessList" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FixDateRange" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="TreeDescriptionField" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="ShowingFilter" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="TreeShowingFilter" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="ShowingGroupList" Class="Com.Fld.IVar" ValueType="VarArray"/>
+      <Component Name="NewDocTypes" Class="Com.Fld.IVar" ValueType="VarArray"/>
+      <Component Name="BegDateRecords" Class="Com.ISubtable" StructClass="CMP.Rec.IRecords"/>
+      <Component Name="EndDateRecords" Class="Com.ISubtable" StructClass="CMP.Rec.IRecords"/>
+      <Component Name="ShowingRecords" Class="Com.ISubtable" StructClass="CMP.Rec.IRecords"/>
+      <Component Name="SpecificProcessRecords" Class="Com.ISubtable" StructClass="CMP.Rec.IRecords"/>
+      <Component Name="NavigationFilterRecords" Class="Com.ISubtable" StructClass="CMP.Rec.IRecords"/>
+      <Component Name="NavigationTreeFilterRecords" Class="Com.ISubtable" StructClass="CMP.Rec.IRecords"/>
+      <Component Name="ShowingFilterRecords" Class="Com.ISubtable" StructClass="CMP.Rec.IRecords"/>
+      <Component Name="TreeShowingFilterRecords" Class="Com.ISubtable" StructClass="CMP.Rec.IRecords"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50" HasCaption="True">
+        <Component Name="EditPeriod" Class="Com.Ctrl.IEdit" Caption="@CMP:OpenProcessCardPeriod=Диапазон дат" CellFormat="EnumFormat" Field="Period" OnChange="Edit_OnChange"/>
+        <Component Name="EditBegDate" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:OpenProcessCardBegDate=Дата начала" Field="BegDate" OnChange="Edit_OnChange" ProcType="EmptyObject.ObjType" Subtable="BegDateRecords"/>
+        <Component Name="EditEndDate" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:OpenProcessCardEndDate=Дата окончания" Field="EndDate" OnChange="Edit_OnChange" ProcType="EmptyObject.ObjType" Subtable="EndDateRecords"/>
+        <Component Name="EditShowing" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:OpenProcessCardShowing=Представление" Field="Showing" OnChange="Edit_OnChange" ProcType="EmptyObject.ObjType" Subtable="ShowingRecords"/>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Excluded="True">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="CheckBoxSameWindow" Class="Com.Ctrl.ICheckBox" Caption="@CMP:OpenProcessCardSameWindow=Открыть в том же окне" Field="SameWindow" OnChange="CheckBox_OnChange"/>
+        </Component>
+        <Component Name="EditSpecificProcess" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:OpenProcessCardSpecificProcess=Конкретный процесс" Field="SpecificProcess" OnChange="Edit_OnChange" ProcType="EmptyObject.ObjType" Subtable="SpecificProcessRecords"/>
+        <Component Name="EditNavigationFilter" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:OpenProcessCardNavigationFilter=Фильтр для навигации" Field="NavigationFilter" OnChange="Edit_OnChange" ProcType="EmptyObject.ObjType" Subtable="NavigationFilterRecords"/>
+        <Component Name="EditNavigationTreeFilter" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:OpenProcessCardNavigationTreeFilter=Фильтр дерева для навигации" Field="NavigationTreeFilter" OnChange="Edit_OnChange" ProcType="EmptyObject.ObjType" Subtable="NavigationTreeFilterRecords"/>
+        <Component Name="EditNavigationGroupList" Class="Com.Ctrl.IListEdit" Excluded="True" Caption="@CMP:OpenProcessCardNavigationGroupList=Список групп для навигации" Field="NavigationGroupList"/>
+        <Component Name="Group3" Class="Com.Ctrl.IGroup">
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="CheckBoxDisableHierarchical" Class="Com.Ctrl.ICheckBox" Caption="@CMP:OpenProcessCardDisableHierarchical=Отключить иерархию" Field="DisableHierarchical" OnChange="CheckBox_OnChange"/>
+        </Component>
+        <Component Name="Group4" Class="Com.Ctrl.IGroup">
+          <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="CheckBoxDisableTree" Class="Com.Ctrl.ICheckBox" Caption="@CMP:OpenProcessCardDisableTree=Отключить дерево" Field="DisableTree" OnChange="CheckBox_OnChange"/>
+        </Component>
+        <Component Name="Group5" Class="Com.Ctrl.IGroup">
+          <Component Name="Static4" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="CheckBoxDisableProcessList" Class="Com.Ctrl.ICheckBox" Caption="@CMP:OpenProcessCardDisableProcessList=Отключить список процессов" Field="DisableProcessList" OnChange="CheckBox_OnChange"/>
+        </Component>
+        <Component Name="Group6" Class="Com.Ctrl.IGroup">
+          <Component Name="Static5" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="CheckBoxFixDateRange" Class="Com.Ctrl.ICheckBox" Caption="@CMP:OpenProcessCardFixDateRange=Фиксировнный диапазон дат" Field="FixDateRange" OnChange="CheckBox_OnChange"/>
+        </Component>
+        <Component Name="EditTreeDescriptionField" Class="Com.Ctrl.IEdit" Caption="@CMP:OpenProcessCardTreeDescriptionField=Поле описания дерева" Field="TreeDescriptionField" OnChange="Edit_OnChange"/>
+        <Component Name="EditShowingFilter" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:OpenProcessCardShowingFilter=Фильтр представления" Field="ShowingFilter" OnChange="Edit_OnChange" ProcType="EmptyObject.ObjType" Subtable="ShowingFilterRecords"/>
+        <Component Name="EditTreeShowingFilter" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:OpenProcessCardTreeShowingFilter=Фильтр дерева представления" Field="TreeShowingFilter" OnChange="Edit_OnChange" ProcType="EmptyObject.ObjType" Subtable="TreeShowingFilterRecords"/>
+        <Component Name="EditShowingGroupList" Class="Com.Ctrl.IListEdit" Excluded="True" Caption="@CMP:OpenProcessCardShowingGroupList=Список групп представления" Field="ShowingGroupList"/>
+        <Component Name="EditNewDocTypes" Class="Com.Ctrl.IListEdit" Excluded="True" Caption="@CMP:OpenProcessCardNewDocTypes=Типы для нового документа" Field="NewDocTypes"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.InfoBase.InfobaseCustReplic">
+  <Inherited FormIcon="Com.ImportRec">
+    <Inherited Name="Variables">
+      <Component Name="FldSafeDelete" Class="Com.Fld.IVar" After="#0" ValueType="VarLogical"/>
+      <Component Name="FldAllowOldPackets" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldLog" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="FldLogSkipRecords" Class="Com.Fld.IVar"/>
+      <Component Name="FldSelectIB" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="FldSelectRS" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Inherited Name="ProcessTime" After="FldSelectRS"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="FrameArchive">
+          <Inherited Name="frameTable">
+            <Inherited Name="tblArchive">
+              <Inherited Name="edSize" After="edPacket"/>
+              <Inherited Name="edDateTime" After="edSize"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Component Name="FrameParameters" Class="Com.Ctrl.IFrame" After="FrameArchive" Caption="@Admin:IBReplicImportMaster_Step2=Параметры" Margins="8">
+          <Component Name="grpParameters" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="chbSafeDelete" Class="Com.Ctrl.ICheckBox" Caption="@Admin:IBReplicImport_SafeDelete=Контроль ссылочной целостности при удалении" Field="FldSafeDelete"/>
+            <Component Name="chbAllowOldPackets" Class="Com.Ctrl.ICheckBox" Caption="@Admin:IBReplicImport_AllowOldPackets=Разрешить прием принятых ранее пакетов репликации" Field="FldAllowOldPackets"/>
+          </Component>
+          <Component Name="grpLog" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="chbLog" Class="Com.Ctrl.ICheckBox" Caption="@Admin:ReplicImport_Log=Вести лог импорта пакетов репликации" Field="FldLog" OnChange="chbLog_OnChange"/>
+            <Component Name="lineLog" Class="Com.Ctrl.INewLine"/>
+            <Component Name="prefSkipRecord" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+            <Component Name="chbLogSkipRecords" Class="Com.Ctrl.ICheckBox" Caption="@Admin:ReplicImport_LogSkipRecords=Протоколировать пропущенные записи" Enabled="False" Field="FldLogSkipRecords"/>
+          </Component>
+        </Component>
+        <Component Name="FrameMapping" Class="Com.Ctrl.IFrame" Caption="@Admin:IBReplicImportMaster_Step3=Настройка репликаций" Margins="8">
+          <Component Name="grpFile" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="lblPacketFile" Class="Com.Ctrl.IStatic" Caption="@Admin:IBReplicImport_PacketFile=Пакет" FixSize="True" Width="60"/>
+            <Component Name="edPacketFile" Class="Com.Ctrl.IEdit" Enabled="False" Width="100"/>
+          </Component>
+          <Component Name="lineGrpFile" Class="Com.Ctrl.INewLine"/>
+          <Component Name="grpInfobase" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="prefInfoBase" Class="Com.Ctrl.IStatic" FixSize="True" Width="60"/>
+            <Component Name="lblInfoBase" Class="Com.Ctrl.IStatic" Caption="@Admin:IBReplicImport_Infobase=Информационная база" FontItalic="True" Width="100"/>
+            <Component Name="lineIB" Class="Com.Ctrl.INewLine"/>
+            <Component Name="prefIBmember" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="4"/>
+            <Component Name="lblIBmember" Class="Com.Ctrl.IStatic" FixSize="True" Width="60"/>
+            <Component Name="edInfobase" Class="Com.Ctrl.IEdit" Enabled="False" Width="100"/>
+            <Component Name="lineIBmember" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblIBServer" Class="Com.Ctrl.IStatic" FixSize="True" Width="60"/>
+            <Component Name="edSelectInfobase" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="FldSelectIB" OnVerify="edSelectInfobase_OnVerify" Width="100"/>
+            <Component Name="lineIBserver" Class="Com.Ctrl.INewLine"/>
+          </Component>
+          <Component Name="grpReplicSchema" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="prefReplicSchema" Class="Com.Ctrl.IStatic" FixSize="True" Width="60"/>
+            <Component Name="lblReplicSchema" Class="Com.Ctrl.IStatic" Caption="@Admin:IBReplicImport_ReplicSchema=Схема репликации" FontItalic="True" Width="100"/>
+            <Component Name="lineRS" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblRSmember" Class="Com.Ctrl.IStatic" FixSize="True" Width="60"/>
+            <Component Name="edReplicSchema" Class="Com.Ctrl.IEdit" Enabled="False" Width="100"/>
+            <Component Name="lineRSmember" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblRSserver" Class="Com.Ctrl.IStatic" FixSize="True" Width="60"/>
+            <Component Name="edSelectReplSchema" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="FldSelectRS" Width="100"/>
+            <Component Name="lineRSserver" Class="Com.Ctrl.INewLine"/>
+          </Component>
+        </Component>
+        <Inherited Name="FrameDB" Excluded="True" After="FrameMapping"/>
+        <Inherited Name="FrameProcess" Caption="@Admin:IBReplicImportMaster_Step4=Импорт">
+          <Inherited Name="frameStatus">
+            <Inherited Name="grpStatus">
+              <Inherited Name="lblStatus" Width="34"/>
+            </Inherited>
+            <Inherited Name="grpDetail">
+              <Inherited Name="lblDocument" Caption="@Admin:IBReplicImport_Imported=Импортировано" Width="34"/>
+              <Inherited Name="lblConflict" Width="34"/>
+            </Inherited>
+            <Inherited Name="grpTime">
+              <Inherited Name="lblTime" Width="34"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IEditorWithFrames">
+  <Inherited HelpContext="CMP.Студия компонентов (машина реквизитов).Настройки картотек">
+    <Inherited Name="EdtRec" Class="CMP.Rec.Config.CardfileSetup" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50" HasCaption="True">
+          <Component Name="EditName" Class="Com.Ctrl.IEdit" Field="EdtRec.Name"/>
+          <Component Name="EditCardfile" Class="Com.Ctrl.IEdit" Caption="@Cmp:Cardfile=Картотека" Field="EdtRec.Cardfile" HasButton="True" OnLookup="EditCardfile_OnLookup"/>
+          <Component Name="EditCardTitle" Class="Com.Ctrl.IEdit" Caption="@Cmp:CardfileTitle=Заголовок" Field="EdtRec.CardTitle"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="@CMP:CardfileColumns=Колонки">
+          <Component Name="Table1" Class="Com.Ctrl.ITable" Adaptive="True" Subtable="EdtRec.ColumnsSetup">
+            <Component Name="DefColumnSetup" Class="CMP.Rec.Config.CardfileSetup_ColumnsSetup" IsLibrary="1"/>
+            <Component Name="ColumnsGroup1" Class="Com.Ctrl.IColumnsGroup" Caption="@CMP:CardfileColumnsSetup=Настройка столбцов" HasCaption="True">
+              <Component Name="EditField" Class="Com.Ctrl.IEdit" Caption="@CMP:CardfileField=Поле" Field="DefColumnSetup.Field" HasButton="True" OnLookup="EditField_OnLookup" Width="50"/>
+              <Component Name="EditCaption" Class="Com.Ctrl.IEdit" Caption="@CMP:CardfileCaption=Заголовок" Field="DefColumnSetup.Caption" Width="47"/>
+              <Component Name="EditSort" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@CMP:CardfileSort=Сорт" Enabled="False" Field="DefColumnSetup.Sort" FontName="Wingdings 3" Hint="@CMP:CardfileHintSort=Сортировать" OnClick="EditSort_OnClick" OnOutput="EditSort_OnOutput" Width="12"/>
+              <Component Name="CheckBoxNoSorting" Class="Com.Ctrl.ICheckBox" Caption="@CMP:CardfileNoSorting=Не сорт" Field="DefColumnSetup.NoSorting" Hint="@CMP:CardfileHintNoSorting=Если флаг включен, то сортировка по данному столбцу запрещена." Width="18"/>
+              <Component Name="EditDerefSearch" Class="Com.Ctrl.IEdit" Caption="@CMP:CardfileDerefSearch=Поиск" CellFormat="EnumFormat" Field="DefColumnSetup.DerefSearch" Hint="@CMP:CardfileDerefSearch=Способ поиска в столбцах, связанных со ссылочными&#xD;&#xA;полями:&#xD;&#xA;&#xD;&#xA;Станд. - стандартный способ поиска, по значению&#xD;&#xA;ссылки (например, &quot;Товар = ...&quot;)&#xD;&#xA;Разым. - поиск по разыменованию, выводимому в&#xD;&#xA;столбце (например, &quot;Товар.Код = ...&quot;)" ListAsString="Станд.&#xD;&#xA;Разым." Width="18"/>
+              <Component Name="EditOutFormat" Class="Com.Ctrl.IEdit" Caption="@CMP:CardfileOutFormat=Формат вывода" Field="DefColumnSetup.OutFormat" Hint="@CMP:CardfileHintOutFormat=Настройка &quot;Формат вывода&quot; предназначена только для&#xD;&#xA;числовых полей и полей типа дата, для остальных типов&#xD;&#xA;настройка не имеет смысла." Width="30"/>
+              <Component Name="EditAlignment" Class="Com.Ctrl.IEdit" Caption="@CMP:CardfileAlignment=Выравнивание" CellFormat="EnumFormat" Field="DefColumnSetup.Alignment" ListAsString=" |0&#xD;&#xA;Влево|1&#xD;&#xA;Вправо|2&#xD;&#xA;По центру|3" Width="27"/>
+              <Component Name="EditCondition" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:CardfileVisibilityCondition=Условие видимости" Field="DefColumnSetup.VisibilityCondition" Subtable="DefColumnSetup.ConditionRecords" Width="73"/>
+            </Component>
+          </Component>
+          <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="CheckBoxDropSorting" Class="Com.Ctrl.ICheckBox" Caption="@CMP:CardfileDropSorting=Не сохранять пользовательскую сортировку" Field="EdtRec.DropSorting"/>
+            <Component Name="CheckBoxSelEmptyFolders" Class="Com.Ctrl.ICheckBox" Excluded="True" Caption="@CMP:CardfileSelEmptyFolders=Выбирать пустые папки"/>
+          </Component>
+        </Inherited>
+        <Component Name="FrameCommands" Class="Com.Ctrl.IFrame" Caption="@CMP:CardfileCommands=Команды и кнопки">
+          <Component Name="CardAccessBox" Class="Com.Ctrl.IBox" Caption="@CMP:CardAccessBox=Доступность команд">
+            <Component Name="CardAccessGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="Group5" Class="Com.Ctrl.IGroup" ByColumn="True" FixSize="True" Width="50">
+                <Component Name="Static2" Class="Com.Ctrl.IStatic"/>
+              </Component>
+              <Component Name="CardAccessGroup1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="HideButtonOpen" Class="Com.Ctrl.ICheckBox" Field="EdtRec.NoOpen"/>
+                <Component Name="HideButtonAdd" Class="Com.Ctrl.ICheckBox" Field="EdtRec.NoAdd"/>
+                <Component Name="HideButtonClone" Class="Com.Ctrl.ICheckBox" Field="EdtRec.NoClone"/>
+                <Component Name="HideButtonAddFolder" Class="Com.Ctrl.ICheckBox" Field="EdtRec.NoAddGroup"/>
+              </Component>
+              <Component Name="CardAccessGroup2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="HideButtonPanel" Class="Com.Ctrl.ICheckBox" Field="EdtRec.HideRightPanel"/>
+                <Component Name="HideButtonFolderElement" Class="Com.Ctrl.ICheckBox" Field="EdtRec.NoTransform"/>
+                <Component Name="HideButtonEdit" Class="Com.Ctrl.ICheckBox" Field="EdtRec.NoEdit"/>
+                <Component Name="HideButtonDelete" Class="Com.Ctrl.ICheckBox" Field="EdtRec.NoDelete"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="CardCaptionsBox" Class="Com.Ctrl.IBox" Caption="@CMP:CardCaptionsBox=Подсказки для кнопок">
+            <Component Name="CardCaptionsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+              <Component Name="CaptionButtonAdd" Class="Com.Ctrl.IEdit" Caption="@CMP:CaptionButtonAdd=&quot;Добавить&quot;"/>
+              <Component Name="CaptionButtonClone" Class="Com.Ctrl.IEdit" Caption="@CMP:CaptionButtonClone=&quot;Дублировать&quot;"/>
+              <Component Name="CaptionButtonAddFolder" Class="Com.Ctrl.IEdit" Caption="@CMP:CaptionButtonAddFolder=&quot;Добавить группу&quot;"/>
+              <Component Name="CaptionButtonFolderElement" Class="Com.Ctrl.IEdit" Caption="@CMP:CaptionButtonFolderElement=&quot;Группа/элемент&quot;"/>
+              <Component Name="CaptionButtonEdit" Class="Com.Ctrl.IEdit" Caption="@CMP:CaptionButtonEdit=&quot;Редактировать&quot;"/>
+              <Component Name="CaptionButtonDelete" Class="Com.Ctrl.IEdit" Caption="@CMP:CaptionButtonDelete=&quot;Удалить&quot;"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="FrameOnCreate" Class="Com.Ctrl.IFrame" Caption="@CMP:CardfileOnCreate=При создании">
+          <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+            <Component Name="EditRestrictFilter" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:CardfileRestrictFilter=Фильтр" Field="EdtRec.RestrictFilter" Subtable="EdtRec.RestrictFilterRecords"/>
+            <Component Name="EditGroupsFilter" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:CardfileGroupsFilter=Список групп" Field="EdtRec.GroupsFilter" Subtable="EdtRec.GroupsRecords"/>
+            <Component Name="EditTreeFilter" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:CardfileTreeFilter=Фильтр дерева" Field="EdtRec.TreeFilter" Subtable="EdtRec.TreeFilterRecords"/>
+            <Component Name="Group4" Class="Com.Ctrl.IGroup">
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+              <Component Name="CheckBoxHideTree" Class="Com.Ctrl.ICheckBox" Caption="@CMP:CardfileHideTree=Скрыть дерево" Field="EdtRec.HideTree"/>
+              <Component Name="CheckBoxNotHierarchical" Class="Com.Ctrl.ICheckBox" Caption="@CMP:CardfileNotHierarchical=Отключить иерархию" Field="EdtRec.NotHierarchical"/>
+            </Component>
+            <Component Name="Edit4" Class="CMP.Ctrl.IFormulaEdit" Excluded="True" Caption="@CMP:CardfileCreateService=Реквизит создания"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,68 @@
+﻿TBCFile VER="3.4" [Created '08.09.2020 14:54:45' by 'Administrator']
+
+DESCRIPTION[
+Count=5
+CountByRef=0
+Biz.Ref.ContractStatus
+(
+  Count=5
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Biz.Ref.ContractStatus
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    MetaLock :Boolean
+    SubsysCode :Integer
+    ModuleCode :String
+    PartisCode :Integer
+    OperDoc :Inherited Bas.Base.Event
+    НеОтображаетсяВДереве :Boolean
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Biz.Ref.ContractStatus
+  
+  {Biz.Ref.ContractStatus:"ContractStatus.01"}
+  (
+    Name = "Черновик"
+  )
+  
+  {Biz.Ref.ContractStatus:"ContractStatus.02"}
+  (
+    Name = "На подписи"
+  )
+  
+  {Biz.Ref.ContractStatus:"ContractStatus.03"}
+  (
+    Name = "Действует"
+  )
+  
+  {Biz.Ref.ContractStatus:"ContractStatus.04"}
+  (
+    Name = "Завершен"
+  )
+  
+  {Biz.Ref.ContractStatus:"ContractStatus.05"}
+  (
+    Name = "Расторгнут"
+  )
+]
+
+]

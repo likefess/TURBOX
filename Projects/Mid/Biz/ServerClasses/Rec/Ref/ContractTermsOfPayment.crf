@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rec.CodeName">
+  <Inherited>
+    <Inherited Name="Dative" After="#0"/>
+    <Inherited Name="Code" After="Accusative"/>
+    <Component Name="Company" Class="Com.Fld.IField" After="Code" Caption="@ContractTermsOfPayment:Company=Предприятие" FieldName="Company" ValueType="VarObject"/>
+    <Component Name="ShortName" Class="Com.Fld.IField" Caption="@ContractTermsOfPayment:ShortName=Краткое наименование" FieldName="ShortName" OnChange="ShortName_OnChange" ValueType="VarString"/>
+    <Inherited Name="Name" Caption="@ContractTermsOfPayment:Name=Полное наименование"/>
+    <Component Name="ContractSubject" Class="Com.Fld.IField" After="Name" Caption="@ContractTermsOfPayment:ContractSubject=Предмет договора" FieldName="ContractSubject" ValueType="VarObject"/>
+    <Component Name="Description" Class="Com.Fld.IField" Caption="@ContractTermsOfPayment:Description=Описание" FieldName="Description" ValueType="VarString"/>
+    <Component Name="Positions" Class="Com.ISubtable" StructClass="Biz.Rec.Ref.ContractTermsOfPayment_Positions" SubtableName="Positions"/>
+  </Inherited>
+</Resource>

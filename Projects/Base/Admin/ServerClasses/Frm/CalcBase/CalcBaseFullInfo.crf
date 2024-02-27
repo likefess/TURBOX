@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.CustFullInfo">
+  <Inherited HelpContext="Admin.Администрирование.Список серверов">
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="grpInfo" MaxWidth="-1">
+          <Inherited Name="lblName" Caption="@Admin:CalcBase.Name=Наименование" FixSize="False" MaxWidth="40" MinWidth="30" Width="35"/>
+          <Component Name="grpServer" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="-1">
+            <Component Name="lblServer" Class="Com.Ctrl.IStatic" Caption="@Admin:CalcBase.Server=Сервер" FixSize="False" MaxWidth="40" MinWidth="30" Width="35"/>
+            <Component Name="edtServer" Class="Com.Ctrl.IEdit" Enabled="False" MinWidth="50" Width="100"/>
+            <Component Name="sepServer" Class="Com.Ctrl.IStatic" FixSize="True" Width="4"/>
+            <Component Name="linServer" Class="Com.Ctrl.INewLine"/>
+          </Component>
+          <Component Name="grpInfobase" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="-1">
+            <Component Name="lblInfobase" Class="Com.Ctrl.IStatic" Caption="@Admin:CalcBase.Infobase=Инф.база" FixSize="False" MaxWidth="40" MinWidth="30" Width="35"/>
+            <Component Name="edtInfobase" Class="Com.Ctrl.IEdit" Enabled="False" MinWidth="50" Width="100"/>
+            <Component Name="sepInfobase" Class="Com.Ctrl.IStatic" FixSize="True" Width="4"/>
+            <Component Name="linInfobase" Class="Com.Ctrl.INewLine"/>
+          </Component>
+          <Component Name="grpState" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="-1">
+            <Component Name="lblState" Class="Com.Ctrl.IStatic" Caption="@Admin:CalcBase.State=Состояние" FixSize="False" MaxWidth="40" MinWidth="30" Width="35"/>
+            <Component Name="edtState" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Enabled="False" ListAsString="|0;stCreate|1;stLoadData|2;Работает|3;stError|4;stDisconnect|5;stSaveData|6;stDestroy|7;" MinWidth="50" ValueType="VarInteger" Width="100"/>
+            <Component Name="sepState" Class="Com.Ctrl.IStatic" FixSize="True" Width="4"/>
+            <Component Name="linState" Class="Com.Ctrl.INewLine"/>
+          </Component>
+          <Component Name="grpClients" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="-1">
+            <Component Name="lblClients" Class="Com.Ctrl.IStatic" Caption="@Admin:CalcBase.Clients=Пользователей" FixSize="False" MaxWidth="40" MinWidth="30" Width="35"/>
+            <Component Name="edtClients" Class="Com.Ctrl.IEdit" Enabled="False" FieldFormat=",0;;-" MinWidth="50" ValueType="VarInteger" Width="100"/>
+            <Component Name="sepClients" Class="Com.Ctrl.IStatic" FixSize="True" Width="4"/>
+            <Component Name="linClients" Class="Com.Ctrl.INewLine"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

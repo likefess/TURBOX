@@ -1,0 +1,40 @@
+﻿TBCFile VER="3.4" [Created '05.02.2021 13:38:09' by 'Администратор']
+
+DESCRIPTION[
+Count=2
+CountByRef=0
+Biz.Ref.SpecificationStatus
+(
+  Count=2
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Biz.Ref.SpecificationStatus
+  (
+    Deleted :Boolean
+    Code :String(80)
+    Name :String(255)
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Biz.Ref.SpecificationStatus
+  
+  {Biz.Ref.SpecificationStatus:"Спец.Действует"}
+  (
+    Name = "Действует"
+  )
+  
+  {Biz.Ref.SpecificationStatus:"Спец.Откорректирована"}
+  (
+    Name = "Откорректирована"
+  )
+]
+
+]

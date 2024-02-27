@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="COM.Menu.Panels.Services">
+  <Inherited>
+    <Inherited Name="MainGroup" Columns="2" Rows="2">
+      <Inherited Name="MenuGroup_Robots">
+        <Component Name="MenuItem_JobSettings" Class="Com.Cmd2.IItem" After="MenuItem_InfobaseCmdAsyncJob" Command="Commands.Cmd_JobSettings"/>
+      </Inherited>
+      <Component Name="MenuGroup_MiscServices" Class="Com.Cmd2.IGroup" Caption="@Menu.Group:MiscServices=Прочие сервисы" Columns="2" Rows="2">
+        <Component Name="MenuItem_InfobaseCmdServFillEmpty" Class="Com.Cmd2.IItem" Command="Commands.ServFillEmpty"/>
+        <Component Name="MenuItem_InfobaseCmdReminders" Class="Com.Cmd2.IItem" Command="Commands.Reminders"/>
+        <Component Name="MenuItem_InfobaseCurrentReminders" Class="Com.Cmd2.IItem" Command="Commands.CurrentReminders"/>
+        <Component Name="MenuItem_OpenLog" Class="Com.Cmd2.IItem" Command="Commands.OpenLog"/>
+        <Component Name="MenuItem_MainMenuConvertor" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.MainMenuConvertor"/>
+        <Component Name="MenuItem_RecoveryWizard" Class="Com.Cmd2.IItem" Command="Commands.Cmd_RecoveryWizard"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="InfoBoard.Ctrl.ITile">
+  <Inherited>
+    <Component Name="_VisualStyle" Class="Com.Ctrl.IEdit" Caption="Стиль отображения" CellFormat="EnumFormat" ListAsString="Картотека|0;Список флагов|1;Радиокнопки|2" OnChange="VisualStyleOnChange"/>
+    <Component Name="_Filter" Class="Com.Ctrl.IEdit" Caption="Фильтр" OnLookup="FilterOnLookup"/>
+    <Component Name="_HideTree" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Скрывать дерево"/>
+    <Component Name="_HideNavigator" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Скрывать навигатор"/>
+    <Component Name="_Current" Class="Com.Ctrl.IEdit" Caption="Текущая запись" LookupField="Name"/>
+    <Component Name="_FlagField" Class="Com.Ctrl.IEdit" Caption="Показывать поле" CellFormat="EnumFormat" OnDraw="FlagFieldOnDraw" OnOutput="FlagFieldOnOutput" ValueType="VarString"/>
+    <Component Name="_PanelFilter" Class="Com.Ctrl.IEdit" Caption="Фильтр панели" HasButton="True" OnEnter="PanelFilterOnEnter" OnLookup="PanelFilterOnLookup" OnOutput="PanelFilterOnOutput"/>
+  </Inherited>
+</Resource>

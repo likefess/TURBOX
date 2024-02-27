@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.CustomDialog">
+  <Inherited Caption="@Dlgs:Confirmation=Подтверждение">
+    <Inherited Name="RootFrame">
+      <Inherited Name="TopFrame">
+        <Inherited Name="grpText">
+          <Component Name="btnImage" Class="Com.Ctrl.IButton" CanSelect="False" FixSize="True" ImageName="Com.exclamation-circle" ImageSize="24" Printed="False" TabStop="False" VertAlignment="CenterAlign" Width="12"/>
+          <Component Name="lblMessage" Class="Com.Ctrl.IStatic" CanSelect="True" Multiline="True" TabStop="False"/>
+        </Inherited>
+      </Inherited>
+      <Component Name="FlagFrame" Class="Com.Ctrl.IFrame" After="TopFrame" AutoSize="True">
+        <Component Name="FlagGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+          <Component Name="prefDeleteFiles" Class="Com.Ctrl.IStatic" Excluded="True" Width="-12"/>
+          <Component Name="chbDeleteFiles" Class="Com.Ctrl.ICheckBox" Caption="@Admin:InfobaseDelFileBase=Также удалять файлы баз" VertAlignment="CenterAlign"/>
+        </Component>
+      </Component>
+      <Component Name="FieldFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="BoxLogin" Class="Com.Ctrl.IBox" Caption="@Admin:BoxLogin=Параметры авторизации" Collapsed="True">
+          <Component Name="DBUserGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="prefLogin" Class="Com.Ctrl.IStatic" Width="-12"/>
+            <Component Name="edLogin" Class="Com.Ctrl.IEdit" Caption="@Admin:DBUser=Пользователь БД" ValueType="VarString"/>
+            <Component Name="lineLogin" Class="Com.Ctrl.INewLine"/>
+            <Component Name="prefPswd" Class="Com.Ctrl.IStatic" Width="-12"/>
+            <Component Name="edPassword" Class="Com.Ctrl.IPasswordEdit" Caption="@Admin:Password=Пароль" ValueType="VarString"/>
+          </Component>
+        </Component>
+      </Component>
+      <Inherited Name="ButtonFrame" After="FieldFrame"/>
+    </Inherited>
+  </Inherited>
+</Resource>

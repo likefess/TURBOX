@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Map.Rec.GeoObject" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="GeoObj" Class="Com.Fld.IVar"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame" Orientation="Vertical">
+        <Component Name="GeoGroup" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True" ByColumn="True">
+          <Component Name="GeoNameGroup" Class="Com.Ctrl.IGroup">
+            <Component Name="NameEdit" Class="Com.Ctrl.IEdit" CaptionWidth="30" Field="EdtRec.Name" HasCaption="True" OnChange="NameEditOnChange" Wrap="True"/>
+            <Component Name="SearchNameButton" Class="Com.Ctrl.IButton" Hint="@Map:GeoSearch=Поиск координат по наименованию" ImageName="Map.globe-search" OnClick="SearchNameButtonOnClick"/>
+          </Component>
+          <Component Name="GeoTextGroup" Class="Com.Ctrl.IGroup" HasCaption="True">
+            <Component Name="TypeEdit" Class="Com.Ctrl.IEdit" AutoLookup="True" CaptionWidth="30" CellFormat="EnumFormat" Field="GeoObj" FixSize="True" OnChange="GeoObjOnChange" ValueType="VarInteger" Width="42"/>
+            <Component Name="LatEdit" Class="Com.Ctrl.IEdit" CaptionWidth="20" Field="EdtRec.Latitude" FixSize="True" OnChange="NameEditOnChange" Width="25"/>
+            <Component Name="LonEdit" Class="Com.Ctrl.IEdit" CaptionWidth="20" Field="EdtRec.Longitude" FixSize="True" OnChange="NameEditOnChange" Width="25"/>
+            <Component Name="TextEdit" Class="Com.Ctrl.IEdit" CaptionWidth="20" Field="EdtRec.GeoText" OnChange="TextEditOnChange" OnVerify="TextEditOnVerify"/>
+            <Component Name="GeoReversButton" Class="Com.Ctrl.IButton" Hint="@Map:GeoRevers=Поиск наименования по координатам" ImageName="Map.compass" OnClick="GeoReversButtonOnClick"/>
+          </Component>
+          <Component Name="GeoGroupCols" Class="Com.Ctrl.IGroup" Excluded="True"/>
+          <Component Name="IcoFile" Class="Com.Ctrl.IEdit" CaptionWidth="30" CardFileClass="Com.Tab.Archive.File" CellFormat="ReferenceFormat" Field="EdtRec.IconFile" FixSize="True" HasCaption="True" LookupField="Name" OnChange="IcoFileOnChange" Width="42"/>
+        </Component>
+        <Inherited Name="Group1" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="TabsFrame" ShowTabs="False" Visible="True">
+        <Component Name="MapTab" Class="Com.Ctrl.IFrame" After="#0" Caption="@Map=Карта" ScrollerStyle="ScrollerNone">
+          <Component Name="Browser" Class="Com.Ctrl.IBrowser" OnClickEx="Browser_OnClickEx"/>
+        </Component>
+        <Inherited Name="MainTab" Visible="False"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

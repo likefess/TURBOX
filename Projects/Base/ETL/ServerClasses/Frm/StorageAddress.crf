@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="aCode" Class="Com.Fld.IVar" ValueType="VarString"/>
+    <Component Name="aValue" Class="Com.Fld.IVar" ValueType="VarString"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" MaxButton="4">
+        <Component Name="BtnCheckConnection" Class="Com.Ctrl.IButton" Hint="Проверка подключения к хранилищу" ImageName="Com.Setup" OnClick="BtnCheckConnectionOnClick"/>
+        <Component Name="ButtonOK" Class="Com.Ctrl.IButton" Caption="@ОК" ImageName="Com.CheckActive" OnClick="ButtonOKOnClick"/>
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Caption="@Cmd:Close=Закрыть" Command="Commands.CloseForm" ImageName="Close" OnClick="ButtonClose_OnClick"/>
+      </Component>
+      <Component Name="InterfaceFrm" Class="Com.Ctrl.IFrame">
+        <Component Name="Box1" Class="Com.Ctrl.IBox" AutoSize="False">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="250" MinWidth="150">
+            <Component Name="EdCode" Class="Com.Ctrl.IEdit" Caption="@FieldName:Code=Код" Enabled="False" Field="aCode"/>
+            <Component Name="EdAddr" Class="Com.Ctrl.IEdit" Caption="@FieldName:Address=Адрес" Field="aValue"/>
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

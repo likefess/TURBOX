@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited ActiveControl="edtName">
+    <Inherited Name="Variables">
+      <Component Name="FldName" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="FldDescription" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="FldCompatible" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonOK" Caption="@Cmd:Post=Записать"/>
+        <Inherited Name="ButtonRefresh" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True">
+          <Component Name="lblName" Class="Com.Ctrl.IStatic" Caption="@Admin:UserName=Имя" Enabled="True" FixSize="True" Width="40"/>
+          <Component Name="edtName" Class="Com.Ctrl.IEdit" Field="FldName" ValueType="VarString" Width="20"/>
+          <Component Name="sepName" Class="Com.Ctrl.IStatic" Width="60"/>
+          <Component Name="lineName" Class="Com.Ctrl.INewLine"/>
+          <Component Name="lblDescription" Class="Com.Ctrl.IStatic" Caption="@Admin:UserDescription=Описание" FixSize="True" Width="40"/>
+          <Component Name="edtDescription" Class="Com.Ctrl.IEdit" Field="FldDescription" HasCaption="False" Multiline="False" ValueType="VarString" Wrap="False"/>
+          <Component Name="sepDescription" Class="Com.Ctrl.IStatic" FixSize="True" Width="4"/>
+          <Component Name="lineDescription" Class="Com.Ctrl.INewLine"/>
+          <Component Name="lblVersion" Class="Com.Ctrl.IStatic" Caption="@Admin:SchemaMemberVersion_Caption=Версия" FixSize="True" Width="40"/>
+          <Component Name="edtVersion" Class="Com.Ctrl.IEdit" ButtonStyle="ComboButton" CellFormat="EnumFormat" Field="FldCompatible" ListAsString="@Admin:SchemaMemberVersion_Val=Авто|0&#xD;&#xA;9.3|1&#xD;&#xA;9.4|2&#xD;&#xA;9.5|3" Width="20"/>
+          <Component Name="sepVersion" Class="Com.Ctrl.IStatic" Width="60"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Excluded="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

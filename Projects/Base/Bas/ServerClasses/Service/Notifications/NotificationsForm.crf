@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Service.Notifications.IBlankNotifications">
+  <Inherited Caption="Отправить уведомление">
+    <Component Name="Variables" Class="Com.IVarContainer" After="#0">
+      <Component Name="Var_StringEnum" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="Var2" Class="Com.Fld.IVar" ValueType="VarVariant"/>
+      <Component Name="Var1" Class="Com.Fld.IVar" ValueType="VarVariant"/>
+    </Component>
+    <Inherited Name="RootFrame" AutoSize="True" ScrollerStyle="ScrollerNone">
+      <Inherited Name="FieldsFrame" AutoSize="False" Orientation="Vertical">
+        <Component Name="Frame1" Class="Com.Ctrl.IFrame" AutoSize="False" Orientation="Horizontal">
+          <Component Name="Frame3" Class="Com.Ctrl.IFrame" AutoSize="True" FixSize="False">
+            <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="Reciver" Class="Com.Ctrl.IEdit" ButtonStyle="ComboButton" Caption="Кому уведомление " CaptionWidth="20" CellFormat="EnumFormat" Field="Var_StringEnum" FixSize="False" HasInnerCaption="True" ValueType="VarString"/>
+            </Component>
+          </Component>
+          <Component Name="Frame4" Class="Com.Ctrl.IFrame">
+            <Component Name="QuillJS1" Class="Com.Ctrl.IQuillJS" OnInitQuill="QuillJS1OnInitQuill" OnTextChange="QuillJS1OnTextChange" ResizeEnabled="True"/>
+          </Component>
+        </Component>
+        <Component Name="Frame2" Class="Com.Ctrl.IFrame" FixSize="True" Size="30">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" FixSize="True">
+            <Component Name="ButtonOK" Class="Com.Ctrl.IButton" Alignment="CenterAlign" Caption="@Dlgs:Send=Отправить" Hint="@Dlgs:Send=Отправить" OnClick="OkOnClick"/>
+            <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Alignment="CenterAlign" Caption="@Dlgs:Close=Закрыть" Hint="@Dlgs:Close=Закрыть" OnClick="CloseOnClick"/>
+            <Component Name="ButtonHelp" Class="Com.Ctrl.IButton" Alignment="CenterAlign" Caption="@Cmd:Help=Помощь" Enabled="False"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

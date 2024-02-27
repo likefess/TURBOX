@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.Event">
+  <Inherited HelpContext="Bas.Администрирование.Настройки.Заявки на доступ" Hierarchical="False">
+    <Inherited Name="Current" Class="Bas.Rec.Access.Demand" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Code" After="ModifyDate" Visible="False"/>
+          <Component Name="EventTime" Class="Com.Ctrl.IEdit" After="Code" Field="Current.EventTime" Width="40"/>
+          <Component Name="IPAddress" Class="Com.Ctrl.IEdit" Field="Current.IPaddress" Width="25"/>
+          <Component Name="PrintedNumber" Class="Com.Ctrl.IEdit" Field="Current.PrintedNumber" Width="30"/>
+          <Inherited Name="Name" After="PrintedNumber"/>
+          <Component Name="EMail" Class="Com.Ctrl.IEdit" After="Name" Field="Current.EMail" Width="40"/>
+          <Component Name="Phone" Class="Com.Ctrl.IEdit" Field="Current.Phone" Width="40"/>
+          <Component Name="EMailConfirmed" Class="Com.Ctrl.IEdit" Caption="email OK" Field="Current.EMailConfirmed" Width="20"/>
+          <Component Name="AccessGranted" Class="Com.Ctrl.IEdit" Caption="Access" Field="Current.AccessGranted" Width="20"/>
+          <Component Name="Closed" Class="Com.Ctrl.IEdit" Caption="Closed" Field="Current.Closed" Width="20"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

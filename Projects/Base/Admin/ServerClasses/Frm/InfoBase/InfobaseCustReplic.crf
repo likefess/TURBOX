@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.InfoBase.InfoBaseCustMaster">
+  <Inherited FormIcon="Admin.ReplSchema">
+    <Component Name="ReplicateImport" Class="Admin.Frm.InfoBase.IBReplicImport_Struct" IsLibrary="1" After="Timer"/>
+    <Inherited Name="TableMenu" After="ReplicateImport"/>
+    <Inherited Name="Variables">
+      <Inherited Name="subTblArchive" StructClass="Admin.Frm.InfoBase.IBReplicImport_Struct"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="FrameArchive" Caption="@Admin:InfobaseReplicMaster_Step1=Репликации">
+          <Inherited Name="frameTable">
+            <Inherited Name="tblArchive">
+              <Inherited Name="edName" Caption="@Admin:InfoBaseReplicFile=Файл" Field="ReplicateImport.Name" Width="100"/>
+              <Component Name="edPacket" Class="Com.Ctrl.IEdit" After="edName" Caption="@Admin:InfoBaseReplicPacket=№" Enabled="False" Field="ReplicateImport.Packet" MaxWidth="20" MinWidth="8" Width="12"/>
+              <Inherited Name="edDateTime" After="edPacket" Field="ReplicateImport.Date"/>
+              <Inherited Name="edSize" After="edDateTime" Field="ReplicateImport.Size"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="FrameProcess">
+          <Inherited Name="frameStatus">
+            <Inherited Name="grpDetail">
+              <Component Name="lblDocument" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+              <Component Name="edPrDocument" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" MinWidth="20" Width="60"/>
+              <Component Name="sepDocument" Class="Com.Ctrl.IStatic" MinWidth="40" Width="60"/>
+              <Component Name="lineDocument" Class="Com.Ctrl.INewLine"/>
+              <Component Name="lblConflict" Class="Com.Ctrl.IStatic" Caption="@Admin:InfobaseConflicts=Конфликтов" FixSize="True" Width="30"/>
+              <Component Name="edPrConflict" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" MinWidth="20" Width="60"/>
+              <Component Name="sepConflict" Class="Com.Ctrl.IStatic" MinWidth="40" Width="60"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

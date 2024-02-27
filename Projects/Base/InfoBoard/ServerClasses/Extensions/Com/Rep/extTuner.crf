@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rep.Tuner">
+  <Inherited>
+    <Inherited Name="VarContainer">
+      <Component Name="SubJoinedCharts" Class="Com.ISubContainer" ItemClass="InfoBoard.Rep.IJoinedChart" OnAfterInsert="SetComponentNameAfterInsert"/>
+      <Component Name="SubSelInd" Class="Com.ISubContainer" ItemClass="InfoBoard.Rep.ISelectedIndicators" OnAfterInsert="SetComponentNameAfterInsert"/>
+      <Component Name="AxisBottom" Class="Com.ISubContainer"/>
+      <Component Name="AxisLeft" Class="Com.ISubContainer"/>
+      <Component Name="AxisTop" Class="Com.ISubContainer"/>
+      <Component Name="AxisRight" Class="Com.ISubContainer"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="MainTuneFrame">
+          <Inherited Name="OutputBox">
+            <Inherited Name="WebOutputGroup">
+              <Inherited Name="WebOutputInnerGroup">
+                <Component Name="OutputChart" Class="Com.RepCtrl.IEditSub" AutoLookup="True" Caption="@Tune:OutputChart=Графический отчёт" CellFormat="EnumFormat" LinkName="OutputChart" OnChange="OutputOnChange" SubContainer="ReportContainer" ValueType="VarInteger"/>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Component Name="ChartFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Tune:ChartFrame=График">
+          <Component Name="ChartBox" Class="Com.Ctrl.IBox" Caption="@Tune:ChartBox=Настройки графика" HasCaption="False">
+            <Component Name="ChartFrame1" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="ChartLinkGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MinWidth="150">
+                <Component Name="ChartLinkBy" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:ChartLinkBy=Серии из" CaptionWidth="30" CellFormat="EnumFormat" LinkName="LinkBy" OnChange="ChartLinkByOnChange" SubContainer="ReportContainer" ValueType="VarInteger"/>
+                <Component Name="ChartIndicator" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" CellFormat="EnumFormat" HasCaption="False" LinkName="CIndicator" OnOutput="WebIndicator_OnOutput" SubContainer="ReportContainer" ValueType="VarInteger" Width="20"/>
+                <Component Name="ChartTable" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:CAllTables=По всем таблицам" LinkName="CAllTables" SubContainer="ReportContainer" Width="20"/>
+              </Component>
+            </Component>
+            <Component Name="ChartSelIndFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+              <Component Name="ChartSelIndTable1" Class="Com.Ctrl.ITable" Numbering="False" Subtable="SubSelInd">
+                <Component Name="Indicator_SI" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:Indicator_SI=Показатель" CellFormat="EnumFormat" LinkName="Indicator" OnOutput="WebIndicator_OnOutput" SubContainer="SubSelInd" ValueType="VarInteger" Width="50"/>
+                <Component Name="Part_SI" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:Part=Ост/об" CellFormat="EnumFormat" Hint="@Tune:PartHint=Вид остатка/оборота из которого берётся значение" LinkName="Part" SubContainer="SubSelInd" ValueType="VarInteger" Width="32"/>
+                <Component Name="SeriesKind_SI" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:SeriesKind_SI=Вид серии" CellFormat="EnumFormat" LinkName="SeriesKind" SubContainer="SubSelInd" ValueType="VarInteger" Width="35"/>
+                <Component Name="HystoForm_SI" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:HystoForm_SI=Форма" CellFormat="EnumFormat" LinkName="HystoForm" SubContainer="SubSelInd" ValueType="VarInteger" Width="45"/>
+                <Component Name="Hint_SI" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="Подписи" CellFormat="EnumFormat" LinkName="HintKind" SubContainer="SubSelInd" ValueType="VarInteger" Width="25"/>
+                <Component Name="AxesGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@Tune:Axes=Оси" HasCaption="True">
+                  <Component Name="AltXAxis_SI" Class="Com.RepCtrl.IFlagSub" HasCaption="False" Hint="@Tune:AltXAxis=Ось X сверху" LinkName="AltXAxis" SubContainer="SubSelInd" Width="8"/>
+                  <Component Name="AltYAxis_SI" Class="Com.RepCtrl.IFlagSub" HasCaption="False" Hint="@Tune:AltYAxis=Ось Y справа" LinkName="AltYAxis" SubContainer="SubSelInd" Width="8"/>
+                </Component>
+                <Component Name="Color_SI" Class="Com.RepCtrl.IEditSub" Caption="@Tune:Color_SI=Цвет" HasButton="True" LinkName="Color" OnDraw="ChartColor_OnDraw" OnLookup="ChartColor_OnLookup" SubContainer="SubSelInd" ValueType="VarInteger" Width="25"/>
+                <Component Name="Background_SI" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:Background_SI=Фон" Hint="@Tune:Background_SI_Hint=Служит фоном: не показывается в легенде, не имеет контура и не выделяется при наведении мыши" LinkName="IsBackground" SubContainer="SubSelInd" Width="10"/>
+              </Component>
+            </Component>
+            <Component Name="ChartColsFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="ChartColsGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                <Component Name="ChartColLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MinWidth="75">
+                  <Component Name="ChartSeriesKind" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:ChartSeriesKind=Вид серий" CaptionWidth="30" CellFormat="EnumFormat" LinkName="SeriesKind" OnChange="SeriesKindOnChange" SubContainer="ReportContainer" ValueType="VarInteger"/>
+                  <Component Name="ChartHystoKind" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:ChartHystoKind=Столбцы" CaptionWidth="30" CellFormat="EnumFormat" LinkName="HystoKind" SubContainer="ReportContainer" ValueType="VarInteger"/>
+                  <Component Name="ChartPalette" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:ChartPalette=Палитра" CaptionWidth="30" CellFormat="EnumFormat" LinkName="Palette" OnChange="ChartPaletteOnChange" SubContainer="ReportContainer" ValueType="VarInteger" Width="150"/>
+                  <Component Name="ChartHint" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:ChartHint=Подписи" CaptionWidth="30" CellFormat="EnumFormat" LinkName="HintKind" SubContainer="ReportContainer" ValueType="VarInteger" Width="150"/>
+                  <Component Name="ChartLegend" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:ChartLegend=Легенда" CaptionWidth="30" CellFormat="EnumFormat" LinkName="Legend" SubContainer="ReportContainer" ValueType="VarInteger" Width="150"/>
+                  <Component Name="ChartPageLen" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:ChartPageLen=Значений на странице, не более" CaptionWidth="65" LinkName="PageLen" SubContainer="ReportContainer" ValueType="VarInteger" Width="150"/>
+                </Component>
+                <Component Name="ChartColRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MinWidth="80">
+                  <Component Name="ChartSeriesOptionsGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                    <Component Name="ChartHystoForm" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:ChartHystoForm=Форма" CaptionWidth="30" CellFormat="EnumFormat" LinkName="HystoForm" SubContainer="ReportContainer" ValueType="VarInteger"/>
+                    <Component Name="YAxisOffsetX" Class="Com.RepCtrl.IEditSub" Caption="@Tune:YAxisOffset=Сдвиг оси Y" CaptionWidth="30" FixSize="True" LinkName="YAxisOffset" SubContainer="ReportContainer" ValueType="VarInteger" Visible="False" Width="15"/>
+                    <Component Name="Static1" Class="Com.Ctrl.IStatic" Visible="False" Width="10"/>
+                  </Component>
+                  <Component Name="ChartFlags1Group" Class="Com.Ctrl.IGroup" Adaptive="True">
+                    <Component Name="ChartUse3D" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:ChartUse3D=Трёхмерный вид" LinkName="Use3D" SubContainer="ReportContainer"/>
+                    <Component Name="ChartHideContour" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:ChartHideContour=Скрывать контур" LinkName="HideContour" SubContainer="ReportContainer"/>
+                  </Component>
+                  <Component Name="ChartPaletteGroup" Class="Com.Ctrl.IGroup"/>
+                  <Component Name="ChartColor" Class="Com.RepCtrl.IEditSub" Caption="@Tune:ChartColor=Фон графика" CaptionWidth="30" HasButton="True" LinkName="ChartColor" OnDraw="ChartColor_OnDraw" OnLookup="ChartColor_OnLookup" SubContainer="ReportContainer" ValueType="VarInteger" Width="150"/>
+                  <Component Name="ChartAltAxesGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                    <Component Name="AltAxesStub" Class="Com.Ctrl.IStatic" FixSize="True" Width="1"/>
+                    <Component Name="AltXAxis" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AltXAxis=Ось X сверху" LinkName="AltXAxis" SubContainer="ReportContainer" Width="1"/>
+                    <Component Name="AltYAxis" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AltYAxis=Ось Y справа" LinkName="AltYAxis" SubContainer="ReportContainer" Width="1"/>
+                  </Component>
+                  <Component Name="YAxisOffsetX_1529" Class="Com.RepCtrl.IEditSub" Caption="@Tune:YAxisOffset=Сдвиг оси Y" CaptionWidth="30" FixSize="True" LinkName="YAxisOffset" SubContainer="ReportContainer" ValueType="VarInteger" Width="15"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="VertAxesBox" Class="Com.Ctrl.IBox" Caption="@Tune:YAxesBox=Настройки вертикальных осей" Collapsed="True">
+            <Component Name="VertAxisGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="LeftAxisGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="YLeftVisibleGroup" Class="Com.Ctrl.IGroup">
+                  <Component Name="YLeftVisible" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:YLeftVisible=Показывать левую ось" Color="0xFE00000E" FontBold="True" LinkName="Visible" OnChange="YLeftVisibleOnChange" SubContainer="AxisLeft"/>
+                  <Component Name="YLeftStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="1"/>
+                </Component>
+                <Component Name="YLeftGridGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                  <Component Name="YLeftShowLabels" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AxisShowLabels=Показывать метки" LinkName="ShowLabels" SubContainer="AxisLeft"/>
+                  <Component Name="YLeftShowGrid" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AxisShowGrid=Показывать сетку" LinkName="ShowGrid" SubContainer="AxisLeft"/>
+                </Component>
+                <Component Name="YLeftAutoScale" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AxisAutoScale=Автомасштаб" LinkName="AutoScale" SubContainer="AxisLeft"/>
+                <Component Name="YLeftValuesGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                  <Component Name="YLeftMinValue" Class="Com.RepCtrl.IEditSub" Caption="@Tune:AxisMinValue=Диапазон" CaptionWidth="22" LinkName="MinValue" SubContainer="AxisLeft"/>
+                  <Component Name="YLeftMaxValue" Class="Com.RepCtrl.IEditSub" Caption="@Tune:AxisMaxValue=-" CaptionWidth="4" LinkName="MaxValue" SubContainer="AxisLeft"/>
+                  <Component Name="YLeftStep" Class="Com.RepCtrl.IEditSub" Caption="@Tune:AxisStep=Шаг" CaptionWidth="12" LinkName="StepValue" SubContainer="AxisLeft"/>
+                </Component>
+                <Component Name="YLeftReversed" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AxisYReversed=Сверху вниз" LinkName="Reversed" SubContainer="AxisLeft"/>
+                <Component Name="YLeftLogGroup" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="False">
+                  <Component Name="YLeftLogScale" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AxisLogScale=Логарифмическая шкала" LinkName="LogScale" OnChange="LogGroupEnabler" SubContainer="AxisLeft"/>
+                  <Component Name="YLeftLogarithmBase" Class="Com.RepCtrl.IEditSub" CaptionWidth="20" Hint="@Tune:AxisLogarithmBase=Основание логарифмической шкалы" LinkName="Logarithm" SubContainer="AxisLeft" Width="20"/>
+                </Component>
+                <Component Name="YLeftTitle" Class="Com.RepCtrl.IEditSub" Caption="@Tune:AxisTitle=Надпись" CaptionWidth="22" LinkName="Caption" SubContainer="AxisLeft"/>
+              </Component>
+              <Component Name="RightAxisGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="YRightVisibleGroup" Class="Com.Ctrl.IGroup">
+                  <Component Name="YRightVisible" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:YRightVisible=Показывать правую ось" Color="0xFE00000E" FontBold="True" LinkName="Visible" OnChange="YRightVisibleOnChange" SubContainer="AxisRight"/>
+                  <Component Name="YRightStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="1"/>
+                </Component>
+                <Component Name="YRightGridGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                  <Component Name="YRightShowLabels" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AxisShowLabels=Показывать метки" LinkName="ShowLabels" SubContainer="AxisRight"/>
+                  <Component Name="YRightShowGrid" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AxisShowGrid=Показывать сетку" LinkName="ShowGrid" SubContainer="AxisRight"/>
+                </Component>
+                <Component Name="YRightAutoScale" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AxisAutoScale=Автомасштаб" LinkName="AutoScale" SubContainer="AxisRight"/>
+                <Component Name="YRightValuesGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                  <Component Name="YRightMinValue" Class="Com.RepCtrl.IEditSub" Caption="@Tune:AxisMinValue=Диапазон" CaptionWidth="22" LinkName="MinValue" SubContainer="AxisRight"/>
+                  <Component Name="YRightMaxValue" Class="Com.RepCtrl.IEditSub" Caption="@Tune:AxisMaxValue=-" CaptionWidth="4" LinkName="MaxValue" SubContainer="AxisRight"/>
+                  <Component Name="YRightStep" Class="Com.RepCtrl.IEditSub" Caption="@Tune:AxisStep=Шаг" CaptionWidth="12" LinkName="StepValue" SubContainer="AxisRight"/>
+                </Component>
+                <Component Name="YRightReversed" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AxisYReversed=Сверху вниз" LinkName="Reversed" SubContainer="AxisRight"/>
+                <Component Name="YRightLogGroup" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="False">
+                  <Component Name="YRightLogScale" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AxisLogScale=Логарифмическая шкала" LinkName="LogScale" OnChange="LogGroupEnabler" SubContainer="AxisRight"/>
+                  <Component Name="YRightLogarithmBase" Class="Com.RepCtrl.IEditSub" CaptionWidth="20" Hint="@Tune:AxisLogarithmBase=Основание логарифмической шкалы" LinkName="Logarithm" SubContainer="AxisRight" Width="20"/>
+                </Component>
+                <Component Name="YRightTitle" Class="Com.RepCtrl.IEditSub" Caption="@Tune:AxisTitle=Надпись" CaptionWidth="22" LinkName="Caption" SubContainer="AxisRight"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="HorzAxesBox" Class="Com.Ctrl.IBox" Caption="@Tune:XAxesBox=Настройки горизонтальных осей" Collapsed="True">
+            <Component Name="HorzAxisGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="BottomAxisGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="XBottomVisibleGroup" Class="Com.Ctrl.IGroup">
+                  <Component Name="XBottomVisible" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:XBottomVisible=Показывать нижнюю ось" Color="0xFE00000E" FontBold="True" LinkName="Visible" OnChange="XBottomVisibleOnChange" SubContainer="AxisBottom"/>
+                  <Component Name="XBottomStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="1"/>
+                </Component>
+                <Component Name="XBottomGridGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                  <Component Name="XBottomShowLabels" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AxisShowLabels=Показывать метки" LinkName="ShowLabels" SubContainer="AxisBottom"/>
+                  <Component Name="XBottomShowGrid" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AxisShowGrid=Показывать сетку" LinkName="ShowGrid" SubContainer="AxisBottom"/>
+                </Component>
+                <Component Name="XBottomAutoScale" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AxisAutoScale=Автомасштаб" FixSize="True" LinkName="AutoScale" SubContainer="AxisBottom" Width="32"/>
+                <Component Name="XBottomValuesGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                  <Component Name="XBottomMinValue" Class="Com.RepCtrl.IEditSub" Caption="@Tune:AxisMinValue=Диапазон" CaptionWidth="22" LinkName="MinValue" SubContainer="AxisBottom"/>
+                  <Component Name="XBottomMaxValue" Class="Com.RepCtrl.IEditSub" Caption="@Tune:AxisMaxValue=-" CaptionWidth="4" LinkName="MaxValue" SubContainer="AxisBottom"/>
+                  <Component Name="XBottomStep" Class="Com.RepCtrl.IEditSub" Caption="@Tune:AxisStep=Шаг" CaptionWidth="12" LinkName="StepValue" SubContainer="AxisBottom"/>
+                </Component>
+                <Component Name="XBottomReversed" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AxisXReversed=Справа налево" LinkName="Reversed" SubContainer="AxisBottom"/>
+                <Component Name="XBottomLogGroup" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="False">
+                  <Component Name="XBottomLogScale" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AxisLogScale=Логарифмическая шкала" LinkName="LogScale" OnChange="LogGroupEnabler" SubContainer="AxisBottom"/>
+                  <Component Name="XBottomLogarithmBase" Class="Com.RepCtrl.IEditSub" CaptionWidth="20" Hint="@Tune:AxisLogarithmBase=Основание логарифмической шкалы" LinkName="Logarithm" SubContainer="AxisBottom" Width="20"/>
+                </Component>
+                <Component Name="XBottomTitle" Class="Com.RepCtrl.IEditSub" Caption="@Tune:AxisTitle=Надпись" CaptionWidth="22" LinkName="Caption" SubContainer="AxisBottom"/>
+              </Component>
+              <Component Name="TopAxisGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" Enabled="False">
+                <Component Name="XTopVisibleGroup" Class="Com.Ctrl.IGroup">
+                  <Component Name="XTopVisible" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:XTopVisible=Показывать верхнюю ось" Color="0xFE00000E" FontBold="True" LinkName="Visible" OnChange="XTopVisibleOnChange" SubContainer="AxisTop"/>
+                  <Component Name="XTopStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="1"/>
+                </Component>
+                <Component Name="XTopGridGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                  <Component Name="XTopShowLabels" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AxisShowLabels=Показывать метки" LinkName="ShowLabels" SubContainer="AxisTop"/>
+                  <Component Name="XTopShowGrid" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AxisShowGrid=Показывать сетку" LinkName="ShowGrid" SubContainer="AxisTop"/>
+                </Component>
+                <Component Name="XTopAutoScale" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AxisAutoScale=Автомасштаб" LinkName="AutoScale" SubContainer="AxisTop"/>
+                <Component Name="XTopValuesGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                  <Component Name="XTopMinValue" Class="Com.RepCtrl.IEditSub" Caption="@Tune:AxisMinValue=Диапазон" CaptionWidth="22" LinkName="MinValue" SubContainer="AxisTop"/>
+                  <Component Name="XTopMaxValue" Class="Com.RepCtrl.IEditSub" Caption="@Tune:AxisMaxValue=-" CaptionWidth="4" LinkName="MaxValue" SubContainer="AxisTop"/>
+                  <Component Name="XTopStep" Class="Com.RepCtrl.IEditSub" Caption="@Tune:AxisStep=Шаг" CaptionWidth="12" LinkName="StepValue" SubContainer="AxisTop"/>
+                </Component>
+                <Component Name="XTopReversed" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AxisXReversed=Справа налево" LinkName="Reversed" SubContainer="AxisTop"/>
+                <Component Name="XTopLogGroup" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="False">
+                  <Component Name="XTopLogScale" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:AxisLogScale=Логарифмическая шкала" LinkName="LogScale" OnChange="LogGroupEnabler" SubContainer="AxisTop"/>
+                  <Component Name="XTopLogarithmBase" Class="Com.RepCtrl.IEditSub" CaptionWidth="20" Hint="@Tune:AxisLogarithmBase=Основание логарифмической шкалы" LinkName="Logarithm" SubContainer="AxisTop" Width="20"/>
+                </Component>
+                <Component Name="XTopTitle" Class="Com.RepCtrl.IEditSub" Caption="@Tune:AxisTitle=Надпись" CaptionWidth="22" LinkName="Caption" SubContainer="AxisTop"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="ChartJoinBox" Class="Com.Ctrl.IBox" Caption="@Tune:ChartJoinBox=Объединять с графиками" Collapsed="True">
+            <Component Name="ChartJoinFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Tune:ChartJoinFrame=Объединять с графиками" Margins="4">
+              <Component Name="ChartJoinTable" Class="Com.Ctrl.ITable" Numbering="False" Subtable="SubJoinedCharts">
+                <Component Name="ReportName_JC" Class="Com.RepCtrl.IEditSub" Caption="@Tune:ChartJoinReportName=Графический отчёт" HasButton="True" Hint="Код, если это отчёт из инф.базы, имя класса для проектного отчёта" LinkName="ReportName" OnLookup="ReportName_JCOnLookup" SubContainer="SubJoinedCharts" Width="50"/>
+                <Component Name="SkipFilter_JC" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:SkipFilter_JC=ИФ" Hint="@Tune:SkipFilter_JC_Hint=Игнорировать фильтр на параметры встраиваемого отчёта" LinkName="SkipFilter" SubContainer="SubJoinedCharts" Width="10"/>
+                <Component Name="Caption_JC" Class="Com.RepCtrl.IEditSub" Caption="@Tune:Name=Наименование" LinkName="Caption" SubContainer="SubJoinedCharts" Width="50"/>
+                <Component Name="ZOrder_JC" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:ZOrder_JC=Показывать" CellFormat="EnumFormat" LinkName="ZOrder" SubContainer="SubJoinedCharts" ValueType="VarInteger" Width="44"/>
+                <Component Name="Background_JC" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:Background_JC=Фон" Hint="@Tune:Background_JC_Hint=Служит фоном: не показывается в легенде, не имеет контура и не выделяется при наведении мыши" LinkName="IsBackground" SubContainer="SubJoinedCharts" Width="10"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="WebChartFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Tune:WebChartBox=Web-график">
+          <Component Name="WebChartBox" Class="Com.Ctrl.IBox" Caption="@Tune:ChartBox=Настройки графика" HasCaption="False">
+            <Component Name="WebChartTypeFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="WebChartTypeGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MinWidth="150">
+                <Component Name="WebChartType" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" AutoLookup="True" Caption="@Tune:WebChartType=Тип графика" CaptionWidth="30" CellFormat="EnumFormat" LinkName="WebChartType" OnChange="WebChartTypeOnChange" SubContainer="ReportContainer" ValueType="VarString" Width="2"/>
+                <Component Name="WebChartLibName" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" AutoLookup="True" Caption="@Tune:WebChartLibName=Библиотека" CaptionWidth="30" CellFormat="EnumFormat" LinkName="WebChartLibName" OnChange="WebChartLibNameOnChange" SubContainer="ReportContainer" ValueType="VarString" Width="1"/>
+              </Component>
+            </Component>
+            <Component Name="WebChartFrame1" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="WebChartLinkGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MinWidth="150">
+                <Component Name="WebChartLinkBy" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:ChartLinkBy=Серии из" CaptionWidth="30" CellFormat="EnumFormat" LinkName="LinkBy" OnChange="WebChartLinkByOnChange" SubContainer="ReportContainer" ValueType="VarInteger"/>
+                <Component Name="WebChartIndicator" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" CellFormat="EnumFormat" HasCaption="False" LinkName="CIndicator" SubContainer="ReportContainer" ValueType="VarInteger" Width="20"/>
+                <Component Name="WebChartTable" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:CAllTables=По всем таблицам" LinkName="CAllTables" SubContainer="ReportContainer" Width="20"/>
+              </Component>
+            </Component>
+            <Component Name="WebChartSelIndFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+              <Component Name="WebChartSelIndTable" Class="Com.Ctrl.ITable" Numbering="False" Subtable="SubSelInd">
+                <Component Name="WebIndicator_SI" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:Indicator_SI=Показатель" CellFormat="EnumFormat" LinkName="Indicator" SubContainer="SubSelInd" ValueType="VarInteger" Width="50"/>
+                <Component Name="WebPart_SI" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:Part=Ост/об" CellFormat="EnumFormat" Hint="@Tune:PartHint=Вид остатка/оборота из которого берётся значение" LinkName="Part" SubContainer="SubSelInd" ValueType="VarInteger" Width="32"/>
+                <Component Name="Color_SI1" Class="Com.RepCtrl.IEditSub" Caption="@Tune:Color_SI=Цвет" HasButton="True" LinkName="Color" OnDraw="ChartColor_OnDraw" OnLookup="ChartColor_OnLookup" SubContainer="SubSelInd" ValueType="VarInteger" Width="25"/>
+              </Component>
+            </Component>
+            <Component Name="ChartColsFrame1" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="ChartColsGroup1" Class="Com.Ctrl.IGroup" Adaptive="True">
+                <Component Name="ChartColLeft1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                  <Component Name="WebChartPalette" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:ChartPalette=Палитра" CaptionWidth="30" CellFormat="EnumFormat" LinkName="Palette" OnChange="WebChartPaletteOnChange" SubContainer="ReportContainer" ValueType="VarInteger" Width="150"/>
+                  <Component Name="WebChartOpacity" Class="Com.RepCtrl.IEditSub" Caption="@Tune:WebChartOpacity=Прозрачность" CaptionWidth="30" Hint="@Tune:WebChartOpacityHint=Значения в диапазоне (0, 1]; 1 соответствует непрозрачности; 0 - значение по умолчанию" LinkName="Opacity" SubContainer="ReportContainer" ValueType="VarNumeric" Width="150"/>
+                </Component>
+                <Component Name="ChartColRight1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                  <Component Name="WebChartPaletteGroup" Class="Com.Ctrl.IGroup"/>
+                  <Component Name="WebChartColor" Class="Com.RepCtrl.IEditSub" Caption="@Tune:ChartColor=Фон графика" CaptionWidth="30" HasButton="True" LinkName="ChartColor" OnDraw="WebChartColor_OnDraw" OnLookup="WebChartColor_OnLookup" SubContainer="ReportContainer" ValueType="VarInteger" Width="150"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="GaugesFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Tune:Gauges=Датчики">
+          <Component Name="SvgGaugeFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="8">
+            <Component Name="SvgGaugeTable" Class="Com.Ctrl.ITable" ManualControl="False" Numbering="False">
+              <Component Name="SvgGaugeGroup" Class="Com.Ctrl.IColumnsGroup">
+                <Component Name="SvgGauge" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" AutoLookup="True" Caption="@Tune:GaugeKind=Вид датчика" CellFormat="EnumFormat" LinkName="CGauge" SubContainer="ReportContainer" ValueType="VarString" Width="30"/>
+                <Component Name="SvgIndicator" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:Indicator_SI=Показатель" CellFormat="EnumFormat" LinkName="CIndicator" SubContainer="ReportContainer" ValueType="VarInteger" Width="50"/>
+                <Component Name="SvgTab" Class="Com.RepCtrl.IEditSub" Alignment="RightAlign" Caption="@Tune:GaugeTab=Таб" Hint="@Tune:GaugeTabHint=Таблица из которой берётся значение датчика" LinkName="CTab" SubContainer="ReportContainer" Width="10"/>
+                <Component Name="SvgRow" Class="Com.RepCtrl.IEditSub" Alignment="RightAlign" Caption="@Tune:GaugeRow=Стр" Hint="@Tune:GaugeRowHint=Строка из которой берётся значение датчика" LinkName="CRow" SubContainer="ReportContainer" Width="10"/>
+                <Component Name="SvgCol" Class="Com.RepCtrl.IEditSub" Alignment="RightAlign" Caption="@Tune:GaugeCol=Кол" Hint="@Tune:GaugeColHint=Колонка из которой берётся значение датчика" LinkName="CCol" SubContainer="ReportContainer" Width="10"/>
+                <Component Name="SvgPart" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:Part=Ост/об" CellFormat="EnumFormat" Hint="@Tune:PartHint=Вид остатка/оборота из которого берётся значение" LinkName="CPart" SubContainer="ReportContainer" ValueType="VarInteger" Width="32"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="SvgRangeFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="SvgRangeGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="SvgCaption" Class="Com.RepCtrl.IEditSub" Caption="@Tune:SvgCaption=Надпись" CaptionWidth="22" CellFormat="EnumFormat" FixSize="True" LinkName="CCaption" SubContainer="ReportContainer" ValueType="VarInteger" Width="50"/>
+              <Component Name="SvgShowValue" Class="Com.RepCtrl.IFlagSub" Caption="@Tune:SvgShowValue=Показывать числовое значение" LinkName="CAllTables" SubContainer="ReportContainer"/>
+              <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+              <Component Name="SvgMinValue" Class="Com.RepCtrl.IEditSub" Caption="@Tune:GaugesMinValue=Диапазон" CaptionWidth="22" LinkName="MinValue" SubContainer="AxisLeft"/>
+              <Component Name="SvgMaxValue" Class="Com.RepCtrl.IEditSub" Caption="@Tune:GaugesMaxValue=-" CaptionWidth="4" LinkName="MaxValue" SubContainer="AxisLeft"/>
+              <Component Name="SvgStep" Class="Com.RepCtrl.IEditSub" Excluded="True" Caption="@Tune:GaugesStep=Шаг" CaptionWidth="12" LinkName="StepValue" SubContainer="AxisLeft"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

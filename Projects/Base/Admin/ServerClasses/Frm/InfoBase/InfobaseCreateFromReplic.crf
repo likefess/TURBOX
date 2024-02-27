@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.InfoBase.InfobaseCustReplic">
+  <Inherited>
+    <Component Name="Projects" Class="Admin.Frm.InfoBase.IBAddProject_Struct" IsLibrary="1" After="ReplicateImport"/>
+    <Inherited Name="TableMenu" After="Projects"/>
+    <Inherited Name="Variables">
+      <Component Name="subTblProjects" Class="Com.ISubtable" After="subTblArchive" StructClass="Admin.Frm.InfoBase.IBAddProject_Struct"/>
+      <Component Name="FldNewBaseName" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="FldSchemaName" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Inherited Name="FldPhysDataBase" After="FldSchemaName"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Component Name="FrameName" Class="Com.Ctrl.IFrame" After="FrameArchive" Caption="@Admin:IBCreateFromReplicMaster_Step2=Параметры" Margins="8">
+          <Component Name="gbIBGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MinWidth="40">
+            <Component Name="lblGroup" Class="Com.Ctrl.IStatic" Caption="@Admin:InfobaseGroup=Группа" MinWidth="40"/>
+            <Component Name="lineSepGroup" Class="Com.Ctrl.INewLine"/>
+            <Component Name="edGroup" Class="Com.Ctrl.IEdit" Enabled="False" Field="FldGroupBase" MinWidth="40" ValueType="VarString" Width="50"/>
+          </Component>
+          <Component Name="gbName" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MinWidth="40">
+            <Component Name="lblNameNew" Class="Com.Ctrl.IStatic" Caption="@Admin:InfobaseNameNew=Название" MinWidth="40"/>
+            <Component Name="lblNameExist" Class="Com.Ctrl.IStatic" Caption="@Admin:InfobaseNameExist=Установить базу c именем" MinWidth="40" Visible="False"/>
+            <Component Name="lineSepNewName" Class="Com.Ctrl.INewLine"/>
+            <Component Name="edNewName" Class="Com.Ctrl.IEdit" Field="FldNewBaseName" MinWidth="40" OnVerify="edBaseName_OnVerify" ValueType="VarString" Width="50"/>
+            <Component Name="lineNewName" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblSchemaName" Class="Com.Ctrl.IStatic" Caption="@Admin:InfobaseSchemaName=Имя схемы репликации" MinWidth="40"/>
+            <Component Name="lineSepSchemaName" Class="Com.Ctrl.INewLine"/>
+            <Component Name="edSchemaName" Class="Com.Ctrl.IEdit" Enabled="False" Field="FldSchemaName" MinWidth="40" OnVerify="edSchemaName_OnVerify" ValueType="VarString" Width="50"/>
+            <Component Name="lineSchemaName" Class="Com.Ctrl.INewLine" Excluded="True"/>
+          </Component>
+        </Component>
+        <Component Name="FrameProjects" Class="Com.Ctrl.IFrame" AutoSize="False" Caption="@Admin:IBCreateFromReplicMaster_Step3=Проекты">
+          <Component Name="tblProject" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" ManualControl="False" Numbering="False" OnDrawIcon="tblProject_OnDrawIcon" ShowIcon="True" Subtable="subTblProjects">
+            <Component Name="edProjectName" Class="Com.Ctrl.IEdit" Caption="@Admin:ProjectListName=Проект" Enabled="False" Field="Projects.Name"/>
+          </Component>
+        </Component>
+        <Inherited Name="FrameDB" After="FrameProjects" Caption="@Admin:IBCreateFromReplicMaster_Step4=Размещение"/>
+        <Inherited Name="FrameProcess" Caption="@Admin:IBCreateFromReplicMaster_Step5=Создание">
+          <Inherited Name="frameStatus">
+            <Inherited Name="grpDetail">
+              <Component Name="lblTable" Class="Com.Ctrl.IStatic" After="#0" Caption="@Admin:InfobaseTables=Таблиц" FixSize="True" Width="30"/>
+              <Component Name="edPrTable" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" MinWidth="20" Width="60"/>
+              <Component Name="sepTable" Class="Com.Ctrl.IStatic" MinWidth="40" Width="60"/>
+              <Component Name="lineTable" Class="Com.Ctrl.INewLine"/>
+              <Inherited Name="lblDocument" After="lineTable" Caption="@Admin:InfobaseDocuments=Документов"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

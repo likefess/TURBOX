@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICardForm">
+  <Inherited>
+    <Inherited Name="Current" Class="Com.Rec.ComFields" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="OnlyActive" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonFilters">
+          <Component Name="ButtonHideClosed" Class="Com.Ctrl.IButton" After="ButtonCommonFilter" Caption="@Com:HideClosed=Только действующие" Field="OnlyActive" IsSwitch="True"/>
+          <Inherited Name="ButtonNavigationPanel" After="ButtonHideClosed"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="DocId" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Enabled="False" Field="Current.DocId" Visible="False" Width="20"/>
+          <Component Name="ExtId" Class="Com.Ctrl.IEdit" Field="Current.ExtId" Visible="False" Width="25"/>
+          <Component Name="CreateDate" Class="Com.Ctrl.IEdit" Enabled="False" Field="Current.CreateDate" FieldFormat="dd.mm.yyyy hh:nn:ss" Visible="False" Width="35"/>
+          <Component Name="CreateUser" Class="Com.Ctrl.IEdit" Enabled="False" Field="Current.CreateUser" Visible="False" Width="30"/>
+          <Component Name="UpdateDate" Class="Com.Ctrl.IEdit" Enabled="False" Field="Current.UpdateDate" FieldFormat="dd.mm.yyyy hh:nn:ss" Visible="False" Width="35"/>
+          <Component Name="UpdateUser" Class="Com.Ctrl.IEdit" Enabled="False" Field="Current.UpdateUser" Visible="False" Width="30"/>
+          <Component Name="ModifyDate" Class="Com.Ctrl.IEdit" Enabled="False" Field="Current.ModifyDate" FieldFormat="dd.mm.yyyy hh:nn:ss" Visible="False" Width="35"/>
+          <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Excluded="True" Caption="@Sys:Locked=Замок" Enabled="False" Field="Current.Locked" Visible="False" Width="20"/>
+          <Component Name="Closed" Class="Com.Ctrl.ICheckBox" Excluded="True" Caption="@Sys:Closed=Завершен" Enabled="False" Field="Current.Closed" Visible="False" Width="20"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

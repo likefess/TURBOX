@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.InfoBase.InfoBaseCustMaster">
+  <Inherited>
+    <Component Name="RestoreStruct" Class="Admin.Frm.InfoBase.InfoBaseRestore_Struct" IsLibrary="1" After="Timer"/>
+    <Inherited Name="Variables">
+      <Inherited Name="subTblArchive" StructClass="Admin.Frm.InfoBase.InfoBaseRestore_Struct"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="FrameArchive" Caption="@Admin:InfobaseMaster_Step1=Архивы">
+          <Inherited Name="frameTable">
+            <Inherited Name="tblArchive" Sortable="True">
+              <Inherited Name="edName" Caption="@Admin:InfoBaseRestoreName=Название" Field="RestoreStruct.Name" OnOutputEx="edName_OnOutputEx"/>
+              <Component Name="edInfoBases" Class="Com.Ctrl.IEdit" After="edName" Caption="@Admin:InfoBaseRestoreBases=Информационные базы" Enabled="False" Field="RestoreStruct.InfoBases" MaxWidth="200" MinWidth="20" OnClick="Archive_OpenFolder" Width="80"/>
+              <Inherited Name="edSize" Field="RestoreStruct.Size"/>
+              <Inherited Name="edDateTime" Field="RestoreStruct.Date"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CMP.Frm.Pages.Page">
+  <Inherited HelpContext="Настройка.СтруктураБизнеса.ТипыПредставлений.ПечатнаяФорма.ПечатнаяФорма">
+    <Inherited Name="EdtRec" Class="CMP.Rec.Views.IPrintForm" IsLibrary="1"/>
+    <Component Name="Aliases" Class="CMP.Rec.Views.IPrintForm_Aliases" IsLibrary="1" After="EdtRec"/>
+    <Component Name="Tables" Class="CMP.Rec.Views.IPrintForm_Tables" IsLibrary="1"/>
+    <Inherited Name="TableMenu" After="Tables"/>
+    <Inherited Name="RootFrame">
+      <Component Name="MainBox" Class="Com.Ctrl.IBox" Caption="@CMP:PrintformBox=Общие настройки" Margins="4">
+        <Component Name="MainGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50" HasCaption="True">
+          <Component Name="FormClass" Class="Com.Ctrl.IEdit" Field="EdtRec.FormClass" HasButton="True" HasCaption="True" OnLookup="FormClassOnLookup"/>
+          <Component Name="GroupTemplate" Class="Com.Ctrl.IGroup">
+            <Component Name="FormTemplate" Class="Com.Ctrl.IEdit" Field="EdtRec.FormTemplate" HasCaption="True"/>
+            <Component Name="LoadTemplateButton" Class="Com.Ctrl.IButton" Hint="Выбрать шаблон печатной формы" ImageName="Com.folder-open" OnClick="LoadTemplateButton_OnClick"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="AliasesBox" Class="Com.Ctrl.IBox" Caption="@CMP:PrintformAliases=Псевдонимы" Margins="4">
+        <Component Name="AliasesTable" Class="Com.Ctrl.ITable" Adaptive="True" IconName="Com.Settings" Numbering="False" ShowIcon="False" Subtable="EdtRec.Aliases">
+          <Component Name="AliasesName" Class="Com.Ctrl.IEdit" Field="Aliases.Name"/>
+          <Component Name="AliasesProperty" Class="Com.Ctrl.IEdit" Field="Aliases.Property" LookupField="Code" LookupFilter="not РеквизитТаблицы" OnGetLookupFilter="AliasesProperty_OnGetLookupFilter"/>
+          <Component Name="AliasesLookupField" Class="Com.Ctrl.IEdit" Field="Aliases.LookupField"/>
+          <Component Name="AliasesCaption" Class="Com.Ctrl.IEdit" Field="Aliases.Caption"/>
+        </Component>
+      </Component>
+      <Component Name="TablesBox" Class="Com.Ctrl.IBox" Caption="@CMP:PrintformTables=Табличные части" Margins="4">
+        <Component Name="TablesTable" Class="Com.Ctrl.ITable" Adaptive="True" IconName="Com.Settings" Numbering="False" ShowIcon="False" Subtable="EdtRec.Tables">
+          <Component Name="TablesName" Class="Com.Ctrl.IEdit" Field="Tables.Name" LookupField="Code" LookupFilter="not РеквизитТаблицы"/>
+          <Component Name="TablesMoveTypes" Class="Com.Ctrl.IListEdit" Field="Tables.MoveTypes"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

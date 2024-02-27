@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CMP.Frm.Pages.Page">
+  <Inherited HelpContext="Стандарт.СтруктураБизнеса.ТипыПредставлений.Контейнер.Контейнер">
+    <Inherited Name="EdtRec" Class="CMP.Rec.Views.IViewsContainer" IsLibrary="1"/>
+    <Component Name="ViewsStruct" Class="CMP.Rec.Views.IViewsContainer_List" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="TableMenu" After="ViewsStruct"/>
+    <Inherited Name="RootFrame">
+      <Component Name="OtherFrame" Class="Com.Ctrl.IFrame" After="#0" AutoSize="True">
+        <Component Name="OtherGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+          <Component Name="OrientationEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.Orientation" HasCaption="True"/>
+        </Component>
+      </Component>
+      <Component Name="TableFrame" Class="Com.Ctrl.IFrame" Margins="1">
+        <Component Name="Table" Class="Com.Ctrl.ITable" Adaptive="True" IconName="Com.Settings" Numbering="False" ShowIcon="False" Subtable="EdtRec.ViewsList">
+          <Component Name="PropertyEdit" Class="Com.Ctrl.IEdit" Field="ViewsStruct.View" LookupField="Code" LookupFilter="not Closed" OnDrawEx="TableRowOnDraw" OnGetLookupFilter="PropertyEdit_OnGetLookupFilter"/>
+          <Component Name="CaptionEdit" Class="Com.Ctrl.IEdit" Field="ViewsStruct.Caption" OnDrawEx="TableRowOnDraw"/>
+          <Component Name="WidthEdit" Class="Com.Ctrl.IEdit" Field="ViewsStruct.Size" FixSize="True" OnDrawEx="TableRowOnDraw" Width="20"/>
+          <Component Name="OffFlag" Class="Com.Ctrl.ICheckBox" Field="ViewsStruct.Off" FixSize="True" Width="12"/>
+        </Component>
+      </Component>
+      <Inherited Name="HeaderFrame" After="TableFrame"/>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Inherited Name="TableMenu">
+      <Inherited Name="cmdCopyValue" Excluded="True"/>
+      <Inherited Name="cmdCutValue" Excluded="True"/>
+      <Inherited Name="cmdPasteValue" Excluded="True"/>
+      <Inherited Name="cmdDeleteValue" Excluded="True"/>
+      <Inherited Name="TableSeparator2" Excluded="True"/>
+      <Inherited Name="cmdInsertRow" Excluded="True"/>
+      <Inherited Name="cmdDeleteRow" Excluded="True"/>
+      <Inherited Name="cmdRowUp" Excluded="True"/>
+      <Inherited Name="cmdRowDown" Excluded="True"/>
+    </Inherited>
+    <Inherited Name="Variables">
+      <Component Name="Subtable" Class="Com.ISubtable"/>
+    </Inherited>
+    <Inherited Name="RootFrame" AutoSize="False">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonOK" Excluded="True"/>
+      </Inherited>
+      <Component Name="NavigatorFrame" Class="Com.Ctrl.IFrame" Excluded="True" After="HeaderFrame" AutoSize="True" Margins="3">
+        <Component Name="grpNavigator" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+          <Component Name="edtFilter" Class="Com.Ctrl.IEditEx" FixSize="True" HasCaption="False" OnChange="FilterEdit_OnChange" OnDrawEx="FilterEdit_OnDrawEx" OnOutputEx="FilterEdit_OnOutputEx" OnVerify="FilterEdit_OnVerify" ValueType="VarString" Visible="False" Width="100"/>
+          <Component Name="edtFilter1" Class="Com.Ctrl.IEditEx" Excluded="True" FixSize="True" HasCaption="False" OnChange="FilterEdit_OnChange" OnDrawEx="FilterEdit_OnDrawEx" OnOutputEx="FilterEdit_OnOutputEx" OnVerify="FilterEdit_OnVerify" ValueType="VarString" Visible="False" Width="100"/>
+          <Component Name="edtFilter2" Class="Com.Ctrl.IEditEx" Excluded="True" FixSize="True" HasCaption="False" OnChange="FilterEdit_OnChange" OnDrawEx="FilterEdit_OnDrawEx" OnOutputEx="FilterEdit_OnOutputEx" OnVerify="FilterEdit_OnVerify" ValueType="VarString" Visible="False" Width="100"/>
+          <Component Name="buttonFields" Class="Com.Ctrl.IListButton" ImageName="Com.Filters" Visible="False"/>
+        </Component>
+      </Component>
+      <Inherited Name="FieldsFrame" After="NavigatorFrame" AutoSize="False" Margins="0">
+        <Component Name="frameData" Class="Com.Ctrl.IFrame" AutoSize="False" Margins="5" ScrollerStyle="ScrollerBoth">
+          <Component Name="TableData" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Numbering="False" Sortable="False" Subtable="Subtable"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Excluded="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

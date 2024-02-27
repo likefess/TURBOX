@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IEditor" HelpContext="Стандарт.СтруктураБизнеса.ТипыРеквизитов.КнопкаПерескока">
+    <Component Name="EdtRec" Class="CMP.Rec.Properties.IJumpButton" IsLibrary="1"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" Margins="5">
+      <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+        <Component Name="EditJumpField" Class="Com.Ctrl.IEdit" Caption="@CMP:JumpButtonJumpField=Переходить на реквизит" Field="EdtRec.JumpField" HasButton="True" OnGetLookupFilter="EditJumpField_OnGetLookupFilter"/>
+        <Component Name="EditPresentation" Class="Com.Ctrl.IEdit" Excluded="True" Caption="@CMP:JumpButtonPresentation=Открыть карточку на представлении" HasButton="True"/>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="CheckBoxModalProcess" Class="Com.Ctrl.ICheckBox" Caption="@CMP:JumpButtonModalProcess=Открывать модально"/>
+        </Component>
+        <Component Name="Group3" Class="Com.Ctrl.IGroup">
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="CheckBoxCloseDialog" Class="Com.Ctrl.ICheckBox" Caption="@CMP:JumpButtonCloseDialog=Скрывать список процессов"/>
+        </Component>
+        <Component Name="Group4" Class="Com.Ctrl.IGroup">
+          <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="CheckBoxExclusiveMode" Class="Com.Ctrl.ICheckBox" Caption="@CMP:JumpButtonExclusiveMode=Открывать карточку в режиме &quot;только чтение&quot;"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

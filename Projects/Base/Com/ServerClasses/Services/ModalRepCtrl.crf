@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Services.CommonDialog">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="WebMainGroup" CaptionWidth="30">
+          <Inherited Name="InnerGroup">
+            <Component Name="CompIDEdit" Class="Com.Ctrl.IEdit" Caption="CompID" Color="0x00E0F0E0" Enabled="False" ValueType="VarString"/>
+            <Component Name="CaptionEdit" Class="Com.Ctrl.IEdit" Caption="@RepCtrl:Caption=Заголовок" ValueType="VarString"/>
+            <Component Name="PositionGroup" Class="Com.Ctrl.IGroup">
+              <Component Name="EditWidthEdit" Class="Com.Ctrl.IEdit" Caption="@Tune:Width=Ширина поля" Width="10"/>
+              <Component Name="TextWidthEdit" Class="Com.Ctrl.IEdit" Caption="@Tune:CaptionWidth=Ширина заголовка" CaptionWidth="40" Width="10"/>
+              <Component Name="NewLineFlag" Class="Com.Ctrl.ICheckBox" Caption="@RepCtrl:NewLine=С новой строки"/>
+            </Component>
+            <Component Name="CardfileEdit" Class="Com.Ctrl.IEdit" Caption="@Tune:CardFileClass=Картотека" HasButton="True" OnLookup="CardfileEditOnLookup" OnVerify="CardfileEditOnVerify"/>
+          </Inherited>
+        </Inherited>
+        <Component Name="HorzGroup1" Class="Com.Ctrl.IGroup" Adaptive="True">
+          <Component Name="LeftCol1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" FixSize="True" Width="30">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic"/>
+          </Component>
+          <Component Name="RightCol1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="MultiSelectFlag" Class="Com.Ctrl.ICheckBox" Caption="@Tune:MultiSelect=Множественный выбор"/>
+            <Component Name="ShortListFlag" Class="Com.Ctrl.ICheckBox" Caption="@Tune:ShortList=Использовать короткий список"/>
+            <Component Name="ShowHierarchyFlag" Class="Com.Ctrl.ICheckBox" Caption="@Tune:ShowHierarchy=Иерархический вид"/>
+          </Component>
+        </Component>
+        <Component Name="MainGroup2" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="30">
+          <Component Name="InnerGroup2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="FieldEdit" Class="Com.Ctrl.IEdit" Caption="@Tune:LookupField=Поле обзора" ValueType="VarString"/>
+            <Component Name="FilterEdit" Class="Com.Ctrl.IEdit" Caption="@Tune:LookupFilter=Фильтр обзора" ValueType="VarString"/>
+            <Component Name="FormatEdit" Class="Com.Ctrl.IEdit" Caption="@RepCtrl:Format=Формат" ValueType="VarString"/>
+            <Component Name="DefaultEdit" Class="Com.Ctrl.IEdit" Caption="@RepCtrl:Default=Умолчание" HasButton="True" OnLookup="DefaultEditOnLookup" ValueType="VarString"/>
+          </Component>
+        </Component>
+        <Component Name="HorzGroup2" Class="Com.Ctrl.IGroup" Adaptive="True">
+          <Component Name="LeftCol2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" FixSize="True" Width="30">
+            <Component Name="Static2" Class="Com.Ctrl.IStatic"/>
+          </Component>
+          <Component Name="RightCol2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="VisibleFlag" Class="Com.Ctrl.ICheckBox" Caption="@RepCtrl:Visible=Показывать на экране"/>
+            <Component Name="ValueRequiredFlag" Class="Com.Ctrl.ICheckBox" Caption="@Tune:ValueRequired=Значение обязательно для построения отчета"/>
+            <Component Name="AutoBuildFlag" Class="Com.Ctrl.ICheckBox" Caption="@Tune:AutoBuild=Перестраивать отчет при изменении"/>
+            <Component Name="ActiveFlag" Class="Com.Ctrl.ICheckBox" Caption="@RepCtrl:Active=Параметр активен" Hint="@RepCtrl:ActiveHint=Отключенный параметр не показывается на экране и не участвует в наложении фильтра"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

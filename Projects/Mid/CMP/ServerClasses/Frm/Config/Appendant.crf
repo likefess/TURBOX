@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited HelpContext="CMP.Студия компонентов (машина реквизитов).Дополнительные права">
+    <Inherited Name="EdtRec" Class="CMP.Rec.Config.IAppendant" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" MaxWidth="0">
+          <Component Name="EditCode" Class="Com.Ctrl.IEdit" After="#0" Caption="@CMP:AppendantCode=Наименование права" Field="EdtRec.Code"/>
+          <Component Name="EditName" Class="Com.Ctrl.IEdit" Caption="@CMP:AppendantName=Заголовок права" Field="EdtRec.Name"/>
+          <Component Name="EditFieldType" Class="Com.Ctrl.IEdit" After="Name" Caption="@CMP:AppendantFieldType=Тип права" CellFormat="EnumFormat" Field="EdtRec.FieldType" ListAsString="Логическое|0&#xD;&#xA;Строковое|1&#xD;&#xA;Целое|2&#xD;&#xA;Дата|3&#xD;&#xA;Число|4" OnChange="EditFieldType_OnChange"/>
+          <Component Name="EditInputFormat" Class="Com.Ctrl.IEdit" Caption="@CMP:AppendantInputFormat=Формат ввода" Field="EdtRec.InputFormat"/>
+          <Component Name="EditNumericFormatAttribute" Class="Com.Ctrl.IEdit" Caption="@CMP:AppendantNumericFormatAttribute=Максимальное число символов" Field="EdtRec.FormatAttribute"/>
+          <Component Name="EditDateFormatAttribute" Class="Com.Ctrl.IEdit" Caption="@CMP:AppendantDateFormatAttribute=Формат ввода даты" CellFormat="EnumFormat" Field="EdtRec.FormatAttribute" ListAsString="Только дата&#xD;&#xA;Только время&#xD;&#xA;Дата и время"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.Service.DiagramBase">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Component Name="DataBox" Class="Com.Ctrl.IBox" After="#0" Caption="@Diagram:DataBox=Данные">
+          <Component Name="DataGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" HasCaption="True">
+            <Component Name="ActionGroup" Class="Com.Ctrl.IGroup">
+              <Component Name="ActionEdit" Class="Com.Ctrl.IEdit" AutoLookup="True" Caption="@Diagram:ActionsEdit=Действие" CellFormat="EnumFormat" HasButton="True" OnChange="ActionEditOnChange" ValueType="VarString"/>
+              <Component Name="ActionButton" Class="Com.Ctrl.IButton" ImageName="Com.play-circle" OnClick="ActionButtonOnClick"/>
+            </Component>
+            <Component Name="ParamsEdit" Class="Com.Ctrl.IEdit" Caption="@Diagram:ParamsEdit=Параметры" OnLookup="ParamsEditOnLookup" ValueType="VarString"/>
+            <Component Name="RecordEdit" Class="Com.Ctrl.IEdit" Caption="@Diagram:RecordsEdit=Источник данных" CellFormat="ReferenceFormat" HasButton="True" OnEnter="RecordEditOnEnter" OnHint="RecordEditOnHint" OnOutput="RecordEditOnOutput" ValueType="VarObject"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

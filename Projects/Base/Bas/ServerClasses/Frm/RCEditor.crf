@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm" HelpContext="Com.Com.Role centers.RoleCenters">
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="SlimHeaderFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Vertical">
+        <Component Name="SettingsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="8">
+          <Component Name="SettingsGroup" Class="Com.Ctrl.IGroup">
+            <Component Name="FormEdit" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False"/>
+            <Component Name="UserRoleType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" HasCaption="False" OnChange="UserRoleTypeOnChange" ValueType="VarInteger" Width="40"/>
+            <Component Name="UserRoleValue" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" OnChange="UserRoleValueOnChange" ValueType="VarString" Width="40"/>
+          </Component>
+        </Component>
+        <Component Name="ButtonsFrame" Class="Com.Ctrl.IFrame">
+          <Component Name="LoadListButton" Class="Com.Ctrl.IListButton" HasCaption="False" Hint="@RCEditor:LoadButton=Загрузить" ImageName="Com.angle-down" ImageSize="22" Width="10">
+            <Component Name="UserButton" Class="Com.Ctrl.IButton" Caption="@RCEditor:LoadUser=Загрузить настройки пользователя" ImageName="Bas.universal-access" OnClick="UserButtonOnClick"/>
+            <Component Name="EmptyButton" Class="Com.Ctrl.IButton" Caption="@RCEditor:LoadEmpty=Загрузить настройки по умолчанию" ImageName="Bas.lightbulb" OnClick="EmptyButtonOnClick"/>
+            <Component Name="OwnButton" Class="Com.Ctrl.IButton" Caption="@RCEditor:LoadOwn=Загрузить собственные настройки" ImageName="Bas.solution1" OnClick="OwnButtonOnClick"/>
+          </Component>
+          <Component Name="ButtonOK" Class="Com.Ctrl.IButton" Hint="@Cmd:PostClose=OK" ImageName="PostClose" ImageSize="22" OnClick="ButtonOK_OnClick" Width="10"/>
+          <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Hint="@Cmd:Close=Закрыть" ImageName="Close" ImageSize="22" OnClick="ButtonClose_OnClick" Width="10"/>
+          <Component Name="ButtonHelp" Class="Com.Ctrl.IButton" Command="Commands.Help" Hint="@Cmd:Help=Помощь" ImageName="Help" ImageSize="22" Width="10"/>
+        </Component>
+      </Component>
+      <Component Name="RCFrame" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+    </Component>
+  </Component>
+</Resource>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Control.Frm.Data.Task">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="PrintedNumber" Field="EdtRec.PrintedNumber"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Component Name="ContraBox" Class="Com.Ctrl.IBox" After="#0" Caption="@Task:ContraBox=Контрагент, договор, этап">
+            <Component Name="Group8" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="Group5" Class="Com.Ctrl.IGroup" ByColumn="True" CaptionWidth="32">
+                <Component Name="Contraparty" Class="Com.Ctrl.IEditEx" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Contraparty" HasCaption="True" LookupField="Name" Wrap="False">
+                  <Component Name="Representative" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.NaturalEntities" Field="EdtRec.Representative" HasCaption="True" LookupField="Name" Wrap="False"/>
+                </Component>
+                <Component Name="ContractNumber" Class="Com.Ctrl.IEditEx" Field="EdtRec.ContractNumber" HasCaption="True">
+                  <Component Name="StageNumber" Class="Com.Ctrl.IEdit" Field="EdtRec.StageNumber" HasCaption="True"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Inherited Name="ProjectBox">
+            <Inherited Name="Group6">
+              <Inherited Name="Group3">
+                <Component Name="Company" Class="Com.Ctrl.IEditEx" CardFileClass="Bas.Tab.Data.OurCompanies" Field="EdtRec.Company" HasCaption="True" LookupField="Name" ShortList="True">
+                  <Component Name="Division" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" Field="EdtRec.Division" HasCaption="True" LookupField="Name" OnGetLookupFilter="_GetDivisionFilter" OnOpenCardForm="_OnOpenDivisionCard"/>
+                </Component>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="TimeBox">
+            <Inherited Name="Group9">
+              <Inherited Name="Group10">
+                <Inherited Name="EventTime" Field="EdtRec.EventTime"/>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

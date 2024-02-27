@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IRoleCenter">
+  <Inherited Caption="@ControlRC:Admin=РМ администратора" CaptionAlign="CenterAlign">
+    <Inherited Name="MainGroup" Orientation="Vertical">
+      <Component Name="MainData" Class="Com.Cmd2.IGroup" Caption="@ControlRC:MainData=Основное" Columns="1" Orientation="Vertical" Rows="4">
+        <Component Name="ContrNewTask" Class="Com.Cmd2.IItem" Command="Commands.Cmd_ContrNewTask"/>
+        <Component Name="TasksList" Class="Com.Cmd2.IItem" Command="Commands.Cmd_TasksList"/>
+        <Component Name="ControlTasksCardfile" Class="Com.Cmd2.IItem" Command="Commands.Cmd_TasksCardfile"/>
+        <Component Name="TasksKanban" Class="Com.Cmd2.IItem" Command="Commands.Cmd_TasksKanban"/>
+        <Component Name="cmdExecKernelQuit" Class="Com.ComManaging.ExecCommand" Excluded="True" CommandName="Kernel.Service.Quit"/>
+      </Component>
+      <Component Name="RefData" Class="Com.Cmd2.IGroup" Caption="@ControlRC:RefData=Справочные данные" Columns="2" Rows="3">
+        <Component Name="TabStaff" Class="Com.ComManaging.OpenIForm" Caption="@Control:TabStaffButton=Участники исполнения" FormClassName="Control.Tab.Data.Staff" IconName="Control.Employee"/>
+        <Component Name="EmployeeRoles" Class="Com.Cmd2.IItem" Command="Commands.Cmd_EntityRoles"/>
+        <Component Name="Demands" Class="Com.Cmd2.IItem" Command="Commands.Cmd_AccessDemand"/>
+        <Component Name="Projects" Class="Com.Cmd2.IItem" Command="Commands.Cmd_cmdProject"/>
+        <Component Name="InstSettings" Class="Com.Cmd2.IItem" Command="Commands.Cmd_InstSettings"/>
+        <Component Name="MailServers" Class="Com.Cmd2.IItem" Command="Commands.EMailServer"/>
+      </Component>
+      <Component Name="ControlSetup" Class="Com.Cmd2.IGroup" Caption="@ControlRC:RefSettings=Настройки" Columns="2" Rows="6">
+        <Component Name="TaskStatus" Class="Com.Cmd2.IItem" Command="Commands.Cmd_TaskStatus"/>
+        <Component Name="TransRules" Class="Com.Cmd2.IItem" Command="Commands.Cmd_TransRules"/>
+        <Component Name="RulesGroups" Class="Com.Cmd2.IItem" Command="Commands.Cmd_TransRulesGroup"/>
+        <Component Name="TaskCategories" Class="Com.Cmd2.IItem" Command="Commands.Cmd_TaskCategories"/>
+        <Component Name="TaskImportances" Class="Com.Cmd2.IItem" Command="Commands.Cmd_TaskImportance"/>
+        <Component Name="TaskPriority" Class="Com.Cmd2.IItem" Command="Commands.Cmd_TaskPriority"/>
+      </Component>
+      <Component Name="ControlAdmin" Class="Com.Cmd2.IGroup" Excluded="True" Caption="@ControlRC:ControlAdmin=Администрирование" Columns="2" Rows="6">
+        <Component Name="Users" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.Users"/>
+        <Component Name="Roles" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.Roles"/>
+        <Component Name="cmdConfigSetting" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="@Cmd:ConfigSetting=Глобальные настройки" FormClassName="Tab.Config.Setting" IconName="Com.Settings"/>
+        <Component Name="Anchors" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.Anchors"/>
+        <Component Name="Numerators" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.Numerator"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IEditor" HelpContext="Стандарт.СтруктураБизнеса.ТипыРеквизитов.СервисныеПроцедуры.УдалитьЗаписиПоФильтру">
+    <Component Name="EdtRec" Class="CMP.Rec.Properties.IServiceDeleteRecords" IsLibrary="1"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" Margins="5">
+      <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+        <Component Name="EditDeleteRecordClassSave" Class="Com.Ctrl.IEdit" Caption="@CMP:ServiceDeleteRecordsDeleteRecordClassSave=Класс записей" Field="EdtRec.DeleteRecordClassSave" HasButton="True" OnLookup="EditDeleteRecordClassSave_OnLookup"/>
+        <Component Name="EditFilterFormula" Class="CMP.Ctrl.IFormulaEdit" Caption="@CMP:ServiceDeleteRecordsFilterFormula=Фильтр" Field="EdtRec.FilterFormula" ProcType="EdtRec.ProcType" Subtable="EdtRec.FilterRecord"/>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="CheckBoxIntegrityCheck" Class="Com.Ctrl.ICheckBox" Caption="@CMP:ServiceDeleteRecordsIntegrityCheck=Удалять записи с проверкой ссылочной целостности" Field="EdtRec.IntegrityCheck"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

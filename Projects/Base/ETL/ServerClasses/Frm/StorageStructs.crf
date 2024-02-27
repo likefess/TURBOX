@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="ETL.Rec.IntegrationPackage" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="Subt" Class="Com.ISubtable" StructClass="ETL.Rec.IntegrationPackage_ObjectStructs" SubtableName="Subt"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonReports" Excluded="True"/>
+        <Inherited Name="ButtonAnalytics" Excluded="True"/>
+        <Inherited Name="ButtonPost" Excluded="True"/>
+        <Inherited Name="ButtonCancel" Excluded="True"/>
+        <Inherited Name="ButtonClone" Excluded="True"/>
+        <Inherited Name="ButtonDelete" Excluded="True"/>
+        <Inherited Name="ButtonRefresh" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" Excluded="True"/>
+      <Component Name="StructBox" Class="Com.Ctrl.IBox" After="FieldsFrame" AutoSize="False" Caption="@ClassName:StorageStructs=Структуры объектов хранилища">
+        <Component Name="TableStructs" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" Freezed="False" Numbering="False" Subtable="Subt">
+          <Component Name="vDefPos_ObjectStructs" Class="ETL.Rec.IntegrationPackage_ObjectStructs" IsLibrary="1"/>
+          <Component Name="cCol1_ObjStr" Class="Com.Ctrl.IEditEx" Excluded="True" Caption="@Fieldname:ObjectStruct=Список структур хранилища" CellFormat="ReferenceFormat" Enabled="True" Field="vDefPos_ObjectStructs.ObjStruct" HasButton="False" LookupField="Name" ValueType="VarObject" Width="135">
+            <Component Name="JumpButton1" Class="Com.Ctrl.IJumpButton" Excluded="True" Enabled="True"/>
+          </Component>
+          <Component Name="BtnCreateStruct" Class="Com.Ctrl.IButton" Excluded="True" Hint="@BtnName:CreateStruct=Создать структуру" ImageName="Com.AddItem"/>
+          <Component Name="btnDelete" Class="Com.Ctrl.IButton" Excluded="True" Hint="@BtnName:DelStruct=Удалить структуру" ImageName="Com.DeleteItem"/>
+        </Component>
+      </Component>
+      <Inherited Name="TabsFrame" Excluded="True">
+        <Inherited Name="MainTab" Excluded="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

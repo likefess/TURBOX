@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.CustomList">
+  <Inherited FormIcon="Admin.process">
+    <Component Name="Timer" Class="Com.ITimer" After="#0" Interval="90" OnTimer="Timer_OnTimer"/>
+    <Component Name="BGList_Struct" Class="Admin.Frm.Background.BGList_Struct" IsLibrary="1"/>
+    <Inherited Name="TableMenu" Excluded="False" After="BGList_Struct">
+      <Component Name="cmdOpen" Class="Com.ComManaging.ExecProcedure" After="TableSeparator1" Caption="@Admin:ButtonOpen=Открыть" CommandProc="cmdOpen_CommandProc" IconName="Com.folder-open"/>
+      <Inherited Name="cmdCopyValue" After="cmdOpen"/>
+    </Inherited>
+    <Inherited Name="Variables">
+      <Inherited Name="Subtable" StructClass="Admin.Frm.Background.BGList_Struct"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ButtonOpen" Class="Com.Ctrl.IButton" After="ButtonOK" Caption="@Admin:ButtonOpen=Открыть" Command="cmdOpen" ImageName="Com.Blank"/>
+        <Inherited Name="ButtonClose" After="ButtonOpen"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="frameData">
+          <Inherited Name="TableData" Adaptive="True" OnDrawIcon="TableData_OnDrawIcon" PopupMenu="TableMenu" ShowIcon="True">
+            <Component Name="edTask" Class="Com.Ctrl.IEdit" Caption="@Admin:BackgroundTask=Описание" Enabled="False" Field="BGList_Struct.Task" MinWidth="60" OnClick="ItemTable_OnClick" Width="80"/>
+            <Component Name="edTimeJob" Class="Com.Ctrl.IEdit" Caption="@Admin:JobTime=Время работы" Enabled="False" Field="BGList_Struct.Start" FixSize="True" MaxWidth="36" MinWidth="20" OnClick="ItemTable_OnClick" OnHint="edTimeJob_OnHint" OnOutputEx="edTimeJob_OnOutputEx" Width="30"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

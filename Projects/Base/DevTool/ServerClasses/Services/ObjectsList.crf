@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited CaptionAlign="LeftAlign" OnShow="BlankWIthFrames_OnShow">
+    <Inherited Name="TableMenu" Excluded="False">
+      <Component Name="cmdTraceRef" Class="Com.ComManaging.ExecProcedure" After="TableSeparator1" Caption="@Cmd:ITreceRef=Ссылки на объекты" CommandProc="cmdTraceRef_CommandProc"/>
+      <Inherited Name="cmdInsertRow" Excluded="True"/>
+      <Inherited Name="cmdDeleteRow" Excluded="True"/>
+    </Inherited>
+    <Inherited Name="Variables">
+      <Component Name="FClassName" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="ResultsTab" Class="Com.ISubtable" StructClass="DevTool.Struct.ObjStruct"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonOK" Excluded="True" OnClick="ButtonRun_OnClick"/>
+        <Inherited Name="ButtonRefresh" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" AutoSize="False">
+        <Component Name="ParamFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250" MinWidth="100">
+            <Component Name="ClassEdit" Class="Com.Ctrl.IEditEx" AutocompleteMode="acmOn" Caption="@Frm:Class=Класс" Field="FClassName" OnAutocomplete="ClassEdit_OnAutocomplete" OnChange="ClassEdit_OnChange"/>
+            <Component Name="ButRefresh" Class="Com.Ctrl.IButton" ImageName="Com.Refresh" OnClick="ButRefresh_OnClick"/>
+          </Component>
+        </Component>
+        <Component Name="ResultsFrame" Class="Com.Ctrl.IFrame" Margins="5">
+          <Component Name="Table1" Class="Com.Ctrl.ITable" Adaptive="True" IconName="Com.Blank" OnDrawIcon="Table1_OnDrawIcon" PopupMenu="TableMenu" Sortable="True" Subtable="ResultsTab">
+            <Component Name="ObjStuct" Class="DevTool.Struct.ObjStruct" IsLibrary="1"/>
+            <Component Name="NameCol" Class="Com.Ctrl.IEdit" Caption="@Адрес" Enabled="False" Field="ObjStuct.ObjAddr" MaxWidth="40" MinWidth="40" OnClick="NameCol_OnClick" Width="40"/>
+            <Component Name="DescrCol" Class="Com.Ctrl.IEdit" Caption="@Объект" Enabled="False" Field="ObjStuct.ObjDescr" MaxWidth="200" MinWidth="50" OnClick="DescrCol_OnClick" Width="100"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

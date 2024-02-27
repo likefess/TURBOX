@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IEditor">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Bas.Rec.BasObject" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Component Name="FrameHeader" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Vertical">
+        <Component Name="FrameTopView" Class="Com.Ctrl.IFrame" AutoSize="False"/>
+        <Component Name="ButtonsFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="CheckBoxLocked" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Locked" Visible="False"/>
+          <Component Name="ButtonOK" Class="Com.Ctrl.IButton" Caption="@Cmd:PostClose=OK" FontSize="11" ImageName="PostClose" OnClick="ButtonOK_OnClick" Width="22"/>
+          <Component Name="ButtonCancel" Class="Com.Ctrl.IButton" Caption="@Cmd:Cancel=Отменить" ImageName="Cancel" OnClick="ButtonCancel_OnClick"/>
+          <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Caption="@Cmd:Close=Закрыть" Command="Commands.CloseForm" ImageName="Close"/>
+          <Component Name="ButtonPost" Class="Com.Ctrl.IButton" Caption="@Cmd:Apply=Применить" Command="Commands.CardPost" ImageName="Post"/>
+          <Component Name="ButtonHelp" Class="Com.Ctrl.IButton" Caption="@Cmd:Help=Помощь" Command="Commands.Help" ImageName="Help"/>
+        </Component>
+      </Component>
+      <Component Name="FrameViews" Class="Com.Ctrl.IFrame" AutoSize="False" OnSwitch="FrameViews_OnSwitch" Orientation="WithTabs" ShowTabs="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

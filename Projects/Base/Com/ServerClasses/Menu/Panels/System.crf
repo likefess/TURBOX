@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IMenu">
+  <Inherited Caption="@Menu.Panel:System=Система" FormIcon="Com.server">
+    <Inherited Name="MainGroup">
+      <Component Name="GroupArchive" Class="Com.Cmd2.IGroup" Caption="@Menu.Group:Archive=Файловый архив" Rows="10">
+        <Component Name="cmdArchiveFiles" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:ArchiveFiles=Файлы" FormClassName="Tab.Archive.File" IconName="Com.folder-open"/>
+        <Component Name="cmdArchiveAttachments" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:ArchiveAttachments=Вложения" FormClassName="Tab.Archive.Attachment" IconName="Com.paperclip"/>
+        <Component Name="cmdArchivePartitions" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:ArchivePartitions=Разделы архива" FormClassName="Tab.Archive.Partition" IconName="Com.folder-tree"/>
+        <Component Name="cmdArchiveStatistics" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:ArchiveStatistics=Статистика архива" FormClassName="Tab.Archive.Statistics" IconName="Com.chart-bar"/>
+        <Component Name="cmdExecKernelCommonExplorer" Class="Com.ComManaging.ExecCommand" CommandName="Kernel.Service.CommonExplorer" IconName="Com.CommonExplorer"/>
+      </Component>
+      <Component Name="GroupServer" Class="Com.Cmd2.IGroup" Caption="@Menu.Group:Server=Сервер">
+        <Component Name="cmdExecKernelAdministration" Class="Com.ComManaging.ExecCommand" CommandName="Kernel.Service.Administration" IconName="Com.Administration"/>
+        <Component Name="cmdExecKernelAbout" Class="Com.ComManaging.ExecCommand" CommandName="Kernel.Help.About" IconName="Com.question"/>
+      </Component>
+      <Component Name="GroupClient" Class="Com.Cmd2.IGroup" Caption="@Menu.Group:Client=Клиент">
+        <Component Name="cmdExecKernelHelp" Class="Com.ComManaging.ExecCommand" CommandName="Kernel.Help.Help" IconName="Com.Help"/>
+        <Component Name="cmdExecKernelLockApp" Class="Com.ComManaging.ExecCommand" CommandName="Kernel.Service.LockApp" IconName="Com.lock"/>
+        <Component Name="cmdChangePassword" Class="Com.Cmd2.IItem" Command="Commands.ChangePassword"/>
+        <Component Name="cmdExecKernelQuit" Class="Com.ComManaging.ExecCommand" CommandName="Kernel.Service.Quit" IconName="Com.running"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

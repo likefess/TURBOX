@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Bas.Recovery.Root">
+    <Component Name="References" Class="Bas.Recovery.Group" Caption="Общие cправочники, классификаторы">
+      <Component Name="LoadReferences" Class="Bas.Recovery.MassUpdate" Caption="Справочники"/>
+      <Component Name="LoadServices" Class="Bas.Recovery.MassUpdate" Caption="Служебные картотеки"/>
+    </Component>
+    <Component Name="Reports" Class="Bas.Recovery.Group" Caption="Отчеты">
+      <Component Name="LoadReports" Class="Bas.Recovery.MassUpdate" Caption="Загрузка отчетов"/>
+    </Component>
+    <Component Name="UpdateIB" Class="Bas.Recovery.Group" Caption="Конвертация ИБ, общие сервисные функции">
+      <Component Name="UpdConverter" Class="Bas.Recovery.MassUpdate" Caption="Конвертация (обновление) базы данных">
+        <Component Name="ConvertForeignKeyFields" Class="Bas.Recovery.MassUpdates.Class" Caption="Проверка и конвертация внешних ключей" ProcessingClass="Bas.ProfileInfo.ConvertForeignKeyFields"/>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

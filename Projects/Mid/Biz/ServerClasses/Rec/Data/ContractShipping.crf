@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rec.CodeName">
+  <Inherited>
+    <Component Name="CFR" Class="Com.Fld.IField" After="#0" Caption="@ContractShipping:CFR=ЦФО" FieldName="CFR" ValueType="VarObject"/>
+    <Component Name="BGI" Class="Com.Fld.IField" Caption="@ContractShipping:BGI=СБК" FieldName="BGI" ValueType="VarObject"/>
+    <Component Name="Source" Class="Com.Fld.IField" Caption="@ContractShipping:Source=Источник" FieldName="Source" ValueType="VarObject"/>
+    <Component Name="Project" Class="Com.Fld.IField" Caption="@ContractShipping:Project=Проект" FieldName="Project" ValueType="VarObject"/>
+    <Component Name="VATRate" Class="Com.Fld.IField" Caption="@ContractShipping:VATRate=Ставка НДС" FieldName="VATRate" ValueType="VarObject"/>
+    <Component Name="TotalAmountWithoutVAT" Class="Com.Fld.IField" Caption="@ContractSpecification:TotalAmountWithoutVAT=Сумма без НДС" FieldName="TotalAmountWithoutVAT"/>
+    <Component Name="TotalVATAmount" Class="Com.Fld.IField" Caption="@ContractSpecification:TotalVATAmount=Сумма НДС" FieldName="TotalVATAmount"/>
+    <Component Name="TotalAmountIncludingVAT" Class="Com.Fld.IField" Caption="@ContractSpecification:TotalAmountIncludingVAT=Сумма с НДС" FieldName="TotalAmountIncludingVAT"/>
+    <Component Name="Rows" Class="Com.ISubtable" OnAfterDelete="Rows_OnAfterDelete" StructClass="Biz.Rec.Data.ContractShipping_Rows" SubtableName="Rows"/>
+    <Component Name="Rows_Totals" Class="Com.ISubtable" StructClass="Biz.Rec.Data.ContractShipping_Rows_Totals"/>
+    <Component Name="Contract" Class="Com.Fld.IField" Caption="@ContractShipping:Contract=Договор" FieldName="Contract" ValueType="VarObject"/>
+    <Component Name="ContractSuppAgreement" Class="Com.Fld.IField" Caption="@ContractShipping:ContractSuppAgreement=Дополнительное соглашение" FieldName="ContractSuppAgreement" ValueType="VarObject"/>
+    <Component Name="ContractSpecification" Class="Com.Fld.IField" Caption="@ContractShipping:ContractSpecification=Спецификация" FieldName="ContractSpecification" ValueType="VarObject"/>
+    <Component Name="StartDate" Class="Com.Fld.IField" Caption="@ContractShipping:StartDate=Дата начала периода" FieldName="StartDate" ValueType="VarDate"/>
+    <Component Name="EndDate" Class="Com.Fld.IField" Caption="@ContractShipping:EndDate=Дата окончания периода" FieldName="EndDate" ValueType="VarDate"/>
+    <Component Name="ShippingDate" Class="Com.Fld.IField" Caption="@ContractShipping:ShippingDate=Дата поставки/отгрузки" FieldName="ShippingDate" ValueType="VarDate"/>
+    <Inherited Name="Name" Caption="@ContractShipping:Name=Код"/>
+  </Inherited>
+</Resource>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.CodeName">
+  <Inherited HelpContext="Biz.НСИ.Базовые справочники.Единицы измерения" Hierarchical="False">
+    <Inherited Name="Current" Class="Biz.Rec.Ref.UnitOrCurrency" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Code" After="Locked"/>
+          <Inherited Name="Name" After="Code"/>
+          <Component Name="Accuracy" Class="Com.Ctrl.IEdit" After="Name" Field="Current.Accuracy" Width="30"/>
+          <Component Name="BaseUnit" Class="Com.Ctrl.IEdit" Field="Current.BaseUnit" LookupField="Code" Width="30"/>
+          <Component Name="UnitKind" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Current.UnitKind" Width="30"/>
+          <Inherited Name="Closed" Excluded="False" After="UnitKind" Caption="@Unit:NotUsed=Не используется" Enabled="True" Visible="True" Width="30"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

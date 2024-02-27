@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited HelpContext="CMP.Студия компонентов (машина реквизитов).Тип объекта">
+    <Inherited Name="EdtRec" Class="Bas.Rec.Config.ProcType" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="ProcType_ViewList" Class="CMP.Rec.Config.ProcType_ViewList" IsLibrary="1"/>
+      <Component Name="ProcType_Properties" Class="CMP.Rec.Config.ProcType_Properties" IsLibrary="1"/>
+      <Component Name="ProcType_CommonProperty" Class="CMP.Rec.Config.ProcType_CommonProperty" IsLibrary="1"/>
+      <Component Name="ProcType_Restrictions" Class="CMP.Rec.Config.ProcType_Restrictions" IsLibrary="1"/>
+      <Component Name="ProcType_PropertiesLimits" Class="CMP.Rec.Config.ProcType_PropertiesLimits" IsLibrary="1"/>
+      <Component Name="ProcType_PostLimits" Class="CMP.Rec.Config.ProcType_PostLimits" IsLibrary="1"/>
+      <Component Name="ProcType_Library" Class="CMP.Rec.Config.ProcType_Library" IsLibrary="1"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ButtonCompile" Class="Com.Ctrl.IButton" After="ButtonServices" Caption="@Cmd:Compile=Компилировать" ImageName="Com.Compile" OnClick="ButtonCompile_OnClick"/>
+        <Inherited Name="ButtonClose" After="ButtonCompile"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" ByColumn="False" MaxWidth="0">
+          <Inherited Name="Name" After="#0" CaptionWidth="30" Visible="True" Width="2"/>
+          <Inherited Name="Code" After="Name" CaptionWidth="20" MaxWidth="60" Visible="True" Width="1"/>
+        </Inherited>
+        <Component Name="Group5" Class="Com.Ctrl.IGroup" Adaptive="True" MinWidth="150">
+          <Component Name="EditComment" Class="Com.Ctrl.IEdit" Caption="@CMP:ProcTypeComment=Комментарий" CaptionWidth="30" Field="EdtRec.CommentText"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="ClassesBox" Class="Com.Ctrl.IBox" Caption="@CMP:ClassesBox=Классификация">
+            <Component Name="ClassesGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="60" MinWidth="150">
+              <Component Name="RTClassEdit" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Field="EdtRec.RTClass" HasCaption="True" OnLookup="RTClassEditOnLookup"/>
+              <Component Name="ClassOfRecordEdit" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Field="EdtRec.ClassOfRecord" HasCaption="True" OnDraw="ClassOfRecordEdit_OnDraw" OnLookup="ClassOfRecordEdit_OnLookup" OnOutput="ClassOfRecordEdit_OnOutput"/>
+              <Component Name="Group6" Class="Com.Ctrl.IGroup">
+                <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="60"/>
+                <Component Name="SettingOff" Class="Com.Ctrl.ICheckBox" Field="EdtRec.SettingOff"/>
+              </Component>
+              <Component Name="ExtensionForEdit" Class="Com.Ctrl.IEdit" Excluded="True" Field="EdtRec.ExtensionFor" HasCaption="True"/>
+              <Component Name="TypeForSetupEdit" Class="Com.Ctrl.IEdit" Excluded="True" Field="EdtRec.TypeForSetup" HasCaption="True"/>
+            </Component>
+          </Component>
+          <Component Name="CodesBox" Class="Com.Ctrl.IBox" Caption="@CMP:CodesBox=Коды">
+            <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="60" MinWidth="150">
+              <Component Name="CodePrefixEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.CodePrefix" HasCaption="True"/>
+              <Component Name="CodePostfixEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.CodePostfix" HasCaption="True"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="ViewsFrame" Class="Com.Ctrl.IFrame" Caption="@CMP:ProcTypeViews=Внешний вид">
+          <Component Name="ViewsBox" Class="Com.Ctrl.IBox" Caption="@CMP:ProcTypeView=Список представлений">
+            <Component Name="ViewsTable" Class="Com.Ctrl.ITable" Adaptive="True" IconName="Com.Settings" Numbering="False" OnClickIcon="Table_OnClickIcon" ShowIcon="True" Subtable="EdtRec.ViewsList">
+              <Component Name="ViewsEdit" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Enabled="False" Field="ProcType_ViewList.Description" OnClick="Formula_OnClick" OnHint="ViewsEdit_OnHint" UseMacro="True"/>
+            </Component>
+          </Component>
+          <Component Name="AdditionalAppearanceBox" Class="Com.Ctrl.IBox" Caption="@CMP:ProcTypeAdditionalAppearance=Дополнительные настройки внешнего вида">
+            <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="55">
+              <Component Name="EditTopView" Class="Com.Ctrl.IEdit" Field="EdtRec.TopView" HasCaption="True" OnGetLookupFilter="EditTopView_OnGetLookupFilter"/>
+              <Component Name="Group4" Class="Com.Ctrl.IGroup">
+                <Component Name="Static1" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@CMP:ProcTypeButtonVisibility=Видимость кнопок" FixSize="True" Width="55"/>
+                <Component Name="CheckBoxShowButtonOK" Class="Com.Ctrl.ICheckBox" Field="EdtRec.ShowButtonOK"/>
+                <Component Name="CheckBoxShowButtonCancel" Class="Com.Ctrl.ICheckBox" Field="EdtRec.ShowButtonCancel"/>
+                <Component Name="CheckBoxShowButtonClose" Class="Com.Ctrl.ICheckBox" Field="EdtRec.ShowButtonClose"/>
+                <Component Name="CheckBoxShowButtonPost" Class="Com.Ctrl.ICheckBox" Field="EdtRec.ShowButtonPost"/>
+                <Component Name="CheckBoxShowButtonHelp" Class="Com.Ctrl.ICheckBox" Field="EdtRec.ShowButtonHelp"/>
+              </Component>
+              <Component Name="EditPeriodProperty" Class="Com.Ctrl.IEdit" Field="EdtRec.PeriodProperty" HasCaption="True" OnGetLookupFilter="EditProperty_OnGetLookupFilter"/>
+              <Component Name="EditBegDateProperty" Class="Com.Ctrl.IEdit" Field="EdtRec.BegDateProperty" HasCaption="True" OnGetLookupFilter="EditProperty_OnGetLookupFilter"/>
+              <Component Name="EditEndDateProperty" Class="Com.Ctrl.IEdit" Field="EdtRec.EndDateProperty" HasCaption="True" OnGetLookupFilter="EditProperty_OnGetLookupFilter"/>
+              <Component Name="EditShowInTab" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.ShowInTab" HasCaption="True" ListAsString="&lt;По умолчанию>&#xD;&#xA;Код и дата&#xD;&#xA;Наименование&#xD;&#xA;Код (номер)&#xD;&#xA;Тип и код&#xD;&#xA;Текущее представление&#xD;&#xA;Код и текущее представление"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="ReCalcFrame" Class="Com.Ctrl.IFrame" Caption="@CMP:ProcTypeReCalc=Пересчеты">
+          <Component Name="AutoPropBox" Class="Com.Ctrl.IBox" Caption="@CMP:ProcTypeAutoProp=Автоматические пересчеты">
+            <Component Name="AutoPropTable" Class="Com.Ctrl.ITable" Adaptive="True" IconName="Com.Settings" Numbering="False" OnClickIcon="Table_OnClickIcon" OnDelete="Table_OnDelete" OnInsert="AutoPropTableOnInsert" ShowIcon="True" Subtable="EdtRec.AutoProperties">
+              <Component Name="AutoPropEdit" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Enabled="False" Field="ProcType_Properties.Description" HasButton="False" OnClick="Formula_OnClick" OnDraw="Formula_OnDraw" OnHint="Formula_OnHint" UseMacro="True"/>
+              <Component Name="AutoPropFlag" Class="Com.Ctrl.ICheckBox" Field="ProcType_Properties.Off" FixSize="True" Width="12"/>
+            </Component>
+          </Component>
+          <Component Name="CalcPropBox" Class="Com.Ctrl.IBox" Caption="@CMP:ProcTypeCalcProp=Пересчеты при изменении">
+            <Component Name="CalcPropTable" Class="Com.Ctrl.ITable" Adaptive="True" IconName="Com.Settings" Numbering="False" OnClickIcon="Table_OnClickIcon" OnDelete="Table_OnDelete" OnInsert="Table_OnInsert" ShowIcon="True" Subtable="EdtRec.CalcProperties">
+              <Component Name="CalcPropEdit" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Enabled="False" Field="ProcType_Properties.Description" HasButton="False" OnClick="Formula_OnClick" OnDraw="Formula_OnDraw" OnHint="Formula_OnHint" UseMacro="True"/>
+              <Component Name="CalcPropFlag" Class="Com.Ctrl.ICheckBox" Field="ProcType_Properties.Off" FixSize="True" Width="12"/>
+            </Component>
+          </Component>
+          <Component Name="EventPropBox" Class="Com.Ctrl.IBox" Caption="@CMP:ProcTypeEventProp=Пересчеты по событиям">
+            <Component Name="EventPropTable" Class="Com.Ctrl.ITable" Adaptive="True" IconName="Com.Settings" Numbering="False" OnClickIcon="Table_OnClickIcon" OnDelete="Table_OnDelete" OnInsert="EventPropTableOnInsert" ShowIcon="True" Subtable="EdtRec.EventProperties">
+              <Component Name="EventPropEdit" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Enabled="False" Field="ProcType_Properties.Description" HasButton="False" OnClick="Formula_OnClick" OnDraw="Formula_OnDraw" OnHint="Formula_OnHint" UseMacro="True"/>
+              <Component Name="EventPropFlag" Class="Com.Ctrl.ICheckBox" Field="ProcType_Properties.Off" FixSize="True" Width="12"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="ShowPropFrame" Class="Com.Ctrl.IFrame" Caption="@CMP:ProcTypeShowProp=Видимость/доступность">
+          <Component Name="ShowPropBox" Class="Com.Ctrl.IBox" Caption="@CMP:ProcTypeShowProp=Реквизиты">
+            <Component Name="ShowPropTable" Class="Com.Ctrl.ITable" Adaptive="True" IconName="Com.Settings" Numbering="False" OnClickIcon="Table_OnClickIcon" OnDelete="Table_OnDelete" OnInsert="ShowPropTableOnInsert" ShowIcon="True" Subtable="EdtRec.ShowProperties">
+              <Component Name="ShowPropEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="ProcType_Properties.Description" OnClick="Formula_OnClick" OnDraw="Formula_OnDraw" OnHint="Formula_OnHint" UseMacro="True"/>
+              <Component Name="ShowPropFlag" Class="Com.Ctrl.ICheckBox" Field="ProcType_Properties.Off" FixSize="True" Width="12"/>
+            </Component>
+          </Component>
+          <Component Name="ShowTabsBox" Class="Com.Ctrl.IBox" Caption="@CMP:ProcTypeShowTabs=Таблицы">
+            <Component Name="ShowTabsTable" Class="Com.Ctrl.ITable" Adaptive="True" IconName="Com.Settings" Numbering="False" OnClickIcon="Table_OnClickIcon" OnDelete="Table_OnDelete" OnInsert="ShowTabsTableOnInsert" ShowIcon="True" Subtable="EdtRec.ShowTablesProperties">
+              <Component Name="ShowTabsEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="ProcType_Properties.Description" OnClick="Formula_OnClick" OnDraw="Formula_OnDraw" OnHint="Formula_OnHint" UseMacro="True"/>
+              <Component Name="ShowTabsFlag" Class="Com.Ctrl.ICheckBox" Field="ProcType_Properties.Off" FixSize="True" Width="12"/>
+            </Component>
+          </Component>
+          <Component Name="ShowViewsBox" Class="Com.Ctrl.IBox" Caption="@CMP:ProcTypeShowViews=Представления">
+            <Component Name="ShowViewsTable" Class="Com.Ctrl.ITable" Adaptive="True" IconName="Com.Settings" Numbering="False" OnClickIcon="Table_OnClickIcon" OnDelete="Table_OnDelete" OnInsert="ShowViewsTableOnInsert" ShowIcon="True" Subtable="EdtRec.ShowViewsProperties">
+              <Component Name="ShowViewsEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="ProcType_Properties.Description" OnClick="Formula_OnClick" OnDraw="Formula_OnDraw" OnHint="Formula_OnHint" UseMacro="True"/>
+              <Component Name="ShowViewsFlag" Class="Com.Ctrl.ICheckBox" Field="ProcType_Properties.Off" FixSize="True" Width="12"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="ShowTabsFrame" Class="Com.Ctrl.IFrame" Excluded="True" Caption="@CMP:ProcTypeShowTabs=Видимость/доступность таблиц"/>
+        <Component Name="ShowViewsFrame" Class="Com.Ctrl.IFrame" Excluded="True" Caption="@CMP:ProcTypeShowViews=Видимость/доступность представлений"/>
+        <Component Name="CommonPropFrame" Class="Com.Ctrl.IFrame" Caption="@CMP:ProcTypeCommonProp=Общие реквизиты">
+          <Component Name="CommonPropBox" Class="Com.Ctrl.IBox" Caption="@CMP:ProcTypeCommonProp=Общие реквизиты">
+            <Component Name="CommonPropTable" Class="Com.Ctrl.ITable" Adaptive="True" IconName="Com.Settings" Numbering="False" OnClickIcon="Table_OnClickIcon" OnDelete="Table_OnDelete" OnInsert="Table_OnInsert" ShowIcon="True" Subtable="EdtRec.CommonProperties">
+              <Component Name="CommonPropEdit" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Enabled="False" Field="ProcType_Properties.Description" HasButton="False" OnClick="Formula_OnClick" OnDraw="Formula_OnDraw" OnHint="Formula_OnHint" UseMacro="True"/>
+              <Component Name="CommonPropFlag" Class="Com.Ctrl.ICheckBox" Field="ProcType_Properties.Off" FixSize="True" Width="12"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="RestrictFrame" Class="Com.Ctrl.IFrame" Caption="@CMP:ProcTypeRestrict=Ограничения">
+          <Component Name="RestrictBox" Class="Com.Ctrl.IBox" Caption="@CMP:ProcTypeRestrict=Ограничения">
+            <Component Name="RestrictTable" Class="Com.Ctrl.ITable" Adaptive="True" IconName="Com.Settings" Numbering="False" OnClickIcon="Table_OnClickIcon" OnDelete="Table_OnDelete" OnInsert="Table_OnInsert" ShowIcon="True" Subtable="EdtRec.Restrictions">
+              <Component Name="RestrictEdit" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Enabled="False" Field="ProcType_Properties.Description" HasButton="False" OnClick="Formula_OnClick" OnDraw="Formula_OnDraw" OnHint="Formula_OnHint" UseMacro="True"/>
+              <Component Name="RestrictFlag" Class="Com.Ctrl.ICheckBox" Field="ProcType_Properties.Off" FixSize="True" Width="12"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="LimitsFrame" Class="Com.Ctrl.IFrame" Caption="@CMP:ProcTypePropLimits=Лимиты">
+          <Component Name="PropLimitsBox" Class="Com.Ctrl.IBox" Caption="@CMP:ProcTypePropLimits=Лимиты реквизитов">
+            <Component Name="PropLimitsTable" Class="Com.Ctrl.ITable" Adaptive="True" IconName="Com.Settings" Numbering="False" OnClickIcon="Table_OnClickIcon" OnDelete="Table_OnDelete" OnInsert="Table_OnInsert" ShowIcon="True" Subtable="EdtRec.PropertiesLimits">
+              <Component Name="PropLimitsEdit" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Enabled="False" Field="ProcType_Properties.Description" HasButton="False" OnClick="Formula_OnClick" OnDraw="Formula_OnDraw" OnHint="Formula_OnHint" UseMacro="True"/>
+              <Component Name="PropLimitsFlag" Class="Com.Ctrl.ICheckBox" Field="ProcType_Properties.Off" FixSize="True" Width="12"/>
+            </Component>
+          </Component>
+          <Component Name="PostLimitsBox" Class="Com.Ctrl.IBox" Caption="@CMP:ProcTypePostLimits=Лимиты объекта">
+            <Component Name="PostLimitsTable" Class="Com.Ctrl.ITable" Adaptive="True" IconName="Com.Settings" Numbering="False" OnClickIcon="Table_OnClickIcon" OnDelete="Table_OnDelete" OnInsert="Table_OnInsert" ShowIcon="True" Subtable="EdtRec.PostLimits">
+              <Component Name="PostLimitsEdit" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Enabled="False" Field="ProcType_Properties.Description" HasButton="False" OnClick="Formula_OnClick" OnDraw="Formula_OnDraw" OnHint="Formula_OnHint" UseMacro="True"/>
+              <Component Name="PostLimitsFlag" Class="Com.Ctrl.ICheckBox" Field="ProcType_Properties.Off" FixSize="True" Width="12"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="PostLimitsFrame" Class="Com.Ctrl.IFrame" Excluded="True" Caption="@CMP:ProcTypePostLimits=Лимиты объекта"/>
+        <Component Name="LibraryFrame" Class="Com.Ctrl.IFrame" Caption="@CMP:ProcTypeLibrary=Библиотеки">
+          <Component Name="LibraryBox" Class="Com.Ctrl.IBox" Caption="@CMP:ProcTypeLibrary=Библиотеки">
+            <Component Name="LibraryTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" OnClickIcon="Table_OnClickIcon" OnDelete="Table_OnDelete" OnInsert="Table_OnInsert" Subtable="EdtRec.Libraries">
+              <Component Name="LibraryEdit" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Field="ProcType_Library.Library" OnDraw="Formula_OnDraw" UseMacro="True"/>
+              <Component Name="LibraryFlag" Class="Com.Ctrl.ICheckBox" Field="ProcType_Properties.Off" FixSize="True" Width="12"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

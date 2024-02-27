@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.InfoBase.InfoBaseCustMaster">
+  <Inherited ActiveControl="edBaseName">
+    <Component Name="ProjectStruct" Class="Admin.Frm.InfoBase.InfoBaseProject_Struct" IsLibrary="1" After="Timer"/>
+    <Inherited Name="TableMenu">
+      <Component Name="cmdMarkProj" Class="Com.ComManaging.ExecProcedure" After="TableSeparator1" Caption="@Admin:MarkAll=Выделить всё" CommandProc="cmdMarkProj_CommandProc" IconName="Admin.check"/>
+      <Component Name="cmdUnmarkProj" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:UnmarkAll=Очистить всё" CommandProc="cmdUnmarkProj_CommandProc" IconName="Admin.uncheck"/>
+      <Component Name="Separator1" Class="Com.Cmd2.ISeparator"/>
+      <Component Name="cmdShowFrontal" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:InfobaseMasterShowFrontal=Отображать лицевые проекты" CommandProc="cmdShowFrontal_CommandProc"/>
+      <Component Name="cmdGroupProject" Class="Com.ComManaging.ExecProcedure" Caption="@Admin:InfobaseMasterGroupProject=Группировать проекты" CommandProc="cmdGroupProject_CommandProc"/>
+      <Inherited Name="cmdFolderOpen" Excluded="True"/>
+      <Inherited Name="cmdFolderCreate" Excluded="True"/>
+      <Inherited Name="cmdDelete" Excluded="True"/>
+      <Inherited Name="cmdRename" Excluded="True"/>
+    </Inherited>
+    <Inherited Name="Variables">
+      <Inherited Name="subTblArchive" StructClass="Admin.Frm.InfoBase.InfoBaseProject_Struct"/>
+      <Component Name="FldBaseName" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Component Name="FrameName" Class="Com.Ctrl.IFrame" After="#0" Caption="@Admin:InfobaseCR_Step1=База" Margins="4">
+          <Component Name="grpBaseName" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="lblBaseName" Class="Com.Ctrl.IStatic" Caption="@Admin:Infobase_NewBase=Название" FixSize="True" Width="20"/>
+            <Component Name="edBaseName" Class="Com.Ctrl.IEdit" Field="FldBaseName" OnVerify="edBaseName_OnVerify" Width="100"/>
+          </Component>
+        </Component>
+        <Inherited Name="FrameArchive" Caption="@Admin:InfobaseCR_Step2=Проекты">
+          <Inherited Name="frameTable">
+            <Inherited Name="tblArchive">
+              <Inherited Name="edName" Caption="@Admin:ProjectListName=Проект" Field="ProjectStruct.Name" OnDrawEx="edItem_OnDrawEx" OnOutputEx="edName_OnOutputEx" ValueType="VarString"/>
+              <Inherited Name="edSize" Excluded="True"/>
+              <Inherited Name="edDateTime" Excluded="True"/>
+              <Component Name="edHead" Class="Com.Ctrl.IEdit" Caption="@Admin:ProjectListTitle=Название" Enabled="False" Field="ProjectStruct.Head" HasCaption="True" MaxWidth="120" MinWidth="20" OnClick="Archive_OpenFolder" OnDrawEx="edItem_OnDrawEx" Width="60"/>
+              <Component Name="edSelected" Class="Com.Ctrl.IEdit" Excluded="True" Caption="@Admin:Selected=Выбран" CellFormat="LogicalFormat" Enabled="True" Field="ProjectStruct.Selected" FixSize="True" OnChange="edSelected_OnChange" OnVerify="edSelected_OnVerify" ValueType="VarLogical" Width="20"/>
+              <Component Name="chbSelected" Class="Com.Ctrl.ICheckBox" Caption="@Admin:Selected=Выбран" Field="ProjectStruct.Selected" FixSize="True" OnChange="chbSelected_OnChange" OnVerify="edSelected_OnVerify" Width="20"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="FrameDB" Caption="@Admin:InfobaseCR_Step3=Размещение"/>
+        <Inherited Name="FrameProcess">
+          <Inherited Name="frameStatus">
+            <Inherited Name="grpDetail">
+              <Component Name="lblTable" Class="Com.Ctrl.IStatic" Caption="@Admin:InfobaseTables=Таблиц" FixSize="True" Width="30"/>
+              <Component Name="edPrTable" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" MinWidth="20" Width="60"/>
+              <Component Name="sepTable" Class="Com.Ctrl.IStatic" MinWidth="40" Width="60"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

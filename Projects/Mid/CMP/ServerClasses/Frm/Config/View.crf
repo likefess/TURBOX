@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited HelpContext="CMP.Студия компонентов (машина реквизитов).Представления">
+    <Inherited Name="EdtRec" Class="CMP.Rec.Views.IView" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="ViewType" Class="Com.Fld.IVar" Caption="@CMP:ViewType=Тип представления" OnCalc="ViewTypeOnCalc" OnChange="ViewTypeOnChange" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ButtonTest" Class="Com.Ctrl.IButton" After="ButtonServices" Hint="Тест представления" ImageName="Bas.puzzle" OnClick="ButtonTest_OnClick"/>
+        <Component Name="ButtonCompile" Class="Com.Ctrl.IButton" Caption="@Cmd:Compile=Компилировать" ImageName="Com.Compile" OnClick="ButtonCompile_OnClick"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" CaptionWidth="50" MaxWidth="0">
+          <Component Name="CodeNameGroup" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True">
+            <Component Name="NameEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" HasCaption="True"/>
+            <Component Name="CodeEdit" Class="Com.Ctrl.IEdit" CaptionWidth="20" Field="EdtRec.Code" FixSize="True" HasCaption="True" Width="40"/>
+          </Component>
+          <Component Name="ViewTypeEdit" Class="Com.Ctrl.IEdit" After="Name" AutoLookup="True" CellFormat="EnumFormat" Field="ViewType" HasCaption="True" ValueType="VarString"/>
+          <Component Name="DescrEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Description" HasCaption="True"/>
+          <Component Name="ProcTypeEdit" Class="Com.Ctrl.IEdit" Caption="@CMP:ProcType=Тип объекта" Field="EdtRec.ProcType"/>
+          <Component Name="FrmClassEdit" Class="Com.Ctrl.IEdit" Caption="@CMP:ViewFrmClass=Форма представления" Enabled="False" Field="EdtRec.FrmClass"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Excluded="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.SimpleMaster">
+  <Inherited ActiveControl="edSchemaName">
+    <Component Name="MembersStruct" Class="Admin.Frm.InfoBase.IBSchemaMembers_Struct" IsLibrary="1" After="#0"/>
+    <Inherited Name="TableMenu" After="MembersStruct">
+      <Component Name="cmdMemberAdd" Class="Com.ComManaging.ExecProcedure" After="TableSeparator1" CommandProc="cmdMemberAdd_CommandProc" IconName="Com.AddItem"/>
+      <Component Name="cmdMemberEdit" Class="Com.ComManaging.ExecProcedure" CommandProc="cmdMemberEdit_CommandProc" IconName="Com.EditItem"/>
+      <Component Name="cmdMemberDelete" Class="Com.ComManaging.ExecProcedure" CommandProc="cmdMemberDelete_CommandProc" IconName="Com.DeleteItem"/>
+      <Inherited Name="cmdCopyValue" After="cmdMemberDelete"/>
+    </Inherited>
+    <Inherited Name="Variables">
+      <Component Name="FldName" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="FldMember" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="subTblMembers" Class="Com.ISubtable" StructClass="Admin.Frm.InfoBase.IBSchemaMembers_Struct"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Component Name="FrameName" Class="Com.Ctrl.IFrame" After="#0" Caption="@Admin:IBSchemaCreateMaster_Step1=Основное" Margins="8">
+          <Component Name="grpName" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="lblSchemaName" Class="Com.Ctrl.IStatic" Caption="@Admin:IBSchemaName=Наименование" FixSize="True" Width="40"/>
+            <Component Name="edSchemaName" Class="Com.Ctrl.IEdit" Field="FldName" OnVerify="edSchemaName_OnVerify" Width="80"/>
+            <Component Name="lineName" Class="Com.Ctrl.INewLine"/>
+            <Component Name="lblReplMember" Class="Com.Ctrl.IStatic" Caption="@Admin:IBSchemaMember=Моё имя участника" FixSize="True" Width="40"/>
+            <Component Name="edReplMember" Class="Com.Ctrl.IEdit" Field="FldMember" OnVerify="edReplMember_OnVerify" Width="80"/>
+            <Component Name="lineMember" Class="Com.Ctrl.INewLine"/>
+            <Component Name="sepReplMemberRemark" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+            <Component Name="lblReplMemberRemark" Class="Com.Ctrl.IStatic" Caption="@Admin:IBSchemaCreate_MemberRemark=Изменение имени участника репликации информационной базы может привести к ошибкам в репликации."/>
+          </Component>
+        </Component>
+        <Component Name="FrameMembers" Class="Com.Ctrl.IFrame" Caption="@Admin:IBSchemaCreateMaster_Step2=Участники репликации">
+          <Component Name="membersHeader" Class="Com.Ctrl.IHeader" Caption="@Admin:IBSchemaMembers_Header=Список участников репликации информационных баз">
+            <Component Name="btnMemberAdd" Class="Com.Ctrl.IButton" Command="cmdMemberAdd" Hint="@Form:AddButton=Добавить" ImageName="Com.AddItem"/>
+            <Component Name="btnMemberEdit" Class="Com.Ctrl.IButton" Command="cmdMemberEdit" Hint="@Form:EditButton=Редактировать" ImageName="Com.EditItem"/>
+            <Component Name="btnMemberDelete" Class="Com.Ctrl.IButton" Command="cmdMemberDelete" Hint="@Form:DeleteButton=Удалить" ImageName="Com.DeleteItem"/>
+          </Component>
+          <Component Name="membersFrame" Class="Com.Ctrl.IFrame" Margins="8">
+            <Component Name="tblMembers" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" Freezed="True" IconName="Com.User" Numbering="False" PopupMenu="TableMenu" ShowIcon="True" Sortable="False" Subtable="subTblMembers">
+              <Component Name="edName" Class="Com.Ctrl.IEdit" Caption="@Admin:IBSchema_MembersName=Участник" Enabled="False" Field="MembersStruct.Name" MinWidth="40" ValueType="VarString"/>
+              <Component Name="edDescription" Class="Com.Ctrl.IEdit" Caption="@Admin:IBSchema_MembersDescription=Описание" Enabled="False" Field="MembersStruct.Descript" MaxWidth="200" MinWidth="40" ValueType="VarString" Width="120"/>
+            </Component>
+          </Component>
+        </Component>
+        <Inherited Name="MainTab" After="FrameMembers"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

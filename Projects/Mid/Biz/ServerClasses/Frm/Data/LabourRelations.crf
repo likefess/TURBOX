@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IEditorWithFrames">
+  <Inherited HelpContext="Biz.НСИ.Мастер-данные.Трудовые отношения">
+    <Component Name="EdtRec" Class="Biz.Rec.Data.LabourRelations" IsLibrary="1" After="#0"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="Basic_Gr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+          <Component Name="Company" Class="Com.Ctrl.IEdit" Field="EdtRec.Company" HasCaption="True" Hint="Ссылка на справочник наших предприятий " Required="True" Visible="True" Wrap="True"/>
+          <Component Name="Person" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.NaturalEntities" Field="EdtRec.Person" HasCaption="True" Hint="Ссылка на справочник физ.лиц" LookupFilter="IsStaffer" Required="True" Visible="True" Wrap="True"/>
+          <Component Name="EmplNumber" Class="Com.Ctrl.IEdit" Field="EdtRec.EmplNumber" HasCaption="True" Hint="Табельный номер сотрудника " MaxWidth="40" Required="True" Visible="True"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

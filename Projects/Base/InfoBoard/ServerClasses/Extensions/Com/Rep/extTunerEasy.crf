@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rep.TunerEasy">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TopFrame">
+        <Inherited Name="SubheaderFrame">
+          <Inherited Name="AfterDateFrame">
+            <Inherited Name="TopListButton">
+              <Component Name="ButtonChart" Class="Com.Ctrl.IButton" Caption="@Tuner:ChartButton=Графический отчёт" ImageName="Com.chart-bar" IsSwitch="True"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="EasyFrame">
+        <Inherited Name="EasySettingsFrame">
+          <Component Name="EasyChartBox" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@Tune:EasyChartBox=График" Collapsed="True">
+            <Component Name="EasyChrtFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="EasyChrtGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="20">
+                <Component Name="EasyChartLinkBy" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:ChartLinkBy=Серии из" CellFormat="EnumFormat" LinkName="LinkBy" OnChange="ChartLinkByOnChange" SubContainer="ReportContainer" ValueType="VarInteger"/>
+                <Component Name="EasyChartIndicator" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:Indcator=Показатель" CellFormat="EnumFormat" LinkName="CIndicator" OnChange="EasyChartIndicatorOnChange" SubContainer="ReportContainer" ValueType="VarInteger"/>
+                <Component Name="EasyChartSeriesKind" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:ChartSeriesKind=Вид серий" CellFormat="EnumFormat" LinkName="SeriesKind" OnChange="SeriesKindOnChange" SubContainer="ReportContainer" ValueType="VarInteger"/>
+                <Component Name="EasyChartPalette" Class="Com.RepCtrl.IEditSub" Alignment="LeftAlign" Caption="@Tune:ChartPalette=Палитра" CellFormat="EnumFormat" LinkName="Palette" OnChange="ChartPaletteOnChange" SubContainer="ReportContainer" ValueType="VarInteger"/>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

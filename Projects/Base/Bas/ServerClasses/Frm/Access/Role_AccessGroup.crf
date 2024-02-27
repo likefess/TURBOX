@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited HelpContext="Bas.Администрирование.Настройки.Ролевой доступ.Default">
+    <Inherited Name="Variables">
+      <Component Name="AccessGroupSubtable" Class="Com.ISubtable" StructClass="Bas.Rec.Access.Role_AccessGroup_Struct"/>
+      <Component Name="AccessGroupStruct" Class="Bas.Rec.Access.Role_AccessGroup_Struct" IsLibrary="1"/>
+      <Component Name="fldPropsClass" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="fldPropsName" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="fldBasicAsCRF" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="fldPropsAsCRF" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="3">
+        <Inherited Name="ButtonRefresh" Visible="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" AutoSize="False" Margins="0" Orientation="Vertical" Visible="True">
+        <Component Name="FramePositions" Class="Com.Ctrl.IFrame" AutoSize="False" CanResizeBySplit="True" Margins="5" OnMove="FramePositions_OnMove" Size="100" SplitterAtRight="True" UseSplitter="True">
+          <Component Name="tblPositions" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="True" CanInsert="True" CanMove="True" ManualControl="True" OnChangePosition="tblPositions_OnChangePosition" OnDelete="tblPositions_OnDelete" OnInsert="tblPositions_OnInsert" Sortable="False" Subtable="AccessGroupSubtable">
+            <Component Name="edtClass" Class="Com.Ctrl.IEdit" Caption="@Common:Components.Title=Компоненты" Enabled="False" Field="AccessGroupStruct.CompEdit" MinWidth="20" OnDrawEx="edtClass_OnDrawEx" OnOutputEx="edtClass_OnOutputEx" ValueType="VarObject"/>
+          </Component>
+        </Component>
+        <Component Name="FrameProps" Class="Com.Ctrl.IFrame" Margins="0" Orientation="Horizontal" ScrollerStyle="ScrollerBoth">
+          <Component Name="FramePropsClass" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0" ScrollerStyle="ScrollerNone" Size="20" SplitterAtRight="True" UseSplitter="True">
+            <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="-1" MinWidth="1" Width="1">
+              <Component Name="edtPropsClass" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Common:Class=Класс" Enabled="False" Field="fldPropsClass" MinWidth="20" Width="120"/>
+              <Component Name="edtPropsName" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Common:Name=Имя" Field="fldPropsName" MinWidth="20" OnChange="edtPropsName_OnChange" OnVerify="edtPropsName_OnVerify" Width="120"/>
+            </Component>
+          </Component>
+          <Component Name="FramePropsDummy" Class="Com.Ctrl.IFrame" Margins="0" MinSize="40" ScrollerStyle="ScrollerNone">
+            <Component Name="FramePropsPers" Class="Com.Ctrl.IFrame"/>
+          </Component>
+          <Component Name="FramePropsCRF" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0" MinSize="20" ScrollerStyle="ScrollerNone" UseSplitter="True" Visible="False">
+            <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="-1" MinWidth="1" Width="1">
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption="  базовый класс:"/>
+              <Component Name="edtBasicAsCRF" Class="Com.Ctrl.IEdit" Enabled="False" Field="fldBasicAsCRF" MinWidth="20" Multiline="True" VertAlignment="LeftAlign" Width="120"/>
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" Caption="  ролевой класс:"/>
+              <Component Name="edtPropsAsCRF" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" Field="fldPropsAsCRF" MinWidth="20" Multiline="True" Width="120"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Excluded="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

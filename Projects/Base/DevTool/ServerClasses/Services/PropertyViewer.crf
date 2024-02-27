@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="FProperty" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="FResult" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="250" MinWidth="100">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250" MinWidth="100">
+            <Component Name="PropertyEdit" Class="Com.Ctrl.IEdit" Caption="@Свойство" Field="FProperty" OnChange="PropertyEdit_OnChange"/>
+            <Component Name="ButEvaluate" Class="Com.Ctrl.IButton" Caption="@Вычислить" OnClick="ButEvaluate_OnClick"/>
+          </Component>
+          <Component Name="ResultEdit" Class="Com.Ctrl.IEdit" Caption="@Результат" Enabled="False" Field="FResult"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

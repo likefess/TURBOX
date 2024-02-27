@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Admin.Frm.CustomMaster">
+  <Inherited>
+    <Component Name="Timer" Class="Com.ITimer" After="#0" Active="False" Interval="1" OnTimer="Timer_OnTimer"/>
+    <Inherited Name="Variables">
+      <Component Name="ProcessTime" Class="Com.Fld.IVar" After="#0" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="btnBackground" Class="Com.Ctrl.IButton" After="#0" Caption="@Admin:BtnBackground=Свернуть" Hint="@Admin:BtnBackgroundHint=Продолжить в фоновом режиме" ImageName="Admin.Background" OnClick="btnBackground_OnClick" Visible="False" Width="36"/>
+        <Component Name="btnCancel" Class="Com.Ctrl.IButton" After="ButtonOK" Caption="@Admin:BtnCancel=Прервать" ImageName="Com.Error" OnClick="btnCancel_OnClick" Visible="False"/>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="FrameProcess">
+          <Inherited Name="frameStatus">
+            <Component Name="grpTime" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" Printed="False" Visible="True">
+              <Component Name="lblTime" Class="Com.Ctrl.IStatic" Caption="@Admin:JobTime=Время работы" FixSize="True" Width="30"/>
+              <Component Name="edTime" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" Field="ProcessTime" FixSize="True" ValueType="VarString" Width="24"/>
+            </Component>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>
