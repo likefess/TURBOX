@@ -1,0 +1,26 @@
+﻿#Attr GenerateVer=1
+class inherited Bas.Tab.BasObject  "Группы характеристик";
+
+inclass public
+
+ #Override
+  var RecordClass     :Class Com.Rec.IRecord := Rec.Ref.ГруппыХарактеристик
+
+inclass private
+
+ #Override
+  var UseResource  :Logical := True
+
+inobject public
+
+ #Override
+   Current :Rec.Ref.ГруппыХарактеристик
+
+inobject private
+
+ #Override;
+  proc Init
+    inherited Init
+  end
+
+end
