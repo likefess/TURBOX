@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rec.CodeName">
+  <Inherited>
+    <Component Name="HasDefects" Class="Com.Fld.IVar" After="#0" Caption="Наличие дефектов" ValueType="VarLogical"/>
+    <Component Name="NoClaims" Class="Com.Fld.IVar" Caption="Отсутствие претензий" ValueType="VarLogical"/>
+    <Component Name="Contract" Class="Com.Fld.IField" Caption="Договор" FieldName="Contract" ValueType="VarObject"/>
+    <Component Name="Defects" Class="Com.ISubtable" OnAfterDelete="Defects_OnAfterDelete" StructClass="RealEstate.Rec.Doc.PropertyReturnAct_Defects" SubtableName="Defects"/>
+    <Component Name="DefectsTotal" Class="Com.ISubtable" Excluded="True" StructClass="RealEstate.Rec.Doc.PropertyReturnAct_DefectsTot"/>
+    <Component Name="CObj" Class="Com.Fld.IVar" Caption="Объект имущества" OnCalc="CObj_OnCalc" ValueType="VarObject"/>
+    <Component Name="CRegNum" Class="Com.Fld.IVar" Caption="Рег. номер" OnCalc="CRegNum_OnCalc" ValueType="VarString"/>
+    <Component Name="CRegDate" Class="Com.Fld.IVar" Caption="Дата регистрации" OnCalc="CRegDate_OnCalc" ValueType="VarDate"/>
+    <Component Name="CStartDate" Class="Com.Fld.IVar" Caption="Период действия с" OnCalc="CStartDate_OnCalc" ValueType="VarDate"/>
+    <Component Name="CExpDate" Class="Com.Fld.IVar" Caption="по" OnCalc="CExpDate_OnCalc" ValueType="VarDate"/>
+    <Component Name="CCompany" Class="Com.Fld.IVar" Caption="Организация" OnCalc="CCompany_OnCalc" ValueType="VarObject"/>
+    <Component Name="CDepartment" Class="Com.Fld.IVar" Caption="Подразделение" OnCalc="CDepartment_OnCalc" ValueType="VarObject"/>
+    <Component Name="CUserEmployee" Class="Com.Fld.IVar" Caption="Пользователь" OnCalc="CUserEmployee_OnCalc" ValueType="VarObject"/>
+    <Component Name="CPartner" Class="Com.Fld.IVar" Caption="Контрагент" OnCalc="CPartner_OnCalc" ValueType="VarObject"/>
+    <Component Name="CPartnerUser" Class="Com.Fld.IVar" Caption="Куратор контрагента" OnCalc="CPartnerUser_OnCalc" ValueType="VarString"/>
+    <Component Name="CSubject" Class="Com.Fld.IVar" Caption="Предмет" OnCalc="CSubject_OnCalc" ValueType="VarObject"/>
+    <Inherited Name="Code" Caption="Номер"/>
+  </Inherited>
+</Resource>

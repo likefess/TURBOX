@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    </Component>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="пНашеПредприятие" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="пПутьКФайлам" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="vAll_Select" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="tabList" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Frm.Сервис.Загрузка.ДокументЭЛН"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" MaxButton="5">
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Caption="@Cmd:Close=Закрыть" Command="Commands.CloseForm" ImageName="Close"/>
+        <Component Name="ButtonHelp" Class="Com.Ctrl.IButton" Caption="@Form:HelpButton=Помощь" Command="Commands.Help" ImageName="Help"/>
+      </Component>
+      <Component Name="фреймПараметры" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="грПредп" Class="Com.Ctrl.IGroup">
+          <Component Name="стНашеПредприятие" Class="Com.Ctrl.IEdit" Caption="Предприятие" CardFileClass="Bas.Tab.Data.OurCompanies" Field="пНашеПредприятие" LookupField="Name" ShortList="True" Width="150"/>
+          <Component Name="стВидимостьСтолбцаИмяФайла" Class="Com.Ctrl.ICheckBox" Caption="Имя файла" Hint="Показывать столбец &quot;Имя файла&quot;" Width="30"/>
+        </Component>
+        <Component Name="грПуть" Class="Com.Ctrl.IGroup">
+          <Component Name="стПутьКФайлам" Class="Com.Ctrl.IEdit" Caption="Путь к файлам" Field="пПутьКФайлам" HasButton="True" Hint="Путь к файлам для загрузки" Width="150"/>
+          <Component Name="кнФайлам" Class="Com.Ctrl.IButton" Caption="@К файлам" OnClick="кнПоказатьФайлы_ПриНажатии" Width="30"/>
+        </Component>
+        <Component Name="грКнопки" Class="Com.Ctrl.IGroup">
+          <Component Name="кнЗагрузитьФайлы" Class="Com.Ctrl.IButton" Caption="@Загрузить" FontBold="True" Hint="Загрузить, обновить список документов из каталога" OnClick="кнЗагрузитьФайлыПриНажатии" Width="40"/>
+          <Component Name="Static26" Class="Com.Ctrl.IStatic" Width="5"/>
+          <Component Name="кнЗагрузить" Class="Com.Ctrl.IButton" FontBold="True" Hint="загрузитьПодсказка" OnClick="кнЗагрузитьПриНажатии" Width="40"/>
+          <Component Name="Static27" Class="Com.Ctrl.IStatic" Width="5"/>
+          <Component Name="кнРеестр" Class="Com.Ctrl.IButton" FontBold="True" Hint="реестрПодсказка" OnClick="кнРеестрПриНажатии" Width="40"/>
+        </Component>
+      </Component>
+      <Component Name="фреймФайлы" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="vFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="vFlag" Class="Com.Ctrl.ICheckBox" Alignment="CenterAlign" Caption="Выделить все строки" Field="vAll_Select" Hint="Выделить все строки" Width="50"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

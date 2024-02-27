@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited HelpContext="CashFlow.Движение денежных средств.Денежные документы.Основные данные.Номера денежных документов">
+    <Inherited Name="EdtRec" Class="CashFlow.Rec.Ref.MoneyDocNumber" IsLibrary="1"/>
+    <Component Name="DocReportStruct" Class="CashFlow.Rec.Service.MoneyDoc_DocReport_Positions" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="TableMenu" After="DocReportStruct"/>
+    <Inherited Name="Variables">
+      <Component Name="DocReportSubtable" Class="Com.ISubtable"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False">
+          <Component Name="ButtonUpdateDocumentsList" Class="Com.Ctrl.IButton" Caption="@MoneyDocNumber:ButtonUpdateDocumentsList=Обновить список движений ДД" HasCaption="True" ImageName="Com.Refresh" OnClick="ButtonUpdateDocumentsList_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" ByColumn="False" CaptionWidth="50">
+          <Inherited Name="Code" Visible="True"/>
+          <Inherited Name="Name" Caption="@MoneyDocNumber:Name=Наименование" FontBold="False" Visible="True"/>
+          <Component Name="NewLine4" Class="Com.Ctrl.INewLine"/>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Locked" FixSize="True" Width="18"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="@MoneyDocNumber:MainTab=Номер ДД">
+          <Component Name="MainGroup" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+            <Component Name="MainGroupLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+              <Component Name="MoneyDocNumber" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.MoneyDocNumber" HasCaption="True" Required="True"/>
+              <Component Name="ProductionCost" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.ProductionCost" FieldFormat="0.00" HasCaption="True"/>
+              <Component Name="Sanatorium" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Contraparties" CellFormat="ReferenceFormat" Field="EdtRec.Sanatorium" HasCaption="True" LookupField="Name"/>
+            </Component>
+            <Component Name="MainGroupRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+              <Component Name="MoneyDocument" Class="Com.Ctrl.IEdit" CardFileClass="CashFlow.Tab.Data.MoneyDocument" CellFormat="ReferenceFormat" Field="EdtRec.MoneyDocument" HasCaption="True" LookupField="Name"/>
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              <Component Name="DateArrival" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="EdtRec.DateArrival" HasCaption="True"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="DocumentsTab" Class="Com.Ctrl.IFrame" Caption="@MoneyDocNumber:MoveTab=Движение ДД" Margins="5">
+          <Component Name="DocumentsFrame" Class="Com.Ctrl.IFrame" Subtable="DocReportSubtable">
+            <Component Name="DocEventTime" Class="Com.Ctrl.IEdit" Caption="@MoneyDocNumber:DocEventTime=Дата " CellFormat="ReferenceFormat" Enabled="False" Field="DocReportStruct.Doc" HasCaption="True" LookupField="EventTime" OnClick="Doc_OnClick" Width="22"/>
+            <Component Name="DocPrintedNumber" Class="Com.Ctrl.IEdit" Caption="@MoneyDocNumber:DocPrintedNumber=Номер " CellFormat="ReferenceFormat" Enabled="False" Field="DocReportStruct.Doc" HasCaption="True" LookupField="PrintedNumber" OnClick="Doc_OnClick" Width="30"/>
+            <Component Name="DocDescription" Class="Com.Ctrl.IEdit" Caption="@MoneyDocNumber:DocDescription=Наименование " CellFormat="ReferenceFormat" Enabled="False" Field="DocReportStruct.Doc" HasCaption="True" LookupField="Description" OnClick="Doc_OnClick" Width="50" Wrap="True"/>
+            <Component Name="DocSum" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@MoneyDocNumber:DocSum=Сумма " CellFormat="NumericFormat" Enabled="False" FieldFormat=",##0.00;;-" HasCaption="True" OnClick="Doc_OnClick" OnOutputEx="DocSum_OnOutputEx" Width="30"/>
+            <Component Name="DocCurrency" Class="Com.Ctrl.IEdit" Caption="@MoneyDocNumber:DocCurrency=Валюта " CellFormat="ReferenceFormat" Enabled="False" Field="DocReportStruct.Doc" HasCaption="True" LookupField="Currency.Code" OnClick="DocCurrency_OnClick" Width="18"/>
+            <Component Name="DocCashRegister" Class="Com.Ctrl.IEdit" Caption="@MoneyDocNumber:DocCashRegister=Касса " CellFormat="ReferenceFormat" Enabled="False" Field="DocReportStruct.Doc" HasCaption="True" LookupField="CashRegister.Name" OnClick="DocCashRegister_OnClick" Width="50" Wrap="True"/>
+            <Component Name="DocContraparty" Class="Com.Ctrl.IEdit" Caption="@MoneyDocNumber:DocContraparty=Контрагент " CellFormat="ReferenceFormat" Enabled="False" Field="DocReportStruct.Doc" HasCaption="True" LookupField="Contraparty.Name" OnClick="DocContraparty_OnClick" Width="50" Wrap="True"/>
+            <Component Name="DocEntity" Class="Com.Ctrl.IEdit" Caption="@MoneyDocNumber:DocEntity=Предприятие " CellFormat="ReferenceFormat" Enabled="False" Field="DocReportStruct.Doc" HasCaption="True" LookupField="Entity.Name" OnClick="DocEntity_OnClick" Width="50" Wrap="True"/>
+            <Component Name="DocAccounted" Class="Com.Ctrl.ICheckBox" Caption="@MoneyDocNumber:DocAccounted=Проведен " Enabled="False" Field="DocReportStruct.Doc" HasCaption="True" Width="22"/>
+            <Component Name="DocLocked" Class="Com.Ctrl.ICheckBox" Caption="@MoneyDocNumber:DocAccounted=Замок " Enabled="False" Field="DocReportStruct.Doc" HasCaption="True" Width="18"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

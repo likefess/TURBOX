@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="ИмуществоБазовый.Tab.Справочники.ИмуществоБазовый">
+  <Inherited HelpContext="ИмуществоБазовый.Имущество.Справочник КВ">
+    <Inherited Name="Current" Class="ИмуществоБазовый.Rec.Справочники.КапВложения" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="КодИмущества" Caption="Код КВ" Hint="@Уникальный код капитального вложения"/>
+          <Component Name="СтоимостьКВ" Class="Com.Ctrl.IEdit" After="КодИмущества" Field="Current.СтоимостьКВ" FieldFormat=",##0.00;;-" FixSize="True" Width="30"/>
+          <Component Name="БазВалюта" Class="Com.Ctrl.IEdit" Caption="Валюта" Field="Current.Валюта" FixSize="True" LookupField="Code" Width="20"/>
+          <Component Name="КоличествоКВ" Class="Com.Ctrl.IEdit" Caption="Количество, шт." Field="Current.КоличествоКВ" FixSize="True" Width="25"/>
+          <Component Name="ВидОбъектаПослеВводаВЭксплуатацию" Class="Com.Ctrl.IEdit" After="ПолнИмя" Alignment="CenterAlign" Caption="После" CellFormat="EnumFormat" Field="Current.ВидОбъектаПослеВводаВЭксплуатацию" FixSize="True" Hint="Вид объекта учета, образующийся после ввода в эксплуатацию" ListAsString="ОС|0;НМА|1" Width="14"/>
+          <Component Name="ТекущееПодразделение" Class="Com.Ctrl.IEdit" After="НашеПредприятие" Field="Current.ТекущееПодразделение" Visible="False"/>
+          <Component Name="ТекущееМОЛ" Class="Com.Ctrl.IEdit" Field="Current.ТекущееМОЛ" Visible="False"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

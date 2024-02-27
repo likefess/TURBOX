@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rep.Viewer">
+  <Inherited KeepMounted="True">
+    <Inherited Name="Libraries">
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame" Orientation="Horizontal">
+        <BuiltIn Name="SideMargins" Bottom="0" Left="32" Right="32" Top="24"/>
+        <Inherited Name="ReportFrame" Size="0" Visible="False">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+        </Inherited>
+        <Component Name="FiltersFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <BuiltIn Name="SideMargins" Bottom="24" Left="0" Right="0" Top="0"/>
+          <Component Name="FiltersGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" Visible="True">
+            <Component Name="ShowClosedSprintCheckBox" Class="Com.Ctrl.ICheckBox" Caption="Показать завершенные спринты" OnChange="ShowClosedSprintCheckBoxOnChange"/>
+            <Component Name="AdditionalStatic" Class="Com.Ctrl.IStatic" Alignment="DefaultAlign" FixSize="False" MinWidth="40"/>
+            <Component Name="AddNewSprintButton" Class="Com.Ctrl.IButton" Caption="@TrackingDev:AddNewSprintButton=Создать спринт" Fashion="Fashions.SecondaryButton" FontSize="11" ImageName="Com.AddItem" OnClick="AddNewSprintButtonOnClick" Printed="False" Width="46"/>
+          </Component>
+        </Component>
+        <Component Name="KanbanFrame" Class="Com.Ctrl.IFrame" MinSize="100">
+          <BuiltIn Name="SideMargins" Left="0" Right="0" Top="0"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

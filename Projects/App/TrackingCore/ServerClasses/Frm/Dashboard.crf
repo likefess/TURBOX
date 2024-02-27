@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Inherited Name="RootFrame" Orientation="Vertical">
+      <Inherited Name="HeaderFrame" Visible="False"/>
+      <Inherited Name="FieldsFrame" Visible="False"/>
+      <Component Name="ChangeFeedFrame" Class="Com.Ctrl.IFrame" FontColor="0x00000000" Proportion="1">
+        <BuiltIn Name="SideMargins" Bottom="24" Left="32" Right="12" Top="24"/>
+      </Component>
+      <Component Name="TasksFrame" Class="Com.Ctrl.IFrame" Orientation="Horizontal" Proportion="1">
+        <BuiltIn Name="SideMargins" Bottom="24" Left="12" Right="12" Top="24"/>
+        <Component Name="MyTasksFrame" Class="Com.Ctrl.IFrame" Proportion="1">
+          <BuiltIn Name="SideMargins" Bottom="12"/>
+        </Component>
+        <Component Name="ToDoListFrame" Class="Com.Ctrl.IFrame" AutoSize="False" Proportion="1" ScrollerStyle="ScrollerNone">
+          <BuiltIn Name="SideMargins" Top="12"/>
+        </Component>
+      </Component>
+      <Component Name="DiagramFrame" Class="Com.Ctrl.IFrame" Orientation="Horizontal" Proportion="1">
+        <BuiltIn Name="SideMargins" Bottom="24" Left="12" Right="32" Top="24"/>
+        <Component Name="StatusDiagramFrame" Class="Com.Ctrl.IFrame" Orientation="Horizontal">
+          <BuiltIn Name="SideMargins" Bottom="12"/>
+          <Component Name="StatusDiagramLabelFrame" Class="Com.Ctrl.IFrame" Caption="Диаграмма статусов" FixSize="True" HasCaption="True" ScrollerStyle="ScrollerNone" Size="8.8" Visible="False">
+            <Component Name="StatusDiagramStatic" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" CanSelect="False" Caption="Диаграмма статусов" Enabled="True" ExportAlways="True" FixSize="False" FontBold="False" FontColor="0x001C1817" FontItalic="False" FontName="Arial Black" FontSize="12" MaxWidth="150" MinWidth="100" Multiline="False" Printed="True" StaticStyle="NormalText" TabStop="False" Visible="True" Width="135" Wrap="False"/>
+            <Component Name="ExternalStatusDiagramButton" Class="Com.Ctrl.IButton" Enabled="True" Fashion="Fashions.SecondaryButton" FixSize="True" HasCaption="False" ImageName="TrackingCore.external-link-line" Visible="True" Width="5.5"/>
+          </Component>
+          <Component Name="StatusDiagramChartFrame" Class="Com.Ctrl.IFrame" Bevel="WindowBevel" Visible="True"/>
+        </Component>
+        <Component Name="BurnDownDiagramFrame" Class="Com.Ctrl.IFrame">
+          <BuiltIn Name="SideMargins" Top="12"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

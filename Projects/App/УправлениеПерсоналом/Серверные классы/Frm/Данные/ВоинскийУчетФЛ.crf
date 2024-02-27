@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.БазоваяДанныеФЛ">
+  <Inherited HelpContext="HRBase.Основные данные.Физические лица">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Данные.ВоинскийУчетФЛ" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" MaxWidth="150"/>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150" MinWidth="110">
+          <Component Name="Дата" Class="Com.Ctrl.IEdit" Field="EdtRec.Дата" FixSize="True" FormatOfDate="DateOnly" HasCaption="True" Width="35"/>
+          <Component Name="ВоинскаяОбязанность" Class="Com.Ctrl.IEdit" Caption="@Воинская обязанность" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВоинскаяОбязанность" Field="EdtRec.ВоинскаяОбязанность" HasCaption="True" LookupField="Name" ShortList="True"/>
+          <Component Name="КатегорияЗапаса" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" AutoLookup="True" CellFormat="EnumFormat" Field="EdtRec.КатегорияЗапаса" HasCaption="True"/>
+          <Component Name="КатегорияГодности" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" AutoLookup="True" CellFormat="EnumFormat" Field="EdtRec.КатегорияГодности" HasCaption="True"/>
+          <Component Name="ВоинскоеЗвание" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВоинскоеЗвание" Field="EdtRec.ВоинскоеЗвание" HasCaption="True" LookupField="Name"/>
+          <Component Name="СоставУчета" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.СоставВоинскогоУчета" Field="EdtRec.СоставУчета" HasCaption="True" LookupField="Name" Width="100"/>
+          <Component Name="КодВУС" Class="Com.Ctrl.IEdit" Field="EdtRec.КодВУС" HasCaption="True" Width="100"/>
+          <Component Name="Комиссариат" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Справочники.Комиссариаты" Field="EdtRec.Комиссариат" HasCaption="True" LookupField="Name" Width="100"/>
+          <Component Name="ОтношениеКУчету" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Воинский учет" CellFormat="EnumFormat" Field="EdtRec.ОтношениеКУчету" HasCaption="True"/>
+          <Component Name="Предписание" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="EdtRec.Предписание" HasCaption="True" ListAsString="[&quot;@Нет|0&quot;,  &quot;@Да|1&quot;]"/>
+          <Component Name="НомерКоманды" Class="Com.Ctrl.IEdit" Field="EdtRec.НомерКоманды" HasCaption="True"/>
+          <Component Name="СпециальныйУчет" Class="Com.Ctrl.IEdit" Field="EdtRec.СпециальныйУчет" HasCaption="True"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

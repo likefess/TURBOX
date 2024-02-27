@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Frm.Data.Contract">
+  <Inherited>
+    <Component Name="Contract_Position" Class="Tracker_Service.Rec.Data.Contract_Position" IsLibrary="1" After="EdtRec"/>
+    <Component Name="Contract_SLSpecification" Class="Tracker_Service.Rec.Data.Contract_SLSpecification" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" Visible="False">
+          <Inherited Name="CodeEventTimeGroup" Visible="False"/>
+          <Inherited Name="StatusColGroup" Visible="False"/>
+        </Inherited>
+        <Inherited Name="ContractSubjectGroup" Visible="False"/>
+        <Inherited Name="CompanyEmployeeGroup" Visible="False"/>
+        <Inherited Name="GroupFF4" Visible="False"/>
+        <Inherited Name="GroupFF5" Visible="False"/>
+        <Inherited Name="CheckBoxGroup" Visible="False"/>
+        <Component Name="MainGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+          <Component Name="GroupCodeName_Tracker_Service" Class="Com.Ctrl.IGroup">
+            <Component Name="Name1" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" FontBold="True" HasCaption="True"/>
+            <Component Name="Code2" Class="Com.Ctrl.IEdit" CaptionWidth="30" Field="EdtRec.Code" FixSize="True" HasCaption="True" Width="40"/>
+          </Component>
+          <Component Name="CodeNameGroup" Class="Com.Ctrl.IEdit" Caption="@TrackerService:Status=Статус" Field="EdtRec.Status"/>
+          <Component Name="ContractSubject1" Class="Com.Ctrl.IEdit" Caption="@TrackerService:ContractSubject=Предмет договора" Field="EdtRec.ContractSubject"/>
+          <Component Name="Company1" Class="Com.Ctrl.IEdit" Caption="@TrackerService:Company=Исполнитель" Field="EdtRec.Company" LookupFilter="IsOurCompany" ShortList="True"/>
+          <Component Name="Partner1" Class="Com.Ctrl.IEdit" Caption="@TrackerService:Partner=Заказчик" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Partner" LookupFilter="IsLegalEntity" Required="True"/>
+          <Component Name="GroupIntragroup_Tracker_Service" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="90">
+            <Component Name="Static5" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+            <Component Name="Intragroup1" Class="Com.Ctrl.ICheckBox" Caption="@TrackerService:Intragroup=Внутригрупповой" Field="EdtRec.Intragroup"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="GeneralBox">
+            <Inherited Name="MainTabGroup">
+              <Inherited Name="RegistrationGroup" Visible="False"/>
+              <Inherited Name="SigningPlaceGroup" Visible="False"/>
+              <Inherited Name="ActualExpDateGroup" Visible="False"/>
+              <Inherited Name="SpecificationGroup" Visible="False"/>
+              <Inherited Name="CurrencyGroup" Visible="False"/>
+              <Inherited Name="DepartmentGroup" Visible="False"/>
+              <Inherited Name="CommentGroup" Visible="False"/>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="AssociatedContractsBox" Visible="False"/>
+          <Inherited Name="ContractSumsBox" Visible="False"/>
+          <Inherited Name="ContractSumsWithSuppAgr" Visible="False"/>
+        </Inherited>
+        <Component Name="SpecificationsTabTracking" Class="Com.Ctrl.IFrame" After="SuppAgreementsTab" Caption="@Contract:SpecificationsTabTracking=Трекинг">
+          <Component Name="PositionsBox" Class="Com.Ctrl.IBox" Caption="@TrackerService:PositionsBox=Состав услуг по договору">
+            <Component Name="PositionsTable" Class="Com.Ctrl.ITable" Numbering="False" OnDelete="PositionsTableOnDelete" OnInsert="PositionsTableOnInsert" Subtable="EdtRec.Positions">
+              <Component Name="Service" Class="Com.Ctrl.IEdit" Field="Contract_Position.Service" HasCaption="True" OnDraw="PositionEditsOnDraw" Width="60"/>
+              <Component Name="ServiceItem" Class="Com.Ctrl.IEdit" CardFileClass="Tracker_Service.Tab.Config.ServiceItem" Field="Contract_Position.ServiceItem" HasCaption="True" LookupField="Name" OnChange="ServiceItemOnChange" OnDraw="PositionEditsOnDraw" OnOpenCardForm="ServiceItemOnOpenCardForm" Width="75"/>
+              <Component Name="ScheduleColGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@TrackerService:ScheduleColGroup=График предоставления" HasCaption="True" Width="120">
+                <Component Name="CalendarEdit2" Class="Com.Ctrl.IEdit" Field="Contract_Position.Calendar" HasCaption="True" LookupField="Code" OnDraw="PositionEditsOnDraw" Width="40"/>
+                <Component Name="TimeFromEdit1" Class="Com.Ctrl.IEdit" Field="Contract_Position.TimeFrom" FormatOfDate="TimeOnly" HasCaption="True" OnDraw="PositionEditsOnDraw" Width="40"/>
+                <Component Name="TimeTillEdit1" Class="Com.Ctrl.IEdit" Field="Contract_Position.TimeTill" FormatOfDate="TimeOnly" HasCaption="True" OnDraw="PositionEditsOnDraw" Width="40"/>
+              </Component>
+              <Component Name="WorkGroup" Class="Com.Ctrl.IEdit" CardFileClass="Tracker_Service.Tab.Data.WorkingGroup" Field="Contract_Position.WorkGroup" HasCaption="True" LookupField="Name" OnDraw="PositionEditsOnDraw" Width="40"/>
+            </Component>
+          </Component>
+          <Component Name="SLSpecificationsBox" Class="Com.Ctrl.IBox" Caption="@TrackerService:SLSpecificationsBox=Уровни SLA">
+            <Component Name="SLSpecificationsTable" Class="Com.Ctrl.ITable" Numbering="False" OnDelete="SLSpecificationsTableOnDelete" OnInsert="SLSpecificationsTableOnInsert">
+              <Component Name="ServiceLevel" Class="Com.Ctrl.IEdit" Field="Contract_SLSpecification.ServiceLevel" HasCaption="True" OnOpenCardForm="ServiceLevelOnOpenCardForm" Width="175"/>
+              <Component Name="ReactionColGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@TrackerService:ReactionColGroup=Время реакции" HasCaption="True" Width="60">
+                <Component Name="ReactionTimeEdit1" Class="Com.Ctrl.IEdit" Field="Contract_SLSpecification.ReactionTime" HasCaption="False" OnDraw="SLSpecificationTimeEdit_OnDraw" OnOutput="SLSpecificationTimeEdit_OnOutput" Width="40"/>
+                <Component Name="ReactionTimeUnitEdit1" Class="Com.Ctrl.IEdit" Field="Contract_SLSpecification.ReactionTimeUnit" HasCaption="False" LookupField="Code" LookupFilter="IsCurrency = 3" OnDraw="SLSpecificationTimeEdit_OnDraw" OnOutput="SLSpecificationTimeEdit_OnOutput" Width="20"/>
+              </Component>
+              <Component Name="DecisionColGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@TrackerService:DecisionColGroup=Время решения" HasCaption="True" Width="60">
+                <Component Name="DecisionTimeEdit1" Class="Com.Ctrl.IEdit" Field="Contract_SLSpecification.DecisionTime" HasCaption="False" OnDraw="SLSpecificationTimeEdit_OnDraw" OnOutput="SLSpecificationTimeEdit_OnOutput" Width="40"/>
+                <Component Name="DecisionTimeUnitEdit1" Class="Com.Ctrl.IEdit" Field="Contract_SLSpecification.DecisionTimeUnit" HasCaption="False" LookupField="Code" LookupFilter="IsCurrency = 3" OnDraw="SLSpecificationTimeEdit_OnDraw" OnOutput="SLSpecificationTimeEdit_OnOutput" Width="20"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Inherited Name="SpecificationsTab">
+          <Inherited Name="SpecificationsFrame" Visible="True"/>
+        </Inherited>
+        <Component Name="AttachmentsFrame" Class="Com.Ctrl.IFrame" After="SpecificationsTab" AutoSize="True" CanResizeBySplit="True" Caption="@TrackerService:Attachments=Вложения" MinSize="20">
+          <Component Name="AttachmentsOfContract" Class="TrackingLib.Ctrl.IAttachment" FixSize="False" ResizeEnabled="True"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

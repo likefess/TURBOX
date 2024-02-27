@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.КодИмя">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Справочники.Ставки НДФЛ">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Справочники.СтавкиНДФЛ" IsLibrary="1"/>
+    <Component Name="СтавкаПоСтране" Class="УправлениеПерсоналом.Rec.Справочники.СтавкиНДФЛ_Позиции" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="GroupCode">
+            <Inherited Name="Locked" Visible="True"/>
+          </Inherited>
+          <Inherited Name="GroupName">
+            <Inherited Name="Closed" Visible="True"/>
+          </Inherited>
+          <Component Name="грНастройки" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Ставка" Class="Com.Ctrl.IEdit" Field="EdtRec.Ставка" FieldFormat="00%" HasCaption="True" MaxWidth="40" Width="40"/>
+            <Component Name="Static3" Class="Com.Ctrl.IStatic" Width="20"/>
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+          </Component>
+          <Component Name="грИсп" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="Использование" FixSize="True" Width="40"/>
+            <Component Name="Учет_Резидент" Class="Com.Ctrl.ICheckBox" Caption="для резидентов" Field="EdtRec.Учет_Резидент" HasCaption="True" Hint="Использование ставки для резидентов" MaxWidth="40" Width="40"/>
+            <Component Name="Static6" Class="Com.Ctrl.IStatic" FixSize="True" Width="10"/>
+            <Component Name="Учет_Нерезидент" Class="Com.Ctrl.ICheckBox" Caption="для нерезидентов" Field="EdtRec.Учет_Нерезидент" HasCaption="True" Hint="Использование ставки для нерезидентов" MaxWidth="40" Width="40"/>
+            <Component Name="Static4" Class="Com.Ctrl.IStatic" Width="20"/>
+            <Component Name="Static5" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+          </Component>
+          <Component Name="грПериод" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Caption="Период действия" Field="EdtRec.ДатаНачала" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="40" Width="40"/>
+            <Component Name="ДатаОкончания" Class="Com.Ctrl.IEdit" Caption="-  " CaptionWidth="10" Field="EdtRec.ДатаОкончания" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="40" Width="40"/>
+            <Component Name="Static7" Class="Com.Ctrl.IStatic" Width="20"/>
+            <Component Name="Static8" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="@Frm:MainTab=Ставки НДФЛ по странам">
+          <Component Name="СтавкиПоСтранам" Class="Com.Ctrl.ITable" Numbering="False" Subtable="EdtRec.Позиции">
+            <Component Name="стрДатаНачала" Class="Com.Ctrl.IEdit" Caption="Дата начала" Field="СтавкаПоСтране.ДатаНачала" HasCaption="True" Hint="Дата начала действия" Width="30"/>
+            <Component Name="Страна" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.Countries" Field="СтавкаПоСтране.Страна" HasCaption="True" LookupField="Name" Width="80"/>
+            <Component Name="стрСтавка" Class="Com.Ctrl.IEdit" Field="СтавкаПоСтране.Ставка" FieldFormat="00%" HasCaption="True" Width="30"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

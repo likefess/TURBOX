@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IEditorWithFrames">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="TaskApprovement.Rec.Services.AllocatedStaffReplacement" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ProceedReplaceBtn" Class="Com.Ctrl.IButton" After="ButtonOK" Hint="Заменить в текущих согласованиях" ImageName="Biz.cog" OnClick="ProceedReplaceBtn_OnClick"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="220" MinWidth="150">
+          <Component Name="ReplacedEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Field="EdtRec.Replaced" HasCaption="True" HasInnerCaption="True" LookupField="Name" Required="True"/>
+          <Component Name="Group3" Class="Com.Ctrl.IGroup">
+            <Component Name="ReplacingTypeEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@TaskApprovement:AllocatedStaffReplacement.Replacing=Заменяющий" CellFormat="EnumFormat" Field="EdtRec.ReplacingType" FixSize="True" HasCaption="True" HasInnerCaption="True" ListAsString="Сотрудник|0;&#xD;&#xA;Роль|1" OnChange="ReplacingTypeEditOnChange" Width="40"/>
+            <Component Name="ReplacingEdit" Class="Com.Ctrl.IEdit" Caption="ФИО" CellFormat="ReferenceFormat" Field="EdtRec.Replacing" HasCaption="True" HasInnerCaption="True" LookupField="Name" Required="True" SetRecordParams="ReplacingEditSetRecordParams"/>
+          </Component>
+        </Component>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" HasCaption="True" MaxWidth="220" MinWidth="150">
+          <Component Name="BegDateEdit" Class="Com.Ctrl.IEdit" CaptionWidth="40" CellFormat="DateFormat" Field="EdtRec.BegDate" FormatOfDate="DateOnly" HasInnerCaption="True"/>
+          <Component Name="EndDateEdit" Class="Com.Ctrl.IEdit" CaptionWidth="15" CellFormat="DateFormat" Field="EdtRec.EndDate" FormatOfDate="DateOnly" HasInnerCaption="True"/>
+        </Component>
+      </Inherited>
+      <Component Name="PositionsBox" Class="Com.Ctrl.IBox" AutoSize="False" Caption="@TaskApprovement:AllocatedStaffReplacement.Positions=Позиции" MinSize="60" Visible="False">
+        <Component Name="PositionsFrame" Class="Com.Ctrl.IFrame">
+          <Component Name="PositionsTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="True" CanInsert="True" CanMove="True" ManualControl="True" Subtable="EdtRec.Positions" Width="220">
+            <Component Name="EdtPos" Class="TaskApprovement.Rec.Services.AllocatedStaffReplacement_Positions" IsLibrary="1"/>
+            <Component Name="TemplateEdit" Class="Com.Ctrl.IEdit" CardFileClass="TaskApprovement.Tab.Ref.ApprovalTemplate" CellFormat="ReferenceFormat" Field="EdtPos.Template" HasCaption="True" HasInnerCaption="True" LookupField="Name" MaxWidth="210" MinWidth="100" Width="100"/>
+          </Component>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

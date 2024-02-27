@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.SysFields">
+  <Inherited>
+    <Inherited Name="Current" Class="HRBase.Rec.Data.StaffingUnitData" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonAddItem" Excluded="True"/>
+        <Inherited Name="ButtonEditItem" Excluded="True"/>
+        <Inherited Name="ButtonSaveItem" Excluded="True" Visible="False"/>
+        <Inherited Name="ButtonClose" Excluded="True"/>
+        <Inherited Name="ButtonCloneItem" Excluded="True"/>
+        <Inherited Name="ButtonDeleteItem" Excluded="True" Visible="False"/>
+        <Inherited Name="ButtonAddFolder" Excluded="True"/>
+        <Inherited Name="ButtonFolderElement" Excluded="True"/>
+        <Inherited Name="ButtonRefresh" Excluded="True" Visible="False"/>
+        <Inherited Name="ButtonExport" Excluded="True"/>
+        <Inherited Name="ButtonImport" Excluded="True"/>
+        <Inherited Name="ButtonHelp" Excluded="True" Visible="False"/>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="CardFile" SortOrder="ChangeDate+"/>
+          <Component Name="ChangeDate" Class="Com.Ctrl.IEdit" Field="Current.ChangeDate" FormatOfDate="DateOnly" HasCaption="True"/>
+          <Component Name="DateClosed" Class="Com.Ctrl.IEdit" Field="Current.DateClosed" FormatOfDate="DateOnly" HasCaption="True"/>
+          <Component Name="QtyUnit" Class="Com.Ctrl.IEdit" Field="Current.QtyUnit" FieldFormat=",##0.00;;-" HasCaption="True"/>
+          <Component Name="CreateUser" Class="Com.Ctrl.IEdit" Field="Current.CreateUser"/>
+          <Component Name="CreateDate" Class="Com.Ctrl.IEdit" Field="Current.CreateDate"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

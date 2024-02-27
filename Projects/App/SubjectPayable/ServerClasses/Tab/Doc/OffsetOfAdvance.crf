@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.BasObject">
+  <Inherited HelpContext="SubjectPayable.Расчеты с субъектами.Документы.Документы.Зачет аванса">
+    <Inherited Name="Current" Class="SubjectPayable.Rec.Doc.OffsetOfAdvance" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" HasCaption="True" Visible="False"/>
+          <Inherited Name="Code" HasCaption="True" Visible="False"/>
+          <Component Name="edAccounted" Class="Com.Ctrl.IEdit" Field="Current.Accounted" HasCaption="True" Width="15"/>
+          <Component Name="edCompany" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="Current.Company" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="edNumberDoc" Class="Com.Ctrl.IEdit" Field="Current.NumberDoc" HasCaption="True" Width="30"/>
+          <Component Name="edDateDoc" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="Current.DateDoc" FormatOfDate="DateOnly" HasCaption="True" Width="30"/>
+          <Component Name="edDocPaymentOfDebt" Class="Com.Ctrl.IEdit" Caption="@OffsetOfAdvance:DocPaymentOfDebt=Документ оплаты" CardFileClass="SubjectPayable.Tab.Doc.PaymentOfDebt" Field="Current.DocPaymentOfDebt" HasCaption="True" LookupField="Name" Visible="True" Width="30" Wrap="True"/>
+          <Component Name="edContraparty" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Contraparty=Контрагент" CardFileClass="Bas.Tab.Data.Contraparties" Field="Current.DocPaymentOfDebt" HasCaption="True" Hint="@SubjectPayable:Contraparty.Hint=Наименование контрагента (юридического или физического лица)" LookupField="Contraparty.Name" Width="30"/>
+          <Component Name="edContract" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Contract=Договор" CardFileClass="Biz.Tab.Data.Contract" Field="Current.DocPaymentOfDebt" HasCaption="True" Hint="@OffsetOfAdvance:Contract.Hint=Договор, согласно которого был произведен авансовый платеж" LookupField="Contract.Code" Visible="False" Width="30"/>
+          <Component Name="edTaxCBC" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Tax=Налог" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="Current.DocPaymentOfDebt" HasCaption="True" LookupField="TaxCBC.Name" Visible="False" Width="30"/>
+          <Component Name="edAccDate" Class="Com.Ctrl.IEdit" Caption="@OffsetOfAdvance:AccDate=Дата зачета аванса" CellFormat="DateFormat" Field="Current.AccDate" FormatOfDate="DateOnly" HasCaption="True" Width="30"/>
+          <Component Name="edDocAccrualOfDebt" Class="Com.Ctrl.IEdit" Caption="@SettlementOfDebt:DocAccrualOfDebt1=Документ обязат-ва" CardFileClass="SubjectPayable.Tab.Doc.AccrualOfDebt" Field="Current.DocAccrualOfDebt" HasCaption="True" LookupField="Name" Visible="True" Width="30"/>
+          <Component Name="edSumDoc" Class="Com.Ctrl.IEdit" Caption="@Сумма в" Field="Current.SumDoc" FieldFormat=",0.00;;-" HasCaption="True" Hint="@OffsetOfAdvance:SumDoc.Hint=Сумма зачтенного аванса в валюте документа «Оплата задолженности»" Width="30"/>
+          <Component Name="edCurrency" Class="Com.Ctrl.IEdit" Caption="@вал.платежа" CardFileClass="Biz.Tab.Ref.UCurrencies" Field="Current.Currency" HasCaption="True" LookupField="Code" Width="15"/>
+          <Component Name="edSumBase" Class="Com.Ctrl.IEdit" Caption="Сумма (операционная)" Field="Current.SumBase" FieldFormat=",0.00;;-" HasCaption="True" Hint="@OffsetOfAdvance:SumBase1.Hint=Сумма зачтенного аванса в операционной валюте (в базовой валюте)" Width="30"/>
+          <Component Name="edExchRate" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:ExchRate1=Курс валюты" Field="Current.ExchRate" FieldFormat=",0.00;;-" HasCaption="True" Hint="@SubjectPayable:ExchRate.Hint=Значение курса валюты, используемого при переводе суммы в валюте документа в сумму в операционной валюте" Visible="False" Width="15"/>
+          <Component Name="edSumAccOfDebt" Class="Com.Ctrl.IEdit" Caption="@PaymentOfDebt:SumAccOfDebt1=в вал. задолж." Field="Current.SumAccOfDebt" FieldFormat=",0.00;;-" HasCaption="True" Hint="@PaymentOfDebt:SumAccOfDebt1.Hint=Сумма в валюте задолженности" Width="30"/>
+          <Component Name="edCurrencyAccOfDebt" Class="Com.Ctrl.IEdit" Caption="@вал.задолж" CardFileClass="Biz.Tab.Ref.UCurrencies" Field="Current.CurrencyAccOfDebt" HasCaption="True" LookupField="Code" Width="15"/>
+          <Component Name="edComment" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Comment.Hint=Примечание" Field="Current.Comment" HasCaption="True" Visible="False" Width="25"/>
+          <Component Name="edLocked" Class="Com.Ctrl.IEdit" Field="Current.Locked" HasCaption="True" Width="15"/>
+          <Component Name="edClosed" Class="Com.Ctrl.IEdit" Field="Current.Closed" HasCaption="True" Width="15"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

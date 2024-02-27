@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Tab.Базовая.БазовыйДокументИерархия">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Листы нетрудоспособности.Документы.Расчет БЛ пособий">
+    <Inherited Name="Current" Class="УправлениеПерсоналом.Rec.Документы.СреднийЗаработок.Больничный" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="Учитывать" Class="Com.Ctrl.IEdit" After="ExtId" Caption="Учитывать" Field="Current.Проводить" HasCaption="True" Width="15"/>
+          <Component Name="Период" Class="Com.Ctrl.IEdit" After="Дата" Caption="Период" CardFileClass="Biz.Tab.Ref.Period" Field="Current.Период" HasCaption="True" LookupField="Name" Width="30"/>
+          <Component Name="Сотрудник" Class="Com.Ctrl.IEdit" Caption="Сотрудник" Field="Current.УсловияТрудаСотр" HasCaption="True" LookupField="Person.Name" Width="45"/>
+          <Component Name="ТабНомер" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Таб. номер" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Field="Current.УсловияТрудаСотр" HasCaption="True" Hint="Табельный номер сотрудника" LookupField="ТабНомер" Width="20"/>
+          <Component Name="ВидПособия" Class="Com.Ctrl.IEdit" Caption="Вид пособия" CellFormat="EnumFormat" Field="Current.ВидПособия" HasCaption="True" Width="45"/>
+          <Component Name="Скорректирован" Class="Com.Ctrl.IEdit" Caption="Скорректирован" Field="Current.Скорректирован" HasCaption="True" Width="15"/>
+          <Component Name="Корректировка" Class="Com.Ctrl.IEdit" Caption="Корректировка" Field="Current.Корректировка" HasCaption="True" Width="15"/>
+          <Component Name="Перерасчет" Class="Com.Ctrl.IEdit" Caption="Номер корректируемого расчета" Field="Current.Перерасчет" HasCaption="True" LookupField="Номер" Width="20"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

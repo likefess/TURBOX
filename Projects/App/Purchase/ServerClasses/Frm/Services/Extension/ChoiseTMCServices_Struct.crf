@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.IStruct">
+    <Component Name="ShippingDate" Class="Com.Fld.IVar" Caption="@ChoiseTMCServices:VATRate=Дата поставки" ValueType="VarDate"/>
+    <Component Name="Nomenclature" Class="Com.Fld.IVar" Caption="@ChoiseTMCServices:Nomenclature=Номенклатура" RecordClass="Biz.Rec.Data.Resource" ValueType="VarObject"/>
+    <Component Name="Quantity" Class="Com.Fld.IVar" Caption="@ChoiseTMCServices:Quantity=Доступно (количество)" ValueType="VarNumeric"/>
+    <Component Name="QtyForSelect" Class="Com.Fld.IVar" Caption="@ChoiseTMCServices:QtyForSelect=Выбрано (количество)" OnChange="QtyForSelect_OnChange" OnVerify="QtyForSelect_OnVerify" ValueType="VarNumeric"/>
+    <Component Name="UnitOfMeasure" Class="Com.Fld.IVar" Caption="@ChoiseTMCServices:UnitOfMeasure=Единица измерения" RecordClass="Biz.Rec.Ref.UnitOfMeasure" ValueType="VarObject"/>
+    <Component Name="Price" Class="Com.Fld.IVar" Caption="@ChoiseTMCServices:Price=Цена без НДС" ValueType="VarNumeric"/>
+    <Component Name="VATRate" Class="Com.Fld.IVar" Caption="@ChoiseTMCServices:VATRate=Ставка НДС" RecordClass="Biz.Rec.Ref.VAT" ValueType="VarObject"/>
+    <Component Name="AmountWithoutVAT" Class="Com.Fld.IVar" Caption="@ChoiseTMCServices:AmountWithoutVAT=Сумма без НДС" ValueType="VarNumeric"/>
+    <Component Name="VATAmount" Class="Com.Fld.IVar" Caption="@ChoiseTMCServices:VATAmount=Сумма НДС" ValueType="VarNumeric"/>
+    <Component Name="AmountIncludingVAT" Class="Com.Fld.IVar" Caption="@ChoiseTMCServices:AmountIncludingVAT=Сумма с НДС" ValueType="VarNumeric"/>
+    <Component Name="CFR" Class="Com.Fld.IVar" Caption="@ChoiseTMCServices:CFR=ЦФО" RecordClass="Biz.Rec.Ref.CFR" ValueType="VarObject"/>
+    <Component Name="BGI" Class="Com.Fld.IVar" Caption="@ChoiseTMCServices:BGI=СБК" RecordClass="Biz.Rec.Ref.BGI" ValueType="VarObject"/>
+    <Component Name="ContractShipping" Class="Com.Fld.IVar" Caption="@ChoiseTMCServices:BGI=Документ" RecordClass="Biz.Rec.Data.ContractShipping" ValueType="VarObject"/>
+    <Component Name="ContractShippingID" Class="Com.Fld.IVar" Caption="@ChoiseTMCServices:BGI=ID позиции документа" ValueType="VarString"/>
+  </Component>
+</Resource>

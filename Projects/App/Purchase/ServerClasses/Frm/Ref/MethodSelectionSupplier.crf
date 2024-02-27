@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Purchase.Rec.Ref.MethodSelectionSupplier" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="PosStat" Class="Purchase.Rec.Ref.MethodSelectionSupplier_PosStatus" IsLibrary="1"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Code" Visible="True"/>
+        </Inherited>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+          <Component Name="Name1" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" FontBold="True" HasCaption="True" Visible="True"/>
+        </Component>
+        <Component Name="grGroupDoc" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+          <Component Name="edGroupDoc" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.GroupDoc" FontBold="True" HasCaption="True"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="BoxPosStatus" Class="Com.Ctrl.IBox" Caption="Состояния запроса предложений">
+            <Component Name="tblPosStatus" Class="Com.Ctrl.ITable" Subtable="EdtRec.PosStatus">
+              <Component Name="ed_Status" Class="Com.Ctrl.IEdit" Caption="Состояния" CardFileClass="Purchase.Tab.Ref.StatusOfferRequest" Field="PosStat.Status" LookupField="Code" Width="40"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

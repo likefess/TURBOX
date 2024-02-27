@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="RealEstate.Frm.Base.BaseMDocMeter">
+  <Inherited HelpContext="RealEstate.RealEstate.Основные данные.Степень готовности">
+    <Inherited Name="EdtRec" Class="RealEstate.Rec.Doc.MDoc.RealEstateObjectReadiness" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="DateCodeGr">
+            <Inherited Name="Date" Caption="@Дата" FormatOfDate="DateAndTime" Hint="@Дата проведения документа" Width="50"/>
+            <Inherited Name="CodeEdit" Excluded="True" Visible="False"/>
+          </Inherited>
+          <Inherited Name="NameGr" Excluded="True"/>
+          <Inherited Name="DescriptionGr">
+            <Inherited Name="Description" Caption="@Основание"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="LinesFrame" Excluded="True"/>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="FieldsGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+            <Component Name="ReadinessGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="Readiness" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="EdtRec.Readiness" HasCaption="True" LookupField="Name" ShortList="True"/>
+              <Component Name="BtnStatic3" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+            <Component Name="DocGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="DocDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CellFormat="DateFormat" Field="EdtRec.DocDate" HasCaption="True"/>
+              <Component Name="DocNum" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.DocNum" HasCaption="True"/>
+              <Component Name="BtnStatic5" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

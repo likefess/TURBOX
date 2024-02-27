@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IRoleCenter">
+  <Inherited Caption="@WFlow:RCTaskManagement=Трекинг" CaptionAlign="CenterAlign" FormIcon="WFlow.whale">
+    <Inherited Name="MainGroup" Caption="привет" Columns="5" Orientation="Vertical">
+      <Component Name="Main" Class="Com.Cmd2.IGroup" Caption="@WFlow:Main=Основное" Columns="2" Orientation="Vertical" Rows="8">
+        <Component Name="SelectProject" Class="Com.Cmd2.IItem" Command="Commands.SelectProject"/>
+        <Component Name="NewTask" Class="Com.ComManaging.OpenIForm" AlwaysOpen="True" Caption="@WFlow:NewTask=Новая задача" FormClassName="Frm.Data.Task" IconName="Com.AddItem"/>
+        <Component Name="Kanbans" Class="Com.ComManaging.OpenIForm" Caption="@WFlow:Kanbans=Kanban-доски" FormClassName="WFlow.Tab.Services.Kanban" IconName="InfoBoard.kanban" Visible="True"/>
+        <Component Name="Tasks" Class="Com.ComManaging.OpenIForm" AdvRTIForm="WFlow.Frm.Data.Task" Caption="@WFlow:Task=Картотека задач" FormClassName="WFlow.Tab.Data.Tasks" IconName="Com.CardfileTree"/>
+        <Component Name="Gantt" Class="Com.ComManaging.OpenIForm" Caption="@WFlow:Gantt=Диаграмма Ганта" FormClassName="WFlow.Rep.Gantt" IconName="InfoBoard.gantt"/>
+        <Component Name="TaskList" Class="Com.ComManaging.OpenIForm" Caption="@WFlow:TaskList=Задачи" FormClassName="WFlow.Rep.TaskList" IconName="Com.Tasks"/>
+      </Component>
+      <Component Name="Data" Class="Com.Cmd2.IGroup" Caption="@WFlow:Data=Данные" Columns="1" Orientation="Vertical" Rows="7">
+        <Component Name="NaturalEntity" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Bas.Frm.Data.Entity" Caption="@WFlow:Entity=Люди" FormClassName="WFlow.Tab.Data.People" IconName="Bas.Entities"/>
+        <Component Name="Version" Class="Com.ComManaging.OpenIForm" AdvRTIForm="WFlow.Frm.Ref.Version" Caption="@WFlow:Version=Версии" FormClassName="WFlow.Tab.Ref.Version" IconName="WFlow.one"/>
+        <Component Name="Label" Class="Com.ComManaging.OpenIForm" AdvRTIForm="WFlow.Frm.Ref.Label" Caption="@WFlow:Label=Метки" FormClassName="WFlow.Tab.Ref.Label" IconName="Com.tags"/>
+        <Component Name="Sprint" Class="Com.ComManaging.OpenIForm" AdvRTIForm="WFlow.Frm.Ref.Sprint" Caption="@WFlow:Sprint=Спринты" FormClassName="WFlow.Tab.Ref.Sprint" IconName="Com.running"/>
+      </Component>
+      <Component Name="Settings" Class="Com.Cmd2.IGroup" Caption="@WFlow:Settings=Настройки" Columns="2" Orientation="Vertical" Rows="7">
+        <Component Name="Project" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Bas.Frm.Ref.Project" Caption="@WFlow:Project=Проекты" FormClassName="Bas.Tab.Ref.Project" IconName="Bas.Project"/>
+        <Component Name="ProjectAccess" Class="Com.ComManaging.OpenIForm" Caption="@WFlow:ProjectAccess=Доступ к проектам" FormClassName="WFlow.Frm.Access.BizAccessEditor" IconName="Bas.puzzleLock"/>
+        <Component Name="BondType" Class="Com.ComManaging.OpenIForm" Caption="@WFlow:BondType=Связи" FormClassName="WFlow.Tab.Ref.BondType" IconName="Com.arrow-square-right"/>
+        <Component Name="TaskCategory" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Control.Ref.Ref.TaskCategory" Caption="@WFlow:TaskCategory=Типы задач" FormClassName="WFlow.Tab.Ref.TaskCategory" IconName="Control.Categories_"/>
+        <Component Name="TaskStatus" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Control.Ref.Ref.TaskStatus" Caption="@WFlow:TaskStatus=Состояния" FormClassName="Control.Tab.Ref.TaskStatus" IconName="Control.Status"/>
+        <Component Name="TransitionRule" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Control.Ref.Ref.TransitionRule" Caption="@WFlow:TransitionRule=Правила переходов" FormClassName="Control.Tab.Ref.TransitionRule" IconName="Control.Transition"/>
+        <Component Name="TaskImportance" Class="Com.ComManaging.OpenIForm" Excluded="True" AdvRTIForm="Control.Ref.Ref.TaskImportance" Caption="@WFlow:TaskImportance=Важности" FormClassName="Control.Tab.Ref.TaskImportance" IconName="Control.Importance"/>
+        <Component Name="TaskPriority" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Control.Ref.Ref.TaskPriority" Caption="@WFlow:TaskPriority=Приоритеты" FormClassName="Control.Tab.Ref.TaskPriority" IconName="Control.Priority"/>
+        <Component Name="PrjComponent" Class="Com.ComManaging.OpenIForm" AdvRTIForm="WFlow.Frm.Ref.PrjComponent" Caption="@WFlow:PrjComponent=Компоненты" FormClassName="WFlow.Tab.Ref.PrjComponent" IconName="WFlow.component"/>
+        <Component Name="BondType" Class="Com.ComManaging.OpenIForm" Caption="@WFlow:BondType=Связи" FormClassName="WFlow.Tab.Ref.BondType" IconName="Com.arrow-square-right"/>
+        <Component Name="Resolution" Class="Com.ComManaging.OpenIForm" AdvRTIForm="WFlow.Frm.Ref.Resolution" Caption="@WFlow:Resolution=Решения" FormClassName="WFlow.Tab.Ref.Resolution" IconName="Bas.solution1"/>
+      </Component>
+      <Component Name="OtherSettings" Class="Com.Cmd2.IGroup" Caption="@WFlow:OtherSettings=Прочее" Columns="1" Orientation="Vertical" Rows="7">
+        <Component Name="AddProjectParticipants" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="@WFlow:AddProjectParticipants=Добавить участников" FormClassName="Frm.Services.AddProjectParticipants" IconName="Com.AddItem_1"/>
+        <Component Name="InstSettings" Class="Com.ComManaging.OpenIForm" Caption="@WFlow:InstSettings=Настройки инсталляции" FormClassName="Bas.Frm.Service.InstSettings" IconName="Bas.user-cog"/>
+        <Component Name="Report" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Com.Frm.Service.Report" Caption="@WFlow:Report=Отчеты" FormClassName="Com.Tab.Service.Report" IconName="Control.TasksReport"/>
+        <Component Name="MailAccount" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Bas.Frm.Config.MailAccount" Caption="@WFlow:MailAccount=Почтовые аккаунты" FormClassName="Bas.Tab.Config.MailAccount" IconName="Com.user-circle"/>
+        <Component Name="Panels" Class="Com.ComManaging.OpenIForm" Caption="@WFlow:Panels=Панели" FormClassName="Tab.Data.Panel" IconName="InfoBoard.solar-panel"/>
+        <Component Name="StatusChart" Class="Com.ComManaging.OpenIForm" Caption="@WFlow:StatusChart=Диаграмма статусов" FormClassName="Wflow.Frm.StatusChart" IconName="Com.Analytics"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Frm.Base.BaseJournalFrm">
+  <Inherited HelpContext="Автотранспорт.Автотранспорт.Основные данные.Журнал ДТП">
+    <Inherited Name="EdtRec" Class="Автотранспорт.Rec.ОсновныеДанные.ЖурналДТП" IsLibrary="1"/>
+    <Component Name="Lines" Class="Com.ISubtable" After="EdtRec"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="BasicFrame" Size="190">
+        <Inherited Name="CodeFrame">
+          <Inherited Name="CodeGr">
+            <Component Name="NewLine3" Class="Com.Ctrl.INewLine"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Component Name="Frame1" Class="Com.Ctrl.IFrame" After="#0">
+            <Component Name="Table1" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Numbering="False" Subtable="Lines">
+              <Component Name="ed_ТС" Class="Com.Ctrl.IEdit" CardFileClass="Автотранспорт.Tab.ОсновныеДанные.ТранспортныеСредства" Field="EdtRec.ТС" OnChange="ed_ТС_OnChange" OnOpenCardForm="ed_ТС_OnOpenCardForm" Width="55"/>
+              <Component Name="ed_Дата" Class="Com.Ctrl.IEdit" Field="EdtRec.Дата" OnChange="ed_Дата_OnChange" Width="30"/>
+              <Component Name="cb_Виновник" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Виновник" OnChange="cb_Виновник_OnChange" Width="25"/>
+              <Component Name="cb_Оплачено" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Оплата" OnChange="cb_Оплачено_OnChange" Width="25"/>
+            </Component>
+          </Component>
+          <Inherited Name="MainBox" Visible="False"/>
+          <Inherited Name="LineBox" Visible="False"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

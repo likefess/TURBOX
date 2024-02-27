@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.Классификатор">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Справочники.Виды доходов">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Классификаторы.ВидыДоходов" IsLibrary="1"/>
+    <Component Name="ВидыВычетов" Class="УправлениеПерсоналом.Rec.Классификаторы.ВидыДоходов_ВидыВычетов" IsLibrary="1" After="EdtRec"/>
+    <Component Name="ТипыБазНДФЛ" Class="УправлениеПерсоналом.Rec.Классификаторы.ВидыДоходов_ТипыБазНДФЛ" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="GroupCode">
+            <Inherited Name="Locked" Visible="True"/>
+          </Inherited>
+          <Inherited Name="GroupName">
+            <Inherited Name="Closed" Visible="True"/>
+          </Inherited>
+          <Inherited Name="грПериод">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+          </Inherited>
+          <Component Name="грОписание" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Описание" Class="Com.Ctrl.IEdit" Field="EdtRec.Описание" HasCaption="True" Multiline="True" Wrap="True"/>
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+          </Component>
+          <Component Name="грТипУчета" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="ТипУчета" Class="Com.Ctrl.IEdit" Caption="Тип дохода" CellFormat="EnumFormat" Field="EdtRec.ТипУчета" HasCaption="True" Hint="Тип дохода"/>
+            <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="бксВидыВычетов" Class="Com.Ctrl.IBox" Caption="@Виды скидок и вычетов, используемые с данным видом дохода" HasCaption="True">
+            <Component Name="фрВидыВычетов" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="8">
+              <Component Name="тблВидыВычетов" Class="Com.Ctrl.ITable" Numbering="False" Subtable="EdtRec.ВидыВычетов">
+                <Component Name="вычетДатаНачала" Class="Com.Ctrl.IEdit" Field="ВидыВычетов.ДатаНачала" FormatOfDate="DateOnly" HasCaption="True" Width="35"/>
+                <Component Name="вычетДатаОкончания" Class="Com.Ctrl.IEdit" Field="ВидыВычетов.ДатаОкончания" FormatOfDate="DateOnly" HasCaption="True" Width="35"/>
+                <Component Name="грВычет" Class="Com.Ctrl.IColumnsGroup" Caption="Вычет" HasCaption="True">
+                  <Component Name="Вычет" Class="Com.Ctrl.IEdit" Caption="наименование" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыВычетов" Field="ВидыВычетов.Вычет" HasCaption="True" LookupField="Name" Multiline="True" Width="90" Wrap="True"/>
+                  <Component Name="ВычетКодУчета" Class="Com.Ctrl.IEdit" Caption="код учета" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыВычетов" Field="ВидыВычетов.Вычет" HasCaption="True" LookupField="КодУчета" Width="25"/>
+                  <Component Name="кнВычет" Class="Com.Ctrl.IJumpButton" Field="ВидыВычетов.Вычет" JumpForm="УправлениеПерсоналом.Frm.Классификаторы.ВидыВычетов"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="бксТипыБазНДФЛ" Class="Com.Ctrl.IBox" Caption="Тип базы НДФЛ" HasCaption="True">
+            <Component Name="фрТипыБазНДФЛ" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="8">
+              <Component Name="тблТипыБазНДФЛ" Class="Com.Ctrl.ITable" Numbering="False" Subtable="EdtRec.ТипыБазНДФЛ">
+                <Component Name="ставкаДатаНачала" Class="Com.Ctrl.IEdit" Field="ТипыБазНДФЛ.ДатаНачала" FormatOfDate="DateOnly" HasCaption="True" Width="35"/>
+                <Component Name="ставкаДатаОкончания" Class="Com.Ctrl.IEdit" Field="ТипыБазНДФЛ.ДатаОкончания" FormatOfDate="DateOnly" HasCaption="True" Width="35"/>
+                <Component Name="БазаНДФЛ" Class="Com.Ctrl.IEdit" Caption="База НДФЛ" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ТипыБазНДФЛ" Field="ТипыБазНДФЛ.БазаНДФЛ" HasCaption="True" LookupField="Name" Width="115"/>
+                <Component Name="кнБазаНДФЛ" Class="Com.Ctrl.IJumpButton" Field="ТипыБазНДФЛ.БазаНДФЛ" JumpForm="УправлениеПерсоналом.Frm.Справочники.ТипБазыНДФЛ"/>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

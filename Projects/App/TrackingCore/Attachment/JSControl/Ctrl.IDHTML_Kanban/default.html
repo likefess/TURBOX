@@ -1,0 +1,44 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="http-equiv" content="Content-type: text/html; charset=UTF-8">
+ <script charset="UTF-8" src="./dist/sources/kanban.js" ></script>
+ <link rel="stylesheet" href="./dist/sources/kanban.css">
+ <link rel="stylesheet" href="./default.css" type="text/css">
+ <link rel="stylesheet" type="text/css" href="./fonts.css">
+ <script type="text/javascript" charset="UTF-8" src="base.js" ></script>
+ <script type="text/javascript" charset="UTF-8" src="localization.js" ></script>
+ <script type="text/javascript" charset="UTF-8" src="settings.js" ></script>
+
+</head>
+<body style="height:100vh; width: 100%;">
+  <div style="height:100vh; width: 100%;" id="root"></div>
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span>Введите новый WIP лимит</span>
+        <span id="close-button">&times;</span>
+      </div>
+      <div class="modal-body">
+         <div class="input-field">
+              <input type="number" id="modal-input" onkeyup="if(this.value != ''){ if(this.value<0){this.value = this.value * -1} if(this.value>2147483647){this.value= 2147483647}}else{this.value = null;}" onkeypress="return event.charCode >= 48">
+              <label for="name">Лимит</label>
+         </div>
+      </div>
+      <div class="modal-footer">
+         <button id="modal-cancel">Отменить</button>
+         <button id="modal-button">Сохранить</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" charset="UTF-8" >
+     let columns;
+     let scrollType = "column";
+     const template = kanban.template;
+     const board = new kanban.Kanban("#root", {columnShape, scrollType, cardTemplate: kanban.template(card => cardTemplate(card)), cardShape, readonly});
+     board.setLocale(ru);
+  </script>
+  <script type="text/javascript" charset="UTF-8" src="default.js" ></script>
+</body>
+</html>

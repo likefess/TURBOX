@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.CodeName">
+  <Inherited Hierarchical="False">
+    <Inherited Name="Current" Class="ContractManagement.Rec.Data.ClaimProcess" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" Visible="False"/>
+          <Component Name="CreateDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="Current.CreateDate" FormatOfDate="DateAndTime" Width="45"/>
+          <Component Name="Company" Class="Com.Ctrl.IEdit" Caption="Организация" CellFormat="ReferenceFormat" Field="Current.Company" HasCaption="True" LookupField="Name"/>
+          <Component Name="Partner" Class="Com.Ctrl.IEdit" Caption="Субъект" CellFormat="ReferenceFormat" Field="Current.Contract" HasCaption="True" LookupField="Partner.Name"/>
+          <Component Name="ClaimVariety" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.ClaimVariety" LookupField="Name" Width="60"/>
+          <Component Name="Contract" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess:Contract=Договор" CellFormat="ReferenceFormat" Field="Current.Contract" LookupField="Code" Width="50"/>
+          <Component Name="Description" Class="Com.Ctrl.IEdit" Field="Current.ShortDescription" Width="50"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

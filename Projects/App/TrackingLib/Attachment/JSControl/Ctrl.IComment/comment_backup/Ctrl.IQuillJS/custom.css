@@ -1,0 +1,153 @@
+﻿html, body {
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+#editor {
+    min-height: 45px;
+    height:100vh;
+}
+
+.ql-toolbar.ql-snow  {
+    padding: 2px;
+}
+
+.ql-editor  {
+    padding: 4px;
+}
+
+.ql-editor iframe.pointer-events-none {
+    pointer-events: none;
+}
+
+.fileinput-container {
+    white-space: nowrap;
+    padding: 0px 7px 5px 7px;
+    color: #444;
+    box-shadow: 0px 0px 5px #ddd;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    position: absolute;
+    z-index: 10;
+}
+.fileinput-container p {
+    margin: 10px 0;
+}
+
+.ql-videoupload:hover {
+    fill: #06c;
+}
+
+.ql-snow .ql-picker .ql-picker-options {
+    max-height: 80vh;
+    overflow-y: scroll;
+}
+
+.ql-snow .ql-picker.ql-size {
+    width: 110px;
+}
+
+/* russian lang */
+.ql-snow .ql-picker.ql-size .ql-picker-label::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item::before {
+    content: 'Нормальный';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=small]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=small]::before {
+    content: 'Маленький';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=large]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=large]::before {
+    content: 'Большой';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=huge]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=huge]::before {
+    content: 'Огромный';
+}
+.ql-snow .ql-tooltip::before {
+    content: "Перейти по ссылке:";
+}
+.ql-snow .ql-tooltip a.ql-action::after {
+    content: 'Изменить';
+}
+.ql-snow .ql-tooltip a.ql-remove::before {
+    content: 'Удалить';
+}
+.ql-snow .ql-tooltip.ql-editing a.ql-action::after {
+    content: 'Сохранить';
+}
+.ql-snow .ql-tooltip[data-mode=link]::before {
+    content: "Ввести ссылку:";
+}
+.ql-snow .ql-tooltip[data-mode=formula]::before {
+    content: "Ввести формулу:";
+}
+.ql-snow .ql-tooltip[data-mode=video]::before {
+    content: "Вставить видео:";
+}
+.ql-snow .ql-picker.ql-header {
+    width: 110px;
+  }
+.ql-snow .ql-picker.ql-header .ql-picker-label::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item::before {
+content: 'Нормальный';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="1"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="1"]::before {
+content: 'Заголовок 1';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="2"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="2"]::before {
+content: 'Заголовок 2';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="3"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="3"]::before {
+content: 'Заголовок 3';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="4"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="4"]::before {
+content: 'Заголовок 4';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="5"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="5"]::before {
+content: 'Заголовок 5';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="6"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="6"]::before {
+content: 'Заголовок 6';
+}
+
+.ql-mention-list-container {
+    display: inline-block;
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 12px 0 rgb(30 30 30 / 8%);
+    z-index: 9001;
+    overflow: auto;
+    }
+    
+    .ql-mention-list-item{
+    cursor:pointer;
+    line-height:35px;
+    font-size:12px;
+    font-family: Verdana;
+    padding:0 10px;
+    vertical-align:middle
+    }
+    
+    .ql-mention-list-item.selected {
+    background-color: #e4efff;
+    text-decoration: none;
+    }
+
+    .ql-mention-list-container::-webkit-scrollbar {
+        width: 5px;
+        background: #fff;
+        border-radius: 5px;
+        }
+        .ql-mention-list-container::-webkit-scrollbar-thumb {
+        background: #b1b1b1;
+        border-radius: 5px;
+        }    

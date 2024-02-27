@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Frm.Base.BaseJournalFrm">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="EquipmentRegistry.Rec.Journals.Orders" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="ShowParents" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Component Name="btnCreateAccepting" Class="Com.Ctrl.IButton" Caption="@Создать приемку" HasCaption="True" Hint="@Создать приемку на основании текущего заказа на работы" ImageName="com.cardfile1" OnClick="btnCreateAcceptingClick"/>
+          <Component Name="btnCreateDemand" Class="Com.Ctrl.IButton" Caption="@Создать заявку" HasCaption="True" Hint="@Создать заявку на ТМЦ" ImageName="com.cardfile1" OnClick="btnCreateDemandClick"/>
+          <Component Name="btnIncludeDemand" Class="Com.Ctrl.IButton" Caption="@Включить в заявку" HasCaption="True" Hint="@Включить документ в заявку на ТМЦ" ImageName="com.cardfile1" OnClick="btnIncludeDemandClick"/>
+          <Component Name="btnExcludeDemand" Class="Com.Ctrl.IButton" Caption="@Исключить из заявки" HasCaption="True" Hint="@Исключить документ из заявки на ТМЦ" ImageName="com.cardfile1" OnClick="btnExcludeDemandClick"/>
+          <Component Name="btnChangeDates" Class="Com.Ctrl.IButton" Caption="@Изменить плановые даты" HasCaption="True" Hint="@Изменить даты исполнения работ" ImageName="com.Service" OnClick="btnChangeDatesClick"/>
+        </Inherited>
+        <Inherited Name="ButtonReports" After="ButtonServices">
+          <Component Name="btnReportOper" Class="Com.Ctrl.IButton" Caption="@Отчет по операциям" HasCaption="True" Hint="@Получить отчет по документу" ImageName="com.Report" OnClick="btnReportOperClick"/>
+          <Component Name="btnReportExpense" Class="Com.Ctrl.IButton" Caption="@Отчет по затратам" HasCaption="True" Hint="@Получить отчет по документу" ImageName="com.Report" OnClick="btnReportExpenseClick"/>
+        </Inherited>
+        <Inherited Name="ButtonClose" After="ButtonReports"/>
+        <Inherited Name="ButtonAnalytics" After="ButtonClose"/>
+      </Inherited>
+      <Inherited Name="BasicFrame">
+        <Inherited Name="CodeFrame">
+          <Inherited Name="CodeGr">
+            <Inherited Name="CodeStatic1" Visible="False"/>
+          </Inherited>
+          <Component Name="CBGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="220" MinWidth="100" Visible="True">
+            <Component Name="CBStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+            <Component Name="chDetails" Class="Com.Ctrl.ICheckBox" Field="ShowParents" FixSize="True" HasCaption="True" Width="30"/>
+            <Component Name="chDetailsJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="MainBox">
+            <Component Name="MainGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="220" MinWidth="100">
+              <Component Name="CurrentStatusGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="CurrentStatus" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Attributes.OrderState" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.CurrentStatus" HasCaption="True" LookupField="Name" Wrap="False"/>
+                <Component Name="CurrentStatusJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.CurrentStatus" FixSize="True" Width="7.2"/>
+              </Component>
+              <Component Name="MainCol1Gr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="MainCol1LGr" Class="Com.Ctrl.IGroup" ByColumn="True">
+                  <Component Name="PlanBegDateGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                    <Component Name="PlanBegDate" Class="Com.Ctrl.IEdit" Caption="@OrderJournal:Planned from=Запланирован с" CellFormat="DateFormat" Enabled="False" Field="EdtRec.PlanBegDate" FormatOfDate="DateAndTime" HasCaption="True" Wrap="False"/>
+                    <Component Name="PlanBegDateJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                  </Component>
+                  <Component Name="FactBegDateGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                    <Component Name="FactBegDate" Class="Com.Ctrl.IEdit" Caption="@OrderJournal:Performed with=Выполняется с" CellFormat="DateFormat" Enabled="False" Field="EdtRec.FactBegDate" FormatOfDate="DateAndTime" HasCaption="True" Wrap="False"/>
+                    <Component Name="FactBegDateJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                  </Component>
+                </Component>
+                <Component Name="MainCol1RGr" Class="Com.Ctrl.IGroup" ByColumn="True">
+                  <Component Name="PlanEndDateGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                    <Component Name="PlanEndDate" Class="Com.Ctrl.IEdit" Caption="@tо=по" CellFormat="DateFormat" Enabled="False" Field="EdtRec.PlanEndDate" FormatOfDate="DateAndTime" HasCaption="True" Wrap="False"/>
+                    <Component Name="PlanEndDateJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                  </Component>
+                  <Component Name="FactEndDateGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                    <Component Name="FactEndDate" Class="Com.Ctrl.IEdit" Caption="@tо=по" CellFormat="DateFormat" Enabled="False" Field="EdtRec.FactEndDate" FormatOfDate="DateAndTime" HasCaption="True" Wrap="False"/>
+                    <Component Name="FactEndDateJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                  </Component>
+                </Component>
+              </Component>
+              <Component Name="edDemandGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="edDemand" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Journals.Demand" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.DemandCode" HasCaption="True" LookupField="Name" Wrap="False"/>
+                <Component Name="edDemandJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.DemandCode" FixSize="True" Width="7.2"/>
+              </Component>
+              <Component Name="edAcceptingGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="edAccepting" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Journals.Accepting" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.AcceptingCode" HasCaption="True" LookupField="Name" Wrap="False"/>
+                <Component Name="edAcceptingJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.AcceptingCode" FixSize="True" Width="7.2"/>
+              </Component>
+              <Component Name="edEmployeeCodeGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="edEmployeeCode" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Field="EdtRec.EmployeeCode" HasCaption="True" LookupField="Name" OnGetLookupFilter="edEmployeeCode_OnGetLookupFilter"/>
+                <Component Name="edEmployeeCodeJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.EmployeeCode" FixSize="True" JumpForm="Bas.Frm.Data.Entity" Width="7.2"/>
+              </Component>
+            </Component>
+          </Inherited>
+          <Component Name="ExpensesBox" Class="Com.Ctrl.IBox" After="MainBox">
+            <Component Name="ExpensesGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="220" MinWidth="100">
+              <Component Name="ExpensesLGr" Class="Com.Ctrl.IGroup" ByColumn="True">
+                <Component Name="eTotalCostGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="eTotalCost" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.TotalCost" FieldFormat=",##0.00;,##0.00;-" HasCaption="True" Wrap="False"/>
+                  <Component Name="eTotalCostJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="EmptyStatic1" Class="Com.Ctrl.IStatic" Caption=" "/>
+                <Component Name="EmptyStatic2" Class="Com.Ctrl.IStatic" Caption=" "/>
+              </Component>
+              <Component Name="ExpensesRGr" Class="Com.Ctrl.IGroup" ByColumn="True">
+                <Component Name="eSpareCostGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="eSpareCost" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.SpareCost" FieldFormat=",##0.00;,##0.00;-" HasCaption="True" Wrap="False"/>
+                  <Component Name="eSpareCostJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="eWorkCostGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="eWorkCost" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.WorkCost" FieldFormat=",##0.00;,##0.00;-" HasCaption="True" Wrap="False"/>
+                  <Component Name="eWorkCostJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="eOtherCostGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="eOtherCost" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.OtherCost" FieldFormat=",##0.00;,##0.00;-" HasCaption="True" Wrap="False"/>
+                  <Component Name="eOtherCostJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="LinesBox" Class="Com.Ctrl.IBox" HasCaption="True" Margins="5">
+            <Component Name="LineTable" Class="Com.Ctrl.ITable" Freezed="False" Numbering="False" OnChangePosition="OnChangeNormContent" Subtable="EdtRec.sbtNormatives">
+              <Component Name="vDefPosN" Class="EquipmentRegistry.Rec.Journals.OrdersNormatives" IsLibrary="1"/>
+              <Component Name="sbtNCreatedNum" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption=" " CellFormat="NumericFormat" Enabled="False" Field="vDefPosN.CreatedNum" FieldFormat="#0" FixSize="True" HasCaption="True" Width="11"/>
+              <Component Name="sbtNIsDone" Class="Com.Ctrl.ICheckBox" Enabled="False" Field="vDefPosN.IsDone" FixSize="True" HasCaption="True" Width="11"/>
+              <Component Name="sbtNUnitCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Eqm.EquipmentTab" CellFormat="ReferenceFormat" Field="vDefPosN.UnitCode" FixSize="True" HasCaption="True" LookupField="Code" OnChange="sbtNUnitCode_OnChange" OnEnter="sbtNUnitCode_OnEnter" OnGetLookupFilter="sbtNUnitCode_OnGetLookupFilter" OnOpenCardForm="sbtNUnitCode_OnOpenCardForm" OnVerify="sbtNUnitCode_OnVerify" Width="40"/>
+              <Component Name="sbtNUnitNameGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+                <Component Name="sbtNUnitName" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Eqm.EquipmentTab" CellFormat="ReferenceFormat" Field="vDefPosN.UnitCode" FixSize="True" HasCaption="False" LookupField="Name" OnEnter="sbtNUnitCode_OnEnter" OnGetLookupFilter="sbtNUnitCode_OnGetLookupFilter" OnOpenCardForm="sbtNUnitCode_OnOpenCardForm" OnVerify="sbtNUnitCode_OnVerify" Width="40"/>
+                <Component Name="sbtNUnitNameJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosN.UnitCode" FixSize="True" HasCaption="False" Width="7.2"/>
+              </Component>
+              <Component Name="sbtNUnitPlaceGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+                <Component Name="sbtNUnitPlace" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Places.PlacesTab" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosN.UnitPlace" FixSize="True" HasCaption="False" LookupField="Name" Width="60"/>
+                <Component Name="sbtNUnitPlaceJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosN.UnitPlace" FixSize="True" HasCaption="False" JumpForm="EquipmentRegistry.Frm.Ref.Places.PlacesFrm" Width="7.2"/>
+              </Component>
+              <Component Name="sbtNPlanPeriodGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+                <Component Name="sbtNPlanBegDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="vDefPosN.PlanBegDate" FixSize="True" FormatOfDate="DateAndTime" HasCaption="False" Width="48"/>
+                <Component Name="sbtNPlanEndDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="vDefPosN.PlanEndDate" FixSize="True" FormatOfDate="DateAndTime" HasCaption="False" Width="48"/>
+              </Component>
+              <Component Name="sbtNFactPeriodGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+                <Component Name="sbtNFactBegDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Enabled="False" Field="vDefPosN.FactBegDate" FixSize="True" FontColor="0xFE00000D" FormatOfDate="DateAndTime" HasCaption="False" Width="48"/>
+                <Component Name="sbtNFactEndDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Enabled="False" Field="vDefPosN.FactEndDate" FixSize="True" FontColor="0xFE00000D" FormatOfDate="DateAndTime" HasCaption="False" Width="48"/>
+              </Component>
+              <Component Name="sbtNContractCol" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+                <Component Name="sbtNContract" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Field="vDefPosN.Contract" FixSize="True" HasCaption="False" LookupField="Code" OnEnter="sbtNContract_OnEnter" OnOpenCardForm="sbtNContract_OnOpenCardForm" Width="40"/>
+                <Component Name="sbtNContractJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosN.Contract" FixSize="True" HasCaption="False" JumpForm="Biz.Frm.Data.Contract" Width="7.2"/>
+              </Component>
+              <Component Name="sbtNContractorGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+                <Component Name="sbtNContractor" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Contraparties" CellFormat="ReferenceFormat" Field="vDefPosN.Contractor" FixSize="True" HasCaption="False" LookupField="Name" OnEnter="sbtNContractor_OnEnter" Width="60"/>
+                <Component Name="sbtNContractorJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosN.Contractor" FixSize="True" HasCaption="False" Width="7.2"/>
+              </Component>
+            </Component>
+          </Component>
+          <Inherited Name="LineBox" Visible="False"/>
+        </Inherited>
+        <Component Name="OperaionsFrame" Class="Com.Ctrl.IFrame" Margins="5">
+          <Component Name="OperationsTable" Class="Com.Ctrl.ITable" Freezed="False" Numbering="True" Subtable="EdtRec.sbtOperations">
+            <Component Name="vDefPosO" Class="EquipmentRegistry.Rec.Journals.OrdersOperations" IsLibrary="1"/>
+            <Component Name="sbtOIsDone" Class="Com.Ctrl.ICheckBox" Enabled="False" Field="vDefPosO.IsDone" FixSize="True" HasCaption="True" Width="11"/>
+            <Component Name="sbtOJobCode" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="vDefPosO.JobCode" FixSize="True" HasCaption="True" OnChange="sbtOJobCode_OnChange" OnEnter="sbtOJobCode_OnEnter" OnOutputEx="JobCodeOnOutput" Required="True" Width="60"/>
+            <Component Name="sbtOUnitCodeGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtOUnitCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Eqm.EquipmentTab" CellFormat="ReferenceFormat" Field="vDefPosO.UnitCode" FixSize="True" HasCaption="False" LookupField="Code" OnEnter="sbtOUnitCode_OnEnter" OnGetLookupFilter="UnitCodeLookupFilter" OnOpenCardForm="BaseJournalOnCreate" Width="40"/>
+              <Component Name="sbtOUnitCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosO.UnitCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtOOperCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.FlowCharts.Operations" CellFormat="ReferenceFormat" Field="vDefPosO.OperCode" FixSize="True" HasCaption="True" LookupField="Code" OnEnter="sbtOOperCode_OnEnter" Required="True" Width="40"/>
+            <Component Name="edOperName" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtOOperName" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.FlowCharts.Operations" CellFormat="ReferenceFormat" Field="vDefPosO.OperCode" FixSize="True" HasCaption="False" LookupField="Name" OnEnter="sbtOOperCode_OnEnter" Required="True" Width="60"/>
+              <Component Name="sbtOOperNameJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosO.OperCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtODuration" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosO.Duration" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" OnEnter="sbtODuration_OnEnter" Width="15"/>
+            <Component Name="sbtOCosts" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosO.Costs" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" Width="30"/>
+            <Component Name="sbtOQuantity" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosO.Quantity" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" OnEnter="sbtOQuantity_OnEnter" OnOutputEx="sbtOQuantity_OnOutputEx" Width="30"/>
+            <Component Name="sbtOUnitOfMeasure" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosO.OperCode" FixSize="True" HasCaption="True" LookupField="UnitOfMeasure.Code" Width="15"/>
+            <Component Name="sbtOTotalCost" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosO.TotalCost" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" Width="30"/>
+            <Component Name="sbtOPlanPeriodGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtOPlanBegDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="vDefPosO.PlanBegDate" FixSize="True" FormatOfDate="DateAndTime" HasCaption="False" OnChange="sbtOPlanBegDate_OnChange" OnEnter="sbtOQuantity_OnEnter" Required="True" Width="48"/>
+              <Component Name="sbtOPlanEndDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="vDefPosO.PlanEndDate" FixSize="True" FormatOfDate="DateAndTime" HasCaption="False" OnEnter="sbtOPlanEndDate_OnEnter" Required="True" Width="48"/>
+            </Component>
+            <Component Name="sbtOFactPeriodGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtOFactBegDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Enabled="False" Field="vDefPosO.FactBegDate" FixSize="True" FontColor="0xFE00000D" FormatOfDate="DateAndTime" HasCaption="False" Width="48"/>
+              <Component Name="sbtOFactEndDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Enabled="False" Field="vDefPosO.FactEndDate" FixSize="True" FontColor="0xFE00000D" FormatOfDate="DateAndTime" HasCaption="False" Width="48"/>
+            </Component>
+            <Component Name="sbtOExecutorGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtOExecutor" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="vDefPosO.CurExec" FixSize="True" HasCaption="False" Width="60" Wrap="False"/>
+              <Component Name="btnEditExecutors" Class="Com.Ctrl.IButton" FixSize="True" HasCaption="False" Hint="Открыть исполнителей" ImageName="Com.Service" OnClick="btnEditExecutorsClick" Width="7.2"/>
+            </Component>
+            <Component Name="sbtOContractGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtOContract" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Field="vDefPosO.Contract" FixSize="True" HasCaption="False" LookupField="PrintedNumber" OnEnter="sbtOContractOnEnter" OnOpenCardForm="sbtOContract_OnOpenCardForm" Width="40"/>
+              <Component Name="sbtOContractJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosO.Contract" FixSize="True" HasCaption="False" JumpForm="Biz.Frm.Data.Contract" Width="7.2"/>
+            </Component>
+            <Component Name="sbtOContractorGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtOContractor" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Contraparties" CellFormat="ReferenceFormat" Field="vDefPosO.Contractor" FixSize="True" HasCaption="False" LookupField="Name" OnEnter="sbtOContractorOnEnter" Width="60"/>
+              <Component Name="sbtOContractorJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosO.Contractor" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="SparePartsFrame" Class="Com.Ctrl.IFrame" HasCaption="True" Margins="5">
+          <Component Name="FullSpareParts" Class="Com.Ctrl.ITable" Freezed="False" Numbering="True" Subtable="EdtRec.sbtSpareParts">
+            <Component Name="vDefPosR" Class="EquipmentRegistry.Rec.Journals.OrdersSpareParts" IsLibrary="1"/>
+            <Component Name="sbtRJobCode" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="vDefPosR.JobCode" FixSize="True" OnChange="sbtRJobCode_OnChange" OnEnter="sbtRJobCode_OnEnter" OnOutputEx="JobCodeOnOutput" Required="True" Width="60"/>
+            <Component Name="sbtRUnitCodeGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtRUnitCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Eqm.EquipmentTab" CellFormat="ReferenceFormat" Field="vDefPosR.UnitCode" FixSize="True" HasCaption="False" LookupField="Code" OnEnter="sbtRUnitCode_OnEnter" OnGetLookupFilter="UnitCodeLookupFilter" Width="40"/>
+              <Component Name="sbtRUnitCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosR.UnitCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtRResCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Equipment.Resource_PartTab" CellFormat="ReferenceFormat" Field="vDefPosR.Resource" FixSize="True" HasCaption="True" LookupField="Code" OnEnter="sbtRResCode_OnEnter" Required="True" Width="40"/>
+            <Component Name="edResource" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtRResName" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Equipment.Resource_PartTab" CellFormat="ReferenceFormat" Field="vDefPosR.Resource" FixSize="True" HasCaption="False" LookupField="Name" OnEnter="sbtRResCode_OnEnter" Required="True" Width="60"/>
+              <Component Name="sbtRResNameJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosR.Resource" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtRPriceGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True" Hint="@Обновить значение на дату документа" OnClick="sbtRPriceGr_OnClick" StaticStyle="StaticHyperlink">
+              <Component Name="sbtRPrice" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="vDefPosR.SparePrice" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="False" OnEnter="sbtRPrice_OnEnter" Width="30"/>
+            </Component>
+            <Component Name="sbtRCount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="vDefPosR.SpareQuantity" FixSize="True" HasCaption="True" OnEnter="sbtRPrice_OnEnter" OnOutputEx="sbtRCount_OnOutputEx" Width="30"/>
+            <Component Name="sbtRUnitOfMeasure" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosR.Resource" FixSize="True" HasCaption="True" LookupField="MainUnit.Code" Width="15"/>
+            <Component Name="sbtRSpareCost" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosR.SpareCost" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" Width="30"/>
+            <Component Name="sbtRDivisionGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True" Hint="@Установить значение склада" OnClick="sbtRDivisionGr_OnClick" StaticStyle="StaticHyperlink">
+              <Component Name="sbtRDivision" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" CellFormat="ReferenceFormat" Field="vDefPosR.Division" FixSize="True" HasCaption="False" LookupField="Name" OnEnter="sbtRDivision_OnEnter" OnOpenCardForm="sbtRDivision_OnOpenCardForm" Width="40"/>
+              <Component Name="sbtRDivisionJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosR.Division" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtROperCodeGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtROperCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.FlowCharts.Operations" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosR.OperCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+              <Component Name="sbtROperCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosR.OperCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+          </Component>
+          <Component Name="ShortSpareParts" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Freezed="False" Numbering="True" Subtable="EdtRec.sbtShortS">
+            <Component Name="vDefPosShortR" Class="EquipmentRegistry.Rec.Journals.OrdersSparePartsShort" IsLibrary="1"/>
+            <Component Name="sbtShortRResourceGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtShortRResource" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosShortR.Resource" FixSize="True" HasCaption="False" LookupField="Name" Width="60"/>
+              <Component Name="sbtShortRResourceJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosShortR.Resource" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtShortRSparePriceGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtShortRSparePrice" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosShortR.SparePrice" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="False" Width="30"/>
+            </Component>
+            <Component Name="sbtShortRSpareQuantityGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtShortRSpareQuantity" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosShortR.SpareQuantity" FixSize="True" HasCaption="False" OnOutputEx="sbtRCount_OnOutputEx" Width="30"/>
+            </Component>
+            <Component Name="sbtShortRUnitGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtShortRUnit" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosShortR.Resource" FixSize="True" HasCaption="False" LookupField="MainUnit.Code" Width="15"/>
+            </Component>
+            <Component Name="sbtShortRSpareCostGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtShortRSpareCost" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosShortR.SpareCost" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="False" Width="30"/>
+            </Component>
+            <Component Name="sbtShortRDivisionGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtShortRDivision" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosShortR.Division" FixSize="True" HasCaption="False" LookupField="Name" Width="60"/>
+              <Component Name="sbtShortRDivisionJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosShortR.Division" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="WorkersFrame" Class="Com.Ctrl.IFrame" HasCaption="True">
+          <Component Name="FullWorkers" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="ExecutorBox" Class="Com.Ctrl.IBox" AutoSize="True" Margins="5">
+              <Component Name="FullWorkersE" Class="Com.Ctrl.ITable" Freezed="False" Numbering="True" OnDelete="FullWorkersE_OnDelete" Subtable="EdtRec.sbtWorkersE">
+                <Component Name="vDefPosWE" Class="EquipmentRegistry.Rec.Journals.OrdersWorkers" IsLibrary="1"/>
+                <Component Name="sbtWEJobCode" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Enabled="False" Field="vDefPosWE.JobCode" FixSize="True" HasCaption="True" LookupField="Code" OnChange="sbtWEJobCodeOnChange" OnEnter="sbtWEJobCodeOnEnter" OnOutputEx="JobCodeOnOutput" Required="True" Width="60"/>
+                <Component Name="sbtWEUnitCodeGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+                  <Component Name="sbtWEUnitCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Eqm.EquipmentTab" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosWE.UnitCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+                  <Component Name="sbtWEUnitCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosWE.UnitCode" FixSize="True" HasCaption="False" Width="7.2"/>
+                </Component>
+                <Component Name="sbtWEWorkCodeGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+                  <Component Name="sbtWEWorkCode" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.Positions" CellFormat="ReferenceFormat" Field="vDefPosWE.WorkCode" FixSize="True" HasCaption="False" LookupField="Code" OnEnter="sbtWEWorkCode_OnEnter" Required="True" Width="40"/>
+                  <Component Name="sbtWEWorkCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosWE.WorkCode" FixSize="True" HasCaption="False" Width="7.2"/>
+                </Component>
+                <Component Name="sbtWEDivisionGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True" Hint="@Установить значение подразделения" OnClick="sbtWEDivisionGr_OnClick" StaticStyle="StaticHyperlink">
+                  <Component Name="sbtWEDivision" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" CellFormat="ReferenceFormat" Field="vDefPosWE.Division" FixSize="True" HasCaption="False" LookupField="Name" OnEnter="sbtWEDivision_OnEnter" OnOpenCardForm="sbtWEDivision_OnOpenCardForm" Width="40"/>
+                </Component>
+                <Component Name="sbtWEExecutorGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+                  <Component Name="sbtWEExecutor" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Employees" CellFormat="ReferenceFormat" Field="vDefPosWE.Executor" FixSize="True" HasCaption="False" LookupField="Name" OnEnter="sbtWEExecutorOnEnter" OnOpenCardForm="sbtWEExecutor_OnOpenCardForm" Required="True" Width="40"/>
+                  <Component Name="sbtWEExecutorJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosWE.Executor" FixSize="True" HasCaption="False" Width="7.2"/>
+                  <Component Name="sbtWEExecutorService" Class="Com.Ctrl.IButton" HasCaption="False" ImageName="Com.Service" OnClick="sbtWEExecutorServiceClick"/>
+                </Component>
+                <Component Name="sbtWETime" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="vDefPosWE.WorkTime" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" OnEnter="sbtWETime_OnEnter" Width="30"/>
+                <Component Name="sbtWEPrice" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="vDefPosWE.WorkPrice" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" OnEnter="sbtWETime_OnEnter" Width="30"/>
+                <Component Name="sbtWEWorkSum" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosWE.WorkSum" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" Width="30"/>
+                <Component Name="sbtWEOperCodeGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+                  <Component Name="sbtWEOperCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.FlowCharts.Operations" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosWE.OperCode" FixSize="True" HasCaption="False" LookupField="Code" Width="30"/>
+                  <Component Name="sbtWEOperCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosWE.OperCode" FixSize="True" HasCaption="False" Width="7.2"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="ShortWorkersFrame" Class="Com.Ctrl.IFrame" Margins="5">
+            <Component Name="ShortWorkers" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Freezed="False" Numbering="True" Subtable="EdtRec.sbtShortW">
+              <Component Name="vDefPosShortW" Class="EquipmentRegistry.Rec.Journals.OrdersWorkersShort" IsLibrary="1"/>
+              <Component Name="sbtWSExecutorGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+                <Component Name="sbtWSExecutor" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosShortW.Executor" FixSize="True" HasCaption="False" LookupField="Name" Width="60"/>
+              </Component>
+              <Component Name="sbtWSWorkTime" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosShortW.WorkTime" FieldFormat=",##0.00;,##0.00;-" FixSize="True" Width="15"/>
+              <Component Name="sbtWSWorkPrice" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosShortW.WorkPrice" FieldFormat=",##0.00;,##0.00;-" FixSize="True" Width="30"/>
+              <Component Name="sbtWSWorkSum" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosShortW.WorkSum" FieldFormat=",##0.00;,##0.00;-" FixSize="True" Width="30"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="CostsFrame" Class="Com.Ctrl.IFrame" HasCaption="True" Margins="5">
+          <Component Name="FullCosts" Class="Com.Ctrl.ITable" Freezed="False" Numbering="True" Subtable="EdtRec.sbtCosts">
+            <Component Name="vDefPosC" Class="EquipmentRegistry.Rec.Journals.OrdersCosts" IsLibrary="1"/>
+            <Component Name="sbtCJobCode" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="vDefPosC.JobCode" FixSize="True" OnChange="sbtCJobCode_OnChange" OnEnter="sbtCJobCode_OnEnter" OnOutputEx="JobCodeOnOutput" Required="True" Width="60"/>
+            <Component Name="sbtCUnitCodeGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtCUnitCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Eqm.EquipmentTab" CellFormat="ReferenceFormat" Field="vDefPosC.UnitCode" FixSize="True" HasCaption="False" LookupField="Code" OnEnter="sbtCUnitCode_OnEnter" OnGetLookupFilter="UnitCodeLookupFilter" Width="40"/>
+              <Component Name="sbtCUnitCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosC.UnitCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtCCostCode" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="vDefPosC.CostCode" FixSize="True" LookupField="Code" OnEnter="sbtCCostCode_OnEnter" Required="True" Width="40"/>
+            <Component Name="sbtCCostNameCol" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtCCostName" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="vDefPosC.CostCode" FixSize="True" HasCaption="False" LookupField="Name" OnEnter="sbtCCostCode_OnEnter" Required="True" Width="60"/>
+              <Component Name="sbtCCostNameJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosC.CostCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtCCostValue" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="vDefPosC.CostValue" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" OnEnter="sbtCCostCode_OnEnter" Width="30"/>
+            <Component Name="sbtCContractGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtCContract" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Field="vDefPosC.Contract" FixSize="True" HasCaption="False" LookupField="PrintedNumber" OnEnter="sbtCContractOnEnter" OnOpenCardForm="sbtCContract_OnOpenCardForm" Width="40"/>
+              <Component Name="sbtCContractJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosC.Contract" FixSize="True" HasCaption="False" JumpForm="Biz.Frm.Data.Contract" Width="7.2"/>
+            </Component>
+            <Component Name="sbtCContractorGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtCContractor" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Contraparties" CellFormat="ReferenceFormat" Field="vDefPosC.Contractor" FixSize="True" HasCaption="False" LookupField="Name" OnEnter="sbtCContractorOnEnter" Width="60"/>
+              <Component Name="sbtCContractorJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosC.Contractor" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtCOperCodeGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtCOperCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.FlowCharts.Operations" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosC.OperCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+              <Component Name="sbtCOperCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosC.OperCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+          </Component>
+          <Component Name="ShortCosts" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Freezed="False" Numbering="True" Subtable="EdtRec.sbtShortC" Visible="False">
+            <Component Name="vDefPosShortC" Class="EquipmentRegistry.Rec.Journals.OrdersCostsShort" IsLibrary="1"/>
+            <Component Name="sbtShortCostCode" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosC.CostCode" FixSize="True" LookupField="Code" Width="40"/>
+            <Component Name="sbtShortCostNameCol" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtShortCostName" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosC.CostCode" FixSize="True" HasCaption="False" LookupField="Name" Width="60"/>
+            </Component>
+            <Component Name="sbtShortCostValue" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosC.CostValue" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" Width="30"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

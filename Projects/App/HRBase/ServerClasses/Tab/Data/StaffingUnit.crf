@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="HRBase.Tab.Base.HierarchDivision">
+  <Inherited>
+    <Inherited Name="Current" Class="HRBase.Rec.Data.StaffingUnit" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" Excluded="True" Visible="False"/>
+          <Inherited Name="Code" Excluded="True"/>
+          <Component Name="Company" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="Current.Company" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="Division" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" Field="Current.Division" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="Position" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Ref.PositionsHR" Field="Current.Position" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="DateOpen" Class="Com.Ctrl.IEdit" Caption="@Дата начала " Field="Current.DateOpen" FormatOfDate="DateOnly" HasCaption="True" Hint="Дата открытия вакансии" Width="30"/>
+          <Component Name="DateClosed" Class="Com.Ctrl.IEdit" Caption="@Закрыто" Field="Current.DateClosed" FormatOfDate="DateOnly" HasCaption="True" Hint="Дата закрытия вакансии" Width="30"/>
+          <Component Name="QtyUnit" Class="Com.Ctrl.IEdit" Caption="Количество единиц" Field="Current.StaffingDataToDay" HasCaption="True" LookupField="QtyUnit" Width="25"/>
+          <Component Name="ToTrans" Class="Com.Ctrl.IEdit" Field="Current.ToTrans" HasCaption="True" Width="15"/>
+          <Component Name="Closed" Class="Com.Ctrl.IEdit" Field="Current.Closed" HasCaption="True" Width="15"/>
+          <Component Name="Locked" Class="Com.Ctrl.IEdit" Field="Current.Locked" HasCaption="True" Width="15"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

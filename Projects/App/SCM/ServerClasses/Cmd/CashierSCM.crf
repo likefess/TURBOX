@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IMenu">
+  <Inherited Caption="РМ кассира">
+    <Inherited Name="MainGroup" Orientation="Vertical">
+      <Component Name="BasicDatas" Class="Com.Cmd2.IGroup" Caption="Основные данные" Columns="2" Orientation="Vertical" Rows="6">
+        <Component Name="Кассы" Class="Com.Cmd2.IItem" Command="Commands.SCM_Parameters_Cash_desks"/>
+        <Component Name="SalesContracts" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Sales_Sales_Contracts"/>
+        <Component Name="Контрагенты" Class="Com.Cmd2.IItem" Command="Commands.SCM_Parameters_Contraparties"/>
+        <Component Name="SaleTransactions" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Sales_Sale_transactions"/>
+        <Component Name="Currencies" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Currencies"/>
+        <Component Name="Договоры_покупки" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Purchases_Purchase_contracts"/>
+        <Component Name="Employees" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Employees"/>
+        <Component Name="Сделки_покупки" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Purchases_Transactions_purchases"/>
+        <Component Name="NaturalEntities" Class="Com.Cmd2.IItem" Command="Commands.Cmd_NaturalEntities"/>
+      </Component>
+      <Component Name="Docs_Tasks" Class="Com.Cmd2.IGroup" Orientation="Horizontal">
+        <Component Name="Documents" Class="Com.Cmd2.IGroup" Caption="Документы" Columns="2" Rows="3">
+          <Component Name="Sales_PaymentFromBuyer" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Sales_Payment_From_Buyer"/>
+          <Component Name="Sales_ReturnPaymentToBuyer" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Sales_Return_Payment_To_Buyer"/>
+          <Component Name="Оплата_поставщику" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Purchases_Payment_To_Supplyer"/>
+          <Component Name="Возврат_оплаты_поставщиком" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Purchases_Return_Payment_From_Supplyer"/>
+          <Component Name="Внутреннее_перемещение_ДС" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Inventories_Movement_money"/>
+          <Component Name="Прочие_траты" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Inventories_Other_Expenses"/>
+          <Component Name="Прочие_поступления" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Inventories_Miscellaneous_Income"/>
+          <Component Name="Начальные_остатки_ДС" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Remainders_Initial_remains_of_money"/>
+        </Component>
+        <Component Name="Periodic_tasks" Class="Com.Cmd2.IGroup" Caption="Периодические задания" Columns="2" Rows="2">
+          <Component Name="KKT_Services" Class="Com.Cmd2.IItem" Command="Commands.SCM_Сервис_ККТ"/>
+        </Component>
+      </Component>
+      <Component Name="Reports" Class="Com.Cmd2.IGroup" Caption="Отчеты" Columns="2" Rows="5">
+        <Component Name="CashFlow" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_Cash_flow"/>
+        <Component Name="CashBalancesByLocation" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_Cash_balances_by_location_"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

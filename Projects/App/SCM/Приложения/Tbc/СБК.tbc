@@ -1,0 +1,461 @@
+﻿TBCFile VER="3.4" [Created '30.07.2019 15:24:15' by 'Igor']
+
+DESCRIPTION[
+Count=56
+CountByRef=0
+Upr.Справочники.СБК
+(
+  Count=56
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Biz.Ref.BGI
+  (
+    Deleted :Boolean
+    GroupDoc :Biz.Ref.BGI
+    isGroup :Integer
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ЗамокЭлементаСБ :Boolean
+    КодПодсистемы :Integer
+    КодМодуля :String
+    КодУчастника :Integer
+    Code :String(80)
+    Name :String(850)
+    Комментарий :String
+    ПеременныеЗатраты :Boolean
+    ЭтоДоход :Boolean
+    СсылкаНакладныеРасходы :ПервичкаРСБУ.Справочники.НакладныеРасходы
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Biz.Ref.BGI
+  
+  {Biz.Ref.BGI:"ГруппаСБКдляЗатрат"}
+  (
+    isGroup = -1
+    КодМодуля = "ТиС"
+    Name = "Группа СБК для затрат"
+    Комментарий = "Группа СБК для затрат в документах по доп.расходам"
+  )
+  
+  {Biz.Ref.BGI:"01ДОХОДЫ"}
+  (
+    isGroup = -1
+    IsMeta = True
+    Name = "СТАТЬИ ДОХОДОВ"
+    ЭтоДоход = True
+  )
+  
+  {Biz.Ref.BGI:"20РАСХОДЫ"}
+  (
+    isGroup = -1
+    IsMeta = True
+    Name = "СТАТЬИ РАСХОДОВ"
+  )
+  
+  {Biz.Ref.BGI:"01Прод"}
+  (
+    GroupDoc = {Biz.Ref.BGI:01ДОХОДЫ}
+    IsMeta = True
+    Name = "Продажи товаров и услуг"
+    ЭтоДоход = True
+  )
+  
+  {Biz.Ref.BGI:"03Выручка"}
+  (
+    GroupDoc = {Biz.Ref.BGI:01ДОХОДЫ}
+    IsMeta = True
+    Name = "Выручка от покупателей"
+    ЭтоДоход = True
+  )
+  
+  {Biz.Ref.BGI:"04ВозвратПост"}
+  (
+    GroupDoc = {Biz.Ref.BGI:01ДОХОДЫ}
+    IsMeta = True
+    Name = "Возврат денег от поставщика"
+    ЭтоДоход = True
+  )
+  
+  {Biz.Ref.BGI:"02Бонусы"}
+  (
+    GroupDoc = {Biz.Ref.BGI:01ДОХОДЫ}
+    IsMeta = True
+    Name = "Бонусы полученные"
+    ЭтоДоход = True
+  )
+  
+  {Biz.Ref.BGI:"1999"}
+  (
+    GroupDoc = {Biz.Ref.BGI:20РАСХОДЫ}
+    isGroup = -1
+    IsMeta = True
+    Name = "Текущие затраты"
+  )
+  
+  {Biz.Ref.BGI:"40ПРОЧЕЕ"}
+  (
+    GroupDoc = {Biz.Ref.BGI:20РАСХОДЫ}
+    isGroup = -1
+    IsMeta = True
+    Name = "ПРОЧИЕ СТАТЬИ"
+  )
+  
+  {Biz.Ref.BGI:"1000"}
+  (
+    GroupDoc = {Biz.Ref.BGI:20РАСХОДЫ}
+    isGroup = -1
+    IsMeta = True
+    Name = "ПРОИЗВОДСТВЕННЫЕ РАСХОДЫ"
+  )
+  
+  {Biz.Ref.BGI:"Пост"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1999}
+    IsMeta = True
+    Name = "Платежи поставщикам"
+  )
+  
+  {Biz.Ref.BGI:"ВозвратПок"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1999}
+    Branch = "Тис"
+    IsMeta = True
+    Name = "Возвраты покупателям"
+  )
+  
+  {Biz.Ref.BGI:"Таможня"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1999}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Таможня"
+  )
+  
+  {Biz.Ref.BGI:"Транспорт"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1999}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Содержание автотранспорта"
+  )
+  
+  {Biz.Ref.BGI:"Хранение"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1999}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Хранение"
+  )
+  
+  {Biz.Ref.BGI:"ПогрузкаРазгрузка"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1999}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Погрузка-разгрузка"
+  )
+  
+  {Biz.Ref.BGI:"2000"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1999}
+    IsMeta = True
+    Name = "Расходы на оплату труда"
+    Комментарий = "ЗАРПЛАТА"
+  )
+  
+  {Biz.Ref.BGI:"Отопление"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1999}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Отопление"
+  )
+  
+  {Biz.Ref.BGI:"КОМАНДИРОВОЧНЫЕ"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1999}
+    IsMeta = True
+    Name = "Командировочные расходы"
+  )
+  
+  {Biz.Ref.BGI:"ПРЕДСТАВИТЕЛЬСКИЕ"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1999}
+    IsMeta = True
+    Name = "Представительские расходы"
+  )
+  
+  {Biz.Ref.BGI:"ХОЗНУЖДЫ"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1999}
+    IsMeta = True
+    Name = "Хознужды"
+  )
+  
+  {Biz.Ref.BGI:"РЕКЛАМА"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1999}
+    IsMeta = True
+    Name = "Реклама"
+  )
+  
+  {Biz.Ref.BGI:"ШТРАФЫ"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1999}
+    IsMeta = True
+    Name = "Штрафы"
+  )
+  
+  {Biz.Ref.BGI:"ОБУЧЕНИЕ"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1999}
+    IsMeta = True
+    Name = "Обучение сотрудников"
+  )
+  
+  {Biz.Ref.BGI:"КОМУНАЛЬНЫЕ"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1999}
+    IsMeta = True
+    Name = "Коммунальные платежи"
+  )
+  
+  {Biz.Ref.BGI:"Налоги"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1999}
+    IsMeta = True
+    Name = "Налоги и сборы"
+  )
+  
+  {Biz.Ref.BGI:"КапВлож"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1999}
+    IsMeta = True
+    Name = "Капитальные вложения"
+  )
+  
+  {Biz.Ref.BGI:"ТР.УСЛУГИ"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1999}
+    IsMeta = True
+    Name = "Транспортные услуги"
+  )
+  
+  {Biz.Ref.BGI:"3000"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1999}
+    IsMeta = True
+    Name = "Амортизация основных средств"
+    Комментарий = "ИзносОС"
+  )
+  
+  {Biz.Ref.BGI:"7140"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1999}
+    isGroup = -1
+    IsMeta = True
+    Name = "Услуги сторонних организаций"
+  )
+  
+  {Biz.Ref.BGI:"7150"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1999}
+    isGroup = -1
+    IsMeta = True
+    Name = "Услуги наших структурных подразделений"
+  )
+  
+  {Biz.Ref.BGI:"ОСТАТКИ"}
+  (
+    GroupDoc = {Biz.Ref.BGI:40ПРОЧЕЕ}
+    IsMeta = True
+    Name = "Начальные остатки"
+  )
+  
+  {Biz.Ref.BGI:"Инвентаризации"}
+  (
+    GroupDoc = {Biz.Ref.BGI:40ПРОЧЕЕ}
+    IsMeta = True
+    Name = "Инвентаризация"
+  )
+  
+  {Biz.Ref.BGI:"КурсВал"}
+  (
+    GroupDoc = {Biz.Ref.BGI:40ПРОЧЕЕ}
+    IsMeta = True
+    Name = "Курс. разница (переоценка)"
+  )
+  
+  {Biz.Ref.BGI:"ПЕРЕДАЧА"}
+  (
+    GroupDoc = {Biz.Ref.BGI:40ПРОЧЕЕ}
+    IsMeta = True
+    Name = "Внутреннее перемещение"
+  )
+  
+  {Biz.Ref.BGI:"Вал"}
+  (
+    GroupDoc = {Biz.Ref.BGI:40ПРОЧЕЕ}
+    IsMeta = True
+    Name = "Обмен валюты"
+  )
+  
+  {Biz.Ref.BGI:"1100"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1000}
+    IsMeta = True
+    Name = "ПРЯМЫЕ ПРИЗВ. РАСХОДЫ"
+  )
+  
+  {Biz.Ref.BGI:"1200"}
+  (
+    GroupDoc = {Biz.Ref.BGI:1000}
+    IsMeta = True
+    Name = "УСЛОВНО-КОСВ. РАСХОДЫ"
+  )
+  
+  {Biz.Ref.BGI:"Доставка"}
+  (
+    GroupDoc = {Biz.Ref.BGI:7140}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Услуги по доставке"
+  )
+  
+  {Biz.Ref.BGI:"АРЕНДА"}
+  (
+    GroupDoc = {Biz.Ref.BGI:7140}
+    isGroup = -1
+    IsMeta = True
+    Name = "Услуги аренды"
+  )
+  
+  {Biz.Ref.BGI:"7145"}
+  (
+    GroupDoc = {Biz.Ref.BGI:7140}
+    isGroup = -1
+    IsMeta = True
+    Name = "Услуги связи"
+    Комментарий = "СВЯЗЬ"
+  )
+  
+  {Biz.Ref.BGI:"РЕМОНТ"}
+  (
+    GroupDoc = {Biz.Ref.BGI:7140}
+    isGroup = -1
+    IsMeta = True
+    Name = "Текущий ремонт"
+  )
+  
+  {Biz.Ref.BGI:"БАНК"}
+  (
+    GroupDoc = {Biz.Ref.BGI:7140}
+    IsMeta = True
+    Name = "Услуги банка"
+  )
+  
+  {Biz.Ref.BGI:"ПОЧТОВЫЕ"}
+  (
+    GroupDoc = {Biz.Ref.BGI:7140}
+    IsMeta = True
+    Name = "Почтовые расходы"
+  )
+  
+  {Biz.Ref.BGI:"13056"}
+  (
+    GroupDoc = {Biz.Ref.BGI:АРЕНДА}
+    IsMeta = True
+    Name = "Аренда склада"
+  )
+  
+  {Biz.Ref.BGI:"13057"}
+  (
+    GroupDoc = {Biz.Ref.BGI:АРЕНДА}
+    IsMeta = True
+    Name = "Аренда офиса "
+  )
+  
+  {Biz.Ref.BGI:"13071"}
+  (
+    GroupDoc = {Biz.Ref.BGI:АРЕНДА}
+    IsMeta = True
+    Name = "Аренда магазина"
+  )
+  
+  {Biz.Ref.BGI:"13143"}
+  (
+    GroupDoc = {Biz.Ref.BGI:АРЕНДА}
+    IsMeta = True
+    Name = "Аренда юридического адреса"
+  )
+  
+  {Biz.Ref.BGI:"МобСвязь"}
+  (
+    GroupDoc = {Biz.Ref.BGI:7145}
+    IsMeta = True
+    Name = "Мобильная связь"
+  )
+  
+  {Biz.Ref.BGI:"Интернет"}
+  (
+    GroupDoc = {Biz.Ref.BGI:7145}
+    IsMeta = True
+    Name = "Интернет"
+  )
+  
+  {Biz.Ref.BGI:"МГ"}
+  (
+    GroupDoc = {Biz.Ref.BGI:7145}
+    IsMeta = True
+    Name = "Междугородние переговоры"
+  )
+  
+  {Biz.Ref.BGI:"12906"}
+  (
+    GroupDoc = {Biz.Ref.BGI:РЕМОНТ}
+    IsMeta = True
+    Name = "Ремонт орг.техники"
+  )
+  
+  {Biz.Ref.BGI:"13043"}
+  (
+    GroupDoc = {Biz.Ref.BGI:РЕМОНТ}
+    IsMeta = True
+    Name = "Обслуживание ККМ"
+  )
+  
+  {Biz.Ref.BGI:"13108"}
+  (
+    GroupDoc = {Biz.Ref.BGI:РЕМОНТ}
+    IsMeta = True
+    Name = "Ремонт ТМЦ"
+  )
+  
+  {Biz.Ref.BGI:"13750"}
+  (
+    GroupDoc = {Biz.Ref.BGI:РЕМОНТ}
+    IsMeta = True
+    Name = "Ремонт складского оборудования"
+  )
+  
+  {Biz.Ref.BGI:"Рем.Магазин"}
+  (
+    GroupDoc = {Biz.Ref.BGI:РЕМОНТ}
+    IsMeta = True
+    Name = "Ремонт магазина"
+  )
+]
+
+]

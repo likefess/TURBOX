@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited HelpContext="Treasury.Казначейство.Отчеты.Отчет по заявкам на оплату">
+    <Component Name="DataStruct" Class="Treasury.Rec.Reports.RepPayRequestList_DataStruct" IsLibrary="1" After="#0"/>
+    <Inherited Name="TableMenu" After="DataStruct"/>
+    <Inherited Name="Variables">
+      <Component Name="DataSubtable" Class="Com.ISubtable"/>
+      <Component Name="TaskStatus" Class="Com.Fld.IVar" Caption="@PaymentRequestList:Status=Статус" RecordClass="Control.Rec.Ref.TaskStatus" ValueType="VarObject"/>
+      <Component Name="Contraparty" Class="Com.Fld.IVar" Caption="@PaymentRequestList:Contraparty=Контрагент" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="Currency" Class="Com.Fld.IVar" Caption="@PaymentRequestList:Currency=Валюта" RecordClass="Biz.Rec.Ref.UCurrency" ValueType="VarObject"/>
+      <Component Name="CFR_Subtotal" Class="Com.Fld.IVar" Caption="@PaymentRequestList:CFR_Subtotal=Подытог по ЦФО" ValueType="VarLogical"/>
+      <Component Name="CFR" Class="Com.Fld.IVar" Caption="@PaymentRequestList:CFR=ЦФО" RecordClass="Biz.Rec.Ref.CFR" ValueType="VarObject"/>
+      <Component Name="DateTo" Class="Com.Fld.IVar" Caption="@PaymentRequestList:DateFrom=По" ValueType="VarDate"/>
+      <Component Name="DateFrom" Class="Com.Fld.IVar" Caption="@PaymentRequestList:DateFrom=Срок оплаты с" ValueType="VarDate"/>
+      <Component Name="Company" Class="Com.Fld.IVar" Caption="@PaymentRequestList:Company=Предприятие" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonRefresh" After="#0" Hint="@RepPaymentOrderList:ButtonRefresh=Обновить"/>
+        <Inherited Name="ButtonClose" After="ButtonRefresh" Printed="False"/>
+        <Inherited Name="ButtonHelp" After="ButtonClose"/>
+        <Inherited Name="ButtonOK" Excluded="True" After="ButtonHelp"/>
+        <Inherited Name="HeaderSeparator" After="ButtonOK"/>
+        <Inherited Name="ButtonExport" Excluded="False" After="HeaderSeparator"/>
+        <Inherited Name="ButtonPrint" Excluded="False" After="ButtonExport"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+          <Component Name="PeriodStartEdit" Class="Com.Ctrl.IEdit" Field="DateFrom" FormatOfDate="DateOnly" HasCaption="True"/>
+          <Component Name="PeriodEndEdit" Class="Com.Ctrl.IEdit" Field="DateTo" FormatOfDate="DateOnly" HasCaption="True"/>
+        </Component>
+        <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+          <Component Name="Group1Left" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+            <Component Name="CompanyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="Company" HasCaption="True" LookupField="Name" Required="True" ShortList="True"/>
+          </Component>
+          <Component Name="Group1Right" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+            <Component Name="CFRCheckBoxGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150" Printed="False">
+              <Component Name="CFRCheckBoxStatic" Class="Com.Ctrl.IStatic" FixSize="True" Printed="False" Width="40"/>
+              <Component Name="CFRCheckBox" Class="Com.Ctrl.ICheckBox" Field="CFR_Subtotal" HasCaption="True" Printed="False"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+          <Component Name="CFREdit" Class="Com.Ctrl.IListEdit" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="CFR" HasCaption="True" LookupField="Name" OnOutputEx="CFREdit_OnOutputEx"/>
+          <Component Name="CurrencyEdit" Class="Com.Ctrl.IListEdit" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Field="Currency" HasCaption="True" LookupField="Code" OnOutputEx="CurrencyEdit_OnOutputEx"/>
+          <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          <Component Name="ContrapartyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Contraparties" CellFormat="ReferenceFormat" Field="Contraparty" HasCaption="True" LookupField="Name"/>
+          <Component Name="TaskStatusEdit" Class="Com.Ctrl.IListEdit" CardFileClass="Control.Tab.Ref.TaskStatus" CellFormat="ReferenceFormat" Field="TaskStatus" HasCaption="True" LookupField="Name" OnOutputEx="TaskStatusEdit_OnOutputEx"/>
+        </Component>
+      </Inherited>
+      <Component Name="DataFrame" Class="Com.Ctrl.IFrame" Subtable="DataSubtable">
+        <Component Name="PrintedNumberCol" Class="Com.Ctrl.IEdit" Caption="@PaymentRequestList:PrintedNumber=№ заявки" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.PaymentDoc" HasCaption="True" LookupField="PrintedNumber" Multiline="True" OnDrawEx="Col_OnDrawEx" OnOutputEx="PrintedNumberCol_OnOutputEx" Width="30" Wrap="True"/>
+        <Component Name="RequestJumpButton" Class="Com.Ctrl.IJumpButton" Field="DataStruct.PaymentDoc" JumpForm="Treasury.Frm.Data.PaymentRequest" Printed="False"/>
+        <Component Name="EventTimeCol" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@PaymentRequestList:EventTime=Дата заявки" CellFormat="DateFormat" Enabled="False" Field="DataStruct.DocEventTime" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" Multiline="True" ValueType="VarDate" Width="30" Wrap="True"/>
+        <Component Name="TaskStatusCol" Class="Com.Ctrl.IEdit" Caption="@PaymentRequestList:TaskStatus=Статус" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.PaymentDoc" HasCaption="True" LookupField="TaskStatus.Name" Width="40" Wrap="True"/>
+        <Component Name="ResponsibleCol" Class="Com.Ctrl.IEdit" Caption="@PaymentRequestList:Responsible=Ответственный" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.PaymentDoc" HasCaption="True" LookupField="Responsible.Name" Width="40" Wrap="True"/>
+        <Component Name="CFRCol" Class="Com.Ctrl.IEdit" Caption="@PaymentRequestList:CFR=ЦФО" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.PaymentDoc" HasCaption="True" LookupField="CFR.Name" Multiline="True" OnDrawEx="Col_OnDrawEx" OnOutputEx="CFRCol_OnOutputEx" Width="40" Wrap="True"/>
+        <Component Name="ContrapartyCol" Class="Com.Ctrl.IEdit" Caption="@PaymentRequestList:Contraparty=Контрагент" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.PaymentDoc" HasCaption="True" LookupField="Contraparty.Name" Multiline="True" Width="40" Wrap="True"/>
+        <Component Name="ContractCol" Class="Com.Ctrl.IEdit" Caption="@PaymentRequestList:Contract=Договор" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.PaymentDoc" HasCaption="True" LookupField="Contract.PrintedNumber" Width="40" Wrap="True"/>
+        <Component Name="BGICol" Class="Com.Ctrl.IEdit" Caption="@PaymentRequestList:BGI=Статья бюджета" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.PaymentDoc" HasCaption="True" LookupField="BGI.Name" Width="40" Wrap="True"/>
+        <Component Name="PaymentDateCol" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@PaymentRequestList:PaymentDate=Срок оплаты" CellFormat="DateFormat" Enabled="False" Field="DataStruct.DocPaymentDate" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" Multiline="True" ValueType="VarDate" Width="30" Wrap="True"/>
+        <Component Name="FinalSumCol" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@PaymentRequestList:FinalSum=Сумма с НДС" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.DocFinalSum" FieldFormat=",##0.00;;-" HasCaption="True" Multiline="True" OnDrawEx="Col_OnDrawEx" OnOutputEx="FinalSumCol_OnOutputEx" Width="40" Wrap="True"/>
+        <Component Name="CurrencyCol" Class="Com.Ctrl.IEdit" Caption="@PaymentRequestList:Currency=Валюта" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.PaymentDoc" HasCaption="True" LookupField="Currency.Code" Multiline="True" OnDrawEx="Col_OnDrawEx" OnOutputEx="CurrencyCol_OnOutputEx" Width="20" Wrap="True"/>
+        <Component Name="ProjectCol" Class="Com.Ctrl.IEdit" Caption="@PaymentRequestList:Project=Проект" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.PaymentDoc" HasCaption="True" LookupField="Project.Name" Multiline="True" Width="40" Wrap="True"/>
+        <Component Name="SourceCol" Class="Com.Ctrl.IEdit" Caption="@PaymentRequestList:Source=Источник финансирования" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.PaymentDoc" HasCaption="True" LookupField="Source.Name" Multiline="True" Width="40" Wrap="True"/>
+        <Component Name="InitiatorCol" Class="Com.Ctrl.IEdit" Caption="@PaymentRequestList:Initiator=Инициатор" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.PaymentDoc" HasCaption="True" LookupField="Initiator.Name" Multiline="True" Width="40" Wrap="True"/>
+        <Component Name="PayOrderDateCol" Class="Com.Ctrl.IEdit" Caption="@PaymentRequestList:PayOrderDate=Дата оплаты" CellFormat="StringFormat" Enabled="False" Field="DataStruct.OrderDates" HasCaption="True" Multiline="True" Width="30" Wrap="True"/>
+        <Component Name="PayOrderNumCol" Class="Com.Ctrl.IEdit" Caption="@PaymentRequestList:PayOrderNum=№ ПП" CellFormat="StringFormat" Enabled="False" Field="DataStruct.OrderNums" HasCaption="True" Multiline="True" Width="40" Wrap="True"/>
+        <Component Name="PayOrdersSumCol" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@PaymentRequestList:PayOrdersSum=Оплаченная сумма" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.OrdersSum" FieldFormat=",##0.00;;-" HasCaption="True" Multiline="True" Width="35" Wrap="True"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Control.Frm.Ref.TransitionRule">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ButtonDiagram" Class="Com.Ctrl.IButton" After="ButtonOK" Caption="@Control:ButtonShowDiagram=Диаграмма переходов" ImageName="Com.Ctrl.diagram"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="NameFrame">
+          <Inherited Name="Group2">
+            <Inherited Name="Group4">
+              <Inherited Name="Name1" HasInnerCaption="True"/>
+              <Inherited Name="Code1" HasInnerCaption="True"/>
+            </Inherited>
+            <Inherited Name="Comment" HasInnerCaption="True"/>
+            <Inherited Name="RuleGroup" HasInnerCaption="True" Visible="False"/>
+            <Component Name="ProjectsEdit" Class="Com.Ctrl.IListEdit" After="RuleGroup" Caption="@TrackingCore:Projects=Проекты" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Field="EdtRec.Projects" HasCaption="True" HasInnerCaption="True" LookupField="Name" Multiline="True" ShortList="False" Visible="True"/>
+            <Component Name="TaskCategoriesEdit" Class="Com.Ctrl.IListEdit" Caption="@TrackingCore:TaskCategories=Типы задач" CardFileClass="Control.Tab.Ref.TaskCategory" CellFormat="ReferenceFormat" Field="EdtRec.TaskCategories" HasCaption="True" HasInnerCaption="True" LookupField="Name" Multiline="True" ShortList="False" Visible="True"/>
+            <Component Name="BusinessProcessEdit" Class="Com.Ctrl.IEdit" Caption="@TrackingCore:BusinessProcess=Бизнес-процесс" CardFileClass="TrackingCore.Tab.Ref.BusinessProcess" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.BusinessProcess" HasCaption="True" HasInnerCaption="True" LookupField="Name"/>
+            <Inherited Name="StatusSrc" HasInnerCaption="True">
+              <Inherited Name="StatusDst" HasInnerCaption="True"/>
+            </Inherited>
+            <Component Name="RoleSrc" Class="Com.Ctrl.IEditEx" After="StatusSrc" Caption="@TransitionRule:RoleSrc=Ответственный" CardFileClass="Control.Tab.Ref.EntityRoles" Enabled="False" Field="EdtRec.RoleSrc" HasCaption="True" HasInnerCaption="True" LookupField="Name">
+              <Component Name="RoleDst" Class="Com.Ctrl.IEdit" Caption="@TransitionRule:RoleSrc=Ответственный" CaptionWidth="40" CardFileClass="Control.Tab.Ref.EntityRoles" Enabled="False" Field="EdtRec.RoleDst" HasCaption="True" HasInnerCaption="True" LookupField="Name"/>
+            </Component>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="BoxMode">
+          <Inherited Name="Group6">
+            <Inherited Name="СпособСозданияДокумента" HasInnerCaption="True"/>
+            <Inherited Name="TypDoc" HasInnerCaption="True"/>
+            <Inherited Name="PostService" HasInnerCaption="True"/>
+            <Inherited Name="Service" HasInnerCaption="True"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

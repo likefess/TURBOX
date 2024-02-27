@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Настройки.Настройка правил расчета">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Настройки.ПравилаРасчета" IsLibrary="1"/>
+    <Component Name="НачисленияПозиции" Class="УправлениеПерсоналом.Rec.Настройки.ПравилаРасчета_Начисления" IsLibrary="1" After="EdtRec"/>
+    <Component Name="НачисленияНастрПозиции" Class="УправлениеПерсоналом.Rec.Настройки.ПравилаРасчета_НачисленияНастр" IsLibrary="1"/>
+    <Component Name="УдержанияНастрПозиции" Class="УправлениеПерсоналом.Rec.Настройки.ПравилаРасчета_УдержанияНастр" IsLibrary="1"/>
+    <Component Name="УдержанияПозиции" Class="УправлениеПерсоналом.Rec.Настройки.ПравилаРасчета_Удержания" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" HasCaption="True"/>
+      <Inherited Name="FieldsFrame">
+        <Component Name="grMain" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Предприятие" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="EdtRec.Предприятие" HasCaption="True" Hint=" Наименование организации " LookupField="Name" OnChange="Предприятие_OnChange" Required="True" ShortList="True"/>
+          <Component Name="кнПредприятие" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Предприятие" JumpForm="Bas.Frm.Data.Entity"/>
+          <Component Name="Замок" Class="Com.Ctrl.ICheckBox" Caption="Замок" Field="EdtRec.Locked" FixSize="True" HasCaption="True" Width="30"/>
+        </Component>
+        <Component Name="грПериод" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Caption="Период" Field="EdtRec.НачалоПериода" FormatOfDate="DateOnly" HasCaption="True" Hint="Указывается Дата начала и Дата окончания срока действия настроек" MaxWidth="35" OnChange="ДатаНачала_OnChange"/>
+          <Component Name="ДатаОкончания" Class="Com.Ctrl.IEdit" Caption="-" CaptionWidth="10" Field="EdtRec.КонецПериода" FormatOfDate="DateOnly" HasCaption="True" Hint="Указывается дата начала и дата окончания срока действия настроек" MaxWidth="35" OnChange="ДатаОкончания_OnChange" OnEnter="ДатаОкончания_OnEnter"/>
+          <Component Name="stEmpty2" Class="Com.Ctrl.IStatic" Width="30"/>
+          <Component Name="stEmpty3" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="30"/>
+          <Component Name="Closed" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Closed" FixSize="True" HasCaption="True" Width="30"/>
+        </Component>
+        <Component Name="грПредПравила" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="предПравила" Class="Com.Ctrl.IEdit" Caption="Предыдущие" CardFileClass="УправлениеПерсоналом.Tab.Настройки.ПравилаРасчета" Enabled="False" Field="EdtRec.ПравилаПредыдущие" HasCaption="True" Hint="Предыдущие правила настройки расчетов" OnOutput="предПравила_OnOutput"/>
+          <Component Name="кнПравила" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ПравилаПредыдущие" JumpForm="УправлениеПерсоналом.Frm.Настройки.ПравилаРасчета"/>
+          <Component Name="stEmpty1" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Excluded="True"/>
+        <Component Name="ПараметрыНачисления" Class="Com.Ctrl.IFrame" Caption="Начисления" HasCaption="True" Visible="True">
+          <Component Name="грПоляФильтр" Class="Com.Ctrl.IGroup" ByColumn="False">
+            <Component Name="гр1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="чбПодразделение" Class="Com.Ctrl.ICheckBox" Caption="Подразделение" FixSize="True" HasCaption="True" Hint="Скрыть поля таблицы Начисления" OnChange="ОтображениеПолейТаблицы_OnChange" Width="40"/>
+              <Component Name="чбДолжность" Class="Com.Ctrl.ICheckBox" Caption="Должность" FixSize="True" HasCaption="True" Hint="Скрыть поля таблицы Начисления" OnChange="ОтображениеПолейТаблицы_OnChange" Width="30"/>
+              <Component Name="чбРазряд" Class="Com.Ctrl.ICheckBox" Caption="Разряд" FixSize="True" HasCaption="True" Hint="Скрыть поля таблицы Начисления" OnChange="ОтображениеПолейТаблицы_OnChange" Width="25"/>
+              <Component Name="чбГрафик" Class="Com.Ctrl.ICheckBox" Caption="График работы" FixSize="True" HasCaption="True" Hint="Скрыть поля таблицы Начисления" OnChange="ОтображениеПолейТаблицы_OnChange" Width="35"/>
+              <Component Name="чбУсловияТруда" Class="Com.Ctrl.ICheckBox" Caption="Условия труда" FixSize="True" HasCaption="True" Hint="Скрыть поля таблицы Начисления" OnChange="ОтображениеПолейТаблицы_OnChange" Width="35"/>
+            </Component>
+            <Component Name="гр2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="чбОсобыеУсловия" Class="Com.Ctrl.ICheckBox" Caption="Особые условия" FixSize="True" HasCaption="True" Hint="Скрыть поля таблицы Начисления" OnChange="ОтображениеПолейТаблицы_OnChange" Width="40"/>
+              <Component Name="чбВыслугаЛет" Class="Com.Ctrl.ICheckBox" Caption="Выслуга лет" FixSize="True" HasCaption="True" Hint="Скрыть поля таблицы Начисления" OnChange="ОтображениеПолейТаблицы_OnChange" Width="40"/>
+              <Component Name="чбПродолжительность" Class="Com.Ctrl.ICheckBox" Caption="Продолж. работы" FixSize="True" HasCaption="True" Hint="Скрыть поля таблицы Начисления" OnChange="ОтображениеПолейТаблицы_OnChange" Width="40"/>
+              <Component Name="чбДоговор" Class="Com.Ctrl.ICheckBox" Caption="Вид договора" FixSize="True" HasCaption="True" Hint="Скрыть поля таблицы Начисления" OnChange="ОтображениеПолейТаблицы_OnChange" Width="35"/>
+            </Component>
+          </Component>
+          <Component Name="тблНачисления" Class="Com.Ctrl.ITable" Caption="Начисления" HasCaption="True" Sortable="True" Subtable="EdtRec.Начисления">
+            <Component Name="КодНачисления" Class="Com.Ctrl.IEdit" Caption="Код" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Enabled="False" Field="НачисленияПозиции.ВидНачисления" HasCaption="True" LookupField="Code" Width="25"/>
+            <Component Name="ВидНачисления" Class="Com.Ctrl.IEdit" Caption="Вид начисления" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Field="НачисленияПозиции.ВидНачисления" HasCaption="True" LookupField="Name" Multiline="True" OnChange="ВидНачисления_OnChange" OnGetLookupFilter="ВидНачисления_OnGetLookupFilter" Width="50" Wrap="True"/>
+            <Component Name="ПриоритетНач" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Приоритет" Field="НачисленияПозиции.Приоритет" HasCaption="True" OnVerify="Приоритет_OnVerify" Width="22"/>
+            <Component Name="грПодразделение" Class="Com.Ctrl.IColumnsGroup" Caption="Подразделение" HasCaption="True">
+              <Component Name="облПодразделение" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="НачисленияПозиции.ОблПодразделение" HasCaption="False" Hint="Область действия" OnChange="облПодразделение_OnChange" Width="25"/>
+              <Component Name="Подразделение" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" Field="НачисленияПозиции.Подразделение" HasCaption="False" Hint="Наименование " LookupField="Name" Multiline="True" OnEnter="Подразделение_OnEnter" OnOpenCardForm="НастроитьКартотекуПодразделения" OnVerify="Подразделение_OnVerify" Width="50" Wrap="True"/>
+            </Component>
+            <Component Name="грДолжность" Class="Com.Ctrl.IColumnsGroup" Caption="Должность" HasCaption="True">
+              <Component Name="облДолжность" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="НачисленияПозиции.ОблДолжность" HasCaption="False" Hint="Область действия" OnChange="облДолжность_OnChange" Width="25"/>
+              <Component Name="Должность" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Ref.PositionsHR" Field="НачисленияПозиции.Должность" HasCaption="False" Hint="Наименование " Multiline="True" OnEnter="Должность_OnEnter" OnVerify="Должность_OnVerify" Width="50" Wrap="True"/>
+            </Component>
+            <Component Name="грРазряд" Class="Com.Ctrl.IColumnsGroup" Caption="Разряд" HasCaption="True">
+              <Component Name="облРазряд" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="НачисленияПозиции.ОблРазряд" HasCaption="False" Hint="Область действия" OnChange="облРазряд_OnChange" Width="25"/>
+              <Component Name="Разряд" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ТарифныеРазряды" Field="НачисленияПозиции.Разряд" HasCaption="False" Hint="Наименование " Multiline="True" OnEnter="Разряд_OnEnter" OnGetLookupFilter="Разряд_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуРазряды" OnVerify="Разряд_OnVerify" Width="50" Wrap="True"/>
+            </Component>
+            <Component Name="грГрафикРаботы" Class="Com.Ctrl.IColumnsGroup" Caption="График работы" HasCaption="True">
+              <Component Name="облГрафикРаботы" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="НачисленияПозиции.ОблГрафик" HasCaption="False" Hint="Область действия" OnChange="облГрафик_OnChange" Width="25"/>
+              <Component Name="ГрафикРаботы" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Ref.WorkSchedule" Field="НачисленияПозиции.График" HasCaption="False" Hint="Наименование " Multiline="True" OnEnter="ГрафикРаботы_OnEnter" OnGetLookupFilter="ГрафикРаботы_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуГрафики" OnVerify="ГрафикРаботы_OnVerify" Width="50" Wrap="True"/>
+            </Component>
+            <Component Name="грУсловияТруда" Class="Com.Ctrl.IColumnsGroup" Caption="Условия труда" HasCaption="True">
+              <Component Name="облУсловияТруда" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="НачисленияПозиции.ОблУсловияТруда" HasCaption="False" Hint="Область действия" OnChange="облУсловияТруда_OnChange" Width="25"/>
+              <Component Name="УсловияТруда" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловияТруда" Field="НачисленияПозиции.УсловияТруда" HasCaption="False" Hint="Наименование " Multiline="True" OnEnter="УсловияТруда_OnEnter" OnVerify="УсловияТруда_OnVerify" Width="50" Wrap="True"/>
+            </Component>
+            <Component Name="грОсобыеУсловия" Class="Com.Ctrl.IColumnsGroup" Caption="Особые условия" HasCaption="True">
+              <Component Name="облОсобыеУсловия" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="НачисленияПозиции.ОблОсобыеУсловия" HasCaption="False" Hint="Область действия" OnChange="облОсобыеУсловия_OnChange" Width="25"/>
+              <Component Name="ОсобыеУсловия" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ОсобыеУсловияТруда" Field="НачисленияПозиции.ОсобыеУсловия" HasCaption="False" Hint="Наименование " Multiline="True" OnEnter="ОсобыеУсловия_OnEnter" OnVerify="ОсобыеУсловия_OnVerify" Width="50" Wrap="True"/>
+            </Component>
+            <Component Name="грВыслугаЛет" Class="Com.Ctrl.IColumnsGroup" Caption="Выслуга лет" HasCaption="True">
+              <Component Name="облВыслугаЛет" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="НачисленияПозиции.ОблВыслуга" HasCaption="False" Hint="Область действия" OnChange="облВыслугаЛет_OnChange" Width="25"/>
+              <Component Name="ВыслугаЛет" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ОснованияВыслуги" Field="НачисленияПозиции.Выслуга" HasCaption="False" Hint="Наименование " Multiline="True" OnEnter="ВыслугаЛет_OnEnter" OnVerify="ВыслугаЛет_OnVerify" Width="50" Wrap="True"/>
+            </Component>
+            <Component Name="грПродолжительность" Class="Com.Ctrl.IColumnsGroup" Caption="Продолжительность работы" HasCaption="True">
+              <Component Name="облПродолжительность" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="НачисленияПозиции.ОблПродолжительность" HasCaption="False" Hint="Область действия" OnChange="облПродолжительность_OnChange" Width="25"/>
+              <Component Name="Продолжительность" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ПродолжРабВремени" Field="НачисленияПозиции.Продолжительность" HasCaption="False" Hint="Наименование " Multiline="True" OnEnter="Продолжительность_OnEnter" OnVerify="Продолжительность_OnVerify" Width="50" Wrap="True"/>
+            </Component>
+            <Component Name="грВидДоговора" Class="Com.Ctrl.IColumnsGroup" Caption="Вид договора" HasCaption="True">
+              <Component Name="облДоговор" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="НачисленияПозиции.ОблДоговор" HasCaption="False" Hint="Область действия" OnChange="облДоговор_OnChange" Width="25"/>
+              <Component Name="Договор" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="НачисленияПозиции.Договор" HasCaption="False" Hint="Наименование " Multiline="True" OnEnter="Договор_OnEnter" Width="50" Wrap="True"/>
+            </Component>
+            <Component Name="СтавкаНач" Class="Com.Ctrl.IEdit" Caption="Ставка" Field="НачисленияПозиции.Ставка" FieldFormat="0.00%" HasCaption="True" Width="20"/>
+            <Component Name="СуммаНач" Class="Com.Ctrl.IEdit" Caption="Сумма (руб.)" Field="НачисленияПозиции.Сумма" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+            <Component Name="ПостНачУсловиеРасчета" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Условие попадания в расчет" CellFormat="EnumFormat" Field="НачисленияПозиции.УсловиеРасчета" HasCaption="True" Multiline="True" Width="55" Wrap="True"/>
+          </Component>
+          <Component Name="Frame1" Class="Com.Ctrl.IFrame" Excluded="True" AutoSize="True" ShowTabs="True">
+            <Component Name="грЗаголовок" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption="Начисления" FontBold="True" Visible="True"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="ПараметрыУдержания" Class="Com.Ctrl.IFrame" Caption="Удержания" HasCaption="True" Visible="True">
+          <Component Name="грПоляФильтр1" Class="Com.Ctrl.IGroup" ByColumn="False">
+            <Component Name="гр3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="чбПодразделение1" Class="Com.Ctrl.ICheckBox" Caption="Подразделение" FixSize="True" HasCaption="True" Hint="Скрыть поля таблицы Удержания" OnChange="ОтображениеПолейТаблицы_OnChange" Width="40"/>
+              <Component Name="чбДолжность1" Class="Com.Ctrl.ICheckBox" Caption="Должность" FixSize="True" HasCaption="True" Hint="Скрыть поля таблицы Удержания" OnChange="ОтображениеПолейТаблицы_OnChange" Width="30"/>
+              <Component Name="чбРазряд1" Class="Com.Ctrl.ICheckBox" Caption="Разряд" FixSize="True" HasCaption="True" Hint="Скрыть поля таблицы Удержания" OnChange="ОтображениеПолейТаблицы_OnChange" Width="25"/>
+              <Component Name="чбГрафик1" Class="Com.Ctrl.ICheckBox" Caption="График работы" FixSize="True" HasCaption="True" Hint="Скрыть поля таблицы Удержания" OnChange="ОтображениеПолейТаблицы_OnChange" Width="35"/>
+              <Component Name="чбУсловияТруда1" Class="Com.Ctrl.ICheckBox" Caption="Условия труда" FixSize="True" HasCaption="True" Hint="Скрыть поля таблицы Удержания" OnChange="ОтображениеПолейТаблицы_OnChange" Width="35"/>
+            </Component>
+            <Component Name="гр4" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="чбОсобыеУсловия1" Class="Com.Ctrl.ICheckBox" Caption="Особые условия" FixSize="True" HasCaption="True" Hint="Скрыть поля таблицы Удержания" OnChange="ОтображениеПолейТаблицы_OnChange" Width="40"/>
+              <Component Name="чбВыслугаЛет1" Class="Com.Ctrl.ICheckBox" Caption="Выслуга лет" FixSize="True" HasCaption="True" Hint="Скрыть поля таблицы Удержания" OnChange="ОтображениеПолейТаблицы_OnChange" Width="40"/>
+              <Component Name="чбПродолжительность1" Class="Com.Ctrl.ICheckBox" Caption="Продолж. работы" FixSize="True" HasCaption="True" Hint="Скрыть поля таблицы Удержания" OnChange="ОтображениеПолейТаблицы_OnChange" Width="40"/>
+              <Component Name="чбДоговор1" Class="Com.Ctrl.ICheckBox" Caption="Вид договора" FixSize="True" HasCaption="True" Hint="Скрыть поля таблицы Удержания" OnChange="ОтображениеПолейТаблицы_OnChange" Width="35"/>
+            </Component>
+          </Component>
+          <Component Name="тблУдержания" Class="Com.Ctrl.ITable" Caption="Удержания" HasCaption="True" Sortable="True" Subtable="EdtRec.Удержания">
+            <Component Name="КодУдержания" Class="Com.Ctrl.IEdit" Caption="Код" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыУдержаний" Enabled="False" Field="УдержанияПозиции.ВидУдержания" HasCaption="True" LookupField="Code" Width="25"/>
+            <Component Name="ВидУдержания" Class="Com.Ctrl.IEdit" Caption="Вид удержания" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыУдержаний" Field="УдержанияПозиции.ВидУдержания" HasCaption="True" LookupField="Name" Multiline="True" OnChange="ВидУдержания_OnChange" OnGetLookupFilter="ВидУдержания_OnGetLookupFilter" Width="50" Wrap="True"/>
+            <Component Name="ПриоритетУдерж" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Приоритет" Field="УдержанияПозиции.Приоритет" HasCaption="True" OnVerify="Приоритет_OnVerify" Width="22"/>
+            <Component Name="грПодразделение1" Class="Com.Ctrl.IColumnsGroup" Caption="Подразделение" HasCaption="True">
+              <Component Name="облПодразделение1" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="УдержанияПозиции.ОблПодразделение" HasCaption="False" Hint="Область действия" Multiline="True" OnChange="облПодразделение_OnChange" Width="25" Wrap="True"/>
+              <Component Name="Подразделение1" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" Field="УдержанияПозиции.Подразделение" HasCaption="False" Hint="Наименование " LookupField="Name" Multiline="True" OnEnter="Подразделение_OnEnter" OnVerify="Подразделение_OnVerify" Width="50" Wrap="True"/>
+            </Component>
+            <Component Name="грДолжность1" Class="Com.Ctrl.IColumnsGroup" Caption="Должность" HasCaption="True">
+              <Component Name="облДолжность1" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="НачисленияПозиции.ОблДолжность" HasCaption="False" Hint="Область действия" Multiline="True" OnChange="облДолжность_OnChange" Width="25" Wrap="True"/>
+              <Component Name="Должность1" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Ref.PositionsHR" Field="НачисленияПозиции.Должность" HasCaption="False" Hint="Наименование " Multiline="True" OnEnter="Должность_OnEnter" OnVerify="Должность_OnVerify" Width="50" Wrap="True"/>
+            </Component>
+            <Component Name="грРазряд1" Class="Com.Ctrl.IColumnsGroup" Caption="Разряд" HasCaption="True">
+              <Component Name="облРазряд1" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="НачисленияПозиции.ОблРазряд" HasCaption="False" Hint="Область действия" Multiline="True" OnChange="облРазряд_OnChange" Width="25" Wrap="True"/>
+              <Component Name="Разряд1" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ТарифныеРазряды" Field="НачисленияПозиции.Разряд" HasCaption="False" Hint="Наименование " Multiline="True" OnEnter="Разряд_OnEnter" OnGetLookupFilter="Разряд_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуРазряды" OnVerify="Разряд_OnVerify" Width="50" Wrap="True"/>
+            </Component>
+            <Component Name="грГрафикРаботы1" Class="Com.Ctrl.IColumnsGroup" Caption="График работы" HasCaption="True">
+              <Component Name="облГрафикРаботы1" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="НачисленияПозиции.ОблГрафик" HasCaption="False" Hint="Область действия" Multiline="True" OnChange="облГрафик_OnChange" Width="25" Wrap="True"/>
+              <Component Name="ГрафикРаботы1" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Ref.WorkSchedule" Field="НачисленияПозиции.График" HasCaption="False" Hint="Наименование " Multiline="True" OnEnter="ГрафикРаботы_OnEnter" OnVerify="ГрафикРаботы_OnVerify" Width="50" Wrap="True"/>
+            </Component>
+            <Component Name="грУсловияТруда1" Class="Com.Ctrl.IColumnsGroup" Caption="Условия труда" HasCaption="True">
+              <Component Name="облУсловияТруда1" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="НачисленияПозиции.ОблУсловияТруда" HasCaption="False" Hint="Область действия" Multiline="True" OnChange="облУсловияТруда_OnChange" Width="25" Wrap="True"/>
+              <Component Name="УсловияТруда1" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловияТруда" Field="НачисленияПозиции.УсловияТруда" HasCaption="False" Hint="Наименование " Multiline="True" OnEnter="УсловияТруда_OnEnter" OnVerify="УсловияТруда_OnVerify" Width="50" Wrap="True"/>
+            </Component>
+            <Component Name="грОсобыеУсловия1" Class="Com.Ctrl.IColumnsGroup" Caption="Особые условия" HasCaption="True">
+              <Component Name="облОсобыеУсловия1" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="НачисленияПозиции.ОблОсобыеУсловия" HasCaption="False" Hint="Область действия" Multiline="True" OnChange="облОсобыеУсловия_OnChange" Width="25" Wrap="True"/>
+              <Component Name="ОсобыеУсловия1" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ОсобыеУсловияТруда" Field="НачисленияПозиции.ОсобыеУсловия" HasCaption="False" Hint="Наименование " Multiline="True" OnEnter="ОсобыеУсловия_OnEnter" OnVerify="ОсобыеУсловия_OnVerify" Width="50" Wrap="True"/>
+            </Component>
+            <Component Name="грВыслугаЛет1" Class="Com.Ctrl.IColumnsGroup" Caption="Выслуга лет" HasCaption="True">
+              <Component Name="облВыслугаЛет1" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="НачисленияПозиции.ОблВыслуга" HasCaption="False" Hint="Область действия" Multiline="True" OnChange="облВыслугаЛет_OnChange" Width="25" Wrap="True"/>
+              <Component Name="ВыслугаЛет1" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ОснованияВыслуги" Field="НачисленияПозиции.Выслуга" HasCaption="False" Hint="Наименование " Multiline="True" OnEnter="ВыслугаЛет_OnEnter" OnVerify="ВыслугаЛет_OnVerify" Width="50" Wrap="True"/>
+            </Component>
+            <Component Name="грПродолжительность1" Class="Com.Ctrl.IColumnsGroup" Caption="Продолжительность работы" HasCaption="True">
+              <Component Name="облПродолжительность1" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="НачисленияПозиции.ОблПродолжительность" HasCaption="False" Hint="Область действия" Multiline="True" OnChange="облПродолжительность_OnChange" Width="25" Wrap="True"/>
+              <Component Name="Продолжительность1" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ПродолжРабВремени" Field="НачисленияПозиции.Продолжительность" HasCaption="False" Hint="Наименование " Multiline="True" OnEnter="Продолжительность_OnEnter" OnVerify="Продолжительность_OnVerify" Width="50" Wrap="True"/>
+            </Component>
+            <Component Name="грВидДоговора1" Class="Com.Ctrl.IColumnsGroup" Caption="Вид договора" HasCaption="True">
+              <Component Name="облДоговор1" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="НачисленияПозиции.ОблДоговор" HasCaption="False" Hint="Область действия" Multiline="True" OnChange="облДоговор_OnChange" Width="25" Wrap="True"/>
+              <Component Name="Договор1" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="НачисленияПозиции.Договор" HasCaption="False" Hint="Наименование " Multiline="True" OnEnter="Договор_OnEnter" Width="50" Wrap="True"/>
+            </Component>
+            <Component Name="СтавкаУдерж" Class="Com.Ctrl.IEdit" Caption="Ставка" Field="УдержанияПозиции.Ставка" FieldFormat="0.00%" HasCaption="True" Width="20"/>
+            <Component Name="СуммаУдерж" Class="Com.Ctrl.IEdit" Caption="Сумма (руб.)" Field="УдержанияПозиции.Сумма" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+            <Component Name="МаксСумма" Class="Com.Ctrl.IEdit" Caption="Максимальная сумма" Field="УдержанияПозиции.МаксСумма" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+            <Component Name="ПостУдУсловиеРасчета" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Условие попадания в расчет" CellFormat="EnumFormat" Field="УдержанияПозиции.УсловиеРасчета" HasCaption="True" Multiline="True" Width="55" Wrap="True"/>
+          </Component>
+          <Component Name="Frame2" Class="Com.Ctrl.IFrame" Excluded="True">
+            <Component Name="грЗаголовок1" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Static6" Class="Com.Ctrl.IStatic" Caption="Удержания" FontBold="True" Visible="True"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="ПоследовательностьРасчета" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Последовательность расчета" HasCaption="True" Visible="True">
+          <Component Name="ПоследовательностьНачисления" Class="Com.Ctrl.IFrame" AutoSize="True" CanResizeBySplit="True" Caption="Последовательность расчета начислений" HasCaption="False" SplitterAtRight="True" UseSplitter="True" Visible="True">
+            <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" Caption="Начисления настройки" FontBold="True" Visible="True"/>
+            </Component>
+            <Component Name="тблНачисленияНастр" Class="Com.Ctrl.ITable" Adaptive="True" HasCaption="True" Numbering="True" Sortable="True" Subtable="EdtRec.НачисленияНастр">
+              <Component Name="НомерПП" Class="Com.Ctrl.IEdit" Excluded="True" Caption="п/п" Field="УдержанияНастрПозиции.НомерПП" HasCaption="True"/>
+              <Component Name="ВидНачисленияНастр" Class="Com.Ctrl.IEdit" Caption="Вид начисления" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Field="НачисленияПозиции.ВидНачисления" HasCaption="True" OnGetLookupFilter="ВидНачисления2_OnGetLookupFilter" Width="100"/>
+              <Component Name="ВидНачисленияКод" Class="Com.Ctrl.IEdit" Caption="Тип расчета" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Enabled="False" Field="НачисленияПозиции.ВидНачисления" FixSize="True" HasCaption="True" LookupField="ТипРасчета.Код" Width="30"/>
+              <Component Name="ВидНачисленияКодДохода" Class="Com.Ctrl.IEdit" Caption="Код дохода" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Enabled="False" Field="НачисленияПозиции.ВидНачисления" FixSize="True" HasCaption="True" LookupField="ВидДохода.КодУчета" Width="30"/>
+              <Component Name="кнВидНачисленияНастр" Class="Com.Ctrl.IJumpButton" Field="НачисленияПозиции.ВидНачисления" JumpForm="УправлениеПерсоналом.Frm.Справочники.ВидНачислений"/>
+            </Component>
+          </Component>
+          <Component Name="ПоследовательностьУдержания" Class="Com.Ctrl.IFrame" AutoSize="True" CanResizeBySplit="True" Caption="Последовательность расчета удержаний" HasCaption="True" SplitterAtRight="True" UseSplitter="True" Visible="True">
+            <Component Name="Group4" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Static5" Class="Com.Ctrl.IStatic" Caption="Удержания настройки" FontBold="True" Visible="True"/>
+            </Component>
+            <Component Name="тблУдержанияНастр" Class="Com.Ctrl.ITable" Adaptive="True" Caption="Настройки удержаний" HasCaption="True" Sortable="True" Subtable="EdtRec.УдержанияНастр">
+              <Component Name="НомерПП1" Class="Com.Ctrl.IEdit" Excluded="True" Caption="п/п" Field="УдержанияНастрПозиции.НомерПП" HasCaption="True"/>
+              <Component Name="ВидУдержанияНастр" Class="Com.Ctrl.IEdit" Caption="Вид удержания" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыУдержаний" Field="УдержанияНастрПозиции.ВидУдержания" HasCaption="True" OnGetLookupFilter="ВидУдержания_OnGetLookupFilter" Width="100"/>
+              <Component Name="ВидУдержанияКод" Class="Com.Ctrl.IEdit" Caption="Тип расчета" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Enabled="False" Field="УдержанияНастрПозиции.ВидУдержания" FixSize="True" HasCaption="True" LookupField="ТипРасчета.Код" Width="30"/>
+              <Component Name="кнВидУдержанияНастр" Class="Com.Ctrl.IJumpButton" Field="УдержанияНастрПозиции.ВидУдержания" JumpForm="УправлениеПерсоналом.Frm.Справочники.ВидУдержаний"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="РаспределениеПроцесс" Class="Com.Ctrl.IFrame" Caption="Распределение по процессам" HasCaption="True" Visible="True">
+          <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="КолПотоков" Class="Com.Ctrl.IEdit" Caption="Количество потоков" CaptionWidth="50" Field="EdtRec.КолПотоков" FixSize="True" HasCaption="True" Hint="Количество потоков будет использоваться при проведении расчетов " Width="30"/>
+            <Component Name="КолПроцессов" Class="Com.Ctrl.IEdit" Caption="Количество процессов" CaptionWidth="50" Field="EdtRec.КолПроцессов" FixSize="True" HasCaption="True" Hint="Количество одновременно обрабатываемых записей" Width="30"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

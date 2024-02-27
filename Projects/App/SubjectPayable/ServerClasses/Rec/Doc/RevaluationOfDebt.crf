@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="SubjectPayable.Rec.Base.BaseSubjPayableDoc">
+  <Inherited>
+    <Component Name="BaseDoc" Class="Com.Fld.IField" After="#0" FieldName="BaseDoc"/>
+    <Component Name="TotalSumReVal" Class="Com.Fld.IVar" OnCalc="TotalSumReVal_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="Positions" Class="Com.ISubtable" StructClass="SubjectPayable.Rec.Doc.RevaluationOfDebt_Positions" SubtableName="Positions"/>
+    <Inherited Name="CompanyBankDetails" After="Positions"/>
+    <Inherited Name="Name" OnCalc="Name_OnCalc"/>
+  </Inherited>
+</Resource>

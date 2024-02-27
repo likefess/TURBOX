@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CashFlow.Frm.Doc.MoneyDocument">
+  <Inherited Caption="@MoneyDoc_WriteOff:Caption=Списание денежных документов" HelpContext="CashFlow.Движение денежных средств.Денежные документы.Документы.Движение ден документов.Списание ден документов">
+    <Inherited Name="FRecord" Class="CashFlow.Rec.Doc.MoneyDoc_WriteOff" IsLibrary="1"/>
+    <Inherited Name="vDefPos" Class="CashFlow.Rec.Doc.MoneyDoc_WriteOff_Positions" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="ResponsibleLR" Class="Com.Fld.IVar" Caption="@CashOrder:ResponsibleLR=Получатель" OnCalc="ResponsibleLR_OnCalc" RecordClass="Biz.Rec.Data.LabourRelations" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Visible="True"/>
+        <Inherited Name="ButtonPost" After="ButtonClose"/>
+        <Inherited Name="ButtonReports" After="ButtonHelp"/>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="GeneralBox">
+            <Inherited Name="GeneralGroup">
+              <Inherited Name="GeneralGroupLeft">
+                <Component Name="ResponsibleGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="ResponsibleLREdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.LabourRelations" Field="ResponsibleLR" HasCaption="True" LookupField="Person.Name" OnChange="ResponsibleLREdit_OnChange" OnGetLookupFilter="ResponsibleLREdit_OnGetLookupFilter" OnOutputEx="ResponsibleLREdit_OnOutputEx"/>
+                  <Component Name="BtnStatic24" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Inherited>
+              <Inherited Name="GeneralGroupRight">
+                <Component Name="Contract1Group" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="Contract1" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Field="FRecord.Contract" HasCaption="True" LookupField="Name" OnChange="Contract1_OnChange" Wrap="False"/>
+                  <Component Name="BtnStatic25" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Inherited>
+              <Component Name="Responsible" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.NaturalEntities" CellFormat="ReferenceFormat" Field="FRecord.Responsible" HasCaption="True" LookupField="Name" Visible="False" Wrap="False"/>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="ExtraBox" Visible="True">
+            <Inherited Name="ExtraGroup">
+              <Component Name="AccOffBal" Class="Com.Ctrl.IEditEx" CellFormat="StringFormat" Field="FRecord.AccOffBal" FixSize="True" HasCaption="True" Width="20">
+                <Component Name="AccOffBalBtn" Class="Com.Ctrl.IButton" HasCaption="False" ImageName="Biz.id-card-light" OnClick="AccOffBalBtn_OnClick"/>
+              </Component>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="SumBox">
+            <Inherited Name="SumBoxGroup">
+              <Component Name="BtnStatic26" Class="Com.Ctrl.IStatic" After="AmountHeader" FixSize="True" Width="7.5"/>
+              <Inherited Name="QtyHeader" Excluded="True" After="BtnStatic26"/>
+              <Component Name="Currency1" Class="Com.Ctrl.IEdit" Excluded="True" After="QtyHeader" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Field="FRecord.Currency" FixSize="True" HasCaption="False" LookupField="Code" ShortList="True" Visible="False" Width="15"/>
+              <Component Name="NewLine2" Class="Com.Ctrl.INewLine" Excluded="True"/>
+              <Component Name="QtyHeader1" Class="Com.Ctrl.IEdit" Caption="@MoneyDocument:QtyHeader=Количество" CellFormat="NumericFormat" Enabled="False" Field="FRecord.Quantity" FieldFormat=",##0.00;;-" HasCaption="True"/>
+              <Component Name="BtnStatic27" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="SumBoxGroupLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="ContractCurrencyGroup" Class="Com.Ctrl.IGroup">
+                  <Component Name="ContractCurrency" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Field="FRecord.ContractCurrency" HasCaption="True" LookupField="Code" ShortList="True"/>
+                  <Component Name="BtnStatic28" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+              <Component Name="SumBoxGroupRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              </Component>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="PositionsBox">
+            <Inherited Name="PositionsTable">
+              <Component Name="IsOffBal" Class="Com.Ctrl.ICheckBox" Caption="@MoneyDoc_WriteOff:IsOffBal=Списать с забаланса" Field="vDefPos.IsOffBal" HasCaption="True" OnChange="IsOffBal_OnChange" Visible="False" Width="20"/>
+              <Component Name="OffsetAccountGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@MoneyDoc_WriteOff:OffsetAccountGroup=Корр. счет" HasCaption="True">
+                <Component Name="OffsetAccount" Class="Com.Ctrl.IEditEx" Field="vDefPos.OffsetAccount" HasCaption="False" OnEnter="OffsetAccount_OnEnter" Width="30">
+                  <Component Name="OffsetAccountBtn" Class="Com.Ctrl.IButton" HasCaption="False" Hint="@MoneyDoc_WriteOff:OffsetAccountBtn=Выбор счета" ImageName="Biz.id-card-light" OnClick="OffsetAccountBtn_OnClick"/>
+                </Component>
+              </Component>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

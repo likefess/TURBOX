@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Frm.Journals.Accepting">
+  <Inherited HelpContext="Repair.Repair.Выполнение работ.Исполнение работ.Приёмка работ">
+    <Inherited Name="RootFrame" HelpContext="Repair.Repair.Выполнение работ.Исполнение работ.Приёмка работ">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonReports">
+          <Component Name="btnReportFlow" Class="Com.Ctrl.IButton" After="#0" Caption="@Отчет по ТК" HasCaption="True" Hint="@Получить отчет по документу" ImageName="com.Report" OnClick="btnReportFlowClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Component Name="LineData" Class="Com.Ctrl.IBox" After="MainBox" Caption="Линейные данные" HasCaption="True">
+            <Component Name="LineDataGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="220" MinWidth="100">
+              <Component Name="LineDataLGr" Class="Com.Ctrl.IGroup" ByColumn="True">
+                <Component Name="LsoIDGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="LsoCode" Class="Com.Ctrl.IEdit" Caption="Лин. ссыл. образец" CardFileClass="Repair.NetO.Tab.LsoObjects" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.LsoID" HasCaption="True" Hint="Линейный ссылочный образец" LookupField="Code" OnChange="LsoID_OnChange"/>
+                  <Component Name="LsoJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.LsoID" FixSize="True" HasCaption="False" Width="7.2"/>
+                </Component>
+                <Component Name="PointBegPlanGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="PointBeg" Class="Com.Ctrl.IEdit" Caption="нач. Точка план" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.PointBeg" FieldFormat=",##0.00;-,##0.00;#" HasCaption="True" Hint="начальная Точка план"/>
+                  <Component Name="PointBegJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="PointBegFactGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="PointBeg_fact" Class="Com.Ctrl.IEdit" Caption="нач. Точка факт" CellFormat="NumericFormat" Field="EdtRec.PointBeg_fact" HasCaption="True" Hint="начальная Точка факт" OnChange="PointBeg_fact_OnChange" OnVerify="OnVerify_PointBeg_fact"/>
+                  <Component Name="PointBeg_factJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="NetObLenGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="NetObLen" Class="Com.Ctrl.IEdit" Caption="Длина план" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.NetObLen" FieldFormat=",##0.00;;#" HasCaption="True"/>
+                  <Component Name="NetObLenJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="NetObLen_factGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="NetObLen_fact" Class="Com.Ctrl.IEdit" Caption="Длина факт" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.NetObLen_fact" FieldFormat=",##0.00;;#" HasCaption="True"/>
+                  <Component Name="NetObLen_factJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="Mark_BegGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="Mark_Beg" Class="Com.Ctrl.IEdit" Caption="Метка нач. план" CardFileClass="Repair.NetO.Tab.marks" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Mark_Beg" HasCaption="True" Hint="Метка начальная план" LookupField="Name"/>
+                  <Component Name="Mark_BegJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="OfsPointBegGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="OfsPointBeg" Class="Com.Ctrl.IEdit" Caption="Смещ.нач.метки план" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.OfsPointBeg" FieldFormat=",##0.00;-,##0.00; #" HasCaption="True"/>
+                  <Component Name="OfsPointBegJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="Mark_Beg_factGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="Mark_Beg_fact" Class="Com.Ctrl.IEdit" Caption="Метка нач. факт" CardFileClass="Repair.NetO.Tab.marks" CellFormat="ReferenceFormat" Field="EdtRec.Mark_Beg_fact" HasCaption="True" Hint="Метка начальная факт" LookupField="Name" OnChange="Mark_Beg_fact_OnChange" OnGetLookupFilter="set_Marks_fact_Filter" OnOpenCardForm="Mark_Beg_fact_OnOpenCardForm" Required="True"/>
+                  <Component Name="Mark_Beg_factJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="OfsPointBeg_factGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="OfsPointBeg_fact" Class="Com.Ctrl.IEdit" Caption="Смещ.нач.метки факт" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.OfsPointBeg_fact" FieldFormat=",##0.00;-,##0.00; #" HasCaption="True"/>
+                  <Component Name="OfsPointBeg_factJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="UMGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="UM" Class="Com.Ctrl.IEdit" Caption="Ед.Изм." CardFileClass="Biz.Tab.Ref.UnitsOfMeasure" CellFormat="ReferenceFormat" Field="EdtRec.UM" HasCaption="True" LookupField="AlterName" LookupFilter="UnitKind = 4"/>
+                  <Component Name="LsoIDJB3" Class="Com.Ctrl.IJumpButton" Field="EdtRec.LsoID" FixSize="True" Width="7.2"/>
+                </Component>
+              </Component>
+              <Component Name="LineDataRGr" Class="Com.Ctrl.IGroup" ByColumn="True">
+                <Component Name="LsoNameGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="LsoName" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.LsoID" HasCaption="False" LookupField="Name"/>
+                  <Component Name="LsoNameJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="PointEndPlanGr" Class="Com.Ctrl.IGroup">
+                  <Component Name="PointEnd" Class="Com.Ctrl.IEdit" Caption="кон. Точка план" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.PointEnd" FieldFormat=",##0.00;-,##0.00;#" HasCaption="True" Hint="конечная Точка план"/>
+                  <Component Name="PointEndJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="PointEndFactGr" Class="Com.Ctrl.IGroup">
+                  <Component Name="PointEnd_fact" Class="Com.Ctrl.IEdit" Caption="кон. Точка факт" CellFormat="NumericFormat" Field="EdtRec.PointEnd_fact" HasCaption="True" Hint="конечная Точка факт" OnChange="PointEnd_fact_OnChange" OnVerify="OnVerify_PointEnd_fact"/>
+                  <Component Name="PointEnd_factJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="intervalGr" Class="Com.Ctrl.IGroup">
+                  <Component Name="interval" Class="Com.Ctrl.IEdit" Caption="по прямой (GPS)" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.interval" FieldFormat=",##0.00;;#" HasCaption="True"/>
+                  <Component Name="intervalJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="EmptyStatic1" Class="Com.Ctrl.IStatic"/>
+                <Component Name="Mark_EndGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="Mark_End" Class="Com.Ctrl.IEdit" Caption="Метка кон. план" CardFileClass="Repair.NetO.Tab.marks" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Mark_End" HasCaption="True" Hint="Метка конечная план" LookupField="Name"/>
+                  <Component Name="Mark_EndJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="OfsPointEndGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="OfsPointEnd" Class="Com.Ctrl.IEdit" Caption="Смещ.кон.метки план" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.OfsPointEnd" FieldFormat=",##0.00;-,##0.00; #" HasCaption="True"/>
+                  <Component Name="OfsPointEndJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="Mark_End_factGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="Mark_End_fact" Class="Com.Ctrl.IEdit" Caption="Метка кон. факт" CardFileClass="Repair.NetO.Tab.marks" CellFormat="ReferenceFormat" Field="EdtRec.Mark_End_fact" HasCaption="True" Hint="Метка конечная факт" LookupField="Name" OnChange="Mark_End_fact_OnChange" OnGetLookupFilter="set_MarkEnd_fact_Filter" OnOpenCardForm="Mark_End_fact_OnOpenCardForm" Required="True"/>
+                  <Component Name="Mark_End_factJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="OfsPointEnd_factGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="OfsPointEnd_fact" Class="Com.Ctrl.IEdit" Caption="Смещ.кон.метки факт" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.OfsPointEnd_fact" FieldFormat=",##0.00;-,##0.00; #" HasCaption="True"/>
+                  <Component Name="OfsPointEnd_factJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="EmptyStatic2" Class="Com.Ctrl.IStatic"/>
+              </Component>
+            </Component>
+          </Component>
+          <Inherited Name="SumCostBox">
+            <Inherited Name="SumCostGr">
+              <Inherited Name="SumCostCaptionGr">
+                <Component Name="SPACostCationGr" Class="Com.Ctrl.IGroup">
+                  <Component Name="Static10" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@BaseJournalFrm:SPA=ВПС" FixSize="True" Width="20"/>
+                </Component>
+              </Inherited>
+              <Component Name="SumCostPlanGr" Class="Com.Ctrl.IGroup" After="SumCostCaptionGr" ByColumn="True">
+                <Component Name="HeadSumCostPlanGr" Class="Com.Ctrl.IGroup">
+                  <Component Name="Static13" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="@BaseJournalFrm:Plan=План" FixSize="True" Width="40"/>
+                </Component>
+                <Component Name="TotalCostPlanGr" Class="Com.Ctrl.IGroup">
+                  <Component Name="TotalCostPlan" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.TotalCostPlan" FixSize="True" HasCaption="False" Width="40"/>
+                </Component>
+                <Component Name="SpareCostPlanGr" Class="Com.Ctrl.IGroup">
+                  <Component Name="SpareCostPlan" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.SpareCostPlan" FixSize="True" HasCaption="False" Width="40"/>
+                </Component>
+                <Component Name="WorkCostPlanGr" Class="Com.Ctrl.IGroup">
+                  <Component Name="WorkCostPlan" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.WorkCostPlan" FixSize="True" HasCaption="False" Width="40"/>
+                </Component>
+                <Component Name="OtherCostPlanGr" Class="Com.Ctrl.IGroup">
+                  <Component Name="OtherCostPlan" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.OtherCostPlan" FixSize="True" HasCaption="False" Width="40"/>
+                </Component>
+                <Component Name="SPACostPlanGr" Class="Com.Ctrl.IGroup">
+                  <Component Name="SPACostPlan" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.SPACostPlan" FixSize="True" HasCaption="False" Width="40"/>
+                </Component>
+              </Component>
+              <Inherited Name="SumCostFactGr">
+                <Component Name="SPACostFactGr" Class="Com.Ctrl.IGroup">
+                  <Component Name="SPACostFact" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.SPACostFact" FixSize="True" HasCaption="False" Width="40"/>
+                </Component>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="LinesBox">
+            <Inherited Name="LineTable">
+              <Inherited Name="sbtNUnitCode" OnChange="sbtUnitName_OnChange"/>
+              <Inherited Name="sbtNUnitNameColGr">
+                <Inherited Name="sbtNUnitName" OnChange="sbtUnitName_OnChange"/>
+              </Inherited>
+              <Component Name="sbtNNormCodeColGr" Class="Com.Ctrl.IColumnsGroup" After="sbtNUnitNameColGr" Caption="@BaseJournalFrm:Normative=Норматив" HasCaption="True">
+                <Component Name="sbtNNormCode" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.FlowCharts.Norms" CellFormat="ReferenceFormat" Field="vDefPosN.NormCode" FixSize="True" HasCaption="False" LookupField="Code" OnEnter="sbtNNormCodeOnEnter" Width="40"/>
+                <Component Name="sbtNNormCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosN.NormCode" FixSize="True" HasCaption="False" Width="7.2"/>
+              </Component>
+              <Component Name="sbtNFlowCodeColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Flowchart=ТК" HasCaption="True">
+                <Component Name="sbtNFlowCode" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.FlowCharts.FlowCharts" CellFormat="ReferenceFormat" Field="vDefPosN.FlowCode" FixSize="True" HasCaption="False" LookupField="Code" OnEnter="sbtNFlowCodeOnEnter" Width="40"/>
+                <Component Name="sbtNFlowCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosN.FlowCode" FixSize="True" HasCaption="False" Width="7.2"/>
+              </Component>
+              <Component Name="sbtNBaseCodeGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Basis=Основание" HasCaption="True">
+                <Component Name="sbtNBaseCode" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosN.BaseCode" FixSize="True" HasCaption="False" LookupField="Name" Width="60"/>
+                <Component Name="sbtNBaseCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosN.BaseCode" FixSize="True" HasCaption="False" Width="7.2"/>
+              </Component>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Component Name="FlowChartsFrame" Class="Com.Ctrl.IFrame" After="MainTab" Caption="@BaseJournalFrm:Flowchart=ТК" HasCaption="False" Margins="5">
+          <Component Name="FlowChartTable" Class="Com.Ctrl.ITable" CanInsert="False" Freezed="False" Numbering="True" Subtable="EdtRec.sbtFlowCharts">
+            <Component Name="vDefPosF" Class="Repair.Rec.Journals.AcceptingFlowCharts" IsLibrary="1"/>
+            <Component Name="sbtFBaseNumber" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="№" CellFormat="NumericFormat" Enabled="False" Field="vDefPosF.BaseNumber" FieldFormat="###0;;#" FixSize="True" FontColor="0x00808080" HasCaption="True" Hint="@AcceptingJournal:Line No. in the order (basis)=№ строки в заказе (основании)" Width="7"/>
+            <Component Name="sbtFIsDone" Class="Com.Ctrl.ICheckBox" Enabled="False" Field="vDefPosF.IsDone" FixSize="True" HasCaption="True" Width="11"/>
+            <Component Name="sbtFUnitCodeColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Equip.=ЕО" HasCaption="True">
+              <Component Name="sbtFUnitCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Eqm.EquipmentTab" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosF.UnitCode" FixSize="True" HasCaption="False" LookupField="Code" OnGetLookupFilter="UnitCodeLookupFilter" Width="40"/>
+              <Component Name="sbtFUnitCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosF.UnitCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtFFlowCodeColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Flowchart=ТК" HasCaption="True">
+              <Component Name="sbtFFlowCode" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.FlowCharts.FlowCharts" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosF.FlowCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+              <Component Name="sbtFFlowCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosF.FlowCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtFWorkPriority" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@P=П" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosF.WorkPriority" FixSize="True" HasCaption="True" Hint="@BaseJournalFrm:Priority=Приоритет" LookupField="Code" Width="7"/>
+            <Component Name="sbtFPlanPeriodColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Begining=Начало" HasCaption="True">
+              <Component Name="sbtFPlanBegDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="vDefPosF.PlanBegDate" FixSize="True" FontColor="0x00808080" FormatOfDate="DateAndTime" HasCaption="False" Width="42"/>
+              <Component Name="sbtFPlanEndDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="vDefPosF.PlanEndDate" FixSize="True" FontColor="0x00808080" FormatOfDate="DateAndTime" HasCaption="False" Width="42"/>
+            </Component>
+            <Component Name="sbtFFactPeriodColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Ending=Окончание" HasCaption="True">
+              <Component Name="sbtFFactBegDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Enabled="False" Field="vDefPosF.FactBegDate" FixSize="True" FontColor="0x00808080" FormatOfDate="DateAndTime" HasCaption="False" Width="42"/>
+              <Component Name="sbtFFactEndDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Enabled="False" Field="vDefPosF.FactEndDate" FixSize="True" FontColor="0x00808080" FormatOfDate="DateAndTime" HasCaption="False" Width="42"/>
+            </Component>
+            <Component Name="sbtFCanceled" Class="Com.Ctrl.ICheckBox" Field="vDefPosF.Canceled" FixSize="True" Hint="@AcceptingJournal:Сancellation flag=Признак отмены выполнения" Width="16"/>
+            <Component Name="sbtFNormCodeGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Normative=Норматив" HasCaption="True">
+              <Component Name="sbtFNormCode" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.FlowCharts.Norms" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosF.NormCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+              <Component Name="sbtFNormCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosF.NormCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+          </Component>
+        </Component>
+        <Inherited Name="Operations">
+          <Inherited Name="OperationsTable">
+            <Component Name="sbtOOperatingJourRequired" Class="Com.Ctrl.ICheckBox" After="sbtOJobCode" Caption="Н" Enabled="False" Field="vDefPosO.OperatingJourRequired" FixSize="True" HasCaption="True" Hint="Регистрация наработки обязательна" Width="7"/>
+            <Component Name="sbtOParametersJourRequired" Class="Com.Ctrl.ICheckBox" Caption="П" Enabled="False" Field="vDefPosO.ParametersJourRequired" FixSize="True" HasCaption="True" Hint="Регистрация параметров обязательна" Width="7"/>
+            <Component Name="sbtODurationColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@baseJournalFrm:Duration=Длительность" HasCaption="True" Hint="@AcceptingJournal:Transfer planned values=Перенести плановые значения" OnClick="sbtODurationColGrOnClick" StaticStyle="StaticHyperlink">
+              <Component Name="sbtOPlanDuration" Class="Com.Ctrl.IEdit" Enabled="False" Field="vDefPosO.PlanDuration" FixSize="True" FontColor="0x00808080" HasCaption="False" OnOutputEx="sbtOQuantityOnOutputEx" Width="30"/>
+              <Component Name="sbtOFactDuration" Class="Com.Ctrl.IEdit" Field="vDefPosO.FactDuration" FixSize="False" HasCaption="False" OnEnter="sbtOFactDurationOnEnter" OnOutputEx="sbtOQuantityOnOutputEx" Width="30"/>
+            </Component>
+            <Inherited Name="sbtOPlanExecutorColGr">
+              <Component Name="btnEditExecutors" Class="Com.Ctrl.IButton" FixSize="True" HasCaption="False" Hint="Открыть исполнителей" ImageName="Service" OnClick="btnEditExecutorsClick" Width="7.2"/>
+            </Inherited>
+            <Component Name="sbtONormCodeColGr" Class="Com.Ctrl.IColumnsGroup" After="sbtOCanceled" Caption="@BaseJournalFrm:Normative=Норматив" HasCaption="True">
+              <Component Name="sbtONormCode" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.FlowCharts.Norms" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosO.NormCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+              <Component Name="sbtONormCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosO.NormCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtOFlowCodeColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Flowchart=ТК" HasCaption="True">
+              <Component Name="sbtOFlowCode" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.FlowCharts.FlowCharts" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosO.FlowCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+              <Component Name="sbtOFlowCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosO.FlowCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtOOperatingJourColGr" Class="Com.Ctrl.IColumnsGroup" Caption="Наработка" HasCaption="True">
+              <Component Name="sbtOOperatingJourCrtBtn" Class="Com.Ctrl.IButton" Caption="Зафиксировать наработку" FixSize="True" HasCaption="False" ImageName="com.AddItem" OnClick="sbtOBtnOperatingJourCrtClick" Width="7.2"/>
+              <Component Name="sbtOOperatingJour" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Journals.OperatingTab" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosO.OperatingJour" FixSize="True" HasCaption="False" LookupField="Code" Width="30"/>
+              <Component Name="sbtOOperatingJourJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosO.OperatingJour" FixSize="True" HasCaption="False" JumpForm="EquipmentRegistry.Frm.Journals.OperatingFrm" Width="7.2"/>
+            </Component>
+            <Component Name="sbtOParametersJourColGr" Class="Com.Ctrl.IColumnsGroup" Caption="Параметры" HasCaption="True">
+              <Component Name="sbtOBtnParametersJourCrtBtn" Class="Com.Ctrl.IButton" FixSize="True" HasCaption="False" Hint="Зафиксировать параметры" ImageName="com.AddItem" OnClick="sbtOBtnParametersJourCrtClick" Width="7.2"/>
+              <Component Name="sbtOParametersJour" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Journals.ParametersTab" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosO.ParametersJour" FixSize="True" HasCaption="False" LookupField="Code" Width="30"/>
+              <Component Name="sbtOParametersJourJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosO.ParametersJour" FixSize="True" HasCaption="False" JumpForm="EquipmentRegistry.Frm.Journals.ParametersFrm" Width="7.2"/>
+            </Component>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="SparepartsFrame">
+          <Inherited Name="FullSpareParts">
+            <Component Name="sbtRNormCodeColGr" Class="Com.Ctrl.IColumnsGroup" After="sbtRDivisionColGr" Caption="@BaseJournalFrm:Normative=Норматив" HasCaption="True">
+              <Component Name="sbtRNormCode" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.FlowCharts.Norms" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosR.NormCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+              <Component Name="sbtRNormCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosR.NormCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtRFlowCodeColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Flowchart=ТК" HasCaption="True">
+              <Component Name="sbtRFlowCode" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.FlowCharts.FlowCharts" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosR.FlowCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+              <Component Name="sbtRFlowCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosR.FlowCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="WorkersFrame">
+          <Inherited Name="FullWorkersFrame">
+            <Inherited Name="ExecutorBox">
+              <Inherited Name="FullWorkersE">
+                <Component Name="sbtWENormCodeColGr" Class="Com.Ctrl.IColumnsGroup" After="sbtWEWorkCostColGr" Caption="@BaseJournalFrm:Normative=Норматив" HasCaption="True">
+                  <Component Name="sbtWENormCode" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.FlowCharts.Norms" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosWE.NormCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+                  <Component Name="sbtWENormCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosWE.NormCode" FixSize="True" HasCaption="False" Width="7.2"/>
+                </Component>
+                <Component Name="sbtWEFlowCodeColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Flowchart=ТК" HasCaption="True">
+                  <Component Name="sbtWEFlowCode" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.FlowCharts.FlowCharts" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosWE.FlowCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+                  <Component Name="sbtWEFlowCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosWE.FlowCode" FixSize="True" HasCaption="False" Width="7.2"/>
+                </Component>
+              </Inherited>
+            </Inherited>
+            <Component Name="BrigadeBox" Class="Com.Ctrl.IBox" Caption="@baseJournalFrm:Brigade=Бригада" HasCaption="True" Margins="5" MinSize="42">
+              <Component Name="FullWorkersB" Class="Com.Ctrl.ITable" Freezed="True" Numbering="True" OnDelete="sbtWorkersBOnDelete" Subtable="EdtRec.sbtWorkersB">
+                <Component Name="vDefPosWB" Class="Repair.Rec.Journals.AcceptingWorkersBrigade" IsLibrary="1"/>
+                <Component Name="sbtWBBaseNumber" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="№" CellFormat="NumericFormat" Enabled="False" Field="vDefPosWB.BaseNumber" FieldFormat="###0;;#" FixSize="True" FontColor="0x00808080" HasCaption="True" Hint="@AcceptingJournal:Line No. in the order (basis)=№ строки в заказе (основании)" Width="10"/>
+                <Component Name="sbtWBJobCode" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@BaseJournalFrm:Work=Работа" CellFormat="EnumFormat" Field="vDefPosWB.JobCode" FixSize="True" HasCaption="True" OnChange="sbtWBJobCodeOnChange" OnEnter="sbtWBJobCodeOnEnter" OnOutputEx="sbtJobCodeOnOutputEx" Required="True" Width="60"/>
+                <Component Name="sbtWBUnitCodeColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Equip.=ЕО" HasCaption="True">
+                  <Component Name="sbtWBUnitCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Eqm.EquipmentTab" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosWB.UnitCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+                  <Component Name="sbtWBUnitCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosWB.UnitCode" FixSize="True" HasCaption="False" Width="7.2"/>
+                </Component>
+                <Component Name="sbtWBBrigadeTypeColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@baseJournalFrm:Brigade type=Тип бригады" HasCaption="True">
+                  <Component Name="sbtWBBrigadeType" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="vDefPosWB.BrigadeType" FixSize="True" HasCaption="False" LookupField="Code" OnEnter="sbtWBBrigadeTypeOnEnter" OnVerify="WorksCostBVerify" Required="True" Width="40"/>
+                  <Component Name="sbtWBBrigadeTypeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosWB.BrigadeType" FixSize="True" HasCaption="False" Width="7.2"/>
+                </Component>
+                <Component Name="sbtWBBrigadeCodeColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@baseJournalFrm:Brigade=Бригада" HasCaption="True">
+                  <Component Name="sbtWBBrigadeCode" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="vDefPosWB.BrigadeCode" FixSize="True" HasCaption="False" LookupField="Name" OnEnter="sbtWBBrigadeCodeOnEnter" Required="True" Width="40"/>
+                  <Component Name="sbtWBBrigadeCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosWB.BrigadeCode" FixSize="True" HasCaption="False" Width="7.2"/>
+                  <Component Name="sbtWBBrigadeServiceBtn" Class="Com.Ctrl.IButton" FixSize="True" HasCaption="False" Hint="@baseJournalFrm:Selection=Подбор" ImageName="Service" OnClick="sbtWBrigadeSelectClick" Width="7.2"/>
+                </Component>
+                <Component Name="sbtWBRouteSheetColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Route sheet=Маршрутный лист" HasCaption="True">
+                  <Component Name="sbtWBRouteSheet" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.Journals.RouteSheet" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosWB.RouteSheet" FixSize="True" HasCaption="False" LookupField="Name" Width="40"/>
+                  <Component Name="sbtWBRouteSheetJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosWB.RouteSheet" FixSize="True" HasCaption="False" Width="7.2"/>
+                </Component>
+                <Component Name="sbtWBWorkTimeColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@baseJournalFrm:NH=НЧ" HasCaption="True" Hint="@AcceptingJournal:Transfer planned values=Перенести плановые значения" OnClick="sbtWBWorkTimeOnClick" StaticStyle="StaticHyperlink">
+                  <Component Name="sbtWBPlanWorkTime" Class="Com.Ctrl.IEdit" Caption="@BaseJournalFrm:Plan=План" CellFormat="NumericFormat" Enabled="False" Field="vDefPosWB.PlanWorkTime" FieldFormat=",##0.00;,##0.00;-" FixSize="True" FontColor="0x00808080" HasCaption="False" Hint="@baseJournalFrm:Normal-hours=Нормо-часы" Required="True" Width="30"/>
+                  <Component Name="sbtWBFactWorkTime" Class="Com.Ctrl.IEdit" Caption="@BaseJournalFrm:Fact=Факт" CellFormat="NumericFormat" Field="vDefPosWB.FactWorkTime" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="False" Hint="@baseJournalFrm:Normal-hours=Нормо-часы" OnEnter="sbtWBFactWorkTimeOnEnter" OnVerify="WorksCostCountBVerify" Width="30"/>
+                </Component>
+                <Component Name="sbtWBPriceTotal" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Price=Цена" HasCaption="True">
+                  <Component Name="sbtWBPlanPriceTotal" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosWB.PlanPriceTotal" FieldFormat=",##0.00;,##0.00;-" FixSize="True" FontColor="0x00808080" HasCaption="False" Visible="False" Width="30"/>
+                  <Component Name="sbtWBFactPriceTotal" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosWB.FactPriceTotal" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="False" Visible="False" Width="30"/>
+                </Component>
+                <Component Name="sbtWBCostTotal" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Full cost=Стоимость" HasCaption="True">
+                  <Component Name="sbtWBPlanCostTotal" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosWB.PlanCostTotal" FieldFormat=",##0.00;,##0.00;-" FixSize="True" FontColor="0x00808080" HasCaption="False" Visible="False" Width="30"/>
+                  <Component Name="sbtWBFactCostTotal" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosWB.FactCostTotal" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="False" Visible="False" Width="30"/>
+                </Component>
+                <Component Name="sbtWBNormCodeColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Normative=Норматив" HasCaption="True">
+                  <Component Name="sbtWBNormCode" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.FlowCharts.Norms" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosWB.NormCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+                  <Component Name="sbtWBNormCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosWB.NormCode" FixSize="True" HasCaption="False" Width="7.2"/>
+                </Component>
+                <Component Name="sbtWBFlowCodeColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Flowchart=ТК" HasCaption="True">
+                  <Component Name="sbtWBFlowCode" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.FlowCharts.FlowCharts" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosWB.FlowCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+                  <Component Name="sbtWBFlowCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosWB.FlowCode" FixSize="True" HasCaption="False" Width="7.2"/>
+                </Component>
+                <Component Name="sbtWBOperCodeColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Operation=Операция" HasCaption="True">
+                  <Component Name="sbtWBOperCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.FlowCharts.Operations" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosWB.OperCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+                  <Component Name="sbtWBOperCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosWB.OperCode" FixSize="True" HasCaption="False" Width="7.2"/>
+                </Component>
+              </Component>
+            </Component>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="CostsFrame">
+          <Inherited Name="FullCosts">
+            <Component Name="sbtCNormCodeColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Normative=Норматив" HasCaption="True">
+              <Component Name="sbtCNormCode" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.FlowCharts.Norms" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosC.NormCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+              <Component Name="sbtCNormCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosC.NormCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtCFlowCodeColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Flowchart=ТК" HasCaption="True">
+              <Component Name="sbtCFlowCode" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.FlowCharts.FlowCharts" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosC.FlowCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+              <Component Name="sbtCFlowCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosC.FlowCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+          </Inherited>
+        </Inherited>
+        <Component Name="SPAFrame" Class="Com.Ctrl.IFrame" After="CostsFrame" AutoSize="False" Caption="@BaseJournalFrm:SPA=ВПС" HasCaption="True" Hint="@Secondary production arsenal=Вспомогательные производственные средства" Margins="5">
+          <Component Name="SPAFrameTable" Class="Com.Ctrl.ITable" Freezed="True" Numbering="True" Subtable="EdtRec.sbtSPALines">
+            <Component Name="vDefPosSPA" Class="Repair.Rec.Journals.AcceptingSPALines" IsLibrary="1"/>
+            <Component Name="sbtSPAJobCode" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@BaseJournalFrm:Work=Работа" CellFormat="EnumFormat" Field="vDefPosSPA.JobCode" HasCaption="True" OnChange="sbtSPAJobCodeOnChange" OnEnter="sbtSPAJobCodeOnEnter" OnOutputEx="sbtJobCodeOnOutputEx" Required="True" Width="60"/>
+            <Component Name="sbtSPAUnitCodeColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Equip.=ЕО" HasCaption="True">
+              <Component Name="sbtSPAUnitCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Eqm.EquipmentTab" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosSPA.UnitCode" FixSize="True" HasCaption="False" LookupField="Code" OnEnter="sbtSPACodeOnEnter" OnOpenCardForm="SPAOnOpenCardForm" Width="40"/>
+              <Component Name="sbtSPAUnitCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosSPA.UnitCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtSPACodeColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Code=Код" HasCaption="True">
+              <Component Name="sbtSPACode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Eqm.EquipmentTab" CellFormat="ReferenceFormat" Field="vDefPosSPA.SPACode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+            </Component>
+            <Component Name="sbtSPANameColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Name=Наименование" HasCaption="True">
+              <Component Name="sbtSPAName" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Eqm.EquipmentTab" CellFormat="ReferenceFormat" Field="vDefPosSPA.SPACode" FixSize="True" HasCaption="False" LookupField="Name" Width="60"/>
+              <Component Name="sbtSPANameJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosSPA.SPACode" FixSize="True" HasCaption="False" Width="7.2"/>
+              <Component Name="sbtSPASelect" Class="Com.Ctrl.IButton" FixSize="True" HasCaption="False" Hint="@baseJournalFrm:Selection=Подбор" ImageName="Service" OnClick="sbtSPASelectClick" Width="7.2"/>
+            </Component>
+            <Component Name="sbtSPAModelCodeCoGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Model=Модель" HasCaption="True">
+              <Component Name="sbtSPAModelCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Equipment.ClassesTab" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosSPA.ModelCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+              <Component Name="sbtSPAModelCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosSPA.ModelCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtSPAHoursColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@baseJournalFrm:NH=НЧ" HasCaption="True" Hint="@AcceptingJournal:Transfer planned values=Перенести плановые значения" StaticStyle="StaticHyperlink">
+              <Component Name="sbtSPAPlanHours" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosSPA.PlanHours" FieldFormat=",##0.00;,##0.00;-" FixSize="True" FontColor="0x00808080" HasCaption="False" Width="30"/>
+              <Component Name="sbtSPAFactHours" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="vDefPosSPA.FactHours" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="False" OnEnter="sbtSPAFactHoursOnEnter" OnVerify="sbtSPAFactHoursOnVerify" Width="30"/>
+            </Component>
+            <Component Name="sbtSPAPriceColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Price=Цена" HasCaption="True" Hint="@AcceptingJournal:Transfer planned values=Перенести плановые значения" OnClick="sbtSPAPriceOnClick" StaticStyle="StaticHyperlink">
+              <Component Name="sbtSPAPlanPrice" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosSPA.PlanPrice" FieldFormat=",##0.00;,##0.00;-" FixSize="True" FontColor="0x00808080" HasCaption="False" Width="30"/>
+              <Component Name="sbtSPAFactPrice" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="vDefPosSPA.FactPrice" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="False" OnEnter="sbtSPAFactHoursOnEnter" Width="30"/>
+            </Component>
+            <Component Name="sbtSPACostColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Full cost=Стоимость" HasCaption="True">
+              <Component Name="sbtSPAPlanCost" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosSPA.PlanCost" FieldFormat=",##0.00;,##0.00;-" FixSize="True" FontColor="0x00808080" HasCaption="False" Width="30"/>
+              <Component Name="sbtSPAFactCost" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosSPA.FactCost" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="False" Width="30"/>
+            </Component>
+            <Component Name="sbtSPABegDateColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Begining=Начало" HasCaption="True" Hint="@AcceptingJournal:Transfer planned values=Перенести плановые значения" OnClick="sbtSPAGFactBegOnClick" StaticStyle="StaticHyperlink">
+              <Component Name="sbtSPAPlanBegDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Enabled="False" Field="vDefPosSPA.PlanBegDate" FixSize="True" FontColor="0x00808080" FormatOfDate="DateAndTime" HasCaption="False" Width="42"/>
+              <Component Name="sbtSPAFactBegDate" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="vDefPosSPA.FactBegDate" FixSize="False" FormatOfDate="DateAndTime" HasCaption="False" OnEnter="sbtSPAFactHoursOnEnter" OnVerify="sbtSPAFactBegDateOnVerify" Width="42"/>
+            </Component>
+            <Component Name="sbtSPAEndDateColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Ending=Окончание" HasCaption="True" Hint="@AcceptingJournal:Transfer planned values=Перенести плановые значения" OnClick="sbtSPAGFactEndOnClick" StaticStyle="StaticHyperlink">
+              <Component Name="sbtSPAPlanEndDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Enabled="False" Field="vDefPosSPA.PlanEndDate" FixSize="True" FontColor="0x00808080" FormatOfDate="DateAndTime" HasCaption="False" Width="42"/>
+              <Component Name="sbtSPAFactEndDate" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="vDefPosSPA.FactEndDate" FixSize="False" FormatOfDate="DateAndTime" HasCaption="False" OnEnter="sbtSPAFactHoursOnEnter" OnVerify="sbtSPAFactEndDateOnVerify" Width="42"/>
+            </Component>
+            <Component Name="sbtSPAOperCodeColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Operation=Операция" HasCaption="True">
+              <Component Name="sbtSPAOperCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.FlowCharts.Operations" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosSPA.OperCode" FieldFormat="Code" HasCaption="False" Width="40"/>
+              <Component Name="sbtSPAOperCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosSPA.OperCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtSPANormCodeColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Normative=Норматив" HasCaption="True">
+              <Component Name="sbtSPANormCode" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.FlowCharts.Norms" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosSPA.NormCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+              <Component Name="sbtSPANormCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosSPA.NormCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtSPAFlowCodeColGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Flowchart=ТК" HasCaption="True">
+              <Component Name="sbtSPAFlowCode" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.FlowCharts.FlowCharts" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosSPA.FlowCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+              <Component Name="sbtSPAFlowCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosSPA.FlowCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

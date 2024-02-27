@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Frm.Base.BaseJournalFrm">
+  <Inherited HelpContext="RealEstateBase.Управление имуществом.Данные.Основные данные.Объект имущества.Default">
+    <Inherited Name="EdtRec" Class="RealEstateBase.Rec.Data.RealEstateObject" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="True"/>
+        <Inherited Name="ButtonReports" Excluded="True" After="ButtonServices" Visible="True"/>
+        <Inherited Name="ButtonClose" After="ButtonReports"/>
+        <Inherited Name="ButtonAnalytics" After="ButtonClose"/>
+      </Inherited>
+      <Component Name="HatFrameV" Class="Com.Ctrl.IFrame" After="FieldsFrame" AutoSize="True" Margins="5" Orientation="Vertical">
+        <Component Name="HatFrameH" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="5" Orientation="Horizontal">
+          <Component Name="HatFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Vertical">
+            <Component Name="HatLFrame" Class="Com.Ctrl.IFrame" Orientation="Horizontal">
+              <Component Name="GeneralGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="40" MinWidth="150">
+                <Component Name="DateCodeGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="OnDate" Class="Com.Ctrl.IEdit" Excluded="True" Alignment="LeftAlign" Caption="@Дата, Код" CellFormat="DateFormat" Field="EdtRec.OnDate" FormatOfDate="DateAndTime" HasCaption="True" Hint="@Дата, на которую отображаются значения периодических полей" MaxWidth="45"/>
+                  <Component Name="OnDateUpdBtn" Class="Com.Ctrl.IButton" Excluded="True" FixSize="True" Hint="@Обновить дату" ImageName="Com.Refresh" OnClick="OnDateUpdBtn_OnClick" Width="7.2"/>
+                  <Component Name="JournalDateE" Class="Com.Ctrl.IEdit" Caption="@Дата, Код" CellFormat="DateFormat" Field="EdtRec.JournalDate" FixSize="True" HasCaption="True" Width="30"/>
+                  <Component Name="CodeE" Class="Com.Ctrl.IEdit" Field="EdtRec.Code" HasCaption="False" Hint="Код формируется автоматически при сохранении. Не рекомендуется заполнять вручную" Required="True"/>
+                  <Component Name="LockedCB" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Locked" FixSize="True" HasCaption="True" Width="18"/>
+                  <Component Name="GeneralBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="NameGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="NameE" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" HasCaption="True" Hint="@Наименование объекта" Required="True" Wrap="True"/>
+                  <Component Name="BtnStatic50" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="ApprovementGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False"/>
+                <Component Name="RegionGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="RegionCode" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.CountriesOrRegions" CellFormat="ReferenceFormat" Field="EdtRec.Region" FixSize="True" HasCaption="True" Hint="@Код региона" LookupField="Code" OnOpenCardForm="Region_OnOpenCardForm" Required="True" Width="15"/>
+                  <Component Name="RegionName" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.CountriesOrRegions" CellFormat="ReferenceFormat" Field="EdtRec.Region" HasCaption="False" Hint="@Наименование региона" LookupField="Name" OnOpenCardForm="Region_OnOpenCardForm" Required="True"/>
+                  <Component Name="BtnStatic61" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="FOGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="FO" Class="Com.Ctrl.IEdit" Caption="@Федеральный округ" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Region" HasCaption="True" Hint="@Федеральный округ" LookupField="FederalDistrictCode.Name" Required="True"/>
+                  <Component Name="BtnStatic62" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="AddressGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="Address" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Addresses" CellFormat="ReferenceFormat" Field="EdtRec.Address" HasCaption="True" Hint="@Адрес объекта" LookupField="StringAddress" Required="True"/>
+                  <Component Name="AddressJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Address" FixSize="True" JumpForm="Biz.Frm.Data.Address" Width="7.2"/>
+                </Component>
+                <Component Name="LocationGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="LocationDesc" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Addresses" CellFormat="StringFormat" Field="EdtRec.LocationDescr" HasCaption="True" Hint="@Местоположение объекта" Required="True"/>
+                  <Component Name="BtnStatic51" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="ColsGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="GeneralGrL" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" HasCaption="True" MinWidth="100" Width="60">
+                    <Component Name="RealEstateObjKindGr" Class="Com.Ctrl.IGroup" Adaptive="True">
+                      <Component Name="RealEstateObjKind" Class="Com.Ctrl.IEdit" CardFileClass="RealEstateBase.Tab.Ref.RealEstateObjKind" CellFormat="ReferenceFormat" Field="EdtRec.RealEstateObjKind" HasCaption="True" Hint="@Вид объекта" LookupField="Name" OnChange="RealEstateObjKind_OnChange" Required="True"/>
+                      <Component Name="BtnStatic63" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                    </Component>
+                    <Component Name="KadastrNumberGr" Class="Com.Ctrl.IGroup" Adaptive="True">
+                      <Component Name="KadastrNumber" Class="Com.Ctrl.IEdit" Caption="@Кадастровый номер" CellFormat="StringFormat" Field="EdtRec.KadastrNumber" HasCaption="True" Hint="@Кадастровый номер объекта" Required="True"/>
+                      <Component Name="BtnStatic16" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                    </Component>
+                  </Component>
+                  <Component Name="GeneralGrR" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="19" MinWidth="75" Width="40">
+                    <Component Name="RealEstateObjTypeGr" Class="Com.Ctrl.IGroup" Adaptive="True">
+                      <Component Name="RealEstateObjType" Class="Com.Ctrl.IEdit" Caption="@Тип" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.RealEstateObjKind" HasCaption="True" Hint="@Тип объекта" LookupField="RealEstateObjType.Name" Required="True"/>
+                      <Component Name="BtnStatic65" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                    </Component>
+                    <Component Name="SummaryAreaObjectGr" Class="Com.Ctrl.IGroup" Adaptive="True">
+                      <Component Name="SummaryAreaObject" Class="Com.Ctrl.IEdit" Caption="@Площадь" CellFormat="NumericFormat" Enabled="True" Field="EdtRec.AreaObject" HasCaption="True" Hint="@Общая площадь объекта" Required="False" ValueType="VarNumeric"/>
+                      <Component Name="BtnStatic96" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                    </Component>
+                  </Component>
+                </Component>
+                <Component Name="CommentGr" Class="Com.Ctrl.IGroup" Adaptive="True">
+                  <Component Name="Comment" Class="Com.Ctrl.IEdit" Caption="@Комментарий" CellFormat="StringFormat" Field="EdtRec.RE_Comment" HasCaption="True" Hint="@Комментарий" Required="False"/>
+                  <Component Name="BtnStatic18" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+      <Inherited Name="BasicFrame" Visible="False"/>
+      <Inherited Name="TabsFrame" AutoSize="True">
+        <Inherited Name="MainTab" Caption="@Frm:MainTab=Общие сведения" Hint="@Frm:MainTab=Общие сведения об объекте">
+          <Inherited Name="MainBox" Visible="False"/>
+          <Inherited Name="LineBox" Visible="False"/>
+          <Component Name="KadastrBox" Class="Com.Ctrl.IBox" Caption="@Государственный кадастровый учет" HasCaption="True">
+            <Component Name="KRealGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+              <Component Name="KRLGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="KRKadastrNumberGr" Class="Com.Ctrl.IGroup">
+                  <Component Name="KRKadastrNumber" Class="Com.Ctrl.IEdit" Caption="@Кадастровый номер" CellFormat="StringFormat" Enabled="False" Field="EdtRec.KadastrNumber" HasCaption="True" Hint="@Кадастровый номер объекта" Required="True"/>
+                  <Component Name="BtnStatic37" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="KRUNOGr" Class="Com.Ctrl.IGroup">
+                  <Component Name="KRUNO" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.UNO" HasCaption="True" Hint="@Условный номер объекта"/>
+                  <Component Name="BtnStatic40" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+              </Component>
+              <Component Name="KRRGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="KRKadastrDateGr" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+                  <Component Name="KRKadastrDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="EdtRec.KadastrDate" HasCaption="True" Hint="@Дата регистрации кадастрового паспорта"/>
+                  <Component Name="BtnStatic46" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="KRONUDateGr" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+                  <Component Name="KRUNODateGr" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="EdtRec.UNODate" HasCaption="True" Hint="@Дата регистрации"/>
+                  <Component Name="BtnStatic55" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

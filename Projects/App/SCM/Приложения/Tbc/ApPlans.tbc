@@ -1,0 +1,166 @@
+﻿TBCFile VER="3.4" [Created '13.02.2023 17:51:44' by 'Администратор']
+
+DESCRIPTION[
+Count=2
+CountByRef=0
+Kernel.APPlans
+(
+  Count=2
+  CountByRef=0
+)
+Upr.Справочники.СтатьяУправленческогоБаланса
+(
+  Count=0
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Kernel.APPlans
+  (
+    Deleted :Boolean
+    GroupDoc :Kernel.APPlans
+    Name :String(60)
+    Caption :String
+    RefName :String
+    RefList :Struct array Integer
+    (
+      Value1 :Inherited IDRecord
+      Value2 :String(8000)
+      AP :Integer
+      Separation :String
+    )
+    IsMeta :Boolean
+    Branch :String(80)
+    Confid :Integer
+    ЗамокЭлементаСБ :Boolean
+    КодПодсистемы :Integer
+    КодМодуля :String
+    КодУчастника :Integer
+  )
+  ForeignKey Name
+  ]
+
+  [Upr.Справочники.СтатьяУправленческогоБаланса
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Kernel.APPlans
+  
+  {Kernel.APPlans:"УпрБаланс"}
+  (
+    Caption = "УпрБаланс"
+    RefName = "спрСтатьяУправленческогоБаланса"
+    RefList = (
+      0:(
+        Value1 = {Upr.Справочники.СтатьяУправленческогоБаланса:"100.000"}
+        Value2 = " "
+        AP = 1
+        Separation = " "
+      )
+      1:(
+        Value1 = {Upr.Справочники.СтатьяУправленческогоБаланса:"200.000"}
+        Value2 = " "
+        AP = 1
+        Separation = " "
+      )
+      2:(
+        Value1 = {Upr.Справочники.СтатьяУправленческогоБаланса:"230.000"}
+        Value2 = " "
+        Separation = "Счет, Процесс.Договор.Контрагент"
+      )
+      3:(
+        Value1 = {Upr.Справочники.СтатьяУправленческогоБаланса:"300.000"}
+        Value2 = " "
+        AP = 2
+        Separation = " "
+      )
+      4:(
+        Value1 = {Upr.Справочники.СтатьяУправленческогоБаланса:"500.000"}
+        Value2 = " "
+        AP = 2
+        Separation = " "
+      )
+      5:(
+        Value1 = {Upr.Справочники.СтатьяУправленческогоБаланса:"400.000"}
+        Value2 = " "
+        AP = 2
+        Separation = " "
+      )
+    )
+    IsMeta = True
+    Branch = " "
+    КодМодуля = "П005"
+  )
+  
+  {Kernel.APPlans:"БалансТорг"}
+  (
+    Caption = "БалансТорговый"
+    RefName = "спрСтатьяУправленческогоБаланса"
+    RefList = (
+      0:(
+        Value1 = {Upr.Справочники.СтатьяУправленческогоБаланса:0100_ТД_активы}
+        Value2 = " "
+        AP = 1
+        Separation = " "
+      )
+      1:(
+        Value1 = {Upr.Справочники.СтатьяУправленческогоБаланса:0310_НДС}
+        AP = 1
+      )
+      2:(
+        Value1 = {Upr.Справочники.СтатьяУправленческогоБаланса:0800_НезавершПроизводство}
+        Value2 = " "
+        AP = 1
+        Separation = " "
+      )
+      3:(
+        Value1 = {Upr.Справочники.СтатьяУправленческогоБаланса:0600_ЗадолжПоРасчКонтрагент}
+        Value2 = " "
+        Separation = "Заказ.Договор.Контрагент"
+      )
+      4:(
+        Value1 = {Upr.Справочники.СтатьяУправленческогоБаланса:0200_СобственныеСредства}
+        Value2 = " "
+        AP = 2
+        Separation = " "
+      )
+      5:(
+        Value1 = {Upr.Справочники.СтатьяУправленческогоБаланса:0400_ПолученнаяПрибыль}
+        Value2 = " "
+        AP = 2
+        Separation = " "
+      )
+      6:(
+        Value1 = {Upr.Справочники.СтатьяУправленческогоБаланса:0900_ЗатратыНераспр}
+        Value2 = " "
+        AP = 1
+        Separation = " "
+      )
+      7:(
+        Value1 = {Upr.Справочники.СтатьяУправленческогоБаланса:1000_Пересортица}
+        Value2 = " "
+        AP = 1
+        Separation = " "
+      )
+      8:(
+        Value1 = {Upr.Справочники.СтатьяУправленческогоБаланса:07xx_РасчCотрудн}
+        Value2 = " "
+        AP = 2
+        Separation = " "
+      )
+    )
+    IsMeta = True
+    Branch = " "
+    КодМодуля = "ТиС"
+  )
+]
+
+]

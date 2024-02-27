@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Rec.Документы.Имущество.ОС.ИмуществоБазовыйДокументОС">
+  <Inherited>
+    <Inherited Name="ПозицииОС" OnAfterDelete="ПозицииОС_OnAfterDelete" StructClass="Имущество.Rec.Документы.Имущество.ОС.ЧастичнаяЛиквидацияПродажаОС_Позиции"/>
+    <Component Name="ГрупповоеОС" Class="Com.Fld.IField" FieldName="ГрупповоеОС"/>
+    <Component Name="Покупатель" Class="Com.Fld.IField" FieldName="Покупатель"/>
+    <Component Name="Договор" Class="Com.Fld.IField" FieldName="Договор" OnChange="Договор_OnChange"/>
+    <Component Name="СтавкаНДС" Class="Com.Fld.IField" FieldName="СтавкаНДС"/>
+    <Component Name="СуммаНДС" Class="Com.Fld.IField" FieldName="СуммаНДС" OnCalc="СуммаНДС_OnCalc"/>
+    <Component Name="СуммаВыручки" Class="Com.Fld.IField" FieldName="СуммаВыручки"/>
+    <Component Name="DLAccrualOfDebtTypeOfAcc" Class="Com.Fld.IField" Caption="Тип задолженности" Extra="True" FieldName="DLAccrualOfDebtTypeOfAcc" OnCalc="DLAccrualOfDebtTypeOfAcc_OnCalc" ValueType="VarInteger"/>
+    <Component Name="DLUseDocLinks" Class="Com.Fld.IVar" OnCalc="DLUseDocLinks_OnCalc" ValueType="VarLogical"/>
+    <Component Name="DLUseSubjectPayableAccrualOfDebt" Class="Com.Fld.IVar" OnCalc="DLUseSubjectPayableAccrualOfDebt_OnCalc" ValueType="VarLogical"/>
+  </Inherited>
+</Resource>

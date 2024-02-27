@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm" ModalWidth="200">
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    </Component>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="StatusSrc" Class="Com.Fld.IVar" Caption="Исходный статус" OnChange="StatusSrcOnChange" OnVerify="StatusSrcOnVerify" RecordClass="Control.Rec.Ref.TaskStatus" ValueType="VarObject"/>
+      <Component Name="StatusDst" Class="Com.Fld.IVar" Caption="Новый статус" OnChange="StatusDstOnChange" OnVerify="StatusDstOnVerify" RecordClass="Control.Rec.Ref.TaskStatus" ValueType="VarObject"/>
+      <Component Name="RuleName" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" HasCaption="False">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" HasCaption="False" MaxButton="1">
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Excluded="True" Hint="Закрыть" ImageName="Com.Close" OnClick="ButtonCloseOnClick"/>
+        <Component Name="ButtonDelete" Class="Com.Ctrl.IButton" Caption="Удалить" Enabled="False" Fashion="Fashions.GhostButton" ImageName="Biz.trash" OnClick="ButtonDeleteOnClick"/>
+      </Component>
+      <Component Name="FieldsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+        <BuiltIn Name="SideMargins" Bottom="0" Left="32" Right="32" Top="24"/>
+        <Component Name="StatusesGr" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="100">
+          <Component Name="StatusSrcEdit" Class="Com.Ctrl.IEdit" Caption="Исходный статус" CardFileClass="Control.Tab.Ref.TaskStatus" CellFormat="ReferenceFormat" Field="StatusSrc" HasCaption="True" HasInnerCaption="True" LookupField="Name" OnChange="StatusSrcEditOnChange" OnVerify="StatusSrcEditOnVerify" Required="True" ShortList="True"/>
+          <Component Name="ChangeBtn" Class="Com.Ctrl.IButton" Fashion="Fashions.GhostButton" ImageName="Control.Transition_" OnClick="ChangeBtnOnClick"/>
+          <Component Name="StatusDstEdit" Class="Com.Ctrl.IEdit" Caption="Новый статус" CardFileClass="Control.Tab.Ref.TaskStatus" CellFormat="ReferenceFormat" Field="StatusDst" HasCaption="True" HasInnerCaption="True" LookupField="Name" OnChange="StatusDstEditOnChange" OnVerify="StatusDstEditOnVerify" Required="True" ShortList="True"/>
+        </Component>
+        <Component Name="NameGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="100" Visible="False">
+          <Component Name="RuleNameEditGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="RuleNameEdit" Class="Com.Ctrl.IEdit" Caption="Переход" CellFormat="StringFormat" Field="RuleName" HasCaption="True" HasInnerCaption="True" OnChange="RuleNameEditOnChange" Required="True"/>
+          </Component>
+          <Component Name="NameHint" Class="Com.Ctrl.IStatic" Caption="По умолчанию название берется из нового статуса" FontColor="0xFF00000C" FontSize="9" Multiline="True" Wrap="True"/>
+        </Component>
+      </Component>
+      <Component Name="ParamsFrame" Class="Com.Ctrl.IFrame" Margins="0" Visible="True">
+        <BuiltIn Name="SideMargins" Bottom="24" Left="32" Right="32" Top="0"/>
+        <Component Name="CondFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="24"/>
+          <Component Name="CondGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="100">
+            <Component Name="CondCaptionGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="CondCaptionSt" Class="Com.Ctrl.IStatic" Caption="Условия перехода" FixSize="True" FontSize="12" Width="45"/>
+              <Component Name="CondCountBtn" Class="Com.Ctrl.IButton" Caption="0" Enabled="False" FixSize="False" MaxWidth="15"/>
+              <Component Name="Static3" Class="Com.Ctrl.IStatic" Caption=" " FixSize="False"/>
+              <Component Name="Static4" Class="Com.Ctrl.IStatic" Caption=" " FixSize="False"/>
+              <Component Name="CondJB" Class="Com.Ctrl.IButton" Fashion="Fashions.GhostButton" FixSize="True" HasCaption="False" ImageName="Com.angle-right" OnClick="CondJBOnClick"/>
+            </Component>
+            <Component Name="CondHintGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="CondHintSt" Class="Com.Ctrl.IStatic" Caption="Ограничьте условия выполнения перехода" FontSize="10" Multiline="True" Width="80" Wrap="True"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="AddDlgFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="24"/>
+          <Component Name="AddDlgGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="100">
+            <Component Name="AddDlgCaptionGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="AddDlgCaptionSt" Class="Com.Ctrl.IStatic" Caption="Экран перехода" FixSize="True" FontSize="12" Width="40"/>
+              <Component Name="AddDlgStatusBtn" Class="Com.Ctrl.IButton" Caption="Не настроен" Enabled="False" FixSize="False" MaxWidth="40"/>
+              <Component Name="Static5" Class="Com.Ctrl.IStatic" Caption=" " FixSize="False"/>
+              <Component Name="Static6" Class="Com.Ctrl.IStatic" Caption=" " FixSize="False"/>
+              <Component Name="AddDlgJB" Class="Com.Ctrl.IButton" Fashion="Fashions.GhostButton" FixSize="True" HasCaption="False" ImageName="Com.angle-right" OnClick="AddDlgJBOnClick"/>
+            </Component>
+            <Component Name="AddDlgHintGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="AddDlgHintSt" Class="Com.Ctrl.IStatic" Caption="Настройте всплывающее окно, в котором пользователь сможет менять параметры задачи" FontSize="10" Multiline="True" Width="80" Wrap="True"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="ValidFrame" Class="Com.Ctrl.IFrame" Excluded="True" AutoSize="True" Margins="0">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="24"/>
+          <Component Name="ValidGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="100">
+            <Component Name="ValidCaptionGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="ValidCaptionSt" Class="Com.Ctrl.IStatic" Caption="Валидация" FixSize="True" Width="23"/>
+              <Component Name="ValidCountBtn" Class="Com.Ctrl.IButton" Caption="0" Enabled="False" FixSize="True" Width="10"/>
+              <Component Name="Static7" Class="Com.Ctrl.IStatic" Caption=" " FixSize="False"/>
+              <Component Name="Static8" Class="Com.Ctrl.IStatic" Caption=" " FixSize="False"/>
+              <Component Name="ValidJB" Class="Com.Ctrl.IButton" FixSize="True" HasCaption="False" ImageName="Com.angle-right" OnClick="ValidJBOnClick"/>
+            </Component>
+            <Component Name="ValidHintGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="ValidHintSt" Class="Com.Ctrl.IStatic" Caption="Используйте условия для проверки перехода" FontColor="0xFF00000C" FontSize="8" Multiline="True" Width="80" Wrap="True"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="AutoFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0" Visible="True">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="24"/>
+          <Component Name="AutoGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="100">
+            <Component Name="AutoCaptionGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="AutoCaptionSt" Class="Com.Ctrl.IStatic" Caption="Автоматизация" FixSize="True" FontSize="12" Width="37"/>
+              <Component Name="AutoCountBtn" Class="Com.Ctrl.IButton" Caption="0" Enabled="False" FixSize="False" MaxWidth="15"/>
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption=" " FixSize="False"/>
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" Caption=" " FixSize="False"/>
+              <Component Name="AutoJB" Class="Com.Ctrl.IButton" Fashion="Fashions.GhostButton" FixSize="True" HasCaption="False" ImageName="Com.angle-right" OnClick="AutoJBOnClick"/>
+            </Component>
+            <Component Name="AutoHintGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="AutoHintSt" Class="Com.Ctrl.IStatic" Caption="Настройте автоматические действия, которые должны происходить при переходе" FontSize="10" Multiline="True" Width="80" Wrap="True"/>
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

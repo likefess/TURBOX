@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" AccountFilter="РВ" AccountPlan="ПланСУРВ" BegDate="01.09.2022" BegSaldoFormat="sfNone" Caption="Диаграмма фактического времени по статусам" CIndicator="1" EndDate="01.10.2022" EndSaldoFormat="sfNone" FirstPage="OutputChart" HidePeriod="True" HystoKind="hkSide" Legend="lpkAtRight" NilCaption="Проект" OpenPeriod="opAll" OutputChart="1" OutputReport="0" Palette="cpPale" ParameterFilter="Status = Fact and BaseEvent &lt;> nil" Period="-1" SeriesKind="skPie" Use3D="True">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorHours" Class="Com.Rep.IIndCalc" BegSaldoFormat="msfNone" Caption="Часы" Contents="Hours" EndSaldoFormat="msfNone" ShowUnit="True"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam0AB6FDAD" Class="Com.Rep.ISplitByParam" SplitParam="Task.Состояние"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContent300938F3" Class="Com.Rep.ISplitContent" Contents="Task.Состояние.Код"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain">
+      <Component Name="ExplainF166C074" Class="Com.Rep.IExplain" Caption="по задачам" ReportName="TMS.Rep.Details.PlanFact_Status"/>
+    </Component>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_Project" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Проект" CaptionWidth="20" CardFileClass="Bas.Tab.Ref.Project" DefaultStr="Object(nil)" Operator=" is " Parameter="Project" Plan="ПланСУРВ" SkipNil="True" ValueType="VarObject" Width="50"/>
+      <Component Name="RC_Task" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Эпик" CaptionWidth="25" CardFileClass="Control.Tab.Data.TaskGroups" DefaultStr="Object(nil)" Operator=" is " Parameter="Task" Plan="ПланСУРВ" SkipNil="True" ValueType="VarObject" Width="50"/>
+      <Component Name="RC_Sprint" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Спринт" CaptionWidth="25" CardFileClass="TrackingCore.Tab.Ref.Sprint" DefaultStr="Object(nil)" MultiSelect="True" Operator="=" Plan="ПланСУРВ" PrepareFunc="Result = if(RC_Sprint.Inner = nil, '', 'Task.Sprints.Exists(Sprints in '+Str(RC_Sprint.Inner)+')')" SkipNil="True" ValueType="VarObject" Width="50"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

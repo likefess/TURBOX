@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="DocPrint.Service.Forms.DataSelector">
+  <Inherited>
+    <Component Name="Data" Class="DocPrint.Service.Data.TableConstructor" IsLibrary="1" After="#0"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+          <Component Name="RowsCountEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.TableConstructor.RowsCountEdit:Caption=Количество строк" CellFormat="NumericFormat" Field="Data.RowsCount" HasCaption="True" OnChange="RowsCountEditOnChange" OnVerify="RowColCountEditOnVerify" ValueType="VarInteger"/>
+          <Component Name="ColumnsCountEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.TableConstructor.ColsCountEdit:Caption=Количество колонок" CellFormat="NumericFormat" Field="Data.ColsCount" HasCaption="True" OnChange="ColumnsCountEditOnChange" OnVerify="RowColCountEditOnVerify" ValueType="VarInteger"/>
+          <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="False">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption=" " Width="40"/>
+            <Component Name="ExpandCheckBox" Class="Com.Ctrl.ICheckBox" Caption="@DocPrint.TableConstructor.ExpandCheckBox:Caption=Расширять" Field="Data.Expand" HasCaption="True" Hint="@DocPrint.TableConstructor.ExpandCheckBox:Hint=Вставлять новые строки/столбцы до заданной размерности (только для Excel)" Width="28"/>
+            <Component Name="CopySourceCheckBox" Class="Com.Ctrl.ICheckBox" Caption="@DocPrint.TableConstructor.CopySourceCheckBox:Caption=Копировать исходное значение" Field="Data.CopySource" HasCaption="True" Hint="@DocPrint.TableConstructor.CopySourceCheckBox:Hint=Заполнять пустые ячейки значением из шаблона (только для Excel)" Width="65"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" ShowTabs="False" Visible="True">
+        <Inherited Name="MainTab" Margins="5">
+          <Component Name="Table" Class="Com.Ctrl.ITable" HasCaption="False" ManualControl="False"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

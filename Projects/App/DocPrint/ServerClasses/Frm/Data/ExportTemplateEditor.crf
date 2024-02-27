@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited HelpContext="DocPrint.DocPrint.Шаблоны экспорта">
+    <Inherited Name="EdtRec" Class="DocPrint.Rec.Data.ExportTemplate" IsLibrary="1"/>
+    <Component Name="ExportTemplate_Links" Class="DocPrint.Rec.Data.ExportTemplate_Links" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="TableMenu" After="ExportTemplate_Links"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ButtonCopyMode" Class="Com.Ctrl.IButton" After="ButtonImport" Caption="@DocPrint.ExportTemplateEditor.ButtonCopyMode:Caption=Режим копирования" ImageName="Com.clipboard-list" IsSwitch="True" OnClick="ButtonCopyModeOnClick"/>
+        <Component Name="ButtonGetDocFields" Class="Com.Ctrl.IButton" Caption="@DocPrint.ExportTemplateEditor.ButtonGetDocFields:Caption=Обновить поля" ImageName="Com.Find" OnClick="ButtonGetDocFieldsOnClick"/>
+        <Component Name="ButtonCheckDocFields" Class="Com.Ctrl.IButton" Caption="@DocPrint.ExportTemplateEditor.ButtonCheckDocFields:Caption=Сверить поля" ImageName="Com.Refresh" OnClick="ButtonCheckDocFieldsOnClick"/>
+        <Component Name="ButtonLoadData" Class="Com.Ctrl.IButton" Caption="@DocPrint.ExportTemplateEditor.ButtonLoadData:Caption=Загрузить данные" ImageName="Com.download" OnClick="ButtonLoadDataOnClick"/>
+        <Component Name="ButtonGenerateDoc" Class="Com.Ctrl.IButton" Caption="@DocPrint.ExportTemplateEditor.ButtonGenerateDoc:Caption=Сформировать документ" ImageName="Com.AddItem_1" OnClick="ButtonGenerateDocOnClick"/>
+        <Inherited Name="ButtonHelp" After="ButtonGenerateDoc"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" Visible="False"/>
+      <Component Name="GeneralBox" Class="Com.Ctrl.IBox" After="FieldsFrame" Caption="@DocPrint.ExportTemplate.GeneralBox:Caption=Основное" Collapsed="False">
+        <Component Name="CodeNameGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+          <Component Name="CodeEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Code" HasCaption="True"/>
+          <Component Name="NameEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" FontBold="True" HasCaption="True" Required="True"/>
+        </Component>
+        <Component Name="FilesGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+          <Component Name="FilesSubGroup1" Class="Com.Ctrl.IGroup" ByColumn="False">
+            <Component Name="InputFileLocEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.ExportTemplateEditor.FileLoc:Caption=Расположение" CellFormat="EnumFormat" Field="EdtRec.InputFileLoc" HasCaption="True" OnChange="InputFileLocEditOnChange" ValueType="VarInteger" Width="13"/>
+            <Component Name="InputFileEdit" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" CaptionWidth="36" CellFormat="StringFormat" Field="EdtRec.InputFile" HasButton="True" HasCaption="True" OnChange="InputFileEditOnChange" OnLookup="InputFileEditOnLookup" OnVerify="InputFileEditOnVerify" Required="True" ValueType="VarString" Visible="False"/>
+            <Component Name="InputFileArchiveEdit" Class="Com.Ctrl.IEdit" CaptionWidth="36" CardFileClass="Com.Tab.Archive.File" CellFormat="ReferenceFormat" Field="EdtRec.InputFileArchive" HasCaption="True" LookupField="Name" OnChange="InputFileArchiveEditOnChange" OnOpenCardForm="InputFileArchiveEditOnOpenCardForm" OnVerify="InputFileArchiveEditOnVerify" Required="True" ValueType="VarObject" Visible="False"/>
+          </Component>
+          <Component Name="FilesSubGroup2" Class="Com.Ctrl.IGroup" ByColumn="False">
+            <Component Name="OutputFolderLocEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.ExportTemplateEditor.FileLoc:Caption=Расположение" CellFormat="EnumFormat" Field="EdtRec.OutputFolderLoc" HasCaption="True" OnChange="OutputFolderLocEditOnChange" ValueType="VarInteger" Width="13"/>
+            <Component Name="OutputFolderEdit" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" CaptionWidth="36" CellFormat="StringFormat" Field="EdtRec.OutputFolder" HasButton="True" HasCaption="True" OnLookup="OutputFolderEditOnLookup" OnVerify="OutputFolderEditOnVerify" ValueType="VarString" Visible="False"/>
+            <Component Name="OutputFolderArchiveEdit" Class="Com.Ctrl.IEdit" CaptionWidth="36" CardFileClass="Com.Tab.Archive.File" CellFormat="ReferenceFormat" Field="EdtRec.OutputFolderArchive" HasCaption="True" LookupField="Name" OnOpenCardForm="OutputFolderArchiveEditOnOpenCardForm" OnVerify="OutputFolderArchiveEditOnVerify" ValueType="VarObject" Visible="False"/>
+          </Component>
+          <Component Name="FilesSubGroup3" Class="Com.Ctrl.IGroup" ByColumn="False">
+            <Component Name="ExecutionLocEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.ExecutionLoc" HasCaption="True" OnChange="ExecutionLocEditOnChange" ValueType="VarInteger" Width="13"/>
+            <Component Name="DocProcessorClassEdit" Class="Com.Ctrl.IEdit" AutoLookup="True" CaptionWidth="36" CellFormat="EnumFormat" Field="EdtRec.DocProcessorClass" HasCaption="True" OnChange="DocProcessorClassEditOnChange" Required="True" ValueType="VarString"/>
+          </Component>
+          <Component Name="OutputFileNameEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.OutputFileName" HasButton="True" HasCaption="True" OnHint="OutputFileNameEditOnHint" OnLookup="OutputFileNameEditOnLookup" ValueType="VarString"/>
+        </Component>
+      </Component>
+      <Component Name="SettingsBox" Class="Com.Ctrl.IBox" Caption="@DocPrint.ExportTemplateEditor.SettingBox:Caption=Настройки" Collapsed="True">
+        <Component Name="SettingsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+          <Component Name="DoNotSaveGroup" Class="Com.Ctrl.IGroup" Adaptive="False">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Width="40"/>
+            <Component Name="DoNotSaveCheckBox" Class="Com.Ctrl.ICheckBox" Field="EdtRec.DoNotSave" HasCaption="True" Hint="@DocPrint.ExportTemplateEditor.DoNotSave:Hint=По окончанию формирования документа, он будет открыт в редакторе без сохранения" OnChange="DoNotSaveCheckBoxOnChange" Width="82"/>
+          </Component>
+          <Component Name="DoNotDeleteGroup" Class="Com.Ctrl.IGroup" Adaptive="False">
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" Width="40"/>
+            <Component Name="DoNotDeleteCheckBox" Class="Com.Ctrl.ICheckBox" Field="EdtRec.DoNotDelete" HasCaption="True" Hint="@DocPrint.ExportTemplateEditor.DoNotDelete:Hint=После добавления сформированного документа в архив, его локальная копия не будет удалена" Width="82"/>
+          </Component>
+          <Component Name="CalcDynamicGroup" Class="Com.Ctrl.IGroup" Adaptive="False">
+            <Component Name="Static3" Class="Com.Ctrl.IStatic" Width="40"/>
+            <Component Name="CalcDynamicCheckBox" Class="Com.Ctrl.ICheckBox" Field="EdtRec.CalcDynamic" HasCaption="True" Hint="@DocPrint.ExportTemplateEditor.CalcDynamic:Hint=В колонке &quot;Значение&quot; будет выводиться результат вычисления динамических значений (возможно замедление работы)" Width="71"/>
+          </Component>
+          <Component Name="ForceRefreshGroup" Class="Com.Ctrl.IGroup" Adaptive="False">
+            <Component Name="Static4" Class="Com.Ctrl.IStatic" Width="40"/>
+            <Component Name="ForceRefreshCheckBox" Class="Com.Ctrl.ICheckBox" Field="EdtRec.ForceRefresh" HasCaption="True" Hint="@DocPrint.ExportTemplateEditor.ForceRefresh:Hint=Принудительно вычисляет динамические значения перед формированием документа. Гарантирует актуальные значения, но снижает производительность." Width="84"/>
+          </Component>
+          <Component Name="WaitAsyncGroup" Class="Com.Ctrl.IGroup" Adaptive="False">
+            <Component Name="Static5" Class="Com.Ctrl.IStatic" Width="40"/>
+            <Component Name="WaitAsyncCheckBox" Class="Com.Ctrl.ICheckBox" Field="EdtRec.WaitAsync" HasCaption="True" Hint="@DocPrint.ExportTemplateEditor.WaitAsync:Hint=Ожидание окончания операции формирования документа с получаением результата. Только для серверного исполнения." Width="84"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="CommentBox" Class="Com.Ctrl.IBox" Caption="@DocPrint.ExportTemplateEditor.CommentBox:Caption=Описание" Collapsed="True">
+        <Component Name="CommentGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+          <Component Name="CommentEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.Comment" HasCaption="False" Multiline="True" ValueType="VarString" Wrap="True"/>
+        </Component>
+      </Component>
+      <Inherited Name="TabsFrame" After="CommentBox" Visible="True">
+        <Inherited Name="MainTab" Caption="@DocPrint.ExportTemplateEditor.Links:Caption=Настройка заполнения полей" Margins="6">
+          <Component Name="LinksTable" Class="Com.Ctrl.ITable" ManualControl="False" Subtable="EdtRec.Links">
+            <Component Name="VarNameEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="ExportTemplate_Links.VarName" HasCaption="True" ValueType="VarString" Width="50"/>
+            <Component Name="InTableEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Enabled="False" Field="ExportTemplate_Links.InTable" HasCaption="True" ValueType="VarInteger" Width="24"/>
+            <Component Name="DataFormat" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="ExportTemplate_Links.DataFormat" HasCaption="True" OnEnter="DataFormatOnEnter" ValueType="VarString" Width="30"/>
+            <Component Name="DataSourceEdit" Class="Com.Ctrl.IEdit" AutoLookup="True" CellFormat="EnumFormat" Field="ExportTemplate_Links.DataSource" HasCaption="True" ValueType="VarString" Width="50"/>
+            <Component Name="DataTypeEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="ExportTemplate_Links.DataType" HasCaption="True" OnChange="DataTypeEditOnChange" OnEnter="DataTypeEditOnEnter" ValueType="VarInteger" Width="35"/>
+            <Component Name="DataValueEdit" Class="Com.Ctrl.IEdit" ButtonStyle="DefaultButton" Field="ExportTemplate_Links.DataValue" FormatOfDate="DateAndTime" HasButton="True" HasCaption="True" OnChange="DataValueEditOnChange" OnEnter="DataValueEditOnEnter" OnLookup="DataValueEditOnLookup" OnOutputEx="DataValueEdit_OnOutputEx" OnVerify="DataValueEditOnVerify" ValueType="VarVariant" Width="100"/>
+            <Component Name="ButtonCopyLink" Class="Com.Ctrl.IButton" HasCaption="False" Hint="@DocPrint.ExportTemplateEditor.ButtonCopyLink:Hint=Копировать настройки" ImageName="Com.CloneItem" IsSwitch="True" OnClick="ButtonCopyLinkOnClick"/>
+            <Component Name="ButtonPasteLink" Class="Com.Ctrl.IButton" HasCaption="False" Hint="@DocPrint.ExportTemplateEditor.ButtonPasteLink:Hint=Вставить настройки" ImageName="Bas.inbox-in" OnClick="ButtonPasteLinkOnClick"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

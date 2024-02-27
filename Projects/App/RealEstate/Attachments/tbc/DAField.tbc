@@ -1,0 +1,53 @@
+﻿TBCFile VER="3.4" [Created '16.08.2022 2:23:39' by 'Администратор']
+
+DESCRIPTION[
+Count=1
+CountByRef=0
+DocApprovement.Ref.Doc.DADoc
+(
+  Count=0
+  CountByRef=0
+)
+DocApprovement.Ref.Doc.DAField
+(
+  Count=1
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [DocApprovement.Ref.Doc.DADoc
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+  [DocApprovement.Ref.Doc.DAField
+  (
+    Deleted :Boolean
+    Code :String(80)
+    Name :String(255)
+    Doc :DocApprovement.Ref.Doc.DADoc
+    UseType :Integer
+    FieldName :String
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[DocApprovement.Ref.Doc.DAField
+  
+  {DocApprovement.Ref.Doc.DAField:"_OOE8917BQ0CP6A"}
+  (
+    Name = "Status"
+    Doc = {DocApprovement.Ref.Doc.DADoc:Договор}
+    UseType = 1
+    FieldName = "Status"
+  )
+]
+
+]

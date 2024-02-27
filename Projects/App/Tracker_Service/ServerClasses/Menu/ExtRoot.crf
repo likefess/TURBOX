@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Menu.CommandGroups.Root">
+  <Inherited>
+    <Component Name="Tracking" Class="Com.Cmd2.ICommandGroup" After="Integration">
+      <Component Name="cmdOpenLegalEntitiesTab" Class="Com.ComManaging.OpenIForm" Caption="@Entity:LegalEntities=Организации" FormClassName="Tracker_Service.Tab.Data.LegalEntities" IconName="Bas.OurCompanies"/>
+      <Component Name="cmdOpenServiceLevelTab" Class="Com.ComManaging.OpenIForm" Caption="@TrackerService:ServiceLevel.MenuItem=Уровни сервиса" FormClassName="Tracker_service.Tab.Ref.ServiceLevel" IconName="Bas.Numerator"/>
+      <Component Name="cmdOpenServiceTab" Class="Com.ComManaging.OpenIForm" Caption="@Tracker_Service:Service.MenuItem=Услуги" FormClassName="Tracker_Service.Tab.Ref.Service" IconName="Com.Services"/>
+      <Component Name="cmdOpenServiceItemsTab" Class="Com.ComManaging.OpenIForm" Caption="@Tracker_Service:ServiceItem.MenuItem=Состав услуг" FormClassName="Tracker_Service.Tab.Config.ServiceITem" IconName="Bas.ProcType"/>
+      <Component Name="cmdOpenContractTab" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="@Tracker_Service:Contract.MenuItem=Договоры" FormClassName="Tracker_Service.Tab.Data.Contract" IconName="Biz.file-contract"/>
+      <Component Name="cmdOpenServiceTaskFrm" Class="Com.ComManaging.OpenIForm" Caption="@Tracker_Service:ServiceTask.MenuItem=Новая заявка" FormClassName="Tracker_Service.Frm.Data.ServiceTask" IconName="Com.plus"/>
+      <Component Name="cmdOpenServiceRequestsList" Class="Com.ComManaging.OpenIForm" Caption="@TrackingService:ServiceTasksList.MenuItem=Все заявки" FormClassName="Tracker_Service.Rep.ServiceRequestViewer" IconName="Control.list-alt"/>
+    </Component>
+    <Inherited Name="ClassName_SettingsWizard" After="Tracking"/>
+  </Inherited>
+</Resource>

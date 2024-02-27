@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    </Component>
+    <Component Name="SelectStruct" Class="Purchase.Frm.Services.Purchase.OpenOfferPlanByCods_Struct" IsLibrary="1"/>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="DataSubtable" Class="Com.ISubtable" StructClass="Purchase.Frm.Services.Purchase.OpenOfferPlanByCods_Struct"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" MaxButton="4">
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Caption="@Cmd:Close=Закрыть" Command="Commands.CloseForm" ImageName="Close"/>
+      </Component>
+      <Component Name="RowsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Subtable="DataSubtable">
+        <Component Name="OfferRequest" Class="Com.Ctrl.IEdit" Enabled="False" Field="SelectStruct.OfferRequest" HasCaption="True" LookupField="Code" Width="40"/>
+        <Component Name="jbOfferRequest" Class="Com.Ctrl.IJumpButton" Field="SelectStruct.OfferRequest" JumpForm="Purchase.Frm.Data.OfferRequest"/>
+        <Component Name="PurchasePlan" Class="Com.Ctrl.IEdit" Enabled="False" Field="SelectStruct.PurchasePlan" HasCaption="True" LookupField="Code" Width="40"/>
+        <Component Name="jbPurchasePlan" Class="Com.Ctrl.IJumpButton" Field="SelectStruct.PurchasePlan" JumpForm="Purchase.Frm.Data.PurchasePlan"/>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

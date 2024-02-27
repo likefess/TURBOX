@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Frm.AddIns.BaseProject">
+  <Inherited Caption="@TMSCosts:TMSCosts=Стоимость работ">
+    <Component Name="Variables" Class="Com.IVarContainer" After="EdtRec"/>
+    <Inherited Name="RootFrame" Margins="5" MinSize="100">
+      <Component Name="CostsFrame" Class="Com.Ctrl.IFrame" AutoSize="False" FixSize="True" MinSize="120" Size="120">
+        <Component Name="GroupButtons" Class="Com.Ctrl.IGroup">
+          <Component Name="SumCostsButton" Class="Com.Ctrl.IButton" Caption="Обновить" OnClick="SumCostsButtonOnClick"/>
+        </Component>
+        <Component Name="GroupMain" Class="Com.Ctrl.IGroup">
+          <Component Name="GroupPlan" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="32" Enabled="False">
+            <Component Name="SumPlanEdit" Class="Com.Ctrl.IEdit" Caption="@TMSCosts:PlanHours=План. часы" Enabled="False" Field="EdtRec.PlanHours" FieldFormat=",##0.00;;-"/>
+            <Component Name="PlanCostEdit" Class="Com.Ctrl.IEdit" Caption="@TMSCosts:PlanCost=План. стоимость" Enabled="False" Field="EdtRec.PlanCost" FieldFormat=",##0.00;;-"/>
+            <Component Name="PlanNetCostEdit" Class="Com.Ctrl.IEdit" Caption="@TMSCosts:PlanCost=План. себестоимость" Enabled="False" Field="EdtRec.PlanNetCost" FieldFormat=",##0.00;;-"/>
+            <Component Name="SelfPlanHours" Class="Com.Ctrl.IEdit" Caption="@TMSCosts:PlanHours=План. часы" Enabled="False" Field="EdtRec.SelfPlanHours" FieldFormat=",##0.00;;-" Visible="False"/>
+          </Component>
+          <Component Name="GroupFact" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="32" Enabled="False">
+            <Component Name="SumFactEdit" Class="Com.Ctrl.IEdit" Caption="@TMSCosts:FactHours=Факт. часы" Enabled="False" Field="EdtRec.FactHours" FieldFormat=",##0.00;;-"/>
+            <Component Name="FactCostEdit" Class="Com.Ctrl.IEdit" Caption="@TMSCosts:FactCost=Факт. стоимость" Enabled="False" Field="EdtRec.FactCost" FieldFormat=",##0.00;;-"/>
+            <Component Name="FactNetCostEdit" Class="Com.Ctrl.IEdit" Caption="@TMSCosts:FactCost=Факт. себестоимость" Enabled="False" Field="EdtRec.FactNetCost" FieldFormat=",##0.00;;-"/>
+          </Component>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Purchase.Frm.Data.BaseDocFrm">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Purchase.Rec.Data.SupplierOfferRec" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Inherited Name="PosRec" Class="Purchase.Rec.Data.SupplierOffer_Pos" IsLibrary="1"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Component Name="ButtonCreateContract" Class="Com.Ctrl.IButton" Caption="Создание договора" HasCaption="True" ImageName="Com.Blank" OnClick="ButtonCreateContractOnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="BasicFrame">
+        <Inherited Name="PeriodFrame" Visible="False"/>
+        <Inherited Name="CodeFrame">
+          <Inherited Name="CodeGr">
+            <Inherited Name="JournalDate" Visible="True"/>
+            <Component Name="NewLine20" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Ed_OfferRequest" Class="Com.Ctrl.IEdit" Caption="Запрос предложений" CaptionWidth="55" CardFileClass="Purchase.Tab.Data.OfferRequests" Field="EdtRec.OfferRequest" FixSize="False" LookupFilter="Cont = True" OnChange="Ed_OfferRequest_OnChange" Required="True" Visible="True"/>
+            <Component Name="OfferRequestJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.OfferRequest" FixSize="True" JumpForm="Purchase.Frm.Data.OfferRequest" Width="7.2"/>
+            <Component Name="NewLine13" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Supplier" Class="Com.Ctrl.IEdit" Caption="Контрагент" CaptionWidth="55" Field="EdtRec.Suppli" OnOpenCardForm="Supplier_OnOpenCardForm" Required="True" Visible="True"/>
+            <Component Name="SupplierJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Suppli" FixSize="True" JumpForm="Bas.Frm.Data.Entity" Width="7.2"/>
+          </Inherited>
+          <Component Name="Gr_Condition" Class="Com.Ctrl.IGroup" After="CodeGr" Adaptive="True" MaxWidth="250" MinWidth="180">
+            <Component Name="edCondition" Class="Com.Ctrl.IEdit" CaptionWidth="55" CardFileClass="Purchase.Tab.Ref.StatusSupplier" Field="EdtRec.Condition" HasCaption="True" ShortList="True"/>
+            <Component Name="StaticGroup" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+          </Component>
+        </Inherited>
+        <Inherited Name="HeadFrm" Visible="False"/>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab" Caption="@Frm:MainTab=Общие">
+          <Component Name="BasicBox" Class="Com.Ctrl.IBox" After="#0" Caption="Основное">
+            <Component Name="Basic_Data" Class="Com.Ctrl.IGroup">
+              <Component Name="Subject_Treaty" Class="Com.Ctrl.IEdit" Caption="Предмет договора" CaptionWidth="55" Field="EdtRec.ContractSubject" FieldFormat="#" Width="188"/>
+              <Component Name="NewLine18" Class="Com.Ctrl.INewLine"/>
+              <Component Name="ApplicationNumberETP" Class="Com.Ctrl.IEdit" Caption="Номер заявки на ЭТП" CaptionWidth="55" Field="EdtRec.НомерЗаявкиЭТП" Width="188"/>
+              <Component Name="NewLine19" Class="Com.Ctrl.INewLine"/>
+              <Component Name="TotalAmount" Class="Com.Ctrl.IEdit" Caption="Общая сумма" CaptionWidth="55" Field="EdtRec.TotalAmount" FieldFormat="#0.00" MaxWidth="56" Visible="True"/>
+              <Component Name="TotalUnit" Class="Com.Ctrl.IEdit" Enabled="True" Field="EdtRec.TotalUnit" LookupField="code" LookupFilter="UnitKind = 1" MaxWidth="17" ShortList="True" Width="17"/>
+              <Component Name="AmountVAT" Class="Com.Ctrl.IEdit" Caption="Сумма НДС:" CaptionWidth="51" Field="EdtRec.AmountVAT" FieldFormat="#0.00" Visible="True"/>
+              <Component Name="NewLine21" Class="Com.Ctrl.INewLine"/>
+              <Component Name="edNumberOfContract" Class="Com.Ctrl.IEdit" Caption="Номер договора" CaptionWidth="55" Field="EdtRec.NumberOfContract" LookupField="Code" Width="188"/>
+              <Component Name="JBContract" Class="Com.Ctrl.IJumpButton" Field="EdtRec.NumberOfContract" JumpForm="Biz.Frm.Data.Contract"/>
+            </Component>
+          </Component>
+          <Inherited Name="MainBox" Caption="Условия поставки">
+            <Component Name="Delivery_Conditions" Class="Com.Ctrl.IGroup">
+              <Component Name="DeliveryConditions" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Условия поставки" CaptionWidth="55" Field="EdtRec.termsDelivery" Width="188"/>
+              <Component Name="NewLine17" Class="Com.Ctrl.INewLine"/>
+              <Component Name="DeliveryAddress" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Место поставки" CaptionWidth="55" Field="EdtRec.placeDelivery" Hint="Место поставки товаров (оказания услуг)" Width="188"/>
+            </Component>
+          </Inherited>
+          <Inherited Name="LineBox" Caption="Сроки">
+            <Inherited Name="LineFrm">
+              <Component Name="Terms" Class="Com.Ctrl.IGroup">
+                <Component Name="TermContract" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" AutoLock="True" Caption="Срок исполнения договора" CaptionWidth="55" Field="EdtRec.SrokDogovora" Width="188"/>
+                <Component Name="NewLine14" Class="Com.Ctrl.INewLine"/>
+                <Component Name="DeliveryTime" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" AutoLock="True" Caption="Срок поставки (дни)" CaptionWidth="55" Field="EdtRec.SrokDays" Width="188"/>
+              </Component>
+            </Inherited>
+          </Inherited>
+          <Component Name="Terms_of_payment" Class="Com.Ctrl.IBox" After="LineBox" Caption="Условия оплаты">
+            <Component Name="TermsOfPayment" Class="Com.Ctrl.IGroup">
+              <Component Name="TermsPayment" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Условия оплаты" CaptionWidth="55" Field="EdtRec.paymentConditions" LookupField="Name" ShortList="True" Width="188"/>
+              <Component Name="NewLine15" Class="Com.Ctrl.INewLine"/>
+              <Component Name="PaymentSchedule" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="График оплаты" CaptionWidth="55" Field="EdtRec.GrahFunding" Width="188"/>
+            </Component>
+          </Component>
+          <Component Name="Additionally" Class="Com.Ctrl.IBox" Caption="Дополнительно">
+            <Component Name="Additionally_" Class="Com.Ctrl.IGroup">
+              <Component Name="ContAgent" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Контактное лицо" CaptionWidth="55" Field="EdtRec.contactSupli" Hint="Контактное лицо контрагента" Width="188" Wrap="True"/>
+              <Component Name="NewLine16" Class="Com.Ctrl.INewLine"/>
+              <Component Name="Comments" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Комментарии" CaptionWidth="55" Field="EdtRec.Comment" Width="188"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Inherited Name="PosTab">
+          <Inherited Name="tbPos">
+            <Component Name="Ed_RemotePosition" Class="Com.Ctrl.ICheckBox" After="#0" Caption="Выбор" Field="PosRec.RemovePosition"/>
+            <Inherited Name="Ed_ТМЦ_услуги_Name" Enabled="False"/>
+            <Inherited Name="Ed_ТМЦ_услуги_Code" Enabled="False"/>
+            <Inherited Name="Ed_TMC_FullName" Visible="False"/>
+            <Inherited Name="СlmnsGr_Колво" Enabled="False"/>
+            <Component Name="edPriceWithoutVAT" Class="Com.Ctrl.IEdit" After="СlmnsGr_Колво" Caption="Цена без НДС " Enabled="False" Field="PosRec.PriceWithoutVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="25" Wrap="True"/>
+            <Component Name="edPriceWithVAT" Class="Com.Ctrl.IEdit" Caption="Цена с НДС" Enabled="True" Field="PosRec.PriceWithVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="25" Wrap="True"/>
+            <Component Name="СlmnsGr_SumWithoutVAT" Class="Com.Ctrl.IColumnsGroup" Caption="Сумма без НДС" HasCaption="True" Visible="True">
+              <Component Name="edSumWithoutVAT" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.SumWithoutVAT" FieldFormat="#0.00" HasCaption="False" Visible="True" Width="25"/>
+              <Component Name="edSumUnit1" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.SumUnit" HasCaption="False" LookupField="code" Visible="True" Width="10"/>
+            </Component>
+            <Inherited Name="ClmnsGr_КолвоУпак" Excluded="True"/>
+            <Inherited Name="ClmnsGr_Sum" Enabled="False"/>
+            <Inherited Name="ClmnsGr_VAT" Enabled="True"/>
+            <Inherited Name="Ed_ТМЦ_услуги_Lot" Visible="False"/>
+            <Inherited Name="Ed_DocObject" Visible="False"/>
+            <Component Name="Ed_RemarkSupplier" Class="Com.Ctrl.IEdit" After="Ed_DocObject" Caption="Комментарий" Field="PosRec.RemarkPosition"/>
+            <Inherited Name="Ed_Coefficient_Analog" Visible="False"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

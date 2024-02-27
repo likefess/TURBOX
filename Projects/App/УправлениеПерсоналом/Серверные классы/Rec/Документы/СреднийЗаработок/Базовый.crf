@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Rec.Базовая.БазовыйДокумент">
+  <Inherited>
+    <Component Name="СреднийПервичный" Class="Com.Fld.IField" After="#0" FieldName="СреднийПервичный"/>
+    <Component Name="ЗаменаЛет" Class="Com.Fld.IField" FieldName="ЗаменаЛет"/>
+    <Component Name="РасчетВКалендарныхДнях" Class="Com.Fld.IField" FieldName="РасчетВКалендарныхДнях"/>
+    <Component Name="РКФ" Class="Com.Fld.IVar" OnCalc="РКФ_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="ВариантРасчета" Class="Com.Fld.IField" FieldName="ВариантРасчета" OnChange="ВариантРасчета_OnChange"/>
+    <Component Name="УслОбозн" Class="Com.Fld.IField" FieldName="УслОбозн" OnChange="УслОбозн_OnChange"/>
+    <Component Name="ВидСреднего" Class="Com.Fld.IField" FieldName="ВидСреднего" OnChange="ВидСреднего_OnChange" OnVerify="ЗаписьНеГруппа_OnVerify"/>
+    <Component Name="ЭтоПродолжение" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    <Component Name="НачПериодаЗаработка" Class="Com.Fld.IField" Extra="True" FieldName="дНачПериодаЗаработка" ValueType="VarDate"/>
+    <Component Name="КонПериодаЗаработка" Class="Com.Fld.IField" Extra="True" FieldName="дКонПериодаЗаработка" ValueType="VarDate"/>
+    <Component Name="Заработок" Class="Com.ISubtable" OnAfterDelete="Заработок_OnAfterDelete" StructClass="УправлениеПерсоналом.Rec.Документы.СреднийЗаработок.Базовый_Заработок" SubtableName="Заработок"/>
+    <Component Name="ЗаработокИтоги" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.СреднийЗаработок.Базовый_ЗаработокИтоги"/>
+    <Component Name="Пособия" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.СреднийЗаработок.Базовый_Пособия" SubtableName="Пособия"/>
+    <Component Name="Корректировки" Class="Com.ISubtable" Excluded="True" StructClass="УправлениеПерсоналом.Rec.Документы.СреднийЗаработок.Базовый_Корректировки" SubtableName="Корректировки"/>
+    <Inherited Name="Дата" Caption="Дата расчета"/>
+    <Component Name="ТипДокумента" Class="Com.Fld.IField" After="Дата" FieldName="ТипДокумента"/>
+    <Component Name="ДокументПриказа" Class="Com.Fld.IField" FieldName="ДокументПриказа" OnChange="ДокументПриказа_OnChange"/>
+    <Component Name="Проводить" Class="Com.Fld.IField" After="Предприятие" FieldName="Проводить"/>
+    <Component Name="УсловияТрудаСотр" Class="Com.Fld.IField" FieldName="УсловияТрудаСотр" OnChange="УсловияТрудаСотр_OnChange"/>
+    <Component Name="Назначение" Class="Com.Fld.IField" FieldName="Назначение"/>
+    <Component Name="Корректировка" Class="Com.Fld.IField" FieldName="Корректировка"/>
+    <Component Name="Скорректирован" Class="Com.Fld.IField" FieldName="Скорректирован"/>
+    <Component Name="ДатаКорректировки" Class="Com.Fld.IField" FieldName="ДатаКорректировки"/>
+    <Component Name="ПериодРасчетКорр" Class="Com.Fld.IField" FieldName="ПериодРасчетКорр"/>
+    <Component Name="Перерасчет" Class="Com.Fld.IField" FieldName="Перерасчет" OnChange="Перерасчет_OnChange"/>
+    <Component Name="ПредыдущийРасчет" Class="Com.Fld.IField" FieldName="ПредыдущийРасчет" OnChange="ПредыдущийРасчет_OnChange"/>
+    <Component Name="РасчетИсх" Class="Com.Fld.IField" FieldName="РасчетИсх" OnChange="РасчетИсх_OnChange"/>
+    <Component Name="ДатаНачала" Class="Com.Fld.IField" FieldName="ДатаНачала" OnChange="ДатаНачала_OnChange"/>
+    <Component Name="ДатаОкончания" Class="Com.Fld.IField" FieldName="ДатаОкончания" OnChange="ДатаОкончания_OnChange"/>
+    <Component Name="Период" Class="Com.Fld.IField" FieldName="Период"/>
+    <Component Name="ТипРасчета" Class="Com.Fld.IField" Excluded="True" FieldName="ТипРасчета"/>
+    <Component Name="Коэффициент" Class="Com.Fld.IField" FieldName="Коэффициент"/>
+    <Component Name="ДневнойЗаработок" Class="Com.Fld.IField" FieldName="ДневнойЗаработок"/>
+    <Component Name="ВсегоЧислоДней" Class="Com.Fld.IField" FieldName="ВсегоЧислоДней"/>
+    <Component Name="ВсегоКВыдаче" Class="Com.Fld.IField" FieldName="ВсегоКВыдаче"/>
+    <Component Name="Начисление" Class="Com.Fld.IField" FieldName="Начисление" OnChange="Начисление_OnChange" OnVerify="ЗаписьНеГруппа_OnVerify"/>
+  </Inherited>
+</Resource>

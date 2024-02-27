@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.Event">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Tracker_Service.Rec.Data.Contract" IsLibrary="1"/>
+    <Component Name="Contract_SLSpecification" Class="Tracker_Service.Rec.Data.Contract_SLSpecification" IsLibrary="1" After="EdtRec"/>
+    <Component Name="Contract_Position" Class="Tracker_Service.Rec.Data.Contract_Position" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" Excluded="True" CaptionWidth="50"/>
+        <Component Name="MainGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50">
+          <Component Name="Group2" Class="Com.Ctrl.IGroup">
+            <Component Name="Name1" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" FontBold="True" HasCaption="True"/>
+            <Component Name="Code1" Class="Com.Ctrl.IEdit" CaptionWidth="30" Field="EdtRec.Code" FixSize="True" HasCaption="True" Width="40"/>
+          </Component>
+          <Component Name="CodeNameGroup" Class="Com.Ctrl.IEdit" Caption="@TrackerService:Status=Статус" Field="EdtRec.Status"/>
+          <Component Name="ContractSubject" Class="Com.Ctrl.IEdit" Caption="@TrackerService:ContractSubject=Предмет договора" Field="EdtRec.ContractSubject"/>
+          <Component Name="Company" Class="Com.Ctrl.IEdit" Caption="@TrackerService:Company=Исполнитель" Field="EdtRec.Company" LookupFilter="IsOurCompany" ShortList="True"/>
+          <Component Name="Partner" Class="Com.Ctrl.IEdit" Caption="@TrackerService:Partner=Заказчик" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Partner" LookupFilter="IsLegalEntity" Required="True"/>
+          <Component Name="Group4" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="90">
+            <Component Name="Static5" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+            <Component Name="Intragroup" Class="Com.Ctrl.IEdit" Caption="@TrackerService:Intragroup=Внутригрупповой" Field="EdtRec.Intragroup"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" AutoSize="True" Margins="0">
+          <Component Name="MainTabGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+            <Component Name="PeriodGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300">
+              <Component Name="PeriodLeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="StartDateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+                  <Component Name="StartDate" Class="Com.Ctrl.IEdit" Caption="@TrackerService:StartDate=Период действия с" Field="EdtRec.StartDate" OnVerify="StartDate_OnVerify" Required="True"/>
+                  <Component Name="StartDateBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="ProlongationGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+                  <Component Name="ProlongationStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+                  <Component Name="ProlongationEdit" Class="Com.Ctrl.ICheckBox" Caption="@TrackerService:ProlongationEdit=Автоматически продлевать" Field="EdtRec.Prolongation" OnVerify="ProlongationEdit_OnVerify"/>
+                  <Component Name="ProlongationEditBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="IndefiniteGroupLeft" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+                  <Component Name="IndefiniteLeftStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+                  <Component Name="IndefiniteLeftEdit" Class="Com.Ctrl.ICheckBox" Caption="@TrackerService:IndefiniteLeftEdit=Бессрочный договор" Field="EdtRec.Indefinite" OnChange="IndefiniteEdit_OnChange" OnVerify="IndefiniteEdit_OnVerify"/>
+                  <Component Name="IndefiniteLeftBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+              <Component Name="PeriodRightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="ExpirationDateGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                  <Component Name="ExpirationDateEdit" Class="Com.Ctrl.IEdit" Caption="@TrackerService:ExpirationDateEdit=По" Field="EdtRec.ExpirationDate" OnVerify="ExpirationDateEdit_OnVerify" Required="True"/>
+                  <Component Name="ExpirationHistoryButton" Class="Com.Ctrl.IButton" FixSize="True" ImageName="Biz.list" OnClick="ExpirationHistoryButton_OnClick" Width="7.5"/>
+                </Component>
+                <Component Name="ProlongationMonthsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+                  <Component Name="ProlongationMonthsEdit" Class="Com.Ctrl.IEdit" Caption="@TrackerService:ProlongationMonthsEdit=Продление на" Field="EdtRec.ProlongationMonths" OnEnter="ProlongationMonthsEdit_OnEnter" OnOutput="ProlongationMonthsEdit_OnOutput" OnVerify="ProlongationMonthsEdit_OnVerify"/>
+                  <Component Name="ProlongationMonthsBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="PeriodIndefiniteGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300">
+              <Component Name="PeriodIndefiniteLeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="StartDateIndefiniteGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+                  <Component Name="StartDateIndefinite" Class="Com.Ctrl.IEdit" Caption="@TrackerService:StartDate=Период действия с" Field="EdtRec.StartDate" OnVerify="StartDate_OnVerify" Required="True"/>
+                  <Component Name="StartDateIndefiniteBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+              <Component Name="PeriodIndefiniteRightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="IndefiniteGroupRight" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+                  <Component Name="IndefiniteRightStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+                  <Component Name="IndefiniteRightEdit" Class="Com.Ctrl.ICheckBox" Caption="@TrackerService:IndefiniteRightEdit=Бессрочный договор" Field="EdtRec.Indefinite" OnChange="IndefiniteEdit_OnChange" OnVerify="IndefiniteEdit_OnVerify"/>
+                  <Component Name="IndefiniteRigthBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="SpecificationsTab" Class="Com.Ctrl.IFrame" Caption="@TrackerService:SpecificationsTab=Спецификации">
+          <Component Name="PositionsBox" Class="Com.Ctrl.IBox" Caption="@TrackerService:PositionsBox=Состав услуг по договору">
+            <Component Name="PositionsTable" Class="Com.Ctrl.ITable" Numbering="False" OnDelete="PositionsTableOnDelete" OnInsert="PositionsTableOnInsert" Subtable="EdtRec.Positions">
+              <Component Name="Service" Class="Com.Ctrl.IEdit" Field="Contract_Position.Service" HasCaption="True" OnDraw="PositionEditsOnDraw" Width="60"/>
+              <Component Name="ServiceItem" Class="Com.Ctrl.IEdit" CardFileClass="Tracker_Service.Tab.Config.ServiceItem" Field="Contract_Position.ServiceItem" HasCaption="True" LookupField="Name" OnChange="ServiceItemOnChange" OnDraw="PositionEditsOnDraw" OnOpenCardForm="ServiceItemOnOpenCardForm" Width="75"/>
+              <Component Name="ScheduleColGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@TrackerService:ScheduleColGroup=График предоставления" HasCaption="True" Width="120">
+                <Component Name="CalendarEdit" Class="Com.Ctrl.IEdit" Field="Contract_Position.Calendar" HasCaption="True" LookupField="Code" OnDraw="PositionEditsOnDraw" Width="40"/>
+                <Component Name="TimeFromEdit" Class="Com.Ctrl.IEdit" Field="Contract_Position.TimeFrom" FormatOfDate="TimeOnly" HasCaption="True" OnDraw="PositionEditsOnDraw" Width="40"/>
+                <Component Name="TimeTillEdit" Class="Com.Ctrl.IEdit" Field="Contract_Position.TimeTill" FormatOfDate="TimeOnly" HasCaption="True" OnDraw="PositionEditsOnDraw" Width="40"/>
+              </Component>
+              <Component Name="WorkGroup" Class="Com.Ctrl.IEdit" CardFileClass="Tracker_Service.Tab.Data.WorkingGroup" Field="Contract_Position.WorkGroup" HasCaption="True" LookupField="Name" OnDraw="PositionEditsOnDraw" Width="40"/>
+            </Component>
+          </Component>
+          <Component Name="SLSpecificationsBox" Class="Com.Ctrl.IBox" Caption="@TrackerService:SLSpecificationsBox=Уровни SLA" Visible="False">
+            <Component Name="SLSpecificationsTable" Class="Com.Ctrl.ITable" Numbering="False" OnDelete="SLSpecificationsTableOnDelete" OnInsert="SLSpecificationsTableOnInsert">
+              <Component Name="ServiceLevel" Class="Com.Ctrl.IEdit" Field="Contract_SLSpecification.ServiceLevel" HasCaption="True" OnOpenCardForm="ServiceLevelOnOpenCardForm" Width="175"/>
+              <Component Name="ReactionColGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@TrackerService:ReactionColGroup=Время реакции" HasCaption="True" Width="60">
+                <Component Name="ReactionTimeEdit" Class="Com.Ctrl.IEdit" Field="Contract_SLSpecification.ReactionTime" HasCaption="False" OnDraw="SLSpecificationTimeEdit_OnDraw" OnOutput="SLSpecificationTimeEdit_OnOutput" Width="40"/>
+                <Component Name="ReactionTimeUnitEdit" Class="Com.Ctrl.IEdit" Field="Contract_SLSpecification.ReactionTimeUnit" HasCaption="False" LookupField="Code" LookupFilter="IsCurrency = 3" OnDraw="SLSpecificationTimeEdit_OnDraw" OnOutput="SLSpecificationTimeEdit_OnOutput" Width="20"/>
+              </Component>
+              <Component Name="DecisionColGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@TrackerService:DecisionColGroup=Время решения" HasCaption="True" Width="60">
+                <Component Name="DecisionTimeEdit" Class="Com.Ctrl.IEdit" Field="Contract_SLSpecification.DecisionTime" HasCaption="False" OnDraw="SLSpecificationTimeEdit_OnDraw" OnOutput="SLSpecificationTimeEdit_OnOutput" Width="40"/>
+                <Component Name="DecisionTimeUnitEdit" Class="Com.Ctrl.IEdit" Field="Contract_SLSpecification.DecisionTimeUnit" HasCaption="False" LookupField="Code" LookupFilter="IsCurrency = 3" OnDraw="SLSpecificationTimeEdit_OnDraw" OnOutput="SLSpecificationTimeEdit_OnOutput" Width="20"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="AttachmentsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" CanResizeBySplit="True" Caption="@TrackerService:Attachments=Вложения" MinSize="20">
+          <Component Name="AttachmentsOfContract" Class="TrackingLib.Ctrl.IAttachment" FixSize="False" ResizeEnabled="True"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IEditorWithFrames">
+  <Inherited>
+    <Component Name="EdtRec" Class="HRBase.Rec.Data.StaffingUnitData" IsLibrary="1" After="#0"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame" Visible="True">
+        <Component Name="grStaffingUnit" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+          <Component Name="edStaffingUnit" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Data.StaffingUnit" Enabled="False" Field="EdtRec.StaffingUnit" HasCaption="True" LookupField="Name"/>
+          <Component Name="grDates" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="edtDateChange" Class="Com.Ctrl.IEdit" Field="EdtRec.ChangeDate" HasCaption="True" MaxWidth="35" OnVerify="edtDateChange_OnVerify"/>
+            <Component Name="edtDateClosed" Class="Com.Ctrl.IEdit" Field="EdtRec.DateClosed" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="35" OnChange="edtDateClosed_OnChange"/>
+          </Component>
+        </Component>
+        <Component Name="grMain" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+          <Component Name="grMain1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="edQtyUnit" Class="Com.Ctrl.IEdit" Field="EdtRec.QtyUnit" HasCaption="True" MaxWidth="35" OnVerify="edQtyUnit_OnVerify"/>
+          </Component>
+        </Component>
+        <Component Name="ChangeDate" Class="Com.Ctrl.IEdit" Excluded="True" Field="EdtRec.ChangeDate" FormatOfDate="DateOnly" HasCaption="True"/>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

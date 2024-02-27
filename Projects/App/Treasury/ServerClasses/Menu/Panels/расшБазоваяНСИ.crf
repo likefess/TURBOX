@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CashFlow.Menu.Panels.БазоваяНСИ">
+  <Inherited>
+    <Inherited Name="MainGroup">
+      <Inherited Name="Справочники">
+        <Component Name="MenuItem_InfobaseCmdCountries" Class="Com.Cmd2.IItem" After="Cmd_Currencies" Command="Commands.Cmd_Countries"/>
+        <Component Name="MenuItem_InfobaseCmdRegions" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Regions"/>
+        <Component Name="MenuItem_InfobaseCmdEntityRoles" Class="Com.Cmd2.IItem" Command="Commands.Cmd_EntityRoles"/>
+        <Component Name="MenuItem_InfobaseCmdVAT" Class="Com.Cmd2.IItem" Command="Commands.Cmd_VAT"/>
+        <Component Name="MenuItem_InfobaseCmdEntities" Class="Com.Cmd2.IItem" After="Cmd_Contract" Command="Commands.Cmd_Entities"/>
+        <Component Name="MenuItem_InfobaseCmdOurCompanies" Class="Com.Cmd2.IItem" Command="Commands.Cmd_OurCompanies"/>
+        <Component Name="MenuItem_InfobaseCmdDivisions" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Divisions"/>
+        <Component Name="Cmd_Addresses" Class="Com.ComManaging.OpenIForm" After="Cmd_NaturalEntities" AdvRTIForm="Biz.Frm.Data.Address" Caption="@Cmd:Addresses=Адреса" FormClassName="Biz.Tab.Data.Addresses" IconName="Biz.Address"/>
+      </Inherited>
+      <Component Name="Бюджетные_аналитики" Class="Com.Cmd2.IGroup" Caption="@Cmd:Группа_БюджетныеАналитики=Бюджетные аналитики" Columns="6">
+        <Component Name="Приоритеты_статей" Class="Com.Cmd2.IItem" Command="Commands.Приоритеты_статей"/>
+        <Component Name="СБК" Class="Com.Cmd2.IItem" Command="Commands.Cmd_BGI"/>
+        <Component Name="ЦФО" Class="Com.Cmd2.IItem" Command="Commands.Cmd_CFR"/>
+        <Component Name="Проекты_и_программы" Class="Com.Cmd2.IItem" Command="Commands.Cmd_cmdProject"/>
+        <Component Name="Фонды_источники_финансирования" Class="Com.Cmd2.IItem" Command="Commands.Cmd_FundSource"/>
+      </Component>
+      <Component Name="Group_AdminServices" Class="Com.Cmd2.IGroup" Caption="Заполнение НСИ">
+        <Component Name="Item_SelectOurCompany" Class="Com.Cmd2.IItem" Command="Commands.SelectOurCompany"/>
+        <Component Name="Item_LoadBIC" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Сервис_ЗагрузкаБИК"/>
+        <Component Name="Маршруты_согласования_заявки" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.Маршруты_согласования_заявки"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

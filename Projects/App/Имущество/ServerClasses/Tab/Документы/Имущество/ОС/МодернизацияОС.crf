@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Tab.Документы.Имущество.ОС.ИмуществоБазовыйДокументОС">
+  <Inherited>
+    <Inherited Name="Current" Class="Имущество.Rec.Документы.Имущество.ОС.МодернизацияОС" IsLibrary="1"/>
+    <Component Name="ПозицииКВ" Class="Имущество.Rec.Документы.Имущество.ОС.МодернизацияОС_ПозицииКВ" IsLibrary="1" After="ПозицииОС"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="ОС" Class="Com.Ctrl.IEdit" After="Проводить" Field="Current.ОС"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FrameSubCardfile">
+        <Inherited Name="ПозицииОС_Табл" Excluded="True" Visible="False"/>
+        <Component Name="ПозицииКВ_Табл" Class="Com.Ctrl.ISubCardfile" Caption="КВ" Subtable="Current.ПозицииКВ">
+          <Component Name="КВПоз" Class="Com.Ctrl.IEdit" Field="ПозицииКВ.КВ"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

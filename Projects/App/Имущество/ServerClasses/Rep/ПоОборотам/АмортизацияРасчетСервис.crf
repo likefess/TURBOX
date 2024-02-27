@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" AccountPlan="Оперативный" BegDate="01.05.2022" Caption="АмортизацияРасчетСервис" CIndicator="1" EndDate="01.06.2022" HystoKind="hkSide" Legend="lpkAtRight" Palette="cpDefault" ParameterFilter="ОС &lt;> nil" Period="3" ShowBeyondLimits="False">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorПодразделение" Class="Com.Rep.IIndCalc" AccountFilter="Имущество" BegSaldoFormat="msfNone" Caption="Подразделение" Contents="LastValue(Подразделение)" TurnFormat="msfNone"/>
+      <Component Name="IndicatorМОЛ" Class="Com.Rep.IIndCalc" AccountFilter="Имущество" BegSaldoFormat="msfNone" Caption="МОЛ" Contents="LastValue(МОЛ)" TurnFormat="msfNone"/>
+      <Component Name="IndicatorАмортизация" Class="Com.Rep.IIndMain" AccountFilter="Амортизация" Caption="Амортизация начисленная" Contents="Сумма" EndSaldoFormat="msfNone" InvertValue="True" LimitKind_Turn="cutAbove" MaxWidth="40" ShowUnit="False" TurnFormat="msfNone"/>
+      <Component Name="IndicatorСтоимость" Class="Com.Rep.IIndMain" AccountFilter="Имущество" BegSaldoFormat="msfNone" Caption="Стоимость (текущая)" Contents="Сумма" LimitActive_Saldo="True" LimitActive_Turn="True" LimitKind_Turn="cutAbove" ShowUnit="False" TurnFormat="msfNone"/>
+      <Component Name="IndicatorАмортизацияТП" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="АмортизацияТП" Formula="Round( (Чис(&quot;IndicatorСтоимость&quot;,КОст) - Чис(&quot;IndicatorАмортизация&quot;,НОст) - Поле(&quot;#.ЛиквидационнаяСтоимость&quot;).Items[EndDate]) * ИмуществоБазовый.Библио.ПолучитьКоэффАмортизации(Поле(&quot;#&quot;), BegDate, EndDate-1) / ИмуществоБазовый.Библио.ПолучитьОстатокСПИ(ИмуществоБазовый.Rec.Справочники.ОснСредства.OpenRecord(Поле(&quot;#&quot;)),EndDate), 2)" ShowUnit="False" TurnFormat="msfNone" ValueType="VarNumeric"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam0C2664A8" Class="Com.Rep.ISplitByParam" SplitParam="ОС"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContent32DF1ACA" Class="Com.Rep.ISplitContent" Caption="ОС" Contents="ОС.КодИмущества"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_ОграничениеДат" Class="Com.Rep.IRepControl" Caption="ОграничениеДат" DefaultStr="String(&quot;&quot;)" Operator="=" Plan="Оперативный" PrepareFunc="Result = '(ОС.ДатаНачалаАмортизации &lt;> nil and ОС.ДатаНачалаАмортизации &lt; ' + EndDate.Str + ') and (ОС.ДатаПрекращенияАмортизации = nil or ОС.ДатаПрекращенияАмортизации > ' + BegDate.Str + ')'" ValueType="VarString" Visible="False"/>
+      <Component Name="RC_НашеПредприятие" Class="Com.Rep.IRepControl" Caption="Предприятие" DefaultStr="Object(nil)" Operator="=" Parameter="НашеПредприятие" Plan="Оперативный" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Подразделение_Огр" Class="Com.Rep.IRepControl" Caption="Подразделение" CaptionWidth="32" DefaultStr="Object(nil)" Indicators="Подразделение,Стоимость" MultiSelect="True" Operator=" is " Parameter="Подразделение" Plan="Оперативный" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_ОС" Class="Com.Rep.IRepControl" Caption="ОС" CardFileClass="ИмуществоБазовый.Tab.Справочники.ОснСредства" DefaultStr="Object(nil)" MultiSelect="True" Operator=" is " Parameter="ОС" Plan="Оперативный" SkipNil="True" ValueType="VarObject"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

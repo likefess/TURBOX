@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Name="Rep.IReportTurns45" Class="Com.Rep.IReportTurns" AccountFilter="RealEstateObjectsAccount|TechnicalAccount" AccountPlan="RealEstateAccounts" BegDate="01.01.1900" BegSaldoFormat="sfNone" Caption="Реестр объектов имущества" CIndicator="1" ExplainSaldoFromOrigin="False" FreezeHeader="True" GeoSplit="1" HelpContext="RealEstate.Управление имуществом.Отчеты.Отчеты.Реестр объектов имущества" HystoKind="hkSide" Legend="lpkAtRight" OpenPeriod="opCurrent" OutputMap="0" Palette="cpDefault" ParameterFilter="RealEstateObject &lt;> nil and (Meter in ['ObjArea01Summary','ObjPop01Total'] or not Journal in ['RealEstate.RealEstateArea','RealEstate.RealEstatePop'])" ShowBeyondLimits="False" ShowDebCreRow="False" ShowSumKindRow="False" SumSplitCreTurn="False" SumSplitDebTurn="False" TurnFormat="sfNone">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorCounter" Class="Com.Rep.IIndMain" Caption="Количество ОИ" Contents="Counter" ShowUnit="False" Visible="False"/>
+      <Component Name="IndicatorЧислГруппа" Class="Com.Rep.IIndGroup" Caption="Численность, чел."/>
+      <Component Name="IndicatorЧислФакт_Выч" Class="Com.Rep.IIndCalc" BegSaldoFormat="msfNone" Caption="Факт" Contents="LastValue(NumField)" EndSaldoFormat="msfDeb" Format=",##0;;-" Group="IndicatorЧислГруппа" MaxWidth="25" ParameterFilter="Meter = 'ObjPop01Total' and FieldGroup = 'Фактическая'" ShowUnit="False" TurnFormat="msfNone" Visible="False"/>
+      <Component Name="IndicatorЧислФакт_Поль" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="фактическая" EndSaldoFormat="msfDeb" Format=",##0;;-" Formula="Пок('ЧислФакт_Выч')" Group="IndicatorЧислГруппа" MaxWidth="30" MinWidth="30" ShowUnit="False" TurnFormat="msfNone" ValueType="VarNumeric"/>
+      <Component Name="IndicatorЧислШтат_Выч" Class="Com.Rep.IIndCalc" BegSaldoFormat="msfNone" Caption="Штат" Contents="LastValue(NumField)" EndSaldoFormat="msfDeb" Format=",##0;;-" Group="IndicatorЧислГруппа" MaxWidth="25" ParameterFilter="Meter = 'ObjPop01Total' and FieldGroup = 'Штатная'" ShowUnit="False" TurnFormat="msfNone" Visible="False"/>
+      <Component Name="IndicatorЧислШтат_Поль" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="плановая" EndSaldoFormat="msfDeb" Format=",##0;;-" Formula="Пок('ЧислШтат_Выч')" Group="IndicatorЧислГруппа" MaxWidth="30" MinWidth="30" ShowUnit="False" TurnFormat="msfNone" ValueType="VarNumeric"/>
+      <Component Name="IndicatorФактическаяЧисленность" Class="Com.Rep.IIndCustom" Excluded="True" BegSaldoFormat="msfNone" Caption="фактическая" EndSaldoFormat="msfDeb" Formula="RealEstate.Rep.Service.PopByObject.GetPopValue(RowSplit(1).Value,'Фактическая','ObjPop01Total', , ,EndDate)" MaxWidth="30" MinWidth="30" ShowUnit="False" TurnFormat="msfNone" ValueType="VarNumeric"/>
+      <Component Name="IndicatorПлановаяЧисленность" Class="Com.Rep.IIndCustom" Excluded="True" BegSaldoFormat="msfNone" Caption="плановая" EndSaldoFormat="msfDeb" Formula="RealEstate.Rep.Service.PopByObject.GetPopValue(RowSplit(1).Value,'Штатная','ObjPop01Total', , ,EndDate)" MaxWidth="30" MinWidth="30" ShowUnit="False" TurnFormat="msfNone" ValueType="VarNumeric"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParamD5984521" Class="Com.Rep.ISplitByParam" SplitParam="RealEstateObject"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContent83CC7926" Class="Com.Rep.ISplitContent" AfterIndicators="False" Caption="Общая площадь" Contents="RealEstateObject.#AreaObject" MaxWidth="30" MinWidth="30"/>
+        <Component Name="SplitContentBE6856AF" Class="Com.Rep.ISplitContent" AfterIndicators="True" Caption="Правообладатель" Contents="RealEstateObject.#CopyrightHolder.Name" MaxWidth="40" MinWidth="40"/>
+        <Component Name="SplitContentA766BB15" Class="Com.Rep.ISplitContent" AfterIndicators="True" Caption="Пользователь" Contents="RealEstateObject.#PropertyUser.Name" MaxWidth="40" MinWidth="40"/>
+        <Component Name="SplitContentA766BB16" Class="Com.Rep.ISplitContent" AfterIndicators="True" Caption="Балансодержатель" Contents="RealEstateObject.#Balanser.Name" MaxWidth="40" MinWidth="40"/>
+        <Component Name="SplitContent37CBEFC0" Class="Com.Rep.ISplitContent" Caption="Тип объекта" Contents="RealEstateObject.RealEstateObjKind.RealEstateObjType.Описание" Enabled="False" MaxWidth="30" MinWidth="30"/>
+        <Component Name="SplitContentE667164C" Class="Com.Rep.ISplitContent" Caption="Вид объекта" Contents="RealEstateObject.RealEstateObjKind.Описание" Enabled="False" MaxWidth="40" MinWidth="40"/>
+        <Component Name="SplitContent866BFC11" Class="Com.Rep.ISplitContent" Caption="Код объекта" Contents="RealEstateObject.Код" Enabled="False" MaxWidth="25" MinWidth="25"/>
+        <Component Name="SplitContent38E18F9B" Class="Com.Rep.ISplitContent" AfterIndicators="True" Caption="Наименование объекта" Contents="RealEstateObject.Описание" MaxWidth="40" MinWidth="40"/>
+        <Component Name="SplitContent51E01587" Class="Com.Rep.ISplitContent" Caption="Федеральный округ" Contents="RealEstateObject.FO.FederalDistrictCode.Описание" Enabled="False" MaxWidth="30" MinWidth="30"/>
+        <Component Name="SplitContentC571C794" Class="Com.Rep.ISplitContent" Caption="Код региона" Contents="RealEstateObject.FO.Код" Enabled="False" MaxWidth="30" MinWidth="30"/>
+        <Component Name="SplitContentCA201CAD" Class="Com.Rep.ISplitContent" Caption="Наименование региона" Contents="RealEstateObject.#Region.Name" Enabled="False" MaxWidth="50" MinWidth="50"/>
+        <Component Name="SplitContentF6A5884A" Class="Com.Rep.ISplitContent" AfterIndicators="True" Caption="Адрес" Contents="RealEstateObject.#Address.StringAddress" MaxWidth="70" MinWidth="70"/>
+        <Component Name="SplitContentB046D8C0" Class="Com.Rep.ISplitContent" AfterIndicators="True" Caption="Кадастровый номер" Contents="RealEstateObject.#KadastrNumber" MaxWidth="38" MinWidth="38"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_FO" Class="Com.Rep.IRepControl" Caption="ФО" CaptionWidth="40" CardFileClass="RealEstate.Tab.Ref.FederalDistrict" DefaultStr="Object(nil)" LookupField="Name" MultiSelect="True" Operator=" is " Parameter="RealEstateObject.FO.FederalDistrictCode" Plan="RealEstateAccounts" ShowHierarchy="False" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Region" Class="Com.Rep.IRepControl" Caption="Регион" CaptionWidth="45" CardFileClass="Biz.Tab.Ref.CountriesOrRegions" DefaultStr="Object(nil)" LookupField="name" LookupFunc="'IsRegion and GroupDoc.Code = &quot;643&quot;' + If(%FO=nil, '', ' and FederalDistrictCode in ' + Str(%FO))" MultiSelect="True" Operator="=" Parameter="RealEstateObject.FO" Plan="RealEstateAccounts" ShowHierarchy="False" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_REObjType" Class="Com.Rep.IRepControl" Caption="Тип объекта" CaptionWidth="40" CardFileClass="RealEstate.Tab.Ref.RealEstateObjType" DefaultStr="Object(nil)" LookupField="Name" MultiSelect="True" NewLine="True" Operator=" is " Parameter="RealEstateObject.RealEstateObjKind.RealEstateObjType" Plan="RealEstateAccounts" ShowHierarchy="False" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_RealEstateObjKind" Class="Com.Rep.IRepControl" Caption="Вид объекта" CaptionWidth="45" CardFileClass="RealEstateBase.Tab.Ref.RealEstateObjKind" DefaultStr="Object(nil)" LookupField="Name" LookupFunc="If(%REObjType = nil, '', 'RealEstateObjType in ' + Str(%REObjType))" MultiSelect="True" Operator=" is " Parameter="RealEstateObject.RealEstateObjKind" Plan="RealEstateAccounts" ShowHierarchy="False" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_CopyrightHolder" Class="Com.Rep.IRepControl" Caption="Правообладатель" CaptionWidth="40" CardFileClass="Bas.Tab.Data.Entity" DefaultStr="Object(nil)" LookupField="Name" MultiSelect="True" NewLine="True" Operator=" is " Parameter="RealEstateObject.CopyrightHolder" Plan="RealEstateAccounts" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_PropertyUser" Class="Com.Rep.IRepControl" Caption="Пользователь" CaptionWidth="45" CardFileClass="Bas.Tab.Data.Entity" DefaultStr="Object(nil)" LookupField="name" MultiSelect="True" Operator=" is " Parameter="RealEstateObject.PropertyUser" Plan="RealEstateAccounts" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Balanser" Class="Com.Rep.IRepControl" Caption="Балансодержатель" CaptionWidth="40" CardFileClass="Biz.Tab.Ref.CFR" DefaultStr="Object(nil)" LookupField="name" MultiSelect="True" NewLine="True" Operator=" is " Parameter="RealEstateObject.Balanser" Plan="RealEstateAccounts" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_ResList" Class="Com.Rep.IRepControl" Caption="Относится к жилому" CaptionWidth="45" CellFormat="EnumFormat" ListAsString="все|0;да|1;нет|2" NewLine="False" OnChange="RC_ResList_OnChange" ValueType="VarInteger" Visible="True"/>
+      <Component Name="RC_Residential" Class="Com.Rep.IRepControl" Caption="Относится к жилому" CaptionWidth="40" CellFormat="LogicalFormat" Operator="=" Parameter="RealEstateObject.Target.Residential" Plan="RealEstateAccounts" ValueType="VarLogical" Visible="False"/>
+      <Component Name="RC_Видимость" Class="Com.Rep.IRepControl" Active="False" Caption="Видимость" DefaultStr="Logical(False)" ManualFunc="Indicators['ФактическаяЧисленность'].Visible = %Self" Operator="=" Plan="RealEstateAccounts" ValueType="VarLogical" Visible="False"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

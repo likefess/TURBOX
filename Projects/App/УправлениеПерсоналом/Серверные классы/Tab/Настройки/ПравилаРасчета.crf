@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.BasObject">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Настройки.Настройка правил расчета">
+    <Inherited Name="Current" Class="УправлениеПерсоналом.Rec.Настройки.ПравилаРасчета" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree">
+          <Inherited Name="CardTree" TreeOrder="Code"/>
+        </Inherited>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" Excluded="True"/>
+          <Inherited Name="Code" Excluded="True"/>
+          <Component Name="Предприятие" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="Current.Предприятие" HasCaption="True" LookupField="Name" Width="30"/>
+          <Component Name="Номер" Class="Com.Ctrl.IEdit" Excluded="True" Field="Current.Номер" HasCaption="True" Width="20"/>
+          <Component Name="НачалоПериода" Class="Com.Ctrl.IEdit" Caption="Дата начала" Field="Current.НачалоПериода" HasCaption="True" Hint="Дата начала срока действий настроек"/>
+          <Component Name="КонецПериода" Class="Com.Ctrl.IEdit" Caption="Дата окончания" Field="Current.КонецПериода" HasCaption="True" Hint="Дата окончания срока действий настроек"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

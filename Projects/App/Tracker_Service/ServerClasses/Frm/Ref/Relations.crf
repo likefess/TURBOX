@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Tracker_Service.Rec.Ref.Relations" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" ByColumn="True">
+          <Component Name="Group3" Class="Com.Ctrl.IGroup">
+            <Component Name="RelTask" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Caption="Задача" CaptionWidth="35" CardFileClass="TrackingCore.Tab.Data.Tasks" Field="EdtRec.RelTask" LookupField="PrintedNumber" OnGetLookupFilter="RelTaskOnGetLookupFilter" Width="150"/>
+            <Component Name="JumpButtonTask" Class="Com.Ctrl.IJumpButton" Enabled="True" Field="EdtRec.RelTask" JumpForm="TrackingCore.Frm.Data.Task"/>
+          </Component>
+          <Component Name="Group4" Class="Com.Ctrl.IGroup">
+            <Component Name="RelServiceTask" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Caption="Заявка" CaptionWidth="35" CardFileClass="TrackingCore.Tab.Data.Tasks" Field="EdtRec.RelServiceTask" LookupField="PrintedNumber" OnGetLookupFilter="RelServiceTaskOnGetLookupFilter" Width="150"/>
+            <Component Name="JumpButtonServTask" Class="Com.Ctrl.IJumpButton" Field="EdtRec.RelServiceTask" JumpForm="Tracker_Service.Frm.Data.ServiceTask"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

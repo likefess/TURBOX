@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Frm.AddIns.BaseTask">
+  <Inherited>
+    <Component Name="Task_WorkTime" Class="TMS.Rec.Data.Task_EventsItem" IsLibrary="1" After="#0"/>
+    <Inherited Name="RootFrame">
+      <Component Name="аааааааааааа" Class="Com.Ctrl.IGroup" Adaptive="True" HasCaption="True" Printed="True">
+        <Component Name="Static6" Class="Com.Ctrl.IStatic" Caption="Учет времени" FontBold="True" FontSize="16"/>
+      </Component>
+      <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+        <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+          <Component Name="Static4" Class="Com.Ctrl.IStatic" Caption="@TMS:EventDateEdit=Дата"/>
+          <Component Name="EventDateEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:EventDateEdit=Дата" CellFormat="DateFormat" Field="Task_WorkTime.EventDate" FixSize="True" FormatOfDate="DateOnly" HasCaption="False" Width="26"/>
+        </Component>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+          <Component Name="Static3" Class="Com.Ctrl.IStatic" Caption="Затрачено времени"/>
+          <Component Name="FactHoursEdit" Class="Com.Ctrl.IEdit" Caption="Пример: 8 ч" Field="Task_WorkTime.Hours" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" HasInnerCaption="True" Width="20"/>
+        </Component>
+      </Component>
+      <Component Name="Group5" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+        <Component Name="Group4" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" Width="50">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption="Сотрудник"/>
+          <Component Name="EntityEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:EntityEdit=Сотрудник" CardFileClass="TrackingCore.Tab.Data.People" Field="Task_WorkTime.Entity" FixSize="True" HasCaption="False" LookupField="Name" LookupFilter="not Closed and IsGroup = 0" OnChange="EntityEditOnChange" Width="60"/>
+        </Component>
+        <Component Name="CheckBox1" Class="Com.Ctrl.ICheckBox" Caption="Мое время" FontSize="11" Width="50"/>
+      </Component>
+      <Component Name="Group6" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+        <Component Name="Static2" Class="Com.Ctrl.IStatic" Caption="Комментарий"/>
+        <Component Name="CommentEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:CommentEdit=Комментарий" Field="Task_WorkTime.Comment" HasCaption="False" HasInnerCaption="True" Width="140"/>
+      </Component>
+      <Component Name="Group8" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+        <Component Name="Static5" Class="Com.Ctrl.IStatic" FixSize="False" Width="50"/>
+        <Component Name="Group7" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" Width="100">
+          <Component Name="ButtonCancel" Class="Com.Ctrl.IButton" Caption="@Cmd:Cancel=Отмена" OnClick="ButtonCancel_OnClick"/>
+          <Component Name="ButtonOK" Class="Com.Ctrl.IButton" Caption="@Cmd:PostClose=Списать время" FontSize="11" OnClick="AddButtonOnClick" Width="36"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

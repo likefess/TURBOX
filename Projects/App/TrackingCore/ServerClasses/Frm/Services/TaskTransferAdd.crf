@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="TypeArray" Class="Com.Fld.IArray" ValueType="VarObject"/>
+      <Component Name="StatusArray" Class="Com.Fld.IArray" ValueType="VarObject"/>
+      <Component Name="ComponentArray" Class="Com.Fld.IArray" ValueType="VarObject"/>
+      <Component Name="LabelArray" Class="Com.Fld.IArray" ValueType="VarObject"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader">
+        <Component Name="ButtonOK" Class="Com.Ctrl.IButton" Caption="@TrackingCore:ButtonOK=ОК" ImageName="PostClose" OnClick="ButtonOK_OnClick"/>
+      </Component>
+      <Component Name="FieldsFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="FieldsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="25" MaxWidth="200" MinWidth="100">
+          <Component Name="TypeEdit" Class="Com.Ctrl.IListEdit" AlwaysMark="True" Caption="@TrackingCore:TypeEdit=Тип" CardFileClass="TrackingCore.Tab.Ref.TaskCategory" CellFormat="CommonFormat" Field="TypeArray" OnDraw="EditOnDraw" OnOutput="EditOnOutput"/>
+          <Component Name="StatusEdit" Class="Com.Ctrl.IListEdit" AlwaysMark="True" Caption="@TrackingCore:StatusEdit=Статус" CardFileClass="Control.Tab.Ref.TaskStatus" Field="StatusArray" OnDraw="EditOnDraw" OnOutput="EditOnOutput"/>
+          <Component Name="ComponentEdit" Class="Com.Ctrl.IListEdit" AlwaysMark="True" Caption="@TrackingCore:ComponentEdit=Компонент" CardFileClass="TrackingCore.Tab.Ref.PrjComponent" Field="ComponentArray" OnDraw="EditOnDraw" OnOutput="EditOnOutput"/>
+          <Component Name="LabelEdit" Class="Com.Ctrl.IListEdit" AlwaysMark="True" Caption="@TrackingCore:LabelEdit=Метка" CardFileClass="TrackingCore.Tab.Ref.Label" Field="LabelArray" OnDraw="EditOnDraw" OnOutput="EditOnOutput"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

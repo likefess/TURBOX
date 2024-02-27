@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IRoleCenter">
+  <Inherited Caption="РМ оператора" CaptionAlign="CenterAlign" FormIcon="Biz.RC">
+    <Inherited Name="MainGroup" Orientation="Vertical">
+      <Component Name="Data" Class="Com.Cmd2.IGroup" Caption="Данные" Rows="3">
+        <Component Name="Data_RealEstateObject" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RealEstateObject:=Полный реестр имущества" FormClassName="RealEstateBase.Tab.Data.RealEstateObject" IconName="Bas.atlas"/>
+        <Component Name="Data_RealEstateObjectLand" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RealEstateObjectLand:=Земля" FormClassName="RealEstateBase.Tab.Data.RealEstateObjectLand" IconName="Biz.Tree"/>
+        <Component Name="Data_RealEstateObjectReal" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RealEstateObjectReal:=Недвижимость" FormClassName="RealEstateBase.Tab.Data.RealEstateObjectReal" IconName="Bas.building"/>
+        <Component Name="Data_RealEstateObjectComp" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RealEstateObjectComp:=Имущественные комплексы" FormClassName="RealEstateBase.Tab.Data.RealEstateObjectComp" IconName="Control.object-group"/>
+        <Component Name="Data_RealEstateObjectAuto" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RealEstateObjectAuto:=Автотранспорт" FormClassName="RealEstateBase.Tab.Data.RealEstateObjectAuto" IconName="Автотранспорт.motorTransport"/>
+      </Component>
+      <Component Name="Orders" Class="Com.Cmd2.IGroup" Caption="Документы" Columns="1">
+        <Component Name="Re_Orders_Set" Class="Com.ComManaging.OpenIForm" Caption="@Orders=Правоустанавливающие документы" FormClassName="RealEstate.Tab.Doc.Order_SetCopyright" IconName="Com.Blank"/>
+        <Component Name="Re_Orders_Inner" Class="Com.ComManaging.OpenIForm" Caption="@Orders=Внутренние документы" FormClassName="RealEstate.Tab.Doc.Order_InnerMove" IconName="Com.Blank"/>
+      </Component>
+      <Component Name="Rep" Class="Com.Cmd2.IGroup" Caption="@Отчеты" Columns="1">
+        <Component Name="RE_RealEstateObjBlank" Class="Com.ComManaging.OpenIForm" Caption="@Печатная форма" FormClassName="RealEstate.Frm.Rep.RealEstateObjBlank" IconName="Com.Blanks"/>
+        <Component Name="RE_RealEstateObjExport" Class="Com.ComManaging.OpenIForm" Caption="@Экспорт печатной формы" FormClassName="RealEstate.Frm.Service.RealEstateObjExport" IconName="Biz.download"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

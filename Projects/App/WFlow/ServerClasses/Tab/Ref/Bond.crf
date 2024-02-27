@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.CodeName">
+  <Inherited>
+    <Inherited Name="Current" Class="WFlow.Rec.Ref.Bond" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" Visible="False"/>
+          <Inherited Name="Code" Visible="False"/>
+          <Component Name="NumberParentTask" Class="Com.Ctrl.IEdit" Caption="№ Родительской задачи" CardFileClass="Control.Tab.Data.Task" Field="Current.ParentTask" LookupField="Code"/>
+          <Component Name="ParentTask" Class="Com.Ctrl.IEdit" Caption="Родительская задача" CardFileClass="Control.Tab.Data.Task" Field="Current.ParentTask" MaxWidth="150"/>
+          <Component Name="NumberChildTask" Class="Com.Ctrl.IEdit" Caption="№ Дочерней задачи" CardFileClass="Control.Tab.Data.Task" Field="Current.ChildTask" LookupField="Code"/>
+          <Component Name="ChildTask" Class="Com.Ctrl.IEdit" Caption="Дочерняя задача" CardFileClass="Control.Tab.Data.Task" Field="Current.ChildTask" MaxWidth="150"/>
+          <Component Name="BondType" Class="Com.Ctrl.IEdit" Caption="Связь" CardFileClass="WFlow.Tab.Ref.BondType" Field="Current.BondType" LookupField="ParentTaskName" MaxWidth="150"/>
+          <Component Name="TaskStatus" Class="Com.Ctrl.ICheckBox" Caption="Равноправные" Field="Current.TaskStatus" MaxWidth="20"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

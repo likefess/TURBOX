@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Frm.Документы.Имущество.КВ.ИмуществоБазовыйДокументКВ">
+  <Inherited HelpContext="Имущество.Имущество.Документы движения и учета КВ.Принятие к учету КВ.Ввод остатков КВ">
+    <Inherited Name="EdtRec" Class="Имущество.Rec.Документы.Имущество.КВ.ВводОстатковКВ" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Шапка_Фрейм">
+          <Inherited Name="Шапка_Гр">
+            <Component Name="грВидОбъектаПослеВводаВЭксплуатацию" Class="Com.Ctrl.IGroup" After="КВ_Гр" ByColumn="False">
+              <Component Name="ВидОбъектаПослеВводаВЭксплуатацию" Class="Com.Ctrl.IEdit" Caption="После ввода в эксп." CellFormat="EnumFormat" Enabled="False" Field="EdtRec.ВидОбъектаПослеВводаВЭксплуатацию" Hint="Вид объекта учета, образующийся после ввода в эксплуатацию"/>
+              <Component Name="btnStatic9" Class="Com.Ctrl.IStatic" FixSize="True" Printed="False" Width="32"/>
+            </Component>
+            <Inherited Name="Корректировка_Гр" After="грВидОбъектаПослеВводаВЭксплуатацию">
+              <Inherited Name="КорректируемыйДокумент" CardFileClass="Имущество.Tab.Документы.Имущество.КВ.ВводОстатковКВ"/>
+              <Inherited Name="кнКорректируемыйДокумент" JumpForm="Имущество.Frm.Документы.Имущество.КВ.ВводОстатковКВ"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="ОбщиеДанные">
+            <Inherited Name="Подр_Гр">
+              <Inherited Name="Подразделение" Enabled="False"/>
+            </Inherited>
+            <Inherited Name="МОЛ_Гр">
+              <Inherited Name="ТрудовыеОтношения_Выбор" Enabled="False" Visible="False"/>
+              <Inherited Name="МОЛ" Enabled="False"/>
+            </Inherited>
+            <Inherited Name="Стоимость_Гр">
+              <Inherited Name="СтоимостьКВ" OnVerify="ЗапретИзменять_OnVerify"/>
+              <Inherited Name="Количество" OnVerify="ЗапретИзменять_OnVerify"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

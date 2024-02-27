@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="SubjectPayable.Frm.Base.BaseSubjPayableDoc">
+  <Inherited HelpContext="SubjectPayable.Расчеты с субъектами.Документы.Документы.Оплата задолженности">
+    <Inherited Name="EdtRec" Class="SubjectPayable.Rec.Doc.PaymentOfDebt" IsLibrary="1"/>
+    <Component Name="defRefDocs" Class="SubjectPayable.Rec.Service.RefDocs" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="TableMenu" After="defRefDocs"/>
+    <Inherited Name="Variables">
+      <Component Name="tbRefDocs" Class="Com.ISubtable" StructClass="SubjectPayable.Rec.Service.RefDocs"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="frMain">
+            <Component Name="grTypeGroup" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True" ByColumn="False" MaxWidth="250">
+              <Component Name="edTypeOfAcc" Class="Com.Ctrl.IEdit" CaptionWidth="45" CellFormat="EnumFormat" Field="EdtRec.TypeOfAcc" HasButton="True" HasCaption="True" Hint="Указывается тип начисления, по которому оформляется задолженность" OnChange="edTypeOfAcc_OnChange" ValueType="VarInteger"/>
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Inherited Name="grContraparty" After="grTypeGroup"/>
+            <Component Name="grTaxCBC" Class="Com.Ctrl.IGroup" After="grContract" Adaptive="True" MaxWidth="250">
+              <Component Name="edTaxCBC" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Tax=Налог" CaptionWidth="45" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.TaxCBC" HasCaption="True" Hint="@SubjectPayable:Tax.Hint=Указывается налог, по которому производится начисление задолженности" LookupField="Name" Required="True"/>
+              <Component Name="edTaxCBC1" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CaptionWidth="45" CardFileClass="BizRus.Tab.Классификаторы.КБК" Enabled="False" Field="EdtRec.TaxCBC" HasCaption="False" LookupField="Code" Width="25"/>
+              <Component Name="jbTaxCBC" Class="Com.Ctrl.IJumpButton" Field="EdtRec.TaxCBC" JumpForm="BizRus.Frm.Классификаторы.КБК"/>
+            </Component>
+            <Component Name="grCommitment" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250">
+              <Component Name="edAccDate" Class="Com.Ctrl.IEdit" Caption="@PaymentOfDebt:AccDate=Дата оплаты" CaptionWidth="45" Field="EdtRec.AccDate" FormatOfDate="DateOnly" HasCaption="True" Hint="@PaymentOfDebt:AccDate.Hint=Дата фактической оплаты по первичному банковскому документу.&#xD;&#xA;Согласно данной даты будут формироваться оперативные проводки." MaxWidth="35"/>
+              <Component Name="edTypePayment" Class="Com.Ctrl.IEdit" CaptionWidth="30" CellFormat="EnumFormat" Field="EdtRec.TypePayment" HasCaption="True" MaxWidth="35" Width="50"/>
+              <Component Name="chAdvance" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Advance" HasCaption="True" Hint="@PaymentOfDebt:Advance.Hint=Устанавливается при условии, что данный платеж является авансовым платежом" Width="35"/>
+              <Component Name="Static5" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Inherited Name="grSource" After="grCommitment">
+              <Inherited Name="edSourceDoc" Caption="@PaymentOfDebt:SourceDoc=Платежный документ" Hint="@PaymentOfDebt:SourceDoc.Hint=Наименование, номер и дата платежного документа"/>
+              <Component Name="btSourceDoc" Class="Com.Ctrl.IButton" FixSize="True" ImageName="Com.JumpButton" OnClick="btSourceDoc_OnClick" Width="7"/>
+            </Inherited>
+            <Component Name="grDocAccrualOfDebt" Class="Com.Ctrl.IGroup" After="grSource" Adaptive="True" MaxWidth="250">
+              <Component Name="edDocAccrualOfDebt" Class="Com.Ctrl.IEdit" Caption="@SettlementOfDebt:DocAccrualOfDebt1=Документ обязат-ва" CaptionWidth="45" CardFileClass="SubjectPayable.Tab.Doc.AccrualOfDebt" Field="EdtRec.DocAccrualOfDebt" HasCaption="True" Hint="@SettlementOfDebt:DocAccrualOfDebt.Hint=Документ обязательства.Документ «Начисление задолженности» по которому производится оплата." LookupField="Name" OnChange="edDocAccrualOfDebt_OnChange" OnGetLookupFilter="edDocAccrualOfDebt_OnGetLookupFilter" Wrap="True"/>
+              <Component Name="jbDocAccrualOfDebt" Class="Com.Ctrl.IJumpButton" Field="EdtRec.DocAccrualOfDebt" JumpForm="SubjectPayable.Frm.Doc.AccrualOfDebt"/>
+            </Component>
+            <Inherited Name="grComment" After="grDocAccrualOfDebt"/>
+            <Inherited Name="grSumDoc">
+              <Inherited Name="edSumDoc" Hint="@PaymentOfDebt:SumDoc.Hint=Сумма с учетом НДС (при наличии) первичного банковского документа"/>
+              <Inherited Name="edCurrency" OnVerify="edCurrency_OnVerify"/>
+              <Component Name="edExchRate" Class="Com.Ctrl.IEdit" After="jbCurrency" Caption="@SubjectPayable:ExchRate2=Курс" CaptionWidth="20" Field="EdtRec.ExchRate" FieldFormat=",0.0000;;-" HasCaption="True" Hint="@SubjectPayable:ExchRate.Hint=Значение курса валюты, используемого при переводе суммы в валюте документа в сумму в операционной валюте" MaxWidth="30" OnDrawEx="edExchRate_OnDrawEx" Required="True" Width="30"/>
+              <Component Name="btExchRate" Class="Com.Ctrl.IButton" FixSize="True" Hint="@SubjectPayable:ExchRateUpd=Обновить курс валюты" ImageName="Com.Refresh" OnClick="btExchRate_OnClick" Width="7"/>
+              <Inherited Name="SumStatic" After="btExchRate"/>
+            </Inherited>
+            <Component Name="grSumAccOfDebt" Class="Com.Ctrl.IGroup" After="grSumDoc" Adaptive="True" MaxWidth="250">
+              <Component Name="edSumAccOfDebt" Class="Com.Ctrl.IEdit" Caption="@PaymentOfDebt:SumAccOfDebt1=в валюте задолж." CaptionWidth="45" Field="EdtRec.SumAccOfDebt" FieldFormat=",0.00;;-" HasCaption="True" Hint="@PaymentOfDebt:SumAccOfDebt1.Hint=Сумма в валюте задолженности" MaxWidth="45" Required="True"/>
+              <Component Name="edCurrencyAccOfDebt" Class="Com.Ctrl.IEdit" Caption="-" CaptionWidth="8" CardFileClass="Biz.Tab.Ref.UCurrencies" Enabled="False" Field="EdtRec.CurrencyAccOfDebt" HasCaption="False" LookupField="Code" MaxWidth="20" ShortList="True"/>
+              <Component Name="stExchRateAccOfDebt" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+              <Component Name="edExchRateAccOfDebt" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:ExchRate2=Курс" CaptionWidth="20" Field="EdtRec.ExchRateAccOfDebt" FieldFormat=",0.0000;;-" HasCaption="True" Hint="@SubjectPayable:ExchRateAccOfDebt.Hint=Значение курса валюты, используемого при переводе суммы в валюте задолженности в сумму в операционной валюте" MaxWidth="30" OnDrawEx="edExchRateAccOfDebt_OnDrawEx" Required="True" Width="30"/>
+              <Component Name="btExchRateAccOfDebt" Class="Com.Ctrl.IButton" FixSize="True" Hint="@SubjectPayable:ExchRateUpd=Обновить курс валюты" ImageName="Com.Refresh" OnClick="btExchRateAccOfDebt_OnClick" Width="7"/>
+              <Component Name="SumBaseStatic3" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Inherited Name="grSumBase" After="grSumAccOfDebt">
+              <Inherited Name="edSumBase" Hint="@PaymentOfDebt::SumBase1.Hint=Сумма первичного банковского документа в операционной валюте (в базовой валюте)"/>
+            </Inherited>
+            <Inherited Name="grVAT">
+              <Inherited Name="edVATSum" Hint="@PaymentOfDebt:VATSum.Hint=Сумма НДС первичного банковского документа"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Component Name="RefDocsTab" Class="Com.Ctrl.IFrame" Caption="@SubjectPayable:RefDocTab=Связанные документы" HasCaption="True">
+          <Component Name="grRefDocs" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Width="170"/>
+            <Component Name="btRefDocRefresh" Class="Com.Ctrl.IButton" FixSize="True" HasCaption="False" Hint="Обновить список документов" ImageName="Com.Refresh" OnClick="btRefDocRefresh_OnClick" Width="8"/>
+          </Component>
+          <Component Name="tbsRefDocs" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Sortable="True" Subtable="tbRefDocs">
+            <Component Name="edRefAccounted" Class="Com.Ctrl.IEdit" Enabled="False" Field="defRefDocs.Accounted" HasCaption="True" Width="10"/>
+            <Component Name="edRefRecordType" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:RefRecordType=Документ" Enabled="False" Field="defRefDocs.TypeAcc" HasCaption="True" Width="55"/>
+            <Component Name="edRefNumberDoc" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Number=Номер" Enabled="False" Field="defRefDocs.NumberDoc" HasCaption="True" Width="30"/>
+            <Component Name="edRefDateDoc" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:DateDoc=Дата документа" Enabled="False" Field="defRefDocs.DateDoc" FormatOfDate="DateOnly" HasCaption="True" Width="25"/>
+            <Component Name="edRefAccDate" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:RefDocs.AccDate=Дата проведения(оплаты, переоценки, взаимозачета)" Enabled="False" Field="EdtRec.AccDate" FormatOfDate="DateOnly" HasCaption="True" Width="30"/>
+            <Component Name="edRefSumDoc" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:SumDocCur1=Сумма в валюте документа" Enabled="False" Field="defRefDocs.SumDoc" FieldFormat=",0.00;;-" HasCaption="True" Width="30"/>
+            <Component Name="edRefCurrency" Class="Com.Ctrl.IEditEx" Alignment="RightAlign" Caption="Валюта" CardFileClass="Biz.Tab.Ref.UCurrencies" Enabled="False" Field="defRefDocs.Currency" HasCaption="True" LookupField="Code" Width="20"/>
+            <Component Name="edRefSumBase" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:SumBase1=Сумма в операционной валюте" Enabled="False" Field="defRefDocs.SumBase" FieldFormat=",0.00;;-" HasCaption="True" Width="30"/>
+            <Component Name="btRefRecord" Class="Com.Ctrl.IButton" FixSize="True" Hint="Открыть документ" ImageName="Com.arrow-circle-right" OnClick="btRefRecord_OnClick" Width="8"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

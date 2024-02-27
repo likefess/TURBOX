@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Frm.Документы.Имущество.КВ.ИмуществоБазовыйДокументКВ">
+  <Inherited HelpContext="Имущество.Имущество.Документы движения и учета КВ.Принятие к учету КВ.Оприходование КВ">
+    <Inherited Name="EdtRec" Class="Имущество.Rec.Документы.Имущество.КВ.ОприходованиеКВ" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False">
+          <Component Name="btDocLinksLoad" Class="Com.Ctrl.IButton" Caption="@Сmd:DocLinksLoad=Разнести данные" HasCaption="True" Hint="@Сmd:DocLinksLoad.Hint=Формирование документов в прочих модулях" ImageName="Com.inbox-out" OnClick="btDocLinksLoad_OnClick"/>
+          <Component Name="btDocLinksUnLoad" Class="Com.Ctrl.IButton" Caption="@Сmd:DocLinksUnLoad=Удалить разнесенные данные" HasCaption="True" Hint="@Сmd:DocLinksUnLoad.Hint=Автоматическое удаление не проведенных документов, ранее сформированных в прочих модулях на основании данного документа" ImageName="Com.trash-alt" OnClick="btDocLinksUnLoad_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Шапка_Фрейм">
+          <Inherited Name="Шапка_Гр">
+            <Inherited Name="КВ_Гр">
+              <Component Name="КВ_Имя_РучнойВвод" Class="Com.Ctrl.IEdit" After="КВ_ПолнИмя" Caption="Наименование" HasCaption="False" Hint=" Полное наименование объекта капитального вложения" OnChange="КВ_Имя_РучнойВвод_OnChange" Required="True" ValueType="VarString"/>
+              <Component Name="СоздатьКВ" Class="Com.Ctrl.IButton" Caption="С" FixSize="True" Hint="Создать КВ" OnClick="СоздатьКВ_OnClick" Width="7"/>
+              <Inherited Name="КВ_Карточка" After="СоздатьКВ"/>
+            </Inherited>
+            <Component Name="грВидОбъектаПослеВводаВЭксплуатацию" Class="Com.Ctrl.IGroup" After="КВ_Гр">
+              <Component Name="ВидОбъектаПослеВводаВЭксплуатацию" Class="Com.Ctrl.IEdit" Caption="После ввода в эксп." CellFormat="EnumFormat" Field="EdtRec.ВидОбъектаПослеВводаВЭксплуатацию" Hint="Вид объекта учета, образующийся после ввода в эксплуатацию"/>
+              <Component Name="btnStatic9" Class="Com.Ctrl.IStatic" FixSize="True" Printed="False" Width="32"/>
+            </Component>
+            <Inherited Name="Корректировка_Гр" After="грВидОбъектаПослеВводаВЭксплуатацию">
+              <Inherited Name="КорректируемыйДокумент" CardFileClass="Имущество.Tab.Документы.Имущество.КВ.ОприходованиеКВ"/>
+              <Inherited Name="кнКорректируемыйДокумент" JumpForm="Имущество.Frm.Документы.Имущество.КВ.ОприходованиеКВ"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="ОбщиеДанные">
+            <Inherited Name="МОЛ_Гр">
+              <Inherited Name="ТрудовыеОтношения_Выбор" OnOutputEx="ТрудовыеОтношения_Выбор_OnOutputEx"/>
+              <Inherited Name="МОЛ" Visible="False"/>
+            </Inherited>
+            <Inherited Name="Стоимость_Гр">
+              <Inherited Name="СтоимостьКВ" OnVerify="ЗапретИзменять_OnVerify"/>
+              <Inherited Name="Количество" OnVerify="ЗапретИзменять_OnVerify"/>
+            </Inherited>
+            <Component Name="Поставщик_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="Поставщик" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Поставщик" HasCaption="True" Hint="Поставщик, от которого поступило КВ" MinWidth="40" Required="True"/>
+            </Component>
+            <Component Name="Договор_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="Договор" Class="Com.Ctrl.IEdit" Caption="Договор  №" Field="EdtRec.Договор" HasCaption="True" Hint="Номер договора, по которому поступило КВ" LookupField="Code" MinWidth="30" OnGetLookupFilter="Договор_OnGetLookupFilter"/>
+              <Component Name="Договор_Дата" Class="Com.Ctrl.IEdit" Caption="дата" CaptionWidth="20" Enabled="False" Field="EdtRec.Договор" FixSize="True" HasCaption="True" Hint="Дата договора, по которому поступило КВ" LookupField="EventTime" Width="30"/>
+            </Component>
+            <Component Name="grDLSubjectPayableAccrualOfDebt" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="edDLAccrualOfDebtTypeOfAcc" Class="Com.Ctrl.IEdit" Caption="@Имущество:SubjectPayableTypeOfAcc=Тип задолженности" CellFormat="EnumFormat" Field="EdtRec.DLAccrualOfDebtTypeOfAcc" HasCaption="True" Width="100"/>
+            </Component>
+          </Inherited>
+          <Component Name="НДС_Box" Class="Com.Ctrl.IBox" After="ОбщиеДанные" Caption="Информация по НДС">
+            <Component Name="СФ_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="СФ_Номер" Class="Com.Ctrl.IEdit" Caption="Счет-фактура  №" Field="EdtRec.СФ_Номер" HasCaption="True" Hint="Номер счета-фактуры, по которому поступило КВ" MinWidth="30"/>
+              <Component Name="СФ_Дата" Class="Com.Ctrl.IEdit" Caption="дата" CaptionWidth="20" Field="EdtRec.СФ_Дата" FixSize="True" HasCaption="True" Hint="Дата счет-фактуры, по которой поступило КВ" Width="30"/>
+            </Component>
+            <Component Name="НДС_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="СтавкаНДС" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.VAT" Field="EdtRec.СтавкаНДС" HasCaption="True" MinWidth="20" OnGetLookupFilter="СтавкаНДС_OnGetLookupFilter" OnOpenCardForm="СтавкаНДС_OnOpenCardForm"/>
+              <Component Name="СуммаНДС" Class="Com.Ctrl.IEdit" Field="EdtRec.СуммаНДС" FieldFormat=",##0.00;;-" HasCaption="True" MinWidth="25"/>
+            </Component>
+          </Component>
+          <Inherited Name="Комментарии_Box" After="НДС_Box"/>
+        </Inherited>
+        <Component Name="DocLinksTab" Class="Com.Ctrl.IFrame" Caption="@AppBase:DocLinksTable=Интеграция документов" HasCaption="True">
+          <Component Name="bxDLDocLinksTable" Class="Com.Ctrl.IBox" Caption="Сформированные документы" HasCaption="True">
+            <Component Name="DocLinksTableTab" Class="Com.Ctrl.IFrame" AutoSize="True" HasCaption="False"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

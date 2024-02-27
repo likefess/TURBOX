@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.Event">
+  <Inherited HelpContext="RealEstate.Управление имуществом.Данные.Документы.Предписание">
+    <Inherited Name="EdtRec" Class="RealEstate.Rec.Doc.EliminationOrder" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" ByColumn="False">
+          <Inherited Name="Code" Excluded="True"/>
+          <Inherited Name="Name" Excluded="True"/>
+          <Component Name="EventTime" Class="Com.Ctrl.IEdit" Caption="Дата, номер" CellFormat="DateFormat" Field="EdtRec.EventTime" FixSize="True" FormatOfDate="DateAndTime" HasCaption="True" Width="45"/>
+          <Component Name="PrintedNumber" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.PrintedNumber" FixSize="True" HasCaption="False" Width="40"/>
+          <Component Name="JBStatic10" Class="Com.Ctrl.IStatic" FixSize="True" Width="65"/>
+          <Component Name="Status" Class="Com.Ctrl.IEdit" CaptionWidth="18" CardFileClass="RealEstate.Tab.Ref.EliminationStatus" CellFormat="ReferenceFormat" Field="EdtRec.Status" FixSize="True" HasCaption="True" LookupField="Name" OnChange="Status_OnChange" ShortList="True" Width="29"/>
+          <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Caption="Замок" Field="EdtRec.Locked" FixSize="True" Width="18"/>
+          <Component Name="JBStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+        </Inherited>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+          <Component Name="ObjectKindGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="ObjectKind" Class="Com.Ctrl.IEdit" CardFileClass="RealEstateBase.Tab.Ref.RealEstateObjKind" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ObjectKind" HasCaption="True" LookupField="Name" ShortList="True"/>
+            <Component Name="JBStatic2" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+          </Component>
+          <Component Name="ObjectGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Object" Class="Com.Ctrl.IEdit" CardFileClass="RealEstateBase.Tab.Data.RealEstateObject" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Object" HasCaption="True" LookupField="Name"/>
+            <Component Name="ObjectJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Object" JumpForm="RealEstateBase.Frm.Data.RealEstateObject"/>
+          </Component>
+          <Component Name="CompanyGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Company" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Field="EdtRec.Company" HasCaption="True" LookupField="Name"/>
+            <Component Name="CompanyJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Company" JumpForm="Bas.Frm.Data.Entity"/>
+          </Component>
+          <Component Name="ControllerGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Controller" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Field="EdtRec.Controller" HasCaption="True" LookupField="Name"/>
+            <Component Name="ControllerJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Controller" JumpForm="Bas.Frm.Data.Entity"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="MainBox" Class="Com.Ctrl.IBox" Caption="Основное" HasCaption="True">
+            <Component Name="DataGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="StartDate" Class="Com.Ctrl.IEdit" Caption="@Date=Дата" CellFormat="DateFormat" Field="EdtRec.StartDate" HasCaption="True"/>
+              <Component Name="NumberDoc" Class="Com.Ctrl.IEdit" Caption="@Number=Номер" CellFormat="StringFormat" Field="EdtRec.NumberDoc" HasCaption="True"/>
+              <Component Name="JBStatic8" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="7.2"/>
+            </Component>
+            <Component Name="ActGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="Act" Class="Com.Ctrl.IEdit" Caption="Основание" CellFormat="StringFormat" Field="EdtRec.Act" HasCaption="True" Hint="Документ основания для предписания" Multiline="True" Wrap="True"/>
+              <Component Name="JBStatic3" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="7.2"/>
+            </Component>
+            <Component Name="DescriptionGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="Description" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.Description" HasCaption="True" Hint="Нормативные правовые акты, требования которых нарушены" Multiline="True" Wrap="True"/>
+              <Component Name="JBStatic4" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="7.2"/>
+            </Component>
+            <Component Name="PeriodGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="EndDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="EdtRec.EndDate" HasCaption="True"/>
+              <Component Name="JBStatic7" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="7.2"/>
+              <Component Name="JBStatic9" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="7.2"/>
+            </Component>
+          </Component>
+          <Component Name="ViolationsBox" Class="Com.Ctrl.IBox" Caption="Нарушения" HasCaption="True">
+            <Component Name="Violations" Class="Com.Ctrl.ITable" Adaptive="True" Sortable="True" Subtable="EdtRec.Violations">
+              <Component Name="ViolationsStruct" Class="RealEstate.Rec.Doc.EliminationOrder_Violations" IsLibrary="1"/>
+              <Component Name="Violation" Class="Com.Ctrl.IEdit" Caption="Перечень требований об устранении нарушений" CellFormat="StringFormat" Field="ViolationsStruct.Violation" HasCaption="True" Multiline="True"/>
+              <Component Name="FixedCommentGr" Class="Com.Ctrl.IColumnsGroup" Caption="Отметка  об исполнении, принятые меры" HasCaption="True">
+                <Component Name="FixedCB" Class="Com.Ctrl.ICheckBox" Field="ViolationsStruct.Fixed" FixSize="True" HasCaption="False" Width="7"/>
+                <Component Name="FixComment" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="ViolationsStruct.Comment" FixSize="True" HasCaption="False" Multiline="True" Width="70"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="AddBox" Class="Com.Ctrl.IBox" Caption="Дополнительно" HasCaption="True">
+            <Component Name="ReportDateGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="78" MaxWidth="300" MinWidth="150">
+              <Component Name="ReportDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="EdtRec.ReportDate" FixSize="True" HasCaption="True" Width="45"/>
+            </Component>
+            <Component Name="ExtendDateGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="45" MaxWidth="300" MinWidth="150">
+              <Component Name="ExtendDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="EdtRec.ExtendDate" FixSize="True" HasCaption="True" OnChange="ExtendDate_OnChange" Width="45"/>
+            </Component>
+            <Component Name="ExtendBaseGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="45" MaxWidth="300" MinWidth="150">
+              <Component Name="ExtendBase" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.ExtendBase" HasCaption="True"/>
+              <Component Name="JBStatic5" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+            <Component Name="IssuedByGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="45" MaxWidth="300" MinWidth="150">
+              <Component Name="IssuedBy" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.IssuedBy" HasCaption="True"/>
+              <Component Name="JBStatic6" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+            <Component Name="ReceivedByGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="45" MaxWidth="300" MinWidth="150">
+              <Component Name="ReceivedBy" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.LabourRelations" CellFormat="ReferenceFormat" Field="EdtRec.ReceivedBy" HasCaption="True" LookupField="Person.Name"/>
+              <Component Name="ReceivedByJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ReceivedBy" JumpForm="Bas.Frm.Data.Entity"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

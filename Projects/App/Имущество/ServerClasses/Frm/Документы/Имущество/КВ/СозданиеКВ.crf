@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Frm.Документы.Имущество.КВ.ИмуществоБазовыйДокументКВ">
+  <Inherited HelpContext="Имущество.Имущество.Документы движения и учета КВ.Принятие к учету КВ.Создание КВ">
+    <Inherited Name="EdtRec" Class="Имущество.Rec.Документы.Имущество.КВ.СозданиеКВ" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="перСтоимостьКВ_Вычисление" Class="Com.Fld.IVar" OnCalc="перСтоимостьКВ_Вычисление_OnCalc"/>
+      <Component Name="перКоличествоКВ_Вычисление" Class="Com.Fld.IVar" OnCalc="перКоличествоКВ_Вычисление_OnCalc"/>
+      <Component Name="перОбновитьСтоимостьКоличество" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False">
+          <Component Name="кнУдалитьПозиции" Class="Com.Ctrl.IButton" Caption="@Имущество:Удалить=Удалить" Hint="@Имущество:УдалитьПозиции=Удалить позиции" ImageName="Com.DelPositions" OnClick="кнУдалить_OnClick" Visible="True"/>
+          <Component Name="btDocLinksLoad" Class="Com.Ctrl.IButton" Caption="@Сmd:DocLinksLoad=Разнести данные" HasCaption="True" Hint="@Сmd:DocLinksLoad.Hint=Формирование документов в прочих модулях" ImageName="Com.inbox-out" OnClick="btDocLinksLoad_OnClick"/>
+          <Component Name="btDocLinksUnLoad" Class="Com.Ctrl.IButton" Caption="@Сmd:DocLinksUnLoad=Удалить разнесенные данные" HasCaption="True" Hint="@Сmd:DocLinksUnLoad.Hint=Автоматическое удаление не проведенных документов, ранее сформированных в прочих модулях на основании данного документа" ImageName="Com.trash-alt" OnClick="btDocLinksUnLoad_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Шапка_Фрейм">
+          <Inherited Name="Шапка_Гр">
+            <Inherited Name="КВ_Гр">
+              <Component Name="КВ_Имя_РучнойВвод" Class="Com.Ctrl.IEdit" After="КВ_ПолнИмя" Caption="Наименование" HasCaption="False" Hint=" Полное наименование объекта капитального вложения" OnChange="КВ_Имя_РучнойВвод_OnChange" Required="True" ValueType="VarString"/>
+              <Component Name="СоздатьКВ" Class="Com.Ctrl.IButton" Caption="С" FixSize="True" Hint="Создать КВ" OnClick="СоздатьКВ_OnClick" Width="7"/>
+              <Inherited Name="КВ_Карточка" After="СоздатьКВ"/>
+            </Inherited>
+            <Component Name="грВидОбъектаПослеВводаВЭксплуатацию" Class="Com.Ctrl.IGroup" After="КВ_Гр">
+              <Component Name="ВидОбъектаПослеВводаВЭксплуатацию" Class="Com.Ctrl.IEdit" Caption="После ввода в эксп." CellFormat="EnumFormat" Field="EdtRec.ВидОбъектаПослеВводаВЭксплуатацию" Hint="Вид объекта учета, образующийся после ввода в эксплуатацию"/>
+              <Component Name="btnStatic9" Class="Com.Ctrl.IStatic" FixSize="True" Printed="False" Width="32"/>
+            </Component>
+            <Inherited Name="Корректировка_Гр" After="грВидОбъектаПослеВводаВЭксплуатацию">
+              <Inherited Name="КорректируемыйДокумент" CardFileClass="Имущество.Tab.Документы.Имущество.КВ.СозданиеКВ"/>
+              <Inherited Name="кнКорректируемыйДокумент" JumpForm="Имущество.Frm.Документы.Имущество.КВ.СозданиеКВ"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="ОбщиеДанные">
+            <Inherited Name="МОЛ_Гр">
+              <Inherited Name="ТрудовыеОтношения_Выбор" OnOutputEx="ТрудовыеОтношения_Выбор_OnOutputEx"/>
+              <Inherited Name="МОЛ" Visible="False"/>
+            </Inherited>
+            <Inherited Name="Стоимость_Гр">
+              <Inherited Name="СтоимостьКВ" Excluded="True" Enabled="False" Hint="Текущая стоимость объекта (без учета НДС) из карточки" Required="False"/>
+              <Component Name="СтоимостьКВ_Отображение" Class="Com.Ctrl.IEdit" Excluded="True" After="СтоимостьКВ" Alignment="RightAlign" Caption="Стоимость" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.СтоимостьКВСсылка" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Текущая полная стоимость объекта (без учета НДС)"/>
+              <Component Name="СтоимостьКВ_Вычисление" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Стоимость" Enabled="False" Field="перСтоимостьКВ_Вычисление" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Стоимость объекта КВ (без учета НДС) на момент ввода документа" ValueType="VarNumeric"/>
+              <Component Name="КоличествоКВ_Вычисление" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Количество" Enabled="False" Field="перКоличествоКВ_Вычисление" FieldFormat=",##0;;-" HasCaption="True" Hint="Количество объекта КВ на момент ввода документа" ValueType="VarInteger"/>
+              <Inherited Name="Количество" Excluded="True" After="КоличествоКВ_Вычисление" Hint="Количество в текущем документе"/>
+            </Inherited>
+          </Inherited>
+          <Component Name="ФормированиеСтоимости_Бокс" Class="Com.Ctrl.IBox" After="ОбщиеДанные" Caption="Получено от (объект КВ поступил от)">
+            <Component Name="ФормированиеСтоимости_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="СтоимостьПоДокументу" Class="Com.Ctrl.IEdit" Caption="Сумма" Enabled="False" Field="EdtRec.Стоимость" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Сумма изменения стоимости объекта данным документом (без учета НДС)" MinWidth="30" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify" Required="True"/>
+              <Component Name="КоличествоПоДокументу" Class="Com.Ctrl.IEdit" Field="EdtRec.Количество" HasCaption="True" Hint="Количество в текущем документе (будет добавлено к текущему количеству КВ)" MinWidth="20" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify" Required="True"/>
+            </Component>
+            <Component Name="ФормированиеСтоимости_Табл" Class="Com.Ctrl.ITable" Sortable="True" Subtable="EdtRec.ФормированиеСтоимости">
+              <Component Name="ФормированиеСтоимости" Class="Имущество.Rec.Документы.Имущество.КВ.СозданиеКВ_ФормированиеСтоимости" IsLibrary="1"/>
+              <Component Name="Поставщик" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Contraparties" Field="ФормированиеСтоимости.Поставщик" HasCaption="True" Hint="Наименование поставщика, от которого поступили составляющие для объекта КВ" Multiline="True" OnClick="Поставщик_OnClick" OnEnter="Поставщик_OnEnter" Width="60" Wrap="True"/>
+              <Component Name="Договор_Гр_табл" Class="Com.Ctrl.IColumnsGroup" Caption="Договор" HasCaption="True">
+                <Component Name="Договор" Class="Com.Ctrl.IEdit" Caption="№" Field="ФормированиеСтоимости.Договор" HasCaption="True" Hint="Договор, по которому поступили составляющие для объекта КВ" LookupField="Code" Multiline="True" OnGetLookupFilter="Договор_OnGetLookupFilter" Width="30" Wrap="True"/>
+                <Component Name="Договор_Дата" Class="Com.Ctrl.IEdit" Caption="дата " Enabled="False" Field="ФормированиеСтоимости.Договор" HasCaption="True" Hint="Дата договора, по которому поступили составляющие для объекта КВ" LookupField="EventTime" Width="22"/>
+              </Component>
+              <Component Name="ПервичныйДокумент_Табл" Class="Com.Ctrl.IEdit" Field="ФормированиеСтоимости.ПервичныйДокумент" HasCaption="True" Hint="Наименование первичного документа, на основании которого поступили составляющие для объекта КВ" Multiline="True" Width="60" Wrap="True"/>
+              <Component Name="СуммаБезНДС_Табл" Class="Com.Ctrl.IEdit" Field="ФормированиеСтоимости.СуммаБезНДС" FieldFormat=",##0.00;;-" HasCaption="True" OnChange="СуммаБезНДС_Табл_OnChange" OnVerify="СуммаБезНДС_Табл_OnVerify" Required="True" Width="30"/>
+              <Component Name="СФ_Гр_табл" Class="Com.Ctrl.IColumnsGroup" Caption="Счет-фактура" HasCaption="True">
+                <Component Name="СФ_Номер_Табл" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="№" Field="ФормированиеСтоимости.СФ_Номер" HasCaption="True" Hint="Номер счет-фактуры, которая задействована при создании КВ" MinWidth="30" Width="25"/>
+                <Component Name="СФ_Дата_Табл" Class="Com.Ctrl.IEdit" Caption="дата" CaptionWidth="20" Field="ФормированиеСтоимости.СФ_Дата" HasCaption="True" Hint="Дата счет-фактуры, которая задействована при создании КВ" Width="26"/>
+              </Component>
+              <Component Name="СтавкаНДС" Class="Com.Ctrl.IEdit" Field="ФормированиеСтоимости.СтавкаНДС" HasCaption="True" MinWidth="20" OnGetLookupFilter="СтавкаНДС_OnGetLookupFilter" OnOpenCardForm="СтавкаНДС_OnOpenCardForm" Width="19"/>
+              <Component Name="СуммаНДС" Class="Com.Ctrl.IEdit" Field="ФормированиеСтоимости.СуммаНДС" FieldFormat=",##0.00;;-" HasCaption="True" MinWidth="25" Width="30"/>
+              <Component Name="edDLAccrualOfDebtTypeOfAcc" Class="Com.Ctrl.IEdit" Caption="@Имущество:SubjectPayableTypeOfAcc=Тип задолженности" CellFormat="EnumFormat" Field="ФормированиеСтоимости.DLAccrualOfDebtTypeOfAcc" HasCaption="True" Width="30"/>
+              <Component Name="Примечания" Class="Com.Ctrl.IEdit" Field="ФормированиеСтоимости.Примечания" HasCaption="True" Multiline="True" Width="50" Wrap="True"/>
+            </Component>
+          </Component>
+          <Inherited Name="Комментарии_Box" After="ФормированиеСтоимости_Бокс"/>
+        </Inherited>
+        <Component Name="DocLinksTab" Class="Com.Ctrl.IFrame" Caption="@AppBase:DocLinksTable=Интеграция документов" HasCaption="True">
+          <Component Name="bxDLDocLinksTable" Class="Com.Ctrl.IBox" Caption="Сформированные документы" HasCaption="True">
+            <Component Name="DocLinksTableTab" Class="Com.Ctrl.IFrame" AutoSize="True" HasCaption="False"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

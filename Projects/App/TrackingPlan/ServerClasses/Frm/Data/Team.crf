@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="TrackingPlan.Rec.Data.Team" IsLibrary="1"/>
+    <Inherited Name="TableMenu" Excluded="False">
+      <Component Name="cmdDeleteRow1" Class="Com.ComManaging.ExecProcedure" After="#0" Caption="Удалить" CommandProc="DeleteRow_CommandProc" IconName="Com.DeleteObj"/>
+      <Inherited Name="cmdCloseForm" Excluded="True"/>
+      <Inherited Name="TableSeparator1" Excluded="True"/>
+      <Inherited Name="TableSeparator2" Excluded="True"/>
+      <Inherited Name="cmdInsertRow" Excluded="True"/>
+      <Inherited Name="cmdDeleteRow" Excluded="True"/>
+      <Inherited Name="cmdDesignMode" Excluded="True"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Code" FixSize="True" MinWidth="200" Width="200"/>
+          <Inherited Name="Name" FixSize="False" FontBold="False" HasInnerCaption="True" MinWidth="200" Required="True" Visible="True"/>
+        </Inherited>
+      </Inherited>
+      <Component Name="MembersBox" Class="Com.Ctrl.IBox" After="FieldsFrame" Caption="Состав команды">
+        <Component Name="MembersTab" Class="Com.Ctrl.ITable" ManualControl="True" Subtable="EdtRec.Members">
+          <Component Name="Team_CurMember" Class="TrackingPlan.Rec.Data.Team_Member" IsLibrary="1"/>
+          <Component Name="edtWorker" Class="Com.Ctrl.IEdit" Field="Team_CurMember.Member" HasButton="True" LookupFilter="UseControl" Width="160"/>
+          <Component Name="edtWorkerRole" Class="Com.Ctrl.IEdit" ButtonStyle="ComboButton" CardFileClass="Bas.Tab.Ref.EntityRoles" Field="Team_CurMember.MemberRole" FixSize="True" HasButton="True" OnGetLookupFilter="Role_OnGetLookupFilter" ShortList="True" Width="70"/>
+          <Component Name="edtBeginDate" Class="Com.Ctrl.IEdit" Excluded="True" Field="Team_CurMember.BeginDate" OnVerify="BegDate_OnVerify" ValueType="VarDate"/>
+          <Component Name="edtEndDate" Class="Com.Ctrl.IEdit" Excluded="True" Field="Team_CurMember.EndDate" OnVerify="EndDate_OnVerify" ValueType="VarDate"/>
+          <Component Name="DelButton" Class="Com.Ctrl.IButton" FixSize="True" ImageName="Com.DeleteObj" OnClick="DelButtonOnClick" Width="7"/>
+          <Component Name="edtBusyness" Class="Com.Ctrl.IEdit" Excluded="True" Field="Team_CurMember.Busyness" OnVerify="Busyness_OnVerify" ValueType="VarInteger"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

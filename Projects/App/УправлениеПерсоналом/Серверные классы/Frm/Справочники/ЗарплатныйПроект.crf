@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.КодИмя">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Справочники.Зарплатные проекты">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Справочники.ЗарплатныйПроект" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="грПредприятие" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Предприятие" Class="Com.Ctrl.IEdit" Field="EdtRec.Предприятие" HasCaption="True" OnChange="Предприятие_OnChange" OnGetLookupFilter="Предприятие_OnGetLookupFilter"/>
+          <Component Name="кнПредприятие" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Предприятие" JumpForm="Bas.Frm.Data.Entity"/>
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="18"/>
+        </Component>
+        <Inherited Name="Group1">
+          <Inherited Name="GroupCode">
+            <Inherited Name="Locked" Visible="True"/>
+          </Inherited>
+          <Inherited Name="GroupName">
+            <Inherited Name="Closed" Visible="True"/>
+          </Inherited>
+        </Inherited>
+        <Component Name="грНастройки" Class="Com.Ctrl.IGroup" After="Group1" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+          <Component Name="грПодразделение" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Подразделение" Class="Com.Ctrl.IEdit" Field="EdtRec.Подразделение" HasCaption="True" OnGetLookupFilter="Подразделение_OnGetLookupFilter"/>
+            <Component Name="кнПодразделение" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Подразделение" JumpForm="Bas.Frm.Data.Entity" Visible="True"/>
+            <Component Name="Static4" Class="Com.Ctrl.IStatic" FixSize="True" Width="18"/>
+          </Component>
+          <Component Name="грКонтрагент" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Контрагент" Class="Com.Ctrl.IEdit" Field="EdtRec.Контрагент" HasCaption="True" OnChange="Контрагент_OnChange"/>
+            <Component Name="кнКонтрагент" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Контрагент" JumpForm="Bas.Frm.Data.Entity"/>
+            <Component Name="Static5" Class="Com.Ctrl.IStatic" FixSize="True" Width="18"/>
+          </Component>
+          <Component Name="грБанк" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Банк" Class="Com.Ctrl.IEdit" Caption="Банк(реквизиты)" CardFileClass="Biz.Tab.Data.BankDetails" Field="EdtRec.СписокБанковскихРеквизитов" HasCaption="True" OnGetLookupFilter="Банк_OnGetLookupFilter" OnOutputEx="Банк_OnOutputEx"/>
+            <Component Name="кнБанк" Class="Com.Ctrl.IJumpButton" Field="EdtRec.СписокБанковскихРеквизитов" JumpForm="Biz.Frm.Data.BankDetails"/>
+            <Component Name="Static6" Class="Com.Ctrl.IStatic" FixSize="True" Width="18"/>
+          </Component>
+          <Component Name="грДоговор" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Договор" Class="Com.Ctrl.IEdit" Field="EdtRec.Договор" HasCaption="True" OnGetLookupFilter="Договор_OnGetLookupFilter" Width="50"/>
+            <Component Name="кнДоговор" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Договор" JumpForm="Biz.Frm.Data.Contract"/>
+            <Component Name="ДатаДоговора" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="дата" CaptionWidth="20" Enabled="False" Field="EdtRec.Договор" HasCaption="True" Hint="Дата договора" LookupField="RegistrationDate" MaxWidth="35" Width="35"/>
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+          </Component>
+          <Component Name="грВыгрузка" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="ФорматВыгрузки" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.ФорматВыгрузки" HasButton="True" HasCaption="True" OnLookup="ФорматВыгрузки_OnLookup"/>
+            <Component Name="Static7" Class="Com.Ctrl.IStatic" FixSize="True" Width="27"/>
+            <Component Name="ФлагВыгружать" Class="Com.Ctrl.ICheckBox" Caption="Выгружать" Field="EdtRec.ФайлВыгружать" HasCaption="True" Hint="Файл выгружать" MaxWidth="35" OnChange="ФлагВыгружать_OnChange" Width="35"/>
+            <Component Name="Static8" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+          </Component>
+          <Component Name="грВыгрузка2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="ПутьВыгрузки" Class="Com.Ctrl.IEdit" Field="EdtRec.ПутьВыгрузки" HasButton="True" HasCaption="True" OnLookup="ПутьВыгрузки_OnLookup"/>
+            <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+          </Component>
+          <Component Name="грПериод" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Caption="Период действия" Field="EdtRec.ДатаНачала" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="30" Width="30"/>
+            <Component Name="ДатаОкончания" Class="Com.Ctrl.IEdit" Caption="-  " CaptionWidth="10" Field="EdtRec.ДатаОкончания" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="30" Width="30"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

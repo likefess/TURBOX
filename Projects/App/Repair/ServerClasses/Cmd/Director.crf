@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IMenu">
+  <Inherited Caption="РМ руководителя">
+    <Inherited Name="MainGroup" Orientation="Vertical">
+      <Component Name="Group1" Class="Com.Cmd2.IGroup">
+        <Component Name="Group3" Class="Com.Cmd2.IGroup" Caption="Планы работ" Columns="2" Orientation="Horizontal" Rows="2">
+          <Component Name="Годовые_планы" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_YearPlan"/>
+          <Component Name="Месячные_планы" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_MonthPlane"/>
+        </Component>
+        <Component Name="Group4" Class="Com.Cmd2.IGroup" Caption="Контроль поручений" Columns="2" Orientation="Vertical" Rows="2">
+          <Component Name="Контроль_поручений" Class="Com.Cmd2.IItem" Command="Commands.Cmd_TasksCardfile"/>
+          <Component Name="Список_поручений" Class="Com.Cmd2.IItem" Command="Commands.Cmd_TasksList"/>
+        </Component>
+      </Component>
+      <Component Name="Group2" Class="Com.Cmd2.IGroup">
+        <Component Name="Group5" Class="Com.Cmd2.IGroup" Caption="Отчеты по планированию работ" Columns="5" Orientation="Horizontal" Rows="2">
+          <Component Name="Затраты_годового_плана" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_AnnualPlanReport"/>
+          <Component Name="Затраты_месячного_плана" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_MonthPlanReport"/>
+          <Component Name="Работы_годового_плана" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_TitlePlan"/>
+          <Component Name="Работы_месяного_плана" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_Schedule"/>
+        </Component>
+        <Component Name="Group6" Class="Com.Cmd2.IGroup" Caption="Отчеты о выполнении работ" Columns="5" Orientation="Vertical" Rows="2">
+          <Component Name="Материальные_ресурсы" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_WorkCostsSpareParts"/>
+          <Component Name="Трудовые_ресурсы" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_WorkCostsWorks"/>
+          <Component Name="Финансовые_затраты" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_WorkCostsFinances"/>
+          <Component Name="ВПС_затраты" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_WorkCostSPA"/>
+          <Component Name="Сводные_затраты" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_WorkCostExpenses"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

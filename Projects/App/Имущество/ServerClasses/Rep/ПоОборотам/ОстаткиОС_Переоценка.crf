@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" BegDate="30.01.2023" EndDate="31.01.2023" Period="1" AccountPlan="Оперативный" AccountFilter="Имущество|Амортизация" ParameterFilter="ОС &lt;> nil" BegSaldoFormat="sfNone" TurnFormat="sfNone" ShowBeyondLimits="False" Caption="ОстаткиОС_Переоценка" CIndicator="1" Palette="cpDefault" Legend="lpkAtRight" HystoKind="hkSide">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorКоличество" Class="Com.Rep.IIndMain" Contents="Количество" Caption="Количество" AccountFilter="Имущество" LimitActive_Saldo="True"/>
+      <Component Name="Сумма" Class="Com.Rep.IIndMain" Contents="Сумма" Caption="Текущая стоимость" AccountFilter="Имущество" LimitActive_Saldo="True"/>
+      <Component Name="IndicatorАмортизация" Class="Com.Rep.IIndMain" Contents="Сумма" Caption="Амортизация" AccountFilter="Амортизация" InvertValue="True" BegSaldoFormat="msfNone" TurnFormat="msfNone"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParamC839224A" Class="Com.Rep.ISplitByParam" SplitParam="ОС"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContent5E891157" Class="Com.Rep.ISplitContent" Contents="ОС.КодИмущества" Caption="ОС"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_НашеПредприятие" Class="Com.Rep.IRepControl" Caption="Предприятие" ValueType="VarObject" Plan="Оперативный" Parameter="НашеПредприятие" Operator=" is " SkipNil="True" DefaultStr="Object(nil)" CardFileClass="Bas.Tab.Data.OurCompanies" LookupField="Name" CaptionWidth="32" ShowHierarchy="False"/>
+      <Component Name="RC_Подразделение" Class="Com.Rep.IRepControl" Caption="Подразделение" ValueType="VarObject" Plan="Оперативный" Parameter="Подразделение" Operator="=" SkipNil="True" DefaultStr="Object(nil)" CardFileClass="Bas.Tab.Data.Divisions" LookupField="Name"/>
+      <Component Name="RC_МОЛ" Class="Com.Rep.IRepControl" Caption="МОЛ" ValueType="VarObject" LookupFilter="IsStaffer" Plan="Оперативный" Parameter="МОЛ" Operator="=" SkipNil="True" DefaultStr="Object(nil)" CardFileClass="Bas.Tab.Data.NaturalEntities" LookupField="Name"/>
+      <Component Name="RC_НазначениеОС" Class="Com.Rep.IRepControl" Caption="Назначение ОС" ValueType="VarObject" Plan="Оперативный" Parameter="ОС.НазначениеОС" Operator="=" SkipNil="True" DefaultStr="Object(nil)" CardFileClass="BizRus.Tab.Ref.НОС" LookupField="Name"/>
+      <Component Name="RC_ИнвестиционнаяНедвижимость" Class="Com.Rep.IRepControl" Caption="ИнвестиционнаяНедвижимость" ValueType="VarLogical" Plan="Оперативный" Parameter="ОС.ИнвестиционнаяНедвижимость" Operator="=" DefaultStr="Logical(False)"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>
+

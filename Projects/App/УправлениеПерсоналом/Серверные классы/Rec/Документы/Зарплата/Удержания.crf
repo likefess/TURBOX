@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Rec.Базовая.БазовыйДокумент">
+  <Inherited>
+    <Component Name="ДатаКорректировки" Class="Com.Fld.IField" After="#0" FieldName="ДатаКорректировки"/>
+    <Component Name="ТипДокумента" Class="Com.Fld.IField" FieldName="ТипДокумента" OnChange="ТипДокумента_OnChange"/>
+    <Component Name="Проводить" Class="Com.Fld.IField" Caption="Проводить" FieldName="Проводить" ValueType="VarLogical"/>
+    <Component Name="УсловияТрудаСотр" Class="Com.Fld.IField" FieldName="УсловияТрудаСотр" OnChange="УсловияТрудаСотр_OnChange"/>
+    <Component Name="Назначение" Class="Com.Fld.IField" FieldName="Назначение"/>
+    <Component Name="Корректировка" Class="Com.Fld.IField" FieldName="Корректировка"/>
+    <Component Name="Перерасчет" Class="Com.Fld.IField" FieldName="Перерасчет" OnChange="Перерасчет_OnChange"/>
+    <Component Name="Скорректирован" Class="Com.Fld.IField" FieldName="Скорректирован"/>
+    <Component Name="ПроцентУдержания" Class="Com.Fld.IField" FieldName="ПроцентУдержания"/>
+    <Component Name="Очередность" Class="Com.Fld.IField" FieldName="Очередность"/>
+    <Component Name="ОгрУдержания" Class="Com.Fld.IField" FieldName="ОгрУдержания"/>
+    <Component Name="УчетПрожитМин" Class="Com.Fld.IField" FieldName="УчетПрожитМин" OnChange="УчетПрожитМин_OnChange"/>
+    <Component Name="НомерДок" Class="Com.Fld.IField" FieldName="НомерДок"/>
+    <Component Name="ДатаДок" Class="Com.Fld.IField" FieldName="ДатаДок"/>
+    <Component Name="сВзыскатель" Class="Com.Fld.IField" Extra="True" FieldName="сВзыскатель" ValueType="VarString"/>
+    <Component Name="ПрожМинимум" Class="Com.Fld.IField" FieldName="ПрожМинимум"/>
+    <Component Name="Параметры" Class="Com.ISubtable" After="ДопАналитикаИтоги" StructClass="УправлениеПерсоналом.Rec.Документы.Зарплата.Удержания_Параметры" SubtableName="Параметры"/>
+    <Component Name="Затраты" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Зарплата.Удержания_Затраты" SubtableName="Затраты"/>
+    <Component Name="ЗатратыВарУчета" Class="Com.Fld.IField" FieldName="ЗатратыВарУчета"/>
+  </Inherited>
+</Resource>

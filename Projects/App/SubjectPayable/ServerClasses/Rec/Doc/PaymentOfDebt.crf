@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="SubjectPayable.Rec.Base.BaseSubjPayableDoc">
+  <Inherited>
+    <Component Name="PaymCurrency" Class="Com.Fld.IVar" After="#0" OnCalc="PaymCurrency_OnCalc" RecordClass="Biz.Rec.Ref.UCurrency" StoredVar="True" ValueType="VarObject"/>
+    <Component Name="TypeOfAcc" Class="Com.Fld.IField" Caption="@SubjectPayable:TypeOfAcc=Тип начисления" FieldName="TypeOfAcc" OnChange="TypeOfAcc_OnChange"/>
+    <Inherited Name="CompanyBankDetails" After="TypeOfAcc"/>
+    <Inherited Name="Name" OnCalc="Name_OnCalc"/>
+    <Component Name="ExchRateBase2" Class="Com.Fld.IVar" After="ExchRateBase" OnCalc="ExchRateBase2_OnCalc" ValueType="VarNumeric"/>
+    <Inherited Name="VATRate" After="ExchRateBase2"/>
+    <Inherited Name="AccDate" Caption="@PaymentOfDebt:AccDate=Дата оплаты"/>
+    <Inherited Name="SourceDoc" Caption="@PaymentOfDebt:SourceDoc=Платежный документ"/>
+    <Component Name="CurrencyAccOfDebt" Class="Com.Fld.IField" After="SourceDoc" FieldName="CurrencyAccOfDebt" OnCalc="CurrencyAccOfDebt_OnCalc"/>
+    <Component Name="SumAccOfDebt" Class="Com.Fld.IField" FieldName="SumAccOfDebt" OnCalc="SumAccOfDebt_OnCalc"/>
+    <Component Name="ExchRateAccOfDebt" Class="Com.Fld.IField" FieldName="ExchRateAccOfDebt" OnCalc="ExchRateAccOfDebt_OnCalc"/>
+    <Component Name="Advance" Class="Com.Fld.IField" Caption="@PaymentOfDebt:Advance=Аванс" FieldName="Advance"/>
+    <Component Name="TypePayment" Class="Com.Fld.IField" FieldName="TypePayment"/>
+    <Component Name="DocAccrualOfDebt" Class="Com.Fld.IField" FieldName="DocAccrualOfDebt" OnChange="DocAccrualOfDebt_OnChange"/>
+  </Inherited>
+</Resource>

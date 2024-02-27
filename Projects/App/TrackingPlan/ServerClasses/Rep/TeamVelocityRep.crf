@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" AccountFilter="WF" AccountPlan="Workflow" BegDate="01.11.2022" BegSaldoFormat="sfNone" Caption="Скорость команды" CIndicator="1" EndDate="01.12.2022" FirstPage="OutputChart" HintKind="mkNone" HystoKind="hkSide" Legend="lpkAtRight" LinkBy="lbSeriesSelect" OutputChart="1" OutputReport="0" Palette="cpFrozen" ParameterFilter="Sprint &lt;> nil and Sprint.Closed" Period="3" ShowBeyondLimits="False" ShowDebCreRow="False" ShowSumKindRow="False" TurnFormat="sfNone">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="Indicator1" Class="Com.Rep.IIndMain" Excluded="True" Caption="Всего задач" Contents="Count(Task)" Visible="False"/>
+      <Component Name="Indicator2" Class="Com.Rep.IIndMain" Excluded="True" Caption="Завершенно задач" Contents="Count(Task)" ParameterFilter="Task.Состояние = Закрыта" Visible="False"/>
+      <Component Name="Indicator3" Class="Com.Rep.IIndCustom" Aggregate="agrNone" Caption="Запланировано, ч" Function="var r: Control.Rec.Data.Task;&#xD;&#xA;     var res: Numeric;&#xD;&#xA;     var vTasks:Variant;&#xD;&#xA;     vTasks = Sys.Recs.ReadRecords(Control.Data.Task, 'Sprint.Code = &quot;' + str(SplitContentCod.Value) + '&quot;' );&#xD;&#xA;     for var i = 1..vTasks.Count do&#xD;&#xA;       r = Control.Rec.Data.Task.OpenRecord(vTasks[i]);&#xD;&#xA;       var vQry = Com.Recs.CreateQuery([TMS.Data.DayEvent], &quot;Task = &quot; + str(vTasks[i]) + &quot; and Status = &quot; + Com.InBase.TMSStatusPlan.StrInternal, &quot;&quot;, &quot;&quot;, false, [], 0);&#xD;&#xA;       if vQry.Count > 0 then&#xD;&#xA;         res = res + vQry.CalcAggregates(&quot;Sum(Quantity)&quot;);&#xD;&#xA;       else&#xD;&#xA;         res = res + 0;&#xD;&#xA;       end;&#xD;&#xA;     end;&#xD;&#xA;     Result = res;" ShowUnit="False" ValueType="VarNumeric"/>
+      <Component Name="Indicator5" Class="Com.Rep.IIndCustom" Aggregate="agrNone" Caption="Выполнено, ч" Function="var res: Numeric;&#xD;&#xA;     var vTasks:Variant;&#xD;&#xA;     var vSprint:Variant;&#xD;&#xA;     vSprint = Sys.Recs.FindRecord(TrackingDev.Ref.Sprint, 'Code =&quot;' + str(SplitContentCod.Value) + '&quot;');&#xD;&#xA;     vTasks = Sys.Recs.ReadRecords(Control.Data.Task, 'Match(TaskStatus.StatusType, &quot;*Завершен*&quot;) and HistoryOfStatus.Exists(NewStatus.StatusType = &quot;Завершен&quot; and TimeOfTransition &lt;= '  + str(vSprint?.EndDate)  + ') and Sprint.Code = &quot;' + str(SplitContentCod.Value) + '&quot;' );&#xD;&#xA;     for var i = 1..vTasks.Count do&#xD;&#xA;       var vQry = Com.Recs.CreateQuery([TMS.Data.DayEvent], &quot;Task = &quot; + str(vTasks[i]) + &quot; and Status = &quot; + Com.InBase.TMSStatusFact.StrInternal, &quot;&quot;, &quot;&quot;, false, [], 0);&#xD;&#xA;       if vQry.Count > 0 then&#xD;&#xA;         res = res + vQry.CalcAggregates(&quot;Sum(Quantity)&quot;);&#xD;&#xA;       else&#xD;&#xA;         res = res + 0;&#xD;&#xA;       end;&#xD;&#xA;     end;&#xD;&#xA;     Result = res;" ShowUnit="False" ValueType="VarNumeric"/>
+      <Component Name="Indicator4" Class="Com.Rep.IIndMain" Excluded="True" Caption="Количество спринтов" Contents="Count(Sprint)" Visible="False"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam1F4B5FAE" Class="Com.Rep.ISplitByParam" Sort="True" SortOrder="+Sprint.#BegDate" SplitParam="Sprint"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContentCod" Class="Com.Rep.ISplitContent" Caption="Спринт" Contents="Sprint.Код"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_Project" Class="Com.Rep.IRepControl" Caption="Проект" DefaultStr="Object(nil)" Operator=" is " Parameter="Project" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators">
+      <Component Name="SelectedIndicators6754B2FB" Class="InfoBoard.Rep.ISelectedIndicators" Excluded="True" Indicator="Indicator1"/>
+      <Component Name="SelectedIndicators7762E383" Class="InfoBoard.Rep.ISelectedIndicators" Excluded="True" Indicator="Indicator2"/>
+      <Component Name="SelectedIndicators54445C0A" Class="InfoBoard.Rep.ISelectedIndicators" Indicator="Indicator3"/>
+      <Component Name="SelectedIndicators1" Class="InfoBoard.Rep.ISelectedIndicators" Indicator="Indicator5"/>
+    </Component>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis" Caption="Спринты"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

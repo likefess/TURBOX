@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IMenu">
+  <Inherited Caption="РМ директора по продажам">
+    <Inherited Name="MainGroup" Orientation="Vertical">
+      <Component Name="BasicDatas" Class="Com.Cmd2.IGroup" Caption="Основные данные" Columns="2" Orientation="Vertical" Rows="6">
+        <Component Name="Googs" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Directories_Material_assets"/>
+        <Component Name="SalesContracts" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Sales_Sales_Contracts"/>
+        <Component Name="Customers" Class="Com.Cmd2.IItem" Command="Commands.SCM_Parameters_Customers"/>
+        <Component Name="CommissionSalesContracts" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Sales_Commission_sales_contracts"/>
+        <Component Name="Warehouses" Class="Com.Cmd2.IItem" Command="Commands.SCM_Parameters_Locations"/>
+        <Component Name="SaleTransactions" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Sales_Sale_transactions"/>
+        <Component Name="PriceTypes" Class="Com.Cmd2.IItem" Command="Commands.SCM_Parameters_Price_types"/>
+        <Component Name="SalesPriceLists" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Sales_Sales_price_lists"/>
+        <Component Name="Employees" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Employees"/>
+        <Component Name="MarkUpsAndDiscounts" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Sales_Mark_Ups_And_Discounts"/>
+        <Component Name="NaturalEntities" Class="Com.Cmd2.IItem" Command="Commands.Cmd_NaturalEntities"/>
+      </Component>
+      <Component Name="Documents" Class="Com.Cmd2.IGroup" Caption="Документы" Columns="2" Rows="6">
+        <Component Name="SalesPlans" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Sales_Sales_Plans"/>
+        <Component Name="FillingOfABCclassificationOfGoods" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Service_Filling_of_ABC_classification_of_goods"/>
+        <Component Name="FillingOfXYZclassificationOfGoods" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Service_Filling_of_XYZ_classification_of_goods"/>
+        <Component Name="FillingOfABCclassificationOfClients" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Service_Filling_of_ABC_classification_of_Clients"/>
+        <Component Name="FillingOfABCclassificationOfCustomers" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Service_Filling_of_ABC_classification_of_Customers"/>
+      </Component>
+      <Component Name="Reports" Class="Com.Cmd2.IGroup" Caption="Отчеты" Columns="3" Rows="5">
+        <Component Name="Отчеты" Class="Com.Cmd2.IGroup" Caption="Отчеты" Columns="3" Rows="1">
+          <Component Name="ConsolidatedPlanSale" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdConsolidatedPlanForManagers_"/>
+          <Component Name="ConsolidatedPlanForManagers" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.SCM_Reports_cmdConsolidatedPlanForManagers_"/>
+          <Component Name="ConsolidatedPlanForPointsOfSale" Class="Com.Cmd2.IItem" Excluded="True" CommandName="SCM.Reports:cmdConsolidatedPlanForPointsOfSale"/>
+          <Component Name="ComparisonOfThePlansByGoods" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdComparisonOfThePlansByGoods"/>
+          <Component Name="ExecutionOfSalesPlan_Aggregate" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdExecutionOfSalesPlanByManagers_"/>
+          <Component Name="ComparisonOfPurchaseAndSalesPlansByProducts" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdComparisonOfPurchaseAndSalesPlansByProducts"/>
+        </Component>
+        <Component Name="Анализ" Class="Com.Cmd2.IGroup" Caption="Анализ" Columns="3" Rows="1">
+          <Component Name="АВС_анализ_по_контрагентам" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdABCAnalysis_"/>
+          <Component Name="ABC_XYZ_анализ_по_товарам" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdABCAnalysisRevenueItems_"/>
+          <Component Name="ABC_Список_Контрагентов_ДляАнализа" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdABCClassificationOfCounterparties"/>
+          <Component Name="ABC_XYZ_классификация_товаров" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdABCXYZClassificationOfGoods"/>
+        </Component>
+        <Component Name="СписокТМЦ" Class="Com.Cmd2.IGroup" Excluded="True" Caption="Список ТМЦ"/>
+        <Component Name="SalesManagement" Class="Com.Cmd2.IGroup" Caption="Управление продажами" Columns="3" Rows="2">
+          <Component Name="SaleOfGoods" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdSaleOfGoods"/>
+          <Component Name="TheCourseOfTransactionsWithBuyers" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_The_course_of_transactions_with_buyers"/>
+          <Component Name="ReserveAndShipmentOfItems" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_ReserveAndShipmentOfItems_"/>
+          <Component Name="OverdueBuyersDebt" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdOverdueBuyersDebt_"/>
+          <Component Name="BuyersDebt" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdBuyersDebt_"/>
+          <Component Name="MutualSettlementsWithBuyersOnGoods" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdMutualSettlementsWithBuyersOnGoods_"/>
+          <Component Name="TransferOfGoodsToCommission" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdTransferOfGoodsToCommission_"/>
+          <Component Name="ControlOfPayments" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdControlOf_"/>
+          <Component Name="SalesPerformance" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdSalesPerformance"/>
+          <Component Name="TurnoverForThePeriod" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdTurnoverForThePeriod_"/>
+          <Component Name="ContrapartyReport" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_ContrapartyReport_"/>
+          <Component Name="ContrapartyCardItems" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_ContrapartyCardItems"/>
+          <Component Name="CashFlow" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_Cash_flow"/>
+          <Component Name="CashBalancesByLocation" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_Cash_balances_by_location_"/>
+          <Component Name="RemaindersOfGoodsAndMaterials" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_Remainders_of_goods_and_materials_"/>
+          <Component Name="TurnoverBalanceSheetOfInventoryItems" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_Turnover_balance_sheet_of_inventory_items2"/>
+          <Component Name="CardItems" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_Card_items_"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

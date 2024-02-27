@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.БазовыйДокумент">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Документы.Кадры.Служебный" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="кнПечатьУнФорма" Visible="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="грТипДокумента">
+          <Component Name="ТипДокумента" Class="Com.Ctrl.IEdit" Caption="@Тип документа" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ТипыДокументов" Field="EdtRec.ТипДокумента" FixSize="False" HasCaption="True" LookupField="Name" OnGetLookupFilter="ТипДокумента_OnGetLookupFilter" OnOpenCardForm="ТипДокумента_OnOpenCardForm"/>
+          <Component Name="кнТипДокумента" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ТипДокумента" JumpForm="УправлениеПерсоналом.Frm.Классификаторы.ТипДокумента"/>
+          <Component Name="Static10" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+        </Inherited>
+        <Component Name="грПриказ" Class="Com.Ctrl.IGroup" After="grNumberDate" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Приказ" Class="Com.Ctrl.IEdit" Caption="@Приказ" CardFileClass="УправлениеПерсоналом.Tab.Документы.Кадры.Приказы" Field="EdtRec.ПриказОснование" HasCaption="True" LookupFilter="Проводить" OnGetLookupFilter="Приказ_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуПриказы" OnOutput="Приказ_ПриВыводе"/>
+          <Component Name="кнПриказ" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ПриказОснование" JumpForm="УправлениеПерсоналом.Frm.Документы.Кадры.Приказ"/>
+          <Component Name="Static66" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+        </Component>
+        <Component Name="грСотрудник" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Сотрудник" Class="Com.Ctrl.IEdit" Caption="@Сотрудник" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Enabled="True" Field="EdtRec.УсловияТрудаСотр" HasCaption="True" LookupField="Person.Name" OnOpenCardForm="НастроитьКартотекуУслТрудаСотрудников" OnOutput="Сотрудник_OnOutput" Visible="True"/>
+          <Component Name="ТабНомер" Class="Com.Ctrl.IEdit" Caption="-" CaptionWidth="10" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Enabled="False" Field="EdtRec.УсловияТрудаСотр" HasCaption="True" LookupField="ТабНомер" MaxWidth="30" Visible="True" Width="30"/>
+          <Component Name="кнСотрудник" Class="Com.Ctrl.IJumpButton" Field="EdtRec.УсловияТрудаСотр" JumpForm="УправлениеПерсоналом.Frm.Данные.УсловияТрудаСотрудника"/>
+          <Component Name="Static76" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+        </Component>
+        <Component Name="грНазначение" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Назначение" Class="Com.Ctrl.IEdit" Caption=" " Enabled="False" Field="EdtRec.Назначение" HasCaption="True" Hint="Подразделение, должность, разряд сотрудника" Multiline="True" OnOutputEx="Назначение_OnOutputEx" Wrap="True"/>
+          <Component Name="Static56" Class="Com.Ctrl.IStatic" FixSize="True" Width="37.2"/>
+        </Component>
+        <Inherited Name="грОписание">
+          <Inherited Name="Static3" Width="37"/>
+        </Inherited>
+        <Inherited Name="грПримечание">
+          <Inherited Name="Static4" Width="37"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="фрПодписи" Caption="@Подписи">
+          <Inherited Name="фрПодписиОбщ">
+            <Inherited Name="грРуководитель" Excluded="True"/>
+            <Inherited Name="грОтветственный" Excluded="True"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

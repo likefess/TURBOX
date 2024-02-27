@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IMenu">
+  <Inherited Caption="@TrackingCore:Panel_TaskManagement=Трекинг" FormIcon="TrackingCore.whale">
+    <Inherited Name="MainGroup">
+      <Component Name="GroupMemberAdmin" Class="Com.Cmd2.IGroup" Excluded="True" Caption="Основное" Orientation="Vertical">
+        <Component Name="TaskList" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:TaskList=Задачи" FormClassName="TrackingCore.Rep.TaskList" IconName="TrackingCore.task_list"/>
+        <Component Name="TaskListPersonal" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:TaskList=Мои задачи" FormClassName="TrackingCore.Rep.TaskListPersonal" IconName="TrackingCore.task_list"/>
+        <Component Name="Project" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Bas.Frm.Ref.Project" Caption="@TrackingCore:Project=Проекты" FormClassName="Bas.Tab.Ref.Project" IconName="TrackingCore.projects"/>
+        <Component Name="Kanbans" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:Kanbans=Доски" FormClassName="TrackingLib.Tab.Services.Kanban" IconName="TrackingCore.kanbans" Visible="True"/>
+      </Component>
+      <Component Name="GroupSettings" Class="Com.Cmd2.IGroup" Excluded="True" Caption="Настройки" Orientation="Vertical">
+        <Component Name="TaskCategory1" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:TaskCategory=Типы задач" FormClassName="TrackingCore.Tab.Ref.TaskCategory"/>
+        <Component Name="TaskStatus1" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:TaskStatus=Состояния" FormClassName="Control.Tab.Ref.TaskStatus"/>
+      </Component>
+      <Component Name="Group_Data" Class="Com.Cmd2.IGroup" Excluded="True" Caption="@TrackingCore:Group_Data=Данные">
+        <Component Name="Entity" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Bas.Frm.Data.Entity" Caption="@TrackingCore:Entity=Люди" FormClassName="Bas.Tab.Data.Entity" IconName="Bas.Entities"/>
+        <Component Name="Version" Class="Com.ComManaging.OpenIForm" AdvRTIForm="TrackingCore.Frm.Ref.Version" Caption="@TrackingCore:Version=Версии" FormClassName="TrackingCore.Tab.Ref.Version" IconName="TrackingCore.one"/>
+        <Component Name="Label" Class="Com.ComManaging.OpenIForm" AdvRTIForm="TrackingCore.Frm.Ref.Label" Caption="@TrackingCore:Label=Метки" FormClassName="TrackingCore.Tab.Ref.Label" IconName="Com.tags"/>
+        <Component Name="PrjComponent" Class="Com.ComManaging.OpenIForm" AdvRTIForm="TrackingCore.Frm.Ref.PrjComponent" Caption="@TrackingCore:PrjComponent=Компоненты" FormClassName="TrackingCore.Tab.Ref.PrjComponent" IconName="TrackingCore.component"/>
+      </Component>
+      <Component Name="Group_Main" Class="Com.Cmd2.IGroup" Excluded="True" Caption="@TrackingCore:Group_Main=Основное">
+        <Component Name="NewTask" Class="Com.ComManaging.OpenIForm" AlwaysOpen="True" Caption="@TrackingCore:NewTask=Новая задача" FormClassName="Frm.Data.Task" IconName="Com.AddItem"/>
+        <Component Name="Task" Class="Com.ComManaging.OpenIForm" Excluded="True" AdvRTIForm="TrackingCore.Frm.Data.Task" Caption="@TrackingCore:Task=Картотека задач" FormClassName="TrackingCore.Tab.Data.Tasks" IconName="Com.CardfileTree"/>
+        <Component Name="TaskList_New" Class="Com.ComManaging.OpenReport" Excluded="True" Caption="@TrackingCore:TaskList=Задачи" IconName="Com.Tasks" ReportCode="Rep.TaskList_new"/>
+        <Component Name="Kanban" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="@TrackingCore:Kanban=Доска" FormClassName="TrackingCore.Rep.Kanban" IconName="InfoBoard.kanban" Visible="False"/>
+        <Component Name="Kanban2" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="@TrackingCore:Kanban=Доска - 2" FormClassName="TrackingCore.Rep.Kanban2" IconName="InfoBoard.kanban" Visible="False"/>
+        <Component Name="Kanban_Tasks" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="@TrackingCore:Kanban=Доска" FormClassName="TrackingCore.Rep.Kanban_tasks" IconName="InfoBoard.kanban"/>
+        <Component Name="Gantt" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:Gantt=Диаграмма Ганта" FormClassName="TrackingCore.Rep.Gantt" IconName="InfoBoard.gantt"/>
+      </Component>
+      <Component Name="Group_Settings" Class="Com.Cmd2.IGroup" Excluded="True" Caption="@TrackingCore:Group_Settings=Настройки">
+        <Component Name="SelectProject" Class="Com.Cmd2.IItem" Command="Commands.SelectProject"/>
+        <Component Name="AddProjectParticipants" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:AddProjectParticipants=Добавить участников" FormClassName="Frm.Services.AddProjectParticipants" IconName="Com.AddItem_1"/>
+        <Component Name="BusinessProcess" Class="Com.ComManaging.OpenIForm" AdvRTIForm="TrackingCore.Frm.Ref.BusinessProcess" Caption="@TrackingCore:BusinessProcesses=Бизнес-процессы" FormClassName="TrackingCore.Tab.Ref.BusinessProcess" IconName="Com.Ctrl.diagram"/>
+        <Component Name="TaskStatus" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Control.Ref.Ref.TaskStatus" Caption="@TrackingCore:TaskStatus=Состояния" FormClassName="Control.Tab.Ref.TaskStatus" IconName="Control.Status"/>
+        <Component Name="TaskCategory" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:TaskCategory=Типы задач" FormClassName="TrackingCore.Tab.Ref.TaskCategory" IconName="Control.Categories_"/>
+        <Component Name="TransitionRule" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Control.Ref.Ref.TransitionRule" Caption="@TrackingCore:TransitionRule=Правила переходов" FormClassName="Control.Tab.Ref.TransitionRule" IconName="Control.Transition"/>
+        <Component Name="TaskImportance" Class="Com.ComManaging.OpenIForm" Excluded="True" AdvRTIForm="Control.Ref.Ref.TaskImportance" Caption="@TrackingCore:TaskImportance=Важности" FormClassName="Control.Tab.Ref.TaskImportance" IconName="Control.Importance"/>
+        <Component Name="TaskPriority" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Control.Ref.Ref.TaskPriority" Caption="@TrackingCore:TaskPriority=Приоритеты" FormClassName="Control.Tab.Ref.TaskPriority" IconName="Control.Priority"/>
+        <Component Name="BondType" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:BondType=Связи" FormClassName="TrackingCore.Tab.Ref.BondType" IconName="Control.Transitions_"/>
+        <Component Name="Bond" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:Bond=Зависимости" FormClassName="TrackingCore.Tab.Ref.Bond" IconName="Control.Transitions_"/>
+        <Component Name="Resolution" Class="Com.ComManaging.OpenIForm" AdvRTIForm="TrackingCore.Frm.Ref.Resolution" Caption="@TrackingCore:Resolution=Решения" FormClassName="TrackingCore.Tab.Ref.Resolution" IconName="Bas.solution1"/>
+      </Component>
+      <Component Name="Group_OtherSettings" Class="Com.Cmd2.IGroup" Excluded="True" Caption="@TrackingCore:Group_OtherSettings=Прочее">
+        <Component Name="InstSettings" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:InstSettings=Настройки инсталляции" FormClassName="Bas.Frm.Service.InstSettings" IconName="Bas.user-cog"/>
+        <Component Name="MailAccount" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Bas.Frm.Config.MailAccount" Caption="@TrackingCore:MailAccount=Почтовые аккаунты" FormClassName="Bas.Tab.Config.MailAccount" IconName="Com.user-circle"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Frm.Документы.Имущество.КВ.ИмуществоБазовыйДокументКВ">
+  <Inherited HelpContext="Имущество.Имущество.Документы движения и учета КВ.Перемещение КВ.Внутреннее перемещение КВ">
+    <Inherited Name="EdtRec" Class="Имущество.Rec.Документы.Имущество.КВ.ВнутреннееПеремещениеКВ" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="перТрудовыеОтношенияКуда" Class="Com.Fld.IVar" After="#0" OnCalc="перТрудовыеОтношенияКуда_OnCalc" ValueType="VarObject"/>
+      <Inherited Name="перТрудовыеОтношения" After="перТрудовыеОтношенияКуда"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Шапка_Фрейм">
+          <Inherited Name="Шапка_Гр">
+            <Inherited Name="Корректировка_Гр">
+              <Inherited Name="КорректируемыйДокумент" CardFileClass="Имущество.Tab.Документы.Имущество.КВ.ВнутреннееПеремещениеКВ"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="ОбщиеДанные">
+            <Inherited Name="Подр_Гр">
+              <Inherited Name="Подразделение" Enabled="False" Required="False"/>
+            </Inherited>
+            <Inherited Name="МОЛ_Гр">
+              <Inherited Name="ТрудовыеОтношения_Выбор" Enabled="False" Visible="False"/>
+              <Inherited Name="МОЛ" Enabled="False" Required="False"/>
+            </Inherited>
+            <Inherited Name="Стоимость_Гр">
+              <Inherited Name="Стоимость" Excluded="False" Enabled="False" Required="False"/>
+              <Inherited Name="СтоимостьКВ" Excluded="True"/>
+              <Inherited Name="Количество" Enabled="False" MaxWidth="30" MinWidth="20"/>
+            </Inherited>
+            <Component Name="Подр_МОЛ_ГрКудаНадпись" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ОбъектКВПеремещен" Class="Com.Ctrl.IStatic" Caption="Объект КВ перемещен в:" FontBold="True"/>
+            </Component>
+            <Component Name="Подр_ГрКуда" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="ПодразделениеКуда" Class="Com.Ctrl.IEdit" Caption="Подразделение" CardFileClass="Bas.Tab.Data.Divisions" Field="EdtRec.ПодразделениеКуда" HasCaption="True" Hint="Подразделение, в которое перемещается объект КВ" OnChange="ПодразделениеКуда_OnChange" OnGetLookupFilter="ПодразделениеКуда_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуПодразделение" Required="True"/>
+            </Component>
+            <Component Name="МОЛ_ГрКуда" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="ТрудовыеОтношенияКуда_Выбор" Class="Com.Ctrl.IEdit" Caption="МОЛ" CardFileClass="Biz.Tab.Data.LabourRelations" Field="перТрудовыеОтношенияКуда" HasCaption="True" Hint="ФИО материально-ответственного лица, за которым закреплен данный объект имущества, по состоянию на текущую дату" LookupField="Person.Name" OnChange="ТрудовыеОтношенияКуда_Выбор_OnChange" OnGetLookupFilter="ТрудовыеОтношенияКуда_Выбор_OnGetLookupFilter" OnOutputEx="ТрудовыеОтношенияКуда_Выбор_OnOutputEx" Required="True"/>
+              <Component Name="МОЛКуда" Class="Com.Ctrl.IEdit" Caption="МОЛ" CardFileClass="Bas.Tab.Data.Entity" Field="EdtRec.МОЛКуда" HasCaption="True" Hint="Материально-ответственное лицо, ответственное за данный объект КВ после перемещения" OnChange="МОЛКуда_OnChange" OnGetLookupFilter="МОЛКуда_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуМОЛ" Required="True" Visible="False"/>
+            </Component>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

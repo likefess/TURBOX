@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.CodeName">
+  <Inherited>
+    <Inherited Name="Current" Class="CashFlow.Rec.Data.InvestTrans" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="CardFile" SortOrder="TransDate"/>
+          <Inherited Name="Code" After="ExtId" Visible="False"/>
+          <Inherited Name="Name" After="Code" Visible="False"/>
+          <Component Name="SourceType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Current.SourceType" ListAsString="Ручной ввод|0;Расчет|1;Проводка|2;Договор|3" Width="25"/>
+          <Component Name="LineNum" Class="Com.Ctrl.IEdit" Field="Current.LineNum" Width="20"/>
+          <Component Name="PlanFact" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Current.PlanFact" ListAsString="План|0;Факт|1;Неактуально|2" Width="15"/>
+          <Component Name="OperationType" Class="Com.Ctrl.IEdit" CardFileClass="CashFlow.Tab.Data.OperationType" CellFormat="ReferenceFormat" Field="Current.OperationType" LookupField="Name" Width="60"/>
+          <Component Name="TransDate" Class="Com.Ctrl.IEdit" Field="Current.TransDate" Width="30"/>
+          <Component Name="DtStart" Class="Com.Ctrl.IEdit" Field="Current.DtStart" Width="30"/>
+          <Component Name="DtEnd" Class="Com.Ctrl.IEdit" Field="Current.DtEnd" Width="30"/>
+          <Component Name="Amount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="Current.Amount" FieldFormat=",##0.00;;-" HasCaption="True" Width="25"/>
+          <Component Name="AccDeb" Class="Com.Ctrl.IEdit" Excluded="True" Field="Current.AccDeb" HasCaption="True" Width="30"/>
+          <Component Name="AccCre" Class="Com.Ctrl.IEdit" Excluded="True" Field="Current.AccCre" HasCaption="True" Width="30"/>
+          <Component Name="Note" Class="Com.Ctrl.IEdit" Field="Current.Note" HasCaption="True" Width="20"/>
+          <Component Name="RelatedDoc" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.RelatedDoc" HasCaption="True" LookupField="PrintedNumber" Width="30"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

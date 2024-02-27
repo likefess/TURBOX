@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.CodeName">
+  <Inherited HelpContext="CashFlow.Движение денежных средств.Финансовые инструменты.Периоды начисления процентов" Hierarchical="False">
+    <Inherited Name="Current" Class="CashFlow.Rec.Data.InterestCalcPeriod" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Code" After="ExtId"/>
+          <Inherited Name="Name" After="Code"/>
+          <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          <Component Name="Periodicity" Class="Com.Ctrl.IEdit" Field="Current.Periodicity" Width="25"/>
+          <Component Name="PeriodType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Current.PeriodType" ListAsString="День|0;Неделя|1;Месяц|2;Квартал|3;Год|4" Width="22"/>
+          <Component Name="InvestDayShift" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Current.InvestDayShift" ListAsString="Нет|0;В конец периода|1;В конец всего срока|2" Width="40"/>
+          <Component Name="InvestDayOffShift" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Current.InvestDayOffShift" ListAsString="Нет|0;На более позднюю дату|1;На более раннюю|2" Width="40"/>
+          <Component Name="WorkCalendar" Class="Com.Ctrl.IEdit" Excluded="True" Width="32"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

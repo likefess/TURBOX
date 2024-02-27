@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.БазовыйДокумент">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Расчет Зарплаты.Данные с предыдущего места работы.Справки о доходах с предыдущего места работы">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Документы.Зарплата.ЗачислениеВШтат" IsLibrary="1"/>
+    <Component Name="ЗачислениеВШтат_Доход" Class="УправлениеПерсоналом.Rec.Документы.Зарплата.ЗачислениеВШтат_Доход" IsLibrary="1" After="EdtRec"/>
+    <Component Name="ЗачислениеВШтат_Вычет" Class="УправлениеПерсоналом.Rec.Документы.Зарплата.ЗачислениеВШтат_Вычет" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="грФизЛицо" Class="Com.Ctrl.IGroup" After="grNumberDate" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="УсловияТрудаСотр" Class="Com.Ctrl.IEdit" Caption="Сотрудник" CardFileClass="HRBase.Tab.Data.EmployeePlace" Field="EdtRec.УсловияТрудаСотр" Hint="Сотрудник, предоставивший справку о доходах" LookupField="ФизЛицо.Name" OnOpenCardForm="НастроитьКартотекуУслТрудаСотрудников"/>
+          <Component Name="кнУсловияТрудаСотр" Class="Com.Ctrl.IJumpButton" Field="EdtRec.УсловияТрудаСотр" JumpForm="УправлениеПерсоналом.Frm.Данные.УсловияТрудаСотрудника"/>
+          <Component Name="Static7" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+        </Component>
+        <Component Name="грОрганизация" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Организация" Class="Com.Ctrl.IEdit" Caption="Организация" Field="EdtRec.Организация" Hint="Организация, предоставившая справки о доходе сотрудника на прежнем месте работы" Multiline="True" Wrap="True"/>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="37"/>
+        </Component>
+        <Component Name="грПрочее" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="ОтчетныйГод" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Отчетный год" Field="EdtRec.ОтчетныйГод" Hint="Отчетный год, за который предоставлена справка о доходах"/>
+          <Component Name="Ставка" Class="Com.Ctrl.IEdit" Caption="Ставка НДФЛ" CaptionWidth="35" CardFileClass="УправлениеПерсоналом.Tab.Справочники.СтавкиНДФЛ" Field="EdtRec.СтавкаНДФЛ" HasCaption="True" Hint="Доходы, облагаемые по ставке" OnGetLookupFilter="СтавкаНДФЛ_ФильтрВыбора"/>
+          <Component Name="Static8" Class="Com.Ctrl.IStatic" FixSize="True" Width="37"/>
+        </Component>
+        <Inherited Name="грОписание">
+          <Inherited Name="Static3" Width="37"/>
+        </Inherited>
+        <Inherited Name="грПримечание">
+          <Inherited Name="Static4" Width="37"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Excluded="True"/>
+        <Component Name="фрСправкаОДоходе" Class="Com.Ctrl.IFrame" After="MainTab" AutoSize="True" CanHideBySplit="True" CanResizeBySplit="True" Caption="Справка о доходе" Orientation="Horizontal">
+          <Component Name="фрДоходыВычеты" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Справка о доходе" Orientation="Vertical" Visible="True">
+            <Component Name="фрДоходы" Class="Com.Ctrl.IFrame" AutoSize="True" CanResizeBySplit="True" Enabled="True" Orientation="Horizontal" SplitterAtRight="True" UseSplitter="True" Visible="True">
+              <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150" Visible="True">
+                <Component Name="Static2" Class="Com.Ctrl.IStatic" Caption="Доходы" FontBold="True"/>
+              </Component>
+              <Component Name="Доходы" Class="Com.Ctrl.ITable" Subtable="EdtRec.Доходы">
+                <Component Name="Период" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Период" CardFileClass="Biz.Tab.Ref.Period" Field="ЗачислениеВШтат_Доход.Период" HasCaption="True" Hint="Период дохода" LookupField="Name" LookupFilter="IsGroup = 0" Width="45"/>
+                <Component Name="ВидДохода" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Код дохода" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыДоходов" Field="ЗачислениеВШтат_Доход.ВидДохода" HasCaption="True" LookupField="КодУчета" Width="25"/>
+                <Component Name="Сумма" Class="Com.Ctrl.IEdit" Caption="Сумма" Field="ЗачислениеВШтат_Доход.Сумма" FieldFormat=",##0.00;;-" Width="30"/>
+                <Component Name="КодВычета" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Код вычета" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыВычетов" Field="ЗачислениеВШтат_Доход.ВидВычета" HasCaption="True" LookupField="КодУчета" Width="25"/>
+                <Component Name="СуммаВычет" Class="Com.Ctrl.IEdit" Caption="Сумма" Field="ЗачислениеВШтат_Доход.Вычет" FieldFormat=",##0.00;;-" Width="30"/>
+              </Component>
+              <Component Name="Group4" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Static6" Class="Com.Ctrl.IStatic" Caption="Итого" FontBold="True"/>
+              </Component>
+              <Component Name="Group5" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+                <Component Name="ИтогоОбщийДоход" Class="Com.Ctrl.IEdit" Caption="Общая сумма дохода" CaptionWidth="55" Enabled="False" Field="EdtRec.ИтогоОбщийДоход" FieldFormat=",##0.00;;-" MaxWidth="40"/>
+                <Component Name="ИтогоНДФЛ" Class="Com.Ctrl.IEdit" Caption="Сумма налога исчисленная" CaptionWidth="55" Enabled="True" Field="EdtRec.ИтогоНДФЛ" FieldFormat=",##0.00;;-" MaxWidth="40"/>
+              </Component>
+            </Component>
+            <Component Name="фрСтандартВычеты" Class="Com.Ctrl.IFrame" AutoSize="True" CanHideBySplit="True" CanResizeBySplit="True">
+              <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+                <Component Name="Static5" Class="Com.Ctrl.IStatic" Caption="Стандартные вычеты" FontBold="True"/>
+              </Component>
+              <Component Name="Вычеты" Class="Com.Ctrl.ITable" Subtable="EdtRec.Вычеты">
+                <Component Name="КодУчета" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Код вычета" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыВычетов" Field="ЗачислениеВШтат_Вычет.ВидВычета" HasCaption="True" LookupField="КодУчета" Width="25"/>
+                <Component Name="СуммаВычета" Class="Com.Ctrl.IEdit" Caption="Сумма" Field="ЗачислениеВШтат_Вычет.Вычет" FieldFormat=",##0.00;;-" Width="30"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Inherited Name="фрПодписи" Excluded="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,1932 @@
+TBCFile VER="3.4" [Created '03.02.2022 13:25:43' by 'Администратор']
+
+DESCRIPTION[
+Count=2
+CountByRef=93
+Integration.DataProcessing
+(
+  Count=2
+  CountByRef=0
+)
+Integration.EndPoint
+(
+  Count=0
+  CountByRef=4
+)
+Integration.EndPointType
+(
+  Count=0
+  CountByRef=3
+)
+Integration.ObjectStruct
+(
+  Count=0
+  CountByRef=4
+)
+Integration.ObjectStructFields
+(
+  Count=0
+  CountByRef=76
+)
+Integration.ObjectStructTables
+(
+  Count=0
+  CountByRef=4
+)
+Integration.ProcessorMapping
+(
+  Count=0
+  CountByRef=2
+)
+]
+
+METADATA[
+
+  [Integration.DataProcessing
+  (
+    Deleted :Boolean
+    GroupDoc :Integration.DataProcessing
+    isGroup :Integer
+    CreateDate :Date
+    CreateUser :String(40)
+    UpdateDate :Date
+    UpdateUser :String(40)
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    OperDoc :Inherited Bas.Base.Event
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    Processor :String
+    Parameters :Struct array Integer
+    (
+      Name :String
+      ParamType :Integer
+      ParamValue :Memo
+      AsRecord :Inherited IDRecord
+    )
+  )
+  ForeignKey Code
+  ]
+
+  [Integration.EndPoint
+  (
+    Deleted :Boolean
+    GroupDoc :Integration.EndPoint
+    isGroup :Integer
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    OperDoc :Inherited Bas.Base.Event
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    TypeFlow :Integration.EndPointType
+    Blocked :Boolean
+    MWGuid :String(36)
+    ObjectStruct :Integration.ObjectStruct
+    ExecOnServer :Boolean
+    ParameterList :Struct array Integer
+    (
+      PosName :String
+      PosType :Integer
+      AsNumeric :Real
+      AsString :Memo
+      AsInteger :Integer
+      AsDate :Date
+      AsLogical :Boolean
+      CardFile :String
+      AsRecord :Inherited IDRecord
+    )
+  )
+  ForeignKey Code
+  ]
+
+  [Integration.EndPointType
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    OperDoc :Inherited Bas.Base.Event
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    TypeFlow :String
+    TypeFormat :String
+    GettingMiddleWare :Boolean
+    ProcClass :String
+    EPVersion :Integer
+    ParameterList :Struct array Integer
+    (
+      ParamName :String
+      ParamType :Integer
+      Required :Boolean
+      ParmDescription :String(850)
+      DefaultValue :String
+      CardFile :String
+    )
+  )
+  ForeignKey Code
+  ]
+
+  [Integration.ObjectStruct
+  (
+    Deleted :Boolean
+    GroupDoc :Integration.ObjectStruct
+    isGroup :Integer
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    OperDoc :Inherited Bas.Base.Event
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    EndPointType :Integration.EndPointType
+    StoredDocID :String
+  )
+  ForeignKey Code
+  ]
+
+  [Integration.ObjectStructFields
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    OperDoc :Inherited Bas.Base.Event
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    FieldDescriptor :String
+    FieldType :Integer
+    OwnerObjectStruct :Integration.ObjectStruct
+    SortIndex :Integer
+    Exclude :Boolean
+    keyField :Boolean
+    TableOwner :Integration.ObjectStructTables
+    TableId :Integer
+  )
+  ForeignKey Code
+  ]
+
+  [Integration.ObjectStructTables
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    OperDoc :Inherited Bas.Base.Event
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    TableDescriptor :String
+    OwnerObjectStruct :Integration.ObjectStruct
+    SortIndex :Integer
+    Exclude :Boolean
+    Level :Integer
+    TableId :Integer
+  )
+  ForeignKey Code
+  ]
+
+  [Integration.ProcessorMapping
+  (
+    Deleted :Boolean
+    GroupDoc :Integration.ProcessorMapping
+    isGroup :Integer
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    OperDoc :Inherited Bas.Base.Event
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    SourceObjectStruct :Integration.ObjectStruct
+    ReceiverObjectStruct :Integration.ObjectStruct
+    CanAutoGenerate :Boolean
+    FieldList :Struct array Integer
+    (
+      KeyField :Boolean
+      ConvertClass :String
+      ConvertParametrs :Memo
+      SourceField :Integration.ObjectStructFields
+      ReceiverField :Integration.ObjectStructFields
+      MapId :Integer
+    )
+    TableList :Struct array Integer
+    (
+      SourceTable :Integration.ObjectStructTables
+      ReceiverTable :Integration.ObjectStructTables
+      MapId :Integer
+      DataUpdate :Integer
+      Level :Integer
+    )
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Integration.DataProcessing
+  
+  {Integration.DataProcessing:"_7IU3P11OSEEFEB"}
+  (
+    CreateDate = 28.01.2022 14:52:12
+    CreateUser = "Администратор"
+    UpdateDate = 01.02.2022 19:28:45
+    UpdateUser = "Администратор"
+    Name = "Экспорт ПП в клиент-банк"
+    Processor = "CashFlow.Integration.CashFlowMappingProcessor"
+    Parameters = (
+      0:(
+        Name = "Источник"
+        ParamType = 6
+        ParamValue = "{Integration.EndPoint:8}"
+        AsRecord = {Integration.EndPoint:_7IU3P11OU9QSAI}
+      )
+      1:(
+        Name = "Приёмник"
+        ParamType = 6
+        ParamValue = "{Integration.EndPoint:1}"
+        AsRecord = {Integration.EndPoint:_IPG8OV6HHE9EPO}
+      )
+      2:(
+        Name = "Соответствие полей"
+        ParamType = 6
+        ParamValue = "{Integration.ProcessorMapping:2}"
+        AsRecord = {Integration.ProcessorMapping:_7IU3P11OV63NE1}
+      )
+    )
+  )
+  
+  {Integration.DataProcessing:"_7IU3P11UU6M4UI"}
+  (
+    CreateDate = 31.01.2022 13:24:08
+    CreateUser = "Администратор"
+    UpdateDate = 01.02.2022 16:07:50
+    UpdateUser = "Администратор"
+    Name = "Импорт банковских выписок"
+    Processor = "CashFlow.Integration.ClientBankProcessor_V2"
+    Parameters = (
+      0:(
+        Name = "Источник"
+        ParamType = 6
+        ParamValue = "{Integration.EndPoint:2}"
+        AsRecord = {Integration.EndPoint:1CClientBankExchangeImport}
+      )
+      1:(
+        Name = "Приёмник"
+        ParamType = 6
+        ParamValue = "{Integration.EndPoint:13}"
+        AsRecord = {Integration.EndPoint:BankStatementEndPoint}
+      )
+      2:(
+        Name = "Соответствие полей"
+        ParamType = 6
+        ParamValue = "{Integration.ProcessorMapping:3}"
+        AsRecord = {Integration.ProcessorMapping:BankStatementProcMapping}
+      )
+    )
+  )
+]
+
+[Integration.EndPoint
+  
+  {Integration.EndPoint:"_IPG8OV6HHE9EPO"}
+  (
+    Name = "1CClientBankExchangeExport"
+    TypeFlow = {Integration.EndPointType:_7IU3P11OTV1VA6}
+    ObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    ParameterList = (
+      0:(
+        PosName = "FileName"
+        PosType = 1
+        AsString = "C:\\Клиент-банк\\Экспорт\\exp_1c_to_kl.txt"
+      )
+      1:(
+        PosName = "CurrDocName"
+        PosType = 1
+        AsString = "Платежное поручение"
+      )
+      2:(
+        PosName = "Encoding"
+        PosType = 2
+        AsInteger = 1
+      )
+      3:(
+        PosName = "StartDocStr"
+        PosType = 1
+        AsString = "1CClientBankExchange"
+      )
+      4:(
+        PosName = "SectionBeginSeparator"
+        PosType = 1
+        AsString = "СекцияДокумент"
+      )
+      5:(
+        PosName = "SectionEndSeparator"
+        PosType = 1
+        AsString = "КонецДокумента"
+      )
+      6:(
+        PosName = "EndDocStr"
+        PosType = 1
+        AsString = "КонецФайла"
+      )
+      7:(
+        PosName = "FormatVersion"
+        PosType = 1
+        AsString = "ВерсияФормата=1.02"
+      )
+      8:(
+        PosName = "BeginDate"
+        PosType = 1
+        AsString = "ДатаНачала=01.02.2020"
+      )
+      9:(
+        PosName = "EndDate"
+        PosType = 1
+        AsString = "ДатаКонца=01.02.2022"
+      )
+      10:(
+        PosName = "AccountNum"
+        PosType = 1
+        AsString = "РасчСчет=40703810200430000033"
+      )
+      11:(
+        PosName = "SectionAccountNumBegin"
+        PosType = 1
+        AsString = "СекцияРасчСчет"
+      )
+      12:(
+        PosName = "SectionAccountNumEnd"
+        PosType = 1
+        AsString = "КонецРасчСчет"
+      )
+    )
+  )
+  
+  {Integration.EndPoint:"1CClientBankExchangeImport"}
+  (
+    Name = "1CClientBankExchangeImport"
+    TypeFlow = {Integration.EndPointType:_7IU3P11OTV1VA6}
+    ObjectStruct = {Integration.ObjectStruct:_7IU3P1215F23B4}
+    ParameterList = (
+      0:(
+        PosName = "FileName"
+        PosType = 1
+        AsString = "C:\\Клиент-банк\\Импорт\\imp_1c_to_kl.txt"
+      )
+      1:(
+        PosName = "CurrDocName"
+        PosType = 1
+        AsString = "Платежное поручение"
+      )
+      2:(
+        PosName = "Encoding"
+        PosType = 2
+        AsInteger = 1
+      )
+      3:(
+        PosName = "StartDocStr"
+        PosType = 1
+        AsString = "1CClientBankExchange"
+      )
+      4:(
+        PosName = "SectionBeginSeparator"
+        PosType = 1
+        AsString = "СекцияДокумент"
+      )
+      5:(
+        PosName = "SectionEndSeparator"
+        PosType = 1
+        AsString = "КонецДокумента"
+      )
+      6:(
+        PosName = "EndDocStr"
+        PosType = 1
+        AsString = "КонецФайла"
+      )
+      7:(
+        PosName = "FormatVersion"
+        PosType = 1
+        AsString = "ВерсияФормата=1.02"
+      )
+      8:(
+        PosName = "BeginDate"
+        PosType = 1
+        AsString = "ДатаНачала="
+      )
+      9:(
+        PosName = "EndDate"
+        PosType = 1
+        AsString = "ДатаКонца="
+      )
+      10:(
+        PosName = "AccountNum"
+        PosType = 1
+        AsString = "РасчСчет"
+      )
+      11:(
+        PosName = "SectionAccountNumBegin"
+        PosType = 1
+        AsString = "СекцияРасчСчет"
+      )
+      12:(
+        PosName = "SectionAccountNumEnd"
+        PosType = 1
+        AsString = "КонецРасчСчет"
+      )
+    )
+  )
+  
+  {Integration.EndPoint:"_7IU3P11OU9QSAI"}
+  (
+    Name = "Платежное поручение"
+    TypeFlow = {Integration.EndPointType:_7IU3P11OT860FA}
+    ObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    ParameterList = (
+      0:(
+        PosName = "TransSize"
+        PosType = 2
+        AsInteger = 1000
+      )
+      1:(
+        PosName = "Filter"
+        PosType = 1
+        AsString = "DocID = 1 or DocID = 2"
+      )
+      2:(
+        PosName = "Project"
+        PosType = 1
+        AsString = "CashFlow"
+      )
+      3:(
+        PosName = "CardForm"
+        PosType = 1
+        AsString = "Tab.Doc.PaymentOrder"
+      )
+      4:(
+        PosName = "DocumentForm"
+        PosType = 1
+        AsString = "Frm.Doc.PaymentOrder"
+      )
+      5:(
+        PosName = "ReCount"
+        PosType = 1
+        AsString = "False"
+      )
+    )
+  )
+  
+  {Integration.EndPoint:"BankStatementEndPoint"}
+  (
+    Name = "Банковская выписка"
+    TypeFlow = {Integration.EndPointType:_7IU3P11OT860FA}
+    ObjectStruct = {Integration.ObjectStruct:_7IU3P11UU8R86K}
+    ParameterList = (
+      0:(
+        PosName = "TransSize"
+        PosType = 2
+        AsInteger = 1000
+      )
+      1:(
+        PosName = "Filter"
+        PosType = 1
+      )
+      2:(
+        PosName = "Project"
+        PosType = 1
+        AsString = "CashFlow"
+      )
+      3:(
+        PosName = "CardForm"
+        PosType = 1
+        AsString = "Tab.Doc.BankStatement"
+      )
+      4:(
+        PosName = "DocumentForm"
+        PosType = 1
+        AsString = "Frm.Doc.BankStatement"
+      )
+      5:(
+        PosName = "ReCount"
+        PosType = 1
+        AsString = "False"
+      )
+    )
+  )
+]
+
+[Integration.EndPointType
+  
+  {Integration.EndPointType:"_7IU3P11OT860FA"}
+  (
+    Name = "TB форма"
+    TypeFlow = "TB форма"
+    TypeFormat = "TB форма"
+    ProcClass = "Integration.Data.UniTBFrm"
+    EPVersion = 2
+    ParameterList = (
+      0:(
+        ParamName = "TransSize"
+        ParamType = 2
+        ParmDescription = "Размер транзакции"
+        DefaultValue = "1000"
+      )
+      1:(
+        ParamName = "Filter"
+        ParamType = 1
+        ParmDescription = "Record filter"
+      )
+      2:(
+        ParamName = "Project"
+        ParamType = 1
+        Required = True
+        ParmDescription = "Selected project in Turbo"
+      )
+      3:(
+        ParamName = "CardForm"
+        ParamType = 1
+        ParmDescription = "CardForm from Record"
+      )
+      4:(
+        ParamName = "DocumentForm"
+        ParamType = 1
+        Required = True
+        ParmDescription = "Selected form in Turbo"
+      )
+      5:(
+        ParamName = "ReCount"
+        ParamType = 1
+        ParmDescription = "Recount fields on form"
+        DefaultValue = "False"
+      )
+    )
+  )
+  
+  {Integration.EndPointType:"_7IU3P11OTV1VA6"}
+  (
+    Name = "Клиент-банк"
+    TypeFlow = "Клиент-банк"
+    TypeFormat = "Клиент-банк"
+    ProcClass = "Integration.Data.UniClientBankTable2"
+    EPVersion = 2
+    ParameterList = (
+      0:(
+        ParamName = "FileName"
+        ParamType = 1
+        Required = True
+        ParmDescription = "Specifies txt-file name"
+      )
+      1:(
+        ParamName = "CurrDocName"
+        ParamType = 1
+        ParmDescription = 
+          "Name of document (after section splitter). Presence in ""1C"" only"
+        DefaultValue = "Платежное поручение"
+      )
+      2:(
+        ParamName = "Encoding"
+        ParamType = 2
+        ParmDescription = "File encoding: Ansi = 1, OEM = 2, UTF8 = 3, UTF16 = 4"
+        DefaultValue = "1"
+      )
+      3:(
+        ParamName = "StartDocStr"
+        ParamType = 1
+        Required = True
+        ParmDescription = "Name of the start line"
+        DefaultValue = "1CClientBankExchange"
+      )
+      4:(
+        ParamName = "SectionBeginSeparator"
+        ParamType = 1
+        Required = True
+        ParmDescription = "Name of the start section's separator"
+        DefaultValue = "СекцияДокумент"
+      )
+      5:(
+        ParamName = "SectionEndSeparator"
+        ParamType = 1
+        Required = True
+        ParmDescription = "Name of the finish section's separator"
+        DefaultValue = "КонецДокумента"
+      )
+      6:(
+        ParamName = "EndDocStr"
+        ParamType = 1
+        Required = True
+        ParmDescription = "Name of the finish line"
+        DefaultValue = "КонецФайла"
+      )
+      7:(
+        ParamName = "FormatVersion"
+        ParamType = 1
+        ParmDescription = "Format version"
+        DefaultValue = "ВерсияФормата=1.02"
+      )
+      8:(
+        ParamName = "BeginDate"
+        ParamType = 1
+        DefaultValue = "ДатаНачала="
+      )
+      9:(
+        ParamName = "EndDate"
+        ParamType = 1
+        DefaultValue = "ДатаКонца="
+      )
+      10:(
+        ParamName = "AccountNum"
+        ParamType = 1
+        DefaultValue = "РасчСчет"
+      )
+      11:(
+        ParamName = "SectionAccountNumBegin"
+        ParamType = 1
+        DefaultValue = "СекцияРасчСчет"
+      )
+      12:(
+        ParamName = "SectionAccountNumEnd"
+        ParamType = 1
+        DefaultValue = "КонецРасчСчет"
+      )
+    )
+  )
+  
+  {Integration.EndPointType:"_7IU3P11OT856F9"}
+  (
+    Name = "TB запись"
+    TypeFlow = "TB запись"
+    TypeFormat = "TB запись"
+    ProcClass = "Integration.Data.UniTBRecord"
+    EPVersion = 2
+    ParameterList = (
+      0:(
+        ParamName = "TransSize"
+        ParamType = 2
+        ParmDescription = "Размер транзакции"
+        DefaultValue = "1000"
+      )
+      1:(
+        ParamName = "Filter"
+        ParamType = 1
+        ParmDescription = "Record filter"
+      )
+      2:(
+        ParamName = "Project"
+        ParamType = 1
+        Required = True
+        ParmDescription = "Selected project in Turbo"
+      )
+      3:(
+        ParamName = "Record"
+        ParamType = 1
+        Required = True
+        ParmDescription = "Selected record in Turbo"
+      )
+      4:(
+        ParamName = "CardForm"
+        ParamType = 1
+        ParmDescription = "CardForm from Record"
+      )
+    )
+  )
+]
+
+[Integration.ObjectStruct
+  
+  {Integration.ObjectStruct:"_7IU3P11SR4PO76"}
+  (
+    Name = "Файл экспорта ПП"
+    EndPointType = {Integration.EndPointType:_7IU3P11OTV1VA6}
+    StoredDocID = "{Integration.ObjectStruct:14}"
+  )
+  
+  {Integration.ObjectStruct:"_7IU3P11T149J6C"}
+  (
+    Name = "Форма ПП"
+    EndPointType = {Integration.EndPointType:_7IU3P11OT860FA}
+    StoredDocID = "{Integration.ObjectStruct:16}"
+  )
+  
+  {Integration.ObjectStruct:"_7IU3P11UU8R86K"}
+  (
+    Name = "Банковская выписка"
+    EndPointType = {Integration.EndPointType:_7IU3P11OT860FA}
+    StoredDocID = "{Integration.ObjectStruct:19}"
+  )
+  
+  {Integration.ObjectStruct:"_7IU3P1215F23B4"}
+  (
+    Name = "Файл импорта банковской выписки"
+    EndPointType = {Integration.EndPointType:_7IU3P11OTV1VA6}
+    StoredDocID = "{Integration.ObjectStruct:25}"
+  )
+]
+
+[Integration.ObjectStructFields
+  
+  {Integration.ObjectStructFields:"_7IU3P11SR4POV8"}
+  (
+    Name = "Номер"
+    FieldDescriptor = "Номер"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 1
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11SR4POV9"}
+  (
+    Name = "Дата"
+    FieldDescriptor = "Дата"
+    FieldType = 5
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 2
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11SR4POVA"}
+  (
+    Name = "Сумма"
+    FieldDescriptor = "Сумма"
+    FieldType = 3
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 3
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11SR4POVB"}
+  (
+    Name = "ПлательщикСчет"
+    FieldDescriptor = "ПлательщикСчет"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 4
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11STBSJNB"}
+  (
+    Name = "ПлательщикИНН"
+    FieldDescriptor = "ПлательщикИНН"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 5
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11STCE3NC"}
+  (
+    Name = "Плательщик"
+    FieldDescriptor = "Плательщик"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 6
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T149KME"}
+  (
+    Name = "Номер"
+    FieldDescriptor = "PrintedNumber"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 1
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T149KMF"}
+  (
+    Name = "Дата"
+    FieldDescriptor = "EventTime"
+    FieldType = 5
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 2
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T149L6G"}
+  (
+    Name = "Компания"
+    FieldDescriptor = "Entity"
+    FieldType = 6
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 4
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T149LMH"}
+  (
+    Name = "Расчетный счет"
+    FieldDescriptor = "BankDetails"
+    FieldType = 6
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 7
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T149LMI"}
+  (
+    Name = "Контрагент"
+    FieldDescriptor = "Contraparty"
+    FieldType = 6
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 13
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T149MEH"}
+  (
+    Name = "Расчетный счет"
+    FieldDescriptor = "ContrapartyBankDetails"
+    FieldType = 6
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 10
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T149N6J"}
+  (
+    Name = "Назначение платежа"
+    FieldDescriptor = "Purpose"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 14
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T149NUL"}
+  (
+    Name = "Сумма с НДС"
+    FieldDescriptor = "FinalSum"
+    FieldType = 3
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 3
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T149NUM"}
+  (
+    Name = "Очер. плат."
+    FieldDescriptor = "TaxPaymentPriority"
+    FieldType = 2
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 24
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T1KHCF1"}
+  (
+    Name = "vNameINNCompany"
+    FieldDescriptor = "vNameINNCompany"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 5
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5GN6F2"}
+  (
+    Name = "vNameCompany"
+    FieldDescriptor = "vNameCompany"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 6
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5IKD73"}
+  (
+    Name = "Плательщик1"
+    FieldDescriptor = "Плательщик1"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 7
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5J5974"}
+  (
+    Name = "ПлательщикБИК"
+    FieldDescriptor = "ПлательщикБИК"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 8
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5JFCV5"}
+  (
+    Name = "ПлательщикКорсчет"
+    FieldDescriptor = "ПлательщикКорсчет"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 9
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5JMT76"}
+  (
+    Name = "ПлательщикБанк1"
+    FieldDescriptor = "ПлательщикБанк1"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 10
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5K7F77"}
+  (
+    Name = "ПлательщикБанк2"
+    FieldDescriptor = "ПлательщикБанк2"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 11
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5KGCF8"}
+  (
+    Name = "ПлательщикРасчСчет"
+    FieldDescriptor = "ПлательщикРасчСчет"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 12
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5KQ7V9"}
+  (
+    Name = "ПлательщикКПП"
+    FieldDescriptor = "ПлательщикКПП"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 13
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5L68FA"}
+  (
+    Name = "ПолучательСчет"
+    FieldDescriptor = "ПолучательСчет"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 14
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5LHD7B"}
+  (
+    Name = "Получатель"
+    FieldDescriptor = "Получатель"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 15
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5LO8NC"}
+  (
+    Name = "Получатель1"
+    FieldDescriptor = "Получатель1"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 16
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5M96ND"}
+  (
+    Name = "ПолучательИНН"
+    FieldDescriptor = "ПолучательИНН"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 17
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5MF1FE"}
+  (
+    Name = "ПолучательРасчСчет"
+    FieldDescriptor = "ПолучательРасчСчет"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 18
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5MS77F"}
+  (
+    Name = "ПолучательБанк1"
+    FieldDescriptor = "ПолучательБанк1"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 19
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5N7QVG"}
+  (
+    Name = "ПолучательБанк2"
+    FieldDescriptor = "ПолучательБанк2"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 20
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5NL8VH"}
+  (
+    Name = "ПолучательБИК"
+    FieldDescriptor = "ПолучательБИК"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 21
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5OBVFI"}
+  (
+    Name = "ПолучательКорсчет"
+    FieldDescriptor = "ПолучательКорсчет"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 22
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5OGOVJ"}
+  (
+    Name = "ПолучательКПП"
+    FieldDescriptor = "ПолучательКПП"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 23
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5OPGFK"}
+  (
+    Name = "НазначениеПлатежа"
+    FieldDescriptor = "НазначениеПлатежа"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 24
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5P62VL"}
+  (
+    Name = "ВидОплаты"
+    FieldDescriptor = "ВидОплаты"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 25
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5PEEFM"}
+  (
+    Name = "СтатусСоставителя"
+    FieldDescriptor = "СтатусСоставителя"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 26
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5PJAVN"}
+  (
+    Name = "ПоказательКБК"
+    FieldDescriptor = "ПоказательКБК"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 27
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5PU5FO"}
+  (
+    Name = "ОКАТО"
+    FieldDescriptor = "ОКАТО"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 28
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5Q7MVP"}
+  (
+    Name = "ПоказательОснования"
+    FieldDescriptor = "ПоказательОснования"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 29
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5R85VQ"}
+  (
+    Name = "ПоказательПериода"
+    FieldDescriptor = "ПоказательПериода"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 30
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5RKEVR"}
+  (
+    Name = "ПоказательНомера"
+    FieldDescriptor = "ПоказательНомера"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 31
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5S37FS"}
+  (
+    Name = "ПоказательДаты"
+    FieldDescriptor = "ПоказательДаты"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 32
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5SLA7T"}
+  (
+    Name = "ПоказательТипа"
+    FieldDescriptor = "ПоказательТипа"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 33
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5T3LVU"}
+  (
+    Name = "Очередность"
+    FieldDescriptor = "Очередность"
+    FieldType = 2
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 34
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5TERVV"}
+  (
+    Name = "Код"
+    FieldDescriptor = "Код"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 35
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11T5TUTG0"}
+  (
+    Name = "КодНазПлатежа"
+    FieldDescriptor = "КодНазПлатежа"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 36
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11UU8RE6O"}
+  (
+    Name = "за период с"
+    FieldDescriptor = "DateStart"
+    FieldType = 5
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11UU8R86K}
+    SortIndex = 1
+    keyField = True
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11UU8R9UL}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11UU8REMO"}
+  (
+    Name = "по"
+    FieldDescriptor = "DateEnd"
+    FieldType = 5
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11UU8R86K}
+    SortIndex = 2
+    keyField = True
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11UU8R9UL}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11UU8REMQ"}
+  (
+    Name = "Расчетный счет"
+    FieldDescriptor = "BankDetails"
+    FieldType = 6
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11UU8R86K}
+    SortIndex = 4
+    keyField = True
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11UU8R9UL}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11UU8REUP"}
+  (
+    Name = "Вх. остаток"
+    FieldDescriptor = "BankSaldoIn"
+    FieldType = 3
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11UU8R86K}
+    SortIndex = 3
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11UU8R9UL}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11UU8REUQ"}
+  (
+    Name = "Вх. сумма"
+    FieldDescriptor = "IncomeSum"
+    FieldType = 3
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11UU8R86K}
+    SortIndex = 6
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11UU8R9UL}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11UU8RFEQ"}
+  (
+    Name = "Исх. сумма"
+    FieldDescriptor = "OutcomeSum"
+    FieldType = 3
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11UU8R86K}
+    SortIndex = 5
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11UU8R9UL}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11UU8RFMR"}
+  (
+    Name = "Исх. остаток"
+    FieldDescriptor = "BankSaldoOut"
+    FieldType = 3
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11UU8R86K}
+    SortIndex = 7
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11UU8R9UL}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11V2LL5EF"}
+  (
+    Name = "vPayerKPP"
+    FieldDescriptor = "vPayerKPP"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 9
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11V2PCHUG"}
+  (
+    Name = "vNameContraparty"
+    FieldDescriptor = "vNameContraparty"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 12
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11V2SANMH"}
+  (
+    Name = "vPaymentType"
+    FieldDescriptor = "vPaymentType"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 15
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11V2STBUI"}
+  (
+    Name = "vTaxPaymentStatus"
+    FieldDescriptor = "vTaxPaymentStatus"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 16
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11V2TBTEJ"}
+  (
+    Name = "vTaxCBC"
+    FieldDescriptor = "vTaxCBC"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 17
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11V2TNV6K"}
+  (
+    Name = "vTaxOKTMO"
+    FieldDescriptor = "vTaxOKTMO"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 18
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11V2U3HML"}
+  (
+    Name = "vTaxPaymentBase"
+    FieldDescriptor = "vTaxPaymentBase"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 19
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11V2UETMM"}
+  (
+    Name = "vPeriodIndicator"
+    FieldDescriptor = "vPeriodIndicator"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 20
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11V2UPSEN"}
+  (
+    Name = "vTaxBaseDocNumber"
+    FieldDescriptor = "vTaxBaseDocNumber"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 21
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11V2UUVUO"}
+  (
+    Name = "vTaxBaseDocDate"
+    FieldDescriptor = "vTaxBaseDocDate"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 22
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11V2VABEP"}
+  (
+    Name = "vTaxPaymentType"
+    FieldDescriptor = "vTaxPaymentType"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 23
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11V310PUQ"}
+  (
+    Name = "vTaxUIN"
+    FieldDescriptor = "vTaxUIN"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 25
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11V37JG6R"}
+  (
+    Name = "Назначение платежа кодовое"
+    FieldDescriptor = "PurposeCode"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 26
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11V65FVFJ"}
+  (
+    Name = "vBank"
+    FieldDescriptor = "vBank"
+    FieldType = 6
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 8
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P11V663SVL"}
+  (
+    Name = "vContrapartyBank"
+    FieldDescriptor = "vContrapartyBank"
+    FieldType = 6
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 11
+    TableOwner = {Integration.ObjectStructTables:_7IU3P11T149KED}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P1215G9KJG"}
+  (
+    Name = "ДатаНачала"
+    FieldDescriptor = "ДатаНачала"
+    FieldType = 5
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P1215F23B4}
+    SortIndex = 1
+    TableOwner = {Integration.ObjectStructTables:_7IU3P1215F4O35}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P1215H74JH"}
+  (
+    Name = "ДатаКонца"
+    FieldDescriptor = "ДатаКонца"
+    FieldType = 5
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P1215F23B4}
+    SortIndex = 2
+    TableOwner = {Integration.ObjectStructTables:_7IU3P1215F4O35}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P1215HGR3I"}
+  (
+    Name = "НачальныйОстаток"
+    FieldDescriptor = "НачальныйОстаток"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P1215F23B4}
+    SortIndex = 3
+    TableOwner = {Integration.ObjectStructTables:_7IU3P1215F4O35}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P1215HQCRJ"}
+  (
+    Name = "РасчСчет"
+    FieldDescriptor = "РасчСчет"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P1215F23B4}
+    SortIndex = 4
+    TableOwner = {Integration.ObjectStructTables:_7IU3P1215F4O35}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P1215I44JK"}
+  (
+    Name = "ВсегоСписано"
+    FieldDescriptor = "ВсегоСписано"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P1215F23B4}
+    SortIndex = 5
+    TableOwner = {Integration.ObjectStructTables:_7IU3P1215F4O35}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P1215IFEJL"}
+  (
+    Name = "ВсегоПоступило"
+    FieldDescriptor = "ВсегоПоступило"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P1215F23B4}
+    SortIndex = 6
+    TableOwner = {Integration.ObjectStructTables:_7IU3P1215F4O35}
+  )
+  
+  {Integration.ObjectStructFields:"_7IU3P1215ITARM"}
+  (
+    Name = "КонечныйОстаток"
+    FieldDescriptor = "КонечныйОстаток"
+    FieldType = 1
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P1215F23B4}
+    SortIndex = 7
+    TableOwner = {Integration.ObjectStructTables:_7IU3P1215F4O35}
+  )
+]
+
+[Integration.ObjectStructTables
+  
+  {Integration.ObjectStructTables:"_7IU3P11SR4POV7"}
+  (
+    Name = "exp_1c_to_kl.txt"
+    TableDescriptor = "exp_1c_to_kl.txt"
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    SortIndex = 1
+    Level = 1
+  )
+  
+  {Integration.ObjectStructTables:"_7IU3P11T149KED"}
+  (
+    Name = "Платежное поручение"
+    TableDescriptor = "CashFlow.Rec.Doc.PaymentOrder"
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    SortIndex = 1
+    Level = 1
+  )
+  
+  {Integration.ObjectStructTables:"_7IU3P11UU8R9UL"}
+  (
+    Name = "Банковская выписка"
+    TableDescriptor = "CashFlow.Rec.Doc.BankStatement"
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P11UU8R86K}
+    SortIndex = 1
+    Level = 1
+  )
+  
+  {Integration.ObjectStructTables:"_7IU3P1215F4O35"}
+  (
+    Name = "imp_1c_to_kl.txt"
+    TableDescriptor = "imp_1c_to_kl.txt"
+    OwnerObjectStruct = {Integration.ObjectStruct:_7IU3P1215F23B4}
+    SortIndex = 1
+    Level = 1
+  )
+]
+
+[Integration.ProcessorMapping
+  
+  {Integration.ProcessorMapping:"_7IU3P11OV63NE1"}
+  (
+    Name = "Экспорт в клиент-банк"
+    SourceObjectStruct = {Integration.ObjectStruct:_7IU3P11T149J6C}
+    ReceiverObjectStruct = {Integration.ObjectStruct:_7IU3P11SR4PO76}
+    FieldList = (
+      0:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11OV38R4E}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11OV5LA5N}
+        MapId = 2
+      )
+      1:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11OV38R4D}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11OV5LA5O}
+        MapId = 2
+      )
+      2:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11OV38UCR}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11OV5LA5P}
+        MapId = 2
+      )
+      3:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11OV38TCM}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11OV5LADN}
+        MapId = 2
+      )
+      4:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        ConvertParametrs = "{}"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11T149KME}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11SR4POV8}
+        MapId = 3
+      )
+      5:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11T149KMF}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11SR4POV9}
+        MapId = 3
+      )
+      6:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11T149NUL}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11SR4POVA}
+        MapId = 3
+      )
+      7:(
+        ConvertClass = "Integration.Service.FieldsConvert.Dereferencing"
+        ConvertParametrs = 
+          "{\x0D\x0A  ""FieldSearchName"": ""AccountNum"",\x0D\x0A  ""FieldType"": 1,\x0D\x0A  ""RecClassN"
+          "ame"": ""Biz.Rec.Data.BankDetails""\x0D\x0A}"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11T149LMH}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11SR4POVB}
+        MapId = 3
+      )
+      8:(
+        ConvertClass = "Integration.Service.FieldsConvert.Dereferencing"
+        ConvertParametrs = 
+          "{\x0D\x0A  ""FieldSearchName"": ""ИНН"",\x0D\x0A  ""FieldType"": 1,\x0D\x0A  ""RecClassName"": """
+          "Bas.Rec.Data.Entity""\x0D\x0A}"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11T149L6G}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11STBSJNB}
+        MapId = 3
+      )
+      9:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11T1KHCF1}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11STCE3NC}
+        MapId = 3
+      )
+      10:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11T5GN6F2}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5IKD73}
+        MapId = 3
+      )
+      11:(
+        ConvertClass = "Integration.Service.FieldsConvert.Dereferencing"
+        ConvertParametrs = 
+          "{\x0D\x0A  ""FieldSearchName"": ""БИК"",\x0D\x0A  ""FieldType"": 1,\x0D\x0A  ""RecClassName"": """
+          "Biz.Rec.Ref.Bank""\x0D\x0A}"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11V65FVFJ}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5J5974}
+        MapId = 3
+      )
+      12:(
+        ConvertClass = "Integration.Service.FieldsConvert.Dereferencing"
+        ConvertParametrs = 
+          "{\x0D\x0A  ""FieldSearchName"": ""КСчет"",\x0D\x0A  ""FieldType"": 1,\x0D\x0A  ""RecClassName"":"
+          " ""Biz.Rec.Ref.Bank""\x0D\x0A}"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11V65FVFJ}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5JFCV5}
+        MapId = 3
+      )
+      13:(
+        ConvertClass = "Integration.Service.FieldsConvert.Dereferencing"
+        ConvertParametrs = 
+          "{\x0D\x0A  ""FieldSearchName"": ""Name"",\x0D\x0A  ""FieldType"": 1,\x0D\x0A  ""RecClassName"": "
+          """Biz.Rec.Ref.Bank""\x0D\x0A}"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11V65FVFJ}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5JMT76}
+        MapId = 3
+      )
+      14:(
+        ConvertClass = "Integration.Service.FieldsConvert.Dereferencing"
+        ConvertParametrs = 
+          "{\x0D\x0A  ""FieldSearchName"": ""City"",\x0D\x0A  ""FieldType"": 1,\x0D\x0A  ""RecClassName"": "
+          """Biz.Rec.Ref.Bank""\x0D\x0A}"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11V65FVFJ}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5K7F77}
+        MapId = 3
+      )
+      15:(
+        ConvertClass = "Integration.Service.FieldsConvert.Dereferencing"
+        ConvertParametrs = 
+          "{\x0D\x0A  ""FieldSearchName"": ""AccountNum"",\x0D\x0A  ""FieldType"": 1,\x0D\x0A  ""RecClassN"
+          "ame"": ""Biz.Rec.Data.BankDetails""\x0D\x0A}"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11T149LMH}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5KGCF8}
+        MapId = 3
+      )
+      16:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11V2LL5EF}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5KQ7V9}
+        MapId = 3
+      )
+      17:(
+        ConvertClass = "Integration.Service.FieldsConvert.Dereferencing"
+        ConvertParametrs = 
+          "{\x0D\x0A  ""FieldSearchName"": ""AccountNum"",\x0D\x0A  ""FieldType"": 1,\x0D\x0A  ""RecClassN"
+          "ame"": ""Biz.Rec.Data.BankDetails""\x0D\x0A}"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11T149MEH}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5L68FA}
+        MapId = 3
+      )
+      18:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11V2PCHUG}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5LHD7B}
+        MapId = 3
+      )
+      19:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11V2PCHUG}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5LO8NC}
+        MapId = 3
+      )
+      20:(
+        ConvertClass = "Integration.Service.FieldsConvert.Dereferencing"
+        ConvertParametrs = 
+          "{\x0D\x0A  ""FieldSearchName"": ""ИНН"",\x0D\x0A  ""FieldType"": 1,\x0D\x0A  ""RecClassName"": """
+          "Bas.Rec.Data.Entity""\x0D\x0A}"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11T149LMI}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5M96ND}
+        MapId = 3
+      )
+      21:(
+        ConvertClass = "Integration.Service.FieldsConvert.Dereferencing"
+        ConvertParametrs = 
+          "{\x0D\x0A  ""FieldSearchName"": ""AccountNum"",\x0D\x0A  ""FieldType"": 1,\x0D\x0A  ""RecClassN"
+          "ame"": ""Biz.Rec.Data.BankDetails""\x0D\x0A}"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11T149MEH}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5MF1FE}
+        MapId = 3
+      )
+      22:(
+        ConvertClass = "Integration.Service.FieldsConvert.Dereferencing"
+        ConvertParametrs = 
+          "{\x0D\x0A  ""FieldSearchName"": ""Name"",\x0D\x0A  ""FieldType"": 1,\x0D\x0A  ""RecClassName"": "
+          """Biz.Rec.Ref.Bank""\x0D\x0A}"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11V663SVL}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5MS77F}
+        MapId = 3
+      )
+      23:(
+        ConvertClass = "Integration.Service.FieldsConvert.Dereferencing"
+        ConvertParametrs = 
+          "{\x0D\x0A  ""FieldSearchName"": ""City"",\x0D\x0A  ""FieldType"": 1,\x0D\x0A  ""RecClassName"": "
+          """Biz.Rec.Ref.Bank""\x0D\x0A}"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11V663SVL}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5N7QVG}
+        MapId = 3
+      )
+      24:(
+        ConvertClass = "Integration.Service.FieldsConvert.Dereferencing"
+        ConvertParametrs = 
+          "{\x0D\x0A  ""FieldSearchName"": ""БИК"",\x0D\x0A  ""FieldType"": 1,\x0D\x0A  ""RecClassName"": """
+          "Biz.Rec.Ref.Bank""\x0D\x0A}"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11V663SVL}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5NL8VH}
+        MapId = 3
+      )
+      25:(
+        ConvertClass = "Integration.Service.FieldsConvert.Dereferencing"
+        ConvertParametrs = 
+          "{\x0D\x0A  ""FieldSearchName"": ""КСчет"",\x0D\x0A  ""FieldType"": 1,\x0D\x0A  ""RecClassName"":"
+          " ""Biz.Rec.Ref.Bank""\x0D\x0A}"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11V663SVL}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5OBVFI}
+        MapId = 3
+      )
+      26:(
+        ConvertClass = "Integration.Service.FieldsConvert.Dereferencing"
+        ConvertParametrs = 
+          "{\x0D\x0A  ""FieldSearchName"": ""КодПричины"",\x0D\x0A  ""FieldType"": 1,\x0D\x0A  ""RecClassN"
+          "ame"": ""Bas.Rec.Data.Entity""\x0D\x0A}"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11T149LMI}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5OGOVJ}
+        MapId = 3
+      )
+      27:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11T149N6J}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5OPGFK}
+        MapId = 3
+      )
+      28:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11V2SANMH}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5P62VL}
+        MapId = 3
+      )
+      29:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11V2STBUI}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5PEEFM}
+        MapId = 3
+      )
+      30:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11V2TBTEJ}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5PJAVN}
+        MapId = 3
+      )
+      31:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11V2TNV6K}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5PU5FO}
+        MapId = 3
+      )
+      32:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11V2U3HML}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5Q7MVP}
+        MapId = 3
+      )
+      33:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11V2UETMM}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5R85VQ}
+        MapId = 3
+      )
+      34:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11V2UPSEN}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5RKEVR}
+        MapId = 3
+      )
+      35:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11V2UUVUO}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5S37FS}
+        MapId = 3
+      )
+      36:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11V2VABEP}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5SLA7T}
+        MapId = 3
+      )
+      37:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11T149NUM}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5T3LVU}
+        MapId = 3
+      )
+      38:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11V310PUQ}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5TERVV}
+        MapId = 3
+      )
+      39:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P11V37JG6R}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11T5TUTG0}
+        MapId = 3
+      )
+    )
+    TableList = (
+      0:(
+        SourceTable = {Integration.ObjectStructTables:_7IU3P11T149KED}
+        ReceiverTable = {Integration.ObjectStructTables:_7IU3P11SR4POV7}
+        MapId = 3
+        Level = 1
+      )
+    )
+  )
+  
+  {Integration.ProcessorMapping:"BankStatementProcMapping"}
+  (
+    Name = "Импорт банковской выписки"
+    SourceObjectStruct = {Integration.ObjectStruct:_7IU3P1215F23B4}
+    ReceiverObjectStruct = {Integration.ObjectStruct:_7IU3P11UU8R86K}
+    FieldList = (
+      0:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P1215G9KJG}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11UU8RE6O}
+        MapId = 2
+      )
+      1:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P1215H74JH}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11UU8REMO}
+        MapId = 2
+      )
+      2:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P1215HGR3I}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11UU8REUP}
+        MapId = 2
+      )
+      3:(
+        ConvertClass = "Integration.Service.FieldsConvert.SearchByValue"
+        ConvertParametrs = 
+          "{\x0D\x0A  ""FieldSearchName"": ""AccountNum"",\x0D\x0A  ""RecClassName"": ""Biz.Rec.Data"
+          ".BankDetails"",\x0D\x0A  ""FieldName"": ""BankDetails""\x0D\x0A}"
+        SourceField = {Integration.ObjectStructFields:_7IU3P1215HQCRJ}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11UU8REMQ}
+        MapId = 2
+      )
+      4:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P1215I44JK}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11UU8RFEQ}
+        MapId = 2
+      )
+      5:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P1215IFEJL}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11UU8REUQ}
+        MapId = 2
+      )
+      6:(
+        ConvertClass = "Integration.Service.FieldsConvert.ExactMatch"
+        SourceField = {Integration.ObjectStructFields:_7IU3P1215ITARM}
+        ReceiverField = {Integration.ObjectStructFields:_7IU3P11UU8RFMR}
+        MapId = 2
+      )
+    )
+    TableList = (
+      0:(
+        SourceTable = {Integration.ObjectStructTables:_7IU3P1215F4O35}
+        ReceiverTable = {Integration.ObjectStructTables:_7IU3P11UU8R9UL}
+        MapId = 2
+        Level = 1
+      )
+    )
+  )
+]
+
+]

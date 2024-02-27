@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="UserCalc.Frm.Srv.CalcForm">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="vStatisticalIndicator" Class="Com.Fld.IVar" After="#0" RecordClass="ManagementAccounting.Rec.Data.MAStatisticalIndicator" ValueType="VarObject"/>
+      <Component Name="vProportionWay" Class="Com.Fld.IVar" OnChange="vProportionWayOnChange" ValueType="VarInteger"/>
+      <Component Name="vInputBGIItem" Class="Com.Fld.IVar"/>
+      <Component Name="vInputCostItem" Class="Com.Fld.IVar"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="ParametersBox">
+          <Component Name="DateFrame" Class="Com.Ctrl.IFrame" After="#0" Margins="10"/>
+          <Inherited Name="GroupsFrame" AutoSize="True">
+            <Component Name="GrDistr" Class="Com.Ctrl.IGroup" After="#0" ByColumn="True">
+              <Component Name="ParametrsGroupDistr" Class="Com.Ctrl.IGroup" ByColumn="True">
+                <Component Name="EdProportionWayDistr" Class="Com.Ctrl.IEdit" Caption="Способ пропорции" CellFormat="EnumFormat" Enabled="False" Field="vProportionWay" HasCaption="True" ValueType="VarInteger"/>
+                <Component Name="EdStatisticalIndicatorDistr" Class="Com.Ctrl.IEdit" Caption="Статистический показатель" CardFileClass="ManagementAccounting.Tab.Data.MAStatisticalIndicator" CellFormat="ReferenceFormat" Field="vStatisticalIndicator" HasCaption="True" LookupField="Code" ValueType="VarObject"/>
+                <Component Name="EdMAUnitDistr" Class="Com.Ctrl.IEdit" Caption="Единица учета" CardFileClass="Biz.Tab.Data.MAUnit" CellFormat="ReferenceFormat" Field="vMAUnit" HasCaption="True" LookupField="Code" ValueType="VarObject"/>
+              </Component>
+              <Component Name="InputOutputGroupDistr" Class="Com.Ctrl.IGroup">
+                <Component Name="InputDataGroupDistr" Class="Com.Ctrl.IGroup" ByColumn="True" Printed="True" Visible="True">
+                  <Component Name="InputDataDistr" Class="Com.Ctrl.IStatic" Caption="Данные до распределения" FontBold="True" Width="100"/>
+                  <Component Name="EdInpCFRDistr" Class="Com.Ctrl.IEdit" Caption="ЦФО" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="vInpCFR" LookupField="Code" ValueType="VarObject"/>
+                  <Component Name="EdInpDivisionDistr" Class="Com.Ctrl.IEdit" Caption="Подразделение" CardFileClass="Bas.Tab.Data.Divisions" CellFormat="ReferenceFormat" Field="vInpDivision" LookupField="Code" ValueType="VarObject"/>
+                  <Component Name="EdInpOrderDistr" Class="Com.Ctrl.IEdit" Caption="Заказ" CellFormat="ReferenceFormat" Field="vInpOrder" ValueType="VarObject"/>
+                  <Component Name="EdInpProjectDistr" Class="Com.Ctrl.IEdit" Caption="Проект" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Field="vInpProject" LookupField="Code" ValueType="VarObject"/>
+                  <Component Name="EdInpContractDistr" Class="Com.Ctrl.IEdit" Caption="Договор" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Field="vInpContract" LookupField="Code" ValueType="VarObject"/>
+                  <Component Name="EdInpProductDistr" Class="Com.Ctrl.IEdit" Caption="Продукт" CellFormat="ReferenceFormat" Field="vInpProduct" ValueType="VarObject"/>
+                  <Component Name="EdInputCostItemDistr" Class="Com.Ctrl.IEdit" Caption="Статья затрат" CardFileClass="BizRus.Tab.Ref.СТЗ" CellFormat="ReferenceFormat" Field="vInputCostItem" LookupField="Code" OnChange="EdInputCostItemDistrOnChange" ValueType="VarObject"/>
+                  <Component Name="EdInputBGIItemDistr" Class="Com.Ctrl.IEdit" CanDesignate="False" Caption="Статья бюджетной классификации" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="vInputBGIItem" LookupField="Code" OnChange="EdInputBGIItemDistrOnChange" ValueType="VarObject"/>
+                </Component>
+                <Component Name="OutputDataGroupDistr" Class="Com.Ctrl.IGroup" ByColumn="True">
+                  <Component Name="OutputDataDistr" Class="Com.Ctrl.IStatic" Caption="Распределенные данные" FontBold="True" Width="100"/>
+                  <Component Name="EdOutputCFRDistr" Class="Com.Ctrl.IEdit" Caption="ЦФО" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="vOutpCFR" LookupField="Code" ValueType="VarObject"/>
+                  <Component Name="EdOutputDivisionDistr" Class="Com.Ctrl.IEdit" Caption="Подразделение" CardFileClass="Bas.Tab.Data.Divisions" CellFormat="ReferenceFormat" Field="vOutpDivision" LookupField="Code" ValueType="VarObject"/>
+                  <Component Name="EdOutputOrderDistr" Class="Com.Ctrl.IEdit" Caption="Заказ" CellFormat="ReferenceFormat" Field="vOutpOrder" ValueType="VarObject"/>
+                  <Component Name="EdOutputProjectDistr" Class="Com.Ctrl.IEdit" Caption="Проект" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Field="vOutpProject" LookupField="Code" ValueType="VarObject"/>
+                  <Component Name="EdOutputContractDistr" Class="Com.Ctrl.IEdit" Caption="Договор" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Field="vOutpContract" LookupField="Code" ValueType="VarObject"/>
+                  <Component Name="EdOutputProductDistr" Class="Com.Ctrl.IEdit" Caption="Продукт" CellFormat="ReferenceFormat" Field="vOutpProduct" ValueType="VarObject"/>
+                </Component>
+              </Component>
+            </Component>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

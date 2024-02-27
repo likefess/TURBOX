@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" AccountPlan="Workflow" BegDate="01.09.2022" BegSaldoFormat="sfNone" Caption="Отчет по статусам" CIndicator="1" EndDate="01.10.2022" EndSaldoFormat="sfNone" HidePeriod="True" HystoKind="hkSide" Legend="lpkAtBottom" OpenPeriod="opAll" Palette="cpPale" Period="-1" SeriesKind="skPie" ShowBeyondLimits="False" ShowDebCreRow="False" ShowSumKindRow="False" Use3D="True">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndGroupTaskCount" Class="Com.Rep.IIndGroup" Caption="Количество задач"/>
+      <Component Name="IndicatorTaskCount" Class="Com.Rep.IIndCalc" BegSaldoFormat="msfNone" Caption="шт." Contents="Count(Task)" EndSaldoFormat="msfNone" Group="IndGroupTaskCount" MaxWidth="60" MinWidth="60" ShowUnit="False"/>
+      <Component Name="IndicatorTaskCountPrcnt" Class="Com.Rep.IIndCustom" Caption="%" Format="0.00%" Formula="Чис('TaskCount')/Чис('TaskCount',,,,0)*100" Group="IndGroupTaskCount" MaxWidth="60" MinWidth="60" ShowUnit="False" ValueType="VarNumeric"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam0AB6FDAD" Class="Com.Rep.ISplitByParam" SplitParam="Task.Состояние"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContent300938F3" Class="Com.Rep.ISplitContent" Caption="Состояние" Contents="Task.Состояние.#Name" MinWidth="100"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain">
+      <Component Name="ExplainF166C074" Class="Com.Rep.IExplain" Caption="по задачам" ReportName="WFlow.Rep.Details.byTasks"/>
+    </Component>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_Project" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Проект" CaptionWidth="20" CardFileClass="Bas.Tab.Ref.Project" DefaultStr="Object(nil)" Operator=" is " Parameter="Project" Plan="Workflow" SkipNil="True" ValueType="VarObject" Width="50"/>
+      <Component Name="RC_Task.Группа" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Эпик" CaptionWidth="20" CardFileClass="Control.Tab.Data.TaskGroups" DefaultStr="Object(nil)" Operator=" is " Parameter="Task.Группа" Plan="Workflow" SkipNil="True" ValueType="VarObject" Width="50"/>
+      <Component Name="RC_Sprint" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Спринт" CaptionWidth="20" CardFileClass="WFlow.Tab.Ref.Sprint" DefaultStr="Object(nil)" MultiSelect="True" Operator="=" Parameter="Sprint" Plan="Workflow" SkipNil="True" ValueType="VarObject" Width="50"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

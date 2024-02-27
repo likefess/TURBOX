@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IEditorWithFrames">
+  <Inherited Caption="@ClaimProcess_PrintForm:Caption=Печатная форма" PrintSettings="ContractManagement.ClaimProcess_PrintForm.cfg">
+    <Inherited Name="EdtRec" Class="ContractManagement.Rec.Data.ClaimProcess" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="PreTrialReceiptTimeline" Class="Com.ISubtable" Excluded="True"/>
+      <Component Name="TrialReceiptTimeline" Class="Com.ISubtable" Excluded="True"/>
+      <Component Name="ExecReceiptTimeline" Class="Com.ISubtable" Excluded="True"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Printed="False">
+        <Inherited Name="ButtonOK" Excluded="True"/>
+        <Inherited Name="ButtonChildForms" Visible="False"/>
+        <Inherited Name="ButtonServices" Visible="False"/>
+        <Inherited Name="ButtonReports" Excluded="True"/>
+        <Inherited Name="ButtonAnalytics" Excluded="True"/>
+        <Inherited Name="ButtonPost" Excluded="True"/>
+        <Inherited Name="ButtonCancel" Excluded="True"/>
+        <Inherited Name="ButtonClone" Excluded="True"/>
+        <Inherited Name="ButtonDelete" Excluded="True"/>
+        <Inherited Name="ButtonPrint" Excluded="False"/>
+        <Inherited Name="ButtonExport" Excluded="False"/>
+        <Inherited Name="ButtonHelp" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" Enabled="False">
+        <Component Name="GeneralFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone">
+          <Component Name="GeneralGroup" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="False" FixSize="True" Width="335">
+            <Component Name="GeneralGroupTitle" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="@ClaimProcess_PrintForm:GeneralGroupTitle=Карточка ПИР" FixSize="True" FontBold="True" FontItalic="True" FontSize="14" Width="50"/>
+            <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+            <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+            <Component Name="GroupCaptionLine1" Class="Com.Ctrl.IGroup">
+              <Component Name="CodeCaption" Class="Com.Ctrl.IStatic" Caption="@ClaimProcess_PrintForm:CodeCaption=Номер карточки ПИР" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="130"/>
+              <Component Name="CreateDateCaption" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="@ClaimProcess_PrintForm:CreateDateEdit=Дата создания карточки ПИР" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="60"/>
+              <Component Name="OutgoingCaption" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="@ClaimProcess_PrintForm:OutgoingCaption=Входящий/Исходящий " FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="45"/>
+              <Component Name="NewLine4" Class="Com.Ctrl.INewLine"/>
+            </Component>
+            <Component Name="GroupValueLine1" Class="Com.Ctrl.IGroup">
+              <Component Name="CodeEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.Code" FixSize="True" FontSize="12" HasCaption="False" Width="130" Wrap="True"/>
+              <Component Name="CreateDateEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Enabled="False" Field="EdtRec.CreateDate" FixSize="True" FontSize="12" FormatOfDate="DateAndTime" HasCaption="False" Width="60" Wrap="True"/>
+              <Component Name="Outgoing" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CellFormat="StringFormat" Enabled="False" FixSize="True" FontSize="12" HasCaption="False" OnOutput="Outgoing_OnOutput" ValueType="VarString" Width="45" Wrap="True"/>
+              <Component Name="NewLine3" Class="Com.Ctrl.INewLine"/>
+            </Component>
+            <Component Name="GroupCaptionLine2" Class="Com.Ctrl.IGroup">
+              <Component Name="CompanyCaption" Class="Com.Ctrl.IStatic" Caption="@ClaimProcess_PrintForm:CompanyCaption=Наименование организации (Наше предприятие)" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="130"/>
+              <Component Name="ResponsibleCaption" Class="Com.Ctrl.IStatic" Caption="@ClaimProcess_PrintForm:ResponsibleCaption=ФИО, должность, подразделение ответственного исполнителя" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="205"/>
+              <Component Name="NewLine5" Class="Com.Ctrl.INewLine"/>
+            </Component>
+            <Component Name="GroupValueLine2" Class="Com.Ctrl.IGroup">
+              <Component Name="CompanyEdit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Company" FixSize="True" FontSize="12" HasCaption="False" LookupField="Name" Width="130" Wrap="True"/>
+              <Component Name="ResponsibleEdit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Responsible" FixSize="True" FontSize="12" HasCaption="False" OnOutput="ResponsibleEdit_OnOutput" Width="205" Wrap="True"/>
+              <Component Name="NewLine6" Class="Com.Ctrl.INewLine"/>
+            </Component>
+            <Component Name="GroupCaptionLine3" Class="Com.Ctrl.IGroup">
+              <Component Name="PartnerCaption" Class="Com.Ctrl.IStatic" Caption="@ClaimProcess_PrintForm:PartnerCaption=Наименование субъекта (контрагента)" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="335"/>
+              <Component Name="NewLine9" Class="Com.Ctrl.INewLine"/>
+            </Component>
+            <Component Name="GroupValueLine3" Class="Com.Ctrl.IGroup">
+              <Component Name="PartnerEdit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Contract" FixSize="True" FontSize="12" HasCaption="False" LookupField="Partner.Name" Width="335" Wrap="True"/>
+              <Component Name="NewLine10" Class="Com.Ctrl.INewLine"/>
+            </Component>
+            <Component Name="GroupCaptionLine4" Class="Com.Ctrl.IGroup">
+              <Component Name="ClaimTypeCaption" Class="Com.Ctrl.IStatic" Caption="@ClaimProcess_PrintForm:ClaimTypeCaption= Тип претензии/спора" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="75"/>
+              <Component Name="ClaimVarietyCaption" Class="Com.Ctrl.IStatic" Caption="@ClaimProcess_PrintForm:ClaimVarietyCaption=Вид спора" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="75"/>
+              <Component Name="ShortDescriptionCaption" Class="Com.Ctrl.IStatic" Caption="@ClaimProcess_PrintForm:ShortDescriptionCaption=Предмет спора (краткое описание)" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="185"/>
+              <Component Name="NewLine11" Class="Com.Ctrl.INewLine"/>
+            </Component>
+            <Component Name="GroupValueLine4" Class="Com.Ctrl.IGroup">
+              <Component Name="ClaimTypeEdit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ClaimType" FixSize="True" FontSize="12" HasCaption="False" LookupField="Name" Width="75" Wrap="True"/>
+              <Component Name="ClaimVarietyEdit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ClaimVariety" FixSize="True" FontSize="12" HasCaption="False" LookupField="Name" Width="75" Wrap="True"/>
+              <Component Name="ShortDescriptionEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="EdtRec.ShortDescription" FixSize="True" FontSize="12" HasCaption="False" Width="185" Wrap="True"/>
+              <Component Name="NewLine12" Class="Com.Ctrl.INewLine"/>
+            </Component>
+            <Component Name="GroupCaptionLine5" Class="Com.Ctrl.IGroup">
+              <Component Name="ContractCaption" Class="Com.Ctrl.IStatic" Caption="@ClaimProcess_PrintForm:ContractCaption=Данные договора: регистрационный номер, дата регистрации, предмет договора" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="335"/>
+              <Component Name="NewLine13" Class="Com.Ctrl.INewLine"/>
+            </Component>
+            <Component Name="GroupValueLine5" Class="Com.Ctrl.IGroup">
+              <Component Name="ContractEdit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Contract" FixSize="True" FontSize="12" HasCaption="False" OnOutput="ContractEdit_OnOutput" Width="335" Wrap="True"/>
+              <Component Name="NewLine14" Class="Com.Ctrl.INewLine"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="PreTrialFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone">
+          <Component Name="PreTrialFieldsFrame1" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone">
+            <Component Name="PreTrialFieldsGroup1" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="False" FixSize="True" Width="335">
+              <Component Name="PreTrialFieldsGroupTitle" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="@ClaimProcess_PrintForm:PreTrialFieldsGroupTitle=Досудебное урегулирование" FontBold="True" FontItalic="True" FontSize="12" Width="100"/>
+              <Component Name="NewLine7" Class="Com.Ctrl.INewLine"/>
+              <Component Name="GroupCaptionLine6" Class="Com.Ctrl.IGroup">
+                <Component Name="PreTrialDocCaption" Class="Com.Ctrl.IStatic" Caption="@ClaimProcess_PrintForm:PreTrialDocCaption=Вид документа, наименование гос. органа (при наличии), номер документа, дата документа" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="335"/>
+                <Component Name="NewLine15" Class="Com.Ctrl.INewLine"/>
+              </Component>
+              <Component Name="GroupValueLine6" Class="Com.Ctrl.IGroup">
+                <Component Name="PreTrialDocEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" FixSize="True" FontSize="12" HasCaption="False" OnOutput="PreTrialDocEdit_OnOutput" ValueType="VarString" Width="335" Wrap="True"/>
+                <Component Name="NewLine16" Class="Com.Ctrl.INewLine"/>
+              </Component>
+              <Component Name="GroupCaptionLine7" Class="Com.Ctrl.IGroup">
+                <Component Name="PreTrialObligeeCaption" Class="Com.Ctrl.IStatic" Caption="@ClaimProcess_PrintForm:PreTrialObligeeCaption=Наименование обязанного лица" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="335"/>
+                <Component Name="NewLine17" Class="Com.Ctrl.INewLine"/>
+              </Component>
+              <Component Name="GroupValueLine7" Class="Com.Ctrl.IGroup">
+                <Component Name="PreTrialObligeeEdit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.PreTrialObligee" FixSize="True" FontSize="12" HasCaption="False" LookupField="Name" Width="335" Wrap="True"/>
+                <Component Name="NewLine18" Class="Com.Ctrl.INewLine"/>
+              </Component>
+              <Component Name="GroupCaptionLine8" Class="Com.Ctrl.IGroup">
+                <Component Name="PreTrialClaimResultCaption" Class="Com.Ctrl.IStatic" Caption="@ClaimProcess_PrintForm:PreTrialClaimResultCaption=Срок рассмотрения претензии/заявления, результат рассмотрения" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="335"/>
+                <Component Name="NewLine19" Class="Com.Ctrl.INewLine"/>
+              </Component>
+              <Component Name="GroupValueLine8" Class="Com.Ctrl.IGroup">
+                <Component Name="PreTrialClaimResultEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" FixSize="True" FontSize="12" HasCaption="False" OnOutput="PreTrialClaimResultEdit_OnOutput" ValueType="VarString" Width="335" Wrap="True"/>
+                <Component Name="NewLine23" Class="Com.Ctrl.INewLine"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="PreTrialAmountFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone">
+            <Component Name="PreTrialAmountControlFrame" Class="Com.Ctrl.IFrame" Printed="False" Visible="False">
+              <Component Name="PreTrialTotalAmount" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@ClaimProcess_PrintForm:PreTrialTotalAmount=Общая сумма по претензии/заявлению" CellFormat="NumericFormat" Enabled="False" FieldFormat=",##0.00;;-" HasCaption="True" OnOutput="PreTrialTotalAmount_OnOutput" Wrap="True"/>
+              <Component Name="PreTrialMainAmount" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess_PrintForm:PreTrialMainAmount=сумма основного долга" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.PreTrialMainAmount" FieldFormat=",##0.00;;-" HasCaption="True" Wrap="True"/>
+              <Component Name="PreTrialForfeitAmount" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess_PrintForm:PreTrialForfeitAmount=сумма неустойки" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.PreTrialForfeitAmount" FieldFormat=",##0.00;;-" HasCaption="True" Wrap="True"/>
+              <Component Name="PreTrialPercentsAmount" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess_PrintForm:PreTrialPercentsAmount=сумма процентов" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.PreTrialPercentsAmount" FieldFormat=",##0.00;;-" HasCaption="True" Wrap="True"/>
+              <Component Name="PreTrialOtherExpAmount" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess_PrintForm:PreTrialOtherExpAmount=сумма прочих расходов" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.PreTrialOtherExpAmount" FieldFormat=",##0.00;;-" HasCaption="True" Wrap="True"/>
+            </Component>
+            <Component Name="PreTrialAmountTableFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone"/>
+          </Component>
+          <Component Name="PreTrialFieldsFrame2" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone">
+            <Component Name="PreTrialFieldsGroup2" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="False" FixSize="True" Width="335">
+              <Component Name="GroupCaptionLine9" Class="Com.Ctrl.IGroup">
+                <Component Name="NewLine30" Class="Com.Ctrl.INewLine"/>
+                <Component Name="NewLine46" Class="Com.Ctrl.INewLine"/>
+                <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" ImageSize="18" Width="20"/>
+                <Component Name="PreTrialActPaymentAmountCaption" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@ClaimProcess_PrintForm:PreTrialActPaymentAmountCaption=Фактическая сумма оплаты" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="80"/>
+                <Component Name="NewLine21" Class="Com.Ctrl.INewLine"/>
+              </Component>
+              <Component Name="GroupValueLine9" Class="Com.Ctrl.IGroup">
+                <Component Name="PreTrialActPaymentAmountEdit" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess_PrintForm:PreTrialActPaymentAmountEdit=Оплата:" CaptionWidth="18" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.PreTrialActPaymentAmount" FieldFormat=",##0.00;;-" FixSize="True" FontSize="12" HasCaption="True" Width="80" Wrap="True"/>
+                <Component Name="NewLine22" Class="Com.Ctrl.INewLine"/>
+              </Component>
+              <Component Name="NewLine28" Class="Com.Ctrl.INewLine"/>
+              <Component Name="PreTrialReceiptTimelineCaption" Class="Com.Ctrl.IStatic" Caption="@ClaimProcess_PrintForm:PreTrialReceiptTimelineCaption=График поступлений денежных средств в рамках этапа Досудебное урегулирование" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="335"/>
+            </Component>
+          </Component>
+          <Component Name="PreTrialReceiptTimelineFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone" Subtable="EdtRec.PreTrialReceiptTimeline">
+            <Component Name="PreTrialPaymentDateEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="PreTrialReceiptTimelineStruct.PaymentDate" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" Width="22"/>
+            <Component Name="PreTrialPaymentAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="PreTrialReceiptTimelineStruct.PaymentAmount" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+            <Component Name="PreTrialReceiptPaymDocNumberEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="PreTrialReceiptTimelineStruct.PaymDocNumber" HasCaption="True" Width="40" Wrap="True"/>
+            <Component Name="PreTrialReceiptPayerEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Enabled="False" Field="PreTrialReceiptTimelineStruct.Payer" HasCaption="True" LookupField="Name" Width="40" Wrap="True"/>
+            <Component Name="PreTrialReceiptPaymentNameEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="PreTrialReceiptTimelineStruct.PaymentName" HasCaption="True" Width="40"/>
+            <Component Name="PreTrialReceiptDocNumberEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="PreTrialReceiptTimelineStruct.DocNumber" HasButton="True" HasCaption="True" ShortList="True" Width="40" Wrap="True"/>
+            <Component Name="PreTrialReceiptDocDateEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="PreTrialReceiptTimelineStruct.DocDate" HasCaption="True" Width="22" Wrap="True"/>
+            <Component Name="PreTrialReceiptDebtorName" Class="Com.Ctrl.IEdit" Enabled="False" Field="PreTrialReceiptTimelineStruct.DebtorName" HasCaption="True" Width="40" Wrap="True"/>
+            <Component Name="PreTrialReceiptNotesEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="True" Field="PreTrialReceiptTimelineStruct.Notes" HasCaption="True" ValueType="VarString" Width="50" Wrap="True"/>
+          </Component>
+        </Component>
+        <Component Name="PreTrialMsgFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone" Visible="False">
+          <Component Name="PreTrialMsgGroup" Class="Com.Ctrl.IGroup">
+            <Component Name="NewLine55" Class="Com.Ctrl.INewLine"/>
+            <Component Name="NewLine56" Class="Com.Ctrl.INewLine"/>
+            <Component Name="PreTrialMsg" Class="Com.Ctrl.IStatic" FontBold="True" FontItalic="True" FontSize="12" Width="250" Wrap="True"/>
+          </Component>
+        </Component>
+        <Component Name="TrialFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone">
+          <Component Name="TrialFieldsFrame1" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone">
+            <Component Name="TrialFieldsGroup1" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="False" FixSize="True" Width="335">
+              <Component Name="NewLine27" Class="Com.Ctrl.INewLine"/>
+              <Component Name="NewLine29" Class="Com.Ctrl.INewLine"/>
+              <Component Name="TrialFieldsGroupTitle" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="@ClaimProcess_PrintForm:TrialFieldsGroupTitle=Судебное производство" FontBold="True" FontItalic="True" FontSize="12" Width="100"/>
+              <Component Name="NewLine8" Class="Com.Ctrl.INewLine"/>
+              <Component Name="GroupCaptionLine10" Class="Com.Ctrl.IGroup">
+                <Component Name="TrialProcessVarietyCaption" Class="Com.Ctrl.IStatic" Caption="@ClaimProcess_PrintForm:TrialProcessVarietyCaption=Вид производства, инстанция, наименование суда, номер дела, дата иска" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="335"/>
+                <Component Name="NewLine20" Class="Com.Ctrl.INewLine"/>
+              </Component>
+              <Component Name="GroupValueLine10" Class="Com.Ctrl.IGroup">
+                <Component Name="TrialProcessVarietyEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" FixSize="True" FontSize="12" HasCaption="False" OnOutput="TrialProcessVarietyEdit_OnOutput" ValueType="VarString" Width="335" Wrap="True"/>
+                <Component Name="NewLine24" Class="Com.Ctrl.INewLine"/>
+              </Component>
+              <Component Name="GroupCaptionLine11" Class="Com.Ctrl.IGroup">
+                <Component Name="TrialObligeeCaption" Class="Com.Ctrl.IStatic" Caption="@ClaimProcess_PrintForm:TrialObligeeCaption=Наименование ответчика" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="335"/>
+                <Component Name="NewLine25" Class="Com.Ctrl.INewLine"/>
+              </Component>
+              <Component Name="GroupValueLine11" Class="Com.Ctrl.IGroup">
+                <Component Name="TrialObligeeEdit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.TrialObligee" FixSize="True" FontSize="12" HasCaption="False" LookupField="Name" Width="335" Wrap="True"/>
+                <Component Name="NewLine26" Class="Com.Ctrl.INewLine"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="TrialAmountFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone">
+            <Component Name="TrialAmountControlFrame" Class="Com.Ctrl.IFrame" Printed="False" Visible="False">
+              <Component Name="TrialTotalAmount" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@ClaimProcess_PrintForm:TrialTotalAmount=Общая сумма по иску" CellFormat="NumericFormat" Enabled="False" FieldFormat=",##0.00;;-" HasCaption="True" OnOutput="TrialTotalAmount_OnOutput" Wrap="True"/>
+              <Component Name="TrialMainAmount" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess_PrintForm:TrialMainAmount=сумма основного долга" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.TrialMainAmount" FieldFormat=",##0.00;;-" HasCaption="True" Wrap="True"/>
+              <Component Name="TrialForfeitAmount" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess_PrintForm:TrialForfeitAmount=сумма неустойки" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.TrialForfeitAmount" FieldFormat=",##0.00;;-" HasCaption="True" Wrap="True"/>
+              <Component Name="TrialPercentsAmount" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess_PrintForm:TrialForfeitAmount=сумма процентов" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.TrialPercentsAmount" FieldFormat=",##0.00;;-" HasCaption="True" Wrap="True"/>
+              <Component Name="TrialOtherExpAmount" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess_PrintForm:TrialOtherExpAmount=сумма прочих расходов" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.TrialOtherExpAmount" FieldFormat=",##0.00;;-" HasCaption="True" Wrap="True"/>
+              <Component Name="TrialStateDutyAmount" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess_PrintForm:TrialStateDutyAmount=Сумма гос. пошлины" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.TrialStateDutyAmount" FieldFormat=",##0.00;;-" HasCaption="True" Wrap="True"/>
+            </Component>
+            <Component Name="TrialAmountTableFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone"/>
+          </Component>
+          <Component Name="TrialFieldsFrame2" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone">
+            <Component Name="TrialFieldsGroup2" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="False">
+              <Component Name="GroupCaptionLine12" Class="Com.Ctrl.IGroup">
+                <Component Name="NewLine31" Class="Com.Ctrl.INewLine"/>
+                <Component Name="NewLine44" Class="Com.Ctrl.INewLine"/>
+                <Component Name="TrialSessionDataCaption" Class="Com.Ctrl.IStatic" Caption="@ClaimProcess_PrintForm:TrialSessionDataCaption=Данные по судебным заседаниям" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="335"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="TrialSessionDataFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone" Subtable="EdtRec.TrialSessionData">
+            <Component Name="SessionDateEdit" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess_PrintForm:SessionDateEdit=Дата рассмотрения" Enabled="False" Field="TrialSessionDataStruct.SessionDate" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" Width="28" Wrap="True"/>
+            <Component Name="SessionTimeEdit" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess_PrintForm:SessionTimeEdit=Время рассмотрения" Enabled="False" Field="TrialSessionDataStruct.SessionDate" FormatOfDate="TimeOnly" HasCaption="True" Width="28" Wrap="True"/>
+            <Component Name="SessionResult" Class="Com.Ctrl.IEdit" Enabled="False" Field="TrialSessionDataStruct.SessionResult" HasCaption="True" Width="134" Wrap="True"/>
+            <Component Name="SessionComment" Class="Com.Ctrl.IEdit" Enabled="False" Field="TrialSessionDataStruct.Comment" HasCaption="True" Width="134" Wrap="True"/>
+          </Component>
+          <Component Name="TrialFieldsFrame3" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone">
+            <Component Name="TrialFieldsGroup3" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="False" FixSize="True" Width="335">
+              <Component Name="GroupCaptionLine13" Class="Com.Ctrl.IGroup">
+                <Component Name="NewLine32" Class="Com.Ctrl.INewLine"/>
+                <Component Name="NewLine45" Class="Com.Ctrl.INewLine"/>
+                <Component Name="TrialPaymentTimelineCaption" Class="Com.Ctrl.IStatic" Caption="@ClaimProcess_PrintForm:TrialPaymentTimelineCaption=Расход денежных средств в рамках этапа Судебное производство" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="335"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="TrialPaymentTimelineFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone" Subtable="EdtRec.TrialPaymentTimeline">
+            <Component Name="TrialPaymPaymentDateEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="TrialPaymentTimeline.PaymentDate" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" Width="22" Wrap="True"/>
+            <Component Name="TriaPaymlPaymentAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="TrialPaymentTimeline.PaymentAmount" FieldFormat=",##0.00;;-" HasCaption="True" Width="45" Wrap="True"/>
+            <Component Name="TrialPaymNameEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="TrialPaymentTimeline.PaymentName" HasCaption="True" Width="95" Wrap="True"/>
+            <Component Name="TrialPaymDocNumberEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="TrialPaymentTimeline.DocNumber" HasCaption="True" Width="45" Wrap="True"/>
+            <Component Name="TrialPaymDocDateEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="ExecPaymentTimeline.DocDate" HasCaption="True" Width="22" Wrap="True"/>
+            <Component Name="TrialPaymNoteEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="TrialPaymentTimeline.Notes" HasCaption="True" Width="95" Wrap="True"/>
+          </Component>
+          <Component Name="TrialFieldsFrame4" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone">
+            <Component Name="TrialFieldsGroup4" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="False" FixSize="True" Width="335">
+              <Component Name="GroupCaptionLine14" Class="Com.Ctrl.IGroup">
+                <Component Name="NewLine33" Class="Com.Ctrl.INewLine"/>
+                <Component Name="NewLine47" Class="Com.Ctrl.INewLine"/>
+                <Component Name="TrialReceiptTimelineCaption" Class="Com.Ctrl.IStatic" Caption="@ClaimProcess_PrintForm:TrialReceiptTimelineCaption=Поступление денежных средств в рамках этапа Судебное производство" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="335"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="TrialReceiptTimelineFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone" Subtable="EdtRec.TrialReceiptTimeline">
+            <Component Name="TrialPaymentDateEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="TrialReceiptTimelineStruct.PaymentDate" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" Width="22" Wrap="True"/>
+            <Component Name="TrialPaymentAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="TrialReceiptTimelineStruct.PaymentAmount" FieldFormat=",##0.00;;-" HasCaption="True" Width="30" Wrap="True"/>
+            <Component Name="TrialReceiptPaymDocNumberEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="TrialReceiptTimelineStruct.PaymDocNumber" HasCaption="True" Width="40" Wrap="True"/>
+            <Component Name="TrialReceiptPayerEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Enabled="False" Field="TrialReceiptTimelineStruct.Payer" HasCaption="True" LookupField="Name" Width="40" Wrap="True"/>
+            <Component Name="TrialReceiptPaymentNameEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="TrialReceiptTimelineStruct.PaymentName" HasCaption="True" Width="40" Wrap="True"/>
+            <Component Name="TrialReceiptDocNumberEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="TrialReceiptTimelineStruct.DocNumber" HasButton="True" HasCaption="True" ShortList="True" Width="40" Wrap="True"/>
+            <Component Name="TrialReceiptDocDateEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="TrialReceiptTimelineStruct.DocDate" HasCaption="True" Width="22" Wrap="True"/>
+            <Component Name="TrialReceiptDebtorName" Class="Com.Ctrl.IEdit" Enabled="False" Field="TrialReceiptTimelineStruct.DebtorName" HasCaption="True" Width="40" Wrap="True"/>
+            <Component Name="TrialReceiptNotesEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="TrialReceiptTimelineStruct.Notes" HasCaption="True" ValueType="VarString" Width="50" Wrap="False"/>
+          </Component>
+        </Component>
+        <Component Name="TrialMsgFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone" Visible="False">
+          <Component Name="TrialMsgGroup" Class="Com.Ctrl.IGroup">
+            <Component Name="NewLine57" Class="Com.Ctrl.INewLine"/>
+            <Component Name="NewLine54" Class="Com.Ctrl.INewLine"/>
+            <Component Name="TrialMsg" Class="Com.Ctrl.IStatic" FontBold="True" FontItalic="True" FontSize="12" Width="250" Wrap="True"/>
+          </Component>
+        </Component>
+        <Component Name="ExecFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone">
+          <Component Name="ExecFieldsFrame1" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone">
+            <Component Name="ExecFieldsGroup1" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="False" FixSize="True" Width="335">
+              <Component Name="NewLine34" Class="Com.Ctrl.INewLine"/>
+              <Component Name="NewLine35" Class="Com.Ctrl.INewLine"/>
+              <Component Name="ExecFieldsGroupTitle" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="@ClaimProcess_PrintForm:ExecFieldsGroupTitle=Исполнительное производство" FontBold="True" FontItalic="True" FontSize="12" Width="100"/>
+              <Component Name="NewLine36" Class="Com.Ctrl.INewLine"/>
+              <Component Name="GroupCaptionLine15" Class="Com.Ctrl.IGroup">
+                <Component Name="ExecNumDateCaption" Class="Com.Ctrl.IStatic" Caption="@ClaimProcess_PrintForm:ExecNumDateCaption=Номер исполнительного листа, дата исполнительного листа" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="335"/>
+                <Component Name="NewLine37" Class="Com.Ctrl.INewLine"/>
+              </Component>
+              <Component Name="GroupValueLine12" Class="Com.Ctrl.IGroup">
+                <Component Name="ExecNumDateEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" FixSize="True" FontSize="12" HasCaption="False" OnOutput="ExecNumDateEdit_OnOutput" ValueType="VarString" Width="335" Wrap="True"/>
+                <Component Name="NewLine38" Class="Com.Ctrl.INewLine"/>
+              </Component>
+              <Component Name="GroupCaptionLine16" Class="Com.Ctrl.IGroup">
+                <Component Name="ExecObligeeCaption" Class="Com.Ctrl.IStatic" Caption="@ClaimProcess_PrintForm:ExecObligeeCaption=Наименование должника" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="335"/>
+                <Component Name="NewLine39" Class="Com.Ctrl.INewLine"/>
+              </Component>
+              <Component Name="GroupValueLine13" Class="Com.Ctrl.IGroup">
+                <Component Name="ExecObligeeEdit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ExecObligee" FixSize="True" FontSize="12" HasCaption="False" LookupField="Name" Width="335" Wrap="True"/>
+                <Component Name="NewLine40" Class="Com.Ctrl.INewLine"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="ExecAmountFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone">
+            <Component Name="ExecAmountControlFrame" Class="Com.Ctrl.IFrame" Printed="False" Visible="False">
+              <Component Name="ExecTotalAmount" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@ClaimProcess_PrintForm:ExecTotalAmount=Общая сумма по иску" CellFormat="NumericFormat" Enabled="False" FieldFormat=",##0.00;;-" HasCaption="True" OnOutput="ExecTotalAmount_OnOutput" Wrap="True"/>
+              <Component Name="ExecMainAmount" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess_PrintForm:ExecMainAmount=сумма основного долга" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.ExecMainAmount" FieldFormat=",##0.00;;-" HasCaption="True" Wrap="True"/>
+              <Component Name="ExecForfeitAmount" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess_PrintForm:ExecForfeitAmount=сумма неустойки" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.ExecForfeitAmount" FieldFormat=",##0.00;;-" HasCaption="True" Wrap="True"/>
+              <Component Name="ExecPercentsAmount" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess_PrintForm:ExecPercentsAmount=сумма процентов" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.ExecPercentsAmount" FieldFormat=",##0.00;;-" HasCaption="True" Wrap="True"/>
+              <Component Name="ExecOtherExpAmount" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess_PrintForm:ExecOtherExpAmount=сумма прочих расходов" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.ExecOtherExpAmount" FieldFormat=",##0.00;;-" HasCaption="True" Wrap="True"/>
+              <Component Name="ExecStateDutyAmount" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess_PrintForm:ExecStateDutyAmount=Сумма гос. пошлины" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.ExecStateDutyAmount" FieldFormat=",##0.00;;-" HasCaption="True" Wrap="True"/>
+            </Component>
+            <Component Name="ExecAmountTableFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone"/>
+          </Component>
+          <Component Name="ExecFieldsFrame2" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone">
+            <Component Name="ExecFieldsGroup2" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="False" FixSize="True" Width="335">
+              <Component Name="GroupCaptionLine17" Class="Com.Ctrl.IGroup">
+                <Component Name="NewLine41" Class="Com.Ctrl.INewLine"/>
+                <Component Name="NewLine48" Class="Com.Ctrl.INewLine"/>
+                <Component Name="ExecMoveDataCaption" Class="Com.Ctrl.IStatic" Caption="@ClaimProcess_PrintForm:ExecMoveDataCaption=Информация по движению исполнительного листа" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="335"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="ExecMoveDataFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone" Subtable="EdtRec.ExecMoveData">
+            <Component Name="MoveDateEdit" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess_PrintForm:MoveDateEdit=Дата" Enabled="False" Field="ExecMoveDataStruct.ExecMoveDate" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" Width="28" Wrap="True"/>
+            <Component Name="MoveDescription" Class="Com.Ctrl.IEdit" Enabled="False" Field="ExecMoveDataStruct.Description" HasCaption="True" Width="148" Wrap="True"/>
+            <Component Name="MoveComment" Class="Com.Ctrl.IEdit" Enabled="False" Field="ExecMoveDataStruct.Comment" HasCaption="True" Width="148" Wrap="True"/>
+          </Component>
+          <Component Name="ExecFieldsFrame3" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone">
+            <Component Name="ExecFieldsGroup3" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="False" FixSize="True" Width="335">
+              <Component Name="GroupCaptionLine18" Class="Com.Ctrl.IGroup">
+                <Component Name="NewLine42" Class="Com.Ctrl.INewLine"/>
+                <Component Name="NewLine49" Class="Com.Ctrl.INewLine"/>
+                <Component Name="ExecPaymentTimelineCaption" Class="Com.Ctrl.IStatic" Caption="@ClaimProcess_PrintForm:ExecPaymentTimelineCaption=Расход денежных средств в рамках этапа Исполнительное производство" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="335"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="ExecPaymentTimelineFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone" Subtable="EdtRec.ExecPaymentTimeline">
+            <Component Name="ExecPaymPaymentDateEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="ExecPaymentTimeline.PaymentDate" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" Width="22" Wrap="True"/>
+            <Component Name="ExecPaymPaymentAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="ExecPaymentTimeline.PaymentAmount" FieldFormat=",##0.00;;-" HasCaption="True" Width="45" Wrap="True"/>
+            <Component Name="ExecPaymNameEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="ExecPaymentTimeline.PaymentName" HasCaption="True" Width="95" Wrap="True"/>
+            <Component Name="ExecPaymDocNumberEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="ExecPaymentTimeline.PaymDocNumber" HasCaption="True" Width="45" Wrap="True"/>
+            <Component Name="ExecPaymDocDateEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="ExecPaymentTimeline.DocDate" HasCaption="True" Width="22" Wrap="True"/>
+            <Component Name="ExecPaymNoteEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="ExecPaymentTimeline.Notes" HasCaption="True" Width="95" Wrap="True"/>
+          </Component>
+          <Component Name="ExecFieldsFrame4" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone">
+            <Component Name="ExecFieldsGroup4" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="False" FixSize="True" Width="335">
+              <Component Name="GroupCaptionLine19" Class="Com.Ctrl.IGroup">
+                <Component Name="NewLine43" Class="Com.Ctrl.INewLine"/>
+                <Component Name="NewLine50" Class="Com.Ctrl.INewLine"/>
+                <Component Name="ExecReceiptTimelineCaption" Class="Com.Ctrl.IStatic" Caption="@ClaimProcess_PrintForm:ExecReceiptTimelineCaption=Поступления денежных средств в рамках этапа Исполнительное производство" FixSize="True" FontItalic="True" FontSize="10" VertAlignment="RightAlign" Width="335"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="ExecReceiptTimelineFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone" Subtable="EdtRec.ExecReceiptTimeline">
+            <Component Name="ExecPaymentDateEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="ExecReceiptTimelineStruct.PaymentDate" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" Width="22" Wrap="True"/>
+            <Component Name="ExecPaymentAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="ExecReceiptTimelineStruct.PaymentAmount" FieldFormat=",##0.00;;-" HasCaption="True" Width="30" Wrap="True"/>
+            <Component Name="ExecReceiptPaymDocNumberEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="ExecReceiptTimelineStruct.PaymDocNumber" HasCaption="True" Width="40" Wrap="True"/>
+            <Component Name="ExecReceiptPayerEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Enabled="False" Field="ExecReceiptTimelineStruct.Payer" HasCaption="True" LookupField="Name" Width="40" Wrap="True"/>
+            <Component Name="ExecReceiptPaymentNameEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="ExecReceiptTimelineStruct.PaymentName" HasCaption="True" Width="40" Wrap="True"/>
+            <Component Name="ExecReceiptDocNumberEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="ExecReceiptTimelineStruct.DocNumber" HasButton="True" HasCaption="True" ShortList="True" Width="40" Wrap="True"/>
+            <Component Name="ExecReceiptDocDateEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="ExecReceiptTimelineStruct.DocDate" HasCaption="True" Width="22" Wrap="True"/>
+            <Component Name="ExecReceiptDebtorName" Class="Com.Ctrl.IEdit" Enabled="False" Field="ExecReceiptTimelineStruct.DebtorName" HasCaption="True" Width="40" Wrap="True"/>
+            <Component Name="ExecReceiptNotesEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="ExecReceiptTimelineStruct.Notes" HasCaption="True" ValueType="VarString" Width="50" Wrap="True"/>
+          </Component>
+        </Component>
+        <Component Name="ExecMsgFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone" Visible="False">
+          <Component Name="ExecMsgGroup" Class="Com.Ctrl.IGroup">
+            <Component Name="NewLine53" Class="Com.Ctrl.INewLine"/>
+            <Component Name="NewLine58" Class="Com.Ctrl.INewLine"/>
+            <Component Name="ExecMsg" Class="Com.Ctrl.IStatic" FontBold="True" FontItalic="True" FontSize="12" Width="250" Wrap="True"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Excluded="True"/>
+    </Inherited>
+    <Component Name="PreTrialReceiptTimelineStruct" Class="ContractManagement.Rec.Data.ClaimProcess_ReceiptTimeline" IsLibrary="1"/>
+    <Component Name="TrialReceiptTimelineStruct" Class="ContractManagement.Rec.Data.ClaimProcess_ReceiptTimeline" IsLibrary="1"/>
+    <Component Name="ExecReceiptTimelineStruct" Class="ContractManagement.Rec.Data.ClaimProcess_ReceiptTimeline" IsLibrary="1"/>
+    <Component Name="TrialPaymentTimeline" Class="ContractManagement.Rec.Data.ClaimProcess_PaymentTimeline" IsLibrary="1"/>
+    <Component Name="ExecPaymentTimeline" Class="ContractManagement.Rec.Data.ClaimProcess_PaymentTimeline" IsLibrary="1"/>
+    <Component Name="TrialSessionDataStruct" Class="ContractManagement.Rec.Data.ClaimProcess_TrialSessionData" IsLibrary="1"/>
+    <Component Name="ExecMoveDataStruct" Class="ContractManagement.Rec.Data.ClaimProcess_ExecMoveData" IsLibrary="1"/>
+  </Inherited>
+</Resource>

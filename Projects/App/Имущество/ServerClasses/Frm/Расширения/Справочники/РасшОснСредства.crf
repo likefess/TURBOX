@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="ИмуществоБазовый.Frm.Справочники.ОснСредства">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="ИтогоДоля_var" Class="Com.Fld.IVar" OnCalc="ИтогоДоля_varOnCalc" ValueType="VarNumeric"/>
+      <Component Name="ИтогоСуммаДохода_var" Class="Com.Fld.IVar" OnCalc="ИтогоСуммаДохода_varOnCalc" ValueType="VarNumeric"/>
+      <Component Name="СпособОценкиИнвНедвиж_Var" Class="Com.Fld.IVar" OnCalc="СпособОценкиИнвНедвиж_Var_OnCalc" ValueType="VarString"/>
+      <Component Name="перДатаОтчета" Class="Com.Fld.IVar" OnCalc="перДатаОтчета_OnCalc" OnChange="перДатаОтчета_OnChange" ValueType="VarDate"/>
+      <Component Name="перЛиквидационнаяСтоимость" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+      <Component Name="перТекущаяСтоимость" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+      <Component Name="перСуммаАмортизации" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+      <Component Name="перОстаточнаяСтоимость" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+      <Component Name="перПредупреждение" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="ФлагиШапки_Гр">
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="1"/>
+          <Component Name="ИнвестиционнаяНедвижимость" Class="Com.Ctrl.ICheckBox" Caption="Инвестиционная недвижимость" Field="EdtRec.ИнвестиционнаяНедвижимость" Hint="Устанавливается при условии, что объект ОС является инвестиционной недвижимостью" MaxWidth="65" MinWidth="65" OnChange="Флаги_OnChange" Width="70"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="ИнвестиционнаяНедвижимостьЗакл">
+          <Component Name="ОсновноеБокс" Class="Com.Ctrl.IBox" Caption="Основное" FixSize="True" HasCaption="True" Size="50">
+            <Component Name="СтоимВидДоля" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="СтоимостиИнвНедвиж" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+                <Component Name="ПервоначальнаяСтоимостьИнвестНедвиж" Class="Com.Ctrl.IEdit" CaptionWidth="85" Field="EdtRec.ПервоначальнаяСтоимостьИнвестНедвиж" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" OnVerify="ПроверитьЧислоНаЗнак_OnVerify" Width="40"/>
+                <Component Name="СправедливаяСтоимостьИнвестНедвиж" Class="Com.Ctrl.IEdit" CaptionWidth="85" Field="EdtRec.СправедливаяСтоимостьИнвестНедвиж" FixSize="True" HasCaption="True" OnVerify="ПроверитьЧислоНаЗнак_OnVerify" Width="40"/>
+              </Component>
+              <Component Name="ВидДоля" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+                <Component Name="ВидИнвНедвиж" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                  <Component Name="ВидИвестиционнойНедвижимости" Class="Com.Ctrl.IEdit" Caption="Вид недвижимости" CellFormat="EnumFormat" Field="EdtRec.ВидИвестиционнойНедвижимости" FixSize="True" HasCaption="True" Hint="Вид ивестиционной недвижимости" Width="40"/>
+                </Component>
+                <Component Name="ДоляИнвНедвиж" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                  <Component Name="ДоляИнвестНедвижЧислитель" Class="Com.Ctrl.IEdit" Caption="Доля" Field="EdtRec.ДоляИнвестНедвижЧислитель" FixSize="True" HasCaption="True" Hint="Доля инвестиционной недвижимости " OnVerify="ДоляИнвестНедвижЧислитель_OnVerify" Width="15"/>
+                  <Component Name="ДоляИнвестНедвижЗнаменатель" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="/" CaptionWidth="5" Field="EdtRec.ДоляИнвестНедвижЗнаменатель" FixSize="True" HasCaption="True" Hint="Доля инвестиционной недвижимости " OnVerify="ДоляИнвестНедвижЗнаменатель_OnVerify" Width="15"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="НедвижимостьНаходитсяВоВладении_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="НедвижимостьНаходитсяВоВладении" Class="Com.Ctrl.IEdit" CaptionWidth="85" CellFormat="EnumFormat" Field="EdtRec.НедвижимостьНаходитсяВоВладении" FixSize="True" HasCaption="True" OnChange="Поля_OnChange" Width="40"/>
+              <Component Name="СпособОценкиИнвНедвиж" Class="Com.Ctrl.IEdit" Caption="Способ оценки" Enabled="False" Field="СпособОценкиИнвНедвиж_Var" FixSize="True" HasCaption="True" Hint="Способ оценки инвестиционной недвижимости" Width="60"/>
+            </Component>
+            <Component Name="ВоВладенииСобственника" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="КадастровыйНомерЗданияИнвестНедвиж" Class="Com.Ctrl.IEdit" CaptionWidth="85" Field="EdtRec.КадастровыйНомерЗданияИнвестНедвиж" FixSize="True" HasCaption="True" Width="40"/>
+              <Component Name="ДатаРегистрацииПраваИнвестНедвиж" Class="Com.Ctrl.IEdit" CaptionWidth="50" Field="EdtRec.ДатаРегистрацииПраваИнвестНедвиж" FixSize="True" HasCaption="True" Width="30"/>
+            </Component>
+            <Component Name="ВоВладенииАрендатора" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="АрендодательДоговор_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="Арендодатель" Class="Com.Ctrl.IEdit" CaptionWidth="85" CardFileClass="Bas.Tab.Data.Contraparties" CellFormat="ReferenceFormat" Field="EdtRec.Арендодатель" FixSize="True" HasCaption="True" LookupField="Name" Width="40"/>
+                <Component Name="ДоговорФинАрендыЛизинга" Class="Com.Ctrl.IEdit" CaptionWidth="80" Field="EdtRec.ДоговорФинАрендыЛизинга" FixSize="True" HasCaption="True" LookupField="Code" OnChange="ДоговорФинАрендыЛизинга_OnChange" OnGetLookupFilter="ДоговорФинАрендыЛизинга_OnGetLookupFilter" Width="40"/>
+              </Component>
+              <Component Name="ДатыДоговора_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="ДатаНачалаДоговора" Class="Com.Ctrl.IEdit" CaptionWidth="85" Field="EdtRec.ДатаНачалаДоговора" FixSize="True" HasCaption="True" OnVerify="ДатаНачалаДоговора_OnVerify" Width="40"/>
+                <Component Name="ДатаОкончанияДоговора" Class="Com.Ctrl.IEdit" CaptionWidth="80" Field="EdtRec.ДатаОкончанияДоговора" FixSize="True" HasCaption="True" OnVerify="ДатаОкончанияДоговора_OnVerify" Width="40"/>
+              </Component>
+            </Component>
+            <Component Name="ЦельВладенияИнвестНедвиж_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="ЦельВладенияИнвестНедвиж" Class="Com.Ctrl.IEdit" Caption="Цель владения" CellFormat="EnumFormat" Field="EdtRec.ЦельВладенияИнвестНедвиж" FixSize="True" HasCaption="True" Hint="Цель владения инвестиционной недвижимостью" Width="125"/>
+            </Component>
+          </Component>
+          <Component Name="СдачаИнвестИмуществаБокс" Class="Com.Ctrl.IBox" Caption="Инвестиционное имущество сдано" FixSize="True" HasCaption="True" Size="80">
+            <Component Name="ИтогоИнвИм" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="ИтогоДоля" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Итого (на текущую дату): доля инвестиционного имущества" CaptionWidth="130" Field="ИтогоДоля_var" FixSize="True" HasCaption="True" Width="15"/>
+              <Component Name="ИтогоСуммаДохода" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Сумма дохода" Field="ИтогоСуммаДохода_var" FieldFormat=",##0.00;;-" FixSize="True" Width="40"/>
+            </Component>
+            <Component Name="СдачаИнвестИмуществаТабл" Class="Com.Ctrl.ITable" Sortable="True" Subtable="EdtRec.СдачаИнвестИмущества">
+              <Component Name="СдачаИнвестИмущества" Class="Имущество.Rec.Расширения.Справочники.ОснСредства_СдачаИнвестИмущества" IsLibrary="1"/>
+              <Component Name="ДоляИнвИмущества" Class="Com.Ctrl.IColumnsGroup" Caption="Доля инвестиционного имущества " FixSize="True" HasCaption="True" Width="70">
+                <Component Name="ДоляИнвестИмуществаЧислитель" Class="Com.Ctrl.IEdit" Caption="Ч" Field="СдачаИнвестИмущества.ДоляИнвестИмуществаЧислитель" FixSize="True" HasCaption="False" Hint="Числитель" OnChange="ДоляИнвестИмущества_OnChange" OnVerify="ПроверитьЧислоНаЗнак_OnVerify" Width="14"/>
+                <Component Name="ДоляИнвестИмуществаРазделитель" Class="Com.Ctrl.IStatic" Caption="/" Width="5"/>
+                <Component Name="ДоляИнвестИмуществаЗнаменатель" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="З" Field="СдачаИнвестИмущества.ДоляИнвестИмуществаЗнаменатель" FixSize="True" HasCaption="False" Hint="Знаменатель" OnChange="ДоляИнвестИмущества_OnChange" OnVerify="ПроверитьЧислоНаЗнак_OnVerify" Width="14"/>
+              </Component>
+              <Component Name="Арендатор" Class="Com.Ctrl.IEdit" Caption="Арендатор" CardFileClass="Bas.Tab.Data.Contraparties" Field="СдачаИнвестИмущества.Арендатор" FixSize="True" HasCaption="True" Width="60"/>
+              <Component Name="ДоговорСдачиВАренду" Class="Com.Ctrl.IEdit" Caption="Договор" Field="СдачаИнвестИмущества.ДоговорСдачиВАренду" FixSize="True" HasCaption="True" Hint="Договор сдачи имущества в аренду" LookupField="Code" OnGetLookupFilter="ДоговорСдачиВАренду_OnGetLookupFilter" Width="40"/>
+              <Component Name="ДоговораСдачиВАрендуНачало" Class="Com.Ctrl.IEdit" Caption="Дата начала" Field="СдачаИнвестИмущества.ДоговораСдачиВАрендуНачало" FixSize="True" HasCaption="True" Hint="Дата начала сдачи имущества в аренду" OnChange="ДоговораСдачиВАрендуДаты_OnChange" Width="30"/>
+              <Component Name="ДоговораСдачиВАрендуОкончание" Class="Com.Ctrl.IEdit" Caption="Дата окончания" Field="СдачаИнвестИмущества.ДоговораСдачиВАрендуОкончание" FixSize="True" HasCaption="True" Hint="Дата окончания сдачи имущества в аренду" OnChange="ДоговораСдачиВАрендуДаты_OnChange" Width="32"/>
+              <Component Name="СуммаПланируемогоДоходаОтСдачиИмущества" Class="Com.Ctrl.IEdit" Caption="Сумма дохода" Field="СдачаИнвестИмущества.СуммаПланируемогоДоходаОтСдачиИмущества" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Hint="Сумма планируемого дохода от сдачи имущества" OnChange="СуммаПланируемогоДоходаОтСдачиИмущества_OnChange" OnVerify="ПроверитьЧислоНаЗнак_OnVerify" Width="40"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Inherited Name="ПечФормаОС">
+          <Component Name="ИнвестицНедвижимостьП" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="255">
+            <Component Name="ИнвНедвижПодпись" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="255">
+              <Component Name="Static_26" Class="Com.Ctrl.IStatic" Caption="Общие данные об инвестиционной недвижимости" FontItalic="True" MinWidth="150"/>
+            </Component>
+            <Component Name="СтоимВидДоляП" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="СтоимостиИнвНедвижП" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+                <Component Name="ПервоначальнаяСтоимостьИнвестНедвижП" Class="Com.Ctrl.IEdit" CaptionWidth="85" Enabled="False" Field="EdtRec.ПервоначальнаяСтоимостьИнвестНедвиж" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" OnVerify="ПроверитьЧислоНаЗнак_OnVerify" Width="40"/>
+                <Component Name="СправедливаяСтоимостьИнвестНедвижП" Class="Com.Ctrl.IEdit" CaptionWidth="85" Enabled="False" Field="EdtRec.СправедливаяСтоимостьИнвестНедвиж" FixSize="True" HasCaption="True" OnVerify="ПроверитьЧислоНаЗнак_OnVerify" Width="40"/>
+              </Component>
+              <Component Name="ВидДоляП" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+                <Component Name="ВидИнвНедвижП" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                  <Component Name="ВидИвестиционнойНедвижимостиП" Class="Com.Ctrl.IEdit" Caption="Вид недвижимости" CellFormat="EnumFormat" Enabled="False" Field="EdtRec.ВидИвестиционнойНедвижимости" FixSize="True" HasCaption="True" Hint="Вид ивестиционной недвижимости" Width="40"/>
+                </Component>
+                <Component Name="ДоляИнвНедвижП" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                  <Component Name="ДоляИнвестНедвижЧислительП" Class="Com.Ctrl.IEdit" Caption="Доля" Enabled="False" Field="EdtRec.ДоляИнвестНедвижЧислитель" FixSize="True" HasCaption="True" Hint="Доля инвестиционной недвижимости " OnVerify="ДоляИнвестНедвижЧислитель_OnVerify" Width="15"/>
+                  <Component Name="ДоляИнвестНедвижЗнаменательП" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="/" CaptionWidth="5" Enabled="False" Field="EdtRec.ДоляИнвестНедвижЗнаменатель" FixSize="True" HasCaption="True" Hint="Доля инвестиционной недвижимости " OnVerify="ДоляИнвестНедвижЗнаменатель_OnVerify" Width="15"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="НедвижимостьНаходитсяВоВладении_ГрП" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="НедвижимостьНаходитсяВоВладенииП" Class="Com.Ctrl.IEdit" CaptionWidth="85" CellFormat="EnumFormat" Enabled="False" Field="EdtRec.НедвижимостьНаходитсяВоВладении" FixSize="True" HasCaption="True" OnChange="Поля_OnChange" Width="40"/>
+              <Component Name="СпособОценкиИнвНедвижП" Class="Com.Ctrl.IEdit" Caption="Способ оценки" Enabled="False" Field="СпособОценкиИнвНедвиж_Var" FixSize="True" HasCaption="True" Hint="Способ оценки инвестиционной недвижимости" Width="60"/>
+            </Component>
+            <Component Name="ВоВладенииСобственникаП" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="КадастровыйНомерЗданияИнвестНедвижП" Class="Com.Ctrl.IEdit" CaptionWidth="85" Enabled="False" Field="EdtRec.КадастровыйНомерЗданияИнвестНедвиж" FixSize="True" HasCaption="True" Width="40"/>
+              <Component Name="ДатаРегистрацииПраваИнвестНедвижП" Class="Com.Ctrl.IEdit" CaptionWidth="50" Enabled="False" Field="EdtRec.ДатаРегистрацииПраваИнвестНедвиж" FixSize="True" HasCaption="True" Width="30"/>
+            </Component>
+            <Component Name="ВоВладенииАрендатораП" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="АрендодательДоговор_ГрП" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="АрендодательП" Class="Com.Ctrl.IEdit" CaptionWidth="85" CardFileClass="Bas.Tab.Data.Contraparties" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Арендодатель" FixSize="True" HasCaption="True" LookupField="Name" Width="40"/>
+                <Component Name="ДоговорФинАрендыЛизингаП" Class="Com.Ctrl.IEdit" CaptionWidth="80" Enabled="False" Field="EdtRec.ДоговорФинАрендыЛизинга" FixSize="True" HasCaption="True" LookupField="Code" Width="40"/>
+              </Component>
+              <Component Name="ДатыДоговора_ГрП" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="ДатаНачалаДоговораП" Class="Com.Ctrl.IEdit" CaptionWidth="85" Enabled="False" Field="EdtRec.ДатаНачалаДоговора" FixSize="True" HasCaption="True" Width="40"/>
+                <Component Name="ДатаОкончанияДоговораП" Class="Com.Ctrl.IEdit" CaptionWidth="80" Enabled="False" Field="EdtRec.ДатаОкончанияДоговора" FixSize="True" HasCaption="True" Width="40"/>
+              </Component>
+            </Component>
+            <Component Name="ЦельВладенияИнвестНедвиж_ГрП" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="ЦельВладенияИнвестНедвижП" Class="Com.Ctrl.IEdit" Caption="Цель владения" CellFormat="EnumFormat" Enabled="False" Field="EdtRec.ЦельВладенияИнвестНедвиж" FixSize="True" HasCaption="True" Hint="Цель владения инвестиционной недвижимостью" Width="125"/>
+            </Component>
+          </Component>
+          <Component Name="СдачаИнвестИмуществаТаблП" Class="Com.Ctrl.ITable" Sortable="True" Subtable="EdtRec.СдачаИнвестИмущества">
+            <Component Name="ДоляИнвИмуществаП" Class="Com.Ctrl.IColumnsGroup" Caption="Доля инвестиционного имущества " FixSize="True" HasCaption="True" Width="70">
+              <Component Name="ДоляИнвестИмуществаЧислительП" Class="Com.Ctrl.IEdit" Caption="Ч" Enabled="False" Field="СдачаИнвестИмущества.ДоляИнвестИмуществаЧислитель" FixSize="True" HasCaption="False" Hint="Числитель" OnChange="ДоляИнвестИмущества_OnChange" OnVerify="ПроверитьЧислоНаЗнак_OnVerify" Width="14"/>
+              <Component Name="ДоляИнвестИмуществаРазделительП" Class="Com.Ctrl.IStatic" Caption="/" Width="5"/>
+              <Component Name="ДоляИнвестИмуществаЗнаменательП" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="З" Enabled="False" Field="СдачаИнвестИмущества.ДоляИнвестИмуществаЗнаменатель" FixSize="True" HasCaption="False" Hint="Знаменатель" OnChange="ДоляИнвестИмущества_OnChange" OnVerify="ПроверитьЧислоНаЗнак_OnVerify" Width="14"/>
+            </Component>
+            <Component Name="АрендаторП" Class="Com.Ctrl.IEdit" Caption="Арендатор" CardFileClass="Bas.Tab.Data.Contraparties" Enabled="False" Field="СдачаИнвестИмущества.Арендатор" FixSize="True" HasCaption="True" Width="60"/>
+            <Component Name="ДоговорСдачиВАрендуП" Class="Com.Ctrl.IEdit" Caption="Договор" Enabled="False" Field="СдачаИнвестИмущества.ДоговорСдачиВАренду" FixSize="True" HasCaption="True" Hint="Договор сдачи имущества в аренду" LookupField="Code" OnGetLookupFilter="ДоговорСдачиВАренду_OnGetLookupFilter" Width="40"/>
+            <Component Name="ДоговораСдачиВАрендуНачалоП" Class="Com.Ctrl.IEdit" Caption="Дата начала" Enabled="False" Field="СдачаИнвестИмущества.ДоговораСдачиВАрендуНачало" FixSize="True" HasCaption="True" Hint="Дата начала сдачи имущества в аренду" OnChange="ДоговораСдачиВАрендуДаты_OnChange" Width="30"/>
+            <Component Name="ДоговораСдачиВАрендуОкончаниеП" Class="Com.Ctrl.IEdit" Caption="Дата окончания" Enabled="False" Field="СдачаИнвестИмущества.ДоговораСдачиВАрендуОкончание" FixSize="True" HasCaption="True" Hint="Дата окончания сдачи имущества в аренду" OnChange="ДоговораСдачиВАрендуДаты_OnChange" Width="32"/>
+            <Component Name="СуммаПланируемогоДоходаОтСдачиИмуществаП" Class="Com.Ctrl.IEdit" Caption="Сумма дохода" Enabled="False" Field="СдачаИнвестИмущества.СуммаПланируемогоДоходаОтСдачиИмущества" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Hint="Сумма планируемого дохода от сдачи имущества" OnChange="СуммаПланируемогоДоходаОтСдачиИмущества_OnChange" OnVerify="ПроверитьЧислоНаЗнак_OnVerify" Width="40"/>
+          </Component>
+        </Inherited>
+        <Component Name="фрОтчетПоОбъектуОС" Class="Com.Ctrl.IFrame" Caption="@Frm:ОтчетПоОбъектуОС=Отчет по объекту ОС">
+          <Component Name="фрДанныеОтчетаПоОС" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="ДатаОтчета_Гр" Class="Com.Ctrl.IGroup" CaptionWidth="60">
+              <Component Name="ДатаОтчета" Class="Com.Ctrl.IEdit" Caption="Дата отчета" Field="перДатаОтчета" FixSize="True" HasCaption="True" OnVerify="ДатаОтчета_OnVerify" Width="50"/>
+              <Component Name="Построить" Class="Com.Ctrl.IButton" Caption="Построить" HasCaption="True" OnClick="Построить_OnClick" Width="35"/>
+            </Component>
+            <Component Name="Суммы_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="60" MaxWidth="300" MinWidth="150">
+              <Component Name="отчПервоначальнаяСтоимость" Class="Com.Ctrl.IEdit" Caption="Первоначальная стоимость" Enabled="False" Field="EdtRec.ПервоначальнаяСтоимость" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Hint="Первоначальная стоимость объекта ОС" Width="50"/>
+              <Component Name="отчЛиквидационнаяСтоимость" Class="Com.Ctrl.IEdit" Caption="Ликвидационная стоимость" Enabled="False" Field="перЛиквидационнаяСтоимость" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Hint="Ликвидационная стоимость объекта ОС" Width="50"/>
+              <Component Name="отчТекущаяСтоимость" Class="Com.Ctrl.IEdit" Caption="Текущая стоимость" Enabled="False" Field="перТекущаяСтоимость" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Hint="Текущая стоимость объекта ОС" Width="50"/>
+              <Component Name="отчСуммаАмортизации" Class="Com.Ctrl.IEdit" Caption="Сумма амортизации" Enabled="False" Field="перСуммаАмортизации" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Hint="Сумма амортизации объекта ОС" OnClick="отчСуммаАмортизации_OnClick" Width="50"/>
+              <Component Name="отчОстаточнаяСтоимость" Class="Com.Ctrl.IEdit" Caption="Остаточная стоимость" Enabled="False" Field="перОстаточнаяСтоимость" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Hint="Остаточная стоимость объекта ОС" Width="50"/>
+              <Component Name="отчПредупреждение" Class="Com.Ctrl.IEdit" Enabled="False" Field="перПредупреждение" FontColor="0x000000FF" Visible="False"/>
+            </Component>
+          </Component>
+          <Component Name="фрОтчетПоАмортизацииОС" Class="Com.Ctrl.IFrame" Caption="@Frm:ОтчетПоАмортизацииОС=Отчет по амортизации ОС" Visible="False"/>
+        </Component>
+        <Component Name="ОтчетПоПроводкамОбъектаОС" Class="Com.Ctrl.IFrame" Caption="@Frm:MainTab=Отчет по проводкам" Margins="5"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

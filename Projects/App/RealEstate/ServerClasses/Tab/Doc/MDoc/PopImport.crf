@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="RealEstate.Tab.Base.BaseMDocMeter">
+  <Inherited Caption="@Загрузки численности объектов имущества" HelpContext="RealEstate.Управление имуществом.Загрузки.Загрузка численности для объекта имущества">
+    <Inherited Name="Current" Class="RealEstate.Rec.Doc.MDoc.PopImport" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Caption="@Загрузки численности объектов имущества" HasCaption="True"/>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="colName" Class="Com.Ctrl.IEdit" After="colCode" Caption="@Наименование" Field="Current.Name" Visible="True" Width="50"/>
+          <Inherited Name="colDecription" CanSort="False"/>
+          <Component Name="colImportUser" Class="Com.Ctrl.IEdit" After="colDecription" CellFormat="ReferenceFormat" Field="Current.ImportUser" HasCaption="True" Hint="@Пользователь" LookupField="Name" Width="45"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

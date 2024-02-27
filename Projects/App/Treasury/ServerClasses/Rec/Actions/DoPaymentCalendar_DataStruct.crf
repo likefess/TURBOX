@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.IStruct">
+    <Component Name="DataType" Class="Com.Fld.IVar" ValueType="VarString"/>
+    <Component Name="IsGroup" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    <Component Name="GroupAttr" Class="Com.Fld.IVar" ValueType="VarString"/>
+    <Component Name="PaymentDoc" Class="Com.Fld.IVar" OnChange="PaymentDoc_OnChange" RecordClass="Treasury.Rec.Data.PaymentRequest" ValueType="VarObject"/>
+    <Component Name="PlanOfDebt" Class="Com.Fld.IVar" OnChange="PaymentDoc_OnChange" ValueType="VarObject"/>
+    <Component Name="ContractDoc" Class="Com.Fld.IVar" OnChange="PaymentDoc_OnChange" RecordClass="Biz.Rec.Data.Contract" ValueType="VarObject"/>
+    <Component Name="PaymTimeline" Class="Com.Fld.IVar" ValueType="VarObject"/>
+    <Component Name="Company" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+    <Component Name="Currency" Class="Com.Fld.IVar" RecordClass="Biz.Rec.Ref.UnitOrCurrency" ValueType="VarObject"/>
+    <Component Name="BankDetails" Class="Com.Fld.IVar" RecordClass="Biz.Rec.Data.BankDetails" ValueType="VarObject"/>
+    <Component Name="DocFinalSum" Class="Com.Fld.ILink" Field="PaymentDoc" FieldName="FinalSum" ValueType="VarNumeric"/>
+    <Component Name="DailyData" Class="Com.Fld.IArray" ValueType="VarNumeric"/>
+    <Component Name="Direction" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+  </Component>
+</Resource>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Purchase.Rec.Ref.BundlesOrderProcess" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="2">
+        <Inherited Name="ButtonServices" Excluded="True"/>
+        <Inherited Name="ButtonPost" After="ButtonClose"/>
+        <Inherited Name="ButtonReports" After="ButtonHelp"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Code" Visible="True"/>
+          <Inherited Name="Name" Visible="True"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="grProcess" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="55" MaxWidth="250" MinWidth="180">
+            <Component Name="Process" Class="Com.Ctrl.IEdit" CardFileClass="SCM.Tab.Документы.Внутренние.ПеремещениеТМЦ" Field="EdtRec.Process" HasCaption="True" LookupField="Code"/>
+          </Component>
+          <Component Name="grProcessTmcId" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="55" MaxWidth="250" MinWidth="180">
+            <Component Name="ProcessTMC" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Resources" Field="EdtRec.ProcessTMC" HasCaption="True" LookupField="Code" LookupFilter="Div(ResType,100)*100 = 100"/>
+            <Component Name="ProcessPosID" Class="Com.Ctrl.IEdit" Field="EdtRec.ProcessPosID" HasCaption="True"/>
+          </Component>
+          <Component Name="grOrderPurchase" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="55" MaxWidth="250" MinWidth="180">
+            <Component Name="OrderOrderPurchase" Class="Com.Ctrl.IEdit" CardFileClass="Purchase.Tab.Data.OrderPurchase" Field="EdtRec.OrderOrderPurchase" HasCaption="True" LookupField="Code"/>
+          </Component>
+          <Component Name="grOrderTmcIdAmount" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="55" MaxWidth="250" MinWidth="180">
+            <Component Name="OrderTMC" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Resources" Field="EdtRec.OrderTMC" HasCaption="True" LookupField="Code" LookupFilter="Div(ResType,100)*100 = 100"/>
+            <Component Name="OrderPosID" Class="Com.Ctrl.IEdit" Field="EdtRec.OrderPosID" HasCaption="True"/>
+            <Component Name="ClosedAmount" Class="Com.Ctrl.IEdit" Field="EdtRec.ClosedAmount" HasCaption="True"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

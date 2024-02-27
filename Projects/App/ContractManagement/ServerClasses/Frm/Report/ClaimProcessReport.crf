@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Frm.Report.ReportByRecords">
+  <Inherited>
+    <Component Name="DataStruct" Class="ContractManagement.Rec.Report.ClaimProcessReport_DataStruct" IsLibrary="1" After="#0"/>
+    <Inherited Name="Variables">
+      <Component Name="DataSubtable" Class="Com.ISubtable"/>
+      <Component Name="OnDate" Class="Com.Fld.IVar" Caption="@ClaimProcessReport:OnDate=По состоянию на" ValueType="VarDate"/>
+      <Component Name="Company" Class="Com.Fld.IVar" Caption="@ClaimProcessReport:Company=Предприятие" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="Intragroup" Class="Com.Fld.IVar" Caption="@ClaimProcessReport:Intragroup=Внутригрупповые договоры" ValueType="VarLogical"/>
+      <Component Name="Classification" Class="Com.Fld.IVar" Caption="@ClaimProcessReport:Classification=Классификация договоров" RecordClass="Biz.Rec.Ref.ContractClassification" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="ParamFrame">
+            <Inherited Name="ParamGroup">
+              <Component Name="ParamLeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="OnDateEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="OnDate" FormatOfDate="DateOnly" HasCaption="True" ValueType="VarDate"/>
+                <Component Name="ClassificationEdit" Class="Com.Ctrl.IListEdit" Caption="@ClaimProcessReport:ClassificationEdit=Классификация" CellFormat="ReferenceFormat" Field="Classification" HasCaption="True" Hint="@ClaimProcessReport:ClassificationEditHint=Классификация договоров" LookupField="Name"/>
+              </Component>
+              <Component Name="ParamRightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="CompanyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="Company" HasCaption="True" LookupField="Name" OnGetLookupFilter="CompanyEdit_OnGetLookupFilter" ShortList="True"/>
+                <Component Name="IntrgagroupGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                  <Component Name="IntragroupCheckBox" Class="Com.Ctrl.ICheckBox" Field="Intragroup" HasCaption="True"/>
+                </Component>
+              </Component>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="DataFrame">
+        <Inherited Name="DataTable" Subtable="DataSubtable">
+          <Component Name="ContractPartner" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Contraparties" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.ContractPartner" HasCaption="True" LookupField="Name" Width="50" Wrap="True"/>
+          <Component Name="PrintedNumberGr" Class="Com.Ctrl.IColumnsGroup" Caption="@ClaimProcessReport:ContractPrintedNumber=Номер договора" FixSize="True" HasCaption="True" Width="47.2">
+            <Component Name="ContractPrintedNumber" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Contract" HasCaption="False" Hint="@ClaimProcessReport:DocGroupHint=Перейти к договору" LookupField="PrintedNumber" OnClick="ContractPrintedNumber_OnClick" Width="40" Wrap="True"/>
+            <Component Name="ContractJumpButton" Class="Com.Ctrl.IJumpButton" Field="DataStruct.Contract" HasCaption="False" Hint="@ClaimProcessReport:DocGroupHint=Перейти к договору" JumpForm="Biz.Frm.Data.Contract" Printed="False" Visible="False"/>
+          </Component>
+          <Component Name="ClaimProcessCodeGr" Class="Com.Ctrl.IColumnsGroup" Caption="@ClaimProcessReport:ClaimProcessCode=Номер карточки ПИР" FixSize="True" HasCaption="True" Width="47.2">
+            <Component Name="ClaimProcessCode" Class="Com.Ctrl.IEdit" CardFileClass="ContractManagement.Tab.Data.ClaimProcess" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.ClaimProcess" HasCaption="False" Hint="@ClaimProcessReport:ClaimProcessCodeHint=Перейти к карточке ПИР" LookupField="Code" OnClick="ClaimProcessCode_OnClick" Width="40" Wrap="True"/>
+            <Component Name="ClaimProcessJumpButton" Class="Com.Ctrl.IJumpButton" Field="DataStruct.ClaimProcess" HasCaption="False" Hint="@ClaimProcessReport:ClaimProcessCodeHint=Перейти к карточке ПИР" JumpForm="ContractManagement.Frm.Data.ClaimProcess" Printed="False" Visible="False"/>
+          </Component>
+          <Component Name="CreateDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Enabled="False" Field="DataStruct.CreateDate" FormatOfDate="DateAndTime" HasCaption="True" Width="40" Wrap="True"/>
+          <Component Name="ClaimType" Class="Com.Ctrl.IEdit" CardFileClass="ContractManagement.Tab.Ref.ClaimType" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.ClaimType" HasCaption="True" LookupField="Name" Width="50" Wrap="True"/>
+          <Component Name="ClaimVariety" Class="Com.Ctrl.IEdit" CardFileClass="ContractManagement.Tab.Ref.ClaimVariety" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.ClaimVariety" HasCaption="True" LookupField="Name" Width="50" Wrap="True"/>
+          <Component Name="Description" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="DataStruct.Description" HasCaption="True" Width="50" Wrap="True"/>
+          <Component Name="Responsible" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Employees" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Responsible" HasCaption="True" LookupField="Name" Width="50" Wrap="True"/>
+          <Component Name="Status" Class="Com.Ctrl.IEdit" CardFileClass="ContractManagement.Tab.Ref.ClaimProcessStatus" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Status" HasCaption="True" LookupField="Name" Width="40" Wrap="True"/>
+          <Component Name="StatusNumber" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="DataStruct.StatusNumber" HasCaption="True" Width="40" Wrap="True"/>
+          <Component Name="StatusDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Enabled="False" Field="DataStruct.StatusDate" FormatOfDate="DateOnly" HasCaption="True" Width="22" Wrap="True"/>
+          <Component Name="AmountToPay" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.AmountToPay" FieldFormat=",##0.00;;-" HasCaption="True" Width="35" Wrap="True"/>
+          <Component Name="AmountPaid" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.AmountPaid" FieldFormat=",##0.00;;-" HasCaption="True" Width="35" Wrap="True"/>
+          <Component Name="AmountSaldo" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.AmountSaldo" FieldFormat=",##0.00;;-" HasCaption="True" Width="35" Wrap="True"/>
+          <Component Name="StatusPeriod" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Enabled="False" Field="DataStruct.StatusPeriod" FormatOfDate="DateOnly" HasCaption="True" Width="22" Wrap="True"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

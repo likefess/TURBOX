@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited Caption="@PaymentCalendar:Caption=Платежный календарь">
+    <Component Name="DataStruct" Class="Treasury.Rec.Actions.DoPaymentCalendar_DataStruct" IsLibrary="1" After="#0"/>
+    <Inherited Name="Variables">
+      <Component Name="DataSubtable" Class="Com.ISubtable"/>
+      <Component Name="PeriodStart" Class="Com.Fld.IVar" Caption="@PaymentCalendar:PeriodStart=За период с" ValueType="VarDate"/>
+      <Component Name="PeriodEnd" Class="Com.Fld.IVar" Caption="@PaymentCalendar:PeriodEnd=по" ValueType="VarDate"/>
+      <Component Name="OurCompany" Class="Com.Fld.IVar" Caption="@PaymentCalendar:OurCompany=Предприятие" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="DivideBy" Class="Com.Fld.IVar" Caption="@PaymentCalendar:DivideBy=Разбивка по" ValueType="VarInteger"/>
+      <Component Name="GroupBy" Class="Com.Fld.IVar" Caption="@PaymentCalendar:GroupBy=Группировка по" ValueType="VarInteger"/>
+      <Component Name="SortBy" Class="Com.Fld.IVar" Caption="@PaymentCalendar:SortBy=Сортировка по" ValueType="VarInteger"/>
+      <Component Name="Currency" Class="Com.Fld.IVar" Caption="@PaymentCalendar:Currency=Валюта" RecordClass="Biz.Rec.Ref.UnitOrCurrency" ValueType="VarObject"/>
+      <Component Name="WithUnallocatedStatements" Class="Com.Fld.IVar" Caption="@PaymentCalendar:WithUnallocatedStatements=Учитывать в сальдо неразнесенные выписки" ValueType="VarLogical"/>
+      <Component Name="WithLatePayments" Class="Com.Fld.IVar" Caption="@PaymentCalendar:WithLatePayments=Выводить просроченные платежи" ValueType="VarLogical"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+          <Component Name="PeriodStartEdit" Class="Com.Ctrl.IEdit" Field="PeriodStart" FixSize="True" FormatOfDate="DateOnly" HasCaption="True" OnChange="Period_OnChange" Width="30"/>
+          <Component Name="PeriodEndEdit" Class="Com.Ctrl.IEdit" CaptionWidth="10" Field="PeriodEnd" FixSize="True" FormatOfDate="DateOnly" HasCaption="True" OnChange="Period_OnChange" Width="30"/>
+          <Component Name="RefreshButton" Class="Com.Ctrl.IButton" ImageName="Com.Refresh" OnClick="RefreshButton_OnClick"/>
+        </Component>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+          <Component Name="OurCompanyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="OurCompany" HasCaption="True" LookupField="Name" ShortList="True"/>
+          <Component Name="DivideByEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="DivideBy" FixSize="True" HasCaption="True" ListAsString="дням|0;неделям|1" Width="30"/>
+          <Component Name="CurrencyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Field="Currency" FixSize="True" HasCaption="True" LookupField="Name" ShortList="True" Width="50"/>
+          <Component Name="GroupByEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="GroupBy" FixSize="True" HasCaption="True" ListAsString="Предприятие / Валюта / Расч. счет|0;Предприятие / Расч. счет / Валюта|1;Валюта / Предприятие / Расч. счет|2;Валюта / Расч. счет / Предприятие|3;Расч. счет / Предприятие / Валюта|4;Расч. счет / Валюта/ Предприятие|5" OnChange="GroupByEdit_OnChange" Width="100"/>
+          <Component Name="SortByEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="SortBy" FixSize="True" HasCaption="True" ListAsString="статье ДДС|0;контрагенту|1" Visible="False" Width="50"/>
+          <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+            <Component Name="WithUnallocatedStatementsCheckBox" Class="Com.Ctrl.ICheckBox" Field="WithUnallocatedStatements" HasCaption="True"/>
+          </Component>
+          <Component Name="Group4" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+            <Component Name="WithLatePaymentsCheckBox" Class="Com.Ctrl.ICheckBox" Field="WithLatePayments" HasCaption="True"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Component Name="DataFrame" Class="Com.Ctrl.IFrame" Subtable="DataSubtable">
+        <Component Name="DataOurCompanyEdit" Class="Com.Ctrl.IEdit" Caption="@PaymentCalendar:DataOurCompany=Предприятие" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Company" HasCaption="True" LookupField="Name" OnOutput="DataOurCompanyEdit_OnOutput" Width="40"/>
+        <Component Name="DataCurrencyEdit" Class="Com.Ctrl.IEdit" Caption="@PaymentCalendar:DataCurrency=Валюта" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Currency" HasCaption="True" LookupField="Code" OnOutput="DataCurrencyEdit_OnOutput" Width="20"/>
+        <Component Name="DataBankAccountEdit" Class="Com.Ctrl.IEdit" Caption="@PaymentCalendar:DataBankAccount=Счет оплаты" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.BankDetails" HasCaption="True" LookupField="Name" OnOutput="DataBankAccountEdit_OnOutput" Width="40"/>
+        <Component Name="ColumnsGroup1" Class="Com.Ctrl.IColumnsGroup" Caption="@PaymentCalendar:DataPaymentDoc=Документ" HasCaption="True">
+          <Component Name="DataPaymentDocEdit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.PaymentDoc" HasCaption="False" LookupField="Code" OnOutput="DataPaymentDocEdit_OnOutput" Width="60"/>
+          <Component Name="JumpButton1" Class="Com.Ctrl.IJumpButton" Enabled="True" Field="DataStruct.PaymentDoc" HasCaption="False"/>
+        </Component>
+        <Component Name="DataBGIEdit" Class="Com.Ctrl.IEdit" Caption="@PaymentCalendar:DataBGI=Статья ДДС" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.PaymentDoc" HasCaption="True" LookupField="BGI.Name" Width="40"/>
+        <Component Name="DataContrapartyEdit" Class="Com.Ctrl.IEdit" Caption="@PaymentCalendar:DataContraparty=Контрагент" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.PaymentDoc" HasCaption="True" LookupField="Contraparty.Name" Width="40"/>
+        <Component Name="DataDocSumEdit" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@PaymentCalendar:DataDocSum=Сумма документа" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.DocFinalSum" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+        <Component Name="DataPaymentDateEdit" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@PaymentCalendar:PaymentDate=Срок оплаты" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.PaymentDoc" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" LookupField="PaymentDate" Width="40"/>
+        <Component Name="DataDocStatusEdit" Class="Com.Ctrl.IEdit" Caption="@PaymentCalendar:DataDocStatus=Статус документа" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.PaymentDoc" HasCaption="True" LookupField="TaskStatus.Name" Width="40"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

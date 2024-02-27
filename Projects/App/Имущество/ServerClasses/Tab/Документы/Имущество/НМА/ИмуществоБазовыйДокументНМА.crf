@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Tab.Документы.Имущество.ИмуществоБазовыйДокумент">
+  <Inherited>
+    <Inherited Name="Current" Class="Имущество.Rec.Документы.Имущество.НМА.ИмуществоБазовыйДокументНМА" IsLibrary="1"/>
+    <Component Name="ПозицииНМА" Class="Имущество.Rec.Документы.Имущество.НМА.ИмуществоБазовыйДокументНМА_Позиции" IsLibrary="1" After="Current"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FrameSubCardfile" Visible="True">
+        <Component Name="ПозицииНМА_Табл" Class="Com.Ctrl.ISubCardfile" Subtable="Current.ПозицииНМА">
+          <Component Name="НМА_Табл" Class="Com.Ctrl.IEdit" Field="ПозицииНМА.НМА"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

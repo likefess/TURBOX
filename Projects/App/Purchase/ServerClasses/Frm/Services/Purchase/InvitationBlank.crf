@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="vBlankDate" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="vBlankCode" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="vOrgCompany" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="vWork" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="vCompetitionForm" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="vInitiator" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="vAmount" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="vApplicationNumberETP" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="vElectronicPlatform" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="vStartDate" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="vEndDate" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="vtermsDelivery" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="vplaceDelivery" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="vpaymentConditions" Class="Com.Fld.IVar" RecordClass="Biz.Rec.Ref.ContractTermsOfPayment" ValueType="VarObject"/>
+      <Component Name="vConditions" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="vDescription" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="vOtherDoc" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="vPosition" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="vEmployee" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="Header" Class="Com.Ctrl.IHeader">
+        <Component Name="ButtonOK" Class="Com.Ctrl.IButton" Caption="@Cmd:PostClose=OK" FontSize="11" ImageName="PostClose" OnClick="ButtonOKOnClick" Width="22"/>
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Caption="@Cmd:Close=Закрыть" ImageName="Close" OnClick="ButtonCloseOnClick"/>
+      </Component>
+      <Component Name="FieldsFrame" Class="Com.Ctrl.IFrame">
+        <Component Name="GrCaption" Class="Com.Ctrl.IGroup">
+          <Component Name="stCaption" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="ПРИГЛАШЕНИЕ ПРИНЯТЬ УЧАСТИЕ В КОНКУРСЕ" FixSize="True" FontBold="True" FontSize="11" Width="200"/>
+        </Component>
+        <Component Name="GrBlank" Class="Com.Ctrl.IGroup">
+          <Component Name="edBlankDate" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" Field="vBlankDate" FixSize="True" FontBold="True" ValueType="VarDate" Width="30"/>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="140"/>
+          <Component Name="edBlankCode" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Enabled="False" Field="vBlankCode" FixSize="True" FontBold="True" ValueType="VarString" Width="30"/>
+        </Component>
+        <Component Name="GrOrgCompany" Class="Com.Ctrl.IGroup">
+          <Component Name="edOrgCompany" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Enabled="False" Field="vOrgCompany" LookupField="ShortLegalName" OnOutputEx="edOrgCompanyOnOutputEx" ValueType="VarObject" Width="200" Wrap="True"/>
+        </Component>
+        <Component Name="GrWork" Class="Com.Ctrl.IGroup">
+          <Component Name="edWork" Class="Com.Ctrl.IEdit" Field="vWork" FixSize="True" Required="True" ValueType="VarString" Width="200" Wrap="True"/>
+        </Component>
+        <Component Name="GrName" Class="Com.Ctrl.IGroup">
+          <Component Name="stName" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Условия и сроки проведения конкурса" FontBold="True" Width="200"/>
+        </Component>
+        <Component Name="GrCompetitionForm" Class="Com.Ctrl.IGroup">
+          <Component Name="stCompetitionForm" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Форма конкурса:" FixSize="True" FontBold="True" VertAlignment="LeftAlign" Width="38"/>
+          <Component Name="edCompetitionForm" Class="Com.Ctrl.IEdit" Enabled="False" Field="vCompetitionForm" ValueType="VarString" Width="162" Wrap="True"/>
+        </Component>
+        <Component Name="GrOrgCompany_FullName" Class="Com.Ctrl.IGroup">
+          <Component Name="stOrgCompany_FullName" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Организатор приглашения:" FixSize="True" FontBold="True" Width="58"/>
+          <Component Name="edOrgCompany_FullName" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Enabled="False" Field="vOrgCompany" LookupField="FullLegalName" ValueType="VarObject" Width="142" Wrap="True"/>
+        </Component>
+        <Component Name="GrOrgCompany_Address" Class="Com.Ctrl.IGroup">
+          <Component Name="stOrgCompany_Address" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Адрес:" FixSize="True" Width="16"/>
+          <Component Name="edOrgCompany_Address" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Enabled="False" Field="vOrgCompany" LookupField="MainAddress" ValueType="VarObject" Width="184" Wrap="True"/>
+        </Component>
+        <Component Name="GrOrgCompany_Phone" Class="Com.Ctrl.IGroup">
+          <Component Name="stOrgCompany_Phone" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Контактный телефон:" FixSize="True" Width="43"/>
+          <Component Name="edOrgCompany_Phone" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Enabled="False" Field="vOrgCompany" LookupField="MobilePhone" ValueType="VarObject" Width="157"/>
+        </Component>
+        <Component Name="GrOrgCompany_EMail" Class="Com.Ctrl.IGroup">
+          <Component Name="stOrgCompany_EMail" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Адрес электронной почты:" FixSize="True" Width="52"/>
+          <Component Name="edOrgCompany_EMail" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Enabled="False" Field="vOrgCompany" LookupField="E_Mail" ValueType="VarObject" Width="148" Wrap="True"/>
+        </Component>
+        <Component Name="GrInitiatorName" Class="Com.Ctrl.IGroup">
+          <Component Name="stInitiator" Class="Com.Ctrl.IStatic" Caption="Заказчик:" FixSize="True" FontBold="True" VertAlignment="LeftAlign" Width="23"/>
+          <Component Name="edInitiator" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" CellFormat="ReferenceFormat" Enabled="False" Field="vInitiator" LookupField="FullLegalName" ValueType="VarObject" Width="177" Wrap="True"/>
+        </Component>
+        <Component Name="GrInitiator_Address" Class="Com.Ctrl.IGroup">
+          <Component Name="stInitiator_Address" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Адрес:" FixSize="True" Width="16"/>
+          <Component Name="edInitiator_Address" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" CellFormat="ReferenceFormat" Enabled="False" Field="vInitiator" LookupField="MainAddress" ValueType="VarObject" Width="184" Wrap="True"/>
+        </Component>
+        <Component Name="GrInitiator_Phone" Class="Com.Ctrl.IGroup">
+          <Component Name="stInitiator_Phone" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Контактный телефон:" FixSize="True" Width="43"/>
+          <Component Name="edInitiator_Phone" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" CellFormat="ReferenceFormat" Enabled="False" Field="vInitiator" LookupField="MobilePhone" ValueType="VarObject" Width="157"/>
+        </Component>
+        <Component Name="GrInitiator_EMail" Class="Com.Ctrl.IGroup">
+          <Component Name="stInitiator_EMail" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Адрес электронной почты:" FixSize="True" Width="52"/>
+          <Component Name="edInitiator_EMail" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" Enabled="False" Field="vInitiator" LookupField="E_Mail" ValueType="VarObject" Width="148" Wrap="True"/>
+        </Component>
+        <Component Name="GrAmount" Class="Com.Ctrl.IGroup">
+          <Component Name="stAmount" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Начальная (максимальная) цена контракта:" FixSize="True" FontBold="True" VertAlignment="LeftAlign" Width="60"/>
+          <Component Name="edAmount" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" Field="vAmount" ValueType="VarString" VertAlignment="LeftAlign" Width="140" Wrap="True"/>
+        </Component>
+        <Component Name="GrApplicationNumberETP" Class="Com.Ctrl.IGroup">
+          <Component Name="stApplicationNumberETP" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Идентификационный код закупки:" FixSize="True" FontBold="True" VertAlignment="LeftAlign" Width="70"/>
+          <Component Name="edApplicationNumberETP" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="True" Field="vApplicationNumberETP" ValueType="VarString" VertAlignment="LeftAlign" Width="130" Wrap="True"/>
+        </Component>
+        <Component Name="GrStartDate" Class="Com.Ctrl.IGroup">
+          <Component Name="stStartDate" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Дата начала подачи заявок:" FixSize="True" FontBold="True" Width="60"/>
+          <Component Name="edStartDate" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" Field="vStartDate" OnOutputEx="edStartDateOnOutputEx" ValueType="VarDate" Width="140"/>
+        </Component>
+        <Component Name="GrEndDate" Class="Com.Ctrl.IGroup">
+          <Component Name="stEndDate" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Дата окончания подачи заявок: " FixSize="True" FontBold="True" Width="67"/>
+          <Component Name="edEndDate" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" Field="vEndDate" OnOutputEx="edEndDateOnOutputEx" ValueType="VarDate" Width="133"/>
+        </Component>
+        <Component Name="GrElectronicPlatform" Class="Com.Ctrl.IGroup">
+          <Component Name="stElectronicPlatform" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Место и порядок подачи заявок:" FixSize="True" FontBold="True" VertAlignment="LeftAlign" Width="68"/>
+          <Component Name="edElectronicPlatform" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="True" Field="vElectronicPlatform" ValueType="VarString" VertAlignment="LeftAlign" Width="132" Wrap="True"/>
+        </Component>
+        <Component Name="GrtermsDelivery" Class="Com.Ctrl.IGroup">
+          <Component Name="sttermsDelivery" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Условия поставки:" FixSize="True" FontBold="True" VertAlignment="LeftAlign" Width="41"/>
+          <Component Name="edtermsDelivery" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" Field="vtermsDelivery" ValueType="VarString" VertAlignment="LeftAlign" Width="159" Wrap="True"/>
+        </Component>
+        <Component Name="GrplaceDelivery" Class="Com.Ctrl.IGroup">
+          <Component Name="stplaceDelivery" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Место поставки товаров (оказания услуг):" FixSize="True" FontBold="True" VertAlignment="LeftAlign" Width="90"/>
+          <Component Name="edplaceDelivery" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" Field="vplaceDelivery" ValueType="VarString" VertAlignment="LeftAlign" Width="110"/>
+        </Component>
+        <Component Name="GrpaymentConditions" Class="Com.Ctrl.IGroup">
+          <Component Name="stpaymentConditions" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Условия оплаты:" FixSize="True" FontBold="True" VertAlignment="LeftAlign" Width="38"/>
+          <Component Name="edpaymentConditions" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="ReferenceFormat" Enabled="False" Field="vpaymentConditions" LookupField="Name" ValueType="VarObject" VertAlignment="LeftAlign" Width="162" Wrap="True"/>
+        </Component>
+        <Component Name="GrConditions" Class="Com.Ctrl.IGroup">
+          <Component Name="stConditions" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Дополнительные условия:" FixSize="True" FontBold="True" VertAlignment="LeftAlign" Width="57"/>
+          <Component Name="edConditions" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" Field="vConditions" ValueType="VarString" VertAlignment="LeftAlign" Width="143" Wrap="True"/>
+        </Component>
+        <Component Name="GrDescription" Class="Com.Ctrl.IGroup">
+          <Component Name="stDescription" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Комментарии:" FixSize="True" FontBold="True" VertAlignment="LeftAlign" Width="32"/>
+          <Component Name="edDescription" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Field="vDescription" ValueType="VarString" VertAlignment="LeftAlign" Width="168" Wrap="True"/>
+        </Component>
+        <Component Name="GrOtherDocCaption" Class="Com.Ctrl.IGroup">
+          <Component Name="stOtherDoc" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Документы и сведения, которые должны быть представлены в заявке:" FixSize="True" FontBold="True" Width="200"/>
+        </Component>
+        <Component Name="GrOtherDoc" Class="Com.Ctrl.IGroup">
+          <Component Name="edOtherDoc" Class="Com.Ctrl.IEdit" Field="vOtherDoc" ValueType="VarString" Width="200" Wrap="True"/>
+        </Component>
+        <Component Name="GrEmployee" Class="Com.Ctrl.IGroup">
+          <Component Name="edPosition" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Field="vPosition" Required="True" ValueType="VarString" Width="120" Wrap="True"/>
+          <Component Name="edEmployee" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CardFileClass="Bas.Tab.Data.Employees" Field="vEmployee" LookupField="Name" OnChange="edEmployeeOnChange" Required="True" ValueType="VarObject" Width="80" Wrap="True"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

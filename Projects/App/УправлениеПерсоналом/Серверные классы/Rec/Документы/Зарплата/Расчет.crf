@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Rec.Базовая.БазовыйДокументГруп">
+  <Inherited>
+    <Component Name="ДатаВыплаты" Class="Com.Fld.IField" After="#0" FieldName="ДатаВыплаты"/>
+    <Component Name="ПериодНачисл" Class="Com.Fld.IVar" Caption="Период начисления" RecordClass="Biz.Rec.Ref.Period" ValueType="VarObject"/>
+    <Component Name="Скорректирован" Class="Com.Fld.IField" FieldName="Скорректирован"/>
+    <Component Name="Перерасчет" Class="Com.Fld.IField" FieldName="Перерасчет"/>
+    <Component Name="ТолькоТабель" Class="Com.Fld.IField" FieldName="ТолькоТабель"/>
+    <Component Name="ВклУволенных" Class="Com.Fld.IField" FieldName="ВклУволенных"/>
+    <Component Name="ВклПрочих" Class="Com.Fld.IField" FieldName="ВклПрочих"/>
+    <Component Name="РасчетПоСписку" Class="Com.Fld.IField" FieldName="РасчетПоСписку"/>
+    <Component Name="Корректировка" Class="Com.Fld.IField" FieldName="Корректировка" OnChange="Корректировка_OnChange"/>
+    <Component Name="КоррРасчет" Class="Com.Fld.IField" FieldName="КоррРасчет" OnChange="КоррРасчет_OnChange"/>
+    <Component Name="ВидыНачислений_массив" Class="Com.Fld.IArray" OnCalc="ВидыНачислений_массив_OnCalc" ValueType="VarObject"/>
+    <Component Name="ВидыНачислений" Class="Com.Fld.IField" FieldName="ВидыНачислений"/>
+    <Component Name="ТабелиРВ" Class="Com.Fld.IField" FieldName="ТабелиРВ" OnChange="ТабелиРВ_OnChange"/>
+    <Component Name="ТабелиРВ_массив" Class="Com.Fld.IArray" OnCalc="ТабелиРВ_массив_OnCalc" ValueType="VarObject"/>
+    <Component Name="ДатаНачПериода" Class="Com.Fld.IField" FieldName="ДатаНачПериода"/>
+    <Component Name="ДатаКонПериода" Class="Com.Fld.IField" FieldName="ДатаКонПериода"/>
+    <Inherited Name="Позиции" After="ДатаКонПериода" StructClass="УправлениеПерсоналом.Rec.Документы.Зарплата.Расчет_Позиции"/>
+    <Component Name="ПериодРасчета" Class="Com.Fld.IField" After="Дата" FieldName="ПериодРасчета" OnChange="ПериодРасчета_OnChange"/>
+    <Component Name="ЧастьПериода" Class="Com.Fld.IField" FieldName="ЧастьПериода" OnChange="ЧастьПериода_OnChange"/>
+    <Component Name="Подразделение" Class="Com.Fld.IField" FieldName="Подразделение"/>
+    <Component Name="Проводить" Class="Com.Fld.IField" FieldName="Проводить"/>
+    <Component Name="Вид" Class="Com.Fld.IField" FieldName="Вид" OnChange="Вид_OnChange"/>
+    <Component Name="Статус" Class="Com.Fld.IField" FieldName="Статус"/>
+    <Component Name="ВидПромРасчета" Class="Com.Fld.IField" FieldName="ВидПромРасчета" OnChange="ВидПромРасчета_OnChange"/>
+    <Inherited Name="Номер" After="ВидПромРасчета"/>
+  </Inherited>
+</Resource>

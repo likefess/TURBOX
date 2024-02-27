@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CMP.Frm.Config.ProcType">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Tracker_Service.Rec.Config.ServiceItem" IsLibrary="1"/>
+    <Component Name="ServiceItem_SLSpecification" Class="Tracker_Service.Rec.Data.ServiceItem_SLSpecification" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="Variables">
+      <Component Name="VarSettingsMode" Class="Com.Fld.IVar" OnChange="VarSettingsModeOnChange"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="True">
+          <Component Name="cbSettingsMode" Class="Com.Ctrl.IButton" Caption="@TrackingService:ServiceItemFrm.SettingsMode=Режим настройки" Field="VarSettingsMode" IsSwitch="True"/>
+        </Inherited>
+        <Inherited Name="ButtonCompile" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Name" CaptionWidth="40" HasInnerCaption="True"/>
+          <Inherited Name="Code" HasInnerCaption="True"/>
+        </Inherited>
+        <Inherited Name="Group5">
+          <Inherited Name="EditComment" CaptionWidth="40" HasInnerCaption="True"/>
+        </Inherited>
+        <Component Name="SLGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+          <Component Name="ServiceLevelEdit" Class="Com.Ctrl.IEdit" CaptionWidth="40" Field="EdtRec.ServiceLevel" HasButton="True" HasCaption="True" HasInnerCaption="True" ShortList="True" Visible="False"/>
+        </Component>
+      </Inherited>
+      <Component Name="SpecificationFrame" Class="Com.Ctrl.IFrame" After="FieldsFrame" Caption="@TrackerService:SpecificationFrame=Спецификации">
+        <Component Name="SLSpecificationsBox" Class="Com.Ctrl.IBox" Caption="@TrackerService:SLSpecificationsBox=Уровни SLA">
+          <Component Name="SLSpecificationsTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="True" CanInsert="True" CanMove="True" ManualControl="True" Numbering="False" Subtable="EdtRec.SLSpecifications">
+            <Component Name="ServiceLevel" Class="Com.Ctrl.IEdit" Field="ServiceItem_SLSpecification.ServiceLevel" HasCaption="True" Width="175"/>
+            <Component Name="ReactionColGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@TrackerService:ReactionColGroup=Время реакции" HasCaption="True" Width="60">
+              <Component Name="ReactionTimeEdit" Class="Com.Ctrl.IEdit" Field="ServiceItem_SLSpecification.ReactionTime" HasCaption="False" OnDraw="SLSpecificationTimeEdit_OnDraw" OnOutput="SLSpecificationTimeEdit_OnOutput" Width="40"/>
+              <Component Name="ReactionTimeUnitEdit" Class="Com.Ctrl.IEdit" Field="ServiceItem_SLSpecification.ReactionTimeUnit" HasCaption="False" LookupField="Code" LookupFilter="IsCurrency = 3" OnDraw="SLSpecificationTimeEdit_OnDraw" OnOutput="SLSpecificationTimeEdit_OnOutput" Width="20"/>
+            </Component>
+            <Component Name="DecisionColGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@TrackerService:DecisionColGroup=Время решения" HasCaption="True" Width="60">
+              <Component Name="DecisionTimeEdit" Class="Com.Ctrl.IEdit" Field="ServiceItem_SLSpecification.DecisionTime" HasCaption="False" OnDraw="SLSpecificationTimeEdit_OnDraw" OnOutput="SLSpecificationTimeEdit_OnOutput" Width="40"/>
+              <Component Name="DecisionTimeUnitEdit" Class="Com.Ctrl.IEdit" Field="ServiceItem_SLSpecification.DecisionTimeUnit" HasCaption="False" LookupField="Code" LookupFilter="IsCurrency = 3" OnDraw="SLSpecificationTimeEdit_OnDraw" OnOutput="SLSpecificationTimeEdit_OnOutput" Width="20"/>
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

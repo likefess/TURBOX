@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm" WindowStyle="PopupWindow">
+    <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    <Component Name="CommentsSource" Class="TrackingCore.Ctrl.ChatRecordSrv" AddingTime="AddingTime" Attachment="Attachment" ChatOwner="ChatOwner" CommentID="CommentID" CommentOwner="CommentOwner" Direction="chdFIFO" EditingTime="EditingTime" HtmlContent="HTML" Partition="Partition" PartitionValue="1" RecClass="TrackingCore.Rec.Data.TaskChat" RecVarName="Task"/>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="Task" Class="Com.Fld.IVar" RecordClass="Control.Rec.Data.Task" ValueType="VarObject"/>
+      <Component Name="Doer" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="Responsible" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="Deadline" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="EventTime" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="Priority" Class="Com.Fld.IVar" ValueType="VarObject"/>
+      <Component Name="PrjComponents" Class="Com.Fld.IVar" ValueType="VarObject"/>
+      <Component Name="Labels" Class="Com.Fld.IVar" ValueType="VarObject"/>
+      <Component Name="GroupDoc" Class="Com.Fld.IVar" ValueType="VarObject"/>
+      <Component Name="WatchersArr" Class="Com.Fld.IVar" ValueType="VarObject"/>
+      <Component Name="Description" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="Category" Class="Com.Fld.IVar" ValueType="VarObject"/>
+      <Component Name="Comment" Class="Com.Fld.IVar" Caption="Комментарий" ValueType="VarString"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+      <BuiltIn Name="SideMargins" Bottom="24" Left="32" Right="32" Top="24"/>
+      <Component Name="PFr" Class="Com.Ctrl.IFrame" Margins="0" ScrollerStyle="ScrollerVert">
+        <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+        <Component Name="FFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0" Visible="False">
+          <BuiltIn Name="SideMargins" Bottom="10" Left="0" Right="0" Top="0"/>
+          <Component Name="FBFr" Class="Com.Ctrl.IFrame" Bevel="DefaultBevel" Margins="0">
+            <BuiltIn Name="SideMargins" Bottom="16" Left="16" Right="16" Top="16"/>
+            <Component Name="FCaptionFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+              <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+              <Component Name="FCaptionGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MinWidth="150">
+                <Component Name="FFrCaption" Class="Com.Ctrl.IStatic" Caption="Измените значения полей" FontBold="True"/>
+              </Component>
+            </Component>
+            <Component Name="FFieldsFr" Class="Com.Ctrl.IFrame" Margins="0">
+              <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="16"/>
+              <Component Name="FGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MinWidth="150">
+                <Component Name="DoerEdt" Class="Com.Ctrl.IEdit" Caption="Исполнитель" CardFileClass="TrackingCore.Tab.Data.People" CellFormat="ReferenceFormat" Field="Doer" HasInnerCaption="True" LookupField="Name" LookupFilter="not Closed" ShortList="True" Visible="False"/>
+                <Component Name="ResponsibleEdt" Class="Com.Ctrl.IEdit" Caption="Ответственный" CardFileClass="TrackingCore.Tab.Data.People" CellFormat="ReferenceFormat" Field="Responsible" HasInnerCaption="True" LookupField="Name" LookupFilter="not Closed" ShortList="True" Visible="False"/>
+                <Component Name="DeadlineEdt" Class="Com.Ctrl.IEdit" Caption="Крайний срок" CellFormat="DateFormat" Field="Deadline" HasInnerCaption="True" Visible="False"/>
+                <Component Name="EventTimeEdt" Class="Com.Ctrl.IEdit" Caption="Дата начала" CellFormat="DateFormat" Field="EventTime" HasInnerCaption="True" Visible="False"/>
+                <Component Name="PriorityEdt" Class="Com.Ctrl.IEdit" Caption="Приоритет" CardFileClass="Control.Tab.Ref.TaskPriority" CellFormat="ReferenceFormat" Field="Priority" HasInnerCaption="True" LookupField="Name" LookupFilter="not Closed" ShortList="True" Visible="False"/>
+                <Component Name="PrjComponentsEdt" Class="Com.Ctrl.IListEdit" Caption="Компонент" CardFileClass="TrackingCore.Tab.Ref.PrjComponent" CellFormat="ReferenceFormat" Field="PrjComponents" HasInnerCaption="True" LookupField="Name" LookupFilter="not Closed" Visible="False"/>
+                <Component Name="LabelsEdt" Class="Com.Ctrl.IListEdit" Caption="Метки" CardFileClass="TrackingCore.Tab.Ref.Label" CellFormat="ReferenceFormat" Field="Labels" HasInnerCaption="True" LookupField="Name" LookupFilter="not Closed" Visible="False"/>
+                <Component Name="GroupDocEdt" Class="Com.Ctrl.IEdit" Caption="Эпик" CardFileClass="TrackingCore.Tab.Data.Tasks" CellFormat="ReferenceFormat" Field="GroupDoc" HasInnerCaption="True" LookupField="Name" Visible="False"/>
+                <Component Name="WatchersArrEdt" Class="Com.Ctrl.IListEdit" Caption="Наблюдатели" CardFileClass="TrackingCore.Tab.Data.People" CellFormat="ReferenceFormat" Field="WatchersArr" HasInnerCaption="True" LookupField="Name" Visible="False"/>
+                <Component Name="CategoryEdt" Class="Com.Ctrl.IEdit" Caption="Тип задачи" CardFileClass="TrackingCore.Tab.Ref.TaskCategory" CellFormat="ReferenceFormat" Field="Category" HasInnerCaption="True" LookupField="Name" LookupFilter="not Closed" ShortList="True" Visible="False"/>
+              </Component>
+            </Component>
+            <Component Name="FDescFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0" MinSize="50" Visible="False">
+              <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="16"/>
+              <Component Name="FDescCaptionFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+                <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                <Component Name="FDescCaptionGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MinWidth="150">
+                  <Component Name="FDescCaption" Class="Com.Ctrl.IStatic" Caption="Описание"/>
+                </Component>
+              </Component>
+              <Component Name="DescriptionQuillJSFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+                <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                <Component Name="DescriptionQuillJS" Class="Com.Ctrl.IQuillJS" OnSelectionChange="DescriptionQuillJSOnSelectionChange" ResizeEnabled="True" Visible="True"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="CFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="CBFr" Class="Com.Ctrl.IFrame" Bevel="DefaultBevel" Margins="0">
+            <BuiltIn Name="SideMargins" Bottom="16" Left="16" Right="16" Top="16"/>
+            <Component Name="CCaptionFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+              <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+              <Component Name="CCaptionGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MinWidth="150">
+                <Component Name="CFrCaption" Class="Com.Ctrl.IStatic" Caption="Оставьте комметарий" FontBold="True"/>
+              </Component>
+            </Component>
+            <Component Name="CChatFr" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0x00FFFFFF" FixSize="False" Margins="0">
+              <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="10"/>
+              <Component Name="CommentOfTask" Class="TrackingLib.Ctrl.ICommentDlg" Color="0x00FFFFFF" DataSource="CommentsSource" FixSize="False" HasCaption="False" ResizeEnabled="True" saveData="CommentOfTaskOnSaveData"/>
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="BFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+        <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="16"/>
+        <Component Name="BGr" Class="Com.Ctrl.IGroup" Adaptive="True" MinWidth="150">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="False"/>
+          <Component Name="OKBtn" Class="Com.Ctrl.IButton" Alignment="CenterAlign" Caption="Сохранить" Fashion="Fashions.PrimaryButton" HasCaption="True" OnClick="OKBtnOnClick" VertAlignment="CenterAlign"/>
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="False"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

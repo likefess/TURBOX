@@ -1,0 +1,69 @@
+﻿TBCFile VER="3.4" [Created '24.10.2019 18:28:14' by 'Администратор']
+
+DESCRIPTION[
+Count=6
+CountByRef=0
+Repair.RatingPriority
+(
+  Count=6
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Repair.RatingPriority
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    MetaLock :Boolean
+    SubsysCode :Integer
+    ModuleCode :String
+    PartisCode :Integer
+    Code :String(80)
+    Name :String(850)
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Repair.RatingPriority
+  
+  {Repair.RatingPriority:"1"}
+  (
+    Name = "Работы с наивысшим приоритетом"
+  )
+  
+  {Repair.RatingPriority:"2"}
+  (
+    Name = "Работы с высоким приоритетом"
+  )
+  
+  {Repair.RatingPriority:"3"}
+  (
+    Name = "Работы со средним приоритетом"
+  )
+  
+  {Repair.RatingPriority:"4"}
+  (
+    Name = "Работы второстепенной важности"
+  )
+  
+  {Repair.RatingPriority:"5"}
+  (
+    Name = "Низкоприоритетные работы"
+  )
+  
+  {Repair.RatingPriority:"6"}
+  (
+    Name = "Без приоритета"
+  )
+]
+
+]

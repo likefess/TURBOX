@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="HRBase.Tab.Data.StaffingUnitData">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="Ставка" Class="Com.Ctrl.IEdit" After="QtyUnit" Field="Current.Ставка" FieldFormat=",##0.00;;-" HasCaption="True" Width="15"/>
+          <Component Name="ВидЗанятости" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="Current.ВидЗанятости" HasCaption="True"/>
+          <Component Name="ХарактерРаботы" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="Current.ХарактерРаботы" HasCaption="True"/>
+          <Component Name="ВидОснНачисления" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Field="Current.ВидОснНачисления" HasCaption="True" LookupField="Name" ShortList="True"/>
+          <Component Name="ПродолжРабВремени" Class="Com.Ctrl.IEdit" Caption="@Продолжительность" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ПродолжРабВремени" Field="Current.ПродолжРабВремени" HasCaption="True" Hint="@Продолжительность рабочего времени" LookupField="name"/>
+          <Component Name="ГрафикРаботы" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Ref.WorkSchedule" Field="Current.ГрафикРаботы" HasCaption="True" LookupField="Name"/>
+          <Component Name="УсловияТруда" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловияТруда" Field="Current.УсловияТруда" HasCaption="True" LookupField="Name" Multiline="True" Wrap="True"/>
+          <Component Name="ОсобыеУсловия" Class="Com.Ctrl.IEdit" Caption="@Особые условия" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ОсобыеУсловияТруда" Field="Current.ОсобыеУсловия" HasCaption="True" Hint="@Особые условия труда" LookupField="Name" Multiline="True" Wrap="True"/>
+          <Component Name="ПостНачисленияСтр" Class="Com.Ctrl.IEdit" Caption="Постоянные начисления" Field="Current.ПостНачисленияСтр" HasCaption="True" Multiline="True" ValueType="VarString" Width="60" Wrap="True"/>
+          <Component Name="ПостУдержанияСтр" Class="Com.Ctrl.IEdit" Caption="Постоянные удержания" Field="Current.ПостУдержанияСтр" HasCaption="True" Multiline="True" ValueType="VarString" Width="60" Wrap="True"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

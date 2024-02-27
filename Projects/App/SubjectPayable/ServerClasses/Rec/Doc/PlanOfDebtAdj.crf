@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="SubjectPayable.Rec.Base.BaseSubjPayableDoc">
+  <Inherited>
+    <Component Name="PlanSaldoDoc" Class="Com.Fld.IField" After="#0" FieldName="PlanSaldoDoc"/>
+    <Component Name="PlanSaldoBase" Class="Com.Fld.IField" FieldName="PlanSaldoBase"/>
+    <Component Name="curPlanSaldoDoc" Class="Com.Fld.IVar" OnCalc="curPlanSaldoDoc_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="curPlanSaldoBase" Class="Com.Fld.IVar" OnCalc="curPlanSaldoBase_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="PlanOfDebt" Class="Com.Fld.IField" FieldName="PlanOfDebt" OnChange="PlanOfDebt_OnChange"/>
+    <Inherited Name="DateDoc" After="PlanOfDebt"/>
+    <Inherited Name="Name" OnCalc="Name_OnCalc"/>
+    <Inherited Name="SumDoc" Caption="@PlanOfDebtAdj:SumDoc=Сумма списания"/>
+  </Inherited>
+</Resource>

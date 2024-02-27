@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Frm.Документы.Имущество.ИмуществоБазовыйДокумент">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Имущество.Rec.Документы.Имущество.ОС.ИмуществоБазовыйДокументОС" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False">
+          <Component Name="кнОбновитьЗначения" Class="Com.Ctrl.IButton" Caption="@Имущество:Обновить=Обновить" Hint="@Имущество:ОбновитьСервисПозиции=Обновить значения в имеющихся позициях" ImageName="Control.Refresh" OnClick="кнОбновитьЗначения_OnClick" Visible="True"/>
+          <Component Name="кнУдалитьПозиции" Class="Com.Ctrl.IButton" Caption="@Имущество:Удалить=Удалить" Hint="@Имущество:УдалитьПозиции=Удалить позиции" ImageName="Com.DelPositions" OnClick="кнУдалить_OnClick" Visible="True"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Шапка_Фрейм">
+          <Inherited Name="Шапка_Гр">
+            <Component Name="ДатыПроведенияПоУчетам" Class="Com.Ctrl.IGroup" After="Шапка_Name2" Printed="False">
+              <Component Name="Static_ДВЭ1" Class="Com.Ctrl.IStatic" FixSize="True" Width="42"/>
+              <Component Name="Static_ДВЭ2" Class="Com.Ctrl.IStatic" FixSize="True" Printed="False" Width="10"/>
+            </Component>
+            <Inherited Name="Шапка_ПервичныйДокумент" After="ДатыПроведенияПоУчетам">
+              <Inherited Name="ПервичныйДокумент" Hint="Наименование документа, на основании которого осуществляется операция с объектом ОС"/>
+            </Inherited>
+            <Inherited Name="Корректировка_Гр">
+              <Inherited Name="КорректируемыйДокумент" CardFileClass="Имущество.Tab.Документы.Имущество.ОС.ИмуществоБазовыйДокументОС"/>
+              <Inherited Name="кнКорректируемыйДокумент" JumpForm="Имущество.Frm.Документы.Имущество.ОС.ИмуществоБазовыйДокументОС"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Component Name="Имя_Код_Бокс" Class="Com.Ctrl.IBox" After="#0" Caption="Основное средство">
+            <Component Name="Имя_Код_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ИмяОС" Class="Com.Ctrl.IEdit" Caption="Наименование ОС" CardFileClass="ИмуществоБазовый.Tab.Справочники.ОснСредства" Field="EdtRec.ОС" HasCaption="True" Hint="Краткое наименование основного средства" LookupField="Name"/>
+              <Component Name="КодОС" Class="Com.Ctrl.IEdit" Caption="Инвентарный номер" Field="EdtRec.ОС" HasCaption="True" Hint="Инвентарный номер ОС " LookupField="КодИмущества"/>
+            </Component>
+          </Component>
+          <Inherited Name="ОбщиеДанные" After="Имя_Код_Бокс"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

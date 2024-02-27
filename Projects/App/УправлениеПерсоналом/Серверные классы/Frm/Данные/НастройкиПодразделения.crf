@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="HRBase.Frm.Data.DivisionData">
+  <Inherited>
+    <Component Name="Профсоюз" Class="УправлениеПерсоналом.Rec.Данные.НастройкиПодразделения_Профсоюз" IsLibrary="1" After="EdtRec"/>
+    <Component Name="РКФ" Class="УправлениеПерсоналом.Rec.Данные.НастройкиПодразделения_РКФ" IsLibrary="1"/>
+    <Component Name="ПовышениеЗП" Class="УправлениеПерсоналом.Rec.Данные.НастройкиПодразделения_ПовышениеЗП" IsLibrary="1"/>
+    <Component Name="КоэффРиска" Class="УправлениеПерсоналом.Rec.Данные.НастройкиПодразделения_КоэффРиска" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="бксРКФ" Class="Com.Ctrl.IBox" Caption="@Территориальные условия" HasCaption="True">
+            <Component Name="Frame1" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="грРКФКод" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="РКФ_Код" Class="Com.Ctrl.IEdit" AutoLookup="True" Caption="@Категория" CaptionWidth="35" CellFormat="EnumFormat" Field="EdtRec.РКФ_Код" HasCaption="True" Width="150"/>
+              </Component>
+            </Component>
+            <Component Name="фрРКФ" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="тблРКФ" Class="Com.Ctrl.ITable" Numbering="False" Subtable="EdtRec.РКФ">
+                <Component Name="РКФДата" Class="Com.Ctrl.IEdit" Caption="Дата начала" Field="РКФ.Дата" HasCaption="True" Width="35"/>
+                <Component Name="Коэффициент" Class="Com.Ctrl.IEdit" Caption="Районный коэффициент, %" Field="РКФ.Коэффициент" HasCaption="True" OnVerify="Коэфф_OnVerify" Width="55"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="бксПовышениеЗП" Class="Com.Ctrl.IBox" Caption="@DivisionData.ПовышениеЗП:Title=Периоды повышения окладов/тарифных ставок" Collapsed="True" HasCaption="True">
+            <Component Name="фрПовышениеЗП" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="тблПовышениеЗП" Class="Com.Ctrl.ITable" Numbering="False" Subtable="EdtRec.ПовышениеЗП">
+                <Component Name="ПовышениеДата" Class="Com.Ctrl.IEdit" Caption="Дата" Field="ПовышениеЗП.Дата" HasCaption="True" Width="35"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="бксУмолчанияДляВакансий" Class="Com.Ctrl.IBox" Caption="@Умолчания для вакансий" Collapsed="True" HasCaption="True">
+            <Component Name="грВакансии" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="грВакансии1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="115" MinWidth="75">
+                <Component Name="ХарактерРаботы" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.ХарактерРаботы" HasCaption="True"/>
+                <Component Name="ВидЗанятости" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.ВидЗанятости" HasCaption="True"/>
+              </Component>
+              <Component Name="грВакансии2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="115" MinWidth="75">
+                <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                  <Component Name="ВидОснНачисления" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Field="EdtRec.ВидОснНачисления" HasCaption="True" Hint="Вид основного начисления" LookupField="Name" LookupFilter="(IsGroup = -1) or (Проводить and ТипНачисления = 1)"/>
+                  <Component Name="кнВидОснНачисления" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ВидОснНачисления" JumpForm="УправлениеПерсоналом.Frm.Справочники.ВидНачислений"/>
+                </Component>
+                <Component Name="Group4" Class="Com.Ctrl.IGroup">
+                  <Component Name="ПродолжРабВремени" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ПродолжРабВремени" Field="EdtRec.ПродолжРабВремени" HasCaption="True" Hint="Продолжительность рабочего времени" LookupField="Name"/>
+                  <Component Name="кнПродолжРабВремени" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ПродолжРабВремени" JumpForm="УправлениеПерсоналом.Frm.Справочники.ПродолжРабВремени"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="грВакансии3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="УсловияТруда" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловияТруда" Field="EdtRec.УсловияТруда" HasCaption="True" LookupField="Name" Multiline="True" Wrap="True"/>
+              <Component Name="кнУсловияТруда" Class="Com.Ctrl.IJumpButton" Field="EdtRec.УсловияТруда" JumpForm="УправлениеПерсоналом.Frm.Классификаторы.УсловияТруда"/>
+              <Component Name="NewLine4" Class="Com.Ctrl.INewLine"/>
+              <Component Name="ОсобыеУсловия" Class="Com.Ctrl.IEdit" Caption="Особые условия" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ОсобыеУсловияТруда" Field="EdtRec.ОсобыеУсловия" HasCaption="True" LookupField="Name" Multiline="True" Wrap="True"/>
+              <Component Name="кнОсобыеУсловия" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ОсобыеУсловия" JumpForm="УправлениеПерсоналом.Frm.Классификаторы.ОсобыеУсловияТруда"/>
+            </Component>
+          </Component>
+          <Component Name="бксПрофсоюз" Class="Com.Ctrl.IBox" Caption="@DivisionData.Профсоюз:Title=Профсоюзные взносы" Collapsed="True" HasCaption="True">
+            <Component Name="фрПрофсоюз" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="тблПрофсоюз" Class="Com.Ctrl.ITable" Numbering="False" Subtable="EdtRec.Профсоюз">
+                <Component Name="ПрДата" Class="Com.Ctrl.IEdit" Caption="Дата начала" Field="Профсоюз.Дата" HasCaption="True" Width="35"/>
+                <Component Name="ПрКоэфф" Class="Com.Ctrl.IEdit" HasCaption="True" OnVerify="Коэфф_OnVerify" Width="20"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="бксТравматизм" Class="Com.Ctrl.IBox" Caption="@Травматизм" Collapsed="True" HasCaption="True">
+            <Component Name="фрТравматизм" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="тблКоэффРиска" Class="Com.Ctrl.ITable" Numbering="False" Subtable="EdtRec.КоэффРиска">
+                <Component Name="крДата" Class="Com.Ctrl.IEdit" Caption="Дата начала" Field="КоэффРиска.Дата" HasCaption="True" Width="35"/>
+                <Component Name="крКоэфф" Class="Com.Ctrl.IEdit" Field="КоэффРиска.Коэфф" HasCaption="True" OnVerify="Коэфф_OnVerify" Width="20"/>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

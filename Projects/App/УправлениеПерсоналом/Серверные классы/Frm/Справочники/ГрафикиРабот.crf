@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="HRBase.Frm.Ref.WorkSchedule">
+  <Inherited>
+    <Component Name="Характеристики" Class="УправлениеПерсоналом.Rec.Справочники.ГрафикиРабот_Характеристики" IsLibrary="1" After="Details"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group2">
+          <Component Name="грПроизвКалендарь" Class="Com.Ctrl.IGroup" After="grCalendar" ByColumn="False">
+            <Component Name="ПроизвКалендарь" Class="Com.Ctrl.IEdit" Caption="Произв. календарь" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ПроизвКалендари" Field="EdtRec.ПроизвКалендарь" HasCaption="True" Hint="Тип производственного календаря" LookupField="Name"/>
+            <Component Name="кнПроизвКалендарь" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ПроизвКалендарь" JumpForm="УправлениеПерсоналом.Frm.Справочники.ПроизвКалендарь"/>
+          </Component>
+          <Component Name="грТипКалендаря" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="ТипКалендаря" Class="Com.Ctrl.IEdit" Caption="Тип календаря" Enabled="False" Field="EdtRec.ПроизвКалендарь" HasCaption="True" LookupField="Calendar.Код" Width="80"/>
+            <Component Name="кнТипКалендаря" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ПроизвКалендарь" OnClick="кнТипКалендаря_OnClick"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab" Caption="@Настройки" HasCaption="True">
+          <Inherited Name="bxWorkSchedule">
+            <Inherited Name="frWorkScheduleSetup">
+              <Inherited Name="grfrWorkScheduleSetup">
+                <Inherited Name="Static4" Width="12"/>
+                <Inherited Name="Static5" Width="12"/>
+              </Inherited>
+            </Inherited>
+            <Inherited Name="frWorkScheduleDetails">
+              <Inherited Name="tbPosition">
+                <Component Name="УслОбозначение" Class="Com.Ctrl.IEdit" After="Weekend" Alignment="CenterAlign" Caption="Условные обозначения" Field="Position.vCode" HasButton="True" HasCaption="True" OnEnter="vCode_OnEnter" OnLookup="vCode_OnLookup" OnOutputEx="vCode_OnOutputEx" OnVerify="vCode_OnVerify" Width="35"/>
+              </Inherited>
+            </Inherited>
+            <Inherited Name="frWorkScheduleTotal">
+              <Inherited Name="grfrWorkScheduleTotal">
+                <Inherited Name="Total" Alignment="CenterAlign" CaptionWidth="95"/>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Component Name="бксРежимРаботы" Class="Com.Ctrl.IBox" Caption="@Режим работы" HasCaption="True">
+            <Component Name="фрСмена" Class="Com.Ctrl.IFrame" AutoSize="True" HasCaption="False">
+              <Component Name="СменаРабочийДеньКод" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Справочники.РабочиеСмены" Field="EdtRec.РабочаяСмена" HasCaption="True" LookupField="Код" OnChange="СменаРабочийДеньКод_OnChange" Width="20"/>
+              <Component Name="СменаРабочийДеньИмя" Class="Com.Ctrl.IEdit" CaptionWidth="10" CardFileClass="УправлениеПерсоналом.Tab.Справочники.РабочиеСмены" Enabled="False" Field="EdtRec.РабочаяСмена" HasCaption="False" LookupField="Имя" Width="80"/>
+              <Component Name="кнСменаРабочийДеньКод" Class="Com.Ctrl.IJumpButton" Field="EdtRec.РабочаяСмена" JumpForm="УправлениеПерсоналом.Frm.Справочники.РабочаяСмена"/>
+            </Component>
+            <Component Name="фрРежимРаботы" Class="Com.Ctrl.IFrame" AutoSize="True" HasCaption="False"/>
+          </Component>
+        </Inherited>
+        <Component Name="фрПереносыРабДней" Class="Com.Ctrl.IFrame" Excluded="True" AutoSize="True" CanHideBySplit="True" CanResizeBySplit="True" Caption="Переносы рабочих дней" HasCaption="True" SplitterAtRight="True">
+          <Component Name="тблПереносРД" Class="Com.Ctrl.ITable" Subtable="EdtRec.Характеристики">
+            <Component Name="Хар_Вых_День" Class="Com.Ctrl.IColumnsGroup" Caption="Дополнительный выходной день" HasCaption="True">
+              <Component Name="доп_Дата" Class="Com.Ctrl.IEdit" Caption="дата" Field="Характеристики.ДопВыходной" FixSize="True" FormatOfDate="DateOnly" HasCaption="True" ValueType="VarDate" Width="30"/>
+              <Component Name="доп_День" Class="Com.Ctrl.IEdit" Caption="день" Enabled="False" Field="Характеристики.ДопВыходной" FixSize="True" HasCaption="True" OnOutput="ДеньНедели_OnOutput" Width="15"/>
+            </Component>
+            <Component Name="Хар_Раб_День" Class="Com.Ctrl.IColumnsGroup" Caption="Дополнительный рабочий день" HasCaption="True">
+              <Component Name="доп_Дата1" Class="Com.Ctrl.IEdit" Caption="дата" Field="Характеристики.ДопРабочий" FixSize="True" FormatOfDate="DateOnly" HasCaption="True" ValueType="VarDate" Width="30"/>
+              <Component Name="доп_День1" Class="Com.Ctrl.IEdit" Caption="день" Enabled="False" Field="Характеристики.ДопРабочий" FixSize="True" HasCaption="True" OnOutput="ДеньНедели_OnOutput" Width="15"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="фрПереносыПраздников" Class="Com.Ctrl.IFrame" Excluded="True" AutoSize="True" CanHideBySplit="True" CanResizeBySplit="True" Caption="Переносы праздников" HasCaption="True" SplitterAtRight="True" UseSplitter="True">
+          <Component Name="тблПереносПраздников" Class="Com.Ctrl.ITable" Subtable="EdtRec.ПереносПраздников">
+            <Component Name="Празд_Раб_День" Class="Com.Ctrl.IColumnsGroup" Caption="Праздник попадающий на выходной день" HasCaption="True">
+              <Component Name="доп_Дата2" Class="Com.Ctrl.IEdit" Caption="дата" Field="ПереносПраздников.ДопРабочий" FixSize="True" FormatOfDate="DateOnly" HasCaption="True" Width="30"/>
+              <Component Name="доп_День2" Class="Com.Ctrl.IEdit" Caption="день" Enabled="False" Field="ПереносПраздников.ДопРабочий" FixSize="True" HasCaption="True" OnOutput="ДеньНедели_OnOutput" Width="15"/>
+            </Component>
+            <Component Name="Празд_Вых_День" Class="Com.Ctrl.IColumnsGroup" Caption="Перенос праздников" HasCaption="True">
+              <Component Name="доп_Дата3" Class="Com.Ctrl.IEdit" Caption="дата" Field="ПереносПраздников.ДопВыходной" FixSize="True" FormatOfDate="DateOnly" HasCaption="True" Width="30"/>
+              <Component Name="доп_День3" Class="Com.Ctrl.IEdit" Caption="день" Enabled="False" Field="ПереносПраздников.ДопВыходной" FixSize="True" HasCaption="True" OnOutput="ДеньНедели_OnOutput" Width="15"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="фрГрафикНаГод" Class="Com.Ctrl.IFrame" Caption="График на год" HasCaption="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

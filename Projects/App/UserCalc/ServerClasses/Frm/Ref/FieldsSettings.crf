@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited HelpContext="UserCalc.Пользовательские расчеты.Настройки отображения полей">
+    <Inherited Name="EdtRec" Class="UserCalc.Rec.Ref.FieldsSettings" IsLibrary="1"/>
+    <Component Name="FieldsSettingsList" Class="UserCalc.Struct.FieldsSettingsList" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Code" Visible="True"/>
+          <Inherited Name="Name" Visible="True"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" ShowTabs="False">
+          <Component Name="CommonTypes" Class="Com.Ctrl.IBox" Caption="Стандартные типы">
+            <Component Name="MainGroup" Class="Com.Ctrl.IGroup" ByColumn="True">
+              <Component Name="ED_String" Class="Com.Ctrl.IEdit" Caption="Строковый" Field="EdtRec.StringWidth"/>
+              <Component Name="ED_Logical" Class="Com.Ctrl.IEdit" Caption="Логичесий" Field="EdtRec.LogicalWidth"/>
+              <Component Name="ED_Integer" Class="Com.Ctrl.IEdit" Caption="Целочисленный" Field="EdtRec.IntegerWidth"/>
+              <Component Name="ED_Numeric" Class="Com.Ctrl.IEdit" Caption="Дробный" Field="EdtRec.NumericWidth"/>
+              <Component Name="ED_Object" Class="Com.Ctrl.IEdit" Caption="Объектный" Field="EdtRec.ObjectWidth"/>
+              <Component Name="ED_Class" Class="Com.Ctrl.IEdit" Caption="Классовый" Field="EdtRec.ClassWidth"/>
+              <Component Name="ED_Date" Class="Com.Ctrl.IEdit" Caption="Дата" Field="EdtRec.DateWidth"/>
+            </Component>
+          </Component>
+          <Component Name="ReferenceTypes" Class="Com.Ctrl.IBox" Caption="Ссылочные типы">
+            <Component Name="SbtFrame" Class="Com.Ctrl.IFrame" Subtable="EdtRec.sbtFieldsSettings">
+              <Component Name="CName" Class="Com.Ctrl.IEdit" Caption="Класс" CellFormat="StringFormat" Field="FieldsSettingsList.Name" HasButton="True" OnLookup="CNameOnLookup" OnVerify="CNameOnVerify" ValueType="VarString" Width="60"/>
+              <Component Name="CDescription" Class="Com.Ctrl.IEdit" Caption="Наименование" CellFormat="StringFormat" Enabled="False" Field="FieldsSettingsList.Description" ValueType="VarString" Width="80"/>
+              <Component Name="CLookup" Class="Com.Ctrl.IEdit" Caption="Отображаемое поле" CellFormat="StringFormat" Field="FieldsSettingsList.Lookup" HasButton="True" OnLookup="CLookupOnLookup" OnVerify="CLookupOnVerify" ValueType="VarString" Width="60"/>
+              <Component Name="CWidth" Class="Com.Ctrl.IEdit" Caption="Ширина" CellFormat="NumericFormat" Field="FieldsSettingsList.Width" OnEnter="CWidthOnEnter" ValueType="VarNumeric" Width="25"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

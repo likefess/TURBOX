@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Component Name="Позиция" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ГрафикРаспределенияТР_Поз" IsLibrary="1" After="#0"/>
+    <Component Name="ОперГрафик" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ГрафикРаспределенияТР_Опер" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="пОперГрафик" Class="Com.ISubtable"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonOK" Excluded="True"/>
+        <Component Name="ButtonUpdate" Class="Com.Ctrl.IButton" After="ButtonOK" Caption="Обновить" ImageName="Refresh" OnClick="ButtonUpdate_OnClick"/>
+        <Inherited Name="ButtonRefresh" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" Visible="True">
+        <Component Name="FieldFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="FieldGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+            <Component Name="ИнфоСотрудника" Class="Com.Ctrl.IStatic"/>
+          </Component>
+        </Component>
+        <Component Name="TableFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="График" Class="Com.Ctrl.ITable" Adaptive="False" CanDelete="False" CanInsert="False" CanMove="False" Enabled="False" ManualControl="False" Numbering="False" Sortable="False" Subtable="пОперГрафик">
+            <Component Name="Подразделение" Class="Com.Ctrl.IEdit" Caption="Подразделение" CellFormat="ReferenceFormat" Enabled="False" Field="ОперГрафик.Подразделение" HasCaption="True" LookupField="Name" Multiline="True" Visible="False" Width="40" Wrap="True"/>
+            <Component Name="Договор" Class="Com.Ctrl.IEdit" Caption="Договор" CellFormat="ReferenceFormat" Enabled="False" Field="ОперГрафик.Договор" HasCaption="True" LookupField="Code" Multiline="True" Visible="False" Width="25" Wrap="True"/>
+            <Component Name="Проект" Class="Com.Ctrl.IEdit" Caption="Проект" CellFormat="ReferenceFormat" Enabled="False" Field="ОперГрафик.Проект" HasCaption="True" LookupField="Name" Multiline="True" Visible="False" Width="40" Wrap="True"/>
+            <Component Name="Продукт" Class="Com.Ctrl.IEdit" Caption="Продукт" CellFormat="ReferenceFormat" Enabled="False" Field="ОперГрафик.Продукт" HasCaption="True" LookupField="Name" Multiline="True" Visible="False" Width="40" Wrap="True"/>
+            <Component Name="Заказ" Class="Com.Ctrl.IEdit" Caption="Заказ" CellFormat="ReferenceFormat" Enabled="False" Field="ОперГрафик.Заказ" HasCaption="True" LookupField="Name" Multiline="True" Visible="False" Width="40" Wrap="True"/>
+            <Component Name="ЦФО" Class="Com.Ctrl.IEdit" Caption="ЦФО" CellFormat="ReferenceFormat" Enabled="False" Field="ОперГрафик.ЦФО" HasCaption="True" LookupField="Name" Multiline="True" Visible="False" Width="40" Wrap="True"/>
+            <Component Name="ТипСтроки" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.ТипСтроки" FixSize="True" HasCaption="True" Multiline="True" OnOutput="ТипСтроки_OnOutput" VertAlignment="CenterAlign" Width="25" Wrap="True"/>
+            <Component Name="кнДокумент" Class="Com.Ctrl.IButton" HasCaption="True" ImageName="Com.JumpButton_" OnClick="кнДокумент_OnClick"/>
+            <Component Name="грЧасы" Class="Com.Ctrl.IColumnsGroup" Caption="Распределение рабочих дней (смен) и выходных дней" HasCaption="True">
+              <Component Name="Часы1" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="1" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы1" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы2" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="2" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы2" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы3" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="3" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы3" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы4" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="4" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы4" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы5" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="5" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы5" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы6" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="6" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы6" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы7" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="7" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы7" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы8" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="8" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы8" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы9" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="9" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы9" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы10" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="10" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы10" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы11" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="11" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы11" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы12" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="12" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы12" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы13" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="13" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы13" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы14" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="14" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы14" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы15" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="15" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы15" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы16" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="16" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы16" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы17" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="17" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы17" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы18" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="18" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы18" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы19" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="19" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы19" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы20" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="20" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы20" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы21" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="21" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы21" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы22" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="22" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы22" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы23" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="23" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы23" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы24" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="24" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы24" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы25" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="25" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы25" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы26" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="26" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы26" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы27" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="27" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы27" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы28" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="28" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы28" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы29" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="29" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы29" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы30" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="30" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы30" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+              <Component Name="Часы31" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="31" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.часы31" FixSize="True" HasCaption="True" OnDrawEx="Часы_OnDrawEx" VertAlignment="CenterAlign" Width="7"/>
+            </Component>
+            <Component Name="ИтогоЧасов" Class="Com.Ctrl.IEdit" Caption="Итого часов" CellFormat="NumericFormat" Enabled="False" Field="ОперГрафик.ИтогоЧасов" FixSize="True" HasCaption="True" Multiline="True" VertAlignment="CenterAlign" Width="15" Wrap="True"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

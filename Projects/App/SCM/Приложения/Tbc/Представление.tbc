@@ -1,0 +1,406 @@
+﻿TBCFile VER="3.4" [Created '30.07.2019 13:56:36' by 'Igor']
+
+DESCRIPTION[
+Count=1
+CountByRef=0
+Kernel.Settings.CommonFile
+(
+  Count=0
+  CountByRef=0
+)
+МашРек.Настройки.Представление
+(
+  Count=1
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Kernel.Settings.CommonFile
+  (
+    Name :String(850)
+  )
+  ForeignKey Name
+  ]
+
+  [МашРек.Настройки.Представление
+  (
+    Deleted :Boolean
+    GroupDoc :МашРек.Настройки.Представление
+    isGroup :Integer
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ЗамокЭлементаСБ :Boolean
+    КодПодсистемы :Integer
+    КодМодуля :String
+    КодУчастника :Integer
+    Code :String(80)
+    Name :String(850)
+    Комментарий :Memo
+    РасширениеДля :МашРек.Настройки.Представление
+    ТипПредставления :String
+    СкрытьПериод :Boolean
+    СобственныйПериод :Boolean
+    ТемаПомощи :String
+    РеквизитПериод :МашРек.Настройки.Реквизит
+    РеквизитДатаНачала :МашРек.Настройки.Реквизит
+    РеквизитДатаОкончания :МашРек.Настройки.Реквизит
+    ОтображатьДатуСоВременем :Boolean
+    КлассЗаписи :String
+    РеквизитДляПозиционирования :МашРек.Настройки.Реквизит
+    ОтключитьЗаморозку :Boolean
+    Документы_ТД :Struct array Integer
+    (
+      ТипДвижения :МашРек.Справочники.ТипДвижения
+      Надпись :String
+      УсловиеВидимости :String
+      КомментарийУсловия :String
+      ЗаписиДляУсловия :Struct array Integer
+      (
+        Значение :Inherited IDRecord
+      )
+      РолиСРазрешеннымДоступом :Struct array Integer
+      (
+        Значение :Kernel.Settings.Role
+      )
+      РолиСЗапрещеннымДоступом :Struct array Integer
+      (
+        Значение :Kernel.Settings.Role
+      )
+      Выравнивание :Integer
+      ВыравниваниеНадписи :Integer
+      НеПечатать :Boolean
+      ВсплывающаяПодсказка :String
+      ШрифтНадписиНастроен :Boolean
+      ИмяШрифтаНадписи :String
+      РазмерШрифтаНадписи :Integer
+      ЦветШрифтаНадписи :Integer
+      ЖирныйШрифтНадписи :Boolean
+      КурсивныйШрифтНадписи :Boolean
+      ЦветНадписиНастроен :Boolean
+      ЦветНадписи :Integer
+      Условие :МашРек.Настройки.Реквизит
+    )
+    Документы_ВнешнийВидТД :Struct array Integer
+    (
+      ID :Integer
+      RefID :Integer
+      Override :Boolean
+      ТипНастройки :Integer
+      ТипДвижения :МашРек.Справочники.ТипДвижения
+      Реквизит :МашРек.Настройки.Реквизит
+      НазваниеКолонки :String
+      ШиринаКолонки :Real
+      ШиринаНадписи :Real
+      Переходить :Boolean
+      НоваяСтрока :Boolean
+      Отключен :Boolean
+      Разыменование :String
+      ФорматВывода :String
+      ФормулаВывода :Memo
+      КомментарийФормулаВывода :String
+      ЗаписиДляФормулыВывода :Struct array Integer
+      (
+        Значение :Inherited IDRecord
+      )
+      ВсплывающаяПодсказка :String
+      КнопкаОбзора :Boolean
+      ТолькоЧтение :Boolean
+      НеПечатать :Boolean
+      Многострочность :Boolean
+      Обязательно :Boolean
+      СворачиватьСтроки :Boolean
+      Сортировка :Boolean
+      ФорматМаскиПоиска :Integer
+      Выравнивание :Integer
+      ШрифтНастроен :Boolean
+      ИмяШрифта :String
+      РазмерШрифта :Integer
+      ЦветШрифта :Integer
+      ЖирныйШрифт :Boolean
+      КурсивныйШрифт :Boolean
+      ЦветНастроен :Boolean
+      ЦветПоля :Integer
+      ВыравниваниеНадписи :Integer
+      ШрифтНадписиНастроен :Boolean
+      ИмяШрифтаНадписи :String
+      РазмерШрифтаНадписи :Integer
+      ЦветШрифтаНадписи :Integer
+      ЖирныйШрифтНадписи :Boolean
+      КурсивныйШрифтНадписи :Boolean
+      ЦветНадписиНастроен :Boolean
+      ЦветНадписи :Integer
+      УсловиеВидимости :String
+      КомментарийУсловия :String
+      ЗаписиДляУсловия :Struct array Integer
+      (
+        Значение :Inherited IDRecord
+      )
+      РолиСРазрешеннымДоступом :Struct array Integer
+      (
+        Значение :Kernel.Settings.Role
+      )
+      РолиСЗапрещеннымДоступом :Struct array Integer
+      (
+        Значение :Kernel.Settings.Role
+      )
+      Условие :МашРек.Настройки.Реквизит
+    )
+    ПанельУправления :МашРек.Настройки.ПанельУправления
+    СветлыйЦветФонаСервисов :Boolean
+    КлассПечатнойФормы :String
+    ШаблонПечатнойФормы :Kernel.Settings.CommonFile
+    НастройкиПечатиФормы :Kernel.Settings.CommonFile
+    ОтображатьСкрытыйРеквизитТриПозиции :Integer
+    ТабличныеЧасти :Struct array Integer
+    (
+      Название :String
+      ТипыДвижения :Struct array Integer
+      (
+        Значение :МашРек.Справочники.ТипДвижения
+      )
+      Статусы :Struct array Integer
+      (
+        Значение :Upr.Справочники.СтатусДвижения
+      )
+    )
+    ПсевдонимыРеквизитов :Struct array Integer
+    (
+      Псевдоним :String
+      Реквизит :МашРек.Настройки.Реквизит
+      Разыменование :String
+      Надпись :String
+    )
+    НеСтроитьАвтоматически :Boolean
+    ПредварительнаяФильтрация :Struct array Integer
+    (
+      Реквизит :МашРек.Настройки.Реквизит
+      Знак :String
+      Параметр :String
+      Автообновление :Boolean
+      Отключена :Boolean
+    )
+    СкрытьКнопкуДобавить :Boolean
+    СкрытьКнопкуДублировать :Boolean
+    СкрытьКнопкуДобавитьГруппу :Boolean
+    СкрытьКнопкуГруппаЭлемент :Boolean
+    СкрытьКнопкуРедактировать :Boolean
+    СкрытьКнопкуУдалить :Boolean
+    ТекстКнопкиДобавить :String
+    ТекстКнопкиДублировать :String
+    ТекстКнопкиДобавитьГруппу :String
+    ТекстКнопкиГруппаЭлемент :String
+    ТекстКнопкиРедактировать :String
+    ТекстКнопкиУдалить :String
+    ТекстФлагаДействующие :String
+    НеОтображатьПанельКнопок :Boolean
+    НеОтображатьФлагДействующие :Boolean
+    ВозможныеГруппыВнешнихДокументов :Struct array Integer
+    (
+      ГруппаВнешДоков :Inherited Bas.Base.BasObject
+    )
+    ПроизвольныйФильтр :String(8000)
+    КомментарийПроизвольногоФильтра :String
+    ЗаписиПроизвольногоФильтра :Struct array Integer
+    (
+      Значение :Inherited IDRecord
+    )
+    ФильтрНаДерево :String(8000)
+    КомментарийФильтраНаДерево :String
+    ЗаписиФильтраНаДерево :Struct array Integer
+    (
+      Значение :Inherited IDRecord
+    )
+    СписокГрупп :String(8000)
+    КомментарийСпискаГрупп :String
+    ЗаписиСпискаГрупп :Struct array Integer
+    (
+      Значение :Inherited IDRecord
+    )
+    ВыборПериодаВлияет :Integer
+    Отчет :Kernel.Отчеты
+    Отчеты_УсловияОтбора :Struct array Integer
+    (
+      ПараметрСчета :String
+      КоррЗначение :Boolean
+      СтрогоеРавенство :Boolean
+    )
+    СкрыватьЗаголовокОтчетаПриПечати :Boolean
+    СкрыватьВсеПараметрыОтчета :Boolean
+    Отчеты_СкрываемыеПараметры :Struct array Integer
+    (
+      СкрываемыйПараметр :String
+    )
+    Отчеты_СвязьРеквизитовСПараметрами :Struct array Integer
+    (
+      ПараметрОтчета :String
+      Реквизит :МашРек.Настройки.Реквизит
+      Отключен :Boolean
+    )
+    СтолбцыСпискаДокументов :Struct array Integer
+    (
+      ID :Integer
+      RefID :Integer
+      Override :Boolean
+      ТипНастройки :Integer
+      ТипДвижения :МашРек.Справочники.ТипДвижения
+      Реквизит :МашРек.Настройки.Реквизит
+      Разыменование :String
+      Выравнивание :Integer
+      НазваниеКолонки :String(40)
+      ШиринаКолонки :Integer
+      Отключена :Boolean
+      ПоискПоРазыменованию :Boolean
+      Сортировать :Integer
+      СортировкаЗапрещена :Boolean
+      ФорматВывода :String
+      УсловиеВидимости :String
+      КомментарийУсловия :String
+      ЗаписиДляУсловия :Struct array Integer
+      (
+        Значение :Inherited IDRecord
+      )
+      РолиСРазрешеннымДоступом :Struct array Integer
+      (
+        Значение :Kernel.Settings.Role
+      )
+      РолиСЗапрещеннымДоступом :Struct array Integer
+      (
+        Значение :Kernel.Settings.Role
+      )
+    )
+    СохранятьСортировку :Boolean
+    ОтображатьИтоговуюСтроку :Boolean
+    ПоказыватьИерархию :Boolean
+    ДокументыБезПозиций :Boolean
+    ПолеДатыФильтрации :String
+    ПериодЭто :Integer
+    ТекстКорняДерева :String
+    ГруппыНеВНачале :Boolean
+    ПоляПоКоторымПроводитьФильтрацию :Struct array Integer
+    (
+      Значение :String
+      Строго :Boolean
+    )
+    ФильтрНаТипПроцесса :Struct array Integer
+    (
+      Значение :Bas.Config.ProcType
+    )
+    ФильтрНаТипДвижения :Struct array Integer
+    (
+      Значение :МашРек.Справочники.ТипДвижения
+    )
+    РасширеннаяНастройка :Boolean
+    КлассЗаписиДерева :String
+    ОписаниеГруппы :String
+    Журнал :String
+    Ориентация :Integer
+    СписокПредставлений :Struct array Integer
+    (
+      ID :Integer
+      RefID :Integer
+      Override :Boolean
+      НадписьНаЗакладке :String
+      Значение :МашРек.Настройки.Представление
+      Размер :Real
+      Условие :МашРек.Настройки.Реквизит
+      УсловиеВидимости :String
+      КомментарийУсловия :String
+      ЗаписиДляУсловия :Struct array Integer
+      (
+        Значение :Inherited IDRecord
+      )
+      РолиСРазрешеннымДоступом :Struct array Integer
+      (
+        Значение :Kernel.Settings.Role
+      )
+      РолиСЗапрещеннымДоступом :Struct array Integer
+      (
+        Значение :Kernel.Settings.Role
+      )
+      Отключено :Boolean
+    )
+    ИмяПоляЦвета :String
+    РедактируемыйРеквизит :МашРек.Настройки.Реквизит
+    ГруппаДляНовогоРеквизита :Inherited IDRecord
+    ОтображатьСкрытыйРеквизит :Boolean
+    СкрытьОстаткиВСтатусе :Boolean
+    СкрытьНоменклатуру :Boolean
+    ПоказыватьНазваниеПартии :Boolean
+    ПоказыватьНаименованиеРесурса :Integer
+    ДобавлятьВСтарыеДокументы :Boolean
+    СписыватьПоложОстаткиНаНедостачу :Boolean
+    СписыватьОтрицОстаткиНаПрибыль :Boolean
+    СортироватьРесурсы :Integer
+    ПоказыватьСтолбецКод :Boolean
+    ПоказыватьСтолбецПроверил :Boolean
+    ПоказыватьСтолбецКогда :Boolean
+    ПоказыватьСтолбецПроверено :Boolean
+    УточняющийОтчет :Kernel.Отчеты
+    ОткрытьТолькоДляЧтения :Boolean
+    СтолбцыСпискаПрикрепленныхДокументов :Struct array Integer
+    (
+      НаименованиеПоля :String
+      НазваниеКолонки :String(40)
+      ШиринаКолонки :Integer
+      Отключена :Boolean
+      Подсказка :String
+    )
+    ШиринаКолонкиДата :Integer
+    ШиринаКолонкиСотрудник :Integer
+    ШиринаКолонкиДопЗамечания :Integer
+    НеПоказыватьСотрудникОбсуждение :Boolean
+    НеПоказыватьСотрудникИстПер :Boolean
+    НеПоказыватьПримечаниеИстПер :Boolean
+    ПереходНедоступенИстПер :Boolean
+    СкрытьСтолбецПрайсЛист :Boolean
+    СкрытьСтолбецУсловие :Boolean
+    СкрытьСтолбецДатаНачала :Boolean
+    СкрытьСтолбецДатаОкончания :Boolean
+    СкрытьСтолбецПриостановлен :Boolean
+    ТекстСтолбцаПрайсЛист :String
+    ТекстСтолбцаУсловие :String
+    ТекстСтолбцаДатаНачала :String
+    ТекстСтолбцаДатаОкончания :String
+    ТекстСтолбцаПриостановлен :String
+    РазмерСтолбцаПрайсЛист :Integer
+    РазмерСтолбцаУсловие :Integer
+    РазмерСтолбцаДатаНачала :Integer
+    РазмерСтолбцаДатаОкончания :Integer
+    РазмерСтолбцаПриостановлен :Integer
+    ЧастиСоставногоОтчета :Struct array Integer
+    (
+      Отчет :Kernel.Отчеты
+      Бланк :Kernel.Settings.CommonFile
+      Ширина :Real
+      Высота :Real
+      ПараметрыОтчета :Struct array Integer
+      (
+        Параметр :String
+        Реквизит :МашРек.Настройки.Реквизит
+      )
+    )
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[МашРек.Настройки.Представление
+  
+  {МашРек.Настройки.Представление:"ВесьДокумент"}
+  (
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "ВесьДокумент"
+    ТипПредставления = "ПечатнаяФормаДокумента"
+    ШаблонПечатнойФормы = {Kernel.Settings.CommonFile:Root."Печатные формы"."ВесьДокумент.tpl"}
+  )
+]
+
+]

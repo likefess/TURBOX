@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Component Name="ДопАналитикаОпер" Class="УправлениеПерсоналом.Rec.Базовая.БазовыйДокумент_ДопАналитикаОпер" IsLibrary="1" After="#0"/>
+    <Inherited Name="Variables">
+      <Component Name="пОперДопАналитика" Class="Com.ISubtable"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="TableFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="ДопАналитика" Class="Com.Ctrl.ITable" Adaptive="False" CanDelete="False" CanInsert="False" CanMove="False" Enabled="False" ManualControl="False" Numbering="False" Sortable="False" Subtable="пОперДопАналитика">
+            <Component Name="Подразделение" Class="Com.Ctrl.IEdit" Caption="Подразделение" CellFormat="ReferenceFormat" Enabled="False" Field="ДопАналитикаОпер.Подразделение" HasCaption="True" LookupField="Name" Multiline="True" Visible="False" Width="40" Wrap="True"/>
+            <Component Name="Договор" Class="Com.Ctrl.IEdit" Caption="Договор" CellFormat="ReferenceFormat" Enabled="False" Field="ДопАналитикаОпер.Договор" HasCaption="True" LookupField="Code" Multiline="True" Visible="False" Width="25" Wrap="True"/>
+            <Component Name="Проект" Class="Com.Ctrl.IEdit" Caption="Проект" CellFormat="ReferenceFormat" Enabled="False" Field="ДопАналитикаОпер.Проект" HasCaption="True" LookupField="Name" Multiline="True" Visible="False" Width="40" Wrap="True"/>
+            <Component Name="Продукт" Class="Com.Ctrl.IEdit" Caption="Продукт" CellFormat="ReferenceFormat" Enabled="False" Field="ДопАналитикаОпер.Продукт" HasCaption="True" LookupField="Name" Multiline="True" Visible="False" Width="40" Wrap="True"/>
+            <Component Name="Заказ" Class="Com.Ctrl.IEdit" Caption="Заказ" CellFormat="ReferenceFormat" Enabled="False" Field="ДопАналитикаОпер.Заказ" HasCaption="True" LookupField="Name" Multiline="True" Visible="False" Width="40" Wrap="True"/>
+            <Component Name="ЦФО" Class="Com.Ctrl.IEdit" Caption="ЦФО" CellFormat="ReferenceFormat" Enabled="False" Field="ДопАналитикаОпер.ЦФО" HasCaption="True" LookupField="Name" Multiline="True" Visible="False" Width="40" Wrap="True"/>
+            <Component Name="ТипСтроки" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="ДопАналитикаОпер.ТипСтроки" FixSize="True" HasCaption="True" Multiline="True" OnOutput="ТипСтроки_OnOutput" VertAlignment="CenterAlign" Width="25" Wrap="True"/>
+            <Component Name="СуммаЗатрат" Class="Com.Ctrl.IEdit" Caption="Сумма затрат" CellFormat="NumericFormat" Enabled="False" Field="ДопАналитикаОпер.СуммаЗатрат" FixSize="True" HasCaption="True" Multiline="True" VertAlignment="CenterAlign" Width="25" Wrap="True"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

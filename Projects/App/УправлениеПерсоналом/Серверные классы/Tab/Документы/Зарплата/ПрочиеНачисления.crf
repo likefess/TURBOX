@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Tab.Базовая.БазовыйДокументИерархия">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Расчет Зарплаты.Расчет начислений.Расчет прочих начислений">
+    <Inherited Name="Current" Class="УправлениеПерсоналом.Rec.Документы.Зарплата.ПрочиеНачисления" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="Учитывать" Class="Com.Ctrl.IEdit" After="ExtId" Caption="Учитывать" Field="Current.Проводить" HasCaption="True" Width="15"/>
+          <Component Name="ТипКонтрагента" Class="Com.Ctrl.IEdit" After="Предприятие" Caption="Тип контрагента" CellFormat="EnumFormat" Field="Current.ТипКонтрагента" HasCaption="True" Width="25"/>
+          <Component Name="Подразделение" Class="Com.Ctrl.IEdit" Caption="Подразделение" CardFileClass="Bas.Tab.Data.Entity" Field="Current.Подразделение" HasCaption="True" LookupField="Name" LookupFilter="IsDivision" Width="30"/>
+          <Inherited Name="Дата" Caption="Дата расчета"/>
+          <Component Name="Период" Class="Com.Ctrl.IEdit" After="Дата" Caption="Период" CardFileClass="Biz.Tab.Ref.Period" Field="Current.Период" LookupField="Name" LookupFilter="IsGroup = 0" Width="25"/>
+          <Component Name="ВидНачисления" Class="Com.Ctrl.IEdit" Caption="Вид начисления" Field="Current.Начисление" HasCaption="True" Width="30"/>
+          <Component Name="Скорректирован" Class="Com.Ctrl.IEdit" Caption="Скорректирован" Field="Current.Скорректирован" HasCaption="True" Width="15"/>
+          <Component Name="Корректировка" Class="Com.Ctrl.IEdit" Caption="Корректировка" Field="Current.Корректировка" HasCaption="True" Width="15"/>
+          <Component Name="КорректРасчет" Class="Com.Ctrl.IEdit" Caption="Номер корректируемого документа" CardFileClass="УправлениеПерсоналом.Tab.Документы.Зарплата.ПрочиеНачисления" Field="Current.КоррРасчет" HasCaption="True" LookupField="Номер" Width="25"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

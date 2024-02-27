@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.Data.EMail">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="BodyFrame">
+        <Component Name="ContentFrame" Class="Com.Ctrl.IFrame" After="#0" AutoSize="True" Caption="@EMail:Preview=Содержимое">
+          <Component Name="EditorFrame" Class="Com.Ctrl.IFrame" Size="50">
+            <Component Name="QuillJSEditor" Class="Com.Ctrl.IQuillJS" OnSelectionChange="QuillJSEditorOnSelectionChange" OnTextChange="QuillJSEditorOnTextChange" ResizeEnabled="True"/>
+          </Component>
+          <Component Name="ViewerFrame" Class="Com.Ctrl.IFrame" CanHideBySplit="True" CanResizeBySplit="True" Enabled="False" MinSize="150" Size="150" UseSplitter="True" Visible="True">
+            <Component Name="SourceHTMLViewer" Class="Com.Ctrl.IBrowser" OnClick="HTMLViewerOnClick" OnUpgrade="HTMLViewerOnUpgrade" SeparateLinks="True"/>
+          </Component>
+        </Component>
+        <Inherited Name="HTMLViewFrame" Visible="False"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

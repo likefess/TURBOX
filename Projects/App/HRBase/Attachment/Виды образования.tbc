@@ -1,0 +1,122 @@
+﻿TBCFile VER="3.4" [Created '02.03.2022 8:43:19' by 'Администратор']
+
+DESCRIPTION[
+Count=15
+CountByRef=0
+HRBase.Ref.EducationTypes
+(
+  Count=15
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [HRBase.Ref.EducationTypes
+  (
+    Deleted :Boolean
+    GroupDoc :HRBase.Ref.EducationTypes
+    isGroup :Integer
+    Code :String(80)
+    Name :String(255)
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[HRBase.Ref.EducationTypes
+  
+  {HRBase.Ref.EducationTypes:"001"}
+  (
+    isGroup = -1
+    Name = "Общее образование"
+  )
+  
+  {HRBase.Ref.EducationTypes:"002"}
+  (
+    isGroup = -1
+    Name = "Профессиональное образование"
+  )
+  
+  {HRBase.Ref.EducationTypes:"003"}
+  (
+    isGroup = -1
+    Name = "Профессиональное обучение"
+  )
+  
+  {HRBase.Ref.EducationTypes:"004"}
+  (
+    isGroup = -1
+    Name = "Дополнительное образование"
+  )
+  
+  {HRBase.Ref.EducationTypes:"11"}
+  (
+    GroupDoc = {HRBase.Ref.EducationTypes:004}
+    Name = "Дополнительное образование детей и взрослых"
+  )
+  
+  {HRBase.Ref.EducationTypes:"12"}
+  (
+    GroupDoc = {HRBase.Ref.EducationTypes:004}
+    Name = "Дополнительное профессиональное образование"
+  )
+  
+  {HRBase.Ref.EducationTypes:"01"}
+  (
+    GroupDoc = {HRBase.Ref.EducationTypes:001}
+    Name = "Дошкольное образование"
+  )
+  
+  {HRBase.Ref.EducationTypes:"02"}
+  (
+    GroupDoc = {HRBase.Ref.EducationTypes:001}
+    Name = "Начальное общее образование"
+  )
+  
+  {HRBase.Ref.EducationTypes:"03"}
+  (
+    GroupDoc = {HRBase.Ref.EducationTypes:001}
+    Name = "Основное общее образование"
+  )
+  
+  {HRBase.Ref.EducationTypes:"04"}
+  (
+    GroupDoc = {HRBase.Ref.EducationTypes:001}
+    Name = "Среднее общее образование"
+  )
+  
+  {HRBase.Ref.EducationTypes:"05"}
+  (
+    GroupDoc = {HRBase.Ref.EducationTypes:002}
+    Name = "Среднее профессиональное образование"
+  )
+  
+  {HRBase.Ref.EducationTypes:"06"}
+  (
+    GroupDoc = {HRBase.Ref.EducationTypes:002}
+    Name = "Высшее образование - бакалавриат"
+  )
+  
+  {HRBase.Ref.EducationTypes:"07"}
+  (
+    GroupDoc = {HRBase.Ref.EducationTypes:002}
+    Name = "Высшее образование - специалитет, магистратура"
+  )
+  
+  {HRBase.Ref.EducationTypes:"08"}
+  (
+    GroupDoc = {HRBase.Ref.EducationTypes:002}
+    Name = "Высшее образование - подготовка кадров высшей квалификации"
+  )
+  
+  {HRBase.Ref.EducationTypes:"10"}
+  (
+    GroupDoc = {HRBase.Ref.EducationTypes:003}
+    Name = "Профессиональное обучение"
+  )
+]
+
+]

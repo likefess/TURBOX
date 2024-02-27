@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="BudgetControl.Rec.Data.BCRequest" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" HasCaption="True">
+        <Inherited Name="ButtonServices">
+          <Component Name="ToApprovementButton" Class="Com.Ctrl.IButton" Caption="Отправить на согласование" ImageName="BudgetControl.ToApprovement" OnClick="ToApprovementButton_OnClick" Visible="False"/>
+          <Component Name="ButtonCancelApprovement" Class="Com.Ctrl.IButton" Caption="Отменить согласование" ImageName="Com.Cancel_" OnClick="ButtonCancelApprovementOnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" ByColumn="False">
+          <Component Name="LeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+            <Component Name="CodeGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+              <Component Name="Code1" Class="Com.Ctrl.IEdit" Field="EdtRec.Code" HasCaption="True" Required="True"/>
+              <Component Name="BtnStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Component Name="TransDateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+              <Component Name="TransDate" Class="Com.Ctrl.IEdit" Field="EdtRec.TransDate" HasCaption="True" Required="True"/>
+              <Component Name="BtnStatic2" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Component Name="CompanyGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+              <Component Name="Company" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="EdtRec.Company" HasCaption="True" LookupField="Name" Required="True" ShortList="False"/>
+              <Component Name="BtnStatic3" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+          </Component>
+          <Component Name="RightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+            <Component Name="NameGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+              <Component Name="Name1" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" HasCaption="True" Visible="True"/>
+              <Component Name="BtnStatic5" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Component Name="LockedGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+              <Component Name="LockedStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Locked" HasCaption="True"/>
+              <Component Name="BtnStatic4" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Component Name="DAStatisGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+              <Component Name="DAStatus" Class="Com.Ctrl.IEdit" Caption="Статус" Enabled="False" Field="EdtRec.DATask_Status" LookupField="Name" OnOutput="DAStatus_OnOutput"/>
+              <Component Name="DAJumpButton" Class="Com.Ctrl.IJumpButton" Field="EdtRec.DATask"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="GeneralBox" Class="Com.Ctrl.IBox" Caption="@BCRequest:GeneralBox=Основное" HasCaption="True">
+            <Component Name="GeneralGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="BudgetType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Enabled="False" Field="EdtRec.BudgetType" HasCaption="True" ListAsString="БДДС|0;БДР|1"/>
+              <Component Name="BtnStatic6" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="NewLine8" Class="Com.Ctrl.INewLine"/>
+              <Component Name="Sum" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.Sum" FieldFormat=",##0.00;;-" HasCaption="True" Required="True"/>
+              <Component Name="BtnStatic7" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="Currency" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Field="EdtRec.Currency" HasCaption="True" LookupField="Code" Required="True" ShortList="True"/>
+              <Component Name="BtnStatic8" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="NewLine4" Class="Com.Ctrl.INewLine"/>
+              <Component Name="Contraparty" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Field="EdtRec.Contraparty" HasCaption="True" LookupField="Name"/>
+              <Component Name="BtnStatic9" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="Contract" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Field="EdtRec.Contract" HasCaption="True" LookupField="Code"/>
+              <Component Name="BtnStatic10" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+          </Component>
+          <Component Name="DimensionBox" Class="Com.Ctrl.IBox" Caption="@BCRequest:DimensionBox=Аналитики" HasCaption="True">
+            <Component Name="DimensionGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="CFR" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="EdtRec.CFR" HasCaption="True" LookupField="Name" Width="40"/>
+              <Component Name="BtnStatic11" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="BGI" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="EdtRec.BGI" HasCaption="True" LookupField="Name" LookupFilter="Not Closed" Width="40"/>
+              <Component Name="BtnStatic12" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="NewLine6" Class="Com.Ctrl.INewLine"/>
+              <Component Name="Source" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.FundSource" CellFormat="ReferenceFormat" Field="EdtRec.Source" HasCaption="True" LookupField="Name" Width="40"/>
+              <Component Name="BtnStatic13" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="Project" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Field="EdtRec.Project" HasCaption="True" LookupField="Name" Width="40"/>
+              <Component Name="BtnStatic14" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

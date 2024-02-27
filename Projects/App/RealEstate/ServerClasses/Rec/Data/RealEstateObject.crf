@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="RealEstateBase.Rec.Data.RealEstateObject">
+  <Inherited>
+    <Component Name="vLastRepairDate" Class="Com.Fld.IVar" After="#0" OnCalc="vLastRepairDateOnCalc" ValueType="VarDate"/>
+    <Component Name="SecurityDocName" Class="Com.Fld.IField" Caption="@Документ о постановке на охрану" FieldName="SecurityDocName" ValueType="VarString"/>
+    <Component Name="SecurityDocNum" Class="Com.Fld.IField" Caption="@Номер" FieldName="SecurityDocNum" ValueType="VarString"/>
+    <Component Name="SecurityDocDate" Class="Com.Fld.IField" Caption="@Дата" FieldName="SecurityDocDate" ValueType="VarDate"/>
+    <Component Name="CultureCategory" Class="Com.Fld.IField" Caption="@Категория" FieldName="CultureCategory" ValueType="VarObject"/>
+    <Component Name="EGROKNObjKind" Class="Com.Fld.IField" Caption="@Вид объекта" FieldName="EGROKNObjKind" ValueType="VarObject"/>
+    <Component Name="Orders" Class="Com.ISubtable" StructClass="RealEstate.Rec.Data.RealEstateObject_Orders"/>
+    <Component Name="REObject" Class="Com.Fld.IField" After="CallVisibility" Caption="@Объект недвижимости" FieldName="REObject" ValueType="VarLogical"/>
+    <Component Name="ParentObject" Class="Com.Fld.IField" Caption="@Объект имущества" FieldName="ParentObject" OnVerify="ParentObject_OnVerify" ValueType="VarObject"/>
+    <Component Name="IKomplex" Class="Com.Fld.IField" Caption="@Входит в ИК" FieldName="IKomplex" ValueType="VarObject"/>
+    <Component Name="EqmUnit" Class="Com.Fld.IField" Caption="@Техническая карточка обслуживания" FieldName="EqmUnit" OnChange="EqmUnit_OnChange" OnVerify="EqmUnit_OnVerify" ValueType="VarObject"/>
+    <Component Name="StateStatus" Class="Com.Fld.IField" Excluded="True" Caption="@Статус" FieldName="StateStatus" ValueType="VarObject"/>
+    <Component Name="StateStatusVar" Class="Com.Fld.IVar" Caption="@Статус" ValueType="VarObject"/>
+    <Component Name="RealEstateObjFunc" Class="Com.Fld.IField" Caption="@Общее функциональное назначение" FieldName="RealEstateObjFunc" ValueType="VarObject"/>
+    <Component Name="RNFI" Class="Com.Fld.IField" Caption="@РНФИ" FieldName="RNFI" OnVerify="RNFI_OnVerify" ValueType="VarString"/>
+    <Component Name="RNFIDate" Class="Com.Fld.IField" Caption="@Дата регистрации" FieldName="RNFIDate" ValueType="VarDate"/>
+    <Component Name="EGROKN" Class="Com.Fld.IField" Caption="@Номер ЕГРОКН" FieldName="EGROKN" OnChange="EGROKN_OnChange" OnVerify="EGROKN_OnVerify" ValueType="VarString"/>
+    <Component Name="EGROKNDate" Class="Com.Fld.IField" Caption="@Дата регистрации" FieldName="EGROKNDate" ValueType="VarDate"/>
+    <Component Name="ObjectNumber" Class="Com.Fld.IField" Caption="@Инвентарный номер" FieldName="ObjectNumber" ValueType="VarString"/>
+    <Component Name="INO" Class="Com.Fld.IField" Caption="@ИНО" FieldName="INO" ValueType="VarString"/>
+    <Component Name="PermitUseType" Class="Com.Fld.IField" Caption="@Вид разрешенного использования ЗУ" FieldName="PermitUseType" LookupFilter="not Closed" ValueType="VarObject"/>
+    <Component Name="SubdivisionFK" Class="Com.Fld.IField" Caption="@Подразделение ФК" FieldName="SubdivisionFK" ValueType="VarObject"/>
+    <Component Name="SubdivisionCOKR" Class="Com.Fld.IField" Caption="@Подразделение ЦОКР" FieldName="SubdivisionCOKR" ValueType="VarObject"/>
+    <Component Name="IsSecured" Class="Com.Fld.IField" Caption="@Охранная зона" FieldName="IsSecured" ValueType="VarLogical"/>
+    <Component Name="IsCultureObj" Class="Com.Fld.IField" Caption="@Является объектом культурного наследия" FieldName="IsCultureObj" ValueType="VarLogical"/>
+    <Component Name="RightKind" Class="Com.Fld.IField" Caption="@Вид права" FieldName="RightKind" ValueType="VarObject"/>
+    <Component Name="Target" Class="Com.Fld.IField" Caption="@Назначение" FieldName="Target" LookupFilter="not Closed" OnChange="Target_OnChange" OnVerify="Target_OnVerify" ValueType="VarObject"/>
+    <Component Name="RoomResKind" Class="Com.Fld.IField" Caption="@Вид жилого помещения" FieldName="RoomResKind" ValueType="VarObject"/>
+    <Component Name="RoomsCount" Class="Com.Fld.IField" Caption="@Количество комнат" FieldName="RoomsCount" ValueType="VarInteger"/>
+    <Component Name="IsRoomResSpec" Class="Com.Fld.IField" Caption="@Относится к специализированному жилищному фонду" FieldName="IsRoomResSpec" OnChange="IsRoomResSpec_OnChange" ValueType="VarLogical"/>
+    <Component Name="RoomResSpecKind" Class="Com.Fld.IField" Caption="@Вид спец. жилого фонда" FieldName="RoomResSpecKind" ValueType="VarObject"/>
+    <Component Name="RoomResSpecDocName" Class="Com.Fld.IField" Caption="@Документ об отнесении к спец. жил. фонду" FieldName="RoomResSpecDocName" ValueType="VarString"/>
+    <Component Name="RoomResSpecDocDate" Class="Com.Fld.IField" Caption="@Дата" FieldName="RoomResSpecDocDate" ValueType="VarDate"/>
+    <Component Name="RoomResSpecDocNum" Class="Com.Fld.IField" Caption="@Номер" FieldName="RoomResSpecDocNum" ValueType="VarString"/>
+    <Component Name="PropertyType" Class="Com.Fld.IField" Caption="@Вид собственности" FieldName="PropertyType" ValueType="VarInteger"/>
+    <Component Name="PropertyForm" Class="Com.Fld.IField" Caption="@Форма собственности" FieldName="PropertyForm" ValueType="VarObject"/>
+    <Component Name="readiness" Class="Com.Fld.IField" Excluded="True" Caption="@Степень готовности" FieldName="readiness" ValueType="VarObject"/>
+    <Component Name="LandCategory" Class="Com.Fld.IField" Caption="@Категория земли" FieldName="LandCategory" ValueType="VarObject"/>
+    <Component Name="OwnershipCertificate" Class="Com.Fld.IField" Caption="@Номер свидетельства" FieldName="OwnershipCertificate" ValueType="VarString"/>
+    <Component Name="EconomyUsedType" Class="Com.Fld.IField" Caption="@Основное хозяйственное назначение" FieldName="EconomyUsedType" ValueType="VarObject"/>
+    <Component Name="encumbrance" Class="Com.Fld.IField" Caption="@Обременение" FieldName="encumbrance" ValueType="VarObject"/>
+    <Component Name="PropertyOwner" Class="Com.Fld.IField" Caption="@Собственник" FieldName="PropertyOwner" ValueType="VarObject"/>
+    <Component Name="PropertyUser" Class="Com.Fld.IField" Excluded="True" Caption="@Пользователь" FieldName="PropertyUser" ValueType="VarObject"/>
+    <Component Name="Balanser" Class="Com.Fld.IField" Excluded="True" Caption="@Балансодержатель" FieldName="Balanser" ValueType="VarObject"/>
+    <Component Name="CopyrightHolder" Class="Com.Fld.IField" Excluded="True" Caption="@Правообладатель" FieldName="CopyrightHolder" ValueType="VarObject"/>
+    <Component Name="InitialCost" Class="Com.Fld.IVar" Caption="@Первоначальная" OnChange="CostField_OnChange" ValueType="VarNumeric"/>
+    <Component Name="BalanseCost" Class="Com.Fld.IVar" Caption="@Балансовая" OnChange="CostField_OnChange" ValueType="VarNumeric"/>
+    <Component Name="Amortization" Class="Com.Fld.IVar" Caption="@Амортизация" OnChange="CostField_OnChange" ValueType="VarNumeric"/>
+    <Component Name="RestCost" Class="Com.Fld.IVar" Caption="@Остаточная" OnChange="StoredField_OnChange" ValueType="VarNumeric"/>
+    <Component Name="KadastrCost" Class="Com.Fld.IVar" Caption="@Кадастровая стоимость" OnChange="KadastrCost_OnChange" OnVerify="KadastrCost_OnVerify" ValueType="VarNumeric"/>
+    <Component Name="KadastrCostChangeDate" Class="Com.Fld.IVar" Caption="@Дата определения" OnChange="KadastrCost_OnChange" ValueType="VarDate"/>
+    <Component Name="FloorNumber" Class="Com.Fld.IField" Caption="@Этажность" FieldName="FloorNumber" OnVerify="FloorNumber_OnVerify" ValueType="VarInteger"/>
+    <Component Name="FloorInformation" Class="Com.Fld.IField" FieldName="FloorInformation"/>
+    <Component Name="UGFloorNumber" Class="Com.Fld.IField" Caption="@Подземная этажность" FieldName="UGFloorNumber" OnChange="UGFloorNumber_OnChange" OnVerify="UGFloorNumber_OnVerify" ValueType="VarInteger"/>
+    <Component Name="Basement" Class="Com.Fld.IField" Caption="@Наличие подвала, цокольного этажа" FieldName="Basement" ValueType="VarLogical"/>
+    <Component Name="Attic" Class="Com.Fld.IField" Caption="@Наличие чердака, технического этажа" FieldName="Attic" ValueType="VarLogical"/>
+    <Component Name="RedLines" Class="Com.Fld.IField" Caption="@Красные линии" FieldName="RedLines" ValueType="VarLogical"/>
+    <Component Name="PlanInventDateVar" Class="Com.Fld.IVar" Caption="@Дата плановой инвентаризации" OnChange="StoredField_OnChange" ValueType="VarDate"/>
+    <Component Name="BTIPlanDateVar" Class="Com.Fld.IVar" Caption="@Дата составления плана БТИ" OnChange="StoredField_OnChange" ValueType="VarDate"/>
+    <Component Name="WorkPlaceProvidingContract" Class="Com.Fld.IField" Caption="@Наличие соглашения о предоставлении рабочих мест" FieldName="WorkPlaceProvidingContract" ValueType="VarLogical"/>
+    <Component Name="ESystems" Class="Com.ISubtable" StructClass="RealEstate.Rec.Data.RealEstateObject_ESystems"/>
+    <Component Name="Readiness_Docs" Class="Com.ISubtable" Excluded="True" SubtableName="Readiness_Docs"/>
+    <Component Name="RentOut" Class="Com.ISubtable" SubtableName="RentOut"/>
+    <Component Name="RentIn" Class="Com.ISubtable" SubtableName="RentIn"/>
+    <Component Name="FreeUseArea" Class="Com.ISubtable" SubtableName="FreeUseArea"/>
+    <Component Name="Photos" Class="Com.ISubtable" StructClass="RealEstate.Rec.Data.RealEstateObject_Photos" SubtableName="Photos"/>
+    <Component Name="RelatedObj" Class="Com.ISubtable" StructClass="RealEstate.Rec.Data.RealEstateObject_Related"/>
+    <Component Name="Attaches" Class="Com.ISubtable" StructClass="RealEstate.Rec.Data.RealEstateObject_Attaches" SubtableName="Attaches"/>
+    <Component Name="OnDate" Class="Com.Fld.IVar" Excluded="True" Caption="@На дату" OnChange="OnDate_OnChange" ValueType="VarDate"/>
+    <Component Name="AreaDoc" Class="Com.Fld.IVar" RecordClass="RealEstate.Rec.Doc.MDoc.RealEstateObjectArea" ValueType="VarObject"/>
+    <Component Name="Areas" Class="Com.ISubtable" StructClass="RealEstate.Rec.Data.RealEstateObject_Areas"/>
+    <Component Name="PopDoc" Class="Com.Fld.IVar" RecordClass="RealEstate.Rec.Doc.MDoc.RealEstateObjectPop" ValueType="VarObject"/>
+    <Component Name="Pops" Class="Com.ISubtable" StructClass="RealEstate.Rec.Data.RealEstateObject_Pops"/>
+    <Component Name="PhotoNum" Class="Com.Fld.IVar" OnChange="PhotoNum_OnChange" ValueType="VarInteger"/>
+    <Component Name="binBlob" Class="Com.Fld.IBlob"/>
+    <Component Name="ReadinessDocs" Class="Com.ISubtable" Excluded="True" StructClass="RealEstate.Rec.Data.RealEstateObject_ReadinessDocs" SubtableName="ReadinessDocs"/>
+    <Component Name="HasOwnershipCertificate" Class="Com.Fld.IField" Caption="@Наличие свидетельства о федеральной собственности" FieldName="HasOwnershipCertificate"/>
+    <Component Name="Transport" Class="Com.Fld.IField" Excluded="True" Caption="@Характеристики ТС" FieldName="Transport" ValueType="VarObject"/>
+    <Component Name="BuildYear" Class="Com.Fld.IField" Caption="@Год возведения" FieldName="BuildYear" OnVerify="BuildYear_OnVerify" ValueType="VarInteger"/>
+    <Component Name="ReadinessVar" Class="Com.Fld.IVar" Caption="@Степень готовности" RecordClass="RealEstate.Rec.Doc.MDoc.RealEstateObjectReadiness" ValueType="VarObject"/>
+    <Component Name="RafterMaterial" Class="Com.Fld.IField" Caption="@Материал стропил" FieldName="RafterMaterial" ValueType="VarObject"/>
+    <Component Name="WallMaterial" Class="Com.Fld.IField" Caption="@Материал стен" FieldName="WallMaterial" ValueType="VarObject"/>
+    <Component Name="FloorMaterial" Class="Com.Fld.IField" Caption="@Материал перекрытий" FieldName="FloorMaterial" ValueType="VarObject"/>
+    <Component Name="RoofKind" Class="Com.Fld.IField" Caption="@Вид крыши" FieldName="RoofKind" ValueType="VarObject"/>
+    <Component Name="RoofCoverMaterial" Class="Com.Fld.IField" Caption="@Материал покрытия" FieldName="RoofCoverMaterial" ValueType="VarObject"/>
+    <Component Name="WindowsBlock" Class="Com.Fld.IField" Caption="@Оконные блоки" FieldName="WindowBlock" ValueType="VarObject"/>
+    <Component Name="DoorsBlock" Class="Com.Fld.IField" Caption="@Дверные блоки" FieldName="DoorsBlock" ValueType="VarObject"/>
+    <Component Name="HasPlanting" Class="Com.Fld.IField" Caption="@Наличие многолетних насаждений" FieldName="HasPlanting" ValueType="VarLogical"/>
+    <Component Name="HasSmallArchitect" Class="Com.Fld.IField" Caption="@Наличие малых архитектурных форм" FieldName="HasSmallArchitect" ValueType="VarLogical"/>
+    <Component Name="InventNumber" Class="Com.Fld.IVar" Caption="@Инвентарный номер" OnCalc="InventNumber_OnCalc" ValueType="VarString"/>
+    <Component Name="ТипТС" Class="Com.Fld.IVar" Caption="@Тип ТС" OnCalc="ТипТС_OnCalc" RecordClass="Автотранспорт.Rec.Справочники.ТипыТС" ValueType="VarObject"/>
+    <Component Name="МаркаТС" Class="Com.Fld.IVar" Caption="@Марка" OnCalc="МаркаТС_OnCalc" RecordClass="Автотранспорт.Rec.Справочники.МаркиТС" ValueType="VarObject"/>
+    <Component Name="МодельТС" Class="Com.Fld.IVar" Caption="@Модель" OnCalc="МодельТС_OnCalc" RecordClass="Автотранспорт.Rec.Справочники.МаркиТС" ValueType="VarObject"/>
+    <Component Name="RegNumber" Class="Com.Fld.IVar" Caption="@Гос. номер" OnCalc="RegNumber_OnCalc" ValueType="VarString"/>
+    <Component Name="ManufNumber" Class="Com.Fld.IVar" Caption="@VIN код" OnCalc="ManufNumber_OnCalc" ValueType="VarString"/>
+    <Component Name="DateOfBirth" Class="Com.Fld.IVar" Caption="@Год выпуска" OnCalc="DateOfBirth_OnCalc" ValueType="VarDate"/>
+    <Component Name="HasTechPlan" Class="Com.Fld.IField" Caption="@Наличие актуального технического плана" FieldName="HasTechPlan"/>
+    <Component Name="HasInsurance" Class="Com.Fld.IField" Caption="@Подлежит страхованию" FieldName="HasInsurance"/>
+    <Component Name="InsuranceType" Class="Com.Fld.IField" Caption="@Причины страхования" FieldName="InsuranceType" ValueType="VarObject"/>
+    <Component Name="AttachmentsCounter" Class="Com.Fld.IField" FieldName="AttachmentsCounter"/>
+    <Component Name="EqmParts" Class="Com.ISubtable" StructClass="RealEstate.Rec.Data.RealEstateObject_EqmParts"/>
+    <Component Name="EliminationOrders" Class="Com.ISubtable" StructClass="RealEstate.Rec.Data.RealEstateObject_EliminationOrders"/>
+    <Component Name="Пандус" Class="Com.Fld.IField" Caption="@Пандус" FieldName="Пандус"/>
+    <Component Name="Подъемник" Class="Com.Fld.IField" Caption="@Подъемник" FieldName="Подъемник"/>
+    <Component Name="ТактильнаяПлитка" Class="Com.Fld.IField" Caption="@Тактильная плитка" FieldName="ТактильнаяПлитка"/>
+    <Component Name="ШрифтБрайля" Class="Com.Fld.IField" Caption="@Таблички с шрифтом Брайля" FieldName="ШрифтБрайля"/>
+    <Inherited Name="KadastrNumber" OnVerify="KadastrNumber_OnVerify"/>
+    <Inherited Name="Region" OnChange="Region_OnChange"/>
+  </Inherited>
+</Resource>

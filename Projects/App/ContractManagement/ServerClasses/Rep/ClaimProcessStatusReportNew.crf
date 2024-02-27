@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" AccountFilter="StatusReport" AccountPlan="ContractManagement" Autobuild="False" BegDate="01.01.1900" BegSaldoFormat="sfNone" Caption="Сроки рассмотрений, заседаний, движений ПИР (календарь юриста)" CIndicator="1" EmptyReportCaption="Данных нет" EndDate="01.01.2100" EndSaldoFormat="sfNone" ExplainSaldoFromOrigin="False" HidePeriod="True" HystoKind="hkSide" Legend="lpkAtRight" OpenPeriod="opAll" Palette="cpDefault" ParameterFilter="SkipStatus = False and ClaimStatus &lt;> ClaimProcessStatus.P01" Period="-1" RowDelFunc="GetDeleteRow(SplitValueByName(Report.rdRow, 'ClaimProcess'),SplitValueByName(Report.rdRow, 'TypeDoc'))" RowOrder="+@1.Оборот.Свернутый.1,+@2.Оборот.Свернутый.1,+@15.Оборот.Свернутый.1,+@12.Оборот.Свернутый.1" ShowBeyondLimits="False" ShowDebCreRow="False" ShowReportTotalRow="False" ShowSumKindRow="False">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorПоказатель" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="Дата" EndSaldoFormat="msfNone" Format="DD.MM.YYYY" Formula="SplitValueByName(Report.rdRow, 'ValDocDate')" MaxWidth="22" MinWidth="22" ShowUnit="False" ValueType="VarDate"/>
+      <Component Name="IndicatorПоказатель_1" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="Время" EndSaldoFormat="msfNone" Format="hh:mm:ss" Formula="if(((Hour(SplitValueByName(Report.rdRow, 'ValDocDate')) &lt;> 0) or (Minute(SplitValueByName(Report.rdRow, 'ValDocDate')) &lt;> 0) or (Second(SplitValueByName(Report.rdRow, 'ValDocDate')) &lt;> 0)),SplitValueByName(Report.rdRow, 'ValDocDate'),nil)" MaxWidth="20" MinWidth="20" ShowUnit="False" ValueType="VarDate"/>
+      <Component Name="IndicatorПоказатель_2" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="Тип спора" EndSaldoFormat="msfNone" Formula="SplitValueByName(Report.rdRow, 'ClaimType')?.Name" ShowUnit="False" ValueType="VarString"/>
+      <Component Name="IndicatorПоказатель_3" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="Вид спора" EndSaldoFormat="msfNone" Formula="SplitValueByName(Report.rdRow, 'ClaimVariety')?.Name" ShowUnit="False" ValueType="VarString"/>
+      <Component Name="IndicatorПоказатель_4" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="Предмет спора" EndSaldoFormat="msfNone" Formula="SplitValueByName(Report.rdRow, 'ShortDescription')" ShowUnit="False" ValueType="VarString"/>
+      <Component Name="IndicatorПоказатель_5" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="Этап ПИР" EndSaldoFormat="msfNone" Formula="GetStatusDoc(SplitValueByName(Report.rdRow, 'TypeDoc'))?.Name" ShowUnit="False" ValueType="VarString"/>
+      <Component Name="IndicatorПоказатель_6" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="Закрыто" EndSaldoFormat="msfNone" Formula="GetIsClosed(SplitValueByName(Report.rdRow, 'ClaimProcess'))" ShowUnit="False" ValueType="VarLogical"/>
+      <Component Name="IndicatorПоказатель_7" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="Номер документа ПИР" EndSaldoFormat="msfNone" Formula="SplitValueByName(Report.rdRow, 'ValStatusNumber')" ShowUnit="False" ValueType="VarString"/>
+      <Component Name="IndicatorПоказатель_8" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="Дата документа ПИР" EndSaldoFormat="msfNone" Formula="SplitValueByName(Report.rdRow, 'ValStatusDate')" ShowUnit="False" ValueType="VarDate"/>
+      <Component Name="IndicatorПоказатель_9" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="Куратор ПИР/ответственный" EndSaldoFormat="msfNone" Formula="SplitValueByName(Report.rdRow, 'Responsible')?.Name" ShowUnit="False" ValueType="VarString"/>
+      <Component Name="IndicatorГруппа" Class="Com.Rep.IIndGroup" Caption="Информация по последнему движению ПИР"/>
+      <Component Name="IndicatorПоказатель_10" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="дата" EndSaldoFormat="msfNone" Format="DD.MM.YYYY" Formula="if(SplitValueByName(Report.rdRow, 'TypeDoc') = 1, SplitValueByName(Report.rdRow, 'ValInfoDate'), GetPrevValInfoDate(SplitValueByName(Report.rdRow, 'ClaimProcess'),SplitValueByName(Report.rdRow, 'TypeDoc'),SplitValueByName(Report.rdRow, 'ValInfoDate'),SplitValueByName(Report.rdRow, 'ValInfoResult'),SplitValueByName(Report.rdRow, 'ValInfoComment')))" Group="IndicatorГруппа" ShowUnit="False" ValueType="VarDate"/>
+      <Component Name="IndicatorПоказатель_11" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="результат" EndSaldoFormat="msfNone" Formula="if(SplitValueByName(Report.rdRow, 'TypeDoc') = 1, SplitValueByName(Report.rdRow, 'ValInfoResult'), GetPrevValInfoResult(SplitValueByName(Report.rdRow, 'ClaimProcess'),SplitValueByName(Report.rdRow, 'TypeDoc'),SplitValueByName(Report.rdRow, 'ValInfoDate'),SplitValueByName(Report.rdRow, 'ValInfoResult'),SplitValueByName(Report.rdRow, 'ValInfoComment')))" Group="IndicatorГруппа" ShowUnit="False" ValueType="VarString"/>
+      <Component Name="IndicatorПоказатель_12" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="примечания" EndSaldoFormat="msfNone" Formula="if(SplitValueByName(Report.rdRow, 'TypeDoc') = 1, SplitValueByName(Report.rdRow, 'ValInfoComment'), GetPrevValInfoComment(SplitValueByName(Report.rdRow, 'ClaimProcess'),SplitValueByName(Report.rdRow, 'TypeDoc'),SplitValueByName(Report.rdRow, 'ValInfoDate'),SplitValueByName(Report.rdRow, 'ValInfoResult'),SplitValueByName(Report.rdRow, 'ValInfoComment')))" Group="IndicatorГруппа" ShowUnit="False" ValueType="VarString"/>
+      <Component Name="IndicatorПоказатель_13" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="Тип" EndSaldoFormat="msfNone" Formula="SplitValueByName(Report.rdRow, 'TypeDoc')" ShowUnit="False" ValueType="VarNumeric" Visible="False"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam5CA53550" Class="Com.Rep.ISplitByParam" ShowTotals="False" SplitParam="ValDocDate"/>
+        <Component Name="SplitParam050A078E" Class="Com.Rep.ISplitByParam" SplitParam="Contract"/>
+        <Component Name="SplitParamEC434189" Class="Com.Rep.ISplitByParam" SplitParam="ClaimProcess"/>
+        <Component Name="SplitParam0F38B9FD" Class="Com.Rep.ISplitByParam" SplitParam="ClaimType"/>
+        <Component Name="SplitParam66EF6E8C" Class="Com.Rep.ISplitByParam" SplitParam="ClaimVariety"/>
+        <Component Name="SplitParam0ECE9358" Class="Com.Rep.ISplitByParam" SplitParam="ShortDescription"/>
+        <Component Name="SplitParam3D328E6F" Class="Com.Rep.ISplitByParam" SplitParam="Responsible"/>
+        <Component Name="SplitParamB83E2841" Class="Com.Rep.ISplitByParam" SplitParam="ClaimStatus"/>
+        <Component Name="SplitParamE110A493" Class="Com.Rep.ISplitByParam" SplitParam="TypeDoc"/>
+        <Component Name="SplitParam4C2DD8AD" Class="Com.Rep.ISplitByParam" SplitParam="ValStatusNumber"/>
+        <Component Name="SplitParam60F78A65" Class="Com.Rep.ISplitByParam" SplitParam="ValStatusDate"/>
+        <Component Name="SplitParamBD53AD4F" Class="Com.Rep.ISplitByParam" SplitParam="ValInfoDate"/>
+        <Component Name="SplitParam9B34FC1D" Class="Com.Rep.ISplitByParam" SplitParam="ValInfoResult"/>
+        <Component Name="SplitParamBCD3761F" Class="Com.Rep.ISplitByParam" SplitParam="ValInfoComment"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContent038EDC67" Class="Com.Rep.ISplitContent" Contents="ValDocDate" Enabled="False"/>
+        <Component Name="SplitContentCADA0A73" Class="Com.Rep.ISplitContent" Caption="Субъект ПИР/Контрагент" Contents="Contract.Партнер.Описание"/>
+        <Component Name="SplitContent77B03BFF" Class="Com.Rep.ISplitContent" Caption="Номер договора" Contents="Contract.Описание"/>
+        <Component Name="SplitContent76373109" Class="Com.Rep.ISplitContent" Caption="Номер карточки ПИР" Contents="ClaimProcess.Код"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_ValDocDate" Class="Com.Rep.IRepControl" Caption="За период с" CellFormat="DateFormat" DefaultFunc="CreateDate(1,1,Year(ToDay()))" DefaultStr="Date(nil)" DoNotSave="True" Operator=">=" Parameter="ValDocDate" Plan="ContractManagement" SkipNil="True" ValueType="VarDate" Width="100"/>
+      <Component Name="RC_ValDocDate_1" Class="Com.Rep.IRepControl" Caption="По" CellFormat="DateFormat" DefaultFunc="ToDay()" DefaultStr="Date(nil)" DoNotSave="True" Operator="&lt;=" Parameter="ValDocDate" Plan="ContractManagement" SkipNil="True" ValueType="VarDate" Width="100"/>
+      <Component Name="RC_Company" Class="Com.Rep.IRepControl" Caption="Предприятие" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" DefaultStr="Object(nil)" DoNotSave="True" LookupField="Name" NewLine="True" Operator="=" Parameter="Company" Plan="ContractManagement" ShortList="False" ShowHierarchy="False" SkipNil="True" ValueType="VarObject" Width="100"/>
+      <Component Name="RC_Responsible" Class="Com.Rep.IRepControl" Caption="Куратор ПИР" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" DefaultStr="Object(nil)" DoNotSave="True" LookupField="Name" Operator="=" Parameter="Responsible" Plan="ContractManagement" SkipNil="True" ValueType="VarObject" Width="100"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

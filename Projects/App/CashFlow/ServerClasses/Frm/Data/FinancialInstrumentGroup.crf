@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited HelpContext="CashFlow.Движение денежных средств.Финансовые инструменты.Группы финансовых инструментов">
+    <Inherited Name="EdtRec" Class="CashFlow.Rec.Data.FinancialInstrumentGroup" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame" AutoSize="False" Orientation="Horizontal" ShowTabs="False" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="MainFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="5" Orientation="Vertical">
+            <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+              <Component Name="CodeEdit" Class="Com.Ctrl.IEdit" Caption="@FIGroup:CodeEdit=Код" Field="EdtRec.Code" HasCaption="True"/>
+              <Component Name="NameEdit" Class="Com.Ctrl.IEdit" Caption="@FIGroup:Name=Наименование" Field="EdtRec.Name" HasCaption="True" Required="True"/>
+              <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+              <Component Name="FinancialInstrumentType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.FinancialInstrumentType" HasCaption="True" ListAsString="Финансовые активы|0;Финансовые обязательства|1"/>
+              <Component Name="AssetLiability" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.AssetLiability" HasCaption="True" ListAsString="Кредит/займ|0;Депозит|1;Вексель простой|2;Вексель финансовый|3;Акция|4;Облигация прочая|5;Облигация муниципальная|6;Облигация государственная|7;Акция собственная|8"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

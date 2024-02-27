@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CashFlow.Frm.Doc.FIDoc_StockIssue">
+  <Inherited HelpContext="CashFlow.Движение денежных средств.Финансовые инструменты.Документы.Погашение собственного ФИ">
+    <Inherited Name="FRecord" Class="CashFlow.Rec.Doc.FIDoc_RepaymentFI" IsLibrary="1"/>
+    <Inherited Name="FIDoc_Positions" Class="CashFlow.Rec.Doc.FIDoc_RepaymentFI_Positions" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="PositionsBox">
+            <Inherited Name="PositionsTable">
+              <Component Name="OffBalanceAccountGroup" Class="Com.Ctrl.IColumnsGroup" After="OffsetAccountGroup" Caption="@FIDoc_RepaymFI:OffBalanceAccountGroup=Забалансовый счет учета" HasCaption="True">
+                <Component Name="OffBalanceAccountEdit" Class="Com.Ctrl.IEditEx" Field="FIDoc_Positions.OffBalanceAccount" HasCaption="False" Width="20">
+                  <Component Name="OffBalanceAccountBtn" Class="Com.Ctrl.IButton" HasCaption="False" ImageName="Biz.id-card-light" OnClick="OffBalanceAccountBtn_OnClick"/>
+                </Component>
+              </Component>
+              <Inherited Name="Dimensions" After="OffBalanceAccountGroup"/>
+              <Inherited Name="Price" Caption="@FIDoc_RepaymFI:Price=Цена погашения"/>
+              <Inherited Name="Amount" Caption="@FIDoc_RepaymFI:Amount=Сумма погашения"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

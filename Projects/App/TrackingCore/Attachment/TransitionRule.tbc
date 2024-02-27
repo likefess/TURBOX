@@ -1,0 +1,167 @@
+﻿TBCFile VER="3.4" [Created '15.08.2022 13:49:43' by 'Администратор']
+
+DESCRIPTION[
+Count=1
+CountByRef=3
+Control.Ref.TaskStatus
+(
+  Count=0
+  CountByRef=2
+)
+Control.Ref.TransitionRule
+(
+  Count=1
+  CountByRef=0
+)
+Control.Ref.TransRuleGroup
+(
+  Count=0
+  CountByRef=1
+)
+]
+
+METADATA[
+
+  [Control.Ref.TaskStatus
+  (
+    Deleted :Boolean
+    GroupDoc :Control.Ref.TaskStatus
+    isGroup :Integer
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    НеОтображаетсяВДереве :Boolean
+    MetaLock :Boolean
+    SubsysCode :Integer
+    PartisCode :Integer
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    Description :String
+    EntityNum :Integer
+    EntityRole :Bas.Ref.EntityRole
+    IsClosedTask :Boolean
+    SendMailToResponsible :Boolean
+    EmailRoles :Struct array Integer
+    (
+      Role :Bas.Ref.EntityRole
+    )
+    Action :String
+    StatusColor :Integer
+  )
+  ForeignKey Code
+  ]
+
+  [Control.Ref.TransitionRule
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    НеОтображаетсяВДереве :Boolean
+    MetaLock :Boolean
+    SubsysCode :Integer
+    PartisCode :Integer
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    Comment :String
+    StatusSrc :Control.Ref.TaskStatus
+    StatusDst :Control.Ref.TaskStatus
+    PersistResp :Boolean
+    RuleGroup :Control.Ref.TransRuleGroup
+    RolesStr :String(64)
+    SendMailToResponsible :Boolean
+    EmailRoles :Struct array Integer
+    (
+      Role :Bas.Ref.EntityRole
+    )
+    Функция :Bas.Config.ProcType
+    Функции :Struct array Integer
+    (
+      Значение :Bas.Config.ProcType
+      Строго :Boolean
+    )
+    СпособСозданияДокумента :Integer
+    ТипСоздаваемогоОД :Bas.Config.ProcType
+    СервисДляСозданногоДокумента :МашРек.Настройки.Реквизит
+    СервисСозданияНаОсновании :МашРек.Настройки.Реквизит
+    ОткрыватьСозданныйДокумент :Boolean
+  )
+  ForeignKey Code
+  ]
+
+  [Control.Ref.TransRuleGroup
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    НеОтображаетсяВДереве :Boolean
+    MetaLock :Boolean
+    SubsysCode :Integer
+    PartisCode :Integer
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    Descript :String
+    TaskTemplate :Control.Data.Task
+    InitialStatus :Control.Ref.TaskStatus
+    EMailServer :Bas.Config.MailAccount
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Control.Ref.TaskStatus
+  
+  {Control.Ref.TaskStatus:"Новая"}
+  (
+    Name = "Новая"
+    SendMailToResponsible = True
+    StatusColor = 8421504
+  )
+  
+  {Control.Ref.TaskStatus:"Готова к работе"}
+  (
+    Name = "Готова к работе"
+    SendMailToResponsible = True
+    StatusColor = 8454016
+  )
+]
+
+[Control.Ref.TransitionRule
+  
+  {Control.Ref.TransitionRule:"DefaultTransitionRule"}
+  (
+    Name = "DefaultTransitionRule"
+    StatusSrc = {Control.Ref.TaskStatus:Новая}
+    StatusDst = {Control.Ref.TaskStatus:"Готова к работе"}
+    RuleGroup = {Control.Ref.TransRuleGroup:DefaultProjectType}
+  )
+]
+
+[Control.Ref.TransRuleGroup
+  
+  {Control.Ref.TransRuleGroup:"DefaultProjectType"}
+  (
+    Name = "DefaultProjectType"
+    InitialStatus = {Control.Ref.TaskStatus:Новая}
+  )
+]
+
+]

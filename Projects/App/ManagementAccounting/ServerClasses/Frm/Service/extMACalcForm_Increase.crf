@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="UserCalc.Frm.Srv.CalcForm">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="vKoefIncrease" Class="Com.Fld.IVar" After="#0" Caption="Коэффициент" ValueType="VarNumeric"/>
+      <Component Name="vMAItemSchemaIncrease" Class="Com.Fld.IVar" After="vCalcType" Caption="Схема замещения статей" RecordClass="ManagementAccounting.Rec.Ref.MAItemSchema" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="ParametersBox">
+          <Component Name="DateFrame" Class="Com.Ctrl.IFrame" After="#0" Margins="10"/>
+          <Inherited Name="GroupsFrame" AutoSize="True">
+            <Component Name="GrIncrease" Class="Com.Ctrl.IGroup" After="#0" ByColumn="True">
+              <Component Name="ParametrsGroupIncrease" Class="Com.Ctrl.IGroup" ByColumn="True">
+                <Component Name="EdMAUnitIncrease" Class="Com.Ctrl.IEdit" Caption="Единица учета" CardFileClass="Biz.Tab.Data.MAUnit" CellFormat="ReferenceFormat" Field="vMAUnit" HasCaption="True" LookupField="Code" ValueType="VarObject"/>
+                <Component Name="EdMAKoefIncrease" Class="Com.Ctrl.IEdit" Caption="Коэффициент" Field="vKoefIncrease" HasCaption="True" ValueType="VarNumeric"/>
+              </Component>
+              <Component Name="InputOutputGroupIncrease" Class="Com.Ctrl.IGroup">
+                <Component Name="InputDataGroupIncrease" Class="Com.Ctrl.IGroup" ByColumn="True" Printed="True" Visible="True">
+                  <Component Name="InputDataIncrease" Class="Com.Ctrl.IStatic" Caption="Источник надбавки" FontBold="True" Width="100"/>
+                  <Component Name="EdInputDimensionKindIncrease" Class="Com.Ctrl.IEdit" Caption="Тип аналитики" CellFormat="EnumFormat" Field="vInputDimensionKind" ValueType="VarInteger"/>
+                  <Component Name="EdInputDimensionValueIncrease" Class="Com.Ctrl.IEdit" Caption="Значение аналитики" CellFormat="ReferenceFormat" Field="vInputDimensionValue" LookupField="Code" ValueType="VarObject"/>
+                </Component>
+                <Component Name="OutputDataGroupIncrease" Class="Com.Ctrl.IGroup" ByColumn="True">
+                  <Component Name="OutputDataIncrease" Class="Com.Ctrl.IStatic" Caption="Получатель надбавки" FontBold="True" Width="100"/>
+                  <Component Name="EdOutputDimensionKindIncrease" Class="Com.Ctrl.IEdit" Caption="Тип аналитики" CellFormat="EnumFormat" Field="vOutputDimensionKind" ValueType="VarInteger"/>
+                  <Component Name="EdOutputDimensionValueIncrease" Class="Com.Ctrl.IEdit" Caption="Значение аналитики" CellFormat="ReferenceFormat" Field="vOutputDimensionValue" LookupField="Code" ValueType="VarObject"/>
+                  <Component Name="EdMAItemSchemaIncrease" Class="Com.Ctrl.IEdit" Caption="Схема замещения статей" CardFileClass="ManagementAccounting.Tab.Ref.MAItemSchema" CellFormat="ReferenceFormat" Field="vMAItemSchemaIncrease" LookupField="Code" ValueType="VarObject"/>
+                </Component>
+              </Component>
+            </Component>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

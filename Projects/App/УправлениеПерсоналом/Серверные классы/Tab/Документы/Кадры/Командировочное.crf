@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Tab.Базовая.БазовыйДокументИерархия">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Кадровые документы.Командировочное удостоверение">
+    <Inherited Name="Current" Class="УправлениеПерсоналом.Rec.Документы.Кадры.Служебный" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="Сотрудник" Class="Com.Ctrl.IEdit" After="Дата" Caption="Сотрудник" CardFileClass="HRBase.Tab.Data.Staffers" Field="Current.УсловияТрудаСотр" HasCaption="True" LookupField="Person.Name" Width="40"/>
+          <Component Name="УсловияТрудаСотр" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Таб. номер" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Field="Current.УсловияТрудаСотр" HasCaption="True" Hint="Табельный номер сотрудника" LookupField="ТабНомер" Width="20"/>
+          <Component Name="ПриказНомер" Class="Com.Ctrl.IEdit" Caption="Номер приказа о направлении в командировку" Field="Current.ПриказОснование" HasCaption="True" Hint="Приказ о направлении в командировку" LookupField="Номер" Width="20"/>
+          <Component Name="ПриказДата" Class="Com.Ctrl.IEdit" Caption="Дата приказа о направлении в командировку" Field="Current.ПриказОснование" HasCaption="True" Hint="Приказ о направлении в командировку" LookupField="Дата" Width="25"/>
+          <Component Name="Описание" Class="Com.Ctrl.IEdit" Caption="Описание" CellFormat="StringFormat" Field="Current.Описание" HasCaption="True" ValueType="VarString" Width="50"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

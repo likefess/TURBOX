@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.BasObject">
+  <Inherited HelpContext="SubjectPayable.Расчеты с субъектами.Документы.Документы.Взаимозачет задолженности">
+    <Inherited Name="Current" Class="SubjectPayable.Rec.Doc.SettlementOfDebt" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" HasCaption="True" Visible="False"/>
+          <Inherited Name="Code" HasCaption="True" Visible="False"/>
+          <Component Name="edAccounted" Class="Com.Ctrl.IEdit" Field="Current.Accounted" HasCaption="True" Width="15"/>
+          <Component Name="edCompany" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="Current.Company" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="edNumberDoc" Class="Com.Ctrl.IEdit" Field="Current.NumberDoc" HasCaption="True" Width="30"/>
+          <Component Name="edDateDoc" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="Current.DateDoc" FormatOfDate="DateOnly" HasCaption="True" Width="30"/>
+          <Component Name="edContraparty" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Contraparties" Field="Current.Contraparty" HasCaption="True" Hint="@SubjectPayable:Contraparty.Hint=Наименование контрагента (юридического или физического лица)" LookupField="Name"/>
+          <Component Name="edAccDate" Class="Com.Ctrl.IEdit" Caption="@SettlementOfDebt:AccDate1=Дата взаимозачета" CellFormat="DateFormat" Field="Current.AccDate" FormatOfDate="DateOnly" HasCaption="True" Hint="@SettlementOfDebt:AccDate=Дата проведения взаимозачета" Width="30"/>
+          <Component Name="edDebAccrualOfDebt" Class="Com.Ctrl.IEdit" Caption="Списание деб. задолж." CardFileClass="SubjectPayable.Tab.Doc.AccrualOfDebt" Field="Current.DebAccrualOfDebt" HasCaption="True" Hint="@SettlementOfDebt:DebAccrualOfDebt.Hint=Указываются данные по списанию сумм дебиторской задолженности &#xD;&#xA;нашего предприятия в рамках проводимого взаимозачета (документ «Начисление задолженности», &#xD;&#xA;согласно которого в программе была оформлена возникшая по нашему предприятию дебиторская задолженность)" LookupField="Name" Width="45"/>
+          <Component Name="edCreAccrualOfDebt" Class="Com.Ctrl.IEdit" Caption="Списание кред. задолж." CardFileClass="SubjectPayable.Tab.Doc.AccrualOfDebt" Field="Current.CreAccrualOfDebt" HasCaption="True" Hint="@SettlementOfDebt:CreAccrualOfDebt.Hint=Указываются данные по списанию сумм кредиторской &#xD;&#xA;задолженности нашего предприятия в рамках проводимого взаимозачета (документ «Начисление задолженности», &#xD;&#xA;согласно которого в программе была оформлена возникшая по нашему предприятию кредиторская задолженность)" LookupField="Name" Width="45"/>
+          <Component Name="edSumDeb" Class="Com.Ctrl.IEdit" Caption="Сумма ДТ в" Field="Current.SumDeb" FieldFormat=",0.00;;-" HasCaption="True" Hint="@SubjectPayable:SumDeb.Hint=Сумма списанной ДТ задолженности в валюте документа Списание дебиторской задолженности" Visible="False" Width="30"/>
+          <Component Name="edCurrencyDeb" Class="Com.Ctrl.IEdit" Caption="@вал.док." CardFileClass="Biz.Tab.Ref.UCurrencies" Field="Current.CurrencyDeb" HasCaption="True" Hint="Валюта документа ДТ" LookupField="Code" Visible="False" Width="25"/>
+          <Component Name="edExchRateDeb" Class="Com.Ctrl.IEdit" Caption="Курс валюты ДТ" Field="Current.ExchRateDeb" FieldFormat=",0.0000;;-" HasCaption="True" Hint="@SubjectPayable:ExchRateDeb.Hint=Курс валюты, установленный для списываемой дебиторской задолженности. По умолчанию указывается курс из карточки «Валюта» по состоянию на дату проведения взаимозачета" Visible="False" Width="20"/>
+          <Component Name="edSumCre" Class="Com.Ctrl.IEdit" Caption="Сумма КТ в" Field="Current.SumCre" FieldFormat=",0.00;;-" HasCaption="True" Hint="@SubjectPayable:SumCre.Hint=Сумма списанной КТ задолженности в валюте документа Списание кредиторской задолженности" Visible="False" Width="30"/>
+          <Component Name="edCurrencyCre" Class="Com.Ctrl.IEdit" Caption="@вал.док." CardFileClass="Biz.Tab.Ref.UCurrencies" Field="Current.CurrencyCre" HasCaption="True" Hint="Валюта документа КТ" LookupField="Code" Visible="False" Width="25"/>
+          <Component Name="edExchRateCre" Class="Com.Ctrl.IEdit" Caption="Курс валюты КТ" Field="Current.ExchRateCre" FieldFormat=",0.0000;;-" HasCaption="True" Hint="@SubjectPayable:ExchRateCre.Hint=Курс валюты, установленный для списываемой кредиторской задолженности. По умолчанию указывается курс из карточки «Валюта» по состоянию на дату проведения взаимозачета" Visible="False" Width="20"/>
+          <Component Name="edSumBase" Class="Com.Ctrl.IEdit" Caption="@SettlementOfDebt:SumBase=Сумма (операционная)" Field="Current.SumBase" FieldFormat=",0.00;;-" HasCaption="True" Hint="@SettlementOfDebt:SumBase=Сумма (операционная)" Width="30"/>
+          <Component Name="edSourceDoc" Class="Com.Ctrl.IEdit" Caption="@SettlementOfDebt:SourceDoc.1=Документ" Field="Current.SourceDoc" HasCaption="True" Hint="@SettlementOfDebt:SourceDoc.Hint=Документ, согласно которого проводится взаимозачет" Visible="False" Width="30"/>
+          <Component Name="edComment" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Comment.Hint=Примечание" Field="Current.Comment" HasCaption="True" Visible="False" Width="30"/>
+          <Component Name="edLocked" Class="Com.Ctrl.IEdit" Field="Current.Locked" HasCaption="True" Width="15"/>
+          <Component Name="edClosed" Class="Com.Ctrl.IEdit" Field="Current.Closed" HasCaption="True" Width="15"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

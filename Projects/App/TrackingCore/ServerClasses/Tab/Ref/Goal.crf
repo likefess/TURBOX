@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.CodeName">
+  <Inherited>
+    <Inherited Name="Current" Class="TrackingCore.Rec.Ref.Goal" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="NavigatorFrame" Visible="False">
+        <Inherited Name="NavigatorGroup">
+          <Inherited Name="ButtonTree" Enabled="False" Visible="False"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Visible="False"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" Caption="Название"/>
+          <Inherited Name="Code" Visible="False"/>
+          <Component Name="Status" Class="Com.Ctrl.IEdit" Caption="Статус" CellFormat="EnumFormat" ExportAlways="True" Field="Current.Status" ListAsString="['Новая |1','По плану |2','Отстает |3','Под угрозой |4','Выполнена |5','Частично выполнена |6','Не выполнена |7','Отменена |8']"/>
+          <Component Name="Progress" Class="Com.Ctrl.IEdit" Caption="Прогресс" Field="Current.ProgressCounter" FieldFormat=",##0%;;-" LookupField="ForGoals" OnOutputEx="ProgressOnOutputEx"/>
+          <Component Name="Period" Class="Com.Ctrl.IEdit" Caption="Период времени" Field="Current.PeriodStr"/>
+          <Component Name="Responsible" Class="Com.Ctrl.IEdit" Caption="Ответственный" Field="Current.Responsible"/>
+          <Component Name="Author" Class="Com.Ctrl.IEdit" Caption="Автор" Field="Current.Author"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

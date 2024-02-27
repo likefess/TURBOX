@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="ParamTree" Class="TrackingCore.Ctrl.Grid.IParamTree"/>
+    <Component Name="Variables" Class="Com.IVarContainer"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" MaxButton="1">
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Caption="@Cmd:Close=Закрыть" FontSize="11" ImageName="Close" OnClick="ButtonClose_OnClick" Width="35"/>
+      </Component>
+      <Component Name="ChooseParamFrame" Class="Com.Ctrl.IFrame">
+        <Component Name="ParamGrid" Class="Com.Ctrl.IGrid">
+          <Component Name="ParamGridRows" Class="Com.Ctrl.Grid.INode" DataSource="ParamTree" Enabled="False" HasCaption="False" Hierarchical="True" IsColumn="False" Width="160"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

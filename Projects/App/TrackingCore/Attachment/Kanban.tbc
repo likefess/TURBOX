@@ -1,0 +1,116 @@
+﻿TBCFile VER="3.4" [Created '30.12.2022 17:02:00' by 'Администратор']
+
+DESCRIPTION[
+Count=1
+CountByRef=0
+Com.Service.Report
+(
+  Count=0
+  CountByRef=0
+)
+Control.Ref.TaskStatus
+(
+  Count=0
+  CountByRef=0
+)
+TrackingLib.Services.Kanban
+(
+  Count=1
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Com.Service.Report
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+  [Control.Ref.TaskStatus
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+  [TrackingLib.Services.Kanban
+  (
+    Deleted :Boolean
+    GroupDoc :TrackingLib.Services.Kanban
+    isGroup :Integer
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    НеОтображаетсяВДереве :Boolean
+    MetaLock :Boolean
+    SubsysCode :Integer
+    PartisCode :Integer
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    Report :Com.Service.Report
+    UseReportColumns :Boolean
+    ColFieldName :String
+    FirstStatusName :String
+    FirstStatus :Inherited Com.Base.CodeName
+    ColumnWidth :Integer
+    ShowVersion :Boolean
+    ShowLabel :Boolean
+    ShowComponent :Boolean
+    ShowPlanHours :Boolean
+    ShowFactHours :Boolean
+    SetVersionColor :Integer
+    SetLabelColor :Integer
+    SetComponentColor :Integer
+    SetPlanHoursColor :Integer
+    SetFactHoursColor :Integer
+    Columns :Struct array Integer
+    (
+      Values :Inherited Com.Base.CodeName array Integer
+      Status :Inherited Com.Base.CodeName
+      Name :String
+      Color :Integer
+    )
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[TrackingLib.Services.Kanban
+  
+  {TrackingLib.Services.Kanban:"Kanban"}
+  (
+    Name = "Kanban"
+    Report = {Com.Service.Report:Канбан}
+    ColFieldName = "TaskStatus"
+    Columns = (
+      0:(
+        Values = (
+          0: {Control.Ref.TaskStatus:Новая}
+        )
+        Status = {Control.Ref.TaskStatus:Новая}
+        Name = "Новая"
+        Color = -1
+      )
+      1:(
+        Values = (
+          0: {Control.Ref.TaskStatus:"Готова к работе"}
+        )
+        Status = {Control.Ref.TaskStatus:"Готова к работе"}
+        Name = "Готова к работе"
+        Color = -1
+      )
+    )
+  )
+]
+
+]

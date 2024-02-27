@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CashFlow.Tab.Doc.BankMoveBase">
+  <Inherited Caption="Базовый документ по учету Денежных документов" Hierarchical="False">
+    <Inherited Name="Current" Class="CashFlow.Rec.Doc.MoneyDocument" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Code" Excluded="True"/>
+          <Inherited Name="Entity" Excluded="True"/>
+          <Component Name="Accounted" Class="Com.Ctrl.ICheckBox" After="Entity" Caption="@MoneyDocument:Accounted=Проводить" Field="Current.Accounted" Width="18"/>
+          <Inherited Name="CreateUser" After="Accounted"/>
+          <Inherited Name="Contraparty" Excluded="True"/>
+          <Inherited Name="PrintedNumberEdit" Excluded="True"/>
+          <Inherited Name="EventTime" Excluded="True"/>
+          <Inherited Name="Sum" Excluded="True"/>
+          <Inherited Name="Currency" Excluded="True"/>
+          <Inherited Name="BankDetailsEdit" Excluded="True"/>
+          <Inherited Name="PurposeEdit" Excluded="True"/>
+          <Component Name="EventTime1" Class="Com.Ctrl.IEdit" After="PurposeEdit" Caption="@MoneyDocument:EventTime1=Дата" Field="Current.EventTime" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" Width="30"/>
+          <Component Name="PrintedNumberEdit1" Class="Com.Ctrl.IEdit" Caption="@MoneyDocument:PrintedNumberEdit1=Номер" Field="Current.PrintedNumber" HasCaption="True" Width="30"/>
+          <Component Name="Entity1" Class="Com.Ctrl.IEdit" Caption="@MoneyDocument:Entity=Предприятие" Field="Current.Entity" HasCaption="True" LookupField="Name" Width="50"/>
+          <Component Name="CashRegister" Class="Com.Ctrl.IEdit" Caption="@MoneyDocument:CashRegister=Касса" Field="Current.CashRegister" HasCaption="True" LookupField="Name" Width="50"/>
+          <Component Name="Contraparty1" Class="Com.Ctrl.IEdit" Field="Current.Contraparty" HasCaption="True" LookupFilter="Name" Visible="False" Width="50"/>
+          <Component Name="Sum1" Class="Com.Ctrl.IEdit" Caption="@MoneyDocument:FinalSum=Сумма" CellFormat="NumericFormat" Field="Current.FinalSum" FieldFormat=",##0.00;;-" HasCaption="True" Width="25"/>
+          <Component Name="Contract" Class="Com.Ctrl.IEdit" Field="Current.Contract" HasCaption="True" LookupFilter="Code" Width="50"/>
+          <Component Name="Closed" Class="Com.Ctrl.ICheckBox" Caption="@MoneyDocument:Closed=Завершен" Field="Current.Closed" HasCaption="True" Width="18"/>
+          <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Caption="@MoneyDocument:Locked=Замок" Field="Current.Locked" HasCaption="True" Width="18"/>
+          <Component Name="Comment" Class="Com.Ctrl.IEdit" Caption="@MoneyDocument:Comment=Комментарий" Field="Current.ExtComment" HasCaption="True" Width="50"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

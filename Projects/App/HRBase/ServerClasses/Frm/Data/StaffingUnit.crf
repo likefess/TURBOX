@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Component Name="idxDataDate" Class="Com.Fld.IVar" After="#0" ValueType="VarInteger"/>
+    <Inherited Name="EdtRec" Class="HRBase.Rec.Data.StaffingUnit" IsLibrary="1" After="idxDataDate"/>
+    <Component Name="StaffingUnitData4Date" Class="HRBase.Rec.Data.StaffingUnitData" IsLibrary="1" After="EdtRec"/>
+    <Component Name="StaffingUnitDataTrans" Class="HRBase.Rec.Data.StaffingUnit_Data" IsLibrary="1"/>
+    <Inherited Name="TableMenu" After="StaffingUnitDataTrans"/>
+    <Inherited Name="Variables">
+      <Component Name="HistFromDate" Class="Com.Fld.IVar" Caption="Дата начала периода" OnChange="HistFromDate_OnChange" ValueType="VarDate"/>
+      <Component Name="HistToDate" Class="Com.Fld.IVar" Caption="Дата окончания периода" OnChange="HistToDate_OnChange" ValueType="VarDate"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False">
+          <Component Name="btnCreateStaffingUnitData" Class="Com.Ctrl.IButton" Caption="@Изменить вакансию" HasCaption="True" Hint="@Внесение изменений в штатный элемент" OnClick="btnCreateStaffingUnitData_OnClick"/>
+          <Component Name="btnChangeData" Class="Com.Ctrl.IButton" Excluded="True" Caption="@__Изменить" HasCaption="True" Hint="@Внесение изменений в штатный элемент" OnClick="btnChangeData_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame" Visible="False">
+        <Inherited Name="Group1" ByColumn="False">
+          <Inherited Name="Name" After="#0"/>
+          <Inherited Name="Code" After="Name" CaptionWidth="15" Width="15"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Visible="True">
+          <Component Name="FrameStaff" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="Name1" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" FontBold="True" HasCaption="True" Visible="False"/>
+              <Component Name="Code1" Class="Com.Ctrl.IEdit" CaptionWidth="15" Field="EdtRec.Code" HasCaption="True" Visible="False" Width="15"/>
+            </Component>
+            <Component Name="grFieldsMain" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="grCompany" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Company" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="EdtRec.Company" HasCaption="True" Hint="@Наименование предприятия" LookupField="Name" OnChange="Company_OnChange" Required="True" ShortList="True"/>
+                <Component Name="btnCompany" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Company"/>
+                <Component Name="Static1" Class="Com.Ctrl.IStatic" Width="7"/>
+                <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Locked" HasCaption="True" Width="15"/>
+              </Component>
+              <Component Name="grDivision" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Division" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" Field="EdtRec.Division" HasCaption="True" Hint="@Подразделение, для которого открывается вакансия" LookupField="Name" OnChange="Division_OnChange" OnOpenCardForm="НастроитьКартотекуПодразделения" Required="True"/>
+                <Component Name="btnDivision" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Division"/>
+                <Component Name="Static2" Class="Com.Ctrl.IStatic" Width="7"/>
+                <Component Name="ToTrans" Class="Com.Ctrl.ICheckBox" Field="EdtRec.ToTrans" HasCaption="True" Hint="@В установленном состоянии означает, что для данной вакансии будут созданы проводки по Кадровому учету и она будет учтена при составлении штатного расписания и формировании отчетов" OnChange="ToTrans_OnChange" Width="15"/>
+              </Component>
+              <Component Name="grPosition" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Position" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Ref.PositionsHR" Field="EdtRec.Position" HasCaption="True" Hint="@Наименование вакантной должности" LookupField="Name" OnChange="Position_OnChange" Required="True"/>
+                <Component Name="btnPosition" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Position" JumpForm="HRBase.Frm.Ref.PositionHR"/>
+                <Component Name="Static3" Class="Com.Ctrl.IStatic" Width="7"/>
+                <Component Name="Closed" Class="Com.Ctrl.ICheckBox" Caption="Завершена" Enabled="False" Field="EdtRec.Closed" HasCaption="True" Hint="@В установленном состоянии означает, что документ закрыт по кадровому учету" Width="15"/>
+              </Component>
+            </Component>
+            <Component Name="grDates" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="DateOpen" Class="Com.Ctrl.IEdit" Field="EdtRec.DateOpen" FormatOfDate="DateOnly" HasCaption="True" Hint="@Дата открытия вакансии " Required="True"/>
+              <Component Name="DateClosed" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.DateClosed" FormatOfDate="DateOnly" HasCaption="True" Hint="@Дата закрытия вакансии"/>
+              <Component Name="stEmpty" Class="Com.Ctrl.IStatic" Width="73"/>
+            </Component>
+            <Component Name="grFieldsMain2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="QtyUnit" Class="Com.Ctrl.IEdit" Caption="@Количество" Field="EdtRec.FirstQty" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@Количество единиц вакансии" OnVerify="QtyUnit_OnVerify" Required="True"/>
+              <Component Name="stEmpty1" Class="Com.Ctrl.IStatic" Width="73"/>
+            </Component>
+            <Component Name="grDataDate" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="DataDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Настройки на" CellFormat="EnumFormat" Field="idxDataDate" HasCaption="True" Hint="Показать настройки вакансии на дату" MaxWidth="35" OnChange="DataDate_OnChange" Required="True" ValueType="VarInteger" Width="35"/>
+              <Component Name="emptyStdd" Class="Com.Ctrl.IStatic" Width="150"/>
+              <Component Name="btChangeLastData" Class="Com.Ctrl.IButton" Hint="Редактировать последние настройки вакансии" ImageName="Com.clipboard-list" OnClick="btChangeLastData_OnClick"/>
+              <Component Name="btDeleteLastData" Class="Com.Ctrl.IButton" Hint="Удалить последние настройки вакансии" ImageName="Com.DeleteItem" OnClick="btDeleteLastData_OnClick"/>
+            </Component>
+          </Component>
+          <Component Name="TabsFrameStaff" Class="Com.Ctrl.IFrame" Orientation="WithTabs" ShowTabs="True">
+            <Component Name="MainTabStaff" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Параметры" HasCaption="True">
+              <Component Name="grDataBase" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="QtyUnit1" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Количество" Enabled="False" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@Количество единиц вакансии" MaxWidth="35" OnOutputEx="QtyUnit1_OnOutputEx"/>
+                <Component Name="stEmpty2" Class="Com.Ctrl.IStatic" Width="73"/>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="StaffingDataTab" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@История изменений" HasCaption="True">
+          <Component Name="StaffingDataHeaderFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="grStaffingDataHeader" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="edHistFromDate" Class="Com.Ctrl.IEdit" Caption="Дата начала" Field="HistFromDate" FormatOfDate="DateOnly" HasCaption="True" Hint="Показать изменения вакансии за период (дата начала периода)"/>
+              <Component Name="edHistToDate" Class="Com.Ctrl.IEdit" Caption="Дата окончания" Field="HistToDate" FormatOfDate="DateOnly" HasCaption="True" Hint="Показать изменения вакансии за период (дата окончания периода)"/>
+              <Component Name="StaffingDataUpdateBtn" Class="Com.Ctrl.IButton" Caption="@StaffingUnit:StaffingDataUpdateBtn=Обновить" HasCaption="True" ImageName="Com.Refresh" OnClick="StaffingDataUpdateBtn_OnClick"/>
+            </Component>
+          </Component>
+          <Component Name="StaffingDataTransFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="StaffingDataTransTable" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Subtable="EdtRec.StaffingUnitDataPeriodSub">
+              <Component Name="ChangeDate" Class="Com.Ctrl.IEdit" Enabled="False" Field="StaffingUnitDataTrans.ChangeDate" FormatOfDate="DateOnly" HasCaption="True" Width="25"/>
+              <Component Name="DataQtyUnit" Class="Com.Ctrl.IEdit" Enabled="False" Field="StaffingUnitDataTrans.QtyUnit" FieldFormat=",##0.00;;-" HasCaption="True" Width="15"/>
+              <Component Name="DataDateClosed" Class="Com.Ctrl.IEdit" Enabled="False" Field="StaffingUnitDataTrans.DateClosed" FormatOfDate="DateOnly" HasCaption="True" Width="25"/>
+              <Component Name="UpdateUser" Class="Com.Ctrl.IEdit" Enabled="False" Field="StaffingUnitDataTrans.UpdateUser" HasCaption="True" Width="20"/>
+              <Component Name="UpdateDate" Class="Com.Ctrl.IEdit" Enabled="False" Field="StaffingUnitDataTrans.UpdateDate" FormatOfDate="DateAndTime" HasCaption="True" Width="40"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

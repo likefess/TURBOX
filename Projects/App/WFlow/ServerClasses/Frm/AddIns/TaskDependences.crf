@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="WFlow.Frm.AddIns.BaseTask">
+  <Inherited Caption="@Task:Dependencies=Зависимости">
+    <Inherited Name="RootFrame" AutoSize="True" Margins="4" MinSize="60">
+      <Component Name="CaptionFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True">
+          <Component Name="Static3" Class="Com.Ctrl.IStatic" Caption="@Task:PrevTasks=Задачи, от которых зависит данная задача" FontSize="14"/>
+        </Component>
+      </Component>
+      <Component Name="TableFrame" Class="Com.Ctrl.IFrame">
+        <Component Name="DependencesTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="EdtRec.Dependences">
+          <Component Name="Task_Dependences" Class="Control.Rec.Data.Task_Dependences" IsLibrary="1"/>
+          <Component Name="PreviousTaskEdit" Class="Com.Ctrl.IEdit" Caption="@Task:PrevTaskName=Название" CardFileClass="Control.Tab.Data.Task" Field="Task_Dependences.PreviousTask"/>
+          <Component Name="PrevTaskStateEdit" Class="Com.Ctrl.IEdit" Caption="@Task:PrevTaskState=Состояние" CardFileClass="Control.Tab.Ref.TaskStatus" Enabled="False" Field="Task_Dependences.PrevTaskState" FixSize="True" LookupField="Name" Width="40"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

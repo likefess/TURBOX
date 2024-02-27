@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="Company" Class="Com.Fld.IVar" OnChange="CompanyOnChange" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="ModelCode" Class="Com.Fld.IVar" OnChange="ModelCodeOnChange" RecordClass="EquipmentRegistry.Rec.Ref.Equipment.ClassesRec" ValueType="VarObject"/>
+      <Component Name="UnitCode" Class="Com.Fld.IVar" RecordClass="EquipmentRegistry.Rec.Eqm.EquipmentRec" ValueType="VarObject"/>
+      <Component Name="Position" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Ref.EntityRole" ValueType="VarObject"/>
+      <Component Name="Executor" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="DocType" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="DocCode" Class="Com.Fld.IVar" OnChange="DocCodeOnChange" ValueType="VarObject"/>
+      <Component Name="DocStatus" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="AllExecs" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="GroupPos" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="BegDate" Class="Com.Fld.IVar" OnChange="BegDate_OnChange" ValueType="VarDate"/>
+      <Component Name="PeriodBeg" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="EndDate" Class="Com.Fld.IVar" OnChange="EndDate_OnChange" ValueType="VarDate"/>
+      <Component Name="PeriodEnd" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="Period" Class="Com.Fld.IVar" OnChange="Period_OnChange" ValueType="VarInteger"/>
+      <Component Name="PeriodSel" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="vSubtable" Class="Com.ISubtable" StructClass="EquipmentRegistry.Frm.Services.BlanksRep.ExecutorWorkloadLines"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="3">
+        <Inherited Name="ButtonOK" Visible="False"/>
+        <Component Name="btnFilter" Class="Com.Ctrl.IButton" After="ButtonOK" Hint="@Update=Обновить" ImageName="Com.Refresh" OnClick="btnFilterClick"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" Margins="0">
+        <Component Name="FilterBox" Class="Com.Ctrl.IBox" Caption="@Filter=Фильтр" Collapsed="True" HasCaption="True">
+          <Component Name="DateFrame" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+          <Component Name="ParamFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="ParamGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="ParamLGr" Class="Com.Ctrl.IGroup" ByColumn="True">
+                <Component Name="edCompanyGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="edCompany" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="Company" HasCaption="True" LookupField="Name" ShortList="True" Wrap="False"/>
+                  <Component Name="edCompanyJB" Class="Com.Ctrl.IJumpButton" Field="Company" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="edModelCodeGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="edModelCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Equipment.ClassesTab" CellFormat="ReferenceFormat" Field="ModelCode" HasCaption="True" LookupField="Name" Wrap="False"/>
+                  <Component Name="edModelCodeJB" Class="Com.Ctrl.IJumpButton" Field="ModelCode" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="edPosCodeGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="edPosCode" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.Positions" CellFormat="ReferenceFormat" Field="Position" HasCaption="True" LookupField="Name" Wrap="False"/>
+                  <Component Name="edPosCodeJB" Class="Com.Ctrl.IJumpButton" Field="Position" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="edDocTypeGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="edDocType" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="EnumFormat" Field="DocType" FixSize="True" HasCaption="False" OnChange="DocTypeOnChange" Width="40" Wrap="False"/>
+                  <Component Name="edDocCode" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="DocCode" HasCaption="False" LookupField="Name" Wrap="False"/>
+                  <Component Name="edDocCodeJB" Class="Com.Ctrl.IJumpButton" Field="DocCode" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="cbAllExecsGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="cbAllExecsCaption" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                  <Component Name="cbAllExecs" Class="Com.Ctrl.ICheckBox" Caption="@All executors=Все исполнители" Field="AllExecs" HasCaption="True"/>
+                  <Component Name="cbAllExecsJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+              </Component>
+              <Component Name="ParamRGr" Class="Com.Ctrl.IGroup" ByColumn="True">
+                <Component Name="EmptyStatic1" Class="Com.Ctrl.IStatic"/>
+                <Component Name="edUnitCodeGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="edUnitCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Eqm.EquipmentTab" CellFormat="ReferenceFormat" Field="UnitCode" HasCaption="True" LookupField="Name" Wrap="False"/>
+                  <Component Name="edUnitCodeJB" Class="Com.Ctrl.IJumpButton" Field="UnitCode" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="edExecutorGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="edExecutor" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Employees" CellFormat="ReferenceFormat" Field="Executor" HasCaption="True" LookupField="Name" Wrap="False"/>
+                  <Component Name="edExecutorJB" Class="Com.Ctrl.IJumpButton" Field="Executor" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="edDocStatusGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="edDocStatus" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="DocStatus" HasCaption="True" Wrap="False"/>
+                  <Component Name="edDocStatusJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="cbGroupPosGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="cbGroupPosCaption" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                  <Component Name="cbGroupPos" Class="Com.Ctrl.ICheckBox" Caption="@Group by position=Группировать по должности" Field="GroupPos" HasCaption="True"/>
+                  <Component Name="cbGroupPosJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="DataFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="5">
+          <Component Name="LinesTable" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Freezed="True" Numbering="True" Subtable="vSubtable">
+            <Component Name="vStruct" Class="EquipmentRegistry.Frm.Services.BlanksRep.ExecutorWorkloadLines" IsLibrary="1"/>
+            <Component Name="ExecutorGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtExecutor" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Employees" CellFormat="ReferenceFormat" Enabled="False" Field="vStruct.Executor" FixSize="True" HasCaption="False" LookupField="Name" Width="60"/>
+              <Component Name="sbtExecutorJB" Class="Com.Ctrl.IJumpButton" Field="vStruct.Executor" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtSelect" Class="Com.Ctrl.ICheckBox" Field="vStruct.aSelect" FixSize="True" HasCaption="True" Hint="@Select for transfer=Выбор для переноса" OnChange="sbtSelect_OnChange" Visible="False" Width="7"/>
+            <Component Name="PlanGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="OrdCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Journals.Orders" CellFormat="ReferenceFormat" Enabled="False" Field="vStruct.OrdCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+              <Component Name="OrdCodeJB" Class="Com.Ctrl.IJumpButton" Field="vStruct.OrdCode" FixSize="True" HasCaption="False" Width="7.2"/>
+              <Component Name="PlanBeg" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Enabled="False" Field="vStruct.PlanEnd" FixSize="True" FormatOfDate="DateOnly" HasCaption="False" Width="30"/>
+              <Component Name="PlanEnd" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Enabled="False" Field="vStruct.PlanBeg" FixSize="True" FormatOfDate="DateOnly" HasCaption="False" Width="30"/>
+            </Component>
+            <Component Name="FactGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="AccCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Journals.Accepting" CellFormat="ReferenceFormat" Enabled="False" Field="vStruct.AccCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+              <Component Name="AccCodeJB" Class="Com.Ctrl.IJumpButton" Field="vStruct.AccCode" FixSize="True" HasCaption="False" Width="7.2"/>
+              <Component Name="FactBeg" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Enabled="False" Field="vStruct.FactBeg" FixSize="True" FormatOfDate="DateOnly" HasCaption="False" Width="30"/>
+              <Component Name="FactEnd" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Enabled="False" Field="vStruct.FactEnd" FixSize="True" FormatOfDate="DateOnly" HasCaption="False" Width="30"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IMenu">
+  <Inherited Caption="РМ ответственного за контроль технического состояния">
+    <Inherited Name="MainGroup" Orientation="Vertical">
+      <Component Name="Group1" Class="Com.Cmd2.IGroup">
+        <Component Name="Group2" Class="Com.Cmd2.IGroup" Caption="НСИ" Columns="3" Orientation="Vertical" Rows="2">
+          <Component Name="Реестр_оборудования" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_EqmRegistry"/>
+          <Component Name="Классификатор" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_EqmClasses"/>
+          <Component Name="Технические_места" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_EqmLocations"/>
+          <Component Name="Виды_наработки" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_AttOperat"/>
+          <Component Name="Параметры_оборудования" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_AttParams"/>
+        </Component>
+        <Component Name="Group3" Class="Com.Cmd2.IGroup" Caption="Журналы" Columns="3" Orientation="Horizontal" Rows="2">
+          <Component Name="Регистрация_наработки" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_OperTime"/>
+          <Component Name="Регистрация_параметров" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_Parameters"/>
+          <Component Name="Журнал_дефектов" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_RegDefects"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

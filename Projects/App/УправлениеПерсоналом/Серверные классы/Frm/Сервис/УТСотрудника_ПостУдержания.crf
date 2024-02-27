@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Основные данные.Изменение удержаний">
+    <Inherited Name="EdtRec" Class="HRBase.Rec.Data.EmployeePlace" IsLibrary="1"/>
+    <Component Name="ПостУдержания" Class="УправлениеПерсоналом.Rec.Данные.УсловияТрудаСотрудника_ПостУдержания" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonClone" Excluded="True" Visible="False"/>
+        <Inherited Name="ButtonDelete" Excluded="True" Visible="False"/>
+        <Inherited Name="ButtonRefresh" Excluded="True" Visible="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="грСотрудник" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Сотрудник" Class="Com.Ctrl.IEdit" Caption="Сотрудник" Enabled="False" Field="EdtRec.Person" HasCaption="True" LookupField="Name"/>
+          <Component Name="ТабНомер" Class="Com.Ctrl.IEdit" Caption="Таб. номер " Enabled="False" Field="EdtRec.EmplNumber" HasCaption="True" LookupField="ТабНомер" Width="25"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="Постоянные удержания">
+          <Component Name="тблПостУдержания" Class="Com.Ctrl.ITable" Numbering="False" Subtable="EdtRec.ПостУдержания">
+            <Component Name="грПостУдПериод" Class="Com.Ctrl.IColumnsGroup" Caption="@Период действия" HasCaption="True">
+              <Component Name="ПостУдДатаНачала" Class="Com.Ctrl.IEdit" Caption="@с" Enabled="True" Field="ПостУдержания.ДатаНачала" HasCaption="True" OnChange="ПостУдержание_OnChange" OnVerify="ПостУдДатаНачала_OnVerify" Width="30"/>
+              <Component Name="ПостУдДатаОкончания" Class="Com.Ctrl.IEdit" Caption="@по" Enabled="True" Field="ПостУдержания.ДатаОкончания" HasCaption="True" OnChange="ПостУдержание_OnChange" OnVerify="ПостУдДатаОкончания_OnVerify" Width="30"/>
+            </Component>
+            <Component Name="грПостУдВид" Class="Com.Ctrl.IColumnsGroup" Caption="Вид удержания" HasCaption="True">
+              <Component Name="ПостУдНаименование" Class="Com.Ctrl.IEdit" Caption="@наименование" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыУдержаний" Enabled="True" Field="ПостУдержания.Наименование" HasCaption="True" LookupField="Name" Multiline="True" OnChange="ПостУдержание_OnChange" Width="60" Wrap="True"/>
+              <Component Name="ПостУдНаименованиеКод" Class="Com.Ctrl.IEdit" Caption="@код" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыУдержаний" Enabled="True" Field="ПостУдержания.Наименование" HasCaption="True" LookupField="Код" OnChange="ПостУдержание_OnChange" Width="20"/>
+              <Component Name="кнПостУдНаименование" Class="Com.Ctrl.IJumpButton" Field="ПостУдержания.Наименование" JumpForm="УправлениеПерсоналом.Frm.Справочники.ВидУдержаний"/>
+            </Component>
+            <Component Name="ПостУдОчередность" Class="Com.Ctrl.IEdit" Caption="Очередность" CellFormat="EnumFormat" Field="ПостУдержания.Очередность" HasCaption="True" Hint="Очередность в соответствии с ч.1 ст.111 229-ФЗ" OnChange="ПостУдержание_OnChange" Width="25"/>
+            <Component Name="грПостУдЗначения" Class="Com.Ctrl.IColumnsGroup" Caption="@Значения" HasCaption="True">
+              <Component Name="ПостУдСтавка" Class="Com.Ctrl.IEdit" Caption="@ставка" Enabled="True" Field="ПостУдержания.Ставка" FieldFormat="0.00%;;-" HasCaption="True" OnChange="ПостУдержание_OnChange" Width="20"/>
+              <Component Name="ПостУдСумма" Class="Com.Ctrl.IEdit" Caption="@сумма (руб.)" Enabled="True" Field="ПостУдержания.Сумма" FieldFormat=",##0.00;;-" HasCaption="True" OnChange="ПостУдержание_OnChange" Width="30"/>
+              <Component Name="ПостУдМаксСумма" Class="Com.Ctrl.IEdit" Caption="@макс. сумма" Enabled="True" Field="ПостУдержания.МаксСумма" FieldFormat=",##0.00;;-" HasCaption="True" OnChange="ПостУдержание_OnChange" Width="30"/>
+            </Component>
+            <Component Name="ПостУдУсловиеРасчета" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Условие попадания в расчет" CellFormat="EnumFormat" Enabled="True" Field="ПостУдержания.УсловиеРасчета" HasCaption="True" Multiline="True" OnChange="ПостУдержание_OnChange" Width="80" Wrap="True"/>
+            <Component Name="ПостУдUpdateDate" Class="Com.Ctrl.IEdit" Caption="Дата изменения" Enabled="False" Field="ПостУдержания.UpdateDate" HasCaption="True" Hint="Дата изменения удержания" MaxWidth="25" Width="25"/>
+            <Component Name="ПостУдUpdateUser" Class="Com.Ctrl.IEdit" Caption="Изменил" Enabled="False" Field="ПостУдержания.UpdateUser" HasCaption="True" Hint="Кем изменено удержание" MaxWidth="25" Width="25"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

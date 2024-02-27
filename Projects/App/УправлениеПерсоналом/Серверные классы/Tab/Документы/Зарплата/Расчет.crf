@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Tab.Базовая.БазовыйДокумент">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Расчет Зарплаты.Расчет начислений.Расчет ЗП">
+    <Inherited Name="Current" Class="УправлениеПерсоналом.Rec.Документы.Зарплата.Расчет" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="Учитывать" Class="Com.Ctrl.IEdit" After="ExtId" Caption="Учитывать" Field="Current.Проводить" HasCaption="True" Width="15"/>
+          <Component Name="Подразделение" Class="Com.Ctrl.IEdit" After="Предприятие" Caption="Подразделение" CardFileClass="Bas.Tab.Data.Entity" Field="Current.Подразделение" HasCaption="True" LookupField="Name" LookupFilter="IsDivision"/>
+          <Component Name="Период" Class="Com.Ctrl.IEdit" After="Дата" Caption="Расчетный период" CardFileClass="Biz.Tab.Ref.Period" Field="Current.ПериодРасчета" LookupField="Name" LookupFilter="IsGroup = 0" Width="25"/>
+          <Component Name="Вид" Class="Com.Ctrl.IEdit" Caption="Вид расчета" CellFormat="EnumFormat" Field="Current.Вид" HasCaption="True" Width="25"/>
+          <Component Name="ВидПромРасчета" Class="Com.Ctrl.IEdit" Caption="Вид пром. расчета " CellFormat="EnumFormat" Field="Current.ВидПромРасчета" HasCaption="True" Width="25"/>
+          <Component Name="Статус" Class="Com.Ctrl.IEdit" Caption="Статус" CellFormat="EnumFormat" Field="Current.Статус" HasCaption="True" Width="25"/>
+          <Component Name="ДатаВыплаты" Class="Com.Ctrl.IEdit" Caption="Дата выплаты" Field="Current.ДатаВыплаты" HasCaption="True" Hint="Дата выдачи" Width="30"/>
+          <Component Name="Корректировка" Class="Com.Ctrl.IEdit" Caption="Корректировка" Field="Current.Корректировка" HasCaption="True" Hint="Корректировка расчета" Width="15"/>
+          <Component Name="КоррРасчет" Class="Com.Ctrl.IEdit" Caption="Корр. расчет" CardFileClass="УправлениеПерсоналом.Tab.Документы.Зарплата.Расчет" Field="Current.КоррРасчет" HasCaption="True" Hint="Корректируемый расчет" LookupField="Номер" Width="25"/>
+          <Component Name="Скорректирован" Class="Com.Ctrl.IEdit" Caption="Скорректирован" Field="Current.Скорректирован" HasCaption="True" Hint="Расчет скорректирован" Width="15"/>
+          <Component Name="Примечание" Class="Com.Ctrl.IEdit" Field="Current.Примечание" HasCaption="True" Width="40"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

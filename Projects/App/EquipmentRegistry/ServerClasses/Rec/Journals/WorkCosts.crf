@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Rec.Base.BaseJournalRec">
+  <Inherited>
+    <Component Name="AccPeriodBeg" Class="Com.Fld.IField" After="#0" FieldName="AccPeriodBeg" ValueType="VarDate"/>
+    <Component Name="AccPeriodEnd" Class="Com.Fld.IField" FieldName="AccPeriodEnd" ValueType="VarDate"/>
+    <Component Name="AccMonth" Class="Com.Fld.IVar" OnCalc="AccMonthOnClac" ValueType="VarInteger"/>
+    <Component Name="AccYear" Class="Com.Fld.IVar" OnCalc="AccYearOnClac" ValueType="VarInteger"/>
+    <Component Name="sbtAcceptings" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Journals.WorkCostsAcceptings" SubtableName="AcceptingList"/>
+    <Component Name="sbtWorks" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Journals.WorkCostsWorks" SubtableName="WorkList"/>
+    <Component Name="sbtSpareParts" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Journals.WorkCostsSpareParts" SubtableName="SparePartsList"/>
+    <Component Name="sbtFinances" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Journals.WorkCostsFinances" SubtableName="FinanceList"/>
+  </Inherited>
+</Resource>

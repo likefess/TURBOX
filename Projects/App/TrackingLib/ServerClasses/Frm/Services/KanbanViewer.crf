@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rep.Viewer">
+  <Inherited>
+    <Component Name="EdtRec" Class="Control.Rec.Data.Task" IsLibrary="1" After="#0"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="SettingsFrame">
+        <Inherited Name="ParamFrame" Visible="True"/>
+        <Component Name="NewParamFrame" Class="Com.Ctrl.IFrame" HasCaption="False" Visible="False">
+          <Component Name="Horizontal" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="ProjectFrame" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="True" MaxWidth="80">
+              <Component Name="ProjectCaption" Class="Com.Ctrl.IStatic" Caption="Проект" MaxWidth="20" Visible="True"/>
+              <Component Name="ProjectEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" ButtonStyle="LookupButton" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Field="EdtRec.Project" HasButton="True" HasCaption="False" LookupField="Name" MaxWidth="60" Multiline="False" OnChange="ProjectEditOnChange" ValueType="VarObject" Visible="True"/>
+            </Component>
+            <Component Name="Empty" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="True" FixSize="True" Width="10">
+              <Component Name="Static4" Class="Com.Ctrl.IStatic" FixSize="True" Width="10"/>
+              <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="10"/>
+            </Component>
+            <Component Name="LeftButton" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="True" FixSize="True" Width="7">
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption="ㅤ" FixSize="True" StaticStyle="NormalText" Visible="True" Width="7"/>
+              <Component Name="ButtonPrevSprint" Class="Com.Ctrl.IButton" Enabled="True" ImageName="Com.chevron-left"/>
+            </Component>
+            <Component Name="Sprint" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="True" FixSize="True" MaxWidth="80" MinWidth="80" Width="80">
+              <Component Name="SprintCaption" Class="Com.Ctrl.IStatic" Caption="Спринт" FixSize="True" Visible="True" Width="20"/>
+              <Component Name="SprintEdit" Class="Com.Ctrl.IEdit" FixSize="True" Width="80"/>
+            </Component>
+            <Component Name="RightButton" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="True" FixSize="True" Width="7">
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" Caption="ㅤ" FixSize="True" StaticStyle="NormalText" Visible="True" Width="7"/>
+              <Component Name="ButtonNextSprint" Class="Com.Ctrl.IButton" Enabled="True" ImageName="Com.chevron-right"/>
+            </Component>
+            <Component Name="Empty1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="Static5" Class="Com.Ctrl.IStatic" MinWidth="50"/>
+              <Component Name="Static6" Class="Com.Ctrl.IStatic" MinWidth="50"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="ChartFrame" Visible="False"/>
+        <Inherited Name="WebChartFrame" Visible="False"/>
+        <Inherited Name="PictureFrame" Visible="False"/>
+        <Component Name="KanbanFrame" Class="Com.Ctrl.IFrame" Margins="4"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

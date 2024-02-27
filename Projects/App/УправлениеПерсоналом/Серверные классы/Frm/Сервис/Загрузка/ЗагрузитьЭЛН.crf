@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Сервис.Загрузка.ЗагрузкаXML">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Листы нетрудоспособности.Сервис.Закрузить ЭЛН">
+    <Component Name="vDefPos" Class="УправлениеПерсоналом.Frm.Сервис.Загрузка.ДокументЭЛН" IsLibrary="1" After="#0"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="фреймПараметры">
+        <Inherited Name="грПредп">
+          <Inherited Name="стНашеПредприятие" Hint="Наименование нашего предприятия, по сотрудникам которого планируется произвести загрузку ЭЛН" OnChange="стНашеПредприятие_OnChange"/>
+        </Inherited>
+      </Inherited>
+      <Component Name="TabsFrame" Class="Com.Ctrl.IFrame" AutoSize="False" Orientation="WithTabs" ShowTabs="True" Visible="True">
+        <Component Name="TabFrame" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" Numbering="False" Sortable="True" Subtable="tabList">
+          <Component Name="СформироватьКарточку" Class="Com.Ctrl.ICheckBox" Caption="Сформировать БЛ" Field="vDefPos.List_Selected" Hint="Загрузить Больничный лист" OnVerify="ПолеЗагрузить_ПриПроверке" Width="13"/>
+          <Component Name="vFileName" Class="Com.Ctrl.IEdit" Caption="Имя файла" Enabled="False" Field="vDefPos.List_FileName" Width="80" Wrap="True"/>
+          <Component Name="кнФайл" Class="Com.Ctrl.IButton" ImageName="Com.Blank" OnClick="кнФайлОткрыть"/>
+          <Component Name="грСотрудник" Class="Com.Ctrl.IColumnsGroup" Caption="Сотрудник" HasCaption="True">
+            <Component Name="Фамилия" Class="Com.Ctrl.IEdit" Caption="Фамилия" Enabled="False" Field="vDefPos.Фамилия" Hint="Застрахованное лицо: Фамилия" Width="35" Wrap="True"/>
+            <Component Name="Имя" Class="Com.Ctrl.IEdit" Caption="Имя" Enabled="False" Field="vDefPos.Имя" Hint="Застрахованное лицо: Имя" Width="35" Wrap="True"/>
+            <Component Name="Отчество" Class="Com.Ctrl.IEdit" Caption="Отчество" Enabled="False" Field="vDefPos.Отчество" Hint="Застрахованное лицо: Отчество" Width="35" Wrap="True"/>
+            <Component Name="СНИЛС" Class="Com.Ctrl.IEdit" Caption="СНИЛС" Enabled="False" Field="vDefPos.СНИЛС" Hint="Застрахованное лицо: СНИЛС" Width="35" Wrap="True"/>
+            <Component Name="ТабНомер" Class="Com.Ctrl.IEdit" Caption="Таб. номер" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Field="vDefPos.Сотрудник" Hint="Табельный номер сотрудника" LookupField="EmplNumber" OnOpenCardForm="ТабНомер_OnOpenCardForm" Width="25" Wrap="True"/>
+          </Component>
+          <Component Name="НомерЛН" Class="Com.Ctrl.IEdit" Caption="Номер ЛН" Enabled="False" Field="vDefPos.НомерЛН" Hint="Номер листка нетрудоспособности" Width="30" Wrap="True"/>
+          <Component Name="ДатаВыдачи" Class="Com.Ctrl.IEdit" Caption="Дата выдачи" Enabled="False" Field="vDefPos.ДатаЛН" FormatOfDate="DateOnly" Hint="Листок нетрудоспособности: Дата выдачи" Width="25"/>
+          <Component Name="Продолжение" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Продолжение" Enabled="False" Field="vDefPos.Продолжение" Hint="Является ли данный листок нетрудоспособности продолжением предыдущего ЛН" Width="15"/>
+          <Component Name="ПервичныйЛН" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Первичный ЛН" Enabled="False" Field="vDefPos.ПервичныйЛН" Hint="Номер предыдущего ЛН. Наименование поля на бланке ЛН: «Продолжение листка нетрудоспособности №»" Width="30" Wrap="True"/>
+          <Component Name="ПредыдущийРасчет" Class="Com.Ctrl.IEdit" Caption="Предыдущий расчет" CardFileClass="УправлениеПерсоналом.Tab.Документы.Кадры.БольничныйЛист" Field="vDefPos.ПервичныйБЛ" Hint="Запись первичного больничного листа" LookupField="Номер" OnOpenCardForm="ПредыдущийРасчет_OnOpenCardForm" Width="30" Wrap="True"/>
+          <Component Name="Причина" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Причина" Field="vDefPos.Причина" Hint="Листок нетрудоспособности: Причина нетрудоспособности" Width="12"/>
+          <Component Name="ДопКод" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Доп.код" Enabled="False" Field="vDefPos.ДопКод" Hint="Листок нетрудоспособности: дополнительный код п.10" Width="12"/>
+          <Component Name="УслОбозн" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Усл. обозн." CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловныеОбозначения" Field="vDefPos.УслОбозн" Hint="Листок нетрудоспособности: Усл. обозначение" LookupField="Code" Width="11"/>
+          <Component Name="ВидОтпуска" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Вид отпуска" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыОтпусков" Field="vDefPos.ТипОтпуска" LookupField="Код" Width="20"/>
+          <Component Name="грПериодНетруд" Class="Com.Ctrl.IColumnsGroup" Caption="Период нетрудоспособности" HasCaption="True">
+            <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Caption="с" Enabled="False" Field="vDefPos.ДатаНачала" Hint="Дата начала периода нетрудоспособности" Width="25"/>
+            <Component Name="ДатаОкончания" Class="Com.Ctrl.IEdit" Caption="по" Enabled="False" Field="vDefPos.ДатаОкончания" Hint="Дата окончания периода нетрудоспособности" Width="25"/>
+          </Component>
+          <Component Name="БЛ" Class="Com.Ctrl.IEdit" Caption="Больничный лист" CardFileClass="УправлениеПерсоналом.Tab.Документы.Кадры.БольничныйЛист" Enabled="False" Field="vDefPos.БольничныйЛист" Hint="Cистемный документ Больничный лист, созданный в программе" LookupField="Номер" OnOutput="ПолеБольничныйЛист_ПриВыводе" Width="45" Wrap="True"/>
+          <Component Name="кнБЛ" Class="Com.Ctrl.IJumpButton" Field="vDefPos.БольничныйЛист" ImageName="Com.angle-right" JumpForm="УправлениеПерсоналом.Frm.Документы.Кадры.БольничныйЛист"/>
+          <Component Name="кнБЛДанные" Class="Com.Ctrl.IButton" Excluded="True" ImageName="Com.angle-right" OnClick="кнБЛДанные_OnClick"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

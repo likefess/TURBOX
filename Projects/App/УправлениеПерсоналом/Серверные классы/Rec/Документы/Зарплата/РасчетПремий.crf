@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Rec.Базовая.БазовыйДокументГруп">
+  <Inherited>
+    <Inherited Name="Позиции" OnAfterDelete="Позиции_OnAfterDelete" StructClass="УправлениеПерсоналом.Rec.Документы.Зарплата.РасчетПремий_Позиции"/>
+    <Inherited Name="ПозицииКорр" StructClass="УправлениеПерсоналом.Rec.Документы.Зарплата.РасчетПремий_ПозицииКорр"/>
+    <Component Name="ПозицииИтоги" Class="Com.ISubtable" After="ПозицииКорр" StructClass="УправлениеПерсоналом.Rec.Документы.Зарплата.РасчетПремий_ПозицииИтоги"/>
+    <Component Name="Скорректирован" Class="Com.Fld.IField" After="ППРСумма" FieldName="Скорректирован" Visible="True"/>
+    <Component Name="Начисление" Class="Com.Fld.IField" FieldName="Начисление" OnChange="Начисление_OnChange"/>
+    <Component Name="КоррРасчет" Class="Com.Fld.IField" FieldName="КоррРасчет" OnChange="КоррРасчет_OnChange" OnVerify="КоррРасчет_OnVerify"/>
+    <Component Name="Период" Class="Com.Fld.IField" FieldName="Период" OnChange="Период_OnChange"/>
+    <Component Name="Приказ" Class="Com.Fld.IField" FieldName="Приказ"/>
+    <Component Name="ПериодПремии" Class="Com.Fld.IField" FieldName="ПериодПремии"/>
+    <Component Name="Корректировка" Class="Com.Fld.IField" FieldName="Корректировка" ValueType="VarLogical"/>
+    <Component Name="ТипКонтрагента" Class="Com.Fld.IField" FieldName="ТипКонтрагента"/>
+    <Component Name="Подразделение" Class="Com.Fld.IField" FieldName="Подразделение" OnChange="Подразделение_OnChange"/>
+    <Component Name="ТипДокумента" Class="Com.Fld.IField" FieldName="ТипДокумента"/>
+    <Component Name="Проводить" Class="Com.Fld.IField" FieldName="Проводить"/>
+    <Component Name="ЗаголовокПоля1" Class="Com.Fld.IField" FieldName="ЗаголовокПоля1"/>
+    <Component Name="ЗаголовокПоля2" Class="Com.Fld.IField" FieldName="ЗаголовокПоля2"/>
+    <Component Name="ЗаголовокПоля3" Class="Com.Fld.IField" FieldName="ЗаголовокПоля3"/>
+    <Component Name="Показатель1_ЕдИзм" Class="Com.Fld.IField" FieldName="Показатель1_ЕдИзм"/>
+    <Component Name="СуммаПремий" Class="Com.Fld.IVar" Excluded="True" OnChange="СуммаПремий_OnChange" ValueType="VarNumeric"/>
+  </Inherited>
+</Resource>

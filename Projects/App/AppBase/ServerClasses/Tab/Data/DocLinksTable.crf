@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.SysFields">
+  <Inherited>
+    <Inherited Name="Current" Class="AppBase.Rec.Data.DocLinksTable" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="CardFile" CanDelete="False" CanEdit="False" CanInsert="False" CanMove="False" OnOpenBlank="CardFile_OnOpenBlank"/>
+          <Component Name="edReceiverProject" Class="Com.Ctrl.IEdit" Caption="@DocLinksSetup:ReceiverProject=Решение" Field="Current.ReceiverProject" HasCaption="True" OnOutputEx="edReceiverProject_OnOutputEx" Width="45"/>
+          <Component Name="edReceiverTable" Class="Com.Ctrl.IEdit" Caption="@DocLinksSetup:ReceiverTable=Тип документа" Field="Current.ReceiverTable" HasCaption="True" OnOutputEx="edReceiverTable_OnOutputEx" Width="45"/>
+          <Component Name="edReceiverRecord" Class="Com.Ctrl.IEdit" Caption="@DocLinksSetup:ReceiverRecord=Документ" Field="Current.ReceiverRecName" HasCaption="True" Width="45"/>
+          <Component Name="edReceiverAccounted" Class="Com.Ctrl.IEdit" Caption="@DocLinksSetup:Accounted=Проведен" Field="Current.ReceiverRecAcc" HasCaption="True" Width="25"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

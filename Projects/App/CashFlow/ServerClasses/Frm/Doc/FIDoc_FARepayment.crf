@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CashFlow.Frm.Doc.FIDoc_FIReceipt">
+  <Inherited HelpContext="CashFlow.Движение денежных средств.Финансовые инструменты.Документы.Погашение (реализация) финансового актива">
+    <Inherited Name="FRecord" Class="CashFlow.Rec.Doc.FIDoc_FARepayment" IsLibrary="1"/>
+    <Inherited Name="FIDoc_Positions" Class="CashFlow.Rec.Doc.FIDoc_FARepayment_Positions" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="GeneralBox">
+            <Inherited Name="Group9">
+              <Inherited Name="Group9Left">
+                <Component Name="SalesAccount" Class="Com.Ctrl.IEditEx" Field="FRecord.SalesAccount" HasCaption="True">
+                  <Component Name="SalesAccountBtn" Class="Com.Ctrl.IButton" ImageName="Biz.id-card-light" OnClick="SalesAccountBtn_OnClick"/>
+                </Component>
+              </Inherited>
+              <Inherited Name="Group9Right">
+                <Component Name="ContrapartyAccount" Class="Com.Ctrl.IEditEx" Field="FRecord.ContrapartyAccount" HasCaption="True">
+                  <Component Name="ContrapartyAccountBtn" Class="Com.Ctrl.IButton" ImageName="Biz.id-card-light" OnClick="ContrapartyAccountBtn_OnClick"/>
+                </Component>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="PositionsBox">
+            <Inherited Name="PositionsTable">
+              <Inherited Name="Price" Caption="@FIDoc_RepaymFA:Price=Цена погашения"/>
+              <Inherited Name="Amount" Caption="@FIDoc_RepaymFA:Amount=Сумма погашения"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

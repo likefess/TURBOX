@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    </Component>
+    <Component Name="EdtRec" Class="TrackingCore.Rec.Ref.BusinessProcess" IsLibrary="1"/>
+    <Component Name="TableMenu" Class="Com.Ctrl.IPopupMenu" Excluded="True">
+      <Component Name="cmdCloseForm" Class="Com.Cmd2.IItem" Command="Commands.CloseForm"/>
+      <Component Name="TableSeparator1" Class="Com.Cmd2.ISeparator"/>
+      <Component Name="cmdCopyValue" Class="Com.Cmd2.IItem" Command="Commands.CopyValue"/>
+      <Component Name="cmdCutValue" Class="Com.Cmd2.IItem" Command="Commands.CutValue"/>
+      <Component Name="cmdPasteValue" Class="Com.Cmd2.IItem" Command="Commands.PasteValue"/>
+      <Component Name="cmdDeleteValue" Class="Com.Cmd2.IItem" Command="Commands.DeleteValue"/>
+      <Component Name="TableSeparator2" Class="Com.Cmd2.ISeparator"/>
+      <Component Name="cmdInsertRow" Class="Com.Cmd2.IItem" Command="Commands.InsertRow"/>
+      <Component Name="cmdDeleteRow" Class="Com.Cmd2.IItem" Command="Commands.DeleteRow"/>
+      <Component Name="cmdRowUp" Class="Com.Cmd2.IItem" Command="Commands.RowUp"/>
+      <Component Name="cmdRowDown" Class="Com.Cmd2.IItem" Command="Commands.RowDown"/>
+      <Component Name="TableSeparator3" Class="Com.Cmd2.ISeparator"/>
+      <Component Name="cmdDesignMode" Class="Com.Cmd2.IItem" Command="Commands.DesignMode"/>
+    </Component>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="UseForAllCategories" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="ChoseAllCategories" Class="Com.Fld.IVar" Excluded="True" ValueType="VarLogical"/>
+      <Component Name="VarBP" Class="Com.Fld.IVar" OnVerify="VarBPOnVerify" ValueType="VarString"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" Caption="Добавить бизнес-процесс" PrimaryButton="NextButton" SecondaryButton="CloseButton" Visible="True">
+        <Component Name="ButtonBack" Class="Com.Ctrl.IButton" Fashion="Fashions.TertiaryButton" ImageName="Com.Back" ImageSize="15" OnClick="BackStaticOnClick" Visible="False"/>
+        <Component Name="CloseButton" Class="Com.Ctrl.IButton" Caption="Отмена" Fashion="Fashions.SecondaryButton" OnClick="CloseButtonOnClick" Width="30"/>
+        <Component Name="NextButton" Class="Com.Ctrl.IButton" Caption="@TrackingCore:Next=Далее" Fashion="Fashions.PrimaryButton" OnClick="NextDoneButtonOnClick" Width="30"/>
+        <Component Name="DoneButton" Class="Com.Ctrl.IButton" Excluded="True" Caption="@TrackingCore:Done=Завершить" Fashion="Fashions.PrimaryButton" OnClick="DoneButtonOnClick" Visible="False" Width="30"/>
+      </Component>
+      <Component Name="FieldsFrame" Class="Com.Ctrl.IFrame" Margins="10">
+        <Component Name="CaptionFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <BuiltIn Name="SideMargins" Bottom="0"/>
+          <Component Name="CaptionGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="CaptionStepBP" Class="Com.Ctrl.IStatic" Caption="Шаг 1 из 2" FixSize="True" FontColor="0x00887C79" Width="40"/>
+          </Component>
+        </Component>
+        <Component Name="TabsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Horizontal">
+          <BuiltIn Name="SideMargins" Top="0"/>
+          <Component Name="BusinessProcesses" Class="Com.Ctrl.IFrame" Caption="@Frm:BusinessProcesses=Бизнес-процессы">
+            <BuiltIn Name="SideMargins" Top="0"/>
+            <Component Name="BusinessProcessGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="MarginStatic" Class="Com.Ctrl.IStatic"/>
+              <Component Name="BusinessProcessEdit" Class="Com.Ctrl.IEdit" Caption="Выберите бизнес-процесс" CellFormat="StringFormat" Field="VarBP" HasInnerCaption="True" OnChange="BusinessProcessEditOnChange" ShortList="True"/>
+            </Component>
+          </Component>
+          <Component Name="Preview" Class="Com.Ctrl.IFrame" Caption="@Frm:Preview=Окно предпросмотра" Size="100" Visible="True">
+            <Component Name="JDiagram" Class="Com.Ctrl.IDiagramJS" IsEditorMode="True"/>
+          </Component>
+          <Component Name="TaskTypes" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Frm:TaskTypes=Типы задач" Size="100" Visible="False">
+            <BuiltIn Name="SideMargins" Top="0"/>
+            <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="HintGroup1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="Hint2" Class="Com.Ctrl.IStatic" Caption="Использовать для всех неназначенных типов задач" FixSize="True" FontBold="True" FontColor="0x00161514" FontSize="14" Width="100"/>
+                <Component Name="Static1" Class="Com.Ctrl.IStatic" Excluded="True" Width="250"/>
+                <Component Name="UseForAll" Class="Com.Ctrl.ISwitch" Alignment="RightAlign" Field="UseForAllCategories" OnChange="UseForAllOnChange" Width="10"/>
+              </Component>
+              <Component Name="Hint1" Class="Com.Ctrl.IStatic" Caption="Бизнес-процесс будет использоваться для текущих и новых типов задач" FixSize="True" FontBold="False" FontColor="0x0070605C" FontSize="12" Width="100"/>
+              <Component Name="Static3" Class="Com.Ctrl.IStatic"/>
+            </Component>
+            <Component Name="Types" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" FixSize="False">
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" Caption="Или выбрать типы задач:" FontBold="True" FontColor="0x00161514" Visible="True"/>
+              <Component Name="ChoseAll" Class="Com.Ctrl.ICheckBox" Excluded="True" Caption="Все" Field="ChoseAllCategories" OnChange="ChoseAllOnChange"/>
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

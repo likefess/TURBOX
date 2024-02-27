@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IMenu">
+  <Inherited Caption="РМ мастера смены">
+    <Inherited Name="MainGroup" Orientation="Vertical">
+      <Component Name="Group1" Class="Com.Cmd2.IGroup">
+        <Component Name="Group3" Class="Com.Cmd2.IGroup" Caption="Оборудование" Columns="4" Orientation="Horizontal" Rows="2">
+          <Component Name="Реестр_оборудования" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_EqmRegistry"/>
+          <Component Name="Технические_места" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_EqmLocations"/>
+          <Component Name="Перемещение_оборудования" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_DefectsReport"/>
+        </Component>
+        <Component Name="Group4" Class="Com.Cmd2.IGroup" Caption="Выполнение работ" Columns="4" Orientation="Vertical" Rows="2">
+          <Component Name="Заказы" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_Orders"/>
+          <Component Name="Приемка_работ" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_Accepting"/>
+          <Component Name="Маршрутный_лист" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_RouteSheet"/>
+          <Component Name="Заявка_на_ТМЦ" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_Demand"/>
+        </Component>
+        <Component Name="Group5" Class="Com.Cmd2.IGroup" Caption="Журналы" Columns="4" Orientation="Vertical" Rows="2">
+          <Component Name="Регистрация_наработки" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_OperTime"/>
+          <Component Name="Регистрация_параметров" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_Parameters"/>
+          <Component Name="Журнал_дефектов" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_RegDefects"/>
+          <Component Name="Журнал_пусков" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_StartStop"/>
+        </Component>
+      </Component>
+      <Component Name="Group2" Class="Com.Cmd2.IGroup">
+        <Component Name="Group6" Class="Com.Cmd2.IGroup" Caption="Отчеты" Columns="4" Orientation="Vertical" Rows="4">
+          <Component Name="Отчет_по_параметрам" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_ParametersReport"/>
+          <Component Name="Отчет_по_дефектам" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_DefectsReport"/>
+          <Component Name="Отчет_по_пускам" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_StartStopReport"/>
+          <Component Name="Отчет_по_заказам" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_OrdersReport"/>
+          <Component Name="Отчет_по_приемке" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_AcceptingReport"/>
+          <Component Name="Отчет_по_нагрузке_исполнителей" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_ExecutorWorkLoad"/>
+          <Component Name="Отчет_об_использованииВПС" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_WorkCostSPA"/>
+          <Component Name="Отчет_о_перемещениях" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_MovingReport"/>
+        </Component>
+        <Component Name="Group7" Class="Com.Cmd2.IGroup" Caption="Контроль поручений" Columns="4" Orientation="Vertical" Rows="2">
+          <Component Name="Контроль_поручений" Class="Com.Cmd2.IItem" Command="Commands.Cmd_TasksCardfile"/>
+          <Component Name="Список_поручений" Class="Com.Cmd2.IItem" Command="Commands.Cmd_TasksList"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

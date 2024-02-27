@@ -1,0 +1,141 @@
+﻿TBCFile VER="3.4" [Created '24.07.2018 15:19:16' by 'Администратор']
+
+DESCRIPTION[
+Count=10
+CountByRef=0
+Control.Ref.TaskState
+(
+  Count=10
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Control.Ref.TaskState
+  (
+    Deleted :Boolean
+    GroupDoc :Control.Ref.TaskState
+    isGroup :Integer
+    Branch :String(80)
+    Confid :Integer
+    IsMeta :Boolean
+    КодПодсистемы :Integer
+    КодМодуля :String
+    КодУчастника :Integer
+    ЗамокЭлементаСБ :Boolean
+    Code :String(80)
+    Name :String(850)
+    Описание :String
+    Закрытое :Boolean
+    Приоритет :Integer
+    ТипДоступа :Integer
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Control.Ref.TaskState
+  
+  {Control.Ref.TaskState:"ИнтернетЗаказГруппа"}
+  (
+    isGroup = -1
+    Branch = "Тис"
+    IsMeta = True
+    Name = "Интернет-заказ (группа)"
+  )
+  
+  {Control.Ref.TaskState:"ИнтернетЗаказВводитсяКлиентом"}
+  (
+    GroupDoc = {Control.Ref.TaskState:ИнтернетЗаказГруппа}
+    Branch = "Тис"
+    IsMeta = True
+    Name = "Вводится клиентом"
+    Описание = "Для документа Интернет-заказ в статусе ""Черновик"""
+    Приоритет = 1
+  )
+  
+  {Control.Ref.TaskState:"ИнтернетЗаказПередан"}
+  (
+    GroupDoc = {Control.Ref.TaskState:ИнтернетЗаказГруппа}
+    Branch = "Тис"
+    IsMeta = True
+    Name = "Передан"
+    Описание = "Передан на обработку менеджеру"
+    Приоритет = 10
+  )
+  
+  {Control.Ref.TaskState:"ИнтернетЗаказОбрабатывается"}
+  (
+    GroupDoc = {Control.Ref.TaskState:ИнтернетЗаказГруппа}
+    Branch = "Тис"
+    IsMeta = True
+    Name = "Обрабатывается"
+    Описание = "Обрабатывается менеджером"
+    Приоритет = 20
+  )
+  
+  {Control.Ref.TaskState:"ИнтернетЗаказПринят"}
+  (
+    GroupDoc = {Control.Ref.TaskState:ИнтернетЗаказГруппа}
+    Branch = "Тис"
+    IsMeta = True
+    Name = "Принят"
+    Описание = "Принят к исполнению полностью"
+    Приоритет = 30
+  )
+  
+  {Control.Ref.TaskState:"ИнтернетЗаказПринятЧастично"}
+  (
+    GroupDoc = {Control.Ref.TaskState:ИнтернетЗаказГруппа}
+    Branch = "Тис"
+    IsMeta = True
+    Name = "Принят частично"
+    Описание = "Принят к исполнению частично"
+    Приоритет = 31
+  )
+  
+  {Control.Ref.TaskState:"ИнтернетЗаказОтклонен"}
+  (
+    GroupDoc = {Control.Ref.TaskState:ИнтернетЗаказГруппа}
+    Branch = "Тис"
+    IsMeta = True
+    Name = "Отклонен"
+    Описание = "Отклонен"
+    Приоритет = 100
+  )
+  
+  {Control.Ref.TaskState:"ИнтернетЗаказВСборке"}
+  (
+    GroupDoc = {Control.Ref.TaskState:ИнтернетЗаказГруппа}
+    Branch = "Тис"
+    IsMeta = True
+    Name = "В сборке"
+    Описание = "В сборке"
+    Приоритет = 40
+  )
+  
+  {Control.Ref.TaskState:"ИнтернетЗаказГотов"}
+  (
+    GroupDoc = {Control.Ref.TaskState:ИнтернетЗаказГруппа}
+    Branch = "Тис"
+    IsMeta = True
+    Name = "Готов к выдаче"
+    Описание = "Готов к выдаче клиенту"
+    Приоритет = 90
+  )
+  
+  {Control.Ref.TaskState:"ИнтернетЗаказОтменен"}
+  (
+    GroupDoc = {Control.Ref.TaskState:ИнтернетЗаказГруппа}
+    Branch = "Тис"
+    IsMeta = True
+    Name = "Отменен"
+    Описание = "Отменен клиентом"
+    Приоритет = 110
+  )
+]
+
+]

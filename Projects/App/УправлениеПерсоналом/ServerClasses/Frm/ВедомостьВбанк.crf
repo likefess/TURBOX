@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IEditorWithFrames">
+  <Inherited Caption="Ведомость в банк ">
+    <Component Name="EdtRec" Class="УправлениеПерсоналом.Rec.ВедомостьПеречислений" IsLibrary="1" After="#0"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="editModifyDate" Class="Com.Ctrl.IEditEx" Field="EdtRec.ModifyDate"/>
+        <Component Name="editCreateDate" Class="Com.Ctrl.IEditEx" Field="EdtRec.CreateDate"/>
+        <Component Name="editCreateUser" Class="Com.Ctrl.IEditEx" Field="EdtRec.CreateUser"/>
+        <Component Name="editUpdateDate" Class="Com.Ctrl.IEditEx" Field="EdtRec.UpdateDate"/>
+        <Component Name="editUpdateUser" Class="Com.Ctrl.IEditEx" Field="EdtRec.UpdateUser"/>
+        <Component Name="editVersion" Class="Com.Ctrl.IEditEx" Field="EdtRec.Version"/>
+        <Component Name="editBranch" Class="Com.Ctrl.IEditEx" Field="EdtRec.Branch"/>
+        <Component Name="editConfid" Class="Com.Ctrl.IEditEx" Field="EdtRec.Confid"/>
+        <Component Name="editLocked" Class="Com.Ctrl.IEditEx" Field="EdtRec.Locked"/>
+        <Component Name="editClosed" Class="Com.Ctrl.IEditEx" Field="EdtRec.Closed"/>
+        <Component Name="editIsMeta" Class="Com.Ctrl.IEditEx" Field="EdtRec.IsMeta"/>
+        <Component Name="editModuleCode" Class="Com.Ctrl.IEditEx" Field="EdtRec.ModuleCode"/>
+        <Component Name="editOperDoc" Class="Com.Ctrl.IEditEx" Field="EdtRec.OperDoc" HasCaption="True"/>
+        <Component Name="editCode" Class="Com.Ctrl.IEditEx" Field="EdtRec.Code"/>
+        <Component Name="editName" Class="Com.Ctrl.IEditEx" Field="EdtRec.Name"/>
+        <Component Name="editDative" Class="Com.Ctrl.IEditEx" Field="EdtRec.Dative"/>
+        <Component Name="editAccusative" Class="Com.Ctrl.IEditEx" Field="EdtRec.Accusative"/>
+        <Component Name="editComment" Class="Com.Ctrl.IEditEx" Field="EdtRec.Comment"/>
+        <Component Name="editObjType" Class="Com.Ctrl.IEditEx" Field="EdtRec.ObjType"/>
+        <Component Name="editПредприятие" Class="Com.Ctrl.IEditEx" Field="EdtRec.Предприятие" HasCaption="True"/>
+        <Component Name="editНомер" Class="Com.Ctrl.IEditEx" Field="EdtRec.Номер" HasCaption="True"/>
+        <Component Name="editДата" Class="Com.Ctrl.IEditEx" Field="EdtRec.Дата" HasCaption="True"/>
+        <Component Name="editПодразделение" Class="Com.Ctrl.IEditEx" Field="EdtRec.Подразделение" HasCaption="True"/>
+        <Component Name="editПроводить" Class="Com.Ctrl.IEditEx" Field="EdtRec.Проводить" HasCaption="True"/>
+        <Component Name="editПериодРасчета" Class="Com.Ctrl.IEditEx" Field="EdtRec.ПериодРасчета" HasCaption="True"/>
+        <Component Name="editЧастьПериода" Class="Com.Ctrl.IEditEx" Field="EdtRec.ЧастьПериода" HasCaption="True"/>
+        <Component Name="editЗпПроект" Class="Com.Ctrl.IEditEx" Field="EdtRec.ЗпПроект" HasCaption="True"/>
+        <Component Name="editКодВидаДохода" Class="Com.Ctrl.IEditEx" Field="EdtRec.КодВидаДохода" HasCaption="True"/>
+        <Component Name="editДатаОплаты" Class="Com.Ctrl.IEditEx" Field="EdtRec.ДатаОплаты" HasCaption="True"/>
+        <Component Name="editНазначениеПлатежа" Class="Com.Ctrl.IEditEx" Field="EdtRec.НазначениеПлатежа" HasCaption="True"/>
+        <Component Name="editПлатежныйДокумент" Class="Com.Ctrl.IEditEx" Field="EdtRec.ПлатежныйДокумент" HasCaption="True"/>
+        <Component Name="editФайлВыгрузки" Class="Com.Ctrl.IEditEx" Field="EdtRec.ФайлВыгрузки" HasCaption="True"/>
+      </Inherited>
+      <Component Name="FrameExtraFields" Class="Com.Ctrl.IFrame" Excluded="True" AutoSize="True" Sortable="True" Subtable="EdtRec.sbtExtraFields">
+        <Component Name="StruExtraFields" Class="УправлениеПерсоналом.Rec.ВедомостьПеречисленийExtraFields" IsLibrary="1"/>
+        <Component Name="edstName" Class="Com.Ctrl.IEditEx" Field="StruExtraFields.Name" Width="28"/>
+        <Component Name="edstAsString" Class="Com.Ctrl.IEditEx" Field="StruExtraFields.AsString" Width="28"/>
+        <Component Name="edstAsInteger" Class="Com.Ctrl.IEditEx" Field="StruExtraFields.AsInteger" Width="28"/>
+        <Component Name="edstAsNumeric" Class="Com.Ctrl.IEditEx" Field="StruExtraFields.AsNumeric" Width="28"/>
+        <Component Name="edstAsDate" Class="Com.Ctrl.IEditEx" Field="StruExtraFields.AsDate" Width="28"/>
+        <Component Name="edstAsLogical" Class="Com.Ctrl.IEditEx" Field="StruExtraFields.AsLogical" Width="28"/>
+        <Component Name="edstAsRecord" Class="Com.Ctrl.IEditEx" Field="StruExtraFields.AsRecord" Width="28"/>
+      </Component>
+      <Component Name="FrameHistoricalData" Class="Com.Ctrl.IFrame" Excluded="True" AutoSize="True" Sortable="True" Subtable="EdtRec.sbtHistoricalData">
+        <Component Name="StruHistoricalData" Class="УправлениеПерсоналом.Rec.ВедомостьПеречисленийHistoricalData" IsLibrary="1"/>
+        <Component Name="edstName" Class="Com.Ctrl.IEditEx" Field="StruHistoricalData.Name" Width="25"/>
+        <Component Name="edstTime" Class="Com.Ctrl.IEditEx" Field="StruHistoricalData.Time" Width="25"/>
+        <Component Name="edstAsString" Class="Com.Ctrl.IEditEx" Field="StruHistoricalData.AsString" Width="25"/>
+        <Component Name="edstAsInteger" Class="Com.Ctrl.IEditEx" Field="StruHistoricalData.AsInteger" Width="25"/>
+        <Component Name="edstAsNumeric" Class="Com.Ctrl.IEditEx" Field="StruHistoricalData.AsNumeric" Width="25"/>
+        <Component Name="edstAsDate" Class="Com.Ctrl.IEditEx" Field="StruHistoricalData.AsDate" Width="25"/>
+        <Component Name="edstAsLogical" Class="Com.Ctrl.IEditEx" Field="StruHistoricalData.AsLogical" Width="25"/>
+        <Component Name="edstAsRecord" Class="Com.Ctrl.IEditEx" Field="StruHistoricalData.AsRecord" Width="25"/>
+      </Component>
+      <Component Name="FrameAttachments" Class="Com.Ctrl.IFrame" AutoSize="True" Sortable="True" Subtable="EdtRec.sbtAttachments">
+        <Component Name="StruAttachments" Class="УправлениеПерсоналом.Rec.ВедомостьПеречисленийAttachments" IsLibrary="1"/>
+        <Component Name="edstAttachment" Class="Com.Ctrl.IEditEx" Field="StruAttachments.Attachment" Width="200"/>
+      </Component>
+      <Component Name="FrameПозиции" Class="Com.Ctrl.IFrame" AutoSize="True" Sortable="True" Subtable="EdtRec.sbtПозиции">
+        <Component Name="StruПозиции" Class="УправлениеПерсоналом.Rec.ВедомостьПеречисленийПозиции" IsLibrary="1"/>
+        <Component Name="edstУсловияТрудаСотр" Class="Com.Ctrl.IEditEx" Caption="@Расчет.Позиции:УсловияТрудаСотр=Условия труда сотрудника" Field="StruПозиции.УсловияТрудаСотр" Width="50"/>
+        <Component Name="edstНазначение" Class="Com.Ctrl.IEditEx" Caption="@Расчет.Позиции:Назначение=Назначение" Field="StruПозиции.Назначение" Width="50"/>
+        <Component Name="edstСумма" Class="Com.Ctrl.IEditEx" Field="StruПозиции.Сумма" Width="50"/>
+        <Component Name="edstНомерСчета" Class="Com.Ctrl.IEditEx" Caption="@ВедомостьПеречислений:НомерСчета=Номер Счета" Field="StruПозиции.НомерСчета" Width="50"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

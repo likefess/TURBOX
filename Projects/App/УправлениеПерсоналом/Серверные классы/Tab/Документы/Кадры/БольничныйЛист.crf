@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Tab.Базовая.БазовыйДокументИерархия">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Листы нетрудоспособности.Документы.Больничные листы">
+    <Inherited Name="Current" Class="УправлениеПерсоналом.Rec.Документы.Кадры.БольничныйЛист" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="Учитывать" Class="Com.Ctrl.IEdit" After="ExtId" Field="Current.Проводить" HasCaption="True" Width="10"/>
+          <Component Name="Сотрудник" Class="Com.Ctrl.IEdit" After="Дата" Field="Current.УсловияТрудаСотр" HasCaption="True" LookupField="Person.Name" Width="40"/>
+          <Component Name="ТабНомер" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Таб. номер" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Field="Current.УсловияТрудаСотр" HasCaption="True" Hint="Табельный номер сотрудника" LookupField="ТабНомер" Width="20"/>
+          <Component Name="НомерЛН" Class="Com.Ctrl.IEdit" Field="Current.НомерЛН" HasCaption="True" Width="25"/>
+          <Component Name="ДатаЛН" Class="Com.Ctrl.IEdit" Field="Current.ДатаЛН" HasCaption="True" Width="20"/>
+          <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Field="Current.ДатаНачала" HasCaption="True" Width="25"/>
+          <Component Name="ДатаОкончания" Class="Com.Ctrl.IEdit" Field="Current.ДатаОкончания" HasCaption="True" Width="25"/>
+          <Component Name="Код" Class="Com.Ctrl.IEdit" Field="Current.Причина" HasCaption="True" LookupField="Код" Width="10"/>
+          <Component Name="ДопКод" Class="Com.Ctrl.IEdit" Caption="Доп.код" Field="Current.ПричинаДоп" HasCaption="True" LookupField="Код" Width="10"/>
+          <Component Name="Продолжение" Class="Com.Ctrl.IEdit" Caption="Продолжение" Field="Current.ЭтоПродолжение" HasCaption="True" Width="10"/>
+          <Component Name="РасчетБЛ" Class="Com.Ctrl.IEdit" Caption="Расчет пособия по БЛ" Field="Current.РасчетБЛ" HasCaption="True" OnOutputEx="РасчетБЛ_OnOutputEx" Width="35"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.БазовыйДокумент">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Распределение затрат.График распределения ТР">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ГрафикРаспределенияТР" IsLibrary="1"/>
+    <Component Name="Позиция" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ГрафикРаспределенияТР_Поз" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False">
+          <Component Name="кнЗаполнитьНазначения" Class="Com.Ctrl.IButton" Caption="Заполнить списком сотрудников" OnClick="кнЗаполнитьНазначения_OnClick"/>
+          <Component Name="кнОбновитьОперГрафик" Class="Com.Ctrl.IButton" Caption="Обновить оперативные графики учета РВ" OnClick="кнОбновитьОперГрафик_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" Visible="False"/>
+        <Component Name="грСкорректирован" Class="Com.Ctrl.IGroup" After="Group1" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="True" Hint="Документ сторнирован" Visible="False" Width="40"/>
+          <Component Name="флСкорректирован" Class="Com.Ctrl.ICheckBox" Caption="Скорректирован" Enabled="False" Field="EdtRec.Скорректирован" FixSize="True" HasCaption="True" Width="40"/>
+          <Component Name="ДатаКорректировки" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.ДатаКорректировки" HasCaption="False" Hint="Дата корректировки документа" MaxWidth="35"/>
+          <Component Name="Static6" Class="Com.Ctrl.IStatic" Width="30"/>
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="42"/>
+        </Component>
+        <Inherited Name="grMain">
+          <Inherited Name="Замок" Width="35"/>
+        </Inherited>
+        <Inherited Name="грТипДокумента" Visible="False"/>
+        <Inherited Name="grNumberDate">
+          <Component Name="Период" Class="Com.Ctrl.IEdit" After="ДатаДокумента" CaptionWidth="25" Field="EdtRec.Период" HasCaption="True" OnChange="Период_OnChange" Required="True"/>
+          <Inherited Name="stEmpty" FixSize="True" Width="7"/>
+          <Component Name="Корректировка" Class="Com.Ctrl.ICheckBox" After="stEmpty" Field="EdtRec.Корректировка" FixSize="True" OnChange="Корректировка_OnChange" Width="35"/>
+        </Inherited>
+        <Component Name="грКорректГрафик" Class="Com.Ctrl.IGroup" After="grNumberDate" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="КорректГрафик" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Документы.Кадры.ГрафикРаспределенияТР" CellFormat="ReferenceFormat" Field="EdtRec.КорректГрафик" HasCaption="True" Hint="Корректируемый график" LookupField="Номер" OnChange="КорректГрафик_OnChange" OnOutput="КорректГрафик_OnOutput"/>
+          <Component Name="кнКорректГрафик" Class="Com.Ctrl.IJumpButton" Field="EdtRec.КорректГрафик" FixSize="True" JumpForm="УправлениеПерсоналом.Frm.Документы.Кадры.ГрафикРаспределенияТР" Width="7"/>
+          <Component Name="Static5" Class="Com.Ctrl.IStatic" FixSize="True" Width="35"/>
+        </Component>
+        <Component Name="грПодразделение" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Подразделение" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" Field="EdtRec.Подразделение" HasCaption="True" Hint=" Наименование подразделения организации " LookupField="Name" OnChange="Подразделение_OnChange"/>
+          <Component Name="кнПодразделение" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Подразделение" FixSize="True" JumpForm="Bas.Frm.Data.Entity" Width="7"/>
+          <Component Name="stEmpty1" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="35"/>
+          <Component Name="кнУтвердить" Class="Com.Ctrl.IButton" Caption="Утвердить" HasCaption="True" Hint="Утвердить график распределения ТР" OnClick="кнУтвердить_OnClick" Printed="False" Width="35"/>
+          <Component Name="кнОтменить" Class="Com.Ctrl.IButton" Caption="Отменить" HasCaption="True" Hint="Отменить утверждение графика распределения ТР" OnClick="кнОтменить_OnClick" Printed="False" Width="35"/>
+        </Component>
+        <Inherited Name="грОписание" Visible="False"/>
+        <Inherited Name="грПримечание">
+          <Inherited Name="Static4" Width="42"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="Распределение" Margins="10">
+          <Component Name="фрТаблица" Class="Com.Ctrl.IFrame">
+            <Component Name="Позиции" Class="Com.Ctrl.ITable" Adaptive="False" Numbering="False" OnDelete="Позиции_OnDelete" Subtable="EdtRec.Позиции">
+              <Component Name="грСотрудник" Class="Com.Ctrl.IColumnsGroup" Caption="Сотрудник" HasCaption="True">
+                <Component Name="Назначение_ФИО" Class="Com.Ctrl.IEdit" Caption="ФИО" CardFileClass="УправлениеПерсоналом.Tab.Данные.Назначения" CellFormat="ReferenceFormat" Field="Позиция.Назначение" HasCaption="True" Hint="ФИО сотрудника" LookupField="УсловияТрудаСотрудника.ФизЛицо.Имя" Multiline="True" OnChange="Назначение_ФИО_OnChange" OnOpenCardForm="Назначение_ФИО_OnOpenCardForm" OnOutput="Назначение_ФИО_OnOutput" Width="45" Wrap="True"/>
+                <Component Name="Назначение_Табель" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="таб. номер" CellFormat="ReferenceFormat" Enabled="False" Field="Позиция.Назначение" HasCaption="True" LookupField="УсловияТрудаСотрудника.ТабНомер" Width="20"/>
+                <Component Name="грНазначениеОтк" Class="Com.Ctrl.IColumnsGroup" Caption="Назначение" HasCaption="False">
+                  <Component Name="Назначение_Подр" Class="Com.Ctrl.IEdit" Caption="подразделение" Enabled="False" Field="Позиция.Назначение" HasCaption="True" Hint="Подразделение сотрудника" Multiline="True" OnOutput="Назначение_Подр_OnOutput" Width="40" Wrap="True"/>
+                  <Component Name="Назначение_Долж" Class="Com.Ctrl.IEdit" Caption="должность, разряд" Enabled="False" Field="Позиция.Назначение" HasCaption="True" Hint="Должность, разряд сотрудника" Multiline="True" OnOutput="Назначение_Долж_OnOutput" Width="40" Wrap="True"/>
+                  <Component Name="ПериодРаботы" Class="Com.Ctrl.IEdit" Caption="период работы (с,по)" Enabled="False" Field="Позиция.Сотрудник" HasCaption="True" Multiline="True" OnOutput="ПериодРаботы_OnOutput" Width="22" Wrap="True"/>
+                </Component>
+              </Component>
+              <Component Name="ИтогоЧасовГраф" Class="Com.Ctrl.IEdit" Caption="Итого за месяц часов (по графику)" Enabled="False" Field="Позиция.ИтогоЧасовГраф" HasCaption="True" Width="25"/>
+              <Component Name="ИтогоЧасов" Class="Com.Ctrl.IEdit" Caption="Итого за месяц распределяемых часов" Enabled="False" Field="Позиция.ИтогоЧасов" HasCaption="True" Width="25"/>
+              <Component Name="ИтогоЧасовППР" Class="Com.Ctrl.IEdit" Caption="Итого за месяц часов ППР" Enabled="False" Field="Позиция.ИтогоЧасовППР" HasCaption="True" Width="25"/>
+              <Component Name="Ошибки" Class="Com.Ctrl.IEdit" Caption="Ошибки (перечень несоответствий часов работы и распределяемых часов, выявленных при загрузке данных из сопутствующих систем)" Enabled="False" Field="Позиция.Ошибки" HasCaption="True" Multiline="True" Width="80" Wrap="True"/>
+              <Component Name="кнОперГрафик" Class="Com.Ctrl.IJumpButton" HasCaption="False" Hint="Оперативный график сотрудника" ImageName="Com.Ctrl.JumpButton" OnClick="кнОперГрафик_OnClick"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Inherited Name="фрПодписи" Caption="Прочее" HasCaption="True">
+          <Inherited Name="фрПодписиОбщ" Excluded="True"/>
+        </Inherited>
+        <Component Name="фрКорректировки" Class="Com.Ctrl.IFrame" Caption="Корректировки" HasCaption="True" Hint="Корректирующие графики" Margins="5"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

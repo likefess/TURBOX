@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="ИмуществоБазовый.Frm.Справочники.НМА">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="перДатаОтчета" Class="Com.Fld.IVar" OnCalc="перДатаОтчета_OnCalc" OnChange="перДатаОтчета_OnChange" ValueType="VarDate"/>
+      <Component Name="перЛиквидационнаяСтоимость" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+      <Component Name="перТекущаяСтоимость" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+      <Component Name="перСуммаАмортизации" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+      <Component Name="перОстаточнаяСтоимость" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+      <Component Name="перПредупреждение" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Component Name="ОтчетПоОбъектуНМА" Class="Com.Ctrl.IFrame" Caption="@Frm:ОтчетПоОбъектуНМА=Отчет по объекту НМА">
+          <Component Name="фрДанныеОтчетаПоНМА" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="ДатаОтчета_Гр" Class="Com.Ctrl.IGroup" CaptionWidth="60">
+              <Component Name="ДатаОтчета" Class="Com.Ctrl.IEdit" Caption="Дата отчета" Field="перДатаОтчета" FixSize="True" HasCaption="True" OnVerify="ДатаОтчета_OnVerify" Width="50"/>
+              <Component Name="Построить" Class="Com.Ctrl.IButton" Caption="Построить" HasCaption="True" OnClick="Построить_OnClick" Width="35"/>
+            </Component>
+            <Component Name="Суммы_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="60" MaxWidth="300" MinWidth="150">
+              <Component Name="отчПервоначальнаяСтоимость" Class="Com.Ctrl.IEdit" Caption="Первоначальная стоимость" Enabled="False" Field="EdtRec.ПервоначальнаяСтоимость" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Hint="Первоначальная стоимость объекта НМА" Width="50"/>
+              <Component Name="отчЛиквидационнаяСтоимость" Class="Com.Ctrl.IEdit" Caption="Ликвидационная стоимость" Enabled="False" Field="перЛиквидационнаяСтоимость" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Hint="Ликвидационная стоимость объекта НМА" Width="50"/>
+              <Component Name="отчТекущаяСтоимость" Class="Com.Ctrl.IEdit" Caption="Текущая стоимость" Enabled="False" Field="перТекущаяСтоимость" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Hint="Текущая стоимость объекта НМА" Width="50"/>
+              <Component Name="отчСуммаАмортизации" Class="Com.Ctrl.IEdit" Caption="Сумма амортизации" Enabled="False" Field="перСуммаАмортизации" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Hint="Сумма амортизации объекта НМА" OnClick="отчСуммаАмортизации_OnClick" Width="50"/>
+              <Component Name="отчОстаточнаяСтоимость" Class="Com.Ctrl.IEdit" Caption="Остаточная стоимость" Enabled="False" Field="перОстаточнаяСтоимость" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Hint="Остаточная стоимость объекта НМА" Width="50"/>
+              <Component Name="отчПредупреждение" Class="Com.Ctrl.IEdit" Enabled="False" Field="перПредупреждение" FontColor="0x000000FF" Visible="False"/>
+            </Component>
+          </Component>
+          <Component Name="фрОтчетПоАмортизацииНМА" Class="Com.Ctrl.IFrame" Caption="@Frm:ОтчетПоАмортизацииНМА=Отчет по амортизации НМА" Visible="False"/>
+        </Component>
+        <Component Name="ОтчетПоПроводкамОбъектаНМА" Class="Com.Ctrl.IFrame" Caption="@Frm:MainTab=Отчет по проводкам" Margins="5"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

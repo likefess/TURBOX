@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="RealEstate.Rec.Base.BaseMDocOrder">
+  <Inherited>
+    <Inherited Name="MDDate" OnChange="Numerator_OnChange"/>
+    <Component Name="Employee" Class="Com.Fld.IField" After="DocType" FieldName="Employee"/>
+    <Component Name="SubdivisionFK" Class="Com.Fld.IField" FieldName="SubdivisionFK"/>
+    <Component Name="SubdivisionCOKR" Class="Com.Fld.IField" FieldName="SubdivisionCOKR"/>
+    <Component Name="ObjCode" Class="Com.Fld.IField" FieldName="ObjCode" OnChange="ObjCode_OnChange" ValueType="VarObject"/>
+    <Component Name="RightKind" Class="Com.Fld.IField" Caption="@Вид права" FieldName="RightKind" OnChange="RightKind_OnChange"/>
+    <Component Name="RealEstateObjKind" Class="Com.Fld.IField" Caption="@Вид объекта" FieldName="RealEstateObjKind" OnChange="RealEstateObjKind_OnChange" ValueType="VarObject"/>
+    <Component Name="RightKindStatus" Class="Com.Fld.IField" Caption="@Статус права" FieldName="RightKindStatus"/>
+    <Component Name="PropertyType" Class="Com.Fld.IField" Caption="@Вид собственности" FieldName="PropertyType" OnChange="PropertyType_OnChange"/>
+    <Component Name="PropertyForm" Class="Com.Fld.IField" FieldName="PropertyForm"/>
+    <Component Name="RegCode" Class="Com.Fld.IField" FieldName="RegCode"/>
+    <Component Name="Contract" Class="Com.Fld.IField" Caption="@Order:Contract=№ документа" FieldName="Contract" OnChange="Contract_OnChange" ValueType="VarObject"/>
+    <Component Name="RegDateStart" Class="Com.Fld.IField" Caption="@Дата регистрации" FieldName="RegDateStart"/>
+    <Component Name="RegDateEnd" Class="Com.Fld.IField" Caption="@по" FieldName="RegDateEnd"/>
+    <Component Name="Series" Class="Com.Fld.IField" Caption="@Серия" FieldName="Series" ValueType="VarString"/>
+    <Component Name="Num" Class="Com.Fld.IField" Caption="@Номер" FieldName="Num" OnVerify="Num_OnVerify" ValueType="VarString"/>
+    <Component Name="Encumbrance" Class="Com.Fld.IField" Excluded="True" Caption="Обременение" FieldName="Encumbrance"/>
+    <Component Name="EncumbranceList" Class="Com.Fld.IField" Excluded="True" Caption="Обременения" FieldName="EncumbranceList"/>
+    <Component Name="EncumbranceListArray" Class="Com.Fld.IArray" Excluded="True" ValueType="VarObject"/>
+    <Component Name="isEncumbrance" Class="Com.Fld.IField" Excluded="True" Caption="Наличие обременения" FieldName="isEncumbrance"/>
+    <Component Name="OrderDescription" Class="Com.Fld.IField" FieldName="OrderDescription"/>
+    <Component Name="PropertyOwner" Class="Com.Fld.IField" Excluded="True" Caption="Собственник" FieldName="PropertyOwner"/>
+    <Component Name="PropertyOwnerVar" Class="Com.Fld.IVar" Caption="@Собственник" OnCalc="PropertyOwnerVar_OnCalc" ValueType="VarObject"/>
+    <Component Name="Counterparties" Class="Com.Fld.IField" FieldName="Counterparties"/>
+    <Component Name="CopyrightManageType" Class="Com.Fld.IField" Caption="Вид правоуправления" FieldName="RightManageType"/>
+    <Component Name="LegalBasis" Class="Com.Fld.IField" Caption="@Док. основание" FieldName="LegalBasis"/>
+    <Component Name="OwnerOrder" Class="Com.Fld.IField" Caption="Владелец документа" FieldName="OwnerOrder"/>
+    <Component Name="Lines" Class="Com.ISubtable" StructClass="RealEstate.Rec.Doc.Order_Lines" SubtableName="Lines"/>
+    <Component Name="Encumbrances" Class="Com.ISubtable" StructClass="RealEstate.Rec.Doc.Order_Encumbrances" SubtableName="Encumbrances"/>
+    <Component Name="LegalBasisDocs" Class="Com.ISubtable" StructClass="RealEstate.Rec.Doc.Order_LegalBasisDocs" SubtableName="LegalBasisDocs"/>
+    <Component Name="CopyrightHolder" Class="Com.Fld.IField" Excluded="True" FieldName="CopyrightHolder"/>
+    <Component Name="CopyrightHoldersVar" Class="Com.Fld.IVar" Caption="@Правобладатели" OnCalc="CopyrightHoldersVar_OnCalc" ValueType="VarString"/>
+    <Component Name="Balanser" Class="Com.Fld.IField" Excluded="True" FieldName="Balanser"/>
+    <Component Name="BalanserVar" Class="Com.Fld.IVar" Caption="@Балансодержатель" OnCalc="BalanserVar_OnCalc" ValueType="VarObject"/>
+    <Component Name="BalanserNew" Class="Com.Fld.IField" Excluded="True" FieldName="BalanserNew"/>
+    <Component Name="PropertyUser" Class="Com.Fld.IField" Excluded="True" FieldName="PropertyUser"/>
+    <Component Name="PropertyUserVar" Class="Com.Fld.IVar" Caption="@Пользователь" OnCalc="PropertyUserVar_OnCalc" ValueType="VarObject"/>
+    <Component Name="PropertyUserNew" Class="Com.Fld.IField" Excluded="True" FieldName="PropertyUserNew"/>
+    <Component Name="AreaPart" Class="Com.Fld.IField" Excluded="True" Caption="Доля в праве" FieldName="AreaPart"/>
+    <Component Name="AreaObject" Class="Com.Fld.IField" Excluded="True" Caption="Объем права" FieldName="AreaObject"/>
+    <Inherited Name="NumDoc" OnChange="NumDoc_OnChange"/>
+    <Inherited Name="OurCompany" OnChange="Numerator_OnChange"/>
+  </Inherited>
+</Resource>

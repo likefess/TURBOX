@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.BasObject">
+  <Inherited>
+    <Inherited Name="Current" Class="BudgetControl.Rec.Data.BCFact" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Code" After="ExtId"/>
+          <Inherited Name="Name" After="Code"/>
+          <Component Name="BudgetType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Current.BudgetType" HasCaption="True" ListAsString="БДДС|0;БДР|1" Width="25"/>
+          <Component Name="TransDate" Class="Com.Ctrl.IEdit" Field="Current.TransDate" HasCaption="True" Width="25"/>
+          <Component Name="Company" Class="Com.Ctrl.IEdit" Excluded="True" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="Current.Company" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="Sum" Class="Com.Ctrl.IEdit" Excluded="True" CellFormat="NumericFormat" Field="Current.Sum" FieldFormat=",##0.00;;-" HasCaption="True" Width="20"/>
+          <Component Name="Currency" Class="Com.Ctrl.IEdit" Excluded="True" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Field="Current.Currency" HasCaption="True" LookupField="Code" Width="20"/>
+          <Component Name="Contraparty" Class="Com.Ctrl.IEdit" Excluded="True" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Field="Current.Contraparty" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="Contract" Class="Com.Ctrl.IEdit" Excluded="True" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Field="Current.Contract" HasCaption="True" LookupField="Code" Width="40"/>
+          <Component Name="CFR" Class="Com.Ctrl.IEdit" Excluded="True" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="Current.CFR" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="BGI" Class="Com.Ctrl.IEdit" Excluded="True" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="Current.BGI" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="Source" Class="Com.Ctrl.IEdit" Excluded="True" CardFileClass="Biz.Tab.Ref.FundSource" CellFormat="ReferenceFormat" Field="Current.Source" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="Project" Class="Com.Ctrl.IEdit" Excluded="True" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Field="Current.Project" HasCaption="True" LookupField="Name" Width="40"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

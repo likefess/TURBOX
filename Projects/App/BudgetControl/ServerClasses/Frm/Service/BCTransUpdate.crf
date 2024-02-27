@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="StartDate" Class="Com.Fld.IVar" Caption="@BCTransUpdate:StartDate=Дата начала" ValueType="VarDate"/>
+    <Component Name="RecClass" Class="Com.Fld.IVar" Caption="@BCTransUpdate:RecClass=Класс интерфейса записи" ValueType="VarString"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="5" ScrollerStyle="ScrollerNone">
+      <Component Name="ParameterFrame" Class="Com.Ctrl.IFrame" Alignment="CenterAlign" AutoSize="True" Margins="12" ScrollerStyle="ScrollerNone">
+        <Component Name="FieldsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="60" MaxWidth="300" MinWidth="150">
+          <Component Name="StartDateEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="StartDate" FixSize="True" FormatOfDate="DateOnly" HasCaption="True" Width="30"/>
+          <Component Name="RecClassEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="RecClass" HasCaption="True" MaxWidth="80"/>
+        </Component>
+      </Component>
+      <Component Name="ButtonFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="12" ScrollerStyle="ScrollerNone">
+        <Component Name="ButtonGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic"/>
+          <Component Name="OKButton" Class="Com.Ctrl.IButton" Caption="@BCTransUpdate:OK=ОК" FixSize="True" HasCaption="True" OnClick="OKButton_OnClick" Width="40"/>
+          <Component Name="CancelButton" Class="Com.Ctrl.IButton" Caption="@BCTransUpdate:Cancel=Отмена" FixSize="True" HasCaption="True" OnClick="CancelButton_OnClick" Width="40"/>
+          <Component Name="Static2" Class="Com.Ctrl.IStatic"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

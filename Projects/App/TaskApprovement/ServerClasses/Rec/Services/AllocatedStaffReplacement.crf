@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rec.IRecord">
+    <Component Name="Replaced" Class="Com.Fld.IField" Caption="@TaskApprovement:AllocatedStaffReplacement.Replaced=Заменяемый" FieldName="Replaced"/>
+    <Component Name="ReplacingType" Class="Com.Fld.IField" Caption="@TaskApprovement:AllocatedStaffReplacement.ReplacingType=Сотрудник/должность" FieldName="ReplacingType"/>
+    <Component Name="Replacing" Class="Com.Fld.IField" Caption="@TaskApprovement:AllocatedStaffReplacement.Replacing=Заменяющий" FieldName="Replacing"/>
+    <Component Name="BegDate" Class="Com.Fld.IField" Caption="@TaskApprovement:AllocatedStaffReplacement.BegDate=Замещать с" FieldName="BegDate" OnVerify="BegDateOnVerify" ValueType="VarDate"/>
+    <Component Name="EndDate" Class="Com.Fld.IField" Caption="@TaskApprovement:AllocatedStaffReplacement.EndDate= по" FieldName="EndDate" OnVerify="EndDateOnVerify" ValueType="VarDate"/>
+    <Component Name="Positions" Class="Com.ISubtable" StructClass="TaskApprovement.Rec.Services.AllocatedStaffReplacement_Positions" SubtableName="Positions"/>
+  </Component>
+</Resource>

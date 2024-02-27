@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited HelpContext="RealEstate.Управление имуществом.Справочники.Классификаторы.Виды разрешенного использования">
+    <Inherited Name="EdtRec" Class="RealEstate.Rec.Ref.PermitUseType" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" Excluded="True" MaxWidth="230">
+          <Inherited Name="Code" Caption="Код" Visible="True"/>
+          <Inherited Name="Name" Caption="Наименование" Multiline="True" Visible="True" Wrap="True"/>
+        </Inherited>
+        <Component Name="Group5" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+          <Component Name="Group8" Class="Com.Ctrl.IGroup" ByColumn="False">
+            <Component Name="Code1" Class="Com.Ctrl.IEdit" Caption="Код" Field="EdtRec.Code" HasCaption="True" Visible="True"/>
+            <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Caption="@Замок" Field="EdtRec.Locked" FixSize="True" Width="18"/>
+            <Component Name="Closed" Class="Com.Ctrl.ICheckBox" Caption="@Не используется" Field="EdtRec.Closed" FixSize="True" Width="37"/>
+            <Component Name="BtnStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+          </Component>
+          <Component Name="Group9" Class="Com.Ctrl.IGroup" ByColumn="False">
+            <Component Name="Name1" Class="Com.Ctrl.IEdit" Caption="Наименование" Field="EdtRec.Name" FontBold="True" HasCaption="True" Multiline="True" Visible="True" Wrap="True"/>
+            <Component Name="BtnStatic2" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+          </Component>
+        </Component>
+        <Component Name="Group7" Class="Com.Ctrl.IGroup">
+          <Component Name="Static3" Class="Com.Ctrl.IStatic" Width="40"/>
+          <Component Name="IsGroup" Class="Com.Ctrl.ICheckBox" Caption="@Это группа" Field="EdtRec.IsGroup"/>
+          <Component Name="BtnStatic3" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+        </Component>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Comment" Class="Com.Ctrl.IEdit" Excluded="True"/>
+        </Component>
+        <Component Name="Group4" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="LandCategoryGroup" Class="Com.Ctrl.IEdit" Caption="@Категория земли" CardFileClass="RealEstate.Tab.Ref.LandCategory" Field="EdtRec.LandCategoryCode" HasCaption="True" LookupField="name" Multiline="True" Wrap="True"/>
+          <Component Name="btnLandCategoryGroup" Class="Com.Ctrl.IJumpButton" Field="EdtRec.LandCategoryCode" HasCaption="False" JumpForm="RealEstate.Tab.Ref.LandCategory"/>
+        </Component>
+        <Component Name="Group3" Class="Com.Ctrl.IGroup" Excluded="True">
+          <Component Name="ClassCodeUseType" Class="Com.Ctrl.IEdit" Caption="Код в кадастре" Field="EdtRec.ClassCodeUseType" FixSize="True" HasCaption="True" Width="40"/>
+        </Component>
+        <Component Name="Group6" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Edit1" Class="Com.Ctrl.IEdit" Caption="@Элемент группы" CardFileClass="RealEstate.Tab.Ref.PermitUseType" Field="EdtRec.GroupDoc" LookupFilter="IsGroup=-1" ValueType="VarObject"/>
+          <Component Name="JumpButton1" Class="Com.Ctrl.IJumpButton" Field="EdtRec.GroupDoc" JumpForm="RealEstate.Frm.Ref.PermitUseType"/>
+        </Component>
+      </Inherited>
+      <Component Name="Frame1" Class="Com.Ctrl.IFrame" Excluded="True" After="FieldsFrame">
+        <Component Name="Прочее" Class="Com.Ctrl.IBox" Caption="@Прочее" HasCaption="True"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

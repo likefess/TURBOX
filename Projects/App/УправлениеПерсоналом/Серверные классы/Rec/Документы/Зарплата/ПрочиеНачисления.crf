@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Rec.Базовая.БазовыйДокументГруп">
+  <Inherited>
+    <Inherited Name="Позиции" OnAfterDelete="Позиции_OnAfterDelete" StructClass="УправлениеПерсоналом.Rec.Документы.Зарплата.ПрочиеНачисления_Позиции"/>
+    <Inherited Name="ПозицииКорр" StructClass="УправлениеПерсоналом.Rec.Документы.Зарплата.ПрочиеНачисления_ПозицииКорр"/>
+    <Inherited Name="ДопАналитикаОпер" StructClass="УправлениеПерсоналом.Rec.Документы.Зарплата.ПрочиеНачисления_ДопАналитикаОпер"/>
+    <Component Name="ТипДокумента" Class="Com.Fld.IField" FieldName="ТипДокумента"/>
+    <Component Name="Проводить" Class="Com.Fld.IField" FieldName="Проводить"/>
+    <Component Name="Скорректирован" Class="Com.Fld.IField" FieldName="Скорректирован" Visible="True"/>
+    <Component Name="ДатаКорректировки" Class="Com.Fld.IField" Excluded="True" FieldName="ДатаКорректировки"/>
+    <Component Name="Начисление" Class="Com.Fld.IField" FieldName="Начисление" OnChange="Начисление_OnChange"/>
+    <Component Name="КоррРасчет" Class="Com.Fld.IField" FieldName="КоррРасчет" OnChange="КоррРасчет_OnChange" OnVerify="КоррРасчет_OnVerify"/>
+    <Component Name="Период" Class="Com.Fld.IField" FieldName="Период" OnChange="Период_OnChange"/>
+    <Component Name="Корректировка" Class="Com.Fld.IField" FieldName="Корректировка" ValueType="VarLogical"/>
+    <Component Name="ТипКонтрагента" Class="Com.Fld.IField" FieldName="ТипКонтрагента" OnChange="ТипКонтрагента_OnChange"/>
+    <Component Name="Подразделение" Class="Com.Fld.IField" FieldName="Подразделение" OnChange="Подразделение_OnChange"/>
+  </Inherited>
+</Resource>

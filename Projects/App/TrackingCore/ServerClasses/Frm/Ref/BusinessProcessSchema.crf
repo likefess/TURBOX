@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="TrackingCore.Rec.Ref.BusinessProcessSchemas" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" PrimaryButton="ButtonOK1">
+        <Inherited Name="ButtonClose" Excluded="True" After="#0" Caption="@Cmd:Close=Отменить" Fashion="Fashions.SecondaryButton" Hint="Отменить" ImageSize="16" Width="32"/>
+        <Inherited Name="ButtonOK" Excluded="True" After="ButtonClose" Caption="@Cmd:PostClose=Сохранить" FontSize="10" ImageSize="16" Width="32"/>
+        <Inherited Name="ButtonReports" Excluded="True" After="ButtonServices"/>
+        <Inherited Name="ButtonAnalytics" Excluded="True"/>
+        <Inherited Name="HeaderSeparator" Excluded="True"/>
+        <Inherited Name="ButtonPost" Excluded="True" Visible="False"/>
+        <Inherited Name="ButtonCancel" Excluded="True" Visible="False"/>
+        <Inherited Name="ButtonClone" Excluded="True" Visible="False"/>
+        <Inherited Name="ButtonDelete" Excluded="True" Visible="False"/>
+        <Inherited Name="ButtonRefresh" Excluded="True" Visible="False"/>
+        <Inherited Name="ButtonHelp" Excluded="True" Visible="False"/>
+        <Component Name="ButtonCancelNew" Class="Com.Ctrl.IButton" Caption="@Cmd:Close=Отменить" Fashion="Fashions.SecondaryButton" Hint="Отменить" OnClick="ButtonClose_OnClick" Width="32"/>
+        <Component Name="ButtonOK1" Class="Com.Ctrl.IButton" Caption="@Cmd:PostClose=Сохранить" FontSize="10" OnClick="ButtonOK_OnClick" Width="32"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" AutoSize="False" Margins="10" Orientation="Vertical">
+        <Component Name="BusinessProcessFrame" Class="Com.Ctrl.IFrame" After="#0" Proportion="133">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="CaptionBP" Class="Com.Ctrl.IFrame" AutoSize="True" FixSize="True" Size="10">
+            <BuiltIn Name="SideMargins" Bottom="0"/>
+            <Component Name="HeaderGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="ProjectCaption1" Class="Com.Ctrl.IStatic" Caption="Бизнес-процессы" FixSize="True" FontBold="True" FontSize="16" Width="60"/>
+              <Component Name="Margin" Class="Com.Ctrl.IStatic" FixSize="False"/>
+              <Component Name="AddBPButton" Class="Com.Ctrl.IButton" Caption="Добавить бизнес-процесс" Fashion="Fashions.GhostButton" ImageName="Com.chevron-down" ImageSize="16" OnClick="ExistBPButtonOnClick" Width="58"/>
+            </Component>
+          </Component>
+          <Component Name="WarningFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <BuiltIn Name="SideMargins" Bottom="16" Top="16"/>
+            <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="StaticWarning" Class="Com.Ctrl.IStatic" Caption="Добавьте в схему бизнес-процесс для всех неназначенных типов задач" FontColor="0x000000FF" FontSize="8" ImageName="Control.pr-highest" ImageSize="10"/>
+            </Component>
+          </Component>
+          <Component Name="BusinessProcessList" Class="Com.Ctrl.IFrame">
+            <BuiltIn Name="SideMargins" Top="0"/>
+            <Component Name="BPTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="EdtRec.BusinessProcesses">
+              <Component Name="Current" Class="TrackingCore.Rec.Ref.BusinessProcessSchemas_BusinessProcesses" IsLibrary="1"/>
+              <Component Name="BP_Name" Class="Com.Ctrl.IEdit" Caption="Бизнес-процесс" Enabled="False" Field="Current.BusinessProcess" FixSize="True" HasButton="False" LookupField="Name" ValueType="VarString" Width="150"/>
+              <Component Name="BP_TaskCategory" Class="Com.Ctrl.IEdit" Caption="Типы задач" CardFileClass="Control.Tab.Ref.TaskCategory" Enabled="False" Field="Current.TaskCategory" HasButton="False" LookupField="Name" ShortList="True" Width="50"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="ProjectsFrame" Class="Com.Ctrl.IFrame" Proportion="61">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="5" Top="0"/>
+          <Component Name="CaptionProject" Class="Com.Ctrl.IFrame" Excluded="True" AutoSize="True" FixSize="True" Margins="8" Size="10">
+            <Component Name="ProjectCaption" Class="Com.Ctrl.IStatic" Caption="Проекты" FixSize="True" FontSize="13" Width="40"/>
+          </Component>
+          <Component Name="ProjectsList" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0x00FCF9F9">
+            <Component Name="ProjectsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="LinkProjects" Class="Com.Ctrl.IButton" Alignment="CenterAlign" Caption=" Привязать проекты" Fashion="Fashions.TertiaryButton" FixSize="False" ImageName="Com.plus" ImageSize="16" MaxWidth="488" MinWidth="50" OnClick="LinkProjectsOnClick" Width="89"/>
+              <Component Name="NullStatic" Class="Com.Ctrl.IStatic" FixSize="True" FontSize="1" Width="50"/>
+              <Component Name="InfoStatic" Class="Com.Ctrl.IStatic" Caption="Нет привязанных проектов. Нажмите на кнопку, чтобы добавить проекты." FontColor="0x003B3432" ImageSize="16" StaticStyle="NormalText"/>
+              <Component Name="NullStatic1" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" FontSize="1" Width="60"/>
+            </Component>
+          </Component>
+        </Component>
+        <Inherited Name="Group1" Excluded="True" After="ProjectsFrame"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

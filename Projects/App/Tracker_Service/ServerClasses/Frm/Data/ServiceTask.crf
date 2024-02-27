@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Tracker_Service.Rec.Data.ServiceTask" IsLibrary="1"/>
+    <Inherited Name="RootFrame" AutoSize="True" UseSplitter="True">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Component Name="ButtonCreateTask" Class="Com.Ctrl.IButton" Caption="@Cmd:CreateTask=Создать задачу" ImageName="Control.NewTask" OnClick="ButtonCreateTaskForRequest_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Component Name="SubHeaderFrame" Class="Com.Ctrl.IFrame" After="HeaderFrame" AutoSize="True" Margins="8">
+        <Component Name="InnerFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="ContructGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="35" MaxWidth="505">
+            <Component Name="ContrapartyEdit" Class="Com.Ctrl.IEdit" AutoLookup="True" Caption="Заказчик" Field="EdtRec.Contraparty" HasCaption="True" LookupField="Name" LookupFilter="IsLegalEntity" OnChange="ContrapartyEditOnChange" OnGetLookupFilter="ContrapartyEditOnGetLookupFilter" ShortList="True"/>
+            <Component Name="ContractEdit" Class="Com.Ctrl.IEdit" AutoLookup="True" Field="EdtRec.SeviceContract" HasCaption="True" OnChange="ContractEditOnChange" OnGetLookupFilter="ContractEditOnGetLookupFilter" ShortList="False"/>
+          </Component>
+        </Component>
+        <Component Name="ButtonFrame" Class="Com.Ctrl.IFrame" Margins="2">
+          <Component Name="Group10" Class="Com.Ctrl.IGroup">
+            <Component Name="Static3" Class="Com.Ctrl.IStatic" Width="35"/>
+            <Component Name="StatusGroup" Class="Com.Ctrl.IGroup" Adaptive="True"/>
+          </Component>
+        </Component>
+      </Component>
+      <Inherited Name="FieldsFrame" After="SubHeaderFrame"/>
+      <Component Name="BriefBox" Class="Com.Ctrl.IBox" After="FieldsFrame" AutoSize="True" Caption="@TrackerService:ServiceBriefBox=Обращение">
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="35">
+          <Component Name="FIOEdit" Class="Com.Ctrl.IEdit" Caption="@TrackerService:FIOEdit=ФИО заявителя" Field="EdtRec.Petitioner" OnChange="FIOEditOnChange"/>
+          <Component Name="SubjectEdit" Class="Com.Ctrl.IEdit" Caption="@TrackerService:SubjectEdit=Тема обращения" Field="EdtRec.Name"/>
+          <Component Name="ServiceEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Service" HasCaption="True" LookupField="Name" OnChange="ServiceEditOnChange" OnGetLookupFilter="ServiceEditOnGetLookupFilter" ShortList="True"/>
+          <Component Name="ServiceItemEdit" Class="Com.Ctrl.IEdit" Caption="Состав услуги" Field="EdtRec.ObjType" HasCaption="True" LookupField="Name" OnChange="ServiceItemEditOnChange" OnGetLookupFilter="ServiceItemEditOnGetLookupFilter" ShortList="True"/>
+          <Component Name="ServiceLevelEdit" Class="Com.Ctrl.IEdit" Caption="Приоритет" Field="EdtRec.ServiceLevel" HasCaption="True" OnChange="ServiceLevelEditOnChange" OnGetLookupFilter="ServiceLevelEditOnGetLookupFilter" ShortList="True"/>
+          <Component Name="ProductEdit" Class="Com.Ctrl.IEdit" CardFileClass="Tracker_Service.Tab.Data.Product" CellFormat="ReferenceFormat" Field="EdtRec.Product" HasCaption="True" LookupField="Name"/>
+          <Component Name="PartnerEdit" Class="Com.Ctrl.IEdit" CardFileClass="Tracker_Service.Tab.Data.LegalEntities" CellFormat="ReferenceFormat" Field="EdtRec.Partner" HasCaption="True" LookupField="Name"/>
+          <Component Name="ErrorFindedInEdit" Class="Com.Ctrl.IEdit" CardFileClass="TrackingCore.Tab.Ref.Version" Field="EdtRec.ErrorFindedIn" HasCaption="True" LookupField="Name" ValueType="VarObject"/>
+          <Component Name="CorrectedIn" Class="Com.Ctrl.IEdit" CardFileClass="TrackingCore.Tab.Ref.Version" Field="EdtRec.CorrectedIn" HasCaption="True" LookupField="Name" ValueType="VarObject"/>
+          <Component Name="TaskGroup" Class="Com.Ctrl.IGroup">
+            <Component Name="LinkToTheTaskEdit" Class="Com.Ctrl.IEdit" Caption="Ссылка на задачу" Field="EdtRec.LinkToTheTask" HasCaption="True"/>
+            <Component Name="JumpToLink" Class="Com.Ctrl.IJumpButton" Field="EdtRec.LinkToTheTask" OnClick="JumpToLinkOnClick"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="DescriptionBox" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@TrackerService:DescriptionBox=Описание" MinSize="20">
+        <Component Name="DescriptionQuillJS" Class="Com.Ctrl.IQuillJS" OnTextChange="ChangeDescription" Visible="False"/>
+        <Component Name="DescriptionBrowser" Class="Com.Ctrl.IBrowser" Visible="False"/>
+      </Component>
+      <Component Name="AttachmentsBox" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@Tracker_Service:Attachments=Вложения" MinSize="20">
+        <Component Name="FrameAttachments" Class="Com.Ctrl.IFrame" AutoSize="True" CanResizeBySplit="True" MinSize="20">
+          <Component Name="AttachmentsOfServiceTask" Class="TrackingLib.Ctrl.IAttachment" FixSize="False" ResizeEnabled="True"/>
+        </Component>
+      </Component>
+      <Inherited Name="TabsFrame" After="AttachmentsBox" AutoSize="True" MinSize="30" Visible="True">
+        <Inherited Name="MainTab" Caption="@TrackerService:MainTab=Основное">
+          <Component Name="Group3" Class="Com.Ctrl.IFrame" Excluded="True">
+            <Component Name="Group11" Class="Com.Ctrl.IGroup" ByColumn="True" CaptionWidth="50">
+              <Component Name="Group6" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="ReactionDateEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.ReactionDate" FormatOfDate="DateAndTime" HasCaption="True"/>
+                <Component Name="DecisionDateEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.DecisionDate" FormatOfDate="DateAndTime" HasCaption="True"/>
+              </Component>
+              <Component Name="StatusEdit" Class="Com.Ctrl.IEdit" Caption="@TrackerService:StatusEdit=Статус обращения" Field="EdtRec.Status" LookupField="Name" OnVerify="StatusEditOnVerify" ShortList="True"/>
+              <Component Name="Static4" Class="Com.Ctrl.IStatic" Width="15"/>
+              <Component Name="ClosingCode" Class="Com.Ctrl.IEdit" Caption="Код закрытия" Enabled="False" Field="EdtRec.ClosingCode" HasCaption="True" LookupField="Name" ShortList="True" Visible="True"/>
+              <Component Name="Static5" Class="Com.Ctrl.IStatic" Visible="False" Width="15"/>
+            </Component>
+          </Component>
+          <Component Name="ResolutionCommentBox" Class="Com.Ctrl.IBox" Excluded="True" AutoSize="True" Caption="@TrackerService:ResolutionCommentBox=Решение" Visible="False">
+            <Component Name="ResolutionCommentQuillJS" Class="Com.Ctrl.IQuillJS" OnTextChange="ChangeResolutionComment" Visible="False"/>
+            <Component Name="ResolutionCommentBrowser" Class="Com.Ctrl.IBrowser" Visible="False"/>
+          </Component>
+        </Inherited>
+        <Component Name="AddCharacteristicsTab" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@TrackerService:AddCharacteristicsTab=Доп.характеристики" Margins="5">
+          <Component Name="Group4" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="True" CaptionWidth="30">
+            <Component Name="Group8" Class="Com.Ctrl.IGroup">
+              <Component Name="DeadlineEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Deadline" FixSize="True" HasCaption="True" Width="50"/>
+              <Component Name="ExtraContactEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.ExtraContact" HasCaption="True"/>
+            </Component>
+            <Component Name="ExtraCommentEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.ExtraComment" HasCaption="True" Multiline="True"/>
+          </Component>
+        </Component>
+        <Component Name="ChatTab" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Tracker_Service:Chat=Обсуждение" Margins="5">
+          <Component Name="ChatFrame" Class="Com.Ctrl.IFrame" Excluded="True" AutoSize="True">
+            <Component Name="Chat" Class="TrackingLib.Ctrl.IChat" DataSource="ChatSubtable" EditorStyle="esEmbeddedWindow" Enabled="True" OnAddAttachment="ChatOnAddAttachment" UseOneSide="False" Visible="True">
+              <Component Name="ChatSubtable" Class="TrackingLib.Ctrl.ChatSubtable" AddingTime="Time" Attachment="Attachment" CommentID="CommentID" CommentOwner="CommentOwner" HtmlContent="HTML" Subtable="EdtRec.Request_Chat"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="ExecutorTab" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@TrackerService:ExecutorTab=Исполнители">
+          <Component Name="Group5" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="False" CaptionWidth="35" MaxWidth="200" MinWidth="150">
+            <Component Name="Group9" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="200" MinWidth="150">
+              <Component Name="WorkingGroupEdit" Class="Com.Ctrl.IEdit" AutoLookup="False" ButtonStyle="LookupButton" CardFileClass="Tracker_Service.Tab.Data.WorkingGroup" Field="EdtRec.WorkingGroup" HasButton="True" HasCaption="True" LookupField="Name" OnChange="WorkingGroupEditOnChange" ShortList="True"/>
+              <Component Name="ResponsibleEdit" Class="Com.Ctrl.IEdit" Caption="Ответственный" Field="EdtRec.Responsible" LookupField="Name" OnGetLookupFilter="ResponsibleEditOnGetLookUpFilter" ShortList="False"/>
+            </Component>
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" Excluded="True" Width="1"/>
+            <Component Name="StatusListButton" Class="Com.Ctrl.IListButton" Excluded="True" Caption="@TrackerService:StatusButtons=Статусная модель" ImageName="Com.angle-down" Width="42"/>
+          </Component>
+        </Component>
+        <Component Name="StaffTab" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Task:StaffTab=Участники" Margins="4">
+          <Component Name="StaffHeaderFrame" Class="Com.Ctrl.IFrame" Excluded="True" AutoSize="True" Margins="4">
+            <Component Name="PeopleGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="PeopleLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="32">
+                <Component Name="AssigneeEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Assignee" HasCaption="True" LookupFilter="not Closed"/>
+                <Component Name="AnalystEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Analyst" HasCaption="True"/>
+              </Component>
+              <Component Name="PeopleRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="32">
+                <Component Name="PetitionerEdit" Class="Com.Ctrl.IEdit" Caption="@TrackerService:PetitionerEdit=Заявитель" Enabled="False" Field="EdtRec.Petitioner" LookupFilter="not Closed"/>
+                <Component Name="Static1" Class="Com.Ctrl.IStatic"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="StaffTableFrame" Class="Com.Ctrl.IFrame" Excluded="True" AutoSize="True" Margins="1">
+            <Component Name="StaffTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="True" CanInsert="True" CanMove="True" ManualControl="True" Subtable="EdtRec.AllocatedStaff">
+              <Component Name="Task_Staff" Class="Control.Rec.Data.Task_AllocatedStaff" IsLibrary="1"/>
+              <Component Name="RoleEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.EntityRoles" Field="Task_Staff.Role" FixSize="True" LookupField="Name" ShortList="True" Width="40"/>
+              <Component Name="StaffEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" Field="Task_Staff.Staff" LookupField="Name" LookupFilter="not Closed" Width="80"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="DependenciesTab" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@TrackerService:Dependencies=Зависимости" Margins="4">
+          <Component Name="Group7" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True">
+            <Component Name="PrevTasksStatic" Class="Com.Ctrl.IStatic" Caption="@TrackerService:PrevTasksStatic=Поручения, от которых зависит данное поручение" FontSize="14"/>
+          </Component>
+          <Component Name="DependencesTable" Class="Com.Ctrl.ITable" Excluded="True" Adaptive="True" Numbering="False" Subtable="EdtRec.Dependences">
+            <Component Name="Task_Dependences" Class="Control.Rec.Data.Task_Dependences" IsLibrary="1"/>
+            <Component Name="PreviousTaskEdit" Class="Com.Ctrl.IEdit" Caption="@TrackerService:PreviousTaskEdit=Название" CardFileClass="Control.Tab.Data.Task" Field="Task_Dependences.PreviousTask"/>
+            <Component Name="PrevTaskStateEdit" Class="Com.Ctrl.IEdit" Caption="@TrackerService:PrevTaskStateEdit=Состояние" CardFileClass="Control.Tab.Ref.TaskStatus" Enabled="False" Field="Task_Dependences.PrevTaskState" FixSize="True" LookupField="Name" Width="40"/>
+          </Component>
+        </Component>
+        <Component Name="DevelopmentChatTab" Class="Com.Ctrl.IFrame" Excluded="True" AutoSize="True" Caption="@TrackerService:DevelopmentChatTab=Комментарии разработки">
+          <Component Name="DevelopmentChatFrame" Class="Com.Ctrl.IFrame" Excluded="True" AutoSize="True">
+            <Component Name="DevelopmentChat" Class="TrackingLib.Ctrl.IChat" DataSource="DevelopmentChatSubtable" EditorStyle="esEmbeddedWindow" OnAddAttachment="ChatOnAddAttachment" UseOneSide="True">
+              <Component Name="DevelopmentChatSubtable" Class="TrackingLib.Ctrl.ChatSubtable" AddingTime="Time" Attachment="Attachment" CommentID="CommentID" CommentOwner="CommentOwner" HtmlContent="HTML" Subtable="EdtRec.Development_Chat"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

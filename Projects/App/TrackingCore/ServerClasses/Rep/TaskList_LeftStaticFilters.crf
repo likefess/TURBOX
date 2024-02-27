@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="BlobList" Class="Com.Fld.IBlob" ValueType="VarString"/>
+      <Component Name="BlobFolder" Class="Com.Fld.IBlob" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" PrimaryButton="AddTaskButton">
+        <Component Name="AddTaskButton" Class="Com.Ctrl.IButton" After="#0" Caption="@TrackingCore:AddTaskButton=Создать задачу" FontSize="11" OnClick="AddTaskButtonOnClick" Printed="False" Width="46"/>
+        <Inherited Name="ButtonRefresh" After="AddTaskButton"/>
+        <Component Name="ExportGroup" Class="Com.Ctrl.IListButton" After="ButtonRefresh" Caption="@Cmd:Export=Экспорт" ImageName="ExportRec">
+          <Component Name="btnExportTXT" Class="Com.Ctrl.IButton" Caption="@ExportTXT=Text (txt)" OnClick="btnExportAs_OnClick"/>
+          <Component Name="btnExportRTF" Class="Com.Ctrl.IButton" Caption="@ExportRTF=Rich Text (rtf)" OnClick="btnExportAs_OnClick"/>
+          <Component Name="btnExportODT" Class="Com.Ctrl.IButton" Caption="@ExportODT=OpenDocument Text (odt)" OnClick="btnExportAs_OnClick"/>
+          <Component Name="btnExportODS" Class="Com.Ctrl.IButton" Caption="@ExportODS=OpenDocument Spreadsheet (ods)" OnClick="btnExportAs_OnClick"/>
+          <Component Name="btnExportCSV" Class="Com.Ctrl.IButton" Caption="@ExportCSV=Comma-separated values (csv)" OnClick="btnExportAs_OnClick"/>
+          <Component Name="btnExportDBF" Class="Com.Ctrl.IButton" Caption="@ExportDBF=DBase(dbf)" OnClick="btnExportAs_OnClick"/>
+          <Component Name="btnSep1" Class="Com.Ctrl.IButton" Caption="-"/>
+          <Component Name="ButtonExport1" Class="Com.Ctrl.IButton" Caption="@ExportDlg=Экспорт в других форматах..." Command="Commands.ExportCmd"/>
+        </Component>
+        <Inherited Name="HeaderSeparator" After="ExportGroup" Visible="True"/>
+        <Inherited Name="ButtonOK" Excluded="True" After="HeaderSeparator" Visible="False"/>
+        <Inherited Name="ButtonClose" Visible="False"/>
+        <Inherited Name="ButtonPrint" Excluded="False" After="ButtonClose" Visible="False"/>
+        <Component Name="ButtonSetup" Class="Com.Ctrl.IButton" After="ButtonPrint" Caption="@Cmd:Setup=Настройки" ImageName="Setup" OnClick="ButtonSetup_OnClick" Printed="False" Visible="False"/>
+        <Component Name="ButtonChooseR" Class="Com.Ctrl.IButton" Caption="@Rep:ChooseReport=Выбрать отчёт" ImageName="Com.Reports" OnClick="ButtonChooseROnClick" Printed="False"/>
+        <Component Name="ButtonFromRpt" Class="Com.Ctrl.IButton" Caption="@Rep:GetFromReport=Заполнить из отчёта" ImageName="SelectItem" OnClick="ButtonFromRpt_OnClick" Printed="False" Visible="False"/>
+        <Inherited Name="ButtonExport" After="ButtonFromRpt"/>
+        <Inherited Name="ButtonHelp" Visible="False"/>
+      </Inherited>
+      <Component Name="ParamFrame" Class="Com.Ctrl.IBox" After="HeaderFrame" Visible="False"/>
+      <Inherited Name="FieldsFrame" Excluded="True" After="ParamFrame"/>
+      <Inherited Name="TabsFrame" ShowTabs="False" Visible="True">
+        <Inherited Name="MainTab" AutoSize="False" Orientation="Vertical">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="LeftParamFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Visible="True">
+            <BuiltIn Name="SideMargins" Bottom="24" Left="32" Right="12" Top="24"/>
+          </Component>
+          <Component Name="ParamClosedFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Visible="False">
+            <BuiltIn Name="SideMargins" Bottom="24" Left="12" Right="0" Top="24"/>
+            <Component Name="ButtonFiltersShow" Class="Com.Ctrl.IButton" Fashion="Fashions.GhostButton" Hint="Показать фильтры" ImageName="Com.chevron-right" MaxWidth="8" OnClick="ButtonShowFiltersOnClick"/>
+          </Component>
+          <Component Name="Frame1" Class="Com.Ctrl.IFrame">
+            <Component Name="AddTaskFrame" Class="Com.Ctrl.IFrame" AutoSize="True" HasCaption="False" Visible="False">
+              <BuiltIn Name="SideMargins" Bottom="0" Left="24" Right="32" Top="24"/>
+              <Component Name="Group5" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="Static9" Class="Com.Ctrl.IStatic"/>
+                <Component Name="AddTaskButton3" Class="Com.Ctrl.IButton" Caption="@TrackingCore:AddTaskButton=Добавить задачу" Fashion="Fashions.SecondaryButton" FontSize="11" ImageName="Com.AddItem" OnClick="AddTaskButtonOnClick" Printed="False" Width="46"/>
+              </Component>
+            </Component>
+            <Component Name="MainFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Enabled="True" Orientation="WithTabs" ScrollerStyle="ScrollerBoth" ShowTabs="False">
+              <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+              <Component Name="ReportFrame" Class="Com.Ctrl.IReportFrame" AutoSize="False" Caption="@Viewer:Report=Отчет" ScrollerStyle="ScrollerHorz">
+                <BuiltIn Name="SideMargins" Bottom="24" Left="12" Right="32" Top="24"/>
+              </Component>
+              <Component Name="ChartFrame" Class="Com.Ctrl.IFrame" Caption="@Viewer:Chart=График" ScrollerStyle="ScrollerNone" Visible="False">
+                <Component Name="Chart" Class="Com.Ctrl.IChart" AutoRebuild="True" OnDblClick="ChartOnDblClick" SeriesKind="skPie"/>
+              </Component>
+              <Component Name="WebChartFrame" Class="Com.Ctrl.IFrame" Caption="@Viewer:WebChart=WEB-график" ScrollerStyle="ScrollerNone" Visible="False">
+                <Component Name="WebChartBrowser" Class="Com.Ctrl.IBrowser" OnClickEx="WebChartOnClickEx"/>
+              </Component>
+              <Component Name="PictureFrame" Class="Com.Ctrl.IFrame" Caption="@Viewer:Gadget=Датчик" ScrollerStyle="ScrollerNone" Visible="False">
+                <Component Name="Gadget" Class="InfoBoard.Ctrl.IGadget" OnClick="GadgetOnClick"/>
+              </Component>
+              <Component Name="TextFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="CRF" ScrollerStyle="ScrollerNone" Visible="False">
+                <Component Name="ReportText" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Multiline="True" Width="400" Wrap="True"/>
+              </Component>
+            </Component>
+            <Component Name="EmptyListFrame" Class="Com.Ctrl.IFrame" Orientation="Horizontal">
+              <BuiltIn Name="SideMargins" Bottom="24" Left="24" Right="24" Top="24"/>
+              <Component Name="Frame2" Class="Com.Ctrl.IFrame" MaxSize="88">
+                <BuiltIn Name="SideMargins" Bottom="16" Left="0" Right="0" Top="0"/>
+                <Component Name="Picture1" Class="Com.Ctrl.IPicture" Center="True" Field="BlobFolder" Shrink="True" Stretch="False"/>
+              </Component>
+              <Component Name="Frame3" Class="Com.Ctrl.IFrame">
+                <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                  <Component Name="Static1" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Список задач пуст" FontBold="True" FontSize="16"/>
+                  <Component Name="Static4" Class="Com.Ctrl.IStatic"/>
+                  <Component Name="Group2" Class="Com.Ctrl.IGroup">
+                    <Component Name="Static2" Class="Com.Ctrl.IStatic" Width="100"/>
+                    <Component Name="AddTaskButton1" Class="Com.Ctrl.IButton" Alignment="CenterAlign" Caption="@TrackingCore:AddTaskButton=Добавить задачу" Fashion="Fashions.SecondaryButton" FontSize="11" ImageName="Com.AddItem" OnClick="AddTaskButtonOnClick" Printed="False" Width="50"/>
+                    <Component Name="Static3" Class="Com.Ctrl.IStatic" Width="100"/>
+                  </Component>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="EmptyResultFrame" Class="Com.Ctrl.IFrame" Orientation="Horizontal">
+              <BuiltIn Name="SideMargins" Bottom="24" Left="24" Right="24" Top="24"/>
+              <Component Name="Frame4" Class="Com.Ctrl.IFrame" MaxSize="88">
+                <BuiltIn Name="SideMargins" Bottom="16" Left="0" Right="0" Top="0"/>
+                <Component Name="Picture2" Class="Com.Ctrl.IPicture" Center="True" Field="BlobList" Shrink="True" Stretch="False"/>
+              </Component>
+              <Component Name="Frame5" Class="Com.Ctrl.IFrame">
+                <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                  <Component Name="Static5" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="По запросу ничего не найдено" FontBold="True" FontSize="16"/>
+                  <Component Name="Static6" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Измените данные фильтра"/>
+                  <Component Name="Group4" Class="Com.Ctrl.IGroup" Excluded="True">
+                    <Component Name="Static7" Class="Com.Ctrl.IStatic" Width="100"/>
+                    <Component Name="AddTaskButton2" Class="Com.Ctrl.IButton" Alignment="CenterAlign" Caption="@TrackingCore:AddTaskButton=Добавить задачу" Fashion="Fashions.SecondaryButton" FontSize="11" ImageName="Com.AddItem" OnClick="AddTaskButtonOnClick" Printed="False" Width="50"/>
+                    <Component Name="Static8" Class="Com.Ctrl.IStatic" Width="100"/>
+                  </Component>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+      <Component Name="SettingsFrame" Class="Com.Ctrl.IFrame" After="TabsFrame" Visible="False">
+        <Component Name="DateFrame" Class="Com.Ctrl.IFrame"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

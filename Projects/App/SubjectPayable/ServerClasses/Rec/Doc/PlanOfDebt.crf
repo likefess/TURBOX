@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="SubjectPayable.Rec.Base.BaseSubjPayableDoc">
+  <Inherited>
+    <Component Name="Status" Class="Com.Fld.IField" After="#0" FieldName="Status"/>
+    <Component Name="TypeOfAcc" Class="Com.Fld.IField" FieldName="TypeOfAcc" OnChange="TypeOfAcc_OnChange"/>
+    <Component Name="PaymentDate" Class="Com.Fld.IField" Caption="@SubjectPayable:PaymentDate=Дата оплаты" FieldName="PaymentDate"/>
+    <Inherited Name="DateDoc" After="PaymentDate"/>
+    <Inherited Name="Name" OnCalc="Name_OnCalc"/>
+    <Inherited Name="Company" OnVerify="Company_OnVerify"/>
+    <Inherited Name="AccDate" OnVerify="AccDate_OnVerify"/>
+  </Inherited>
+</Resource>

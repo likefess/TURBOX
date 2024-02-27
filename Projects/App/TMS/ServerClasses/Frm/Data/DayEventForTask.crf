@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.Event">
+  <Inherited ModalWidth="175">
+    <Inherited Name="EdtRec" Class="TMS.Rec.Data.DayEvent" IsLibrary="1"/>
+    <Inherited Name="RootFrame" ScrollerStyle="ScrollerNone">
+      <BuiltIn Name="SideMargins" Bottom="24" Left="24" Right="24" Top="24"/>
+      <Inherited Name="HeaderFrame" MaxButton="2" Visible="False">
+        <Inherited Name="ButtonOK" Visible="True"/>
+        <Inherited Name="ButtonClose" After="ButtonChildForms"/>
+        <Inherited Name="ButtonServices" After="ButtonClose" Visible="False"/>
+        <Inherited Name="ButtonReports" Excluded="True" After="ButtonServices"/>
+        <Inherited Name="ButtonAnalytics" Excluded="True"/>
+        <Inherited Name="ButtonPost" Excluded="True"/>
+        <Inherited Name="ButtonCancel" Excluded="True"/>
+        <Inherited Name="ButtonClone" Excluded="True"/>
+        <Inherited Name="ButtonDelete" Excluded="True"/>
+        <Inherited Name="ButtonRefresh" Excluded="True"/>
+        <Inherited Name="ButtonHelp" Excluded="True"/>
+      </Inherited>
+      <Component Name="MyFrame" Class="Com.Ctrl.IFrame" After="HeaderFrame" AutoSize="True" Orientation="Horizontal">
+        <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+        <Component Name="EventHoursFrame" Class="Com.Ctrl.IFrame" Margins="0" Orientation="Vertical" Proportion="24">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="EventFrame" Class="Com.Ctrl.IFrame" Margins="0" Proportion="24">
+            <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+            <Component Name="EventGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="EventTimeEdit" Class="Com.Ctrl.IEdit" Caption="@Event:EventDate=Дата" CellFormat="DateFormat" Field="EdtRec.EventTime" FixSize="False" FormatOfDate="DateOnly" HasCaption="False" HasInnerCaption="True"/>
+            </Component>
+          </Component>
+          <Component Name="EventSeparator" Class="Com.Ctrl.IFrame" Margins="0" Proportion="1">
+            <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          </Component>
+          <Component Name="HoursFrame" Class="Com.Ctrl.IFrame" Margins="0" Proportion="24">
+            <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+            <Component Name="HoursGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="HoursEdit" Class="Com.Ctrl.IEdit" Caption="Затрачено времени" CellFormat="NumericFormat" Field="EdtRec.Hours" HasCaption="False" HasInnerCaption="True"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="EventHoursSeparator" Class="Com.Ctrl.IFrame" Margins="0" Orientation="Horizontal" Proportion="4">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+        </Component>
+        <Component Name="CommentFrame" Class="Com.Ctrl.IFrame" Margins="0" Orientation="Vertical" Proportion="24">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="CommentGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="CommentEdit" Class="Com.Ctrl.IEdit" Caption="Комментарий" Field="EdtRec.Comment" HasCaption="False" HasInnerCaption="True"/>
+          </Component>
+        </Component>
+        <Component Name="CommentFrameSeparator" Class="Com.Ctrl.IFrame" Margins="0" Orientation="Horizontal" Proportion="16">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+        </Component>
+        <Component Name="ButtonsFrame" Class="Com.Ctrl.IFrame" Margins="0" Orientation="Vertical" Proportion="24">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="ButtonFrameEmpty" Class="Com.Ctrl.IFrame" Margins="0" Proportion="24">
+            <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          </Component>
+          <Component Name="ButtonCancelFrame" Class="Com.Ctrl.IFrame" Margins="0" Proportion="22">
+            <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+            <Component Name="ButtonCancelGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="ButtonCancel1" Class="Com.Ctrl.IButton" Caption="@Cmd:Cancel=Отмена" Fashion="Fashions.TertiaryButton" OnClick="ButtonClose_OnClick"/>
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" Width="1"/>
+              <Component Name="ButtonOK1" Class="Com.Ctrl.IButton" Caption="@Cmd:PostClose=Списать время" Fashion="Fashions.PrimaryButton" OnClick="ButtonOK_OnClick" Width="40"/>
+            </Component>
+          </Component>
+          <Component Name="ButtonCancelSeparator" Class="Com.Ctrl.IFrame" Excluded="True" Proportion="1"/>
+          <Component Name="ButtonOkFrame" Class="Com.Ctrl.IFrame" Excluded="True" Proportion="24">
+            <Component Name="ButtonOkGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True"/>
+          </Component>
+        </Component>
+      </Component>
+      <Inherited Name="FieldsFrame" After="MyFrame"/>
+    </Inherited>
+  </Inherited>
+</Resource>

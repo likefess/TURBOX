@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="4" Visible="True">
+        <Inherited Name="ButtonOK" Excluded="True" Visible="False"/>
+        <Component Name="ButtonChartType" Class="Com.Ctrl.IListButton" After="ButtonOK" Caption="Строить по" HasCaption="True" ImageName="Com.chart-bar">
+          <Component Name="TasksChart" Class="Com.Ctrl.IButton" Caption="Строить по задачам" HasCaption="True" OnClick="TasksChartOnClick"/>
+          <Component Name="HoursChart" Class="Com.Ctrl.IButton" Caption="Строить по часам" HasCaption="True"/>
+        </Component>
+        <Inherited Name="ButtonRefresh" After="ButtonChartType" Caption="@Обновить" Enabled="True" Visible="True"/>
+        <Inherited Name="ButtonClose" After="ButtonRefresh" Visible="True"/>
+        <Inherited Name="HeaderSeparator" Excluded="True" Visible="False"/>
+        <Inherited Name="ButtonHelp" Excluded="True" After="HeaderSeparator" Visible="False"/>
+      </Inherited>
+      <Inherited Name="TabsFrame" AutoSize="False" Orientation="Horizontal" ShowTabs="False" Visible="True">
+        <Inherited Name="MainTab" Excluded="True" Caption="По количеству задач" Orientation="Vertical" ShowTabs="True" Visible="True">
+          <Component Name="ChartFrame" Class="Com.Ctrl.IFrame" ShowTabs="True"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.БазовыйДокумент">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Кадровые документы.Кадровые документы сотрудников.Трудовой договор">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ТрудовойДоговор" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" HasCaption="True">
+        <Inherited Name="кнПечатьУнФорма" Hint="Форма ТД-1" Visible="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="грТипДокумента">
+          <Component Name="ТипДокумента" Class="Com.Ctrl.IEdit" Caption="@Тип документа" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ТипыДокументов" Field="EdtRec.ТипДокумента" HasCaption="True" LookupField="Name" OnGetLookupFilter="ТипДокумента_OnGetLookupFilter" OnOpenCardForm="ТипДокумента_OnOpenCardForm" Required="True"/>
+          <Component Name="кнТипДокумента" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ТипДокумента" JumpForm="УправлениеПерсоналом.Frm.Классификаторы.ТипДокумента"/>
+          <Component Name="Static10" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="фрСотрудник" Class="Com.Ctrl.IFrame" Caption="@Сотрудник" Enabled="True" HasCaption="True" Margins="5" Visible="True">
+            <Component Name="грСотрудникДанные" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Сотрудник" Class="Com.Ctrl.IEdit" Caption="@Сотрудник" CardFileClass="HRBase.Tab.Data.StaffersHR" Enabled="True" Field="EdtRec.Сотрудник" HasCaption="True" LookupField="Name" OnOutputEx="ФИО_OnOutputEx" Required="True" Visible="True"/>
+              <Component Name="кнСотрудник" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Сотрудник" JumpForm="HRBase.Frm.Data.NaturalPersonHR"/>
+            </Component>
+            <Component Name="грМестоРаботы" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="грПодразделение" Class="Com.Ctrl.IGroup">
+                <Component Name="Подразделение" Class="Com.Ctrl.IEdit" Caption="@Подразделение" CardFileClass="Bas.Tab.Data.Divisions" Enabled="True" Field="EdtRec.Подразделение" HasCaption="True" LookupField="Name" Multiline="True" OnGetLookupFilter="Подразделение_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуПодразделения" OnOutputEx="Подразделение_OnOutputEx" Visible="False" Wrap="True"/>
+                <Component Name="кнПодразделение1" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Подразделение" JumpForm="Bas.Frm.Data.Entity"/>
+              </Component>
+              <Component Name="грДолжность" Class="Com.Ctrl.IGroup">
+                <Component Name="Должность" Class="Com.Ctrl.IEdit" Caption="@Должность" CardFileClass="HRBase.Tab.Ref.PositionsHR" Enabled="True" Field="EdtRec.Должность" HasCaption="True" LookupField="Name" Multiline="True" Visible="False" Wrap="True"/>
+                <Component Name="кнДолжность1" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Должность" JumpForm="HRBase.Frm.Ref.PositionHR"/>
+              </Component>
+              <Component Name="грРазряд" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Разряд" Class="Com.Ctrl.IEdit" Caption="Разряд" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ТарифныеРазряды" Field="EdtRec.Разряд" HasCaption="True" LookupField="Name" Multiline="True" OnGetLookupFilter="Разряд_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуРазряды" Wrap="True"/>
+                <Component Name="кнРазряд" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Разряд" JumpForm="УправлениеПерсоналом.Frm.Справочники.ТарифныйРазряд"/>
+              </Component>
+            </Component>
+            <Component Name="грВакансия" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Вакансия" Class="Com.Ctrl.IEdit" Caption="Вакансия" CardFileClass="HRBase.Tab.Data.StaffingUnit" Field="EdtRec.ШтЭлемент" HasCaption="True" LookupField="Name" LookupFilter="Проводить" Multiline="True" OnGetLookupFilter="Вакансия_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуВакансии" OnOutputEx="Вакансия_OnOutputEx" Wrap="True"/>
+              <Component Name="кнВакансия" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ШтЭлемент" JumpForm="HRBase.Frm.Data.StaffingUnit"/>
+            </Component>
+            <Component Name="грПериодРаботы" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" Enabled="True" MaxWidth="230" MinWidth="150">
+              <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Caption="@Дата назначения" Enabled="True" Field="EdtRec.ДатаНачала" HasCaption="True" Hint="Дата начала работы" MaxWidth="35" OnVerify="ДатаНачала_OnVerify" Visible="True"/>
+              <Component Name="ДатаУвольнения" Class="Com.Ctrl.IEdit" Caption="@Дата увольнения" Enabled="True" Field="EdtRec.ДатаОкончания" HasCaption="True" Hint="Дата увольнения сотрудника" LookupField="FireDate" MaxWidth="35" OnVerify="ДатаУвольнения_OnVerify" Visible="True"/>
+            </Component>
+            <Component Name="грУдостоверение" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="ВидДокумента" Class="Com.Ctrl.IEdit" Caption="@Вид документа" CardFileClass="Biz.Tab.Data.IDcards" Enabled="True" Field="EdtRec.Удостоверение" HasCaption="True" Hint="Удостоверение личности" LookupField="IDtype.Name" Multiline="True" OnGetLookupFilter="ВидДокумента_OnGetLookupFilter" OnOutputEx="ВидДокумента_OnOutputEx" Wrap="True"/>
+              <Component Name="кнУдостоверение" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Удостоверение" JumpForm="Biz.Frm.Data.IDcard"/>
+            </Component>
+            <Component Name="грАдрес" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="грФакт" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="АдресФакт" Class="Com.Ctrl.IEdit" Caption="@Адрес фактический" CardFileClass="Biz.Tab.Data.Addresses" Field="EdtRec.АдресФакт" Multiline="True" OnOutputEx="Адрес_OnOutputEx" Wrap="True"/>
+                <Component Name="кнАдресФакт" Class="Com.Ctrl.IJumpButton" Field="EdtRec.АдресФакт" JumpForm="Biz.Frm.Data.Address"/>
+              </Component>
+              <Component Name="грПроп" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="АдресПроп" Class="Com.Ctrl.IEdit" Caption="@Адрес регистрации" CardFileClass="Biz.Tab.Data.Addresses" Field="EdtRec.АдресПроп" Multiline="True" OnOutputEx="Адрес_OnOutputEx" Wrap="True"/>
+                <Component Name="кнАдресПроп" Class="Com.Ctrl.IJumpButton" Field="EdtRec.АдресПроп" JumpForm="Biz.Frm.Data.Address"/>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+        <Inherited Name="фрПодписи" Caption="@Подписи" Enabled="True" Hint="@Подписи" Visible="True">
+          <Inherited Name="фрПодписиОбщ">
+            <Inherited Name="грОтветственный" Excluded="True"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.BasObject">
+  <Inherited Hierarchical="False">
+    <Inherited Name="Current" Class="CashFlow.Rec.Doc.BankStatement" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" SecondaryButton="ButtonEditItem">
+        <Inherited Name="ButtonAddItem" Excluded="True"/>
+        <Inherited Name="ButtonCloneItem" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" Excluded="True"/>
+          <Inherited Name="Code" Excluded="True"/>
+          <Component Name="AccountedCheckBox" Class="Com.Ctrl.ICheckBox" Caption="@BankStatement:AccountedCheckBox=Проведено" Field="Current.IsAccounted" Width="20"/>
+          <Component Name="OurCompanyEdit" Class="Com.Ctrl.IEdit" Caption="Наше предприятие" CellFormat="ReferenceFormat" Field="Current.Company" HasCaption="True" LookupField="Name" Width="50"/>
+          <Component Name="BankDetailsEdit" Class="Com.Ctrl.IEdit" Caption="Р/счет" CellFormat="ReferenceFormat" Field="Current.BankDetails" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="DateStartEdit" Class="Com.Ctrl.IEdit" Caption="Нач. дата" CellFormat="DateFormat" Field="Current.DateStart" FieldFormat="dd.mm.yyyy" HasCaption="True" Width="20"/>
+          <Component Name="DateEndEdit" Class="Com.Ctrl.IEdit" Caption="Кон. дата" CellFormat="DateFormat" Field="Current.DateEnd" FieldFormat="dd.mm.yyyy" HasCaption="True" Width="20"/>
+          <Component Name="BankSaldoInEdit" Class="Com.Ctrl.IEdit" Caption="Вх. остаток" CellFormat="NumericFormat" Field="Current.BankSaldoIn" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+          <Component Name="IncomeSumEdit" Class="Com.Ctrl.IEdit" Caption="Вх. платежи" CellFormat="NumericFormat" Field="Current.IncomeSum" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+          <Component Name="OutcomeSumEdit" Class="Com.Ctrl.IEdit" Caption="Исх. платежи" CellFormat="NumericFormat" Field="Current.OutcomeSum" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+          <Component Name="BankSaldoOutEdit" Class="Com.Ctrl.IEdit" Caption="Исх. остаток" CellFormat="NumericFormat" Field="Current.BankSaldoOut" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

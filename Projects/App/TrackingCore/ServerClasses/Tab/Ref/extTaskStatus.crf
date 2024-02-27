@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Control.Tab.Ref.TaskStatus">
+  <Inherited Caption="@TrackingCore:Status=Статусы" Hierarchical="False">
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Caption="Статусы задач" PrimaryButton="ButtonAddItem" SecondaryButton="ButtonSelectItem">
+        <Inherited Name="ButtonSelectItem" Visible="False"/>
+        <Inherited Name="ButtonAddItem" Caption="@TrackingCore:AddStatusButton=Создать статус" ImageName="-" OnClick="AddStatus_OnClick" Visible="False"/>
+        <Inherited Name="HeaderSeparator" Excluded="True" After="ButtonAddItem"/>
+        <Inherited Name="ButtonEditItem" Excluded="True" After="HeaderSeparator" OnClick="EditItem_OnClick"/>
+        <Inherited Name="ButtonSaveItem" Excluded="True"/>
+        <Inherited Name="ButtonCancel" Excluded="True"/>
+        <Inherited Name="ButtonFilters" Visible="False">
+          <Inherited Name="ButtonCommonFilter" Visible="False"/>
+          <Inherited Name="ButtonHideClosed" Visible="False"/>
+          <Inherited Name="ButtonNavigationPanel" Visible="False"/>
+          <Inherited Name="ButtonHierarchicalView" Visible="False"/>
+          <Inherited Name="ButtonShowDeleted" Visible="False"/>
+          <Inherited Name="FilterSeparator" Visible="False"/>
+        </Inherited>
+        <Inherited Name="ButtonClose" Excluded="True"/>
+        <Inherited Name="ButtonCloneItem" Excluded="True" After="ButtonClose"/>
+        <Inherited Name="ButtonDeleteItem" Excluded="True"/>
+        <Inherited Name="ButtonAddFolder" Excluded="True"/>
+        <Inherited Name="ButtonFolderElement" Excluded="True"/>
+        <Inherited Name="ButtonRefresh" Excluded="True"/>
+        <Inherited Name="HeaderSeparator1" Excluded="True"/>
+        <Inherited Name="ButtonExport" Excluded="True"/>
+        <Inherited Name="ButtonImport" Excluded="True"/>
+        <Inherited Name="ButtonHelp" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="NavigatorFrame">
+        <Inherited Name="NavigatorGroup" Visible="False"/>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="CardFile" OnDrawRow="CardFileOnDrawRow"/>
+          <Inherited Name="Name" FixSize="False" Width="80"/>
+          <Inherited Name="Code" Visible="False"/>
+          <Inherited Name="EntityRole" Visible="False"/>
+          <Inherited Name="IsClosedTask" Visible="False"/>
+          <Inherited Name="StatusColorEdit" Visible="False"/>
+          <Component Name="StatusTypeEdit" Class="Com.Ctrl.IEdit" Caption="Тип статуса" Field="Current.StatusType" FixSize="False" HasCaption="True" Width="80"/>
+          <Component Name="BPEdit" Class="Com.Ctrl.IEdit" Caption="Бизнес-процессы" Width="80"/>
+          <Component Name="ButtonDelete" Class="Com.Ctrl.IButton" Fashion="Fashions.GhostButton" ImageName="TrackingCore.trash_bin" OnClick="ButtonDeleteItem_OnClick"/>
+          <Component Name="AdditionalButton" Class="Com.Ctrl.IButton" Excluded="True" Alignment="CenterAlign" FixSize="True" ImageName="Com.ellipsis-v" OnClick="AdditionalButtonOnClick" Width="6"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="BudgetControl.Rec.Data.BCFact" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" ByColumn="False">
+          <Component Name="LeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+            <Component Name="CodeGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="Code1" Class="Com.Ctrl.IEdit" Field="EdtRec.Code" HasCaption="True" Required="True"/>
+            </Component>
+            <Component Name="MAUnitGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="MAUnit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="EdtRec.MAUnit" HasCaption="True" LookupField="Name"/>
+            </Component>
+            <Component Name="TransDateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="TransDate" Class="Com.Ctrl.IEdit" Field="EdtRec.TransDate" HasCaption="True" Required="True"/>
+            </Component>
+          </Component>
+          <Component Name="RightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+            <Component Name="NameGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="Name1" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" HasCaption="True"/>
+            </Component>
+            <Component Name="LockedGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="LockedStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Locked" HasCaption="True"/>
+            </Component>
+            <Component Name="DocRefGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150" Visible="False">
+              <Component Name="DocRef" Class="Com.Ctrl.IEdit" Field="EdtRec.DocRef" HasCaption="True" LookupField="Code"/>
+              <Component Name="DocRefJumpButton" Class="Com.Ctrl.IJumpButton" Field="EdtRec.DocRef"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

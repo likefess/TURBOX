@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="WFlow.Frm.AddIns.BaseTask">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Component Name="grpDetailsBody" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="32">
+        <Component Name="DetailsLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+          <Component Name="grpTaskType" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="lbTaskType" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@WFlow:TypeEdit=Тип" FixSize="True" ImageSize="20" Width="32"/>
+            <Component Name="ImageStatic" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" ImageSize="20" Width="8"/>
+            <Component Name="TypeEdit" Class="Com.Ctrl.IEdit" Caption="@WFlow:TypeEdit=Тип" Field="EdtRec.TaskType" HasCaption="False" LookupFilter="not Closed" OnChange="TypeEditOnChange" OnGetLookupFilter="TypeEditOnGetLookupFilter" ShortList="True"/>
+          </Component>
+          <Component Name="grpPriority" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="lbPriority" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@WFlow:Priority=Приоритет" FixSize="True" Width="32"/>
+            <Component Name="ImagePriority" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" Width="8"/>
+            <Component Name="PriorityEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.TaskPriority" HasCaption="False" LookupFilter="not Closed" OnChange="PriorityEditOnChange" OnDraw="PriorityEditOnDraw" ShortList="True"/>
+          </Component>
+          <Component Name="grpSprint" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="lbSprint" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@WFlow:Sprint=Спринт" FixSize="True" Width="32"/>
+            <Component Name="ImageSprint" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" Width="8"/>
+            <Component Name="SprintEdit" Class="Com.Ctrl.IListEdit" CellFormat="ReferenceFormat" Field="EdtRec.Sprints" HasCaption="False" LookupField="Name" ValueType="VarObject"/>
+          </Component>
+          <Component Name="grpPrjComps" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="lbPrjComps" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@WFlow:PrjComps=Компоненты" FixSize="True" Width="32"/>
+            <Component Name="ImagePrjComps" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" Width="8"/>
+            <Component Name="PrjComps" Class="Com.Ctrl.IListEdit" CellFormat="ReferenceFormat" Field="EdtRec.PrjComponents" HasCaption="False" LookupFilter="not Closed" ValueType="VarObject"/>
+          </Component>
+        </Component>
+        <Component Name="DetailsRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="30">
+          <Component Name="StatusEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.TaskStatus" HasCaption="True" LookupFilter="not Closed" OnChange="StatusEditOnChange" OnEnter="StatusEditOnEnter" OnGetLookupFilter="StatusEditOnGetLookupFilter"/>
+          <Component Name="ResolutionEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Resolution" HasCaption="True" LookupFilter="not Closed" ShortList="True"/>
+          <Component Name="AffVersions" Class="Com.Ctrl.IListEdit" CellFormat="ReferenceFormat" Field="EdtRec.AffVersions" HasCaption="True" LookupFilter="not Closed" ValueType="VarObject"/>
+          <Component Name="FixVersions" Class="Com.Ctrl.IListEdit" CellFormat="ReferenceFormat" Field="EdtRec.FixVersions" HasCaption="True" LookupFilter="not Closed" ValueType="VarObject"/>
+        </Component>
+      </Component>
+      <Component Name="grpDetailsFooter" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="40">
+        <Component Name="grpLabels" Class="Com.Ctrl.IGroup">
+          <Component Name="lbLabels" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@WFlow:Labels=Метки" FixSize="True" Width="32"/>
+          <Component Name="ImageLabels" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" Width="8"/>
+          <Component Name="Labels" Class="Com.Ctrl.IListEdit" Caption="@WFlow:Labels=Метки" CellFormat="ReferenceFormat" Field="EdtRec.Labels" HasCaption="False" LookupFilter="not Closed" ValueType="VarObject"/>
+        </Component>
+        <Component Name="grpEpic" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="32">
+          <Component Name="lbEpic" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@WFlow:Epic=Эпик" FixSize="True" Width="32"/>
+          <Component Name="ImageEpic" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" Width="8"/>
+          <Component Name="EpicEdit" Class="Com.Ctrl.IEdit" Caption="@WFlow:Epic=Эпик" CaptionWidth="32" Enabled="False" Field="EdtRec.GroupDoc" HasCaption="False"/>
+          <Component Name="EpicJump" Class="Com.Ctrl.IJumpButton" Field="EdtRec.GroupDoc"/>
+        </Component>
+        <Component Name="grpExtraText" Class="Com.Ctrl.IGroup">
+          <Component Name="lbExtraText" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@WFlow:ExtrInfo=Доп. инфо" FixSize="True" Width="32"/>
+          <Component Name="ImageExtraText" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" Width="8"/>
+          <Component Name="ExtraTextEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.ExtraText" HasCaption="False"/>
+        </Component>
+        <Component Name="LinkGroup" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="30">
+          <Component Name="lbTrkKnolageBase" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="Трекинг.БЗ" FixSize="True" Width="32"/>
+          <Component Name="ImageTrkKnolageBase" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" Width="8"/>
+          <Component Name="LinkTrack" Class="Com.Ctrl.IEdit" Caption="Трекинг.БЗ" Field="EdtRec.LinkTrack" HasCaption="False" Width="152"/>
+          <Component Name="LinkButton" Class="Com.Ctrl.IButton" HasCaption="False" Hint="Перейти" ImageName="Com.angle-right" OnClick="LinkButtonOnClick"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

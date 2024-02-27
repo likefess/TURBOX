@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Tab.Базовая.Справочник">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Справочники.Виды удержаний">
+    <Inherited Name="Current" Class="УправлениеПерсоналом.Rec.Справочники.ВидУдержаний" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="Утверждено" Class="Com.Ctrl.IEdit" After="ExtId" Field="Current.Проводить" HasCaption="True" Width="15"/>
+          <Inherited Name="Code" Visible="True"/>
+          <Inherited Name="Name" Visible="True"/>
+          <Component Name="Ставка_НДФЛ" Class="Com.Ctrl.IEdit" After="Name" CardFileClass="УправлениеПерсоналом.Tab.Справочники.СтавкиНДФЛ" Field="Current.Ставка_НДФЛ" HasCaption="True" LookupField="Код" Width="30"/>
+          <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Field="Current.ДатаНачала" FormatOfDate="DateOnly" HasCaption="True" Width="25"/>
+          <Component Name="ДатаОкончания" Class="Com.Ctrl.IEdit" Field="Current.ДатаОкончания" FormatOfDate="DateOnly" HasCaption="True" Width="25"/>
+          <Component Name="Locked" Class="Com.Ctrl.IEdit" Field="Current.Locked" HasCaption="True" Width="15"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

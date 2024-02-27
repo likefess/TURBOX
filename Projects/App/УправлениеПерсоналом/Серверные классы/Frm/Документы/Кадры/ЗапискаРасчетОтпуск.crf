@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Документы.Кадры.Служебный">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Кадровые документы.Записка расчет о предоставлении отпуска">
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="грПриказ">
+          <Inherited Name="Приказ" Hint="Приказ о предоставлении отпуска"/>
+        </Inherited>
+        <Inherited Name="грНазначение">
+          <Inherited Name="Static56" Excluded="True" Width="7"/>
+          <Component Name="кнРасчет" Class="Com.Ctrl.IButton" Caption="Расчет отпуска" Hint="Создать расчет отпускных" OnClick="кнРасчет_OnClick" Width="37"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Component Name="грОсновнойЗаг" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption="Основной отпуск" FontBold="True"/>
+          </Component>
+          <Component Name="грЗаПериод" Class="Com.Ctrl.IGroup" ByColumn="False">
+            <Component Name="ОтпускПериод" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="За период" CardFileClass="УправлениеПерсоналом.Tab.Данные.ОтпускПериод" Field="EdtRec.ОтпускПериод" HasCaption="True" Hint="Период, за который предоставляется отпуск (рабочий год)" LookupField="Имя" OnGetLookupFilter="ОтпускПериод_OnGetLookupFilter" OnOpenCardForm="ОтпускПериод_OnOpenCardForm" OnOutput="ОтпускПериод_OnOutput" Width="7"/>
+            <Component Name="ЗаПериодС" Class="Com.Ctrl.IEdit" Caption="За период с" Enabled="False" Field="EdtRec.ЗаПериодС" HasCaption="False" Hint="Дата начала периода, за который предоставляется отпуск (рабочий год)" MaxWidth="35" Width="35"/>
+            <Component Name="ЗаПериодПо" Class="Com.Ctrl.IEdit" Caption="-" CaptionWidth="8" Enabled="False" Field="EdtRec.ЗаПериодПо" Hint="Дата окончания периода, за который предоставляется отпуск (рабочий год)" MaxWidth="35" Width="35"/>
+          </Component>
+          <Component Name="грОснОтпуск" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="ОтпускКод" Class="Com.Ctrl.IEdit" Caption="Код" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыОтпусков" Field="EdtRec.Отпуск" FixSize="True" HasCaption="True" Hint="Код основного отпуска" LookupField="Код" OnChange="ОтпускКод_OnChange" OnGetLookupFilter="ОтпускКод_OnGetLookupFilter" Width="20"/>
+            <Component Name="ОтпускВид" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыОтпусков" Enabled="False" Field="EdtRec.Отпуск" HasCaption="False" Hint="Вид основного отпуска" LookupField="Name"/>
+          </Component>
+          <Component Name="грДаты" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="ОтпускС" Class="Com.Ctrl.IEdit" Caption="Отпуск с" Field="EdtRec.ОтпускС" HasCaption="True" Hint="Дата начала основного отпуска " MaxWidth="35" OnVerify="ОтпускС_OnVerify" Width="35"/>
+            <Component Name="ОтпускПо" Class="Com.Ctrl.IEdit" Caption="по" CaptionWidth="10" Field="EdtRec.ОтпускПо" HasCaption="True" Hint="Дата окончания основного отпуска " MaxWidth="35" OnVerify="ОтпускПо_OnVerify" Width="35"/>
+            <Component Name="ОтпускДней" Class="Com.Ctrl.IEdit" Caption="Количество дней " Field="EdtRec.ОтпускДней" FixSize="True" Hint="Количество календарных дней отпуска" Width="20"/>
+            <Component Name="УслОбозн" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Усл. об." CaptionWidth="20" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловныеОбозначения" Field="EdtRec.УслОбозн" HasCaption="True" Hint="Условное обозначение" LookupField="Код" Width="10"/>
+          </Component>
+          <Component Name="грДней" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="КолДней" Class="Com.Ctrl.IEdit" Caption="Количество дней (не считая времени в пути) " CaptionWidth="90" Field="EdtRec.КолДней" FixSize="True" Hint="Количество дней (не считая времени в пути)" Width="20"/>
+          </Component>
+          <Component Name="грДоп1Заг" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" Caption="Дополнительный отпуск I" FontBold="True"/>
+          </Component>
+          <Component Name="грДоп1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="ДопОтпуск1Код" Class="Com.Ctrl.IEdit" Caption="Код" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыОтпусков" Field="EdtRec.ДопОтпуск1" FixSize="True" HasCaption="True" Hint="Вид дополнительного отпуска" LookupField="Код" OnChange="ДопОтпуск1Код_OnChange" OnGetLookupFilter="ДопОтпуск1Код_OnGetLookupFilter" Width="20"/>
+            <Component Name="ДопОтпуск1Вид" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыОтпусков" Enabled="False" Field="EdtRec.ДопОтпуск1" HasCaption="False" Hint="Вид дополнительного отпуска" LookupField="Name"/>
+          </Component>
+          <Component Name="грДаты1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="ДопОтпуск1С" Class="Com.Ctrl.IEdit" Caption="Отпуск с" Field="EdtRec.ДопОтпуск1С" HasCaption="True" Hint="Дата начала дополнительного отпуска " MaxWidth="35" OnVerify="ДопОтпуск1С_OnVerify" Width="35"/>
+            <Component Name="ДопОтпуск1По" Class="Com.Ctrl.IEdit" Caption="по" CaptionWidth="10" Field="EdtRec.ДопОтпуск1По" HasCaption="True" Hint="Дата окончания дополнительного отпуска " MaxWidth="35" OnVerify="ДопОтпуск1По_OnVerify" Width="35"/>
+            <Component Name="ДопОтпуск1Дней" Class="Com.Ctrl.IEdit" Caption="Количество дней " Field="EdtRec.ДопОтпуск1Дней" FixSize="True" Hint="Количество календарных дней отпуска" Width="20"/>
+            <Component Name="УслОбозн1" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Усл. об." CaptionWidth="20" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловныеОбозначения" Field="EdtRec.УслОбозн1" HasCaption="True" Hint="Условное обозначение" LookupField="Код" Width="10"/>
+          </Component>
+          <Component Name="грОснование1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Основание" Class="Com.Ctrl.IEdit" Caption="Основание" Field="EdtRec.Основание" HasCaption="True" Hint="Основание для предоставления отпуска сотруднику" Multiline="True" Wrap="True"/>
+          </Component>
+          <Component Name="грДоп2Заг" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Static6" Class="Com.Ctrl.IStatic" Caption="Дополнительный отпуск II" FontBold="True"/>
+          </Component>
+          <Component Name="грДоп2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="ДопОтпуск2Код" Class="Com.Ctrl.IEdit" Caption="Код" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыОтпусков" Field="EdtRec.ДопОтпуск2" FixSize="True" HasCaption="True" Hint="Вид дополнительного отпуска" LookupField="Код" OnChange="ДопОтпуск2Код_OnChange" OnGetLookupFilter="ДопОтпуск2Код_OnGetLookupFilter" Width="20"/>
+            <Component Name="ДопОтпуск2Вид" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыОтпусков" Enabled="False" Field="EdtRec.ДопОтпуск2" HasCaption="False" Hint="Вид дополнительного отпуска" LookupField="Name"/>
+          </Component>
+          <Component Name="грДаты2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="ДопОтпуск2С" Class="Com.Ctrl.IEdit" Caption="Отпуск с" Field="EdtRec.ДопОтпуск2С" HasCaption="True" Hint="Дата начала дополнительного отпуска " MaxWidth="35" OnVerify="ДопОтпуск2С_OnVerify" Width="35"/>
+            <Component Name="ДопОтпуск2По" Class="Com.Ctrl.IEdit" Caption="по" CaptionWidth="10" Field="EdtRec.ДопОтпуск2По" HasCaption="True" Hint="Дата окончания дополнительного отпуска " MaxWidth="35" OnVerify="ДопОтпуск2По_OnVerify" Width="35"/>
+            <Component Name="ДопОтпуск2Дней" Class="Com.Ctrl.IEdit" Caption="Количество дней " Field="EdtRec.ДопОтпуск2Дней" FixSize="True" Hint="Количество календарных дней отпуска" Width="20"/>
+            <Component Name="УслОбозн2" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Усл. об." CaptionWidth="20" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловныеОбозначения" Field="EdtRec.УслОбозн2" HasCaption="True" Hint="Условное обозначение" LookupField="Код" Width="10"/>
+          </Component>
+          <Component Name="грОснование2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Основание2" Class="Com.Ctrl.IEdit" Caption="Основание" Field="EdtRec.Основание2" HasCaption="True" Hint="Основание для предоставления отпуска сотруднику" Multiline="True" Wrap="True"/>
+          </Component>
+          <Component Name="грВсегоЗаг" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Static7" Class="Com.Ctrl.IStatic" Caption="Итого" FontBold="True"/>
+          </Component>
+          <Component Name="грВсего" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="КалендДней" Class="Com.Ctrl.IEdit" Caption="Всего дней" Field="EdtRec.КалендДней" FixSize="True" Hint="Количество календарных дней отпуска" Width="20"/>
+            <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Caption="Отпуск с" Field="EdtRec.ДатаНачала" HasCaption="True" Hint="Дата начала отпуска " MaxWidth="35" OnVerify="ДатаНачала_OnVerify" Width="35"/>
+            <Component Name="ДатаОкончания" Class="Com.Ctrl.IEdit" Caption="по" CaptionWidth="15" Field="EdtRec.ДатаОкончания" HasCaption="True" Hint="Дата окончания отпуска " MaxWidth="35" OnVerify="ДатаОкончания_OnVerify" Width="35"/>
+          </Component>
+        </Inherited>
+        <Inherited Name="фрПодписи">
+          <Inherited Name="фрПодписиОбщ">
+            <Component Name="грКадровик" Class="Com.Ctrl.IGroup" ByColumn="False">
+              <Component Name="Кадровик_Долж" Class="Com.Ctrl.IEdit" Caption="Работник кадровой службы " CaptionWidth="70" CardFileClass="Bas.Tab.Ref.Positions" Field="EdtRec.Кадровик_Долж" HasCaption="True" Hint="Работник кадровой службы " LookupField="Name"/>
+              <Component Name="Кадровик_ФИО" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Data.StaffersHR" Field="EdtRec.Кадровик" HasCaption="False" Hint="Работник кадровой службы " LookupField="Name" OnOpenCardForm="НастроитьКартотекуФизЛиц" OnOutputEx="ФИО_OnOutputEx" Width="70"/>
+              <Component Name="кнКадровик" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Кадровик_ФИО" JumpForm="HRBase.Frm.Data.NaturalPersonHR"/>
+            </Component>
+            <Component Name="грГлавБух" Class="Com.Ctrl.IGroup" Excluded="True">
+              <Component Name="ГлавБух_ФИО" Class="Com.Ctrl.IEdit" Caption="Бухгалтер " CaptionWidth="70" CardFileClass="HRBase.Tab.Data.Staffers" Field="EdtRec.ГлавБух" HasCaption="True" LookupField="Name" OnOpenCardForm="НастроитьКартотекуФизЛиц" Width="130"/>
+              <Component Name="кнГлавБух" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ГлавБух_ФИО" JumpForm="HRBase.Frm.Data.NaturalPerson"/>
+            </Component>
+          </Inherited>
+        </Inherited>
+        <Component Name="фрРасчетОтпускных" Class="Com.Ctrl.IFrame" Caption="Расчет отпускных" HasCaption="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

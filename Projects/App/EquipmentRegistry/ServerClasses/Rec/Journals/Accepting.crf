@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Rec.Base.BaseJournalRec">
+  <Inherited>
+    <Component Name="AllIsDone" Class="Com.Fld.IField" FieldName="AllIsDone" ValueType="VarLogical"/>
+    <Component Name="BaseOrder" Class="Com.Fld.IField" FieldName="BaseOrder" OnChange="BaseOrderOnChange" ValueType="VarObject"/>
+    <Component Name="SpareCostPlan" Class="Com.Fld.IField" FieldName="SpareCostPlan" ValueType="VarNumeric"/>
+    <Component Name="WorkCostPlan" Class="Com.Fld.IField" FieldName="WorkCostPlan" ValueType="VarNumeric"/>
+    <Component Name="OtherCostPlan" Class="Com.Fld.IField" FieldName="OtherCostPlan" ValueType="VarNumeric"/>
+    <Component Name="SpareCostFact" Class="Com.Fld.IField" FieldName="SpareCostFact" ValueType="VarNumeric"/>
+    <Component Name="WorkCostFact" Class="Com.Fld.IField" FieldName="WorkCostFact" ValueType="VarNumeric"/>
+    <Component Name="OtherCostFact" Class="Com.Fld.IField" FieldName="OtherCostFact" ValueType="VarNumeric"/>
+    <Component Name="sbtNormatives" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Journals.AcceptingNormatives" SubtableName="AcceptingJournalLines"/>
+    <Component Name="sbtOperations" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Journals.AcceptingOperations" SubtableName="AcceptingJournalOperations"/>
+    <Component Name="sbtSpareParts" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Journals.AcceptingSpareParts" SubtableName="AcceptingJournalSpareParts"/>
+    <Component Name="sbtWorkers" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Journals.AcceptingWorkers" SubtableName="AcceptingJournalWorks"/>
+    <Component Name="sbtWorkersE" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Journals.AcceptingWorkers" SubtableName="AcceptingJournalWorks"/>
+    <Component Name="sbtCosts" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Journals.AcceptingCosts" SubtableName="AcceptingJournalCosts"/>
+    <Component Name="sbtShortS" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Journals.AcceptingSparePartsShort"/>
+    <Component Name="sbtShortW" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Journals.AcceptingWorkersShort"/>
+    <Component Name="sbtShortC" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Journals.AcceptingCostsshort"/>
+    <Component Name="TotalCostPlan" Class="Com.Fld.IVar" OnCalc="TotalCostPlanCalc" ValueType="VarNumeric"/>
+    <Component Name="TotalCostFact" Class="Com.Fld.IVar" OnCalc="TotalCostFactCalc" ValueType="VarNumeric"/>
+  </Inherited>
+</Resource>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Frm.Services.TaskChangeStatusDlg">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="Time" Class="Com.Fld.IVar" Caption="Время" ValueType="VarNumeric"/>
+      <Component Name="TimeComment" Class="Com.Fld.IVar" Caption="Комметарий" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="PFr">
+        <Component Name="TFr" Class="Com.Ctrl.IFrame" After="FFr" AutoSize="True" Margins="0">
+          <BuiltIn Name="SideMargins" Bottom="10" Left="0" Right="0" Top="0"/>
+          <Component Name="TBFr" Class="Com.Ctrl.IFrame" Bevel="DefaultBevel" Margins="0">
+            <BuiltIn Name="SideMargins" Bottom="16" Left="16" Right="16" Top="16"/>
+            <Component Name="TCaptionFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+              <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+              <Component Name="TCaptionGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="TFrCaption" Class="Com.Ctrl.IStatic" Caption="Укажите затраченное время" FontBold="True"/>
+              </Component>
+            </Component>
+            <Component Name="TErrFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+              <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="16"/>
+              <Component Name="TErrGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="TErr" Class="Com.Ctrl.IStatic" Multiline="True" Wrap="True"/>
+              </Component>
+            </Component>
+            <Component Name="TNoErrFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+              <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="16"/>
+              <Component Name="TFieldsFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+                <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                <Component Name="TGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                  <Component Name="TimeEdt" Class="Com.Ctrl.IEdit" Caption="Время" CellFormat="NumericFormat" Field="Time" HasCaption="True" HasInnerCaption="True"/>
+                  <Component Name="TimeCommentEdt" Class="Com.Ctrl.IEdit" Caption="Комментарий" CellFormat="StringFormat" Field="TimeComment" HasInnerCaption="True" Multiline="True" Wrap="True"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Inherited Name="CFr" After="TFr"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

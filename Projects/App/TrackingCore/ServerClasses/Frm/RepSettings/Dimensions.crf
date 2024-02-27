@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Frm.RepSettings.RepComp">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Inherited Name="SubSplitByRows" OnAfterDelete="AfterRowSplitDelete" OnAfterInsert="AfterRowSplitInsert" OnListing="SplitsOnListing"/>
+      <Component Name="SubContentByRows" Class="Com.ISubContainer" ItemClass="Com.Rep.ISplitContent" OnAfterInsert="AfterRowContentInsert"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Component Name="TablesFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="DimensionsListFrame" Class="Com.Ctrl.IFrame" Orientation="Vertical">
+          <Component Name="SplitByRowsFrame" Class="Com.Ctrl.IFrame">
+            <Component Name="GroupFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+              <Component Name="AddGroupButton" Class="Com.Ctrl.IStatic" Caption="@TrackingCore:AddGroupButton=Группировать на строки" FixSize="True" ImageName="Com.AddItem" ImageSize="15" OnClick="AddGroupButtonOnClick" StaticStyle="StaticHyperlink" Width="55"/>
+            </Component>
+            <Component Name="SplitTableFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="8">
+              <Component Name="SplitByRowsTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" Freezed="False" HasCaption="False" ManualControl="False" Numbering="False" Subtable="SubSplitByRows" Width="200">
+                <Component Name="SplitParam_SBR" Class="Com.RepCtrl.IEditSub" Caption="@Tune:SplitParam=Параметр" Enabled="False" HasButton="True" HasCaption="False" LinkName="SplitParam" MinWidth="30" OnChange="RowSplitOnChange" SubContainer="SubSplitByRows" Width="50"/>
+                <Component Name="SplitParamEnbl_SBR" Class="Com.RepCtrl.IFlagSub" Alignment="CenterAlign" Caption="@Tune:SplitEnabled=Вкл." FixSize="True" HasCaption="False" Hint="@Tune:SplitEnabledHint=Включен в отчёт" LinkName="Enabled" Width="10"/>
+                <Component Name="SplitParamDel" Class="Com.Ctrl.IButton" Alignment="CenterAlign" FixSize="True" ImageName="Com.Close" ImageSize="15" OnClick="SplitParamDelOnClick" VertAlignment="CenterAlign" Width="7"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="SeparatorFrame2" Class="Com.Ctrl.IFrame" FixSize="True" Size="20"/>
+          <Component Name="ContentByRowsFrame" Class="Com.Ctrl.IFrame">
+            <Component Name="ColFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+              <Component Name="AddColButton" Class="Com.Ctrl.IStatic" Caption="@TrackingCore:AddColButton=Добавить колонку" FixSize="True" ImageName="Com.AddItem" ImageSize="15" OnClick="AddColButtonOnClick" StaticStyle="StaticHyperlink" Width="45"/>
+            </Component>
+            <Component Name="ContentTableFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="8">
+              <Component Name="ContentByRowsTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" Freezed="False" HasCaption="False" ManualControl="False" Numbering="False" Subtable="SubContentByRows" Width="200">
+                <Component Name="RowContent" Class="Com.RepCtrl.IEditSub" Caption="@Tune:SplitContents=Выводить" Enabled="False" HasCaption="False" LinkName="Contents" MinWidth="30" SubContainer="SubContentByRows" Width="50"/>
+                <Component Name="RowContentEnbl" Class="Com.RepCtrl.IFlagSub" Alignment="CenterAlign" Caption="@Tune:SplitEnabled=Вкл." FixSize="True" HasCaption="False" Hint="@Tune:SplitEnabledHint=Включен в отчёт" LinkName="Enabled" Width="10"/>
+                <Component Name="RowContentEdit" Class="Com.Ctrl.IButton" Alignment="CenterAlign" FixSize="True" ImageName="Com.EditItem" ImageSize="15" OnClick="RowContentEditOnClick" VertAlignment="CenterAlign" Width="7"/>
+                <Component Name="RowContentDel" Class="Com.Ctrl.IButton" Alignment="CenterAlign" FixSize="True" ImageName="Com.Close" ImageSize="15" OnClick="RowContentDelOnClick" VertAlignment="CenterAlign" Width="7"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="SeparatorFrame3" Class="Com.Ctrl.IFrame" FixSize="True" Size="20"/>
+        </Component>
+      </Component>
+      <Component Name="AddFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Vertical">
+        <Component Name="AdditionalFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="10">
+          <Component Name="AdditionalGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="200" MinWidth="100">
+            <Component Name="ShowClosedCheckBox" Class="Com.Ctrl.ICheckBox" Caption="@TrackingCore:ShowClosedCheckBox=Показывать закрытые задачи"/>
+            <Component Name="SortEdit" Class="Com.Ctrl.IEdit" Caption="@TrackingCore:SortEdit=Сортировка по" CaptionWidth="35" CellFormat="EnumFormat" ValueType="VarInteger"/>
+          </Component>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

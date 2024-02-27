@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Name="Rep_IReportTurns46" Class="Com.Rep.IReportTurns" AccountFilter="ContractShip" AccountPlan="БизнесСчета" Autobuild="False" BegDate="01.01.1900" BegSaldoFormat="sfNone" CIndicator="1" EmptyReportCaption="Данные не найдены" EndDate="01.01.2100" EndSaldoFormat="sfNone" HidePeriod="True" HystoKind="hkSide" Legend="lpkAtRight" LinkTables="True" OpenPeriod="opAll" Palette="cpDefault" Period="-1" ShowSumKindRow="False" TotalTabCaption="Итого по договору">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="UnitOfMeasure" Class="Com.Rep.IIndCustom" Caption="Ед.изм." ValueType="VarString"/>
+      <Component Name="PriceShip" Class="Com.Rep.IIndMain" Aggregate="agrNone" Caption="Цена" Contents="PriceShip" ShowUnit="False"/>
+      <Component Name="IndicatorГруппа1" Class="Com.Rep.IIndGroup" Caption="Поставлено/отгружено"/>
+      <Component Name="IndicatorQuantityShip" Class="Com.Rep.IIndMain" Aggregate="agrNone" Caption="Кол-во" Contents="QuantityShip" Format=",##0.00;;-" Group="IndicatorГруппа1"/>
+      <Component Name="IndicatorAmountIncludingVAT" Class="Com.Rep.IIndMain" Caption="Сумма" Contents="AmountIncludingVAT" Group="IndicatorГруппа1"/>
+      <Component Name="IndicatorГруппа2" Class="Com.Rep.IIndGroup" Caption="Остаток(доступно к поставке/отгрузке)"/>
+      <Component Name="IndicatorSaldoQuantityShip" Class="Com.Rep.IIndCustom" Caption="Кол-во" Format=",##0.00;;-" Group="IndicatorГруппа2" ValueType="VarNumeric"/>
+      <Component Name="IndicatorSaldoAmountIncludingVAT" Class="Com.Rep.IIndCustom" Caption="Сумма" Group="IndicatorГруппа2" ValueType="VarNumeric"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam2D07830E" Class="Com.Rep.ISplitByParam" ShowTotalsAlways="True" ShowTotalsFirst="True" SplitParam="Ресурс" Visible="True"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab">
+        <Component Name="SplitParamShipping" Class="Com.Rep.ISplitByParam" Enabled="True" ShowTotals="True" ShowTotalsAlways="True" SplitParam="ContractShipping"/>
+        <Component Name="SplitParamSuppAgreement" Class="Com.Rep.ISplitByParam" Enabled="False" ShowTotals="True" ShowTotalsAlways="True" SplitParam="ContractSuppAgreement"/>
+        <Component Name="SplitParamSpecification" Class="Com.Rep.ISplitByParam" Enabled="False" ShowTotals="True" ShowTotalsAlways="True" SplitParam="ContractSpecification"/>
+      </Component>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContent606E15B6" Class="Com.Rep.ISplitContent" Caption="Номенклатура" Contents="Ресурс.#Name" Visible="True"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab">
+        <Component Name="SplitContent60A26510" Class="Com.Rep.ISplitContent" Contents="Документ.Name"/>
+      </Component>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_НашеПредприятие" Class="Com.Rep.IRepControl" Caption="Предприятие" CaptionWidth="35" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" DefaultFunc="Com.Vars.CurrentOurCompany" DefaultStr="Object(nil)" DoNotSave="True" LookupField="Name" Operator="=" Plan="БизнесСчета" ShortList="False" SkipNil="True" ValueType="VarObject" Width="100"/>
+      <Component Name="RC_Партнер" Class="Com.Rep.IRepControl" Caption="Контрагент" CaptionWidth="60" CardFileClass="Bas.Tab.Data.Contraparties" CellFormat="ReferenceFormat" DefaultStr="Object(nil)" DoNotSave="True" LookupField="Name" Operator="=" Plan="БизнесСчета" SkipNil="True" ValueType="VarObject" Width="100"/>
+      <Component Name="RC_Договор" Class="Com.Rep.IRepControl" Caption="Договор" CaptionWidth="35" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" DefaultStr="Object(nil)" DoNotSave="True" LookupField="Code" LookupFunc="If(FReport.Parameters['RC_НашеПредприятие'].Value = nil, If(FReport.Parameters['RC_Партнер'].Value = nil, '', 'Partner = ' + FReport.Parameters['RC_Партнер'].Value.DocIDStr), If(FReport.Parameters['RC_Партнер'].Value = nil, 'Company = ' + FReport.Parameters['RC_НашеПредприятие'].Value.DocIDStr, 'Company = ' + FReport.Parameters['RC_НашеПредприятие'].Value.DocIDStr + ' and Partner = ' + FReport.Parameters['RC_Партнер'].Value.DocIDStr))" NewLine="True" OnChange="RC_Contract_OnChange" Operator="=" Parameter="Договор" Plan="БизнесСчета" SkipNil="True" ValueRequired="True" ValueType="VarObject" Width="100"/>
+      <Component Name="RC_ShippingDate" Class="Com.Rep.IRepControl" Caption="Дата" CaptionWidth="60" DefaultFunc="Now()" DefaultStr="Date(20.03.2023 15:11:21)" Operator="&lt;=" Parameter="ContractShipping.ShippingDate" Plan="БизнесСчета" SkipNil="True" ValueRequired="True" ValueType="VarDate" Width="100"/>
+      <Component Name="RC_ReportType" Class="Com.Rep.IRepControl" Caption="Вид отчета" CaptionWidth="35" CellFormat="EnumFormat" DefaultStr="Integer(0)" Enabled="False" ListAsString="отчет по поставкам/отгрузкам|0;остатки товаров/услуг|1" NewLine="True" Operator="=" Plan="БизнесСчета" ValueType="VarInteger" Width="100"/>
+      <Component Name="RC_SplitType" Class="Com.Rep.IRepControl" Caption="Сегментация отчета" CaptionWidth="60" CellFormat="EnumFormat" DefaultStr="Integer(0)" ListAsString="договор|0;доп. соглашение|1;спецификация|2" Operator="=" Plan="БизнесСчета" ValueType="VarInteger" Width="100"/>
+      <Component Name="RC_IndicatorsType" Class="Com.Rep.IRepControl" Caption="Параметры учета" CaptionWidth="35" CellFormat="EnumFormat" DefaultFunc="2" DefaultStr="Integer(2)" ListAsString="количественный учет|0;суммовой учет|1;количественный и суммовой учет|2" NewLine="True" Operator="=" Plan="БизнесСчета" ValueType="VarInteger" Width="100"/>
+      <Component Name="RC_ShippingStatusType" Class="Com.Rep.IRepControl" Caption="Статус поставок/отгрузок" CaptionWidth="60" CellFormat="EnumFormat" DefaultFunc="2" DefaultStr="Integer(2)" ListAsString="план|0;факт|1;без учета статуса|2" Operator="=" Plan="БизнесСчета" ValueType="VarInteger" Width="100"/>
+      <Component Name="RC_ЦФО" Class="Com.Rep.IRepControl" Caption="ЦФО" CaptionWidth="35" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" DefaultStr="Object(nil)" LookupField="Name" NewLine="True" Operator="=" Parameter="ЦФО" Plan="БизнесСчета" SkipNil="True" ValueType="VarObject" Width="100"/>
+      <Component Name="RC_СБК" Class="Com.Rep.IRepControl" Caption="Статья бюджета" CaptionWidth="60" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" DefaultStr="Object(nil)" LookupField="Name" Operator="=" Parameter="СБК" Plan="БизнесСчета" SkipNil="True" ValueType="VarObject" Width="100"/>
+      <Component Name="RC_Проект" Class="Com.Rep.IRepControl" Caption="Проект" CaptionWidth="35" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" DefaultStr="Object(nil)" LookupField="Name" NewLine="True" Operator="=" Parameter="Проект" Plan="БизнесСчета" SkipNil="True" ValueType="VarObject" Width="100"/>
+      <Component Name="RC_ИсточникФинансирования" Class="Com.Rep.IRepControl" Caption="Источник" CaptionWidth="60" CardFileClass="Biz.Tab.Ref.FundSource" CellFormat="ReferenceFormat" DefaultStr="Object(nil)" LookupField="Name" Operator="=" Parameter="ИсточникФинансирования" Plan="БизнесСчета" SkipNil="True" ValueType="VarObject" Width="100"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

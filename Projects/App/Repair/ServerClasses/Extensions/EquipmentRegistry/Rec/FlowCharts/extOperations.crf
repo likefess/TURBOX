@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Rec.FlowCharts.Operations">
+  <Inherited>
+    <Component Name="SPACost" Class="Com.Fld.IField" After="OtherCost" FieldName="SPACost" ValueType="VarNumeric"/>
+    <Component Name="WorkShift" Class="Com.Fld.IField" FieldName="WorkShift" ValueType="VarObject"/>
+    <Component Name="sbtWorkersB" Class="Com.ISubtable" StructClass="Repair.Rec.FlowCharts.OperationsWorkersBrigade" SubtableFilter="BrigadeLine = True" SubtableName="Workers"/>
+    <Component Name="sbtSPALines" Class="Com.ISubtable" StructClass="Repair.Rec.FlowCharts.OperationsSPALines" SubtableName="SPALines"/>
+    <Inherited Name="sbtWorkersE" SubtableFilter="BrigadeType = nil and BrigadeLine = False"/>
+    <Component Name="sbtOperatingControl" Class="Com.ISubtable" After="sbtOtherCosts" StructClass="Repair.WR.Rec.Ref.OperationsOperatingControl" SubtableName="OperatingControl"/>
+    <Component Name="sbtParameterControl" Class="Com.ISubtable" StructClass="Repair.WR.Rec.Ref.OperationsParameterControl" SubtableName="ParameterControl"/>
+  </Inherited>
+</Resource>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Name="Rep.IReportTurns47" Class="Com.Rep.IReportTurns" AccountFilter="счетПроцесс" AccountPlan="ПланСчетовПроцесс" BegDate="30.05.2023" BegSaldoFormat="sfNone" Caption="Себестоимость ТМЦ с доп.затратами" CIndicator="1" EndDate="31.05.2023" ExplainSaldoFromOrigin="False" FreezeHeader="True" HystoKind="hkSide" Legend="lpkAtRight" LinkTables="True" LinkTablesCaption="ТМЦ" Palette="cpDefault" ParameterFilter="Ресурс.ТипРесурса >= 0 and Ресурс.ТипРесурса &lt; 200 and Статус = Факт and ТипПроцесса &lt;> ПриемИзТМЦвПутиКНам_ТиС and ТипПроцесса &lt;> ПеремещениеТМЦ_ТиС and (ПозицияРазнесена = 0 or ПозицияРазнесена = 2)" Period="1" ShowBeyondLimits="False" ShowDebCreRow="False" ShowSumKindRow="False" TurnFormat="sfNone">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorГруппаОстаток" Class="Com.Rep.IIndGroup" Caption="Остаток"/>
+      <Component Name="IndicatorКоличество" Class="Com.Rep.IIndMain" Caption="Количество" Contents="Количество" Group="IndicatorГруппаОстаток" ShowUnit="False"/>
+      <Component Name="IndicatorСебестоимость" Class="Com.Rep.IIndMain" Caption="Стоимость" Contents="СуммаУчетная" Group="IndicatorГруппаОстаток" ShowUnit="False"/>
+      <Component Name="IndicatorГруппаПриход" Class="Com.Rep.IIndGroup" Caption="Приход"/>
+      <Component Name="IndicatorКоличествоПриход" Class="Com.Rep.IIndMain" AccountFilter="+счетПроцесс" Caption="Количество" Contents="Количество" Group="IndicatorГруппаПриход" MaxWidth="30" ParameterFilter="ПозицияРазнесена = 0" ShowUnit="False"/>
+      <Component Name="IndicatorСтоимостьПриход" Class="Com.Rep.IIndMain" AccountFilter="+счетПроцесс" Caption="Стоимость" Contents="СуммаУчетная" Group="IndicatorГруппаПриход" ParameterFilter="ПозицияРазнесена = 0" ShowUnit="False"/>
+      <Component Name="IndicatorДопЗатраты" Class="Com.Rep.IIndMain" Caption="Доп.затраты" Contents="СуммаУчетная" Group="IndicatorГруппаПриход" ParameterFilter="ПозицияРазнесена = 2" ShowUnit="False" SwapNegValue="True"/>
+      <Component Name="IndicatorПолнаяСтоимость" Class="Com.Rep.IIndCustom" Caption="Полная стоимость" Formula="ValueByName(aPart, 'IndicatorСтоимостьПриход') + ValueByName(aPart, 'IndicatorДопЗатраты')" Group="IndicatorГруппаПриход" ShowUnit="False" ValueType="VarNumeric"/>
+      <Component Name="IndicatorСтоимостьЗа1" Class="Com.Rep.IIndCustom" Aggregate="agrCalc" Caption="Стоимость 1" Format=",##0.00;;-" Formula="ValueByName(aPart, 'IndicatorПолнаяСтоимость') / ValueByName(aPart, 'IndicatorКоличествоПриход')" Group="IndicatorГруппаПриход" ShowUnit="False" ValueType="VarNumeric"/>
+      <Component Name="IndicatorГруппаРасход" Class="Com.Rep.IIndGroup" Caption="Расход"/>
+      <Component Name="IndicatorКоличествоРасход" Class="Com.Rep.IIndMain" AccountFilter="-счетПроцесс" Caption="Количество" Contents="Количество" Group="IndicatorГруппаРасход" InvertValue="True" MaxWidth="30" ParameterFilter="ПозицияРазнесена = 0" ShowUnit="False"/>
+      <Component Name="IndicatorСтоимостьРасход" Class="Com.Rep.IIndMain" AccountFilter="-счетПроцесс" Caption="Стоимость" Contents="СуммаУчетная" Group="IndicatorГруппаРасход" InvertValue="True" ParameterFilter="ПозицияРазнесена = 0" ShowUnit="False"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam71214395" Class="Com.Rep.ISplitByParam" SplitParam="Партия"/>
+        <Component Name="SplitParam14CC8B14" Class="Com.Rep.ISplitByParam" SplitParam="СуммаУчетная"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab">
+        <Component Name="SplitParamB21F0B8E" Class="Com.Rep.ISplitByParam" SplitParam="Ресурс"/>
+      </Component>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContentF73BC7FE" Class="Com.Rep.ISplitContent" Caption="Партия" Contents="Партия.Описание"/>
+        <Component Name="SplitContent1E6AD077" Class="Com.Rep.ISplitContent" Caption="Валюта" Contents="СуммаУчетная.Код"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab">
+        <Component Name="SplitContent73CB3890" Class="Com.Rep.ISplitContent" Contents="Ресурс.Описание"/>
+        <Component Name="SplitContentBE748BE1" Class="Com.Rep.ISplitContent" Contents="Ресурс.ОсновнаяЕдиницаИзмерения.Код"/>
+      </Component>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain">
+      <Component Name="Explain68F6F523" Class="Com.Rep.IExplain" Caption="Доп. затраты" IndicatorName="IndicatorДопЗатраты" ReportName="SCM.Rep.Затраты.ДопЗатраты"/>
+      <Component Name="Explain4A5BD4CA" Class="Com.Rep.IExplain" Caption="Документы" IndicatorName="IndicatorСтоимостьПриход" ReportName="SCM.Rep.Затраты.Документы"/>
+      <Component Name="Explain880828FF" Class="Com.Rep.IExplain" Caption="Документы" IndicatorName="IndicatorКоличествоПриход" ReportName="SCM.Rep.Затраты.ДокументыКоличество"/>
+      <Component Name="Explain7EEAD8A3" Class="Com.Rep.IExplain" Caption="Документы" IndicatorName="IndicatorСтоимостьРасход" ReportName="SCM.Rep.Затраты.ДокументыРасход"/>
+      <Component Name="Explain7678F2B5" Class="Com.Rep.IExplain" Caption="Документы" IndicatorName="IndicatorКоличествоРасход" ReportName="SCM.Rep.Затраты.ДокументыКоличествоРасход"/>
+      <Component Name="ExplainC3190EE9" Class="Com.Rep.IExplain" DisableDefault="True" IndicatorName="IndicatorПолнаяСтоимость"/>
+      <Component Name="ExplainBD256DC4" Class="Com.Rep.IExplain" DisableDefault="True" IndicatorName="IndicatorСтоимостьЗа1"/>
+      <Component Name="Explain8433B3F8" Class="Com.Rep.IExplain" Caption="Документы" IndicatorName="IndicatorСебестоимость" ReportName="SCM.Rep.Затраты.Документы"/>
+      <Component Name="Explain073C30BA" Class="Com.Rep.IExplain" Caption="Документы" IndicatorName="IndicatorКоличество" ReportName="SCM.Rep.Затраты.ДокументыКоличество"/>
+    </Component>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_Процесс.Company" Class="Com.Rep.IRepControl" Caption="Предприятие" CardFileClass="Bas.Tab.Data.OurCompanies" DefaultStr="Object(nil)" MultiSelect="True" Operator=" is " Parameter="Процесс.Company" Plan="ПланСчетовПроцесс" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Ресурс" Class="Com.Rep.IRepControl" Caption="ТМЦ" CardFileClass="SCM.Tab.Справочники.ТМЦ" DefaultStr="Object(nil)" LookupFilter="ТипРесурса >= 0 and ТипРесурса &lt; 200" MultiSelect="True" Operator=" is " Parameter="Ресурс" Plan="ПланСчетовПроцесс" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Партия.BegDate_1" Class="Com.Rep.IRepControl" Caption="Партия с" CellFormat="DateFormat" DefaultStr="Date(nil)" Operator=">=" Parameter="Партия.BegDate" Plan="ПланСчетовПроцесс" SkipNil="True" ValueType="VarDate" Width="30"/>
+      <Component Name="RC_Партия.BegDate_2" Class="Com.Rep.IRepControl" Caption="до" CaptionWidth="8" CellFormat="DateFormat" DefaultStr="Date(nil)" Operator="&lt;=" Parameter="Партия.BegDate" Plan="ПланСчетовПроцесс" SkipNil="True" ValueType="VarDate" Width="30"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

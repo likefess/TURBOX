@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Frm.Документы.Имущество.КВ.ИмуществоБазовыйДокументКВ">
+  <Inherited HelpContext="Имущество.Имущество.Документы движения и учета КВ.Выбытие КВ.Списание КВ">
+    <Inherited Name="EdtRec" Class="Имущество.Rec.Документы.Имущество.КВ.СписаниеКВ" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="перСтоимостьКВ" Class="Com.Fld.IVar" Caption="Стоимость" OnCalc="перСтоимостьКВ_OnCalc" ValueType="VarNumeric"/>
+      <Component Name="перКоличествоКВ" Class="Com.Fld.IVar" Caption="КоличествоКВ" OnCalc="перКоличествоКВ_OnCalc" ValueType="VarInteger"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Шапка_Фрейм">
+          <Inherited Name="Шапка_Гр">
+            <Inherited Name="Корректировка_Гр">
+              <Inherited Name="КорректируемыйДокумент" CardFileClass="Имущество.Tab.Документы.Имущество.КВ.СписаниеКВ"/>
+              <Inherited Name="кнКорректируемыйДокумент" JumpForm="Имущество.Frm.Документы.Имущество.КВ.СписаниеКВ"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="ОбщиеДанные">
+            <Inherited Name="Подр_Гр">
+              <Inherited Name="Подразделение" Enabled="False"/>
+            </Inherited>
+            <Inherited Name="МОЛ_Гр">
+              <Inherited Name="ТрудовыеОтношения_Выбор" Enabled="False" Visible="False"/>
+              <Inherited Name="МОЛ" Enabled="False"/>
+            </Inherited>
+            <Component Name="СтоимостьПоказ_Гр" Class="Com.Ctrl.IGroup" After="МОЛ_Гр" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="СтоимостьРасчПоказ" Class="Com.Ctrl.IEdit" Caption="Стоимость КВ" Enabled="False" Field="перСтоимостьКВ" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Текущая стоимость объекта КВ (без учета НДС)" MinWidth="30"/>
+              <Component Name="КоличествоРасчПоказ" Class="Com.Ctrl.IEdit" Caption="Количество КВ" Enabled="False" Field="перКоличествоКВ" HasCaption="True" Hint="Текущее количество объекта КВ" MinWidth="30"/>
+            </Component>
+            <Component Name="СписаниеНадпись_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="СписаниеНадпись" Class="Com.Ctrl.IStatic" Caption="Списание:" FontItalic="True"/>
+            </Component>
+            <Inherited Name="Стоимость_Гр" After="СписаниеНадпись_Гр">
+              <Inherited Name="СтоимостьКВ" Hint="Списываемая стоимость  объекта КВ (без учета НДС)"/>
+              <Inherited Name="Количество" Hint="Списываемое количество объекта КВ" OnChange="Количество_Продажа_OnChange"/>
+            </Inherited>
+            <Component Name="ВыбытиеКВ" Class="Com.Ctrl.IGroup" After="Стоимость_Гр" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ВидЗатрат" Class="Com.Ctrl.IEdit" CardFileClass="BizRus.Tab.Ref.СТЗ" Field="EdtRec.ВидЗатрат" HasCaption="True"/>
+            </Component>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

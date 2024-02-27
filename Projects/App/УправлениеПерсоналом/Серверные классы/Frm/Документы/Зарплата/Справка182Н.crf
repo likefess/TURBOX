@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.БазовыйДокумент">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Расчет Зарплаты.Данные с предыдущего места работы.Справки 182 Н">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Документы.Зарплата.Справка182Н" IsLibrary="1"/>
+    <Component Name="Позиции" Class="УправлениеПерсоналом.Rec.Документы.Зарплата.Справка182Н_Позиции" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="грТипДокумента" Excluded="True"/>
+        <Inherited Name="grNumberDate">
+          <Inherited Name="Номер" Hint="Номер справки "/>
+        </Inherited>
+        <Component Name="грУсловияТрудаСотр" Class="Com.Ctrl.IGroup" After="grNumberDate" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="УсловияТрудаСотр" Class="Com.Ctrl.IEdit" Caption="Сотрудник" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Field="EdtRec.УсловияТрудаСотр" Hint="Сотрудник, предоставивший справку" LookupField="ФизЛицо.Name"/>
+          <Component Name="кнУсловияТрудаСотр" Class="Com.Ctrl.IJumpButton" Field="EdtRec.УсловияТрудаСотр" JumpForm="УправлениеПерсоналом.Frm.Данные.УсловияТрудаСотрудника"/>
+          <Component Name="Static7" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+        </Component>
+        <Component Name="грОрганизация" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Организация" Class="Com.Ctrl.IEdit" Caption="Организация" Field="EdtRec.Организация" Hint="Организация, предоставившая справки о доходе сотрудника на прежнем месте работы" Multiline="True" Wrap="True"/>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="37"/>
+        </Component>
+        <Inherited Name="грОписание">
+          <Inherited Name="Static3" Width="37"/>
+        </Inherited>
+        <Inherited Name="грПримечание">
+          <Inherited Name="Static4" Width="37"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="Group7" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Static12" Class="Com.Ctrl.IStatic" Caption="Период работы у страхователя, в течение которого лицо подлежало обязательному социальному страхованию на случай временной нетрудоспособности и в связи с материнством" Hint="Данные справки 182-Н" Width="150"/>
+          </Component>
+          <Component Name="грПериодСтрахователя" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="НачалоПериода" Class="Com.Ctrl.IEdit" Caption="с" Field="EdtRec.НачалоПериода" HasCaption="True" Hint="Начало периода" MaxWidth="35" Width="35"/>
+            <Component Name="КонецПериода" Class="Com.Ctrl.IEdit" Caption="по" CaptionWidth="25" Field="EdtRec.КонецПериода" Hint="Окончание периода" MaxWidth="35" Width="35"/>
+          </Component>
+          <Component Name="Group6" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Static11" Class="Com.Ctrl.IStatic" FontBold="True" Hint="Данные справки 182-Н"/>
+          </Component>
+          <Component Name="тблСправка" Class="Com.Ctrl.ITable" Subtable="EdtRec.Позиции">
+            <Component Name="ПериодСправка" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Период" CardFileClass="Biz.Tab.Ref.Period" Field="Позиции.Период" HasCaption="True" LookupField="Код" LookupFilter="IsGroup&lt;>0 and GroupDoc=nil" OnOpenCardForm="НастроитьКартотекуБезДерева" OnOutputEx="ПериодГод_OnOutputEx" Width="30"/>
+            <Component Name="СуммаЗП" Class="Com.Ctrl.IEdit" Caption="Сумма заработной платы" Field="Позиции.СуммаЗП" FieldFormat=",##0.00;;-" HasCaption="True" Width="40"/>
+            <Component Name="КалендДней" Class="Com.Ctrl.IEdit" Caption="Количество календарных дней" Field="Позиции.КаленДней" HasCaption="True" Hint="Количество календарных дней, не учитываемых при расчете СЗ" Width="40"/>
+          </Component>
+        </Inherited>
+        <Inherited Name="фрПодписи" Excluded="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

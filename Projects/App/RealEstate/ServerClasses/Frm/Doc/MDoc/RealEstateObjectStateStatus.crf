@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="RealEstate.Frm.Base.BaseMDocMeter">
+  <Inherited Caption="Изменение статуса объекта имущества" HelpContext="RealEstate.RealEstate.Основные данные.Статус объекта имущества">
+    <Inherited Name="EdtRec" Class="RealEstate.Rec.Doc.MDoc.RealEstateObjectStateStatus" IsLibrary="1"/>
+    <Inherited Name="RootFrame" Caption="Изменение статуса объекта имущества" HasCaption="True">
+      <Inherited Name="HeaderFrame" Caption="Изменение статуса объекта имущества" HasCaption="True"/>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="DateCodeGr">
+            <Inherited Name="Date" Caption="@Дата" FormatOfDate="DateAndTime" Hint="@Дата проведения документа" Width="50"/>
+            <Inherited Name="CodeEdit" Excluded="True" Visible="False"/>
+          </Inherited>
+          <Inherited Name="NameGr" Excluded="True"/>
+          <Inherited Name="DescriptionGr" Excluded="True">
+            <Inherited Name="Description" Caption="@Основание"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="LinesFrame" Excluded="True"/>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="FieldsGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+            <Component Name="StateStatusGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="StateStatus" Class="Com.Ctrl.IEdit" CardFileClass="RealEstate.Tab.Ref.StateStatus" CellFormat="ReferenceFormat" Field="EdtRec.StateStatus" HasCaption="True" LookupField="Name" ShortList="True"/>
+              <Component Name="BtnStatic3" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+            <Component Name="DescGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="Desc" Class="Com.Ctrl.IEdit" Caption="@Основание" Field="EdtRec.Description" HasCaption="True"/>
+              <Component Name="BtnStatic4" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+            <Component Name="DocGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="DocDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CellFormat="DateFormat" Field="EdtRec.DocDate" HasCaption="True"/>
+              <Component Name="DocNum" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.DocNum" HasCaption="True"/>
+              <Component Name="BtnStatic5" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

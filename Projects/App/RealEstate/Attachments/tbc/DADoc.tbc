@@ -1,0 +1,39 @@
+﻿TBCFile VER="3.4" [Created '16.08.2022 1:24:25' by 'Администратор']
+
+DESCRIPTION[
+Count=1
+CountByRef=0
+DocApprovement.Ref.Doc.DADoc
+(
+  Count=1
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [DocApprovement.Ref.Doc.DADoc
+  (
+    Deleted :Boolean
+    Code :String(80)
+    Name :String(255)
+    DocPrj :String
+    DocClass :String
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[DocApprovement.Ref.Doc.DADoc
+  
+  {DocApprovement.Ref.Doc.DADoc:"Договор"}
+  (
+    Name = "Договор"
+    DocPrj = "Biz"
+    DocClass = "Biz.Data.Contract"
+  )
+]
+
+]

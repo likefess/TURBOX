@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited OnVerify="EditorOnVerify">
+    <Inherited Name="EdtRec" Class="TaskApprovement.Rec.Ref.ApprovalTemplate" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Code" CaptionWidth="40" HasInnerCaption="True" Visible="True"/>
+          <Inherited Name="Name" CaptionWidth="40" FontBold="False" HasInnerCaption="True" Visible="True"/>
+          <Component Name="ObjTypeEdit" Class="Com.Ctrl.IEdit" CaptionWidth="40" CardFileClass="Bas.Tab.Config.ProcType" Field="EdtRec.TaskObjType" HasButton="True" HasCaption="True" HasInnerCaption="True" LookupField="Name" Required="True" Visible="True"/>
+          <Component Name="LinkedDocClassEdit" Class="Com.Ctrl.IEdit" AutocompleteMode="acmOn" CaptionWidth="40" CellFormat="StringFormat" Field="EdtRec.LinkedDocClass" HasButton="True" HasCaption="True" HasInnerCaption="True" OnAutocomplete="LinkedDocClassEditOnAutocomplete" OnLookup="LinkedDocClassEditOnLookup" OnOutput="LinkedDocClassEditOnOutput" Visible="True"/>
+        </Inherited>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+          <Component Name="ProjectEdit" Class="Com.Ctrl.IEdit" CaptionWidth="40" CardFileClass="Bas.Tab.Ref.Project" Field="EdtRec.Project" HasButton="True" HasCaption="True" HasInnerCaption="True" LookupField="Name" Visible="True"/>
+          <Component Name="SharedEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Field="EdtRec.Shared" FixSize="True" HasCaption="True" HasInnerCaption="True" Width="25"/>
+        </Component>
+        <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+          <Component Name="PriorityEdit" Class="Com.Ctrl.IEdit" CaptionWidth="40" CardFileClass="Control.Tab.Ref.TaskPriority" Field="EdtRec.Priority" HasButton="True" HasCaption="True" HasInnerCaption="True" LookupField="Name" Required="True" Visible="True"/>
+          <Component Name="ClosedEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Closed" FixSize="True" HasCaption="True" HasInnerCaption="True" Width="25"/>
+        </Component>
+      </Inherited>
+      <Component Name="FrameAddStage" Class="Com.Ctrl.IFrame" After="FieldsFrame" AutoSize="True" Margins="5">
+        <Component Name="AddStage" Class="Com.Ctrl.IStatic" Caption="Добавить этап" ImageName="Com.stars" ImageSize="24" OnClick="AddStageOnClick" StaticStyle="StaticHyperlink" Width="40"/>
+      </Component>
+      <Inherited Name="TabsFrame" Orientation="Horizontal" ShowTabs="False" Visible="True">
+        <Inherited Name="MainTab" Visible="False"/>
+        <Component Name="StagesTab" Class="Com.Ctrl.IFrame" Caption="@TaskApprovement:ApprovalTemplate_Stages=Этапы согласовния" HasCaption="True" Orientation="Horizontal" ShowTabs="True" Visible="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

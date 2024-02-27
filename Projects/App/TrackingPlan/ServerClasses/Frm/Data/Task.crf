@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Control.Rec.Data.Task" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Component Name="ButtonLink" Class="Com.Ctrl.IButton" Caption="@TrackingCore:ButtonLink=Ссылка на задачу" ImageName="Com.Globe" OnClick="ButtonLinkOnClick"/>
+          <Component Name="ButtonMail" Class="Com.Ctrl.IButton" Caption="@TrackingCore:ButtonMail=Поделиться задачей" ImageName="Bas.Mail" OnClick="ButtonMailOnClick" Visible="False"/>
+          <Component Name="ButtonRemainder" Class="Com.Ctrl.IButton" Caption="@TrackingCore:ButtonRemainder=Добавить напоминание" ImageName="Bas.bell" OnClick="ButtonRemainderOnClick"/>
+        </Inherited>
+      </Inherited>
+      <Component Name="SubheaderFrame" Class="Com.Ctrl.IFrame" After="HeaderFrame" AutoSize="True">
+        <Component Name="InnerFrame" Class="Com.Ctrl.IFrame" Margins="12">
+          <Component Name="grpTaskHeader" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="30">
+            <Component Name="grpProject" Class="Com.Ctrl.IGroup">
+              <Component Name="ProjectEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.TaskProject" FontBold="True" HasCaption="True" OnChange="TypeEditOnChange"/>
+              <Component Name="GroupHiddentask" Class="Com.Ctrl.IGroup" Visible="False">
+                <Component Name="Static4" Class="Com.Ctrl.IStatic" Excluded="True" Width="32"/>
+                <Component Name="HiddenTask" Class="Com.Ctrl.ICheckBox" Caption="@TrackingCore:HiddenTask=Это шаблон" Field="EdtRec.HiddenTask" FixSize="True" HasCaption="True" Visible="False" Width="30"/>
+              </Component>
+            </Component>
+            <Component Name="NameEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" FontBold="True" HasCaption="True"/>
+            <Component Name="TypeAndProgress" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" Visible="True">
+              <Component Name="grpTaskType1" Class="Com.Ctrl.IGroup" Adaptive="True">
+                <Component Name="lbTaskType1" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@TrackingCore:TypeEdit=Тип" FixSize="True" ImageSize="20" Width="22"/>
+                <Component Name="ImageStatic1" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" ImageSize="20" Width="8"/>
+                <Component Name="TypeEdit1" Class="Com.Ctrl.IEdit" Caption="@TrackingCore:TypeEdit=Тип" Field="EdtRec.TaskType" HasCaption="False" MaxWidth="80" OnChange="TypeEditOnChange" OnGetLookupFilter="TypeEditOnGetLookupFilter" ShortList="True"/>
+              </Component>
+              <Component Name="ProgressGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                <Component Name="ProgressEdit" Class="Com.Ctrl.IEdit" Caption="@TrackingCore:ProgressEdit=Прогресс, %" Field="EdtRec.Progress" HasCaption="True" MaxWidth="20" OnVerify="ProgressEditOnVerify"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="ButtonGroup" Class="Com.Ctrl.IGroup" Excluded="True">
+            <Component Name="TransitionGroup" Class="Com.Ctrl.IGroup">
+              <Component Name="Button5" Class="Com.Ctrl.IButton" Caption="Переход 2"/>
+              <Component Name="Button4" Class="Com.Ctrl.IButton" Caption="Переход 1"/>
+            </Component>
+            <Component Name="MoreButton" Class="Com.Ctrl.IListButton" Caption="Ещё" ImageName="Com.angle-down" Width="20">
+              <Component Name="SubscribeOnTask" Class="Com.Ctrl.IButton" Caption="@TrackingCore:SubscribeOnTask=Подписаться" OnClick="SubscribeOnTaskOnClick"/>
+              <Component Name="UnsubscribeFromTask" Class="Com.Ctrl.IButton" Caption="@TrackingCore:UnsubscribeFromTask=Отписаться" OnClick="UnsubscribeFromTaskOnClick"/>
+              <Component Name="CreateSubtaskButton" Class="Com.Ctrl.IButton" Caption="@TrackingCore:CreateSubtask=Создать подзадачу" OnClick="CreateTaskButtonOnClick"/>
+              <Component Name="CreateTaskButton" Class="Com.Ctrl.IButton" Caption="@TrackingCore:CreateTask=Создать задачу" OnClick="CreateTaskButtonOnClick"/>
+              <Component Name="DuplicateTaskButton" Class="Com.Ctrl.IButton" Caption="@TrackingCore:DuplicateTask=Дублировать" Enabled="False"/>
+              <Component Name="ChangeProjectButton" Class="Com.Ctrl.IButton" Caption="@TrackingCore:ChangeProject=Сменить проект" Enabled="False"/>
+            </Component>
+            <Component Name="Button1" Class="Com.Ctrl.IButton" Caption="кнопка"/>
+          </Component>
+        </Component>
+        <Component Name="ButtonFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0x00FCE8DA" Margins="2" Visible="False"/>
+      </Component>
+      <Inherited Name="FieldsFrame" Visible="True">
+        <Component Name="TaskDatesBox" Class="Com.Ctrl.IBox" After="#0" Caption="@TrackingCore:TaskForm.TaskDatesBox=Даты">
+          <Component Name="DatesGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="DatesGroupLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="40" Visible="False">
+              <Component Name="CreatedEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" Field="EdtRec.Created" FormatOfDate="DateAndTime" HasCaption="True" Visible="False"/>
+              <Component Name="UpdatedEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" Field="EdtRec.Updated" FormatOfDate="DateAndTime" HasCaption="True" Visible="False"/>
+            </Component>
+            <Component Name="DatesGroupRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="30">
+              <Component Name="EventTimeGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                <Component Name="EventTimeEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Field="EdtRec.EventTime" FormatOfDate="DateOnly" HasCaption="True"/>
+              </Component>
+              <Component Name="DeadlineGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                <Component Name="DeadlineEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Field="EdtRec.Deadline" FormatOfDate="DateOnly" HasCaption="True"/>
+              </Component>
+              <Component Name="FinDateEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Task:FinDate=Дата окончания" Enabled="False" Field="EdtRec.FinDate" FormatOfDate="DateOnly" HasCaption="True" Visible="False"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="BoxDescriptionQuillJS" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@Description=Описание" FontColor="0xFF000008" MinSize="50">
+          <Component Name="FrameDescriptionQuillJS" Class="Com.Ctrl.IFrame" AutoSize="True" MinSize="50">
+            <Component Name="DescriptionQuillJS" Class="Com.Ctrl.IQuillJS" OnSelectionChange="DescriptionQuillJSOnSelectionChange" OnTextChange="ChangeDescription" ResizeEnabled="True" Visible="False"/>
+            <Component Name="DescriptionBrowser" Class="Com.Ctrl.IBrowser" Visible="False"/>
+          </Component>
+        </Component>
+        <Component Name="TextBox" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@Description=Описание">
+          <Component Name="TextGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="DescriptionEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Description" Multiline="True" Wrap="True"/>
+          </Component>
+        </Component>
+        <Component Name="AdditionalBox" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@Additional=Дополнительно" HasCaption="True" MinSize="50">
+          <Component Name="TabsFrameFox" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="WithTabs" ShowTabs="True" Visible="True">
+            <Component Name="ChatTab" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Task:Chat=Обсуждение" Margins="4" MinSize="50" Visible="False">
+              <Component Name="ChatFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+                <Component Name="Chat" Class="TrackingLib.Ctrl.IChat" DataSource="ChatSubtable" EditorStyle="esEmbeddedWindow" OnAddAttachment="ChatOnAddAttachment" UseOneSide="False">
+                  <Component Name="ChatSubtable" Class="TrackingLib.Ctrl.ChatSubtable" AddingTime="AddingTime" Attachment="Attachment" CommentID="CommentID" CommentOwner="CommentOwner" EditingTime="EditingTime" HtmlContent="HTML" Subtable="EdtRec.Chat"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="StaffTab" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Task:AllocatedStaffBox1=Ресурсы" Margins="4" MinSize="50">
+              <Component Name="StaffHeaderFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+                <Component Name="PeopleGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                  <Component Name="PeopleLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="32">
+                    <Component Name="AnalystEdit" Class="Com.Ctrl.IEdit" CardFileClass="TrackingCore.Tab.Data.People" Field="EdtRec.Analyst" HasCaption="True" Visible="False"/>
+                  </Component>
+                  <Component Name="PeopleRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="32">
+                    <Component Name="Static1" Class="Com.Ctrl.IStatic" Visible="False"/>
+                  </Component>
+                </Component>
+              </Component>
+              <Component Name="StaffTableFrame" Class="Com.Ctrl.IFrame" Margins="1">
+                <Component Name="StaffTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="True" CanInsert="True" CanMove="True" ManualControl="True" OnInsert="StaffTableOnInsert" Subtable="EdtRec.AllocatedStaff">
+                  <Component Name="Task_Staff" Class="Control.Rec.Data.Task_AllocatedStaff" IsLibrary="1"/>
+                  <Component Name="RoleEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.EntityRoles" Field="Task_Staff.Role" FixSize="True" LookupField="Name" ShortList="True" Width="40"/>
+                  <Component Name="StaffEdit" Class="Com.Ctrl.IEdit" CardFileClass="TrackingCore.Tab.Data.People" Field="Task_Staff.Staff" FixSize="False" LookupField="Name" LookupFilter="not Closed"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="SubTasksTab" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Task:Subtasks=Подзадачи" MinSize="50" Visible="False"/>
+            <Component Name="DependenciesTab" Class="Com.Ctrl.IFrame" Excluded="True" Caption="@Task:Dependencies=Зависимости" Margins="4">
+              <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True">
+                <Component Name="Static3" Class="Com.Ctrl.IStatic" Caption="@Task:PrevTasks=Задачи, от которых зависит данная задача" FontSize="14"/>
+              </Component>
+              <Component Name="DependencesTable" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="EdtRec.Dependences">
+                <Component Name="Task_Dependences" Class="Control.Rec.Data.Task_Dependences" IsLibrary="1"/>
+                <Component Name="PreviousTaskEdit" Class="Com.Ctrl.IEdit" Caption="@Task:PrevTaskName=Название" CardFileClass="TrackingCore.Tab.Data.Tasks" Field="Task_Dependences.PreviousTask"/>
+                <Component Name="PrevTaskStateEdit" Class="Com.Ctrl.IEdit" Caption="@Task:PrevTaskState=Состояние" CardFileClass="Control.Tab.Ref.TaskStatus" Enabled="False" Field="Task_Dependences.PrevTaskState" FixSize="True" LookupField="Name" Width="40"/>
+              </Component>
+            </Component>
+            <Component Name="HistoryTab" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Task:StatusHistory=История состояний" Margins="4" MinSize="50" Visible="False">
+              <Component Name="HistoryOfStatusTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" Enabled="False" ManualControl="False" Numbering="False" Subtable="EdtRec.HistoryOfStatus">
+                <Component Name="Task_History" Class="Control.Rec.Data.Task_HistoryOfTransitions" IsLibrary="1"/>
+                <Component Name="HistoryTimeEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Task_History.TimeOfTransition" FixSize="True" FormatOfDate="DateAndTime" HasCaption="True" Width="38"/>
+                <Component Name="HistoryPersonEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Task_History.Person" HasCaption="True"/>
+                <Component Name="HistoryStatusEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Task_History.NewStatus" FixSize="True" HasCaption="True" Width="30"/>
+                <Component Name="HistoryAssigneeEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Task_History.NewResponsible" HasCaption="True"/>
+                <Component Name="HistoryCommentEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Task_History.Comment" HasCaption="True"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Inherited Name="Group1" Excluded="True"/>
+      </Inherited>
+      <Component Name="TaskContentFrame" Class="Com.Ctrl.IFrame" After="FieldsFrame" Orientation="Vertical" Visible="False">
+        <Component Name="ContentBodyFrame" Class="Com.Ctrl.IFrame" Proportion="3"/>
+        <Component Name="ContentSideFrame" Class="Com.Ctrl.IFrame" Proportion="2">
+          <Component Name="TaskDetailsBox" Class="Com.Ctrl.IBox" Caption="@TrackingCore:TaskForm.TaskInfoBox=Задача">
+            <Component Name="grpDetailsBody" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="32">
+              <Component Name="DetailsLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="grpTaskType" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="lbTaskType" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@TrackingCore:TypeEdit=Тип" FixSize="True" ImageSize="20" Width="32"/>
+                  <Component Name="ImageStatic" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" ImageSize="20" Width="8"/>
+                  <Component Name="TypeEdit" Class="Com.Ctrl.IEdit" Caption="@TrackingCore:TypeEdit=Тип" Field="EdtRec.TaskType" HasCaption="False" LookupFilter="not Closed" OnChange="TypeEditOnChange" OnGetLookupFilter="TypeEditOnGetLookupFilter" ShortList="True"/>
+                </Component>
+                <Component Name="grpPriority" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="lbPriority" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@TrackingCore:Priority=Приоритет" FixSize="True" Width="32"/>
+                  <Component Name="ImagePriority" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" Width="8"/>
+                  <Component Name="PriorityEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.TaskPriority" HasCaption="False" LookupFilter="not Closed" OnChange="PriorityEditOnChange" OnDraw="PriorityEditOnDraw" ShortList="True"/>
+                </Component>
+                <Component Name="grpSprint" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="lbSprint" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@TrackingCore:Sprint=Спринт" FixSize="True" Width="32"/>
+                  <Component Name="ImageSprint" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" Width="8"/>
+                  <Component Name="SprintEdit" Class="Com.Ctrl.IListEdit" AlwaysMark="True" CellFormat="ReferenceFormat" Field="EdtRec.Sprints" HasCaption="False" LookupField="Name" ValueType="VarObject"/>
+                </Component>
+                <Component Name="grpPrjComps" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="lbPrjComps" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@TrackingCore:PrjComps=Компоненты" FixSize="True" Width="32"/>
+                  <Component Name="ImagePrjComps" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" Width="8"/>
+                  <Component Name="PrjComps" Class="Com.Ctrl.IListEdit" AlwaysMark="True" CellFormat="ReferenceFormat" Field="EdtRec.PrjComponents" HasCaption="False" LookupField="Name" LookupFilter="not Closed" ValueType="VarObject"/>
+                </Component>
+              </Component>
+              <Component Name="DetailsRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="30">
+                <Component Name="StatusEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.TaskStatus" HasCaption="True" LookupFilter="not Closed" OnChange="StatusEditOnChange" OnGetLookupFilter="StatusEditOnGetLookupFilter" ShortList="True"/>
+                <Component Name="ResolutionEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Resolution" HasCaption="True" LookupFilter="not Closed" ShortList="True"/>
+                <Component Name="AffVersions" Class="Com.Ctrl.IListEdit" AlwaysMark="True" CellFormat="ReferenceFormat" Field="EdtRec.AffVersions" HasCaption="True" LookupField="Code" LookupFilter="not Closed" ValueType="VarObject"/>
+                <Component Name="FixVersions" Class="Com.Ctrl.IListEdit" CellFormat="ReferenceFormat" Field="EdtRec.FixVersions" HasCaption="True" LookupField="Code" LookupFilter="not Closed" ValueType="VarObject"/>
+              </Component>
+            </Component>
+            <Component Name="grpDetailsFooter" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="40">
+              <Component Name="grpLabels" Class="Com.Ctrl.IGroup">
+                <Component Name="lbLabels" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@TrackingCore:Labels=Метки" FixSize="True" Width="32"/>
+                <Component Name="ImageLabels" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" Width="8"/>
+                <Component Name="Labels" Class="Com.Ctrl.IListEdit" AlwaysMark="True" Caption="@TrackingCore:Labels=Метки" CellFormat="ReferenceFormat" Field="EdtRec.Labels" HasCaption="False" LookupField="Name" LookupFilter="not Closed" ValueType="VarObject"/>
+              </Component>
+              <Component Name="grpEpic" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="32">
+                <Component Name="lbEpic" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@TrackingCore:Epic=Эпик" FixSize="True" Width="32"/>
+                <Component Name="ImageEpic" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" Width="8"/>
+                <Component Name="EpicEdit" Class="Com.Ctrl.IEdit" Caption="@TrackingCore:Epic=Эпик" CaptionWidth="32" Enabled="False" Field="EdtRec.GroupDoc" HasCaption="False"/>
+                <Component Name="EpicJump" Class="Com.Ctrl.IJumpButton" Field="EdtRec.GroupDoc"/>
+              </Component>
+              <Component Name="grpExtraText" Class="Com.Ctrl.IGroup">
+                <Component Name="lbExtraText" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@TrackingCore:ExtrInfo=Доп. инфо" FixSize="True" Width="32"/>
+                <Component Name="ImageExtraText" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" Width="8"/>
+                <Component Name="ExtraTextEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.ExtraText" HasCaption="False"/>
+              </Component>
+              <Component Name="LinkGroup" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="30">
+                <Component Name="lbTrkKnolageBase" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="Трекинг.БЗ" FixSize="True" Width="32"/>
+                <Component Name="ImageTrkKnolageBase" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" Width="8"/>
+                <Component Name="LinkTrack" Class="Com.Ctrl.IEdit" Caption="Трекинг.БЗ" Field="EdtRec.LinkTrack" HasCaption="False" Width="152"/>
+                <Component Name="LinkButton" Class="Com.Ctrl.IButton" HasCaption="False" Hint="Перейти" ImageName="Com.angle-right" OnClick="LinkButtonOnClick"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="PeopleBox" Class="Com.Ctrl.IBox" Caption="@TrackingCore:TaskForm.PeopleBox=Люди">
+            <Component Name="PeopleSideGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="40">
+              <Component Name="AssigneeEdit" Class="Com.Ctrl.IEdit" CardFileClass="TrackingCore.Tab.Data.People" Field="EdtRec.Assignee" HasCaption="True" LookupFilter="not Closed"/>
+              <Component Name="ReporterEdit" Class="Com.Ctrl.IEdit" CardFileClass="TrackingCore.Tab.Data.People" Enabled="False" Field="EdtRec.Reporter" HasCaption="True" LookupFilter="not Closed"/>
+            </Component>
+          </Component>
+          <Component Name="SideAddinsBox" Class="Com.Ctrl.IBox" Caption="@Additional=Дополнительно" Visible="True">
+            <Component Name="SideAddinsTabset" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="WithTabs" ShowTabs="True" Visible="True">
+              <Component Name="SideDetailsTab" Class="Com.Ctrl.IFrame" Excluded="True" AutoSize="True" Caption="@TrackingCore:TaskForm.SideDetailsTab=Детали" MinSize="50"/>
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="EmailBox" Class="Com.Ctrl.IBox" Excluded="True" After="TabsFrame" Caption="@EMail=Электронная почта" Collapsed="True">
+        <Component Name="EMailGroup" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="45">
+          <Component Name="EMailEdit" Class="Com.Ctrl.IEdit" Caption="@TrackingCore:Email=Электронное письмо" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.EMail" LookupField="SenderAddr" ValueType="VarObject"/>
+          <Component Name="EMailJumpButton" Class="Com.Ctrl.IJumpButton" Field="EdtRec.EMail" JumpForm="Bas.Frm.Data.EMail"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

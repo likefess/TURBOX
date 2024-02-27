@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Name="Rep.IReportTurns43" Class="Com.Rep.IReportTurns" AccountPlan="Оперативный" BegDate="01.07.2022" Caption="АмортизацияРасчетСервисПолный" CIndicator="1" EndDate="01.08.2022" HystoKind="hkSide" Legend="lpkAtRight" Palette="cpDefault" ParameterFilter="ОС &lt;> nil" Period="3" ShowBeyondLimits="False">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorПодразделение" Class="Com.Rep.IIndCalc" AccountFilter="Имущество" BegSaldoFormat="msfNone" Caption="Подразделение" Contents="LastValue(Подразделение)"/>
+      <Component Name="IndicatorМОЛ" Class="Com.Rep.IIndCalc" AccountFilter="Имущество" BegSaldoFormat="msfNone" Caption="МОЛ" Contents="LastValue(МОЛ)" TurnFormat="msfNone"/>
+      <Component Name="IndicatorПервоначальнаяСтоимость" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="Первоначальная стоимость" Formula="Поле(&quot;#.ПервоначальнаяСтоимость&quot;)" ShowUnit="False" TurnFormat="msfNone" ValueType="VarNumeric"/>
+      <Component Name="IndicatorМодернизация" Class="Com.Rep.IIndMain" AccountFilter="Имущество" BegSaldoFormat="msfNone" Caption="Модернизация" Contents="Сумма" ParameterFilter="ЭтоМодернизация" TurnFormat="msfNone"/>
+      <Component Name="IndicatorПереоценка" Class="Com.Rep.IIndMain" AccountFilter="ИзменениеСтоимости" BegSaldoFormat="msfNone" Caption="Переоценка" Contents="Сумма" ParameterFilter="СпособИзменения &lt;> 2" TurnFormat="msfNone"/>
+      <Component Name="IndicatorОбесценение" Class="Com.Rep.IIndMain" AccountFilter="ИзменениеСтоимости" BegSaldoFormat="msfNone" Caption="Обесценение" Contents="Сумма" InvertValue="True" ParameterFilter="СпособИзменения = 2" TurnFormat="msfNone"/>
+      <Component Name="IndicatorАмортизация" Class="Com.Rep.IIndMain" AccountFilter="Амортизация" Caption="Амортизация начисленная" Contents="Сумма" EndSaldoFormat="msfNone" InvertValue="True" LimitKind_Turn="cutAbove" MaxWidth="40" ShowUnit="False" TurnFormat="msfNone"/>
+      <Component Name="IndicatorСтоимость" Class="Com.Rep.IIndMain" AccountFilter="Имущество" BegSaldoFormat="msfNone" Caption="Стоимость (текущая)" Contents="Сумма" LimitActive_Saldo="True" LimitActive_Turn="True" LimitKind_Turn="cutAbove" ShowUnit="False"/>
+      <Component Name="IndicatorБалансоваяСтоимость" Class="Com.Rep.IIndCustom" Excluded="True" BegSaldoFormat="msfNone" Caption="Балансовая стоимость" Formula="Чис(&quot;IndicatorСтоимость&quot;,КОст) - Чис(&quot;IndicatorАмортизация&quot;,НОст)" ShowUnit="False" TurnFormat="msfNone" ValueType="VarNumeric"/>
+      <Component Name="IndicatorЛиквидационнаяСтоимость" Class="Com.Rep.IIndCustom" Excluded="True" BegSaldoFormat="msfNone" Caption="Ликвидационная cтоимость" Formula="Поле(&quot;#.ЛиквидационнаяСтоимость&quot;).Items[EndDate-1]" MaxWidth="35" ShowUnit="False" TurnFormat="msfNone" ValueType="VarNumeric"/>
+      <Component Name="IndicatorСтоимостьДляРасчетаАмортизации" Class="Com.Rep.IIndCustom" Excluded="True" BegSaldoFormat="msfNone" Caption="Стоимость ОС для расчета амортизации" Formula="Чис(&quot;IndicatorБалансоваяСтоимость&quot;) - Чис(&quot;IndicatorЛиквидационнаяСтоимость&quot;)" MaxWidth="30" ShowUnit="False" TurnFormat="msfNone" ValueType="VarNumeric"/>
+      <Component Name="IndicatorОстатокСПИ" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="Остаток СПИ" Formula="ИмуществоБазовый.Библио.ПолучитьОстатокСПИ(ИмуществоБазовый.Rec.Справочники.ОснСредства.OpenRecord(Поле(&quot;#&quot;)),EndDate)" MaxWidth="18" ShowUnit="False" TurnFormat="msfNone" ValueType="VarInteger"/>
+      <Component Name="IndicatorКоэффАмортизации" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="КА" Formula="ИмуществоБазовый.Библио.ПолучитьКоэффАмортизации(Поле(&quot;#&quot;), BegDate, EndDate-1)" ShowUnit="False" TurnFormat="msfNone" ValueType="VarNumeric"/>
+      <Component Name="IndicatorАмортизацияТП" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Амортизация текущего периода" Formula="Round( (ValueByName(aPart, 'IndicatorСтоимость') - ValueByName(Com.Consts.BegRoll, 'IndicatorАмортизация') - Поле(&quot;#.ЛиквидационнаяСтоимость&quot;).Items[EndDate-1]) * ValueByName(aPart, 'IndicatorКоэффАмортизации') / ValueByName(aPart, 'IndicatorОстатокСПИ'), 2)" MaxWidth="35" ShowUnit="False" TurnFormat="msfNone" ValueType="VarNumeric"/>
+      <Component Name="IndicatorАмортизацияТП_БезПереоц" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Амортизация ТП (без переоценки)" Formula="Round( (ValueByName(aPart, 'IndicatorСтоимость') - ValueByName(aPart, 'IndicatorПереоценка') - ValueByName(Com.Consts.BegRoll, 'IndicatorАмортизация') - Поле(&quot;#.ЛиквидационнаяСтоимость&quot;).Items[EndDate-1]) * ValueByName(aPart, 'IndicatorКоэффАмортизации') / ValueByName(aPart, 'IndicatorОстатокСПИ'), 2)" MaxWidth="35" ShowUnit="False" TurnFormat="msfNone" ValueType="VarNumeric"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam0C2664A8" Class="Com.Rep.ISplitByParam" SplitParam="ОС"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContent32DF1ACA" Class="Com.Rep.ISplitContent" Caption="ОС" Contents="ОС.КодИмущества"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_ОграничениеДат" Class="Com.Rep.IRepControl" Caption="ОграничениеДат" DefaultStr="String(&quot;&quot;)" Operator="=" Plan="Оперативный" PrepareFunc="Result = '(ОС.ДатаНачалаАмортизации &lt;> nil and ОС.ДатаНачалаАмортизации &lt; ' + EndDate.Str + ') and (ОС.ДатаПрекращенияАмортизации = nil or ОС.ДатаПрекращенияАмортизации > ' + BegDate.Str + ')'" ValueType="VarString" Visible="False"/>
+      <Component Name="RC_НашеПредприятие" Class="Com.Rep.IRepControl" Caption="Предприятие" DefaultStr="Object(nil)" Operator="=" Parameter="НашеПредприятие" Plan="Оперативный" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Подразделение_Огр" Class="Com.Rep.IRepControl" Caption="Подразделение" CaptionWidth="32" CardFileClass="Bas.Tab.Data.Divisions" DefaultStr="Object(nil)" Indicators="Подразделение,Стоимость" MultiSelect="True" Operator=" is " Parameter="Подразделение" Plan="Оперативный" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_ОС" Class="Com.Rep.IRepControl" Caption="ОС" CardFileClass="ИмуществоБазовый.Tab.Справочники.ОснСредства" DefaultStr="Object(nil)" MultiSelect="True" Operator=" is " Parameter="ОС" Plan="Оперативный" SkipNil="True" ValueType="VarObject"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

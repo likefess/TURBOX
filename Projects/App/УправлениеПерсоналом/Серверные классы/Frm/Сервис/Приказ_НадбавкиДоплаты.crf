@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Component Name="ПостНачисление" Class="УправлениеПерсоналом.Rec.Сервис.ПостоянныеНачисления" IsLibrary="1" After="#0"/>
+    <Inherited Name="Variables">
+      <Component Name="тблПостНачисления" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Сервис.ПостоянныеНачисления"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="4">
+        <Component Name="ButtonSelectItem" Class="Com.Ctrl.IButton" After="#0" Caption="@Form:SelectButton=Выбрать" FontSize="11" ImageName="SelectItem" OnClick="ButtonSelectItem_OnClick" Width="32"/>
+        <Inherited Name="ButtonOK" Visible="False"/>
+        <Inherited Name="ButtonRefresh" Visible="False"/>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="Надбавки/доплаты" HasCaption="True">
+          <Component Name="тбПостНачисления" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Subtable="тблПостНачисления">
+            <Component Name="чВыборПостНачисление" Class="Com.Ctrl.IEdit" Caption="Выбор" Field="ПостНачисление.Выбор" HasCaption="True" Hint="Выбрать данное начисление" Width="15"/>
+            <Component Name="Сотрудник" Class="Com.Ctrl.IEdit" Caption="Сотрудник" Enabled="False" Field="ПостНачисление.Назначение" HasCaption="True" LookupField="УсловияТрудаСотрудника.Person.Name" Multiline="True" Width="65" Wrap="True"/>
+            <Component Name="грПостНачВид" Class="Com.Ctrl.IColumnsGroup" Caption="Вид начисления" HasCaption="True">
+              <Component Name="ПостНачНаименование" Class="Com.Ctrl.IEdit" Caption="@наименование" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Enabled="False" Field="ПостНачисление.ВидНачислений" HasCaption="True" LookupField="Name" Multiline="True" Width="60" Wrap="True"/>
+              <Component Name="ПостНачНаименованиеКод" Class="Com.Ctrl.IEdit" Caption="@код" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Enabled="False" Field="ПостНачисление.ВидНачислений" HasCaption="True" LookupField="Код" Width="20"/>
+            </Component>
+            <Component Name="грПостНачЗначения" Class="Com.Ctrl.IColumnsGroup" Caption="@Значения" HasCaption="True">
+              <Component Name="ПостНачСтавка" Class="Com.Ctrl.IEdit" Caption="@ставка" Enabled="False" Field="ПостНачисление.Ставка" FieldFormat="0.00%;;-" HasCaption="True" Width="20"/>
+              <Component Name="ПостНачСумма" Class="Com.Ctrl.IEdit" Caption="@сумма (руб.)" Enabled="False" Field="ПостНачисление.Сумма" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+            </Component>
+            <Component Name="ПостНачПериодичность" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Периодичность" CellFormat="EnumFormat" Enabled="False" Field="ПостНачисление.Периодичность" HasCaption="True" Width="30"/>
+            <Component Name="ПостНачУсловиеРасчета" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Условие попадания в расчет" CellFormat="EnumFormat" Enabled="False" Field="ПостНачисление.УсловиеРасчета" HasCaption="True" Multiline="True" Width="70" Wrap="True"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

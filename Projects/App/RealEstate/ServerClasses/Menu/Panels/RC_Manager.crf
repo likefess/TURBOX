@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IRoleCenter">
+  <Inherited Caption="РМ руководителя" CaptionAlign="CenterAlign" FormIcon="Biz.RC">
+    <Inherited Name="MainGroup" Columns="5" Orientation="Vertical">
+      <Component Name="Data" Class="Com.Cmd2.IGroup" Caption="Данные" Columns="1">
+        <Component Name="Data_RealEstateObject" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RealEstateObject:=Полный реестр имущества" FormClassName="RealEstateBase.Tab.Data.RealEstateObject" IconName="Bas.atlas"/>
+      </Component>
+      <Component Name="Orders" Class="Com.Cmd2.IGroup" Caption="Документы" Columns="1">
+        <Component Name="Re_Orders_Set" Class="Com.ComManaging.OpenIForm" Caption="@Orders=Правоустанавливающие документы" FormClassName="RealEstate.Tab.Doc.Order_SetCopyright" IconName="Com.Blank"/>
+        <Component Name="Re_Orders_Inner" Class="Com.ComManaging.OpenIForm" Caption="@Orders=Внутренние документы" FormClassName="RealEstate.Tab.Doc.Order_InnerMove" IconName="Com.Blank"/>
+      </Component>
+      <Component Name="Rep" Class="Com.Cmd2.IGroup" Caption="@Отчеты" Columns="1">
+        <Component Name="RE_Reestr" Class="Com.ComManaging.OpenReport" Caption="Реестр объектов имущества" IconName="Com.Report" ReportCode="RealEstate.Rep.Service.РеестрОИ"/>
+      </Component>
+      <Component Name="InfoBoard" Class="Com.Cmd2.IGroup" Caption="Информационные панели" Columns="2">
+        <Component Name="InfoBoard_Panel_Title" Class="Com.ComManaging.OpenIForm" AdvRTIForm="InfoBoard.Frm.Data.Panel" Caption="@InfoBoard.Panel:Title=Информационные панели" FormClassName="InfoBoard.Tab.Data.Panel" IconName="InfoBoard.solar-panel"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

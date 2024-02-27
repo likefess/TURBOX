@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="HRBase.Frm.Data.PersonalDataHR">
+  <Inherited>
+    <Component Name="Инвалидность" Class="УправлениеПерсоналом.Rec.Данные.КарточкаФЛ_Инвалидность" IsLibrary="1" After="#0"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="frMain">
+            <Component Name="grMain2" Class="Com.Ctrl.IGroup" Excluded="True" After="#0" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Static33" Class="Com.Ctrl.IStatic"/>
+              <Component Name="Static22" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Inherited Name="grMain1">
+              <Component Name="РегНомер" Class="Com.Ctrl.IEdit" After="#0" Field="EdtRec.РегНомер" HasButton="True" HasCaption="True" MaxWidth="45" OnLookup="ПоказатьИсториюРегНомер" OnVerify="ПолеСИсторией_ПриИзменении"/>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="frMainData">
+            <Inherited Name="bxCitizenship">
+              <Inherited Name="grCitizenship">
+                <Inherited Name="grCitizenship3">
+                  <Component Name="ВидПребывания" Class="Com.Ctrl.IEdit" After="#0" CellFormat="EnumFormat" Field="EdtRec.ВидПребывания" FixSize="True" HasCaption="True" Width="55"/>
+                </Inherited>
+              </Inherited>
+            </Inherited>
+            <Component Name="бксМестоРождения" Class="Com.Ctrl.IBox" After="bxCitizenship" Caption="@Место рождения" Collapsed="True" HasCaption="True">
+              <Component Name="грМестоРождения" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+                <Component Name="грСтранаРождения" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="ТипМестаРождения" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Тип места рожд." CellFormat="EnumFormat" Field="EdtRec.ТипМестаРождения" HasCaption="True"/>
+                  <Component Name="СтранаРождения" Class="Com.Ctrl.IEdit" Caption="Страна" Field="EdtRec.СтранаРождения" HasCaption="True"/>
+                </Component>
+                <Component Name="РегионРождения" Class="Com.Ctrl.IEdit" Caption="Область" Field="EdtRec.РегионРождения" HasCaption="True"/>
+                <Component Name="РайонРождения" Class="Com.Ctrl.IEdit" Caption="Район" Field="EdtRec.РайонРождения" HasCaption="True"/>
+                <Component Name="МестоРождения" Class="Com.Ctrl.IEdit" Caption="Город" Field="EdtRec.МестоРождения" HasCaption="True"/>
+              </Component>
+            </Component>
+          </Inherited>
+        </Inherited>
+        <Component Name="OtherTab" Class="Com.Ctrl.IFrame" Caption="Дополнительно" HasCaption="True">
+          <Component Name="бксСтажРаботы" Class="Com.Ctrl.IBox" Caption="@Начало стажа" Collapsed="True" HasCaption="True">
+            <Component Name="грСтажРаботы" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="ДатаСтажО" Class="Com.Ctrl.IEdit" Caption="@Общий стаж" Field="EdtRec.ДатаСтажО" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="45"/>
+              <Component Name="ДатаСтажН" Class="Com.Ctrl.IEdit" Caption="@Непрерывный стаж" Field="EdtRec.ДатаСтажН" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="45"/>
+            </Component>
+          </Component>
+          <Component Name="бксИнвалидность" Class="Com.Ctrl.IBox" Caption="@Сведения об инвалидности" Collapsed="True" HasCaption="True">
+            <Component Name="фрмИнвалидность" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="тбИнвалидность" Class="Com.Ctrl.ITable" Numbering="False" Subtable="EdtRec.Инвалидность">
+                <Component Name="грИнвПериод" Class="Com.Ctrl.IColumnsGroup" Caption="Период действия" HasCaption="True">
+                  <Component Name="инвДатаНачала" Class="Com.Ctrl.IEdit" Caption="с" Field="Инвалидность.ДатаНачала" HasCaption="True" Width="30"/>
+                  <Component Name="инвДатаОкончания" Class="Com.Ctrl.IEdit" Caption="по" Field="Инвалидность.ДатаОкончания" HasCaption="True" Width="30"/>
+                </Component>
+                <Component Name="грИнвДокумент" Class="Com.Ctrl.IColumnsGroup" Caption="Документ" HasCaption="True">
+                  <Component Name="инвСерияСправки" Class="Com.Ctrl.IEdit" Caption="Серия" Field="Инвалидность.СерияСправки" HasCaption="True" Width="30"/>
+                  <Component Name="инвНомерСправки" Class="Com.Ctrl.IEdit" Caption="Номер" Field="Инвалидность.НомерСправки" HasCaption="True" Width="30"/>
+                </Component>
+                <Component Name="инвГруппа" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Группа" CellFormat="EnumFormat" Field="Инвалидность.Группа" HasCaption="True" Width="20"/>
+                <Component Name="инвСрок" Class="Com.Ctrl.IEdit" Caption="Срок" Field="Инвалидность.Срок" HasCaption="True" Width="30"/>
+                <Component Name="инвПримечание" Class="Com.Ctrl.IEdit" Caption="Комментарий" Field="Инвалидность.Примечание" HasCaption="True" Width="50"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="бксСтатусПроживания" Class="Com.Ctrl.IBox" Caption="@Статус/Проживание" HasCaption="True">
+            <Component Name="фрмСтатусПроживание" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

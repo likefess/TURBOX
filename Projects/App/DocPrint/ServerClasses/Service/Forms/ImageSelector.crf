@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="DocPrint.Service.Forms.DataSelector">
+  <Inherited>
+    <Component Name="Data" Class="DocPrint.Service.Data.ImageSelector" IsLibrary="1" After="#0"/>
+    <Inherited Name="Variables">
+      <Component Name="ImageBlob" Class="Com.Fld.IBlob"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+          <Component Name="Group2" Class="Com.Ctrl.IGroup" ByColumn="False">
+            <Component Name="FileLocEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.ImageSelector.FileLoc:Caption=Расположение" CellFormat="EnumFormat" Field="Data.FileLoc" HasCaption="True" ListAsString="Локально;Файловый архив" OnChange="FileLocEditOnChange" ValueType="VarInteger" Width="12"/>
+            <Component Name="FilePathEdit" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Caption="@DocPrint.ImageSelector.FilePath:Caption=Изображение" CaptionWidth="32" CellFormat="StringFormat" Field="Data.FilePath" HasButton="True" HasCaption="True" OnChange="FilePathEditOnChange" OnLookup="FilePathEditOnLookup" OnVerify="FilePathEditOnVerify" Required="True" ValueType="VarString" Visible="False"/>
+            <Component Name="FilePathArchiveEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.ImageSelector.FilePath:Caption=Изображение" CaptionWidth="32" CardFileClass="Com.Tab.Archive.File" CellFormat="ReferenceFormat" Field="Data.FilePathArchive" HasCaption="True" LookupField="Name" OnChange="FilePathArchiveEditOnChange" OnOpenCardForm="FilePathArchiveEditOnOpenCardForm" OnVerify="FilePathArchiveEditOnVerify" Required="True" ValueType="VarObject" Visible="False"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Component Name="PreviewFrame" Class="Com.Ctrl.IFrame" After="FieldsFrame">
+        <Component Name="PicturePreview" Class="Com.Ctrl.IPicture" Field="ImageBlob"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

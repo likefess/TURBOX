@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.CodeName">
+  <Inherited HelpContext="CashFlow.Движение денежных средств.Денежные документы.Основные данные.Номера денежных документов" Hierarchical="False">
+    <Inherited Name="Current" Class="CashFlow.Rec.Ref.MoneyDocNumber" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Code" After="ExtId" HasCaption="True"/>
+          <Inherited Name="Name" After="Code" Caption="@MoneyDocNumber:Name=Наименование" HasCaption="True"/>
+          <Component Name="MoneyDocumentNumber" Class="Com.Ctrl.IEdit" Field="Current.MoneyDocNumber" HasCaption="True" Width="30"/>
+          <Component Name="MoneyDocument" Class="Com.Ctrl.IEdit" Field="Current.MoneyDocument" HasCaption="True" LookupField="Name" Width="50"/>
+          <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Caption="@MoneyDocNumber:Locked=Замок" Field="Current.Locked" HasCaption="True" Width="20"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

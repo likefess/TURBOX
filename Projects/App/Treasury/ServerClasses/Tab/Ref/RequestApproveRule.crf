@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICardForm">
+  <Inherited>
+    <Inherited Name="Current" Class="Treasury.Rec.Ref.RequestApproveRule" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="Company" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="Current.Company" HasCaption="True" LookupField="Name" ShortList="False" Width="50"/>
+          <Component Name="RequestType" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.ObjType" LookupField="Name" LookupFilter="Match(Code, 'Treasury.*')" Width="50"/>
+          <Component Name="CFR" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.CFR" LookupField="Name" Width="50"/>
+          <Component Name="BGI" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.BGI" LookupField="Name" Width="50"/>
+          <Component Name="Source" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.FundSource" CellFormat="ReferenceFormat" Field="Current.Source" LookupField="Name" Width="50"/>
+          <Component Name="DATemplate" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.DATemplate" LookupField="Name" Width="50"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,671 @@
+﻿TBCFile VER="3.4" [Created '25.12.2020 15:51:38' by 'Administrator']
+
+DESCRIPTION[
+Count=77
+CountByRef=0
+CashFlow.Data.FinancialInstrumentGroup
+(
+  Count=13
+  CountByRef=0
+)
+CashFlow.Data.OperationType
+(
+  Count=64
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [CashFlow.Data.FinancialInstrumentGroup
+  (
+    Deleted :Boolean
+    Code :String(80)
+    Name :String(255)
+    FinancialInstrumentType :Integer
+    AssetLiability :Integer
+  )
+  ForeignKey Code
+  ]
+
+  [CashFlow.Data.OperationType
+  (
+    Deleted :Boolean
+    Code :String(80)
+    Name :String(255)
+    FinancialInstrumentGroup :CashFlow.Data.FinancialInstrumentGroup
+    OperationDescription :Memo
+    MovementType :Integer
+    Payment :Integer
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[CashFlow.Data.FinancialInstrumentGroup
+  
+  {CashFlow.Data.FinancialInstrumentGroup:"Кредит полученный"}
+  (
+    Name = "Кредит полученный"
+    FinancialInstrumentType = 1
+  )
+  
+  {CashFlow.Data.FinancialInstrumentGroup:"Акция"}
+  (
+    Name = "Акция"
+    AssetLiability = 4
+  )
+  
+  {CashFlow.Data.FinancialInstrumentGroup:"Займ полученный"}
+  (
+    Name = "Займ полученный"
+    FinancialInstrumentType = 1
+  )
+  
+  {CashFlow.Data.FinancialInstrumentGroup:"Займ выданный"}
+  (
+    Name = "Займ выданный"
+  )
+  
+  {CashFlow.Data.FinancialInstrumentGroup:"Депозит"}
+  (
+    Name = "Депозит"
+    AssetLiability = 1
+  )
+  
+  {CashFlow.Data.FinancialInstrumentGroup:"Вексель простой"}
+  (
+    Name = "Вексель простой"
+    AssetLiability = 2
+  )
+  
+  {CashFlow.Data.FinancialInstrumentGroup:"Акция собственная"}
+  (
+    Name = "Акция собственная"
+    FinancialInstrumentType = 1
+    AssetLiability = 8
+  )
+  
+  {CashFlow.Data.FinancialInstrumentGroup:"Вексель простой собст."}
+  (
+    Name = "Вексель простой собственный"
+    FinancialInstrumentType = 1
+    AssetLiability = 2
+  )
+  
+  {CashFlow.Data.FinancialInstrumentGroup:"Вексель финансовый"}
+  (
+    Name = "Вексель финансовый"
+    AssetLiability = 3
+  )
+  
+  {CashFlow.Data.FinancialInstrumentGroup:"Облигация муниципальная"}
+  (
+    Name = "Облигация муниципальная"
+    AssetLiability = 6
+  )
+  
+  {CashFlow.Data.FinancialInstrumentGroup:"Облигация прочая"}
+  (
+    Name = "Облигация прочая"
+    AssetLiability = 5
+  )
+  
+  {CashFlow.Data.FinancialInstrumentGroup:"Вексель финансовый собственный"}
+  (
+    Name = "Вексель финансовый собственный"
+    FinancialInstrumentType = 1
+    AssetLiability = 3
+  )
+  
+  {CashFlow.Data.FinancialInstrumentGroup:"Облигация государственная"}
+  (
+    Name = "Облигация государственная"
+    AssetLiability = 7
+  )
+]
+
+[CashFlow.Data.OperationType
+  
+  {CashFlow.Data.OperationType:"_IPG8O66JHGL88B"}
+  (
+    Name = "Поступление кредита"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Кредит полученный"}
+    OperationDescription = "Поступление кредита"
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OKICDWFAOT"}
+  (
+    Name = "Начисление процентов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Кредит полученный"}
+    OperationDescription = "Начисление процентов"
+    MovementType = 2
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVHRMLHR03"}
+  (
+    Name = "Оплата процентов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Кредит полученный"}
+    OperationDescription = "Оплата процентов"
+    MovementType = 2
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OGEXLDFAOT"}
+  (
+    Name = "Возврат кредита"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Кредит полученный"}
+    OperationDescription = "Возврат кредита"
+    MovementType = 1
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVHSWD9GFR"}
+  (
+    Name = "Реклассификация осн.долга"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Кредит полученный"}
+    OperationDescription = "Реклассификация осн.долга"
+    MovementType = 3
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8O56HR59GFR"}
+  (
+    Name = "Реклассификация процентов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Кредит полученный"}
+    OperationDescription = "Реклассификация процентов"
+    MovementType = 4
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OGFRH59GFR"}
+  (
+    Name = "Поступление"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:Акция}
+    OperationDescription = "Поступление"
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"Начисление дивидендов"}
+  (
+    Name = "Начисление дивидендов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:Акция}
+    OperationDescription = "Начисление дивидендов"
+    MovementType = 2
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OOOORDFAOT"}
+  (
+    Name = "Поступление дивидендов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:Акция}
+    OperationDescription = "Поступление дивидендов"
+    MovementType = 2
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVVFR51Q8P"}
+  (
+    Name = "Переоценка"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:Акция}
+    OperationDescription = "Переоценка рыночной стоимости"
+    MovementType = 5
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVHRR59GFR"}
+  (
+    Name = "Погашение/Реализация"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:Акция}
+    OperationDescription = "Погашение/Реализация"
+    MovementType = 1
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPGJUNHRRDFAOT"}
+  (
+    Name = "Выпуск акций"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Акция собственная"}
+    OperationDescription = "Выпуск акций"
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8FVTRRDFAOT"}
+  (
+    Name = "Начисление дивидендов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Акция собственная"}
+    OperationDescription = "Начисление дивидендов"
+    MovementType = 2
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVHDEDEAOT"}
+  (
+    Name = "Выплата дивидендов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Акция собственная"}
+    OperationDescription = "Выплата дивидендов"
+    MovementType = 2
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"Выкуп акции"}
+  (
+    Name = "Выкуп акций"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Акция собственная"}
+    OperationDescription = "Выкуп акций собственных"
+    MovementType = 1
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OOKJN5L88B"}
+  (
+    Name = "Поступление"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Вексель простой"}
+    OperationDescription = "Поступление"
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"Начисление процентов"}
+  (
+    Name = "Начисление процентов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Вексель простой"}
+    OperationDescription = "Начисление процентов"
+    MovementType = 2
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8ONHBGDFAOT"}
+  (
+    Name = "Оплата процентов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Вексель простой"}
+    OperationDescription = "Оплата процентов"
+    MovementType = 2
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG86IJHR51Q8P"}
+  (
+    Name = "Погашение"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Вексель простой"}
+    OperationDescription = "Погашение"
+    MovementType = 1
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"Выпуск"}
+  (
+    Name = "Выпуск векселя"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Вексель простой собст."}
+    OperationDescription = "Выпуск векселя"
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVHRR0UR8I"}
+  (
+    Name = "Начисление процентов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Вексель простой собст."}
+    OperationDescription = "Начисление процентов"
+    MovementType = 2
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVCDV51Q8P"}
+  (
+    Name = "Оплата процентов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Вексель простой собст."}
+    OperationDescription = "Оплата процентов"
+    MovementType = 2
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVKDCYBAOT"}
+  (
+    Name = "Погашение векселя "
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Вексель простой собст."}
+    OperationDescription = "Погашение векселя"
+    MovementType = 1
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"Поступление векселя"}
+  (
+    Name = "Поступление векселя"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Вексель финансовый"}
+    OperationDescription = "Поступление векселя"
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVHRR42OON"}
+  (
+    Name = "Начисление процентов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Вексель финансовый"}
+    OperationDescription = "Начисление процентов/дисконтов"
+    MovementType = 2
+  )
+  
+  {CashFlow.Data.OperationType:"Оплата процентов"}
+  (
+    Name = "Оплата процентов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Вексель финансовый"}
+    OperationDescription = "Оплата процентов"
+    MovementType = 2
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"Погашение векселя"}
+  (
+    Name = "Погашение векселя"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Вексель финансовый"}
+    OperationDescription = "Погашение векселя"
+    MovementType = 1
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVHTT59GFR"}
+  (
+    Name = "Размещение депозита"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:Депозит}
+    OperationDescription = "Размещение депозита"
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVHRRD2GOS"}
+  (
+    Name = "Начисление процентов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:Депозит}
+    OperationDescription = "Начисление процентов"
+    MovementType = 2
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVHRRDFAOT"}
+  (
+    Name = "Оплата процентов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:Депозит}
+    OperationDescription = "Оплата процентов"
+    MovementType = 2
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVHDOBES03"}
+  (
+    Name = "Возврат депозита"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:Депозит}
+    OperationDescription = "Возврат депозита"
+    MovementType = 1
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVHGFDFAOT"}
+  (
+    Name = "Выдача займа"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Займ выданный"}
+    OperationDescription = "Выдача займа"
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVHRRNOQP0"}
+  (
+    Name = "Начисление процентов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Займ выданный"}
+    OperationDescription = "Начисление процентов"
+    MovementType = 2
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVHRRO7191"}
+  (
+    Name = "Оплата процентов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Займ выданный"}
+    OperationDescription = "Оплата процентов"
+    MovementType = 2
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPGJEXHRMUES03"}
+  (
+    Name = "Возврат займа"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Займ выданный"}
+    OperationDescription = "Возврат займа"
+    MovementType = 1
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPGJJHHRN5L88B"}
+  (
+    Name = "Поступление займа"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Займ полученный"}
+    OperationDescription = "Поступление займа"
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVHRRQTVP4"}
+  (
+    Name = "Начисление процентов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Займ полученный"}
+    OperationDescription = "Начисление процентов"
+    MovementType = 2
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVHRRRAF15"}
+  (
+    Name = "Оплата процентов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Займ полученный"}
+    OperationDescription = "Оплата процентов"
+    MovementType = 2
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVHRRRR096"}
+  (
+    Name = "Возврат займа"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Займ полученный"}
+    OperationDescription = "Вохврат займа"
+    MovementType = 1
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVHRRUQL99"}
+  (
+    Name = "Поступление"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Облигация муниципальная"}
+    OperationDescription = "Поступление"
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVHRRVCJPA"}
+  (
+    Name = "Начисление процентов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Облигация муниципальная"}
+    OperationDescription = "Начисление процентов"
+    MovementType = 2
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVHRRVREHB"}
+  (
+    Name = "Оплата процентов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Облигация муниципальная"}
+    OperationDescription = "Оплата процентов"
+    MovementType = 2
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVHRS0J71C"}
+  (
+    Name = "Погашение/Реализация"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Облигация муниципальная"}
+    OperationDescription = "Погашение/Реализация"
+    MovementType = 1
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"Продажа векселя"}
+  (
+    Name = "Выпуск векселя"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Вексель финансовый собственный"}
+    OperationDescription = "Выпуск векселя"
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"Начисление процента/дисконта"}
+  (
+    Name = "Начисление процентов/дисконта"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Вексель финансовый собственный"}
+    OperationDescription = "Начисление процентов/дисконта"
+    MovementType = 2
+  )
+  
+  {CashFlow.Data.OperationType:"Опата процентов"}
+  (
+    Name = "Опата процентов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Вексель финансовый собственный"}
+    OperationDescription = "Опата процентов"
+    MovementType = 2
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVJ7CIMC7C"}
+  (
+    Name = "Погашение векселя"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Вексель финансовый собственный"}
+    OperationDescription = "Погашение векселя"
+    MovementType = 1
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"Переоценка"}
+  (
+    Name = "Переоценка"
+    OperationDescription = "Переоценка акций собственных"
+    MovementType = 5
+  )
+  
+  {CashFlow.Data.OperationType:"Дооценка"}
+  (
+    Name = "Переоценка"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Акция собственная"}
+    OperationDescription = "Переоценка"
+    MovementType = 5
+  )
+  
+  {CashFlow.Data.OperationType:"Покупка"}
+  (
+    Name = "Покупка"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Облигация прочая"}
+    OperationDescription = "Покупка облигаций"
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"Начисление процентов/дисконта"}
+  (
+    Name = "Начисление процентов/дисконта"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Облигация прочая"}
+    OperationDescription = "Начисление процентов/дисконта"
+    MovementType = 2
+  )
+  
+  {CashFlow.Data.OperationType:"Оплата процентов/дисконта"}
+  (
+    Name = "Оплата процентов/дисконта"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Облигация прочая"}
+    OperationDescription = "Оплата процентов/дисконта"
+    MovementType = 2
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"Продажа"}
+  (
+    Name = "Продажа"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Облигация прочая"}
+    OperationDescription = "Продажа облигаций"
+    MovementType = 1
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVJJKNTP89"}
+  (
+    Name = "Переоценка"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Облигация прочая"}
+    OperationDescription = "Переоценка рыночной стоимости"
+    MovementType = 5
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVJJKPDEOA"}
+  (
+    Name = "Переоценка"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Облигация муниципальная"}
+    OperationDescription = "Переоценка"
+    MovementType = 5
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVJJKRQ60D"}
+  (
+    Name = "Покупка"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Облигация государственная"}
+    OperationDescription = "Покупка"
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVJJKS660E"}
+  (
+    Name = "Начисление процентов/дисконта"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Облигация государственная"}
+    OperationDescription = "Начисление процентов/дисконта"
+    MovementType = 2
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVJJKSPV8F"}
+  (
+    Name = "Оплата процентов/дисконта"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Облигация государственная"}
+    OperationDescription = "Оплата процентов/дисконта"
+    MovementType = 2
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVJJKT7KGG"}
+  (
+    Name = "Переоценка"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Облигация государственная"}
+    OperationDescription = "Переоценка"
+    MovementType = 2
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVJJKTJR8H"}
+  (
+    Name = "Продажа"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Облигация государственная"}
+    OperationDescription = "Продажа"
+    MovementType = 1
+    Payment = 1
+  )
+  
+  {CashFlow.Data.OperationType:"Реклассификация основного долга"}
+  (
+    Name = "Реклассификация основного долга"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Займ полученный"}
+    OperationDescription = "Реклассификация основного долга"
+    MovementType = 3
+  )
+  
+  {CashFlow.Data.OperationType:"Реклассификация процентов"}
+  (
+    Name = "Реклассификация процентов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Займ полученный"}
+    OperationDescription = "Реклассификация процентов"
+    MovementType = 4
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVJNPB9OEV"}
+  (
+    Name = "Реклассификация основного долга"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Займ выданный"}
+    OperationDescription = "Реклассификация основного долга"
+    MovementType = 3
+  )
+  
+  {CashFlow.Data.OperationType:"_IPG8OVJNPBG0V0"}
+  (
+    Name = "Реклассификация процентов"
+    FinancialInstrumentGroup = {CashFlow.Data.FinancialInstrumentGroup:"Займ выданный"}
+    OperationDescription = "Реклассификация процентов"
+    MovementType = 4
+  )
+]
+
+]

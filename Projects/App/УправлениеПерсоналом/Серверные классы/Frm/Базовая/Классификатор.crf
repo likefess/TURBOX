@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.Справочник">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Базовая.Классификатор" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="GroupCode">
+            <Inherited Name="Code" Hint="Краткое обозначение (код записи)"/>
+            <Component Name="КодУчета" Class="Com.Ctrl.IEdit" After="Code" Caption="Код учета" Field="EdtRec.КодУчета" HasCaption="True" Hint="Код по классификатору" Required="True" Width="50"/>
+          </Inherited>
+          <Component Name="грПериод" Class="Com.Ctrl.IGroup" ByColumn="False">
+            <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Caption="Период действия" Field="EdtRec.ДатаНачала" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="35" Width="35"/>
+            <Component Name="ДатаОкончания" Class="Com.Ctrl.IEdit" Caption="-  " CaptionWidth="10" Field="EdtRec.ДатаОкончания" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="35" Width="35"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

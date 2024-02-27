@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.Event">
+  <Inherited Caption="@TMS:Timesheet=Табель учета рабочего времени">
+    <Inherited Name="EdtRec" Class="TMS.Rec.Data.Timesheet" IsLibrary="1"/>
+    <Inherited Name="TableMenu" Excluded="False">
+      <Inherited Name="cmdCloseForm" Excluded="True"/>
+      <Inherited Name="TableSeparator1" Excluded="True"/>
+      <Inherited Name="TableSeparator2" Excluded="True"/>
+      <Inherited Name="cmdDesignMode" Excluded="True"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" CaptionWidth="32">
+          <Component Name="EventTimeEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:Timesheet.EventTime=Дата" Field="EdtRec.EventTime" FixSize="True" HasInnerCaption="True" Width="50"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="WorkTimeTable" Class="Com.Ctrl.ITable" Adaptive="True" Freezed="False" ManualControl="True" Numbering="False" PopupMenu="TableMenu" Subtable="EdtRec.Positions">
+            <Component Name="WorkTime" Class="TMS.Rec.Data.Timesheet_Position" IsLibrary="1"/>
+            <Component Name="EntityEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:EntityEdit=Сотрудник" CardFileClass="TrackingCore.Tab.Data.People" Field="WorkTime.Entity" FixSize="True" LookupField="Name" LookupFilter="not Closed and IsGroup = 0" Visible="False" Width="60"/>
+            <Component Name="TaskEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:TaskEdit=Задача" CardFileClass="TrackingCore.Tab.Data.Tasks" CellFormat="ReferenceFormat" Field="WorkTime.Task" FixSize="True" LookupField="Name" OnChange="TaskEditOnChange" SetRecordParams="TaskEditSetRecordParams" ShortList="True" Width="80"/>
+            <Component Name="RoleEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:RoleEdit=Роль" CardFileClass="Bas.Tab.Ref.EntityRoles" Field="WorkTime.Role" FixSize="True" LookupField="Name" OnAutocomplete="RoleEditOnAutocomplete" ShortList="True" ValueType="VarObject" Visible="False" Width="60"/>
+            <Component Name="CompanyEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:CompanyEdit=Предприятие" CardFileClass="Bas.Tab.Data.OurCompanies" Field="WorkTime.Company" FixSize="True" LookupField="Name" ShortList="True" Visible="False" Width="60"/>
+            <Component Name="FactHoursEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:FactHoursEdit=Часы" Field="WorkTime.Hours" FieldFormat=",##0.00;;-" FixSize="True" Width="20"/>
+            <Component Name="CommentEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:CommentEdit=Комментарий" Field="WorkTime.Comment" Width="140"/>
+            <Component Name="DelButton" Class="Com.Ctrl.IButton" FixSize="True" ImageName="Com.DeleteObj" OnClick="DelButtonOnClick" Width="7"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

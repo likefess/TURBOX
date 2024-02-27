@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Menu.RCTaskManagement_ProjectManager">
+  <Inherited>
+    <Inherited Name="MainGroup">
+      <Inherited Name="Planning">
+        <Component Name="Plans" Class="Com.ComManaging.OpenIForm" After="#0" Caption="@TrackingPlan:Plans=Проекты" FormClassName="Frm.ActiveAndArchievedProjects" IconName="Bas.Project"/>
+        <Component Name="NewPlan" Class="Com.ComManaging.OpenIForm" Caption="@TrackingPlan:NewPlan=Новый проект" FormClassName="TrackingCore.Frm.Services.AddProject" IconName="Com.AddItem"/>
+        <Component Name="Teams" Class="Com.ComManaging.OpenIForm" Caption="@TrackingPlan:Teams=Список команд" FormClassName="TrackingPlan.Tab.Data.Team" IconName="TrackingCore.user-fill"/>
+        <Component Name="NewTeam" Class="Com.ComManaging.OpenIForm" Caption="@TrackingPlan:NewTeam=Новая команда" FormClassName="TrackingPlan.Frm.Data.Team" IconName="Com.AddItem"/>
+        <Inherited Name="NewApproval" After="NewTeam" IconName="TrackingCore.file-transfer-fill"/>
+        <Inherited Name="ApprovalTemplate" IconName="TrackingCore.file-settings-fill"/>
+        <Inherited Name="Sprint" IconName="TrackingCore.flag-fill"/>
+        <Inherited Name="TaskList" IconName="TrackingCore.folder-3-fill"/>
+        <Inherited Name="Kanbans" IconName="TrackingCore.table-fill"/>
+        <Inherited Name="AllocatedStaffReplacement" IconName="TrackingCore.user-shared-2-fill"/>
+        <Component Name="BriefCases" Class="Com.ComManaging.OpenIForm" After="AllocatedStaffReplacement" Caption="Портфели" FormClassName="TrackingCore.Tab.Ref.BriefCase" IconName="TrackingCore.briefcase-fill"/>
+        <Component Name="Goals" Class="Com.ComManaging.OpenIForm" Caption="Цели" FormClassName="TrackingCore.Tab.Ref.Goal" IconName="TrackingCore.bookmark-3-fill"/>
+      </Inherited>
+      <Inherited Name="Reports">
+        <Component Name="TeamVelocityChart" Class="Com.ComManaging.OpenIForm" After="#0" Caption="@Trackinglan:TeamVelocityChart=Скорость команды" FormClassName="Rep.TeamVelocityViewer" IconName="TrackingCore.pie-chart-2-fill"/>
+        <Inherited Name="BurnDownChart" After="TeamVelocityChart" IconName="TrackingCore.pie-chart-2-fill"/>
+        <Inherited Name="ProjectReport" Caption="Отчет о ходе проекта" FormClassName="Rep.ProjectRep" IconName="TrackingCore.pie-chart-2-fill"/>
+        <Inherited Name="StatusChart" IconName="TrackingCore.pie-chart-2-fill"/>
+        <Inherited Name="RepTMSPlanFactByRole" IconName="TrackingCore.pie-chart-2-fill"/>
+        <Inherited Name="RepTMSCostsPlanFact" Excluded="True"/>
+        <Component Name="RepTMSPlanFact1" Class="Com.ComManaging.OpenIForm" After="RepTMSCostsPlanFact" Caption="@TMS:PlanFactByRole=План-факт по трудозатратам" FormClassName="TMSCosts.Rep.CostsPlanFact_Viewer" IconName="TrackingCore.pie-chart-2-fill"/>
+      </Inherited>
+      <Inherited Name="Settings">
+        <Inherited Name="Pattern" IconName="TrackingCore.settings-2-fill"/>
+        <Inherited Name="BP_and_Schemas" IconName="TrackingCore.settings-2-fill"/>
+        <Inherited Name="TaskCategory" IconName="TrackingCore.settings-2-fill"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

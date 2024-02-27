@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Purchase.Rec.Ref.MaxDeviationAmount" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" Adaptive="False" MaxWidth="230">
+          <Inherited Name="Code" CaptionWidth="50" Visible="True"/>
+        </Inherited>
+        <Component Name="grCompany" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="True" MaxWidth="230" MinWidth="150">
+          <Component Name="ed_Company" Class="Com.Ctrl.IEdit" Caption="Предприятие" CaptionWidth="50" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="EdtRec.Company" LookupField="Name" ShortList="True"/>
+        </Component>
+        <Component Name="grCurrency" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="True" MaxWidth="230" MinWidth="150">
+          <Component Name="ed_Currency" Class="Com.Ctrl.IEdit" Caption="Валюта" CaptionWidth="50" CardFileClass="Biz.Tab.Ref.UnitsOrCurrencies" Field="EdtRec.Currency" HasCaption="True" LookupField="Code" LookupFilter="IsCurrency = 1" ShortList="True"/>
+        </Component>
+        <Component Name="grPercent" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="True" MaxWidth="230" MinWidth="150">
+          <Component Name="ed_Percent" Class="Com.Ctrl.IEdit" Caption="%" CaptionWidth="50" Field="EdtRec.Percent" FieldFormat="#0" OnChange="ed_Percent_OnChange"/>
+        </Component>
+        <Component Name="grAbsoluteValue" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="True" MaxWidth="230" MinWidth="150">
+          <Component Name="ed_AbsoluteValue" Class="Com.Ctrl.IEdit" Caption="Абсолютная величина" CaptionWidth="50" Field="EdtRec.AbsoluteValue" FieldFormat="#0.00" OnChange="ed_AbsoluteValue_OnChange"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="HRBase.Frm.Base.DataNaturalPerson">
+  <Inherited HelpContext="HRBase.Основные данные.Физические лица">
+    <Inherited Name="EdtRec" Class="HRBase.Rec.Data.EducationPers" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="110">
+          <Component Name="EducationType" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Ref.EducationTypes" Field="EdtRec.EducationType" HasCaption="True" LookupField="Name"/>
+          <Component Name="grPeriod" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="110">
+            <Component Name="BegDate" Class="Com.Ctrl.IEdit" Caption="@Дата начала" Field="EdtRec.BegDate" FormatOfDate="DateOnly" HasCaption="True" Hint="@Дата начала обучения" OnVerify="BegDate_OnVerify"/>
+            <Component Name="EndDate" Class="Com.Ctrl.IEdit" Caption="@Дата окончания" Field="EdtRec.EndDate" FormatOfDate="DateOnly" HasCaption="True" Hint="@Дата окончания обучения" OnVerify="EndDate_OnVerify"/>
+          </Component>
+          <Component Name="EdInstitution" Class="Com.Ctrl.IEdit" Field="EdtRec.EdInstitution" HasCaption="True" Multiline="True" Wrap="True"/>
+          <Component Name="Speciality" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Ref.Speciality" Field="EdtRec.Speciality" HasCaption="True" LookupField="Name"/>
+          <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="110">
+            <Component Name="Qualification" Class="Com.Ctrl.IEdit" Caption="Квалификация" CardFileClass="HRBase.Tab.Ref.Qualification" Field="EdtRec.Qualification" HasCaption="True" Hint="Квалификация" LookupField="Name" ShortList="True"/>
+            <Component Name="Ended" Class="Com.Ctrl.IEdit" Caption="@Обучение" CellFormat="EnumFormat" Field="EdtRec.Ended" HasCaption="True" Hint="@Признак окончания обучения"/>
+          </Component>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" Excluded="True" Alignment="CenterAlign" Caption="@Данные документа об образовании" FontBold="True" FontItalic="True"/>
+          <Component Name="DiplomName" Class="Com.Ctrl.IEdit" Caption="@Документ" Field="EdtRec.DiplomName" HasCaption="True" Hint="@Наименование документа об образовании"/>
+          <Component Name="grDip1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="110">
+            <Component Name="DiplomSer" Class="Com.Ctrl.IEdit" Field="EdtRec.DiplomSer" HasCaption="True" Hint="@Серия документа об образовании" Width="40"/>
+            <Component Name="DiplomNom" Class="Com.Ctrl.IEdit" CaptionWidth="20" Field="EdtRec.DiplomNom" HasCaption="True" Hint="@Номер документа об образовании" Width="40"/>
+            <Component Name="DiplomDate" Class="Com.Ctrl.IEdit" CaptionWidth="20" Field="EdtRec.DiplomDate" FormatOfDate="DateOnly" HasCaption="True" Hint="@Дата документа об образовании" Width="40"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

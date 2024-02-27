@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTrans" AccountFilter="*" AccountPlan="Оперативный" BegDate="01.12.2021" Caption="Имущество: Transactions report" EndDate="01.01.2022" OpenPeriod="opAll" Period="3" Tran_ConsolidateAnalyt="True" Tran_Consolidated="True" Tran_ConsolidateDate="True" Tran_ConsolidateDoc="True" Visible="True">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="Сумма" Class="Com.Rep.IIndTrans" Caption="Сумма" Contents="Сумма" ShowColTotal="False" ShowTwoLines="False" SplitFmt="spNone"/>
+      <Component Name="индОС" Class="Com.Rep.IIndTrans" Caption="ОС" Contents="ОС.КодИмущества" ShowColTotal="False"/>
+      <Component Name="индПредприятие" Class="Com.Rep.IIndTrans" Caption="Предприятие" Contents="НашеПредприятие.Description" ShowColTotal="False"/>
+      <Component Name="индПодразделение" Class="Com.Rep.IIndTrans" Caption="Подразделение" Contents="Подразделение.Description" ShowColTotal="False"/>
+      <Component Name="индМОЛ" Class="Com.Rep.IIndTrans" Caption="МОЛ" Contents="МОЛ.Description" ShowColTotal="False"/>
+      <Component Name="индОКОФ" Class="Com.Rep.IIndTrans" Caption="ОКОФ" Contents="ОКОФ.Code" ShowColTotal="False"/>
+      <Component Name="индЖурнал" Class="Com.Rep.IIndTrans" Caption="Журнал" Contents="ИмяЖурнала" ShowColTotal="False"/>
+      <Component Name="индКомментарий" Class="Com.Rep.IIndTrans" Caption="Комментарий" Contents="Комментарий" ShowColTotal="False"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow"/>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow"/>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol">
+        <Component Name="SplitContent993576D2" Class="Com.Rep.ISplitContent" Contents="Счет.Имя"/>
+      </Component>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="Показывать" Class="Com.Rep.IRepControl" Caption="Показывать:" CellFormat="StringFormat" DefaultStr="String(&quot;&quot;)" Operator="=" Plan="ОперУчет" ValueType="VarString" Width="1"/>
+      <Component Name="ПоказыватьОС" Class="Com.Rep.IRepControl" Caption="ОС" CaptionWidth="15" OnChange="ПоказыватьОС_OnChange" Operator="=" Plan="ОперУчет" ValueRequired="True" ValueType="VarLogical" Width="15"/>
+      <Component Name="ПоказыватьПредприятие" Class="Com.Rep.IRepControl" AccFilter="True" Caption="Предприятие" OnChange="ПоказыватьПредприятие_OnChange" Operator="=" Plan="ОперУчет" ValueType="VarLogical" Width="30"/>
+      <Component Name="ПоказыватьПодразделение" Class="Com.Rep.IRepControl" Caption="Подразделение" OnChange="ПоказыватьПодразделение_OnChange" Operator="=" Plan="ОперУчет" ValueType="VarLogical" Width="35"/>
+      <Component Name="ПоказыватьМОЛ" Class="Com.Rep.IRepControl" Caption="МОЛ" OnChange="ПоказыватьМОЛ_OnChange" Operator="=" Plan="ОперУчет" ValueType="VarLogical" Width="20"/>
+      <Component Name="ПоказыватьОКОФ" Class="Com.Rep.IRepControl" Caption="ОКОФ" OnChange="ПоказыватьОКОФ_OnChange" Operator="=" Plan="ОперУчет" ValueType="VarLogical" Width="20"/>
+      <Component Name="ПоказыватьЖурнал" Class="Com.Rep.IRepControl" Caption="Журнал" OnChange="ПоказыватьЖурнал_OnChange" Operator="=" Plan="ОперУчет" ValueType="VarLogical" Width="25"/>
+      <Component Name="ПоказыватьКомментарий" Class="Com.Rep.IRepControl" Caption="Комментарий" OnChange="ПоказыватьКомментарий_OnChange" Operator="=" Plan="ОперУчет" ValueType="VarLogical" Width="40"/>
+      <Component Name="ПроводкиПоДокументу" Class="Com.Rep.IRepControl" Caption="Документ" CardFileClass="Имущество.Tab.Документы.Имущество.ОС.ВводОстатковОС" CellFormat="ReferenceFormat" LookupField="Name" Operator="=" Parameter="Документ" Plan="ОперУчет" SkipNil="True" ValueType="VarObject"/>
+    </Component>
+  </Component>
+</Resource>

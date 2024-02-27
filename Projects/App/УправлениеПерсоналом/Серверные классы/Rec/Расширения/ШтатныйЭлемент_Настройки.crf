@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="HRBase.Rec.Data.StaffingUnit_Data">
+  <Inherited>
+    <Component Name="ПостУдержанияСтр" Class="Com.Fld.IVar" After="#0" Caption="Постоянные удержания" OnCalc="ПостУдержанияСтр_OnCalc" ValueType="VarString"/>
+    <Component Name="ПостНачисленияСтр" Class="Com.Fld.IVar" Caption="Постоянные начисления" OnCalc="ПостНачисленияСтр_OnCalc" ValueType="VarString"/>
+    <Component Name="ОсобыеУсловия" Class="Com.Fld.IVar" Caption="Особые условия труда" OnCalc="ОсобыеУсловия_OnCalc" RecordClass="УправлениеПерсоналом.Rec.Классификаторы.ОсобыеУсловияТруда" ValueType="VarObject"/>
+    <Component Name="УсловияТруда" Class="Com.Fld.IVar" Caption="Условия труда" OnCalc="УсловияТруда_OnCalc" RecordClass="УправлениеПерсоналом.Rec.Классификаторы.УсловияТруда" ValueType="VarObject"/>
+    <Component Name="ПродолжРабВремени" Class="Com.Fld.IVar" Caption="Продолжительность" OnCalc="ПродолжРабВремени_OnCalc" RecordClass="УправлениеПерсоналом.Rec.Справочники.ПродолжРабВремени" ValueType="VarObject"/>
+    <Component Name="ХарактерРаботы" Class="Com.Fld.IVar" Caption="Характер работы" OnCalc="ХарактерРаботы_OnCalc" ValueType="VarInteger"/>
+    <Component Name="ВидЗанятости" Class="Com.Fld.IVar" Caption="Вид занятости" OnCalc="ВидЗанятости_OnCalc" ValueType="VarInteger"/>
+    <Component Name="ГрафикРаботы" Class="Com.Fld.IVar" Caption="График работы" OnCalc="ГрафикРаботы_OnCalc" RecordClass="HRBase.Rec.Ref.WorkSchedule" ValueType="VarObject"/>
+    <Component Name="ВидОснНачисления" Class="Com.Fld.IVar" Caption="Вид осн. начисления" OnCalc="ВидОснНачисления_OnCalc" RecordClass="УправлениеПерсоналом.Rec.Справочники.ВидНачислений" ValueType="VarObject"/>
+    <Component Name="Ставка" Class="Com.Fld.IVar" Caption="Оклад/Тариф" OnCalc="Ставка_OnCalc" ValueType="VarNumeric"/>
+  </Inherited>
+</Resource>

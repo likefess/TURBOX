@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" AccountFilter="Имущество" AccountPlan="Оперативный" BegDate="01.01.1900" BegSaldoFormat="sfNone" Caption="ОС_ВведенныеМодернизированныеПосредствомКВ_ПоДок" CIndicator="1" EndDate="01.01.2100" EndSaldoFormat="sfNone" HystoKind="hkSide" Legend="lpkAtRight" OpenPeriod="opAll" Palette="cpDefault" ParameterFilter="(ИмяЖурнала = &quot;ВводВЭксплуатациюОС&quot; or ИмяЖурнала = &quot;МодернизацияОС&quot;) and ОС &lt;> nil / КВ &lt;> nil" Period="6" ShowBeyondLimits="False" ShowDebCreRow="False" ShowReportTotalRow="False" ShowSumKindRow="False">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorСуммаКВ" Class="Com.Rep.IIndMain" Caption="Сумма КВ" Contents="Сумма" CorrValue="True"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam26A0164B" Class="Com.Rep.ISplitByDoc" ShowTotals="False"/>
+        <Component Name="SplitParam572D99CC" Class="Com.Rep.ISplitByParam" SplitParam="ОС"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContentAE56A7EC" Class="Com.Rep.ISplitContent" Caption="Дата операции" Contents="Документ.ДатаНачала"/>
+        <Component Name="SplitContent07AF4132" Class="Com.Rep.ISplitContent" Caption="Код" Contents="ОС.КодИмущества"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain">
+      <Component Name="Explain7AD6C523" Class="Com.Rep.IExplain" Caption="По документам" IndicatorName="Indicator_Сумма" ReportName="Turns report - Ввод в эксплуатацию ОС по КВ - уточнение по документам"/>
+    </Component>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_КВ_Огр" Class="Com.Rep.IRepControl" Caption="КВ" CardFileClass="ИмуществоБазовый.Tab.Справочники.КапВложения" CorrParam="True" DefaultStr="Object(nil)" LookupField="КодИмущества" MultiSelect="True" Operator="=" Parameter="КВ" Plan="Оперативный" SkipNil="True" ValueType="VarObject"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

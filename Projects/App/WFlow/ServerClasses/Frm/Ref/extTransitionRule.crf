@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Control.Frm.Ref.TransitionRule">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ButtonDiagram" Class="Com.Ctrl.IButton" After="ButtonOK" Caption="@Control:ButtonShowDiagram=Диаграмма переходов" ImageName="Com.Ctrl.diagram"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="NameFrame">
+          <Inherited Name="Group2">
+            <Inherited Name="RuleGroup" Visible="False"/>
+            <Component Name="ProjectsEdit" Class="Com.Ctrl.IListEdit" After="RuleGroup" Caption="@WFlow:Projects=Проекты" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Field="EdtRec.Projects" HasCaption="True" LookupField="Name" Multiline="True" ShortList="False" Visible="True"/>
+            <Component Name="TaskCategoriesEdit" Class="Com.Ctrl.IListEdit" Caption="@WFlow:TaskCategories=Типы задач" CardFileClass="Control.Tab.Ref.TaskCategory" CellFormat="ReferenceFormat" Field="EdtRec.TaskCategories" HasCaption="True" LookupField="Name" Multiline="True" ShortList="False" Visible="True"/>
+            <Component Name="RoleSrc" Class="Com.Ctrl.IEditEx" After="StatusSrc" Caption="@TransitionRule:RoleSrc=Ответственный" CardFileClass="Control.Tab.Ref.EntityRoles" Enabled="False" Field="EdtRec.RoleSrc" HasCaption="True" LookupField="Name">
+              <Component Name="RoleDst" Class="Com.Ctrl.IEdit" Caption="@TransitionRule:RoleSrc=Ответственный" CaptionWidth="40" CardFileClass="Control.Tab.Ref.EntityRoles" Enabled="False" Field="EdtRec.RoleDst" HasCaption="True" LookupField="Name"/>
+            </Component>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.BasObject">
+  <Inherited HelpContext="Автотранспорт.Автотранспорт.Документы.Путевой лист">
+    <Inherited Name="Current" Class="Автотранспорт.Rec.Документы.ПутевойЛист" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="CardFile" OnDrawRow="CardFile_OnDrawRow"/>
+          <Inherited Name="Name" Enabled="False" Printed="False" Visible="False"/>
+          <Inherited Name="Code" Enabled="False" Printed="False" Visible="False"/>
+          <Component Name="Ed_Дата" Class="Com.Ctrl.IEdit" Caption="Дата" Field="Current.ДатаС"/>
+          <Component Name="Ed_Номер" Class="Com.Ctrl.IEdit" Caption="Номер" Field="Current.PrintedNumber"/>
+          <Component Name="Ed_Транспорт" Class="Com.Ctrl.IEdit" Caption="Транспорт" Field="Current.Транспорт"/>
+          <Component Name="Ed_ГосНомер" Class="Com.Ctrl.IEdit" Caption="Гос.номер" Field="Current.Транспорт" LookupField="ГОС_НОМЕР"/>
+          <Component Name="Ed_Водитель" Class="Com.Ctrl.IEdit" Caption="Водитель" Field="Current.Водитель"/>
+          <Component Name="Ed_ДатаВыезда" Class="Com.Ctrl.IEdit" Field="Current.ДатаВыезда" FormatOfDate="DateAndTime"/>
+          <Component Name="Ed_ДатаВозвращения" Class="Com.Ctrl.IEdit" Field="Current.ДатаВозвращения" FormatOfDate="DateAndTime"/>
+          <Component Name="Ed_Горючее" Class="Com.Ctrl.IEdit" Caption="Горючее" Field="Current.Горючее"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

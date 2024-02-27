@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IMenu">
+  <Inherited Caption="РМ специалиста группы НСИ">
+    <Inherited Name="MainGroup" Orientation="Vertical">
+      <Component Name="Group1" Class="Com.Cmd2.IGroup">
+        <Component Name="Group3" Class="Com.Cmd2.IGroup" Caption="Оборудование" Columns="3" Orientation="Vertical" Rows="2">
+          <Component Name="Реестр_оборудования" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_EqmRegistry"/>
+          <Component Name="Классификатор" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_EqmClasses"/>
+        </Component>
+        <Component Name="Group4" Class="Com.Cmd2.IGroup" Caption="Справочники" Columns="3" Orientation="Horizontal" Rows="2">
+          <Component Name="Группы_оборудования" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_EqmGroups"/>
+          <Component Name="Запасные_части" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_EqmParts"/>
+          <Component Name="Виды_Характеристик" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_AttChrType"/>
+          <Component Name="Параметры_оборудования" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_AttParams"/>
+          <Component Name="Бригады" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_Brigades"/>
+        </Component>
+        <Component Name="Group5" Class="Com.Cmd2.IGroup" Caption="Эталонные структуры" Columns="3" Orientation="Horizontal" Rows="2">
+          <Component Name="Эталонные_структуры" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_SampleStructure"/>
+          <Component Name="Эталонные_ед_оборудования" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_SampleEquipment"/>
+          <Component Name="Эталонные_тех_места" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_SamplePlaces"/>
+        </Component>
+      </Component>
+      <Component Name="Group2" Class="Com.Cmd2.IGroup">
+        <Component Name="Group6" Class="Com.Cmd2.IGroup" Caption="Местоположение" Columns="7" Orientation="Vertical" Rows="2">
+          <Component Name="Object" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_EqmObjects"/>
+          <Component Name="Тех_места" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_EqmLocations"/>
+          <Component Name="Здания" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_EqmBuildings"/>
+          <Component Name="Цеха" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_EqmDepartments"/>
+          <Component Name="Участки" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_EqmAreas"/>
+          <Component Name="Производственные_потоки" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_EqmFlows"/>
+          <Component Name="Производственные_линии" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_EqmLines"/>
+        </Component>
+        <Component Name="Group7" Class="Com.Cmd2.IGroup" Caption="Технологические карты и нормативы" Columns="5" Orientation="Vertical" Rows="2">
+          <Component Name="Операции" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_Operations"/>
+          <Component Name="Технолог_карты" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_FlowCharts"/>
+          <Component Name="Нормативы" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_Norms"/>
+        </Component>
+        <Component Name="Group8" Class="Com.Cmd2.IGroup" Caption="Настройка" Columns="5" Orientation="Horizontal" Rows="3">
+          <Component Name="Группы_планирования" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_PlanGroups"/>
+          <Component Name="Состояния_оборудования" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_AttStatus"/>
+          <Component Name="Виды_тех_состояния" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_AttEqmStatus"/>
+          <Component Name="Виды_работ" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_FlowTypes"/>
+          <Component Name="Типы_пусков" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_StartStopType"/>
+          <Component Name="Типы_бригад" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_BrigadeTypes"/>
+          <Component Name="Причины_дефектов" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_AttDefReason"/>
+          <Component Name="Типы_дефектов" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_AttDefType"/>
+          <Component Name="Уровни_дефектов" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_AttDefLevel"/>
+          <Component Name="Длительность_смен" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_WorkHours"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

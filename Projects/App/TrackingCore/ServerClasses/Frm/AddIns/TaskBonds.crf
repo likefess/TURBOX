@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Frm.AddIns.TaskCustomDocuments">
+  <Inherited Caption="@Task:TaskBonds=Связи">
+    <Inherited Name="RootFrame" Margins="0">
+      <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+      <Component Name="TableFrame" Class="Com.Ctrl.IFrame" Color="0xFF000005" Margins="0">
+        <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+        <Component Name="ParentTaskFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Родительская задача" Color="0xFF000005" HasCaption="True" Margins="0" Visible="False">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="HeaderParentTask" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="ParentTask" Class="Com.Ctrl.IStatic" Caption="Родительская задача" FontBold="True" FontSize="10"/>
+          </Component>
+          <Component Name="ParentTaskTable" Class="Com.Ctrl.ITable" Adaptive="True" Caption="@TrackingCore:Parenttask=Родительские" Color="0xFF000005" Numbering="False"/>
+        </Component>
+        <Component Name="RelatedToFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Связанные" Color="0xFF000005" HasCaption="True" Margins="0" Visible="False">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="HeaderRelatedTo" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="RelatedToName" Class="Com.Ctrl.IStatic" Caption="Связанные" FontBold="True" FontSize="10"/>
+            <Component Name="AddRelatedToBond" Class="Com.Ctrl.IButton" FixSize="True" ImageName="Com.plus" OnClick="AddRelatedToBondOnClick"/>
+          </Component>
+          <Component Name="RelatedToTable" Class="Com.Ctrl.ITable" Adaptive="True" Caption="@TrackingCore:Subtasks=Связанные" Color="0xFF000005" Numbering="False"/>
+        </Component>
+        <Component Name="SubtasksFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Подзадачи" Color="0xFF000005" HasCaption="True" Margins="0" Visible="False">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="HeaderSubtasks" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="SubtasksName" Class="Com.Ctrl.IStatic" Caption="Подзадачи" FontBold="True" FontSize="10"/>
+            <Component Name="AddSubtasksBond" Class="Com.Ctrl.IButton" FixSize="True" ImageName="Com.plus" OnClick="AddSubtasksBondOnClick"/>
+          </Component>
+          <Component Name="SubtaskTable" Class="Com.Ctrl.ITable" Adaptive="True" Caption="@TrackingCore:Subtasks=Подзадачи" Color="0xFF000005" Numbering="False"/>
+        </Component>
+        <Component Name="BlockedByFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Заблокирована" Color="0xFF000005" HasCaption="True" Margins="0" Visible="False">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="HeaderBlockedBy" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="BlockedByName" Class="Com.Ctrl.IStatic" Caption="Заблокирована" FontBold="True" FontSize="10"/>
+            <Component Name="AddBlockedByBond" Class="Com.Ctrl.IButton" FixSize="True" ImageName="Com.plus" OnClick="AddBlockedByBondOnClick"/>
+          </Component>
+          <Component Name="BlockedByTable" Class="Com.Ctrl.ITable" Adaptive="True" Caption="@TrackingCore:Subtasks=Подзадачи" Color="0xFF000005" Numbering="False"/>
+        </Component>
+        <Component Name="BlockingFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Блокирует" Color="0xFF000005" HasCaption="True" Margins="0" Visible="False">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="HeaderBlocking" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="BlockingName" Class="Com.Ctrl.IStatic" Caption="Блокирует" FontBold="True" FontSize="10"/>
+            <Component Name="AddBlockingBond" Class="Com.Ctrl.IButton" FixSize="True" ImageName="Com.plus" OnClick="AddBlockingBondOnClick"/>
+          </Component>
+          <Component Name="BlockingTable" Class="Com.Ctrl.ITable" Adaptive="True" Caption="@TrackingCore:Subtasks=Подзадачи" Color="0xFF000005" Numbering="False"/>
+        </Component>
+        <Component Name="DuplicateFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Дублирует" Color="0xFF000005" HasCaption="True" Margins="0" Visible="False">
+          <Component Name="HeaderDuplicate" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="DuplicateName" Class="Com.Ctrl.IStatic" Caption="Дублирует" FontBold="True" FontSize="10"/>
+            <Component Name="AddDuplicateBond" Class="Com.Ctrl.IButton" FixSize="True" ImageName="Com.plus" OnClick="AddDuplicateBondOnClick"/>
+          </Component>
+          <Component Name="DuplicateTable" Class="Com.Ctrl.ITable" Adaptive="True" Caption="@TrackingCore:Subtasks=Подзадачи" Color="0xFF000005" Numbering="False"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

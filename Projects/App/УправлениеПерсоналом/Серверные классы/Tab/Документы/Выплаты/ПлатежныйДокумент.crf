@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Tab.Базовая.БазовыйДокументИерархия">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Выплаты и перечисления по ЗП.Платежный документ">
+    <Inherited Name="Current" Class="УправлениеПерсоналом.Rec.Документы.Выплаты.ПлатежныйДокумент" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="Учитывать" Class="Com.Ctrl.IEdit" After="ExtId" Caption="Учитывать" Field="Current.Проводить" HasCaption="True" Width="15"/>
+          <Component Name="Подразделение" Class="Com.Ctrl.IEdit" After="Предприятие" Caption="Подразделение" CardFileClass="Bas.Tab.Data.Entity" Field="Current.Подразделение" HasCaption="True" LookupField="Name" LookupFilter="IsDivision"/>
+          <Component Name="ДатаОплаты" Class="Com.Ctrl.IEdit" After="Номер" Caption="Дата платежа" Field="Current.ДатаОплаты" HasCaption="True" Width="25"/>
+          <Component Name="Период" Class="Com.Ctrl.IEdit" Caption="Расчетный период" CardFileClass="Biz.Tab.Ref.Period" Field="Current.ПериодРасчета" LookupField="Name" LookupFilter="IsGroup = 0" Width="25"/>
+          <Component Name="ВидДок" Class="Com.Ctrl.IEdit" Caption="Вид платежного документа" CellFormat="EnumFormat" Field="Current.ВидДок" HasCaption="True" Width="20"/>
+          <Inherited Name="Дата" Visible="False"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

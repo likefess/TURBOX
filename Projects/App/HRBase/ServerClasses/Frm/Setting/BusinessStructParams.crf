@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IEditorWithFrames">
+  <Inherited Caption="Настройка иерархической структуры субъектов" OnShow="Editor_OnShow">
+    <Component Name="EdtRec" Class="HRBase.Rec.Setting.BusinessStructParams" IsLibrary="1" After="#0"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonClone" Visible="False"/>
+        <Inherited Name="ButtonDelete" Visible="False"/>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="HRAutoForming" Class="Com.Ctrl.ICheckBox" Caption="Автоматическое формирование структуры" Field="EdtRec.HRAutoForming" HasCaption="True"/>
+            <Component Name="btnDefault" Class="Com.Ctrl.IButton" Caption="По умолчанию" HasCaption="True" Hint="Приведение наименований групп к значениям по умолчанию" OnClick="btnDefault_OnClick"/>
+            <Component Name="btnBuild" Class="Com.Ctrl.IButton" Caption="Сформировать" HasCaption="True" Hint="Создание новых групп при необходимости  и перенос записей субъектов по соответствующим группам" OnClick="btnBuild_OnClick"/>
+          </Component>
+          <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Group8" Class="Com.Ctrl.IGroup" ByColumn="True">
+              <Component Name="Group10" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="Static3" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Тип субъекта" FixSize="True" FontBold="True" Width="120"/>
+                <Component Name="Static2" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Наименование" FixSize="True" FontBold="True" Width="60"/>
+                <Component Name="Static1" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Не формировать" FixSize="True" FontBold="True" Width="50"/>
+              </Component>
+              <Component Name="Group9" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="Static5" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="1-й уровень" FixSize="True" FontBold="True" Width="40"/>
+                <Component Name="Static6" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="2-й уровень" FixSize="True" FontBold="True" Width="40"/>
+                <Component Name="Static7" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="3-й уровень" FixSize="True" FontBold="True" Width="40"/>
+              </Component>
+              <Component Name="HRGroupDivisions" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="Static8" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Подразделения" FixSize="True" Width="40"/>
+                <Component Name="Static27" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" FixSize="True" Width="40"/>
+                <Component Name="Static46" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" FixSize="True" Width="40"/>
+                <Component Name="HRGroup_Divisions" Class="Com.Ctrl.IEdit" Field="EdtRec.HRGroup_Divisions" FixSize="True" HasCaption="False" Width="60"/>
+              </Component>
+              <Component Name="HRGroupContraparties" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="Static11" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Контрагенты" FixSize="True" Width="40"/>
+                <Component Name="Static47" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" FixSize="True" Width="40"/>
+                <Component Name="Static48" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" FixSize="True" Width="40"/>
+                <Component Name="HRGroup_Contraparties" Class="Com.Ctrl.IEdit" Field="EdtRec.HRGroup_Contraparties" FixSize="True" HasCaption="False" Width="60"/>
+              </Component>
+              <Component Name="HRGroupNaturalPersons" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="Static49" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" FixSize="True" Width="40"/>
+                <Component Name="Static17" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Физические лица" FixSize="True" Width="40"/>
+                <Component Name="Static50" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" FixSize="True" Width="40"/>
+                <Component Name="HRGroup_NaturalPersons" Class="Com.Ctrl.IEdit" Field="EdtRec.HRGroup_NaturalPersons" FixSize="True" HasCaption="False" Width="60"/>
+              </Component>
+              <Component Name="Group14" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="Static51" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" FixSize="True" Width="40"/>
+                <Component Name="Static52" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" FixSize="True" Width="40"/>
+                <Component Name="Static18" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Сотрудники" FixSize="True" Width="40"/>
+                <Component Name="HRGroup_NPStaffers" Class="Com.Ctrl.IEdit" Field="EdtRec.HRGroup_NPStaffers" FixSize="True" HasCaption="False" Width="60"/>
+              </Component>
+              <Component Name="HRGroupNPOthers" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="Static53" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" FixSize="True" Width="40"/>
+                <Component Name="Static54" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" FixSize="True" Width="40"/>
+                <Component Name="Static22" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Прочие" FixSize="True" Width="40"/>
+                <Component Name="HRGroup_NPOthers" Class="Com.Ctrl.IEdit" Field="EdtRec.HRGroup_NPOthers" FixSize="True" HasCaption="False" Width="60"/>
+              </Component>
+            </Component>
+            <Component Name="Group4" Class="Com.Ctrl.IGroup" ByColumn="True" MaxWidth="50" MinWidth="50">
+              <Component Name="Static23" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" Width="40"/>
+              <Component Name="Static24" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" Width="40"/>
+              <Component Name="HRNotGroup_Divisions" Class="Com.Ctrl.ICheckBox" Caption=" " Field="EdtRec.HRNotGroup_Divisions" FixSize="True" HasCaption="False" Hint="Не формировать общую папку Подразделения" Width="50"/>
+              <Component Name="HRNotGroup_Contraparties" Class="Com.Ctrl.ICheckBox" Caption=" " Field="EdtRec.HRNotGroup_Contraparties" FixSize="True" HasCaption="False" Hint="Не формировать общую папку Контрагенты" OnChange="HRNotGroup_Contraparties_OnChange" Width="50"/>
+              <Component Name="HRNotGroup_NaturalPersons" Class="Com.Ctrl.ICheckBox" Caption=" " Field="EdtRec.HRNotGroup_NaturalPersons" FixSize="True" HasCaption="False" Hint="Не формировать общую папку Физические лица" OnChange="HRNotGroup_NaturalPersons_OnChange" Width="50"/>
+              <Component Name="HRNotGroup_NPStaffers" Class="Com.Ctrl.ICheckBox" Caption=" " Field="EdtRec.HRNotGroup_NPStaffers" FixSize="True" HasCaption="False" Hint="Не формировать общую папку Физ.лица-Сотрудники" Width="50"/>
+              <Component Name="HRNotGroup_NPOthers" Class="Com.Ctrl.ICheckBox" Caption=" " Field="EdtRec.HRNotGroup_NPOthers" FixSize="True" HasCaption="False" Hint="Не формировать общую папку Физ.лица-Прочие" Width="50"/>
+            </Component>
+          </Component>
+          <Component Name="Group5" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static4" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Наши предприятия" FixSize="True" FontBold="True" Width="175"/>
+            <Component Name="Group16" Class="Com.Ctrl.IGroup" ByColumn="True">
+              <Component Name="HRGroupOurDivisions" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="Static31" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Подразделения" FixSize="True" Width="40"/>
+                <Component Name="Static32" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" FixSize="True" Width="40"/>
+                <Component Name="Static33" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" FixSize="True" Width="40"/>
+                <Component Name="HRGroup_OurDivisions" Class="Com.Ctrl.IEdit" Field="EdtRec.HRGroup_OurDivisions" FixSize="True" HasCaption="False" Width="60"/>
+              </Component>
+              <Component Name="HRGroupOurContraparties" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="Static34" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Контрагенты" FixSize="True" Width="40"/>
+                <Component Name="Static35" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" FixSize="True" Width="40"/>
+                <Component Name="Static36" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" FixSize="True" Width="40"/>
+                <Component Name="HRGroup_OurContraparties" Class="Com.Ctrl.IEdit" Field="EdtRec.HRGroup_OurContraparties" FixSize="True" HasCaption="False" Width="60"/>
+              </Component>
+              <Component Name="HRGroupOurNaturalPersons" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="Static37" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" FixSize="True" Width="40"/>
+                <Component Name="Static38" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Физические лица" FixSize="True" Width="40"/>
+                <Component Name="Static39" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" FixSize="True" Width="40"/>
+                <Component Name="HRGroup_OurNaturalPersons" Class="Com.Ctrl.IEdit" Field="EdtRec.HRGroup_OurNaturalPersons" FixSize="True" HasCaption="False" Width="60"/>
+              </Component>
+              <Component Name="HRGroupOurNPStaffers" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="Static40" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" FixSize="True" Width="40"/>
+                <Component Name="Static41" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" FixSize="True" Width="40"/>
+                <Component Name="Static42" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Сотрудники" FixSize="True" Width="40"/>
+                <Component Name="HRGroup_OurNPStaffers" Class="Com.Ctrl.IEdit" Field="EdtRec.HRGroup_OurNPStaffers" FixSize="True" HasCaption="False" Width="60"/>
+              </Component>
+              <Component Name="HRGroupOurNPOthers" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="Static43" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" FixSize="True" Width="40"/>
+                <Component Name="Static44" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="-" FixSize="True" Width="40"/>
+                <Component Name="Static45" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Прочие" FixSize="True" Width="40"/>
+                <Component Name="HRGroup_OurNPOthers" Class="Com.Ctrl.IEdit" Field="EdtRec.HRGroup_OurNPOthers" FixSize="True" HasCaption="False" Width="60"/>
+              </Component>
+            </Component>
+            <Component Name="Group7" Class="Com.Ctrl.IGroup" ByColumn="True" MaxWidth="50" MinWidth="50">
+              <Component Name="HRNotGroup_OurDivisions" Class="Com.Ctrl.ICheckBox" Caption=" " Field="EdtRec.HRNotGroup_OurDivisions" FixSize="True" HasCaption="False" Hint="Не формировать в наших предприятиях папку Подразделения" Width="50"/>
+              <Component Name="HRNotGroup_OurContraparties" Class="Com.Ctrl.ICheckBox" Caption=" " Field="EdtRec.HRNotGroup_OurContraparties" FixSize="True" HasCaption="False" Hint="Не формировать в наших предприятиях папку Контрагенты" OnChange="HRNotGroup_OurContraparties_OnChange" Width="50"/>
+              <Component Name="HRNotGroup_OurNaturalPersons" Class="Com.Ctrl.ICheckBox" Caption=" " Field="EdtRec.HRNotGroup_OurNaturalPersons" FixSize="True" HasCaption="False" Hint="Не формировать в наших предприятиях папку Физические лица" OnChange="HRNotGroup_OurNaturalPersons_OnChange" Width="50"/>
+              <Component Name="HRNotGroup_OurNPStaffers" Class="Com.Ctrl.ICheckBox" Caption=" " Field="EdtRec.HRNotGroup_OurNPStaffers" FixSize="True" HasCaption="False" Hint="Не формировать в наших предприятиях папку Физ.лица-Сотрудники" Width="50"/>
+              <Component Name="HRNotGroup_OurNPOthers" Class="Com.Ctrl.ICheckBox" Caption=" " Field="EdtRec.HRNotGroup_OurNPOthers" FixSize="True" HasCaption="False" Hint="Не формировать в наших предприятиях папку Физ.лица-Прочие" Width="50"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="EntityTab" Class="Com.Ctrl.IFrame" Caption="Субъекты" HasCaption="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

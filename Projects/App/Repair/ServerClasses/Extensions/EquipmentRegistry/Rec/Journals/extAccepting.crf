@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Rec.Journals.Accepting">
+  <Inherited>
+    <Component Name="sbtFlowCharts" Class="Com.ISubtable" After="sbtNormatives" StructClass="Repair.Rec.Journals.AcceptingFlowCharts" SubtableName="AcceptingJournalFlowCharts"/>
+    <Inherited Name="sbtWorkersE" SubtableFilter="BrigadeType = nil and BrigadeLine = False"/>
+    <Component Name="sbtWorkersB" Class="Com.ISubtable" After="sbtWorkersE" StructClass="Repair.Rec.Journals.AcceptingWorkersBrigade" SubtableFilter="BrigadeLine = True" SubtableName="AcceptingJournalWorks"/>
+    <Component Name="sbtSPALines" Class="Com.ISubtable" After="sbtCosts" StructClass="Repair.Rec.Journals.AcceptingSPALines" SubtableName="AcceptingJournalSPALines"/>
+    <Component Name="SPACostPlan" Class="Com.Fld.IField" After="sbtShortC" FieldName="SPACostPlan" ValueType="VarNumeric"/>
+    <Component Name="SPACostFact" Class="Com.Fld.IField" FieldName="SPACostFact" ValueType="VarNumeric"/>
+    <Component Name="LsoID" Class="Com.Fld.IField" FieldName="LsoID" ValueType="VarObject"/>
+    <Component Name="Mark_Beg" Class="Com.Fld.IField" FieldName="Mark_Beg" ValueType="VarObject"/>
+    <Component Name="Mark_End" Class="Com.Fld.IField" FieldName="Mark_End" ValueType="VarObject"/>
+    <Component Name="PointBeg" Class="Com.Fld.IField" FieldName="PointBeg" OnChange="PointBeg_OnChange" ValueType="Varnumeric"/>
+    <Component Name="PointEnd" Class="Com.Fld.IField" FieldName="PointEnd" OnChange="PointBeg_OnChange" ValueType="Varnumeric"/>
+    <Component Name="UM" Class="Com.Fld.IField" FieldName="UM" ValueType="VarObject"/>
+    <Component Name="NetObLen" Class="Com.Fld.IVar" OnCalc="NetObLen_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="OfsPointBeg" Class="Com.Fld.IVar" OnCalc="OfsPointBeg_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="OfsPointEnd" Class="Com.Fld.IVar" OnCalc="OfsPointEnd_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="Mark_Beg_fact" Class="Com.Fld.IField" FieldName="Mark_Beg_fact" ValueType="VarObject"/>
+    <Component Name="Mark_End_fact" Class="Com.Fld.IField" FieldName="Mark_End_fact" ValueType="VarObject"/>
+    <Component Name="PointBeg_fact" Class="Com.Fld.IField" FieldName="PointBeg_fact" ValueType="VarNumeric"/>
+    <Component Name="PointEnd_fact" Class="Com.Fld.IField" FieldName="PointEnd_fact" ValueType="VarNumeric"/>
+    <Component Name="NetObLen_fact" Class="Com.Fld.IVar" OnCalc="NetObLen_fact_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="OfsPointBeg_fact" Class="Com.Fld.IVar" OnCalc="OfsPointBeg_fact_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="OfsPointEnd_fact" Class="Com.Fld.IVar" OnCalc="OfsPointEnd_fact_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="PointBeg_fact_IsEmpty" Class="Com.Fld.IField" FieldName="PointBeg_fact_IsEmpty" ValueType="VarLogical"/>
+    <Component Name="PointEnd_fact_IsEmpty" Class="Com.Fld.IField" FieldName="PointEnd_fact_IsEmpty" ValueType="VarLogical"/>
+    <Component Name="interval" Class="Com.Fld.IVar" OnCalc="interval_OnCalc" ValueType="VarNumeric"/>
+  </Inherited>
+</Resource>

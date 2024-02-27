@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="HRBase.Tab.Data.StaffingUnit">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Основные данные.Вакансии">
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="CardFile" OnOpenBlank="ШтатныйЭлемент_Создание"/>
+          <Inherited Name="ToTrans" After="Code"/>
+          <Inherited Name="Company" After="ToTrans"/>
+          <Component Name="Разряд" Class="Com.Ctrl.IEdit" After="Position" Caption="Разряд" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ТарифныеРазряды" Field="Current.Разряд" HasCaption="True" LookupField="Name" Width="30"/>
+          <Component Name="КоличествоЕд" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Кол-во ед." Field="Current.КоличествоЕд" HasCaption="True" Hint="Количество единиц" Width="25"/>
+          <Component Name="СвободноЕд" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Вакантные" Field="Current.СвободноЕд" HasCaption="True" Hint="Количество вакантных единиц " Width="25"/>
+          <Inherited Name="DateOpen" After="СвободноЕд"/>
+          <Inherited Name="QtyUnit" Excluded="True"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

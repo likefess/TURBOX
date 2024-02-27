@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="VarBriefCase" Class="Com.Fld.IVar" RecordClass="TrackingCore.Rec.Ref.BriefCase" ValueType="VarObject"/>
+      <Component Name="VarAllBriefCases" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    </Inherited>
+    <Inherited Name="RootFrame" Margins="0">
+      <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+      <Inherited Name="HeaderFrame" Excluded="True"/>
+      <Inherited Name="FieldsFrame" Margins="0">
+        <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+        <Component Name="MainFrame" Class="Com.Ctrl.IFrame" Caption="Добавить портфель">
+          <BuiltIn Name="SideMargins" Bottom="32" Left="32" Right="32" Top="32"/>
+          <Component Name="BriefCaseFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <BuiltIn Name="SideMargins" Bottom="32" Left="0" Right="0" Top="0"/>
+            <Component Name="GroupBriefCaseEdit" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="BriefCaseEdit" Class="Com.Ctrl.IEdit" Caption="Портфель" Field="VarBriefCase" HasInnerCaption="True" ShortList="True"/>
+            </Component>
+            <Component Name="GroupAllProjects" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="Static3" Class="Com.Ctrl.IStatic"/>
+              <Component Name="AllProjectsCheckBox" Class="Com.Ctrl.ICheckBox" Caption="Добавить все портфели" Field="VarAllBriefCases"/>
+            </Component>
+          </Component>
+          <Component Name="ButtonsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+            <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+            <Component Name="GroupButtons" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="Static1" Class="Com.Ctrl.IStatic"/>
+              <Component Name="CloseButton" Class="Com.Ctrl.IButton" Caption="Отмена" Fashion="Fashions.SecondaryButton" OnClick="CloseButtonOnClick"/>
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="3"/>
+              <Component Name="AddButton" Class="Com.Ctrl.IButton" Caption="Добавить" Fashion="Fashions.PrimaryButton" OnClick="AddButtonOnClick"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

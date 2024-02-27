@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Menu.RCTaskManagement_User">
+  <Inherited>
+    <Inherited Name="MainGroup">
+      <Component Name="Service" Class="Com.Cmd2.IGroup" After="TaskGroup" Caption="Сервис" Columns="2" Orientation="Vertical" Rows="2">
+        <Component Name="NewRequest" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:NewRequest=Новая заявка" FormClassName="Frm.Data.ServiceTask" IconName="Com.AddItem"/>
+        <Component Name="ItemOpenServiceRequestsList1" Class="Com.Cmd2.IItem" Command="Commands.cmdOpenServiceRequestsList"/>
+        <Component Name="Contracts" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:Contractst=Договоры" FormClassName="Biz.Tab.Data.Contract" IconName="Com.Blanks"/>
+      </Component>
+      <Inherited Name="Productivity" After="Service"/>
+    </Inherited>
+  </Inherited>
+</Resource>

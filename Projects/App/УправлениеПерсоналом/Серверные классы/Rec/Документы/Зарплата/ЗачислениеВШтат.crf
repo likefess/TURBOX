@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Rec.Базовая.БазовыйДокумент">
+  <Inherited>
+    <Component Name="УсловияТрудаСотр" Class="Com.Fld.IField" FieldName="УсловияТрудаСотр"/>
+    <Component Name="Организация" Class="Com.Fld.IField" FieldName="Организация"/>
+    <Component Name="ОтчетныйГод" Class="Com.Fld.IField" FieldName="ОтчетныйГод"/>
+    <Component Name="ИтогоНДФЛ" Class="Com.Fld.IField" FieldName="ИтогоНДФЛ"/>
+    <Component Name="СтавкаНДФЛ" Class="Com.Fld.IField" FieldName="СтавкаНДФЛ"/>
+    <Component Name="ДатаПроведения" Class="Com.Fld.IField" Excluded="True" FieldName="ДатаПроведения"/>
+    <Component Name="ИтогоОбщийДоход" Class="Com.Fld.IVar" OnCalc="ИтогоОбщийДоход_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="Доходы" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Зарплата.ЗачислениеВШтат_Доход" SubtableFilter="ТипЭлемента = 36" SubtableName="Позиции"/>
+    <Component Name="Вычеты" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Зарплата.ЗачислениеВШтат_Вычет" SubtableFilter="ТипЭлемента = 35" SubtableName="Позиции"/>
+  </Inherited>
+</Resource>

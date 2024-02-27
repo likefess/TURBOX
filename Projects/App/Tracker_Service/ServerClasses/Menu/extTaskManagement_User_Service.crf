@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Menu.RCTaskManagement_User_Service">
+  <Inherited>
+    <Inherited Name="MainGroup">
+      <Inherited Name="Main">
+        <Component Name="NewApproval" Class="Com.ComManaging.OpenIForm" Caption="@TaskApprovement:NewApproval=Новый запрос на согласование" FormClassName="Frm.Services.CreateNewApprovalWizard" FormStyle="ChildWindow" IconName="Control.thumbs-up"/>
+        <Component Name="Notifications" Class="Com.Cmd2.IItem" Command="Commands.DocApp_DAAlert"/>
+      </Inherited>
+      <Inherited Name="Service">
+        <Component Name="ItemOpenServiceRequestList" Class="Com.Cmd2.IItem" After="#0" Command="Commands.cmdOpenServiceRequestsList"/>
+        <Inherited Name="Requests1" Excluded="True" After="ItemOpenServiceRequestList"/>
+      </Inherited>
+      <Inherited Name="Settings" Excluded="False">
+        <Component Name="ClosingCode" Class="Com.ComManaging.OpenIForm" Excluded="True" After="#0" Caption="@Tracker_Service:ClosingCode=Код закрытия" FormClassName="Tracker_Service.Tab.Ref.ClosingCode" IconName="Com.times-circle"/>
+        <Inherited Name="Project" After="ClosingCode"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

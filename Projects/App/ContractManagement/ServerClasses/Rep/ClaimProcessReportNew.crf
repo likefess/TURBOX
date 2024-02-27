@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Name="Rep_IReportTurns44" Class="Com.Rep.IReportTurns" AccountFilter="ClaimProcess" AccountPlan="ContractManagement" Autobuild="False" BegDate="01.01.1900" Caption="Отчет по Претензионно-исковой работе " CIndicator="1" EndDate="01.01.2100" HidePeriod="True" HystoKind="hkSide" Legend="lpkAtRight" OpenPeriod="opAll" Palette="cpDefault" Period="-1" ShowSumKindRow="False">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorStatusNumber" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="Номер документа ПИР" EndSaldoFormat="msfNone" Formula="GetDocNumber(SplitValueByName(Report.rdRow, 'ClaimProcess'))" ShowUnit="False" ValueType="VarString"/>
+      <Component Name="IndicatorStatusDate" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="Дата документа ПИР" EndSaldoFormat="msfNone" Formula="GetStatusDate(SplitValueByName(Report.rdRow, 'ClaimProcess'))" ShowUnit="False" ValueType="VarDate"/>
+      <Component Name="IndicatorAmountToPay" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="Сумма ПИР начальная" EndSaldoFormat="msfNone" Format=",##0.00;;-" Formula="GetAmountToPay(SplitValueByName(Report.rdRow, 'ClaimProcess'))" ShowUnit="False" ValueType="VarNumeric"/>
+      <Component Name="IndicatorAmountPaid" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="Сумма ПИР погашено" EndSaldoFormat="msfNone" Format=",##0.00;;-" Formula="GetAmountPaid(SplitValueByName(Report.rdRow, 'ClaimProcess'))" ShowUnit="False" ValueType="VarNumeric"/>
+      <Component Name="IndicatorAmountSaldo" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="Сумма ПИР Остаток" EndSaldoFormat="msfNone" Format=",##0.00;;-" Formula="Отчет.IndicatorValue[3,REport.skTurn,Report.roll] - Отчет.IndicatorValue[4,REport.skTurn,Report.roll]" ShowUnit="False" ValueType="VarNumeric"/>
+      <Component Name="IndicatorStatusPeriod" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="Дата движения по ПИР" EndSaldoFormat="msfNone" Formula="GetStatusPeriod(SplitValueByName(Report.rdRow, 'ClaimProcess'))" ShowUnit="False" ValueType="VarDate"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam3F614999" Class="Com.Rep.ISplitByParam" ShowTotals="False" SplitParam="Contract"/>
+        <Component Name="SplitParamD2473222" Class="Com.Rep.ISplitByParam" SplitParam="ClaimProcess"/>
+        <Component Name="SplitParam84F80701" Class="Com.Rep.ISplitByParam" SplitParam="CreateDate"/>
+        <Component Name="SplitParam28C75721" Class="Com.Rep.ISplitByParam" SplitParam="ClaimType"/>
+        <Component Name="SplitParam14A2839F" Class="Com.Rep.ISplitByParam" SplitParam="ClaimVariety"/>
+        <Component Name="SplitParam3052A473" Class="Com.Rep.ISplitByParam" SplitParam="ShortDescription"/>
+        <Component Name="SplitParamDCB03A94" Class="Com.Rep.ISplitByParam" SplitParam="Responsible"/>
+        <Component Name="SplitParam72B7B538" Class="Com.Rep.ISplitByParam" SplitParam="PreTrialDocNumber"/>
+        <Component Name="SplitParamF13C528E" Class="Com.Rep.ISplitByParam" SplitParam="PreTrialDocDate"/>
+        <Component Name="SplitParam7193C0E6" Class="Com.Rep.ISplitByParam" SplitParam="PreTrialObligee"/>
+        <Component Name="SplitParam1C4EA390" Class="Com.Rep.ISplitByParam" SplitParam="TrialProcessVariety"/>
+        <Component Name="SplitParam217030EA" Class="Com.Rep.ISplitByParam" SplitParam="TrialDocNumber"/>
+        <Component Name="SplitParamC98F71B5" Class="Com.Rep.ISplitByParam" SplitParam="TrialDocDate"/>
+        <Component Name="SplitParam5CBBCEF3" Class="Com.Rep.ISplitByParam" SplitParam="TrialObligee"/>
+        <Component Name="SplitParam01E7D6B9" Class="Com.Rep.ISplitByParam" SplitParam="ExecDocNumber"/>
+        <Component Name="SplitParam2D4687E3" Class="Com.Rep.ISplitByParam" SplitParam="ExecDocDate"/>
+        <Component Name="SplitParam09DE1CA2" Class="Com.Rep.ISplitByParam" SplitParam="ExecObligee"/>
+        <Component Name="SplitParamDB80FDCE" Class="Com.Rep.ISplitByParam" SplitParam="ClaimStatus"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContentDEF484CB" Class="Com.Rep.ISplitContent" Caption="Субъект ПИР/Контрагент" Contents="Contract.Партнер.Наименование"/>
+        <Component Name="SplitContentADFB9F74" Class="Com.Rep.ISplitContent" Caption="Номер договора" Contents="Contract.Наименование"/>
+        <Component Name="Rep_ISplitContent31" Class="Com.Rep.ISplitContent" Caption="Номер карточки ПИР" Contents="ClaimProcess.Code"/>
+        <Component Name="SplitContentE148700E" Class="Com.Rep.ISplitContent" Caption="Дата создания" Contents="CreateDate"/>
+        <Component Name="SplitContent64581822" Class="Com.Rep.ISplitContent" Caption="Тип спора" Contents="ClaimType.Наименование"/>
+        <Component Name="Rep_ISplitContent45" Class="Com.Rep.ISplitContent" Caption="Вид спора" Contents="ClaimVariety.Наименование"/>
+        <Component Name="SplitContent5EC34A04" Class="Com.Rep.ISplitContent" Caption="Предмет спора" Contents="ShortDescription"/>
+        <Component Name="SplitContentD3F5D9BE" Class="Com.Rep.ISplitContent" Caption="Куратор ПИР/ответственный" Contents="Responsible.Наименование"/>
+        <Component Name="Rep_ISplitContent63" Class="Com.Rep.ISplitContent" Caption="Этап ПИР" Contents="ClaimStatus.Описание"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_CreateDate" Class="Com.Rep.IRepControl" Caption="По состоянию на" CaptionWidth="35" DefaultFunc="ToDay()" DefaultStr="Date(nil)" Operator="&lt;=" Parameter="CreateDate" Plan="ContractManagement" SkipNil="True" ValueType="VarDate" Width="100"/>
+      <Component Name="RC_Company" Class="Com.Rep.IRepControl" Caption="Предприятие" CaptionWidth="35" CardFileClass="Bas.Tab.Data.OurCompanies" DefaultStr="Object(nil)" LookupField="Name" Operator="=" Parameter="Company" Plan="ContractManagement" ShortList="False" ValueType="VarObject" Width="100"/>
+      <Component Name="RC_Classification" Class="Com.Rep.IRepControl" Caption="Классификация" CaptionWidth="35" CardFileClass="Biz.Tab.Ref.ContractClassification" DefaultStr="Object(nil)" LookupField="Name" MultiSelect="True" NewLine="True" ValueType="VarObject" Width="100"/>
+      <Component Name="Static" Class="Com.Rep.IRepControl" Caption="⠀" CaptionWidth="35" DefaultStr="String(&quot;&quot;)" NewLine="True" Operator="=" Plan="БизнесСчета" ValueType="VarString" Width="0"/>
+      <Component Name="RC_Contract_Intragroup" Class="Com.Rep.IRepControl" Caption="Внутригрупповые договоры" CaptionWidth="35" CellFormat="LogicalFormat" DefaultStr="Logical(False)" Operator="=" Parameter="Contract.Intragroup" Plan="ContractManagement" SkipNil="True" ValueType="VarLogical" Width="100"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

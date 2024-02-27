@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.БазовыйДокумент">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Кадровые документы.Общие кадровые документы.График отпусков">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ГрафикОтпусков" IsLibrary="1"/>
+    <Component Name="Позиции" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ГрафикОтпусков_Позиции" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="Variables">
+      <Component Name="приказДата" Class="Com.Fld.IVar" Caption="Дата приказа об отпуске" ValueType="VarDate"/>
+      <Component Name="приказГрупповой" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False">
+          <Component Name="кнВыбратьСотрудников" Class="Com.Ctrl.IButton" Caption="Выбрать сотрудников" HasCaption="False" Hint="Групповой выбор сотрудников" ImageName="Com.Blank" OnClick="кнВыбратьСотрудников_OnClick" Visible="True"/>
+          <Component Name="кнСоздатьПриказОтпуск1" Class="Com.Ctrl.IButton" Excluded="True" Caption="Создать приказ об отпуске" HasCaption="True" Hint="Создать приказ об отпуске" ImageName="Com.Cardfile" OnClick="кнСоздатьПриказОтпуск_OnClick" Visible="True"/>
+        </Inherited>
+        <Inherited Name="кнПечатьУнФорма" Visible="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" CanHideBySplit="True" SplitterAtRight="True" UseSplitter="True">
+        <Inherited Name="грТипДокумента">
+          <Component Name="ТипДокумента" Class="Com.Ctrl.IEdit" Caption="@Тип документа" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ТипыДокументов" Field="EdtRec.ТипДокумента" FixSize="False" HasCaption="True" LookupField="Name" OnGetLookupFilter="ТипДокумента_OnGetLookupFilter" OnOpenCardForm="ТипДокумента_OnOpenCardForm" Required="True"/>
+          <Component Name="кнТипДокумента" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ТипДокумента" JumpForm="УправлениеПерсоналом.Frm.Классификаторы.ТипДокумента"/>
+          <Component Name="Static6" Class="Com.Ctrl.IStatic" Excluded="True" Width="50"/>
+          <Component Name="Утвержден" Class="Com.Ctrl.ICheckBox" Caption="Утвержден" Enabled="False" Field="EdtRec.Проводить" FixSize="True" HasCaption="True" Width="30"/>
+        </Inherited>
+        <Inherited Name="grNumberDate">
+          <Inherited Name="ДатаДокумента" OnChange="Дата_OnChange"/>
+          <Component Name="кнУтвердить" Class="Com.Ctrl.IButton" Caption="Утвердить" HasCaption="True" Hint="Утвердить график отпусков" OnClick="кнУтвердить_OnClick"/>
+          <Component Name="кнОтменить" Class="Com.Ctrl.IButton" Caption="Отменить" HasCaption="True" Hint="Отменить утверждение графика отпусков" OnClick="кнОтменить_OnClick"/>
+        </Inherited>
+        <Component Name="грПараметры" Class="Com.Ctrl.IGroup" After="grNumberDate" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="наГод" Class="Com.Ctrl.IEdit" Caption="На год" Field="EdtRec.Год" HasCaption="True" Hint="Год составления документа" MaxWidth="25" Required="True" Width="25"/>
+          <Component Name="МнениеНомер" Class="Com.Ctrl.IEdit" Caption="Мнение профс." Field="EdtRec.МнениеНомер" HasCaption="True" Hint="Мнение выборного профсоюзного органа" Multiline="False" Width="35" Wrap="False"/>
+          <Component Name="МнениеДата" Class="Com.Ctrl.IEdit" Caption="от" CaptionWidth="10" Field="EdtRec.МнениеДата" HasCaption="True" Hint="Мнение выборного профсоюзного органа" MaxWidth="35" Width="35"/>
+          <Component Name="Static5" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+          <Component Name="Static7" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+        </Component>
+        <Inherited Name="грОписание">
+          <Component Name="Static8" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+        </Inherited>
+        <Inherited Name="грПримечание">
+          <Component Name="Static9" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+        </Inherited>
+        <Component Name="грПриказОбОтпуске" Class="Com.Ctrl.IGroup" After="грПримечание" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" Caption="Приказ об отпуске" FixSize="True" Width="40"/>
+          <Component Name="прГрупповой" Class="Com.Ctrl.ICheckBox" Caption="Групповой" Field="приказГрупповой" HasCaption="True" Hint="Если флаг установлен, то для сотрудников будут формироваться групповые приказы об отпуске." MaxWidth="35"/>
+          <Component Name="прДата" Class="Com.Ctrl.IEdit" Caption="Дата" CaptionWidth="15" Field="приказДата" FormatOfDate="DateOnly" HasCaption="True" Hint="Дата формируемых приказов. Если дата не указана, то используется текущая дата." MaxWidth="35"/>
+          <Component Name="Static11" Class="Com.Ctrl.IStatic" Width="15"/>
+          <Component Name="кнСоздатьПриказОтпуск" Class="Com.Ctrl.IButton" Caption="Сформировать" HasCaption="True" Hint="Сформировать приказы об отпуске" OnClick="кнСоздатьПриказОтпуск_OnClick" Visible="True"/>
+          <Component Name="Static10" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+          <Component Name="Static12" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" AutoSize="False" Visible="True">
+          <Component Name="тблПозиции" Class="Com.Ctrl.ITable" Sortable="True" Subtable="EdtRec.Позиции">
+            <Component Name="Выбор" Class="Com.Ctrl.ICheckBox" Caption="Фор-миро-вать  при- каз" Enabled="True" Field="Позиции.Выбор" FixSize="True" HasCaption="True" Hint="@Выбор сотрудников для формирования приказа на отпуск" MaxWidth="30" OnVerify="Выбор_OnVerify" Visible="True" Width="13"/>
+            <Component Name="грСотрудник" Class="Com.Ctrl.IColumnsGroup" Caption="Сотрудник" HasCaption="True">
+              <Component Name="УсловияТрудаСотр" Class="Com.Ctrl.IEdit" Caption="ФИО" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Field="Позиции.УсловияТрудаСотр" HasCaption="True" Hint="ФИО сотрудника" LookupField="Person.Name" Multiline="True" OnChange="УсловияТрудаСотр_OnChange" OnGetLookupFilter="УсловияТрудаСотр_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуУслТрудаСотрудников" Required="True" Width="45" Wrap="True"/>
+              <Component Name="ТабНомер" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="таб. номер" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Enabled="False" Field="Позиции.УсловияТрудаСотр" HasCaption="True" Hint="Табельный номер сотрудника" LookupField="ТабНомер" Width="20"/>
+              <Component Name="грНазначениеОтк" Class="Com.Ctrl.IColumnsGroup" Caption="Назначение" HasCaption="False">
+                <Component Name="НазначениеПодразделение" Class="Com.Ctrl.IEdit" Caption="подразделение" CardFileClass="УправлениеПерсоналом.Tab.Данные.Назначения" Enabled="False" Field="Позиции.НазначениеОткуда" HasCaption="True" Hint="Подразделение сотрудника" LookupField="Подразделение.Name" Multiline="True" OnOpenCardForm="НазначениеОткуда_OnOpenCardForm" Width="40" Wrap="True"/>
+                <Component Name="НазначениеОткуда" Class="Com.Ctrl.IEdit" Caption="должность, разряд" CardFileClass="УправлениеПерсоналом.Tab.Данные.Назначения" Enabled="True" Field="Позиции.НазначениеОткуда" HasCaption="True" Hint="Должность, разряд сотрудника" LookupField="Name" Multiline="True" OnOpenCardForm="НазначениеОткуда_OnOpenCardForm" OnOutput="ДолжностьРазряд_OnOutput" Width="40" Wrap="True"/>
+                <Component Name="ПериодРаботы" Class="Com.Ctrl.IEdit" Caption="период работы (с,по)" Enabled="False" Field="Позиции.УсловияТрудаСотр" HasCaption="True" Multiline="True" OnOutput="ПериодРаботы_OnOutput" Width="22" Wrap="True"/>
+              </Component>
+              <Component Name="кнТабНомер" Class="Com.Ctrl.IJumpButton" Field="Позиции.УсловияТрудаСотр" JumpForm="УправлениеПерсоналом.Frm.Данные.УсловияТрудаСотрудника"/>
+            </Component>
+            <Component Name="ВидОтпуска" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Вид отпуска" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыОтпусков" Field="Позиции.ВидОтпуска" HasCaption="True" Hint="Вид отпуска" LookupField="Код" Required="True" Width="17"/>
+            <Component Name="КаленДней" Class="Com.Ctrl.IEdit" Caption="@Ка-   ленд. дней" Field="Позиции.КалендДней" HasCaption="True" Hint="Количество календарных дней отпуска сотрудника" Required="True" ValueType="VarInteger" Width="14"/>
+            <Component Name="грДаты" Class="Com.Ctrl.IColumnsGroup" Caption="Дата отпуска" HasCaption="True" Width="150">
+              <Component Name="ДатаПлан" Class="Com.Ctrl.IEdit" Caption="план" Field="Позиции.ДатаПлан" HasCaption="True" Hint="Запланированная дата отпуска" Required="True" Width="30"/>
+              <Component Name="ДатаФакт" Class="Com.Ctrl.IEdit" Caption="факт" Field="Позиции.ДатаФакт" HasCaption="True" Hint="Фактическая дата отпуска" Width="30"/>
+            </Component>
+            <Component Name="грПеренос" Class="Com.Ctrl.IColumnsGroup" Caption="Перенос отпуска" HasCaption="True">
+              <Component Name="ПриказОтзыв" Class="Com.Ctrl.IEdit" Caption="основание (документ)" CardFileClass="УправлениеПерсоналом.Tab.Документы.Кадры.Отпуска" Field="Позиции.ПриказОтзыв" HasCaption="True" Hint="Приказ об отзыве сотрудника из отпуска" Multiline="True" OnOpenCardForm="ПриказОтзыв_OnOpenCardForm" OnOutput="Приказ_ПриВыводе" Width="37" Wrap="True"/>
+              <Component Name="кнПриказОтзыв" Class="Com.Ctrl.IJumpButton" Field="Позиции.ПриказОтзыв" JumpForm="УправлениеПерсоналом.Frm.Документы.Кадры.Приказ"/>
+              <Component Name="ДатаПеренос" Class="Com.Ctrl.IEdit" Caption="предполагаемая дата отпуска" Field="Позиции.ДатаПеренос" HasCaption="True" Hint="Дата предполагаемого отпуска" MaxWidth="35" Width="32"/>
+            </Component>
+            <Component Name="ПримечаниеПоз" Class="Com.Ctrl.IEdit" Caption="Примечание" Field="Позиции.Примечание" HasCaption="True" Hint="Примечание" Multiline="True" Width="40"/>
+            <Component Name="ПриказОтпуск" Class="Com.Ctrl.IEdit" Caption="Приказ об отпуске" CardFileClass="УправлениеПерсоналом.Tab.Документы.Кадры.Отпуска" Field="Позиции.ПриказОтпуск" HasCaption="True" Hint="Приказ об отпуске" Multiline="True" OnOpenCardForm="ПриказОтпуск_OnOpenCardForm" OnOutput="Приказ_ПриВыводе" Width="37" Wrap="True"/>
+            <Component Name="кнПриказОтпуск" Class="Com.Ctrl.IJumpButton" Field="Позиции.ПриказОтпуск" JumpForm="УправлениеПерсоналом.Frm.Документы.Кадры.Приказ"/>
+            <Component Name="кнОбновить" Class="Com.Ctrl.IButton" HasCaption="False" Hint="Заполнение фактических данных" ImageName="Com.Refresh" OnClick="кнОбновить_OnClick"/>
+          </Component>
+        </Inherited>
+        <Inherited Name="фрПодписи" HasCaption="True">
+          <Inherited Name="фрПодписиОбщ">
+            <Inherited Name="грРуководитель" Excluded="True"/>
+            <Inherited Name="грОтветственный" Excluded="True"/>
+            <Component Name="грКадровик" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Кадровик_Долж" Class="Com.Ctrl.IEdit" Caption="Руководитель кадровой службы" CaptionWidth="70" CardFileClass="Bas.Tab.Ref.Positions" Field="EdtRec.Кадровик_Долж" HasCaption="True" LookupField="Name"/>
+              <Component Name="Кадровик" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Data.StaffersHR" Field="EdtRec.Кадровик" HasCaption="False" LookupField="Name" OnOpenCardForm="НастроитьКартотекуФизЛиц" OnOutputEx="ФИО_OnOutputEx" Width="70"/>
+              <Component Name="кнКадровик" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Кадровик" JumpForm="HRBase.Frm.Data.NaturalPersonHR"/>
+            </Component>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

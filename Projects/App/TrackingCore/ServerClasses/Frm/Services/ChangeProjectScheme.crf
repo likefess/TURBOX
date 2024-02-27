@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="Variables" Class="Com.IVarContainer"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" Caption="Привязать проект" Visible="False"/>
+      <Component Name="Step1Frame" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="CaptionFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="7">
+          <Component Name="Group5" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static3" Class="Com.Ctrl.IStatic"/>
+            <Component Name="CloseButton1Frame" Class="Com.Ctrl.IButton" ImageName="Com.Close" ImageSize="15" OnClick="ButtonClose_OnClick"/>
+          </Component>
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="NameStatic" Class="Com.Ctrl.IStatic" Caption="Переключить схему" FixSize="False" FontBold="True" FontSize="14"/>
+          </Component>
+        </Component>
+        <Component Name="FieldsFrame" Class="Com.Ctrl.IFrame" AutoSize="False" Margins="20" Size="100"/>
+        <Component Name="ButtonFrame" Class="Com.Ctrl.IFrame" AutoSize="False" Margins="10" Visible="True">
+          <Component Name="StartGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" Visible="True">
+            <Component Name="AdditionalStatic1" Class="Com.Ctrl.IStatic" Excluded="True" Alignment="DefaultAlign" FixSize="False"/>
+            <Component Name="NextButton" Class="Com.Ctrl.IButton" Caption="Далее" OnClick="NextButtonOnClick" Visible="True"/>
+            <Component Name="CloseButton" Class="Com.Ctrl.IButton" Caption="Отмена" OnClick="ButtonClose_OnClick"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="Step2Frame" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="CaptionFrame1" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="7">
+          <Component Name="Group4" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="Button1" Class="Com.Ctrl.IButton" ImageName="Com.Back" ImageSize="15" OnClick="BackStaticOnClick"/>
+              <Component Name="Static2" Class="Com.Ctrl.IStatic"/>
+              <Component Name="CloseButton2Frame" Class="Com.Ctrl.IButton" ImageName="Com.Close" ImageSize="15" OnClick="ButtonClose_OnClick"/>
+            </Component>
+            <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="NameStatic1" Class="Com.Ctrl.IStatic" Caption="Переключить схему" FixSize="False" FontBold="True" FontSize="14"/>
+              <Component Name="AdditionalInfo" Class="Com.Ctrl.IStatic" Caption="Текущий статус каждой задачи необходимо изменить для того, чтобы обеспечить совместимость с новым рабочим процессом." FontColor="0xFF000010" FontSize="10"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="FieldsFrame1" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="20">
+          <Component Name="TableForTaskTypes" Class="Com.Ctrl.ITable"/>
+          <Component Name="GroupForEdits" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="True"/>
+        </Component>
+        <Component Name="ButtonFrame1" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="10">
+          <Component Name="StartGroup1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="SaveButton" Class="Com.Ctrl.IButton" Caption="Сохранить" OnClick="SaveButtonOnClick"/>
+            <Component Name="CloseButton1" Class="Com.Ctrl.IButton" Caption="Отмена" OnClick="ButtonClose_OnClick"/>
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

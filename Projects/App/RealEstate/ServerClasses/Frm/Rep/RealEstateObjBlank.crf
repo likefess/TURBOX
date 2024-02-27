@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    </Component>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="Obj" Class="Com.Fld.IVar" OnChange="Obj_OnChange" RecordClass="RealEstateBase.Rec.Data.RealEstateObject" ValueType="VarObject"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+      <Component Name="Header" Class="Com.Ctrl.IHeader" Caption="@Печатная форма объекта имущества" HasCaption="True">
+        <Component Name="ButtonOpenBlank" Class="Com.Ctrl.IButton" Enabled="False" Hint="@Открыть печатную форму" ImageName="Biz.Reporting" OnClick="ButtonOpenBlank_OnClick"/>
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Command="Commands.CloseForm" ImageName="Com.Close"/>
+      </Component>
+      <Component Name="FieldsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="10">
+        <Component Name="FieldGr" Class="Com.Ctrl.IGroup" Adaptive="True">
+          <Component Name="ObjEdt" Class="Com.Ctrl.IEdit" Caption="@Объект имущества" CardFileClass="RealEstateBase.Tab.Data.RealEstateObject" CellFormat="ReferenceFormat" Field="Obj" HasCaption="True" LookupField="Name" Multiline="True" Wrap="True"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

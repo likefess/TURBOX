@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Rec.Base.baseJournalRec">
+  <Inherited>
+    <Inherited Name="JournalDate" OnChange="JournalDateOnChange"/>
+    <Inherited Name="JournalStatus" OnVerify="JournalStatusOnVerify"/>
+    <Component Name="Period" Class="Com.Fld.IField" FieldName="Period"/>
+    <Component Name="BegDate" Class="Com.Fld.IField" FieldName="BegDate"/>
+    <Component Name="EndDate" Class="Com.Fld.IField" FieldName="EndDate"/>
+    <Component Name="Месяц" Class="Com.Fld.IField" FieldName="Месяц" OnChange="Месяц_OnChange"/>
+    <Component Name="Квартал" Class="Com.Fld.IField" FieldName="Квартал" OnChange="Квартал_OnChange"/>
+    <Component Name="Год" Class="Com.Fld.IField" FieldName="Год" OnChange="Год_OnChange"/>
+    <Component Name="Полугодие" Class="Com.Fld.IField" FieldName="Полугодие" OnChange="Полугодие_OnChange"/>
+    <Component Name="Pos" Class="Com.ISubtable" OnAfterDelete="PosOnAfterDelete" StructClass="Purchase.Rec.Data.BaseDoc_Pos" SubtableName="Pos"/>
+    <Component Name="TotalAmount" Class="Com.Fld.IField" FieldName="TotalAmount"/>
+    <Component Name="Ответственный" Class="Com.Fld.IField" Caption="Ответственный" FieldName="Responsible"/>
+    <Component Name="TotalUnit" Class="Com.Fld.IField" FieldName="TotalUnit" OnChange="TotalUnitOnChange"/>
+    <Component Name="IsWithoutPrice" Class="Com.Fld.IField" FieldName="IsWithoutPrice" OnChange="IsWithoutPriceOnChange"/>
+    <Component Name="FinalSumNotVAT" Class="Com.Fld.IField" FieldName="FinalSumNotVAT"/>
+    <Component Name="IsPriceWithVAT" Class="Com.Fld.IField" FieldName="IsPriceWithVAT"/>
+    <Component Name="AmountVAT" Class="Com.Fld.IField" FieldName="AmountVAT"/>
+    <Component Name="Agreement" Class="Com.Fld.IField" FieldName="Agreement"/>
+    <Component Name="IsNotVAT" Class="Com.Fld.IField" FieldName="IsNotVAT" OnChange="IsNotVATOnChange"/>
+    <Component Name="CostElement" Class="Com.Fld.IField" FieldName="CostElement" OnChange="CostElement_OnChange"/>
+    <Component Name="CFR" Class="Com.Fld.IField" FieldName="CFR" OnChange="CFR_OnChange"/>
+    <Component Name="Stock" Class="Com.Fld.IField" FieldName="Stock" OnChange="Stock_OnChange"/>
+    <Component Name="PurchaseGroup" Class="Com.Fld.IField" FieldName="PurchaseGroup" OnChange="PurchaseGroupOnChange"/>
+    <Component Name="RequirementDate" Class="Com.Fld.IField" FieldName="RequirementDate" OnChange="RequirementDate_OnChange"/>
+    <Component Name="PurchaseProcTime" Class="Com.Fld.IField" FieldName="PurchaseProcTime" OnChange="PurchaseProcTimeOnChange"/>
+    <Component Name="ApplicationType" Class="Com.Fld.IField" FieldName="ApplicationType"/>
+  </Inherited>
+</Resource>

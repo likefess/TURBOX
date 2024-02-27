@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.Справочник">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Справочники.Вид среднего заработка">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Справочники.ВидСреднего" IsLibrary="1"/>
+    <Component Name="БазаРасчета" Class="УправлениеПерсоналом.Rec.Справочники.ВидСреднего_БазаРасчета" IsLibrary="1" After="EdtRec"/>
+    <Component Name="ИсклДни" Class="УправлениеПерсоналом.Rec.Справочники.ВидСреднего_ИсклДни" IsLibrary="1"/>
+    <Component Name="КодыУО" Class="УправлениеПерсоналом.Rec.Справочники.ВидСреднего_КодыУО" IsLibrary="1"/>
+    <Component Name="РасчетБезПособия" Class="УправлениеПерсоналом.Rec.Справочники.ВидСреднего_БезПособия" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="GroupCode">
+            <Inherited Name="Locked" Visible="True" Width="30"/>
+          </Inherited>
+          <Inherited Name="GroupName">
+            <Inherited Name="Closed" Visible="True" Width="30"/>
+          </Inherited>
+        </Inherited>
+        <Component Name="грИмяКод" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="NameEx" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" HasCaption="True"/>
+          <Component Name="CodeEx" Class="Com.Ctrl.IEdit" CaptionWidth="15" Field="EdtRec.Code" HasCaption="True" Required="True" Width="15"/>
+          <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Locked" FixSize="True" HasCaption="True" Width="30"/>
+        </Component>
+        <Component Name="грПериод" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Caption="Период действия" Field="EdtRec.ДатаНачала" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="30"/>
+          <Component Name="ДатаОкончания" Class="Com.Ctrl.IEdit" Caption="-  " CaptionWidth="10" Field="EdtRec.ДатаОкончания" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="30"/>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" Width="50"/>
+          <Component Name="Проводить" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Проводить" FixSize="True" HasCaption="True" Width="30"/>
+        </Component>
+        <Component Name="грТип" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="ТипСреднего" Class="Com.Ctrl.IEdit" Caption="Тип" CellFormat="EnumFormat" Field="EdtRec.ТипСреднего" HasCaption="True" OnChange="ТипСреднего_OnChange"/>
+          <Component Name="Static5" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+        </Component>
+        <Component Name="грКласс" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="КлассРеализации" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Класс реализации" CellFormat="EnumFormat" Field="EdtRec.КлассРеализации" HasButton="True" HasCaption="True" ShortList="True"/>
+          <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+        </Component>
+        <Component Name="грНачисление" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Начисление" Class="Com.Ctrl.IEdit" Caption="Вид начисления" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Field="EdtRec.ВидНачисления" HasCaption="True" LookupField="Name" LookupFilter="(IsGroup = -1) or (Проводить and ТипНачисления = 4)"/>
+          <Component Name="Static6" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+        </Component>
+        <Component Name="грОписание" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="ФайлОписание" Class="Com.Ctrl.IEdit" Caption="Файл-описание" Field="EdtRec.Описание" HasButton="True" HasCaption="True" Hint="Имя файл *.pdf с описанием  вида среднего из папки УправлениеПерсоналом\Приложения\Описания" OnChange="ФайлОписание_OnChange" OnLookup="ФайлОписание_OnLookup"/>
+          <Component Name="кнОписание" Class="Com.Ctrl.IButton" Hint="Просмотр описания" ImageName="Com.Help" OnClick="кнОписание_OnClick"/>
+          <Component Name="Static7" Class="Com.Ctrl.IStatic" FixSize="True" Width="23"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" HasCaption="False" Visible="True">
+        <Inherited Name="MainTab" Caption="База расчета" HasCaption="True">
+          <Component Name="грПараметры" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="РасчетБезДокумента" Class="Com.Ctrl.ICheckBox" Field="EdtRec.РасчетБезДокумента" FixSize="True" HasCaption="True" Hint="Допускается возможность авторасчета и утверждения документа без указания кадрового документа" Width="115"/>
+          </Component>
+          <Component Name="грВидЗаработка" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="РасчетнаяБаза" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="База расчета" CellFormat="EnumFormat" Field="EdtRec.РасчетнаяБаза" FixSize="True" HasCaption="False" OnChange="РасчетнаяБаза_OnChange" Width="120"/>
+            <Component Name="КоличМесяцевЗаработка" Class="Com.Ctrl.IEdit" Caption="Количество месяцев" CaptionWidth="45" Field="EdtRec.КоличМесяцевЗаработка" HasCaption="True" MaxWidth="25" Width="25"/>
+          </Component>
+          <Component Name="грБольничныйЛист" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+            <Component Name="грЗаработокПериод" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="ФиксПериод" Class="Com.Ctrl.ICheckBox" Caption="Фиксированное количество дней периода" Field="EdtRec.ФиксПериод" FixSize="True" HasCaption="True" OnChange="ФиксПериод_OnChange" Width="115"/>
+              <Component Name="Коэффициент" Class="Com.Ctrl.IEdit" Caption="Ограничение коэффициента" CaptionWidth="55" Field="EdtRec.Коэффициент" FieldFormat=",##0;;-" HasCaption="True" MaxWidth="25" Width="25"/>
+            </Component>
+            <Component Name="ОгрЗаработокМакс" Class="Com.Ctrl.ICheckBox" Caption="Ограничить максимальный размер среднедневного заработка за год" Field="EdtRec.ОгрЗаработокМакс" HasCaption="True" Width="115"/>
+            <Component Name="ОгрДеньМРОТКаленд" Class="Com.Ctrl.ICheckBox" Caption="Мин. пособие по  МРОТ, в расчете за полный календарный месяц" Field="EdtRec.ОгрДеньМРОТКаленд" Width="115"/>
+          </Component>
+          <Component Name="грДоляОплаты" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="ТипДолиОплаты" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="EdtRec.ТипДолиОплаты" FixSize="True" HasCaption="False" OnChange="ТипДолиОплаты_OnChange" Width="110"/>
+            <Component Name="КоэффОплаты" Class="Com.Ctrl.IEdit" Field="EdtRec.КоэффОплаты" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="False" Width="15"/>
+            <Component Name="ДоляОплатыЧис" Class="Com.Ctrl.IEdit" Field="EdtRec.ДоляОплатыЧис" FieldFormat="##0;;" FixSize="True" HasCaption="False" Width="10"/>
+            <Component Name="ДоляОплатыЗн" Class="Com.Ctrl.IEdit" Caption="/" CaptionWidth="5" Field="EdtRec.ДоляОплатыЗн" FieldFormat="##0;;" FixSize="True" HasCaption="True" Width="10"/>
+            <Component Name="НеУчитыватьПремии" Class="Com.Ctrl.ICheckBox" Field="EdtRec.НеУчитыватьПремии" HasCaption="True" Width="45"/>
+          </Component>
+          <Component Name="грПособия" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="РасчетДнейПособия" Class="Com.Ctrl.IEdit" CaptionWidth="55" CellFormat="EnumFormat" Field="EdtRec.РасчетДнейПособия" FixSize="True" HasCaption="True" Width="55"/>
+          </Component>
+          <Component Name="тблБазаРасчета" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Hint="Выбор начислений, входящих в базу расчета производится в карточке Вид начисления" Subtable="EdtRec.БазаРасчета">
+            <Component Name="грБазаРасчета" Class="Com.Ctrl.IColumnsGroup" Caption="Включаемые в базу расчета начисления" FontBold="True" HasCaption="True">
+              <Component Name="ВидНачисленияКод" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Код дохода" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Enabled="False" Field="БазаРасчета.ВидНачисления" HasCaption="True" LookupField="ВидДохода.Код" Width="25"/>
+              <Component Name="ВидНачисления" Class="Com.Ctrl.IEdit" Caption="Вид начисления" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Enabled="False" Field="БазаРасчета.ВидНачисления" HasCaption="True" LookupField="Name" Width="150"/>
+              <Component Name="ColumnsGroup1" Class="Com.Ctrl.IColumnsGroup" Caption="Период действия" HasCaption="True">
+                <Component Name="ВидНачисленияДатаС" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Дата начала" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Enabled="False" Field="БазаРасчета.ВидНачисления" HasCaption="False" LookupField="ДатаНачала" Width="25"/>
+                <Component Name="ВидНачисленияДатаПо" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Дата окончания" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Enabled="False" Field="БазаРасчета.ВидНачисления" HasCaption="False" LookupField="ДатаОкончания" Width="25"/>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="фрСпискиКодов" Class="Com.Ctrl.IFrame" Caption="Списки кодов УО" HasCaption="True">
+          <Component Name="тблКодыУО" Class="Com.Ctrl.ITable" CanDelete="True" CanInsert="True" CanMove="True" Subtable="EdtRec.КодыУО">
+            <Component Name="грКодыУО" Class="Com.Ctrl.IColumnsGroup" Caption="Список кодов условных обозначений" FontBold="True" HasCaption="True">
+              <Component Name="УслОбознКод2" Class="Com.Ctrl.IEdit" Caption="Код" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловныеОбозначения" Field="КодыУО.УслОбозн" HasCaption="True" LookupField="Код" Width="25"/>
+              <Component Name="УслОбозн2" Class="Com.Ctrl.IEdit" Caption="Наименование" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловныеОбозначения" Field="КодыУО.УслОбозн" HasCaption="True" LookupField="Name" Width="150"/>
+            </Component>
+          </Component>
+          <Component Name="грРазделитель" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" Width="50"/>
+          </Component>
+          <Component Name="тблИсклДни" Class="Com.Ctrl.ITable" CanDelete="True" CanInsert="True" CanMove="True" Subtable="EdtRec.ИсклДни">
+            <Component Name="грИсклДни" Class="Com.Ctrl.IColumnsGroup" Caption="Не учитываемые в расчете календарные дни" FontBold="True" HasCaption="True">
+              <Component Name="УслОбознКод" Class="Com.Ctrl.IEdit" Caption="Код" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловныеОбозначения" Field="ИсклДни.УслОбозн" HasCaption="True" LookupField="Код" Width="25"/>
+              <Component Name="УслОбозн" Class="Com.Ctrl.IEdit" Caption="Наименование" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловныеОбозначения" Field="ИсклДни.УслОбозн" HasCaption="True" LookupField="Name" Width="150"/>
+            </Component>
+          </Component>
+          <Component Name="грРазделитель1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Static4" Class="Com.Ctrl.IStatic" Width="50"/>
+          </Component>
+          <Component Name="тблРасчетБезПособия" Class="Com.Ctrl.ITable" CanDelete="True" CanInsert="True" CanMove="True" Subtable="EdtRec.РасчетБезПособия">
+            <Component Name="грРасчетБезПособия" Class="Com.Ctrl.IColumnsGroup" Caption="Расчет без пособия" FontBold="True" HasCaption="True">
+              <Component Name="УслОбознКод1" Class="Com.Ctrl.IEdit" Caption="Код" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловныеОбозначения" Field="РасчетБезПособия.УслОбозн" HasCaption="True" LookupField="Код" Width="25"/>
+              <Component Name="УслОбозн1" Class="Com.Ctrl.IEdit" Caption="Наименование" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловныеОбозначения" Field="РасчетБезПособия.УслОбозн" HasCaption="True" LookupField="Name" Width="150"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="фрОписаниеОбщ" Class="Com.Ctrl.IFrame" Excluded="True" AutoSize="False" Caption="Описание" HasCaption="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

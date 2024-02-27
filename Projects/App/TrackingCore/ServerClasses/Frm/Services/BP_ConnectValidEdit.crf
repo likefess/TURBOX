@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="AddValid" Class="Com.Fld.IVar" OnChange="AddValidOnChange" ValueType="VarInteger"/>
+      <Component Name="VGS" Class="Com.Fld.IVar" OnChange="VGSOnChange" RecordClass="Control.Rec.Ref.TaskStatus" ValueType="VarObject"/>
+      <Component Name="VOS" Class="Com.Fld.IVar" OnChange="VOSOnChange" RecordClass="Control.Rec.Ref.TaskStatus" ValueType="VarObject"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" HasCaption="False">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" HasCaption="False" MaxButton="1">
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Hint="Закрыть" ImageName="Com.Close" OnClick="ButtonClose_Onclick"/>
+      </Component>
+      <Component Name="FieldsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+        <Component Name="AddAutoGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="100">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption="Используйте условия для проверки перехода" FixSize="False" FontColor="0xFF00000C" FontSize="8" Multiline="True" Width="100"/>
+          <Component Name="AddValidEdit" Class="Com.Ctrl.IEdit" Caption="Добавить валидацию" CaptionWidth="50" CellFormat="EnumFormat" Field="AddValid" HasCaption="False" OnEnter="AddValidEditOnEnter" OnVerify="AddValidEditOnVerify"/>
+        </Component>
+      </Component>
+      <Component Name="PF" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="8" Visible="True">
+        <Component Name="VCEFr" Class="Com.Ctrl.IFrame" Margins="5">
+          <Component Name="VCEBFr" Class="Com.Ctrl.IFrame" Bevel="DefaultBevel">
+            <Component Name="VCEBtnFr" Class="Com.Ctrl.IFrame">
+              <Component Name="VCEGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="VCECaption" Class="Com.Ctrl.IStatic" Caption="Указан комментарий" FixSize="True" Width="45"/>
+                <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="False"/>
+                <Component Name="VCEDelBtn" Class="Com.Ctrl.IButton" ImageName="Com.trash" OnClick="VCEDelBtnOnClick"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="VFCFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="5">
+          <Component Name="VFCBFr" Class="Com.Ctrl.IFrame" AutoSize="True" Bevel="DefaultBevel">
+            <Component Name="VFCBtnFr" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="VFCBtnGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="Static3" Class="Com.Ctrl.IStatic"/>
+                <Component Name="VFCDelBtn" Class="Com.Ctrl.IButton" ImageName="Com.trash" OnClick="VFCDelBtnOnClick"/>
+              </Component>
+            </Component>
+            <Component Name="VFCBox" Class="Com.Ctrl.IBox" Caption="Изменено поле" HasCaption="True">
+              <Component Name="VFCListFr" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+              <Component Name="VFCAddFr" Class="Com.Ctrl.IFrame" AutoSize="True">
+                <Component Name="VFCAddGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+                  <Component Name="VFCAddSt" Class="Com.Ctrl.IStatic" Caption="+ Добавить поле" OnClick="VFCAddStOnClick" StaticStyle="StaticHyperlink"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="VFOVFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="5">
+          <Component Name="VFOVBFr" Class="Com.Ctrl.IFrame" AutoSize="True" Bevel="DefaultBevel">
+            <Component Name="VFOVBtnFr" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="VFOVBtnGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="Static4" Class="Com.Ctrl.IStatic"/>
+                <Component Name="VFOVDelBtn" Class="Com.Ctrl.IButton" ImageName="Com.trash" OnClick="VFOVDelBtnOnClick"/>
+              </Component>
+            </Component>
+            <Component Name="VFOVBox" Class="Com.Ctrl.IBox" Caption="Поле имеет одно значение" HasCaption="True">
+              <Component Name="VFOVListFr" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+              <Component Name="VFOVAddFr" Class="Com.Ctrl.IFrame" AutoSize="True">
+                <Component Name="VFOVAddGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+                  <Component Name="VFOVAddSt" Class="Com.Ctrl.IStatic" Caption="+ Добавить поле" OnClick="VFOVAddStOnClick" StaticStyle="StaticHyperlink"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="VFRFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="5">
+          <Component Name="VFRBFr" Class="Com.Ctrl.IFrame" AutoSize="True" Bevel="DefaultBevel">
+            <Component Name="VFRBtnFr" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="VFRBtnGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="Static5" Class="Com.Ctrl.IStatic"/>
+                <Component Name="VFRDelBtn" Class="Com.Ctrl.IButton" ImageName="Com.trash" OnClick="VFRDelBtnOnClick"/>
+              </Component>
+            </Component>
+            <Component Name="VFRBox" Class="Com.Ctrl.IBox" Caption="Обязательное поле" HasCaption="True">
+              <Component Name="VFRListFr" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+              <Component Name="VFRAddFr" Class="Com.Ctrl.IFrame" AutoSize="True">
+                <Component Name="VFRAddGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+                  <Component Name="VFRAddSt" Class="Com.Ctrl.IStatic" Caption="+ Добавить поле" OnClick="VFRAddStOnClick" StaticStyle="StaticHyperlink"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="VGSFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="5">
+          <Component Name="VGSBFr" Class="Com.Ctrl.IFrame" AutoSize="True" Bevel="DefaultBevel">
+            <Component Name="VGSBtnFr" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="VGSBtnGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="Static6" Class="Com.Ctrl.IStatic"/>
+                <Component Name="VGSDelBtn" Class="Com.Ctrl.IButton" ImageName="Com.trash" OnClick="VGSDelBtnOnClick"/>
+              </Component>
+            </Component>
+            <Component Name="VGSBox" Class="Com.Ctrl.IBox" Caption="Проверка состояния эпика" HasCaption="True">
+              <Component Name="VGSGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="VGSEd" Class="Com.Ctrl.IEdit" Caption="Статус" CardFileClass="Control.Tab.Ref.TaskStatus" CellFormat="ReferenceFormat" Field="VGS" HasInnerCaption="True" LookupField="Name" ShortList="True"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="VOSFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="5">
+          <Component Name="VOSBFr" Class="Com.Ctrl.IFrame" AutoSize="True" Bevel="DefaultBevel">
+            <Component Name="VOSBtnFr" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="VOSBtnGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="Static7" Class="Com.Ctrl.IStatic"/>
+                <Component Name="VOSDelBtn" Class="Com.Ctrl.IButton" ImageName="Com.trash" OnClick="VOSDelBtnOnClick"/>
+              </Component>
+            </Component>
+            <Component Name="VOSBox" Class="Com.Ctrl.IBox" Caption="Статус задачи до перехода" HasCaption="True">
+              <Component Name="VOSGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="VOSEd" Class="Com.Ctrl.IEdit" Caption="Статус" CardFileClass="Control.Tab.Ref.TaskStatus" CellFormat="ReferenceFormat" Field="VOS" HasInnerCaption="True" LookupField="Name" ShortList="True"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

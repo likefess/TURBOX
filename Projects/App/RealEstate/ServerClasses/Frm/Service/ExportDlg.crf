@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm" Caption="@Экспорт печатной формы" WindowStyle="BlockedWindow">
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="XLS" Class="Com.Fld.IVar" OnChange="Format_OnChange" ValueType="VarLogical"/>
+      <Component Name="ODS" Class="Com.Fld.IVar" OnChange="Format_OnChange" ValueType="VarLogical"/>
+      <Component Name="DOC" Class="Com.Fld.IVar" OnChange="Format_OnChange" ValueType="VarLogical"/>
+      <Component Name="ODT" Class="Com.Fld.IVar" OnChange="Format_OnChange" ValueType="VarLogical"/>
+      <Component Name="PDF" Class="Com.Fld.IVar" OnChange="Format_OnChange" ValueType="VarLogical"/>
+      <Component Name="Folder" Class="Com.Fld.IVar" OnChange="Folder_OnChange" ValueType="VarString"/>
+      <Component Name="ExportPics" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" AutoSize="True" CanHideBySplit="False" CanResizeBySplit="False" FixSize="True" SplitterAtRight="False" UseSplitter="False">
+      <Component Name="MessageFrame" Class="Com.Ctrl.IFrame" Margins="10">
+        <Component Name="MessageGr" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="100">
+          <Component Name="MessageStatic" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="@Выберите формат и имя папки для экспорта" StaticStyle="NormalText"/>
+        </Component>
+      </Component>
+      <Component Name="ParamFrame" Class="Com.Ctrl.IFrame" AutoSize="True" FixSize="True" HasCaption="False" Margins="10">
+        <Component Name="FormatGr" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="100">
+          <Component Name="PDFCB" Class="Com.Ctrl.ICheckBox" Caption="PDF" Field="PDF" HasCaption="True" OnChange="CB_OnChange"/>
+          <Component Name="XLSCB" Class="Com.Ctrl.ICheckBox" Caption="XLS" Field="XLS" HasCaption="True" OnChange="CB_OnChange"/>
+          <Component Name="ODSCB" Class="Com.Ctrl.ICheckBox" Caption="ODS" Field="ODS" HasCaption="True" OnChange="CB_OnChange"/>
+          <Component Name="DOCCB" Class="Com.Ctrl.ICheckBox" Caption="DOC" Field="DOC" HasCaption="True" OnChange="CB_OnChange"/>
+          <Component Name="ODTCB" Class="Com.Ctrl.ICheckBox" Caption="ODT" Field="ODT" HasCaption="True" OnChange="CB_OnChange"/>
+        </Component>
+        <Component Name="FieldsGr" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="100">
+          <Component Name="FolderEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="Folder" HasButton="True" HasCaption="False" OnLookup="FolderEdit_OnLookup" Required="False"/>
+        </Component>
+        <Component Name="ExportPicsGr" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="100">
+          <Component Name="ExportPicsCB" Class="Com.Ctrl.ICheckBox" Caption="@Сохранить изображения" Field="ExportPics" HasCaption="True"/>
+        </Component>
+      </Component>
+      <Component Name="ButtonFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="10">
+        <Component Name="ButtonGr" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="100">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic"/>
+          <Component Name="ButtonOK" Class="Com.Ctrl.IButton" Caption="@OK" FixSize="True" HasCaption="True" OnClick="ButtonOK_OnClick" Width="30"/>
+          <Component Name="Static3" Class="Com.Ctrl.IStatic"/>
+          <Component Name="ButtonCancel" Class="Com.Ctrl.IButton" Caption="@Отмена" FixSize="True" HasCaption="True" OnClick="ButtonCancel_OnClick" Width="30"/>
+          <Component Name="Static2" Class="Com.Ctrl.IStatic"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

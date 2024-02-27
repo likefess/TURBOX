@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IEditorWithFrames">
+  <Inherited Caption="@CashOrder_Inc_PrintForm:Caption=Печатная форма" PrintSettings="CashFlow.CashOrder_Inc.cfg">
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Printed="False">
+        <Inherited Name="ButtonReports" Excluded="True" After="#0"/>
+        <Inherited Name="ButtonAnalytics" Excluded="True"/>
+        <Inherited Name="ButtonOK" Excluded="True" After="ButtonAnalytics" Visible="False"/>
+        <Inherited Name="ButtonChildForms" Visible="False"/>
+        <Inherited Name="ButtonServices" Visible="False"/>
+        <Inherited Name="ButtonClose" Printed="False"/>
+        <Inherited Name="ButtonPost" Excluded="True" After="ButtonClose" Visible="False"/>
+        <Inherited Name="ButtonCancel" Excluded="True" Visible="False"/>
+        <Inherited Name="ButtonClone" Excluded="True" Visible="False"/>
+        <Inherited Name="ButtonDelete" Excluded="True" Visible="False"/>
+        <Inherited Name="ButtonExport" Excluded="True" Visible="False"/>
+        <Inherited Name="ButtonImport" Excluded="True" Visible="False"/>
+        <Inherited Name="ButtonHelp" Excluded="True" Visible="False"/>
+        <Component Name="ButtonPrint" Class="Com.Ctrl.IButton" Caption="@Print" Enabled="True" Command="Commands.Print" ImageName="Com.print" Printed="False" Visible="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" Margins="0" Orientation="Vertical">
+        <Component Name="OrderFrame" Class="Com.Ctrl.IFrame" FixSize="True" Orientation="Horizontal" Size="171">
+          <Component Name="GroupHeader" Class="Com.Ctrl.IGroup" Adaptive="False" FixSize="True" Width="171">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" FontName="Times New Roman" FontSize="10" Width="95"/>
+            <Component Name="Header" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Multiline="True" VertAlignment="CenterAlign" Width="70" Wrap="True"/>
+            <Component Name="CuttingLine1" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="140"/>
+            <Component Name="Static3" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Код" FixSize="True" FontName="Times New Roman" FontSize="10" Width="25"/>
+            <Component Name="CuttingLine2" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="NewLine3" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Static4" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="Форма по ОКУД" FixSize="True" FontName="Times New Roman" FontSize="10" Width="140"/>
+            <Component Name="Static5" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="0310001" FixSize="True" FontName="Times New Roman" FontSize="10" Width="25"/>
+            <Component Name="CuttingLine3" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="NewLine4" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Entity" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="RightAlign" Width="120" Wrap="True"/>
+            <Component Name="Static6" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="по ОКПО" FixSize="True" FontName="Times New Roman" FontSize="10" Width="20" Wrap="True"/>
+            <Component Name="OKPO" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="25" Wrap="True"/>
+            <Component Name="CuttingLine4" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="NewLine5" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Static7" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="(организация)" FixSize="True" FontName="Times New Roman" FontSize="8" Width="120" Wrap="True"/>
+            <Component Name="Static8" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="20" Wrap="True"/>
+            <Component Name="Static9" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="25" Wrap="True"/>
+            <Component Name="CuttingLine5" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="NewLine7" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Division" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="RightAlign" Width="140" Wrap="True"/>
+            <Component Name="Static13" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="25" Wrap="True"/>
+            <Component Name="CuttingLine6" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="NewLine8" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Static14" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="(структурное подразделение)" FixSize="True" FontName="Times New Roman" FontSize="8" Width="140" Wrap="True"/>
+            <Component Name="Static15" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="8" Width="25" Wrap="True"/>
+            <Component Name="CuttingLine7" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="NewLine10" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Static17" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" VertAlignment="RightAlign" Width="115" Wrap="True"/>
+            <Component Name="Static18" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Номер документа" FixSize="True" FontName="Times New Roman" FontSize="10" Width="25" Wrap="True"/>
+            <Component Name="Static19" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Дата составления" FixSize="True" FontName="Times New Roman" FontSize="10" Width="25" Wrap="True"/>
+            <Component Name="CuttingLine8" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="NewLine9" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Static16" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="ПРИХОДНЫЙ КАССОВЫЙ ОРДЕР" FixSize="True" FontBold="True" FontName="Times New Roman" FontSize="14" VertAlignment="RightAlign" Width="115" Wrap="True"/>
+            <Component Name="PrintedNumber" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="25" Wrap="True"/>
+            <Component Name="EventTime" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="25" Wrap="True"/>
+            <Component Name="CuttingLine9" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="NewLine11" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine25" Class="Com.Ctrl.IStatic" FixSize="True" Width="170"/>
+          </Component>
+          <Component Name="GroupBody" Class="Com.Ctrl.IGroup" FixSize="True" Width="171">
+            <Component Name="Static20" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Дебет" FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="LeftAlign" Width="20" Wrap="True"/>
+            <Component Name="Static21" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Кредит" FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="LeftAlign" Width="80" Wrap="True"/>
+            <Component Name="Static22" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Сумма," FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="RightAlign" Width="30" Wrap="True"/>
+            <Component Name="Static23" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Код" FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="RightAlign" Width="30" Wrap="True"/>
+            <Component Name="Static24" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="LeftAlign" Width="5" Wrap="True"/>
+            <Component Name="CuttingLine10" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="NewLine12" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Static25" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="LeftAlign" Width="20" Wrap="True"/>
+            <Component Name="Static26" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="LeftAlign" Width="5" Wrap="True"/>
+            <Component Name="Static30" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="код структурного подразделения" FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="LeftAlign" Width="25" Wrap="True"/>
+            <Component Name="Static31" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="корреспонди-рующий счет, субсчет" FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="LeftAlign" Width="25" Wrap="True"/>
+            <Component Name="Static32" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="код аналитического учета" FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="LeftAlign" Width="25" Wrap="True"/>
+            <Component Name="CurrencyShortIntFrac" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="LeftAlign" Width="30" Wrap="True"/>
+            <Component Name="Static28" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="целевого назначения" FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="LeftAlign" Width="30" Wrap="True"/>
+            <Component Name="Static29" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="LeftAlign" Width="5" Wrap="True"/>
+            <Component Name="CuttingLine11" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="NewLine13" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Account" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="LeftAlign" Width="20" Wrap="True"/>
+            <Component Name="Static34" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="LeftAlign" Width="5" Wrap="True"/>
+            <Component Name="DivisionCode" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="LeftAlign" Width="25" Wrap="True"/>
+            <Component Name="CorrAccount" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="LeftAlign" Width="25" Wrap="True"/>
+            <Component Name="EntityCode" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="LeftAlign" Width="25" Wrap="True"/>
+            <Component Name="FinalSum" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CellFormat="NumericFormat" Enabled="False" FieldFormat=",##0.00;;-" FixSize="True" FontName="Times New Roman" FontSize="10" ValueType="VarNumeric" VertAlignment="LeftAlign" Width="30" Wrap="True"/>
+            <Component Name="Static39" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="LeftAlign" Width="30" Wrap="True"/>
+            <Component Name="Static40" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="LeftAlign" Width="5" Wrap="True"/>
+            <Component Name="CuttingLine12" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="NewLine20" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine13" Class="Com.Ctrl.IStatic" FixSize="True" Width="170"/>
+          </Component>
+          <Component Name="GroupFooter" Class="Com.Ctrl.IGroup" FixSize="True" Width="171">
+            <Component Name="Static33" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Принято от" FixSize="True" FontName="Times New Roman" FontSize="10" Width="20" Wrap="True"/>
+            <Component Name="SubjectText" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="145" Wrap="True"/>
+            <Component Name="CuttingLine14" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="NewLine14" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Static35" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Основание:" FixSize="True" FontName="Times New Roman" FontSize="10" Width="20" Wrap="True"/>
+            <Component Name="Purpose" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="145" Wrap="True"/>
+            <Component Name="CuttingLine15" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="NewLine15" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Static36" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Сумма" FixSize="True" FontName="Times New Roman" FontSize="10" Width="14" Wrap="True"/>
+            <Component Name="FinalSumText" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="151" Wrap="True"/>
+            <Component Name="CuttingLine16" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="NewLine16" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Static37" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="15" Wrap="True"/>
+            <Component Name="Static38" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="(прописью)" FixSize="True" FontName="Times New Roman" FontSize="8" VertAlignment="LeftAlign" Width="150" Wrap="True"/>
+            <Component Name="CuttingLine17" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="NewLine17" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Static41" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="В том числе" FixSize="True" FontName="Times New Roman" FontSize="10" Width="22" Wrap="True"/>
+            <Component Name="SumVATText" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="143" Wrap="True"/>
+            <Component Name="CuttingLine18" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="NewLine18" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Static42" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Приложение" FixSize="True" FontName="Times New Roman" FontSize="10" Width="22" Wrap="True"/>
+            <Component Name="ExtComment" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="143" Wrap="True"/>
+            <Component Name="CuttingLine19" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="NewLine19" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine20" Class="Com.Ctrl.IStatic" FixSize="True" Width="170"/>
+            <Component Name="NewLine24" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Static43" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Главный бухгалтер" FixSize="True" FontName="Times New Roman" FontSize="10" Width="32" Wrap="True"/>
+            <Component Name="AccountantSign" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="30" Wrap="True"/>
+            <Component Name="Static51" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5" Wrap="True"/>
+            <Component Name="Accountant" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="95" Wrap="True"/>
+            <Component Name="CuttingLine21" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+            <Component Name="NewLine21" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Static44" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="32" Wrap="True"/>
+            <Component Name="Static45" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="(подпись)" FixSize="True" FontName="Times New Roman" FontSize="10" Width="30" Wrap="True"/>
+            <Component Name="Static52" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5" Wrap="True"/>
+            <Component Name="Static46" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="(расшифровка подписи)" FixSize="True" FontName="Times New Roman" FontSize="10" Width="95" Wrap="True"/>
+            <Component Name="CuttingLine22" Class="Com.Ctrl.IStatic" FixSize="True" Width="8"/>
+            <Component Name="NewLine22" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Static47" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Получил кассир" FixSize="True" FontName="Times New Roman" FontSize="10" Width="28" Wrap="True"/>
+            <Component Name="CashierSign" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="30" Wrap="True"/>
+            <Component Name="Static53" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5" Wrap="True"/>
+            <Component Name="Cashier" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="100" Wrap="True"/>
+            <Component Name="CuttingLine23" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            <Component Name="NewLine23" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Static48" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="28" Wrap="True"/>
+            <Component Name="Static49" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="(подпись)" FixSize="True" FontName="Times New Roman" FontSize="10" Width="30" Wrap="True"/>
+            <Component Name="Static54" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5" Wrap="True"/>
+            <Component Name="Static50" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="(расшифровка подписи)" FixSize="True" FontName="Times New Roman" FontSize="10" Width="100" Wrap="True"/>
+            <Component Name="CuttingLine24" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+          </Component>
+        </Component>
+        <Component Name="CuttingLineFrame" Class="Com.Ctrl.IFrame" Alignment="LeftAlign" FixSize="True" Orientation="Horizontal" Size="5" VertAlignment="LeftAlign">
+          <Component Name="CuttingLineGroup" Class="Com.Ctrl.IGroup" ByColumn="True" FixSize="True" Width="5">
+            <Component Name="Static58" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5"/>
+            <Component Name="Static86" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5"/>
+            <Component Name="Static87" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5"/>
+            <Component Name="Static88" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5"/>
+            <Component Name="Static89" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5"/>
+            <Component Name="Static90" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5"/>
+            <Component Name="Static91" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5"/>
+            <Component Name="Static92" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5"/>
+            <Component Name="Static59" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Л" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5"/>
+            <Component Name="Static60" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="и" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5"/>
+            <Component Name="Static61" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="н" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5"/>
+            <Component Name="Static62" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="и" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5"/>
+            <Component Name="Static63" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="я" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5"/>
+            <Component Name="Static93" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5"/>
+            <Component Name="Static64" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="о" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5"/>
+            <Component Name="Static65" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="т" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5"/>
+            <Component Name="Static66" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="р" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5"/>
+            <Component Name="Static67" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="е" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5"/>
+            <Component Name="Static68" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="з" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5"/>
+            <Component Name="Static69" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="а" FixSize="True" FontName="Times New Roman" FontSize="10" Width="5"/>
+          </Component>
+        </Component>
+        <Component Name="TicketFrame" Class="Com.Ctrl.IFrame" FixSize="True" Orientation="Horizontal" Size="95">
+          <Component Name="TicketGroup" Class="Com.Ctrl.IGroup" Adaptive="False" FixSize="True" Width="95">
+            <Component Name="CuttingLine26" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="Static57" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="85" Wrap="True"/>
+            <Component Name="NewLine30" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine27" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="TicketEntity" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="10" VertAlignment="RightAlign" Width="85" Wrap="True"/>
+            <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine28" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="Static10" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="(организация)" FixSize="True" FontName="Times New Roman" FontSize="8" Width="85" Wrap="True"/>
+            <Component Name="NewLine6" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine29" Class="Com.Ctrl.IStatic" FixSize="True" Width="90"/>
+            <Component Name="NewLine25" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine30" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="Static27" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="КВИТАНЦИЯ" FixSize="True" FontBold="True" FontName="Times New Roman" FontSize="14" VertAlignment="CenterAlign" Width="85" Wrap="True"/>
+            <Component Name="NewLine26" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine31" Class="Com.Ctrl.IStatic" FixSize="True" Width="90"/>
+            <Component Name="NewLine27" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine32" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="Static55" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="к приходному кассовому ордеру " FixSize="True" FontName="Times New Roman" FontSize="10" Width="85" Wrap="True"/>
+            <Component Name="NewLine28" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine33" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="Static56" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="№" FixSize="True" FontName="Times New Roman" FontSize="10" Width="8" Wrap="True"/>
+            <Component Name="TicketPrintedNumber" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="77" Wrap="True"/>
+            <Component Name="NewLine29" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine34" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="Static70" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="от" FixSize="True" FontName="Times New Roman" FontSize="10" Width="8" Wrap="True"/>
+            <Component Name="TicketEventTime" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="40" Wrap="True"/>
+            <Component Name="NewLine45" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine35" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="Static71" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Принято от" FixSize="True" FontName="Times New Roman" FontSize="10" Width="20" Wrap="True"/>
+            <Component Name="TicketSubjectText" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="65" Wrap="True"/>
+            <Component Name="NewLine50" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine36" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="Static72" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Основание:" FixSize="True" FontName="Times New Roman" FontSize="10" Width="20" Wrap="True"/>
+            <Component Name="TicketPurpose" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="65" Wrap="True"/>
+            <Component Name="NewLine53" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine37" Class="Com.Ctrl.IStatic" FixSize="True" Width="90"/>
+            <Component Name="NewLine54" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine38" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="Static73" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Сумма" FixSize="True" FontName="Times New Roman" FontSize="10" Width="14" Wrap="True"/>
+            <Component Name="TicketFinalSum" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="71" Wrap="True"/>
+            <Component Name="NewLine55" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine39" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="Static81" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="(цифрами)" FixSize="True" FontName="Times New Roman" FontSize="8" Width="85" Wrap="True"/>
+            <Component Name="NewLine64" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine47" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="TicketFinalSumText" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="85" Wrap="True"/>
+            <Component Name="NewLine56" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine48" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="Static82" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="(прописью)" FixSize="True" FontName="Times New Roman" FontSize="8" Width="85" Wrap="True"/>
+            <Component Name="NewLine65" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine40" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="Static74" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="В том числе" FixSize="True" FontName="Times New Roman" FontSize="10" Width="22" Wrap="True"/>
+            <Component Name="TicketSumVATText" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="63" Wrap="True"/>
+            <Component Name="NewLine57" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine41" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="TicketDate" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="40" Wrap="True"/>
+            <Component Name="NewLine58" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine42" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="NewLine60" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine43" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="Static75" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="М.П. (штампа)" FixSize="True" FontName="Times New Roman" FontSize="10" Width="85" Wrap="True"/>
+            <Component Name="NewLine59" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine44" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="NewLine61" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine45" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="Static76" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Главный бухгалтер" FixSize="True" FontName="Times New Roman" FontSize="10" Width="32" Wrap="True"/>
+            <Component Name="TicketAccountentSign" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="16" Wrap="True"/>
+            <Component Name="Static97" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="8" Width="2" Wrap="True"/>
+            <Component Name="TicketAccountant" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="35" Wrap="True"/>
+            <Component Name="NewLine62" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine46" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="Static78" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="32" Wrap="True"/>
+            <Component Name="Static79" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="(подпись)" FixSize="True" FontName="Times New Roman" FontSize="8" Width="16" Wrap="True"/>
+            <Component Name="Static96" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="8" Width="2" Wrap="True"/>
+            <Component Name="Static80" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="(расшифровка подписи)" FixSize="True" FontName="Times New Roman" FontSize="8" Width="35" Wrap="True"/>
+            <Component Name="NewLine63" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine49" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="Static77" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Получил кассир" FixSize="True" FontName="Times New Roman" FontSize="10" Width="30" Wrap="True"/>
+            <Component Name="TicketCashierSign" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="16" Wrap="True"/>
+            <Component Name="Static95" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="8" Width="2" Wrap="True"/>
+            <Component Name="TicketCashier" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="35" Wrap="True"/>
+            <Component Name="NewLine66" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CuttingLine50" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+            <Component Name="Static83" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" FontName="Times New Roman" FontSize="10" Width="30" Wrap="True"/>
+            <Component Name="Static84" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="(подпись)" FixSize="True" FontName="Times New Roman" FontSize="8" Width="16" Wrap="True"/>
+            <Component Name="Static94" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" FixSize="True" FontName="Times New Roman" FontSize="8" Width="2" Wrap="True"/>
+            <Component Name="Static85" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="(расшифровка подписи)" FixSize="True" FontName="Times New Roman" FontSize="8" Width="35" Wrap="True"/>
+            <Component Name="NewLine67" Class="Com.Ctrl.INewLine"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

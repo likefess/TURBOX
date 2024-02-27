@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Спецодежда.Frm.Документы.Спецодежда.ОперДокумент">
+  <Inherited>
+    <Inherited Name="FRecord" Class="Спецодежда.Rec.Документы.СОАмортизация" IsLibrary="1"/>
+    <Inherited Name="EdtRec" Class="Спецодежда.Rec.Документы.СОАмортизация" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Component Name="CalcAmortBtn" Class="Com.Ctrl.IButton" Caption="@Расчитать амортизацию" ImageName="Biz.list-ul" OnClick="CalcAmortBtn_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="UserHeaderFrame" Visible="True"/>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab" Caption="Ведомость начисления амортизации СО">
+          <Inherited Name="MainBox" Visible="True">
+            <Component Name="EntityEditGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="EntityEdit" Class="Com.Ctrl.IEdit" Caption="Предприятие" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="FRecord.Entity" HasCaption="True" LookupField="Name" ShortList="True"/>
+              <Component Name="EntityEditJB" Class="Com.Ctrl.IJumpButton" Field="FRecord.Entity" JumpForm="Bas.Frm.Data.Entity"/>
+            </Component>
+            <Component Name="DivisionGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="Division" Class="Com.Ctrl.IEdit" Caption="Подразделение" CardFileClass="Bas.Tab.Data.Divisions" CellFormat="ReferenceFormat" Field="FRecord.Division" HasCaption="True" LookupField="Name"/>
+              <Component Name="DivisionJB" Class="Com.Ctrl.IJumpButton" Field="FRecord.Division" JumpForm="Bas.Frm.Data.Entity"/>
+            </Component>
+            <Component Name="PeriodGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="Period" Class="Com.Ctrl.IEdit" Caption="Месяц расчета" CardFileClass="Biz.Tab.Ref.Period" CellFormat="ReferenceFormat" Field="FRecord.Period" HasCaption="True" LookupField="Name"/>
+              <Component Name="PeriodJB" Class="Com.Ctrl.IJumpButton" Field="FRecord.Period" JumpForm="Biz.Frm.Ref.Period"/>
+            </Component>
+          </Inherited>
+          <Component Name="AddBox" Class="Com.Ctrl.IBox" After="MainBox" Caption="Дополнительно" HasCaption="True">
+            <Component Name="CommentEditGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="CommentEdit" Class="Com.Ctrl.IEdit" Caption="Комментарий" CellFormat="StringFormat" Field="FRecord.Description" HasCaption="True" Multiline="True" Wrap="True"/>
+              <Component Name="BtnStatic5" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+          </Component>
+          <Component Name="PositionsBox" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@Позиции" HasCaption="True" Margins="5">
+            <Component Name="PositionsTable" Class="Com.Ctrl.ITable" Freezed="False" Subtable="FRecord.Positions">
+              <Component Name="vDefPos" Class="Спецодежда.Rec.Документы.СОАмортизация_Позиции" IsLibrary="1"/>
+              <Component Name="WC_NameGr" Class="Com.Ctrl.IColumnsGroup" Caption="Наименование СО" HasCaption="True">
+                <Component Name="WC_Name" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPos.WC" HasCaption="False" LookupField="Name" Width="60"/>
+                <Component Name="WCJB" Class="Com.Ctrl.IJumpButton" Field="vDefPos.WC" HasCaption="False" JumpForm="Спецодежда.Frm.Справочники.СО"/>
+              </Component>
+              <Component Name="WC_Code" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPos.WC" LookupField="Code" Width="30"/>
+              <Component Name="BalaceCost" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPos.BalaceCost" FieldFormat=",##0.00;;-" Width="30"/>
+              <Component Name="AmortMonth" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPos.AmortMonth" FieldFormat=",##0.00;;-" Width="30"/>
+              <Component Name="AmortAll" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPos.AmortAll" FieldFormat=",##0.00;;-" Width="30"/>
+              <Component Name="RestCost" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPos.RestCost" FieldFormat=",##0.00;;-" Width="30"/>
+              <Component Name="DivisionPosGr" Class="Com.Ctrl.IColumnsGroup" Caption="Подразделение" HasCaption="True">
+                <Component Name="DivisionPos" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPos.Division" HasCaption="False" LookupField="Name" Width="60"/>
+                <Component Name="DivisionPosJB" Class="Com.Ctrl.IJumpButton" Field="vDefPos.Division" HasCaption="False" JumpForm="Bas.Frm.Data.Entity"/>
+              </Component>
+              <Component Name="MOLGr" Class="Com.Ctrl.IColumnsGroup" Caption="МОЛ" HasCaption="True">
+                <Component Name="Employee" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPos.Employee" HasCaption="False" LookupField="Name" Width="60"/>
+                <Component Name="EmployeeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPos.Employee" HasCaption="False" JumpForm="Bas.Frm.Data.Entity"/>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="TransTab" Class="Com.Ctrl.IFrame" Caption="@Form:TransTab=Проводки" HasCaption="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

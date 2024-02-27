@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited Caption="Завершить цель">
+    <Inherited Name="Variables">
+      <Component Name="VarStatus" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Excluded="True" Visible="False"/>
+      <Inherited Name="FieldsFrame" Margins="0">
+        <BuiltIn Name="SideMargins" Bottom="32" Left="32" Right="32" Top="32"/>
+        <Component Name="StatusFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <BuiltIn Name="SideMargins" Bottom="32" Left="0" Right="0" Top="0"/>
+          <Component Name="StatusGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="StatusEdit" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Caption="Статус" CellFormat="EnumFormat" Field="VarStatus" HasInnerCaption="True" Required="True" ShortList="True"/>
+          </Component>
+        </Component>
+        <Component Name="ButtonsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="GroupButtons" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic"/>
+            <Component Name="CloseButton" Class="Com.Ctrl.IButton" Caption="Отменить" Fashion="Fashions.SecondaryButton" OnClick="ButtonClose_OnClick" Width="26"/>
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="2"/>
+            <Component Name="EndGoalButton" Class="Com.Ctrl.IButton" Caption="Завершить цель" Fashion="Fashions.PrimaryButton" OnClick="ButtonOK_OnClick" Width="37"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Excluded="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

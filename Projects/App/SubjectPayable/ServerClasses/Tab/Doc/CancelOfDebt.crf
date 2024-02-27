@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.BasObject">
+  <Inherited HelpContext="SubjectPayable.Расчеты с субъектами.Документы.Документы.Списание задолженности">
+    <Inherited Name="Current" Class="SubjectPayable.Rec.Doc.CancelOfDebt" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" Visible="False"/>
+          <Inherited Name="Code" Visible="False"/>
+          <Component Name="edAccounted" Class="Com.Ctrl.IEdit" Field="Current.Accounted" HasCaption="True" Width="15"/>
+          <Component Name="edCompany" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="Current.Company" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="edNumberDoc" Class="Com.Ctrl.IEdit" Field="Current.NumberDoc" HasCaption="True" Width="30"/>
+          <Component Name="edDateDoc" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="Current.DateDoc" FormatOfDate="DateOnly" HasCaption="True" Width="30"/>
+          <Component Name="edContraparty" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Contraparties" Field="Current.Contraparty" HasCaption="True" Hint="@SubjectPayable:Contraparty.Hint=Наименование контрагента (юридического или физического лица)" LookupField="Name" Width="30"/>
+          <Component Name="edAccDate" Class="Com.Ctrl.IEdit" Caption="@PaymentOfDebt:AccDate=Дата оплаты" CellFormat="DateFormat" Field="Current.AccDate" FormatOfDate="DateOnly" HasCaption="True" Hint="@PaymentOfDebt:AccDate.Hint=Дата фактической оплаты по первичному банковскому документу.&#xD;&#xA;Согласно данной даты будут формироваться оперативные проводки." Width="30"/>
+          <Component Name="edDocAccrualOfDebt" Class="Com.Ctrl.IEdit" Caption="@SettlementOfDebt:DocAccrualOfDebt1=Документ обязат-ва" CardFileClass="SubjectPayable.Tab.Doc.AccrualOfDebt" Field="Current.DocAccrualOfDebt" HasCaption="True" Hint="@SettlementOfDebt:DocAccrualOfDebt.Hint=Документ обязательства.Документ «Начисление задолженности» по которому производится оплата." LookupField="Name" Visible="False" Width="30" Wrap="True"/>
+          <Component Name="edSumDoc" Class="Com.Ctrl.IEdit" Caption="@Сумма в" Field="Current.SumDoc" FieldFormat=",0.00;;-" HasCaption="True" Hint="@PaymentOfDebt:SumDoc.Hint=Сумма с учетом НДС (при наличии) первичного банковского документа" Width="30"/>
+          <Component Name="edCurrency" Class="Com.Ctrl.IEdit" Caption="@вал.док." CardFileClass="Biz.Tab.Ref.UCurrencies" Field="Current.Currency" HasCaption="True" LookupField="Code" Width="10"/>
+          <Component Name="edSumBase" Class="Com.Ctrl.IEdit" Caption="Сумма (операционная)" Field="Current.SumBase" FieldFormat=",0.00;;-" HasCaption="True" Hint="@PaymentOfDebt::SumBase1.Hint=Сумма первичного банковского документа в операционной валюте (в базовой валюте)" Width="30"/>
+          <Component Name="edExchRate" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:ExchRate1=Курс валюты" Field="Current.ExchRate" FieldFormat=",0.00;;-" HasCaption="True" Hint="@SubjectPayable:ExchRate.Hint=Значение курса валюты, используемого при переводе суммы в валюте документа в сумму в операционной валюте" Visible="False" Width="15"/>
+          <Component Name="edVATRate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@SubjectPayable:VATRate=Ставка НДС" CardFileClass="Biz.Tab.Ref.VAT" Field="Current.VATRate" HasCaption="True" Hint="@SubjectPayable:VATRate=Ставка НДС" LookupField="ShortName" LookupFilter="ВидНДС&lt;>3" Visible="False" Width="20"/>
+          <Component Name="edVATSum" Class="Com.Ctrl.IEdit" Caption="@PaymentOfDebt:VATSum.Hint=Сумма НДС первичного банковского документа" Field="Current.VATSum" FieldFormat=",0.00;;-" HasCaption="True" Hint="@PaymentOfDebt:VATSum.Hint=Сумма НДС первичного банковского документа" Visible="False" Width="20"/>
+          <Component Name="edSourceDoc" Class="Com.Ctrl.IEdit" Caption="@PaymentOfDebt:SourceDoc=Платежный документ" Field="Current.SourceDoc" HasCaption="True" Hint="@PaymentOfDebt:SourceDoc.Hint=Наименование, номер и дата платежного документа" Visible="False" Width="25"/>
+          <Component Name="edComment" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Comment.Hint=Примечание" Field="Current.Comment" HasCaption="True" Visible="False" Width="25"/>
+          <Component Name="edLocked" Class="Com.Ctrl.IEdit" Field="Current.Locked" HasCaption="True" Width="15"/>
+          <Component Name="edClosed" Class="Com.Ctrl.IEdit" Field="Current.Closed" HasCaption="True" Width="15"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited HelpContext="CashFlow.Движение денежных средств.Финансовые инструменты.Профили разноски ФИ">
+    <Inherited Name="EdtRec" Class="CashFlow.Rec.Data.PostingProfile" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" ByColumn="False">
+          <Inherited Name="Code" Caption="Код" Field="EdtRec.CodeExt" Required="True" Visible="True"/>
+          <Component Name="BtnStatic1" Class="Com.Ctrl.IStatic" After="Code" FixSize="True" Width="7.5"/>
+          <Inherited Name="Name" FontBold="False" Visible="True"/>
+          <Component Name="BtnStatic2" Class="Com.Ctrl.IStatic" After="Name" FixSize="True" Width="7.5"/>
+          <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          <Component Name="Company" Class="Com.Ctrl.IEditEx" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="EdtRec.Company" HasCaption="True" LookupField="Name" Required="True" ShortList="True">
+            <Component Name="CompanyJumpBtn" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Company" FixSize="True" JumpForm="Bas.Frm.Data.Entity" Width="7.5"/>
+          </Component>
+          <Component Name="FinancialInstrumentGroup" Class="Com.Ctrl.IEditEx" CardFileClass="CashFlow.Tab.Data.FinancialInstrumentGroup" CellFormat="ReferenceFormat" Field="EdtRec.FinancialInstrumentGroup" HasCaption="True" LookupField="Name" Required="True">
+            <Component Name="FinancialInstrumentGroupJumpBtn" Class="Com.Ctrl.IJumpButton" Field="EdtRec.FinancialInstrumentGroup" FixSize="True" JumpForm="CashFlow.Frm.Data.FinancialInstrumentGroup" Width="7.5"/>
+          </Component>
+          <Component Name="OperationTypeLeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+            <Component Name="OperationTypeGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="OperationType" Class="Com.Ctrl.IEdit" CardFileClass="CashFlow.Tab.Data.OperationType" CellFormat="ReferenceFormat" Field="EdtRec.OperationType" HasCaption="True" LookupField="Name" OnChange="OperationType_OnChange" OnOpenCardForm="OperationType_OnOpenCardForm" Required="True"/>
+              <Component Name="BtnStatic3" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+          </Component>
+          <Component Name="OperationTypeRightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+          </Component>
+          <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+          <Component Name="AccountShortTerm" Class="Com.Ctrl.IEditEx" Caption="@PostingProfile:AccountShortTerm=Счет учета (крат.)" Field="EdtRec.AccountShortTerm" HasCaption="True" Hint="@PostingProfile:AccountShortTermHint=Счет учета (краткосрочный)">
+            <Component Name="OpenAccountShortTermBtn" Class="Com.Ctrl.IButton" Hint="@PostingProfile:OpenAccountShortTermBtn=Выбор счета" ImageName="Biz.id-card-light" OnClick="OpenAccountShortTermBtn_OnClick"/>
+          </Component>
+          <Component Name="AccountLongTerm" Class="Com.Ctrl.IEditEx" Caption="@PostingProfile:AccountLongTerm=Счет учета (долг.)" Field="EdtRec.AccountLongTerm" HasCaption="True" Hint="@PostingProfile:AccountLongTermHint=Счет учета (долгосрочный)">
+            <Component Name="OpenAccountLongTermBtn" Class="Com.Ctrl.IButton" Hint="@PostingProfile:OpenAccountLongTermBtn=Выбор счета" ImageName="Biz.id-card-light" OnClick="OpenAccountLongTermBtn_OnClick"/>
+          </Component>
+          <Component Name="TypeF" Class="Com.Ctrl.IEdit" Excluded="True" CellFormat="ReferenceFormat" HasCaption="True" LookupField="Name"/>
+          <Component Name="AccountShortLongTerm" Class="Com.Ctrl.IEditEx" Excluded="True" Caption="@PostingProfile:AccountShortLongTerm=Счет учета (долгосрочная, краткосрочная части)" Field="EdtRec.AccountShortLongTerm" FixSize="True" HasCaption="True" Width="20">
+            <Component Name="OpenAccountShortLongTermBtn" Class="Com.Ctrl.IButton" ImageName="Biz.id-card-light" OnClick="OpenAccountShortLongTermBtn_OnClick"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

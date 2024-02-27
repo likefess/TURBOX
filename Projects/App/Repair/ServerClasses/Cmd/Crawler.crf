@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IMenu">
+  <Inherited Caption="РМ обходчика">
+    <Inherited Name="MainGroup" Orientation="Vertical">
+      <Component Name="Group1" Class="Com.Cmd2.IGroup">
+        <Component Name="Group5" Class="Com.Cmd2.IGroup" Caption="Оборудование" Columns="4" Orientation="Vertical" Rows="2">
+          <Component Name="Реестр_оборудования" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_EqmRegistry"/>
+          <Component Name="Технические_места" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_EqmLocations"/>
+        </Component>
+        <Component Name="Group3" Class="Com.Cmd2.IGroup" Caption="Журналы" Columns="4" Orientation="Horizontal" Rows="2">
+          <Component Name="Регистрация_наработки" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_OperTime"/>
+          <Component Name="Регистрация_параметров" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_Parameters"/>
+          <Component Name="Журнал_дефектов" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_RegDefects"/>
+          <Component Name="Журнал_пусков" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_StartStop"/>
+        </Component>
+
+      </Component>
+      <Component Name="Group2" Class="Com.Cmd2.IGroup">
+
+        <Component Name="Group4" Class="Com.Cmd2.IGroup" Caption="Отчеты" Columns="4" Orientation="Vertical" Rows="2">
+          <Component Name="Отчет_по_наработке" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_OperatingReport"/>
+          <Component Name="Отчет_по_параметрам" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_ParametersReport"/>
+          <Component Name="Отчет_по_дефектам" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_DefectsReport"/>
+          <Component Name="Отчет_по_пускам" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_StartStopReport"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

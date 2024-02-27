@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICardForm">
+  <Inherited>
+    <Inherited Name="Current" Class="BudgetControl.Rec.Service.BCSettlement" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Component Name="Reserve" Class="Com.Ctrl.IEditEx" CellFormat="ReferenceFormat" Field="Current.Reserve" HasCaption="True" LookupField="Code" OnClick="Reserve_OnClick">
+            <Component Name="ReserveName" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.Reserve" HasCaption="False" LookupField="Name"/>
+            <Component Name="ReserveJumpButton" Class="Com.Ctrl.IJumpButton" Field="Current.Reserve" HasCaption="False" JumpForm="BudgetControl.Frm.Data.BCTrans"/>
+          </Component>
+          <Component Name="Fact" Class="Com.Ctrl.IEditEx" CellFormat="ReferenceFormat" Field="Current.Fact" HasCaption="True" LookupField="Code">
+            <Component Name="FactName" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.Fact" HasCaption="False" LookupField="Name"/>
+            <Component Name="FactJumpButton" Class="Com.Ctrl.IJumpButton" Field="Current.Fact" HasCaption="False" JumpForm="BudgetControl.Frm.Data.BCTrans"/>
+          </Component>
+          <Component Name="Sum" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="Current.Sum" FieldFormat=",##0.00;;-"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

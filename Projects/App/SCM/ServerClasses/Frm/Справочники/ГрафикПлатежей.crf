@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="SCM.Rec.Справочники.ГрафикПлатежей" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Code" Visible="True"/>
+          <Inherited Name="Name" Visible="True"/>
+        </Inherited>
+        <Component Name="Шапка_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+          <Component Name="ПолнИмя" Class="Com.Ctrl.IEdit" Caption="Полное название " Field="EdtRec.ПолнИмя" FontBold="True" HasCaption="True" Visible="True"/>
+          <Component Name="Заказ" Class="Com.Ctrl.IEdit" CardFileClass="SCM.Tab.Документы.Покупки.СделкиПоПокупкам" Enabled="False" Field="EdtRec.Заказ" FontBold="True" HasCaption="True" Required="True" Visible="True"/>
+          <Component Name="Комментарий" Class="Com.Ctrl.IEdit" Field="EdtRec.Комментарий" HasCaption="True" Visible="True"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="тблГрафикПлатежей" Class="Com.Ctrl.ITable" Caption="График платежей" HasCaption="True" ManualControl="False" Subtable="EdtRec.ГрафикПлатежейПозиции">
+            <Component Name="ГрафикПлатежей_Позиции" Class="SCM.Rec.Справочники.ГрафикПлатежей_Позиции" IsLibrary="1"/>
+            <Component Name="ДатаПлатежа_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ГрафикПлатежей_Позиции.ДатаПлатежа" Width="30"/>
+            <Component Name="Аванс_табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ГрафикПлатежей_Позиции.Аванс" Width="15"/>
+            <Component Name="СуммаБезНДС_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ГрафикПлатежей_Позиции.СуммаБезНДС" FieldFormat=",##0.00;;-" Hint="@УЦП:СуммаПлатежаПоЗаказуБезУчетаНДС=Сумма платежа по заказу без учета НДС" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify" Width="30"/>
+            <Component Name="СуммаНДС" Class="Com.Ctrl.IEdit" Enabled="False" Field="ГрафикПлатежей_Позиции.СуммаНДС" FieldFormat=",##0.00;;-" HasCaption="True" Width="25"/>
+            <Component Name="Сумма_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ГрафикПлатежей_Позиции.Сумма" FieldFormat=",##0.00;;-" Hint="@УЦП:СуммаПлатежаПоЗаказуСУчетомНДС=Сумма платежа по заказу с учетом НДС" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify" Width="30"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

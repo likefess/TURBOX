@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Tab.Базовая.БазовыйДокументИерархия">
+  <Inherited>
+    <Inherited Name="Current" Class="УправлениеПерсоналом.Rec.Документы.Кадры.Приказ" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="Проводить" Class="Com.Ctrl.IEdit" After="ExtId" Caption="Учитывать" Field="Current.Проводить" HasCaption="True" Width="15"/>
+          <Component Name="ТипПриказа" Class="Com.Ctrl.IEdit" After="Предприятие" Alignment="LeftAlign" Caption="Тип приказа" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ТипыДокументов" Field="Current.ТипПриказа" HasCaption="True" LookupField="Name" Width="45"/>
+          <Inherited Name="Номер" Caption="Номер приказа"/>
+          <Inherited Name="Дата" Caption="Дата приказа"/>
+          <Component Name="Сотрудник" Class="Com.Ctrl.IEdit" After="Дата" Caption="Сотрудник" CardFileClass="HRBase.Tab.Data.StaffersHR" Field="Current.Сотрудник" HasCaption="True" LookupField="Name" Width="45"/>
+          <Component Name="УсловияТрудаСотр" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Таб. номер" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Field="Current.УсловияТрудаСотр" HasCaption="True" Hint="Табельный номер сотрудника" LookupField="ТабНомер" Width="20"/>
+          <Component Name="Групповой" Class="Com.Ctrl.IEdit" Caption="Групповой" Field="Current.Групповой" HasCaption="True" Width="15"/>
+          <Component Name="Описание" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Описание" CellFormat="StringFormat" Field="Current.Описание" HasCaption="True" ValueType="VarString" Width="50"/>
+          <Component Name="Корректировка" Class="Com.Ctrl.IEdit" Caption="Корректировка" Field="Current.Корректировка" HasCaption="True" Hint="Корректировка приказа" Width="15"/>
+          <Component Name="КоррПриказ" Class="Com.Ctrl.IEdit" Caption="Корр. приказ" CardFileClass="УправлениеПерсоналом.Tab.Документы.Кадры.Приказы" Field="Current.КоррПриказ" HasCaption="True" Hint="Корректируемый приказ" LookupField="Номер" Width="25"/>
+          <Component Name="Скорректирован" Class="Com.Ctrl.IEdit" Caption="Скорректирован" Field="Current.Скорректирован" HasCaption="True" Hint="Приказ полностью откорректирован" Width="15"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

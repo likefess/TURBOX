@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Tab.Документы.Имущество.КВ.ИмуществоБазовыйДокументКВ">
+  <Inherited>
+    <Inherited Name="Current" Class="Имущество.Rec.Документы.Имущество.КВ.ОбесценениеКВ" IsLibrary="1"/>
+    <Component Name="ПозицииКВ" Class="Имущество.Rec.Документы.Имущество.КВ.ОбесценениеКВ_ПозицииКВ" IsLibrary="1" After="Current"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="КВ" Excluded="True"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FrameSubCardfile" Visible="True">
+        <Component Name="ПозицииКВ_Табл" Class="Com.Ctrl.ISubCardfile" Subtable="Current.ПозицииКВ">
+          <Component Name="КВПоз" Class="Com.Ctrl.IEdit" Field="ПозицииКВ.КВПоз"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

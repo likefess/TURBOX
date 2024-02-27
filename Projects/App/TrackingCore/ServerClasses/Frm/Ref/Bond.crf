@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="TrackingCore.Rec.Ref.Bond" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+          <Component Name="NumberParentTask" Class="Com.Ctrl.IEdit" Excluded="True" Caption="№ Родительской задачи" CaptionWidth="50" CardFileClass="TrackingCore.Tab.Data.Tasks" Field="EdtRec.ParentTask" LookupField="Code" MaxWidth="130" Width="30"/>
+          <Component Name="ParentTask" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Caption="Родительская задача" CaptionWidth="50" CardFileClass="TrackingCore.Tab.Data.Tasks" Field="EdtRec.ParentTask" LookupField="Name" MaxWidth="130" OnGetLookupFilter="ParentTaskOnGetLookupFilter" OnVerify="ParentTask_OnVerify" ValueType="VarVariant" Visible="True"/>
+          <Component Name="NumberChildTask" Class="Com.Ctrl.IEdit" Excluded="True" Caption="№ Дочерней задачи" CaptionWidth="50" CardFileClass="TrackingCore.Tab.Data.Tasks" Field="EdtRec.ChildTask" LookupField="Code" MaxWidth="130" Width="30"/>
+          <Component Name="ChildTask" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Caption="Дочерняя задача" CaptionWidth="50" CardFileClass="TrackingCore.Tab.Data.Tasks" Field="EdtRec.ChildTask" LookupField="Name" MaxWidth="130" OnGetLookupFilter="ChildTaskOnGetLookupFilter" OnVerify="ChildTask_OnVerify" ValueType="VarVariant" Visible="True"/>
+          <Component Name="BondType" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Caption="Связь" CaptionWidth="50" CardFileClass="TrackingCore.Tab.Ref.BondType" Field="EdtRec.BondType" LookupField="ParentTaskName" MaxWidth="130" ValueType="VarVariant" Visible="True"/>
+          <Component Name="TaskStatus" Class="Com.Ctrl.ICheckBox" Alignment="LeftAlign" Caption="Равноправные" Field="EdtRec.TaskStatus" FontSize="11" Visible="True"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

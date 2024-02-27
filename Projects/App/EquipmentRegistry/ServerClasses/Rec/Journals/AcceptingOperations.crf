@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.IStruct">
+    <Component Name="BaseNumber" Class="Com.Fld.IField" FieldName="BaseNumber" ValueType="VarInteger"/>
+    <Component Name="CreatedNum" Class="Com.Fld.IField" FieldName="CreatedNum" ValueType="VarInteger"/>
+    <Component Name="IsDone" Class="Com.Fld.IField" FieldName="IsDone" ValueType="VarLogical"/>
+    <Component Name="UnitCode" Class="Com.Fld.IField" FieldName="UnitCode" ValueType="VarObject"/>
+    <Component Name="OperCode" Class="Com.Fld.IField" FieldName="OperCode" OnChange="OperCodeOnChange" ValueType="VarObject"/>
+    <Component Name="NormNum" Class="Com.Fld.IField" FieldName="NormNum" ValueType="VarInteger"/>
+    <Component Name="FactQuantity" Class="Com.Fld.IField" FieldName="FactQuantity" OnChange="QuantityOnChange" OnVerify="FactQuantityOnVerify" ValueType="VarNumeric"/>
+    <Component Name="FactBegDate" Class="Com.Fld.IField" FieldName="FactBegDate" OnChange="FactBegDateOnChange" ValueType="VarDate"/>
+    <Component Name="FactEndDate" Class="Com.Fld.IField" FieldName="FactEndDate" OnChange="FactEndDateOnChange" OnVerify="FactEndDateOnVerify" ValueType="VarDate"/>
+    <Component Name="PlanBegDate" Class="Com.Fld.IField" FieldName="PlanBegDate" ValueType="VarDate"/>
+    <Component Name="PlanEndDate" Class="Com.Fld.IField" FieldName="PlanEndDate" ValueType="VarDate"/>
+    <Component Name="Canceled" Class="Com.Fld.IField" FieldName="Canceled" OnChange="FactEndDateOnChange" ValueType="VarLogical"/>
+    <Component Name="FactExecutor" Class="Com.Fld.IField" FieldName="FactExecutor" ValueType="VarString"/>
+    <Component Name="PlanQuantity" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+    <Component Name="PlanExecutor" Class="Com.Fld.IVar" ValueType="VarString"/>
+    <Component Name="JobCode" Class="Com.Fld.IVar" OnCalc="JobCodeOnCalc" ValueType="VarInteger"/>
+    <Component Name="curFactExec" Class="Com.Fld.IVar" OnCalc="CurFactExecOnCalc" ValueType="VarString"/>
+  </Component>
+</Resource>

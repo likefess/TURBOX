@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" AccountFilter="счетПроцесс" AccountPlan="ПланСчетовПроцесс" BegDate="01.01.2024" BegSaldoFormat="sfNone" Caption="Документы" CIndicator="1" EndDate="02.01.2024" ExplainSaldoFromOrigin="False" HidePeriod="True" HystoKind="hkSide" Legend="lpkAtRight" Palette="cpDefault" Period="-1" ShowBeyondLimits="False" ShowDebCreRow="False" ShowSumKindRow="False" TurnFormat="sfNone">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorКоличество" Class="Com.Rep.IIndMain" Caption="Количество" Contents="Количество" LimitActive_Saldo="True" LimitActive_Turn="True"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam373A1AEB" Class="Com.Rep.ISplitByDoc"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContent72E94E63" Class="Com.Rep.ISplitContent" Caption="Дата" Contents="Документ.EventTime"/>
+        <Component Name="SplitContent2656C448" Class="Com.Rep.ISplitContent" Caption="Наименование" Contents="Документ.Name"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain">
+      <Component Name="ExplainD52E86F4" Class="Com.Rep.IExplain" DisableDefault="True"/>
+    </Component>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_Процесс.Company" Class="Com.Rep.IRepControl" Active="False" Caption="Предприятие" CardFileClass="Bas.Tab.Data.OurCompanies" DefaultStr="Object(nil)" MultiSelect="True" Operator=" is " Parameter="Процесс.Company" Plan="ПланСчетовПроцесс" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Ресурс" Class="Com.Rep.IRepControl" Active="False" Caption="ТМЦ" CardFileClass="SCM.Tab.Справочники.ТМЦ" DefaultStr="Object(nil)" LookupFilter="ТипРесурса >= 0 and ТипРесурса &lt; 200" MultiSelect="True" Operator=" is " Parameter="Ресурс" Plan="ПланСчетовПроцесс" SkipNil="True" ValueType="VarObject"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

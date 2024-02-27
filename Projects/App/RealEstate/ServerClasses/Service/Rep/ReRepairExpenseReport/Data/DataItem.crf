@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.IStruct">
+    <Component Name="ReObject" Class="Com.Fld.IVar" Caption="Объект недвижимости" RecordClass="RealEstateBase.Rec.Data.RealEstateObject" ValueType="VarObject"/>
+    <Component Name="Year" Class="Com.Fld.IVar"/>
+    <Component Name="Month" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+    <Component Name="MonthStr" Class="Com.Fld.IVar" Caption="Месяц" ValueType="VarString"/>
+    <Component Name="Area" Class="Com.Fld.IVar" Caption="Площадь" ValueType="VarNumeric"/>
+    <Component Name="ContractAmount" Class="Com.Fld.IVar" Caption="Затраты по договорам" ValueType="VarNumeric"/>
+    <Component Name="AcceptedAmount" Class="Com.Fld.IVar" Caption="Фактические затраты" ValueType="VarNumeric"/>
+    <Component Name="OrderedAmount" Class="Com.Fld.IVar" Caption="Затраты по заказам" ValueType="VarNumeric"/>
+    <Component Name="PlannedAmount" Class="Com.Fld.IVar" Caption="Затраты по ППР" ValueType="VarNumeric"/>
+    <Component Name="TotalAmount" Class="Com.Fld.IVar" Caption="Итого затраты" OnCalc="TotalAmountOnCalc" ValueType="VarNumeric"/>
+    <Component Name="TotalAmountPerArea" Class="Com.Fld.IVar" Caption="Затраты на кв.м" OnCalc="TotalAmountPerAreaOnCalc" ValueType="VarNumeric"/>
+  </Component>
+</Resource>

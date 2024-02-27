@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="EquipmentRegistry.Rec.Base.BaseJournalRec" IsLibrary="1"/>
+    <Inherited Name="RootFrame" AutoSize="True" UseSplitter="True">
+      <Inherited Name="FieldsFrame" Visible="False"/>
+      <Component Name="BasicFrame" Class="Com.Ctrl.IFrame" After="FieldsFrame" AutoSize="True" Margins="5">
+        <Component Name="CodeFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="CodeGr" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="220" MinWidth="100">
+            <Component Name="JournalDate" Class="Com.Ctrl.IEdit" Caption="Дата, код" CellFormat="DateFormat" Field="EdtRec.JournalDate" FixSize="True" FormatOfDate="DateAndTime" HasCaption="True" Required="True" Width="48"/>
+            <Component Name="CodeStatic1" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="Код" FixSize="True" Width="40"/>
+            <Component Name="CodeEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Code" HasCaption="False"/>
+            <Component Name="CodeStatic2" Class="Com.Ctrl.IStatic" FixSize="True" Width="5.2"/>
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="2"/>
+            <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Locked" FixSize="True" HasCaption="True" Width="20"/>
+            <Component Name="btnStatus" Class="Com.Ctrl.IButton" Caption="Сменить статус документа" FixSize="True" HasCaption="True" OnClick="CommitReCommit" Width="30"/>
+            <Component Name="BtnStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+            <Component Name="NameEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" HasCaption="True"/>
+            <Component Name="NameStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Company" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="EdtRec.Company" HasCaption="True" LookupField="Name" OnChange="Company_OnChange" OnGetLookupFilter="Company_OnGetLookupFilter" Required="True" ShortList="True"/>
+            <Component Name="CompanyJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Company" FixSize="True" JumpForm="Bas.Frm.Data.Entity" Width="7.2"/>
+          </Component>
+        </Component>
+        <Component Name="MainFrm" Class="Com.Ctrl.IFrame"/>
+        <Component Name="HeadFrm" Class="Com.Ctrl.IFrame"/>
+      </Component>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Margins="0">
+          <Component Name="MainBox" Class="Com.Ctrl.IBox" Caption="Основное"/>
+          <Component Name="LineBox" Class="Com.Ctrl.IBox" Caption="Строки" MinSize="60">
+            <Component Name="LineFrm" Class="Com.Ctrl.IFrame"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

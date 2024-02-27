@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited OnCancel="OnCancel_" OnPost="OnPost_" OnShow="EditorOnShow" OnVerify="OnVerify_" PrintSettings="ИмуществоБазовый.ИмуществоБазовый.cfg">
+    <Inherited Name="EdtRec" Class="Имущество.Rec.Документы.Имущество.ИмуществоБазовыйДокумент" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="перТрудовыеОтношения" Class="Com.Fld.IVar" OnCalc="перТрудовыеОтношения_OnCalc" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame" CanHideBySplit="True" SplitterAtRight="True" UseSplitter="True">
+        <Inherited Name="Group1" Excluded="True" ByColumn="False"/>
+        <Component Name="Шапка_Фрейм" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="Шапка_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="42" MaxWidth="300" MinWidth="150">
+            <Component Name="Шапка_Номер_Дата" Class="Com.Ctrl.IGroup">
+              <Component Name="Номер" Class="Com.Ctrl.IEdit" Field="EdtRec.Номер" FixSize="True" HasCaption="True" Required="True" Visible="True" Width="45"/>
+              <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Caption="от" CaptionWidth="8" Field="EdtRec.ДатаНачала" HasCaption="True" Hint="Дата документа" MaxWidth="40" OnChange="ДатаНачала_OnChange" Required="True" Width="40"/>
+              <Component Name="btnStatic7" Class="Com.Ctrl.IStatic" Width="1"/>
+              <Component Name="btnStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Printed="False" Width="7"/>
+              <Component Name="Проводить" Class="Com.Ctrl.ICheckBox" Excluded="True" Alignment="LeftAlign" Field="EdtRec.Проводить" FixSize="True" HasCaption="True" Hint="В установленном состоянии означает, что документ проводится в соответствующем учете (если не пустая дата проведения по соответствующему учету)" Printed="False" Width="28"/>
+              <Component Name="Замок1" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Locked" FixSize="True" HasCaption="True" Hint="В установленном состоянии означает, что документ закрыт для редактирования" OnVerify="Замок1_OnVerify" Printed="False" Width="25"/>
+            </Component>
+            <Component Name="Шапка_НашеПредприятие_Валюта" Class="Com.Ctrl.IGroup">
+              <Component Name="НашеПредприятие" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="EdtRec.НашеПредприятие" HasCaption="True" Hint="@Наименование нашего предприятия" LookupField="Name" OnChange="НашеПредприятие_OnChange" OnVerify="НашеПредприятие_OnVerify" Required="True" ShortList="True"/>
+              <Component Name="ВалютаДок" Class="Com.Ctrl.IEdit" Caption="Валюта" CaptionWidth="20" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ВалютаДок" Hint="Валюта документа" LookupField="Code" MaxWidth="20" Required="True" ShortList="True" Width="20"/>
+              <Component Name="btnStatic2" Class="Com.Ctrl.IStatic" FixSize="True" Printed="False" Width="7"/>
+              <Component Name="Closed" Class="Com.Ctrl.ICheckBox" Caption="@Имущество.Closed=Завершен" Field="EdtRec.Closed" FixSize="True" HasCaption="True" Printed="False" Width="25"/>
+            </Component>
+            <Component Name="Шапка_Name2" Class="Com.Ctrl.IGroup">
+              <Component Name="Name2" Class="Com.Ctrl.IEdit" Caption="Наименование" Enabled="True" Field="EdtRec.Name" FontBold="True" HasCaption="True"/>
+              <Component Name="btnStatic3" Class="Com.Ctrl.IStatic" FixSize="True" Printed="False" Width="7"/>
+              <Component Name="кнПроводить" Class="Com.Ctrl.IButton" Caption="Проводить" FixSize="True" HasCaption="True" OnClick="кнПроводить_OnClick" Printed="False" Width="25"/>
+              <Component Name="стПроводить" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+            </Component>
+            <Component Name="Шапка_ПервичныйДокумент" Class="Com.Ctrl.IGroup">
+              <Component Name="ПервичныйДокумент" Class="Com.Ctrl.IEdit" Field="EdtRec.ПервичныйДокумент" HasCaption="True" Hint="Наименование документа, на основании которого осуществляется операция с объектом (КВ, ОС, НМА)"/>
+              <Component Name="btnStatic4" Class="Com.Ctrl.IStatic" FixSize="True" Printed="False" Width="7"/>
+              <Component Name="btnStatic5" Class="Com.Ctrl.IStatic" FixSize="True" Printed="False" Width="25"/>
+            </Component>
+            <Component Name="Корректировка_Гр" Class="Com.Ctrl.IGroup">
+              <Component Name="стКорректировка" Class="Com.Ctrl.IStatic" FixSize="True" Width="42"/>
+              <Component Name="Корректировка" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Корректировка" HasCaption="False" Hint="Формируемый документ является корректирующим" MaxWidth="40" OnChange="Корректировка_OnChange" Width="40"/>
+              <Component Name="КорректируемыйДокумент" Class="Com.Ctrl.IEdit" CaptionWidth="52" CardFileClass="Имущество.Tab.Документы.Имущество.ИмуществоБазовыйДокумент" CellFormat="ReferenceFormat" Field="EdtRec.КорректируемыйДокумент" HasCaption="False" Hint="@Имущество:КорректируемыйДокумент=Корректируемый документ" LookupField="Номер" OnChange="КорректируемыйДокумент_OnChange" OnGetLookupFilter="КорректируемыйДокумент_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуКорректируемыйДокумент" Required="True"/>
+              <Component Name="кнКорректируемыйДокумент" Class="Com.Ctrl.IJumpButton" Field="EdtRec.КорректируемыйДокумент" JumpForm="Имущество.Frm.Документы.Имущество.ИмуществоБазовыйДокумент"/>
+              <Component Name="btnStatic6" Class="Com.Ctrl.IStatic" FixSize="True" Printed="False" Width="25"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="ОбщиеДанные" Class="Com.Ctrl.IBox" Caption="Общие данные">
+            <Component Name="Подр_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="Подразделение" Class="Com.Ctrl.IEdit" Caption="Подразделение" CardFileClass="Bas.Tab.Data.Divisions" Field="EdtRec.Подразделение" HasCaption="True" Hint="Наименование подразделения, за которым закреплен данный объект имущества, по состоянию на текущую дату" Multiline="True" OnChange="Подразделение_OnChange" OnGetLookupFilter="Подразделение_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуПодразделение" Required="True" Wrap="True"/>
+            </Component>
+            <Component Name="МОЛ_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ТрудовыеОтношения_Выбор" Class="Com.Ctrl.IEdit" Caption="МОЛ" CardFileClass="Biz.Tab.Data.LabourRelations" Field="перТрудовыеОтношения" HasCaption="True" Hint="ФИО материально-ответственного лица, за которым закреплен данный объект имущества, по состоянию на текущую дату" LookupField="Person.Name" Multiline="True" OnChange="ТрудовыеОтношения_Выбор_OnChange" OnGetLookupFilter="ТрудовыеОтношения_Выбор_OnGetLookupFilter" Required="True" Wrap="True"/>
+              <Component Name="МОЛ" Class="Com.Ctrl.IEdit" Caption="МОЛ" CardFileClass="Bas.Tab.Data.Entity" Field="EdtRec.МОЛ" HasCaption="True" Hint="ФИО материально-ответственного лица, за которым закреплен данный объект имущества, по состоянию на текущую дату" Multiline="True" OnChange="МОЛ_OnChange" OnGetLookupFilter="МОЛ_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуМОЛ" Required="True" Wrap="True"/>
+            </Component>
+            <Component Name="Стоимость_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="Стоимость" Class="Com.Ctrl.IEdit" Field="EdtRec.Стоимость" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Стоимость объекта (без учета НДС)" MaxWidth="40" MinWidth="30" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify" Required="True"/>
+            </Component>
+          </Component>
+          <Component Name="Комментарии_Box" Class="Com.Ctrl.IBox" Caption="Комментарии" HasCaption="True">
+            <Component Name="Комментарии_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="Комментарии" Class="Com.Ctrl.IEdit" Field="EdtRec.Комментарии" HasCaption="False" Multiline="True" Wrap="True"/>
+            </Component>
+          </Component>
+          <Component Name="СистемныеПоля" Class="Com.Ctrl.IBox" Caption="Системные поля" Collapsed="True" Printed="False" Visible="True">
+            <Component Name="ГрСоздание" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="Создал" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.CreateUser" HasCaption="True"/>
+              <Component Name="СоздалДата" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" Field="EdtRec.CreateDate" FormatOfDate="DateAndTime" HasCaption="True"/>
+            </Component>
+            <Component Name="ГрИзменение" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="Изменил" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.UpdateUser" HasCaption="True"/>
+              <Component Name="ИзменилДата" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" Field="EdtRec.UpdateDate" FormatOfDate="DateAndTime" HasCaption="True"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

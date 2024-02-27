@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Frm.FlowCharts.Operations">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="MainGr">
+            <Component Name="eSPACost" Class="Com.Ctrl.IEdit" After="eOtherCost" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.SPACost" FieldFormat="0.00" HasCaption="True"/>
+            <Component Name="WorkShift" Class="Com.Ctrl.IEdit" After="eDuration" Caption="Смена" CardFileClass="Repair.Tab.FlowCharts.WorkShift" CellFormat="ReferenceFormat" Field="EdtRec.WorkShift" HasCaption="True" LookupField="Name"/>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="WorkersFrame">
+          <Component Name="BrigadeBox" Class="Com.Ctrl.IBox" HasCaption="True" Margins="5">
+            <Component Name="BrigadeTable" Class="Com.Ctrl.ITable" Freezed="False" Numbering="True" OnDelete="sbtWorkersBOnDelete" OnInsert="BrigadeTable_OnInsert" Subtable="EdtRec.sbtWorkersB">
+              <Component Name="vDefPosWB" Class="Repair.Rec.FlowCharts.OperationsWorkersBrigade" IsLibrary="1"/>
+              <Component Name="sbtWBCode" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.Ref.Brigade.BrigadeTypes" CellFormat="ReferenceFormat" Field="vDefPosWB.BrigadeType" FixSize="True" HasCaption="True" LookupField="Code" Required="True" Width="40"/>
+              <Component Name="sbtWBNameGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+                <Component Name="sbtWBName" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.Ref.Brigade.BrigadeTypes" CellFormat="ReferenceFormat" Field="vDefPosWB.BrigadeType" FixSize="True" HasCaption="False" LookupField="Name" Required="True" Width="60"/>
+                <Component Name="sbtWBNameJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosWB.BrigadeType" FixSize="True" HasCaption="False" Width="7.2"/>
+              </Component>
+              <Component Name="sbtWBTime" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="vDefPosWB.WorkTime" FieldFormat="0.00" FixSize="True" HasCaption="True" OnEnter="sbtWBOnEnter" Width="30"/>
+              <Component Name="sbtWBPrice" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosWB.Price" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" OnOutputEx="sbtWBPrice_OnOutputEx" Width="30"/>
+              <Component Name="sbtWBCost" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosWB.Cost" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" OnOutputEx="sbtWBCost_OnOutputEx" Width="30"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="SPAFrame" Class="Com.Ctrl.IFrame" HasCaption="True" Margins="5">
+          <Component Name="SPATable" Class="Com.Ctrl.ITable" Freezed="False" Numbering="False" Subtable="EdtRec.sbtSPALines">
+            <Component Name="vDefPosSPA" Class="Repair.Rec.FlowCharts.OperationsSPALines" IsLibrary="1"/>
+            <Component Name="sbtSPAModelCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Equipment.ClassesTab" CellFormat="ReferenceFormat" Field="vDefPosSPA.ModelCode" FixSize="True" HasCaption="True" LookupField="Code" Required="True" Width="40"/>
+            <Component Name="sbtSPAModelNameGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtSPAModelName" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Equipment.ClassesTab" CellFormat="ReferenceFormat" Field="vDefPosSPA.ModelCode" FixSize="True" HasCaption="False" LookupField="Name" Required="True" Width="60"/>
+              <Component Name="sbtSPAModelNameJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosSPA.ModelCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtSPAHours" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="vDefPosSPA.Hours" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" OnEnter="sbtSPAOnEnter" Width="30"/>
+            <Component Name="sbtSPAPrice" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="vDefPosSPA.Price" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" OnEnter="sbtSPAOnEnter" Width="30"/>
+            <Component Name="sbtSPACost" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosSPA.Cost" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" Width="30"/>
+          </Component>
+        </Component>
+        <Component Name="OperatingControlFrame" Class="Com.Ctrl.IFrame" Caption="Показатели наработки" HasCaption="True" Margins="5">
+          <Component Name="OperatingControlTable" Class="Com.Ctrl.ITable" Freezed="False" Numbering="False" Subtable="EdtRec.sbtOperatingControl">
+            <Component Name="vDefPosOperCtrl" Class="Repair.WR.Rec.Ref.OperationsOperatingControl" IsLibrary="1"/>
+            <Component Name="sbtOCCode" Class="Com.Ctrl.IEdit" Caption="Код" CardFileClass="EquipmentRegistry.Tab.Ref.Attributes.OperatingTab" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosOperCtrl.OperatingType" FixSize="True" HasCaption="True" LookupField="Code" Required="True" Width="40"/>
+            <Component Name="sbtOCNameGr" Class="Com.Ctrl.IColumnsGroup" Caption="Наименование" HasCaption="True">
+              <Component Name="sbtOCName" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Attributes.OperatingTab" CellFormat="ReferenceFormat" Field="vDefPosOperCtrl.OperatingType" FixSize="True" HasCaption="False" LookupField="Name" Required="True" Width="60"/>
+              <Component Name="sbtOCNameJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosOperCtrl.OperatingType" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtOCUnit" Class="Com.Ctrl.IEdit" Caption="Ед.изм." CardFileClass="EquipmentRegistry.Tab.Ref.Attributes.OperatingTab" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosOperCtrl.OperatingType" FixSize="True" HasCaption="True" LookupField="UnitOfMeasure.Code" Required="True" Width="30"/>
+            <Component Name="sbtOCIsRequired" Class="Com.Ctrl.ICheckBox" Caption="О" Field="vDefPosOperCtrl.IsRequired" FixSize="True" HasCaption="True" Width="15"/>
+          </Component>
+        </Component>
+        <Component Name="ParameterControlFrame" Class="Com.Ctrl.IFrame" Caption="Контролируемые параметры" HasCaption="True" Margins="5">
+          <Component Name="ParameterControlTable" Class="Com.Ctrl.ITable" Freezed="False" Numbering="False" Subtable="EdtRec.sbtParameterControl">
+            <Component Name="vDefPosParmCtrl" Class="Repair.WR.Rec.Ref.OperationsParameterControl" IsLibrary="1"/>
+            <Component Name="sbtPCCode" Class="Com.Ctrl.IEdit" Caption="Код" CardFileClass="EquipmentRegistry.Tab.Ref.Attributes.ParametersTab" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosParmCtrl.ParameterType" FixSize="True" HasCaption="True" LookupField="Code" Required="True" Width="40"/>
+            <Component Name="sbtPCNameGr" Class="Com.Ctrl.IColumnsGroup" Caption="Наименование" HasCaption="True">
+              <Component Name="sbtPCName" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Attributes.ParametersTab" CellFormat="ReferenceFormat" Field="vDefPosParmCtrl.ParameterType" FixSize="True" HasCaption="False" LookupField="Name" Required="True" Width="60"/>
+              <Component Name="sbtPCNameJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosParmCtrl.ParameterType" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtPCUnit" Class="Com.Ctrl.IEdit" Caption="Ед.изм." CardFileClass="EquipmentRegistry.Tab.Ref.Attributes.ParametersTab" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosParmCtrl.ParameterType" FixSize="True" HasCaption="True" LookupField="UnitOfMeasure.Code" Required="True" Width="30"/>
+            <Component Name="sbtPCIsRequired" Class="Com.Ctrl.ICheckBox" Caption="О" Field="vDefPosParmCtrl.IsRequired" FixSize="True" HasCaption="True" Width="15"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

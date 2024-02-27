@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Frm.Doc.Move">
+  <Inherited>
+    <Inherited Name="FRecord" Class="Спецодежда.Rec.Документы.ОперДокумент" IsLibrary="1"/>
+    <Inherited Name="EdtRec" Class="Спецодежда.Rec.Документы.ОперДокумент" IsLibrary="1"/>
+    <Inherited Name="RootFrame" ScrollerStyle="ScrollerNone">
+      <Component Name="UserHeaderFrame" Class="Com.Ctrl.IFrame" After="FieldsFrame" AutoSize="True" ScrollerStyle="ScrollerNone" Visible="False">
+        <Component Name="UserHeaderGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+          <Component Name="PrintedNumber" Class="Com.Ctrl.IEdit" Caption="№" CaptionWidth="10" CellFormat="StringFormat" Field="FRecord.PrintedNumber" HasCaption="True" MaxWidth="30"/>
+          <Component Name="EventTime" Class="Com.Ctrl.IEdit" Caption="@от" CaptionWidth="7" Field="FRecord.EventTime" FieldFormat="dd/mm/yyyy" FixSize="True" FormatOfDate="DateOnly" HasCaption="True" Width="30"/>
+          <Component Name="Accounted" Class="Com.Ctrl.ICheckBox" Caption="@Проводить" Field="FRecord.Accounted" FixSize="True" Width="26"/>
+          <Component Name="LockedCB" Class="Com.Ctrl.ICheckBox" Caption="@Замок" Field="FRecord.Locked" FixSize="True" Width="18"/>
+          <Component Name="Closed" Class="Com.Ctrl.ICheckBox" Caption="@Завершен" Field="FRecord.Closed" FixSize="True" Width="25"/>
+        </Component>
+      </Component>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Component Name="MainBox" Class="Com.Ctrl.IBox" After="#0" Caption="Основное" HasCaption="True" Visible="False">
+            <Component Name="DescriptionGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="Description" Class="Com.Ctrl.IEdit" Caption="@Наименование" Field="FRecord.Description" HasCaption="True"/>
+              <Component Name="BtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+          </Component>
+          <Component Name="CreateUpdateBox" Class="Com.Ctrl.IBox" Caption="@Упр:CreateUpdate=Создал, изменил" Collapsed="True">
+            <Component Name="CreateUpdateGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="CULeftGr" Class="Com.Ctrl.IGroup" ByColumn="True">
+                <Component Name="CreateUserGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="CreateUser" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="FRecord.CreateUser" HasCaption="True"/>
+                  <Component Name="BtnStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="UpdateUserGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="UpdateUser" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="FRecord.UpdateUser" HasCaption="True"/>
+                  <Component Name="BtnStatic2" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+              </Component>
+              <Component Name="CURightGr" Class="Com.Ctrl.IGroup" ByColumn="True" CaptionWidth="15">
+                <Component Name="CreateDateGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="CreateDate" Class="Com.Ctrl.IEdit" Caption="@Дата" CellFormat="DateFormat" Enabled="False" Field="FRecord.CreateDate" HasCaption="True"/>
+                  <Component Name="BtnStatic3" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="UpdateDateGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="UpdateDate" Class="Com.Ctrl.IEdit" Caption="@Дата" CellFormat="DateFormat" Enabled="False" Field="FRecord.UpdateDate" HasCaption="True"/>
+                  <Component Name="BtnStatic4" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Inherited Name="GeneralBox" Excluded="True"/>
+          <Inherited Name="ValueBox" Excluded="True"/>
+          <Inherited Name="CategoryBox" Excluded="True"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

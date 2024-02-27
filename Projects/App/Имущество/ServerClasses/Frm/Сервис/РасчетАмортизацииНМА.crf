@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited HelpContext="Имущество.Имущество.Задания.Расчет амортизации НМА">
+    <Inherited Name="Variables">
+      <Component Name="перПредприятие" Class="Com.Fld.IVar" Caption="Предприятие" OnCalc="перПредприятие_OnCalc" OnChange="перПредприятие_OnChange" ValueType="VarObject"/>
+      <Component Name="перНП" Class="Com.Fld.IVar" Caption="Уч.политикпа предприятия" OnCalc="перНП_OnCalc" ValueType="VarObject"/>
+      <Component Name="перПодразделение" Class="Com.Fld.IArray" Caption="Подразделение" OnCalc="перПодразделение_OnCalc" OnChange="перПодразделение_OnChange" ValueType="VarObject"/>
+      <Component Name="перНМА" Class="Com.Fld.IArray" Caption="НМА" OnCalc="перНМА_OnCalc" OnChange="перНМА_OnChange" ValueType="VarObject"/>
+      <Component Name="перПериодРасчета" Class="Com.Fld.IVar" Caption="Период расчета" OnCalc="перПериодРасчета_OnCalc" OnChange="перПериодРасчета_OnChange" ValueType="VarObject"/>
+      <Component Name="перПроводить" Class="Com.Fld.IVar" OnCalc="перПроводить_OnCalc" OnChange="перПроводить_OnChange" ValueType="VarLogical"/>
+      <Component Name="перКоличествоПотоков" Class="Com.Fld.IVar" OnCalc="перКоличествоПотоков_OnCalc" OnChange="перКоличествоПотоков_OnChange" ValueType="VarInteger"/>
+      <Component Name="перКоличествоПозиций" Class="Com.Fld.IVar" OnCalc="перКоличествоПозиций_OnCalc" OnChange="перКоличествоПозиций_OnChange" ValueType="VarInteger"/>
+      <Component Name="перРазбиватьПоПодразделениям" Class="Com.Fld.IVar" OnCalc="перРазбиватьПоПодразделениям_OnCalc" OnChange="перРазбиватьПоПодразделениям_OnChange" ValueType="VarLogical"/>
+      <Component Name="перЧтоФормировать" Class="Com.Fld.IVar" OnCalc="перЧтоФормировать_OnCalc" OnChange="перЧтоФормировать_OnChange" ValueType="VarInteger"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonOK" Visible="False"/>
+        <Inherited Name="ButtonRefresh" After="ButtonClose" Caption="@Имущестао:РассчетАморизацииНМА=Рассчет амортизации НМА" Hint="@Имущестао:ЗапускПроцедурыРассчетаАморизацииНМА=Запуск процедуры рассчета амортизации НМА"/>
+        <Inherited Name="HeaderSeparator" After="ButtonRefresh"/>
+        <Inherited Name="ButtonHelp" After="HeaderSeparator"/>
+        <Inherited Name="ButtonPrint" After="ButtonHelp"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="фрПараметры" Class="Com.Ctrl.IFrame" Caption="Параметры">
+          <Component Name="грПараметры" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150" Visible="True">
+            <Component Name="редПредприятие" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="перПредприятие" HasCaption="True" Hint="@Наименование нашего предприятия" LookupField="Name" MaxWidth="300" MinWidth="50" OnChange="редПредприятие_OnChange" OnVerify="редПредприятие_OnVerify" Required="True"/>
+            <Component Name="редПодразделение" Class="Com.Ctrl.IListEdit" CardFileClass="Bas.Tab.Data.Divisions" CellFormat="ReferenceFormat" Field="перПодразделение" HasCaption="True" Hint="@Наименование подразделения" LookupField="Name" MaxWidth="300" MinWidth="50" OnGetLookupFilter="редПодразделение_OnGetLookupFilter" OnOpenCardForm="редПодразделение_OnOpenCardForm"/>
+            <Component Name="редНМА" Class="Com.Ctrl.IListEdit" CardFileClass="ИмуществоБазовый.Tab.Справочники.НМА" CellFormat="ReferenceFormat" Field="перНМА" HasCaption="True" Hint="@Имущество:НаименованиеНМА=Наименование НМА" LookupField="Name" MaxWidth="300" MinWidth="50" OnGetLookupFilter="редНМА_OnGetLookupFilter" OnOpenCardForm="редНМА_OnOpenCardForm"/>
+            <Component Name="грПериоды" Class="Com.Ctrl.IGroup" ByColumn="False">
+              <Component Name="редПериодРасчета" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.Period" CellFormat="ReferenceFormat" Field="перПериодРасчета" HasCaption="True" Hint="@Период, за который производится расчет амортизации" LookupField="Name" MaxWidth="300" MinWidth="50" OnOpenCardForm="ПериодРасчета_OnOpenCardForm" Required="True"/>
+              <Component Name="ButtonPrev" Class="Com.Ctrl.IButton" Hint="Предыдущий" ImageName="Com.chevron-double-left" OnClick="ButtonPrev_OnClick"/>
+              <Component Name="ButtonNext" Class="Com.Ctrl.IButton" Hint="Следующий" ImageName="Com.chevron-double-right" OnClick="ButtonNext_OnClick"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="бксПараметрыДокументов" Class="Com.Ctrl.IBox" Caption="Создание документов">
+          <Component Name="грПараметрыДокументов" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+            <Component Name="редЧтоФормировать" Class="Com.Ctrl.IEdit" Caption="Документ" CellFormat="EnumFormat" Field="перЧтоФормировать" FixSize="True" Hint="Тип документов по амортизации, которые будут формироваться при расчете" OnChange="редЧтоФормировать_OnChange" Width="28"/>
+            <Component Name="редКоличествоПотоков" Class="Com.Ctrl.IEdit" Caption="Количество потоков" Field="перКоличествоПотоков" FieldFormat="#0" FixSize="True" Hint="Производить обработку параллельно, в указанном количестве потоков (если 0 или 1, то разделения на потоки нет)" Width="28"/>
+            <Component Name="редКоличествоПозиций" Class="Com.Ctrl.IEdit" Caption="Количество позиций" Field="перКоличествоПозиций" FieldFormat="#0" FixSize="True" Hint="Максимальное количество позиций в создаваемых документах (если 0, то ограничения нет)" Width="28"/>
+            <Component Name="грРазбиение" Class="Com.Ctrl.IGroup">
+              <Component Name="стРазбиватьПоПодразделениям" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              <Component Name="редРазбиватьПоПодразделениям" Class="Com.Ctrl.ICheckBox" Caption="Разбивать по подразделениям" Field="перРазбиватьПоПодразделениям" Hint="@Имущество:УстанавливатьФлагПроводить=Создавать отдельные документы для каждого подразделения"/>
+            </Component>
+            <Component Name="грПроводить" Class="Com.Ctrl.IGroup" ByColumn="False">
+              <Component Name="стПроводить" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              <Component Name="редПроводить" Class="Com.Ctrl.ICheckBox" Caption="Проводить" Field="перПроводить" Hint="@Имущество:УстанавливатьФлагПроводить=Устанавливать флаг &quot;Проводить&quot; в создаваемых документах"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

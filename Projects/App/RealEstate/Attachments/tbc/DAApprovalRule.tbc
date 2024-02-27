@@ -1,0 +1,70 @@
+﻿TBCFile VER="3.4" [Created '16.08.2022 1:21:37' by 'Администратор']
+
+DESCRIPTION[
+Count=1
+CountByRef=0
+DocApprovement.Ref.DAApprovalRule
+(
+  Count=1
+  CountByRef=0
+)
+DocApprovement.Ref.Doc.DADoc
+(
+  Count=0
+  CountByRef=0
+)
+DocApprovement.Ref.Tmpl.DATemplate
+(
+  Count=0
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [DocApprovement.Ref.DAApprovalRule
+  (
+    CreateDate :Date
+    CreateUser :String(40)
+    Code :String(80)
+    Name :String(255)
+    Doc :DocApprovement.Ref.Doc.DADoc
+    DocPrj :String
+    Template :DocApprovement.Ref.Tmpl.DATemplate
+    isActive :Boolean
+  )
+  ForeignKey Code
+  ]
+
+  [DocApprovement.Ref.Doc.DADoc
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+  [DocApprovement.Ref.Tmpl.DATemplate
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[DocApprovement.Ref.DAApprovalRule
+  
+  {DocApprovement.Ref.DAApprovalRule:"Согласование договоров"}
+  (
+    CreateDate = 22.04.2022 16:14:09
+    CreateUser = "Администратор"
+    Name = "Согласование договоров"
+    Doc = {DocApprovement.Ref.Doc.DADoc:Договор}
+    DocPrj = "Biz"
+    Template = {DocApprovement.Ref.Tmpl.DATemplate:"Согласование договоров"}
+    isActive = True
+  )
+]
+
+]

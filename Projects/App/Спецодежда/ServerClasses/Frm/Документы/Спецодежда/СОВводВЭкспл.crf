@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Спецодежда.Frm.Документы.Спецодежда.СОДок">
+  <Inherited>
+    <Inherited Name="FRecord" Class="Спецодежда.Rec.Документы.СОВводВЭкспл" IsLibrary="1"/>
+    <Inherited Name="EdtRec" Class="Спецодежда.Rec.Документы.СОВводВЭкспл" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Component Name="ButDeleteIssue" Class="Com.Ctrl.IButton" Caption="@Отмена ввода в эксплуатацию" HasCaption="True" ImageName="Com.Ctrl.JumpButton" OnClick="WCDeleteIssue"/>
+          <Component Name="ButWCIssue" Class="Com.Ctrl.IButton" Caption="@Подбор ТМЦ" HasCaption="True" ImageName="Com.Ctrl.JumpButton" OnClick="WCIssueFormOpen"/>
+          <Component Name="ButUpdateSCM" Class="Com.Ctrl.IButton" Caption="@Обновить в УЦП" HasCaption="True" ImageName="Com.Ctrl.JumpButton" OnClick="UpdateSCM"/>
+        </Inherited>
+        <Inherited Name="ButtonClone" Visible="False"/>
+      </Inherited>
+      <Inherited Name="UserHeaderFrame" Visible="True">
+        <Inherited Name="UserHeaderGr">
+          <Inherited Name="PrintedNumber" Enabled="False"/>
+          <Inherited Name="LockedCB" OnChange="LockedCB_OnChange"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="MainBox" Visible="True"/>
+          <Component Name="ExtraBox" Class="Com.Ctrl.IBox" After="MainBox" Caption="@Дополнительно">
+            <Component Name="ExtraGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="CommentEdit" Class="Com.Ctrl.IEdit" Caption="@Комментарий" CellFormat="StringFormat" Field="FRecord.Comment" HasCaption="True" Hint="@Произвольный текст" Multiline="True" Wrap="True"/>
+              <Component Name="BtnStatic6" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+          </Component>
+          <Component Name="AmountBox" Class="Com.Ctrl.IBox" Caption="@Цены, суммы" HasCaption="True">
+            <Component Name="AmountGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="AmountHeader" Class="Com.Ctrl.IEdit" Caption="@Сумма" CellFormat="NumericFormat" Enabled="False" Field="FRecord.Amount" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@Сумма в валюте документа" MaxWidth="40"/>
+              <Component Name="CurrencyHeader" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Enabled="False" Field="FRecord.ЕдИзм" FixSize="True" HasCaption="False" LookupField="Code" ShortList="True" Width="20"/>
+            </Component>
+          </Component>
+          <Component Name="PositionsBox" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@WCAcquisition.Positions=Позиции" HasCaption="True" Margins="5">
+            <Component Name="PositionsTable" Class="Com.Ctrl.ITable" CanInsert="False" Freezed="False" Subtable="FRecord.Positions">
+              <Component Name="vDefPos" Class="Спецодежда.Rec.Документы.СОВводВЭкспл_Позиции" IsLibrary="1"/>
+              <Component Name="WCNameGr" Class="Com.Ctrl.IColumnsGroup" Caption="@Наименование" HasCaption="True">
+                <Component Name="WC_Name" Class="Com.Ctrl.IEdit" CardFileClass="Спецодежда.Tab.Справочники.СО" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPos.WC" HasCaption="False" LookupField="Name" Width="60"/>
+                <Component Name="WCJB" Class="Com.Ctrl.IJumpButton" Field="vDefPos.WC" HasCaption="False" JumpForm="Спецодежда.Frm.Справочники.СО"/>
+              </Component>
+              <Component Name="WC_Code" Class="Com.Ctrl.IEdit" Caption="@Код СО" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPos.WC" HasCaption="True" LookupField="Code" Width="30"/>
+              <Component Name="ResourceGr" Class="Com.Ctrl.IColumnsGroup" Caption="@Код ТМЦ" HasCaption="True">
+                <Component Name="Res_Code" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Resources" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPos.Resource" HasCaption="False" LookupField="Code" Width="30"/>
+                <Component Name="ResJB" Class="Com.Ctrl.IJumpButton" Field="vDefPos.Resource" HasCaption="False" JumpForm="Biz.Frm.Data.Resource"/>
+              </Component>
+              <Component Name="Price" Class="Com.Ctrl.IEdit" Caption="@Цена" CellFormat="NumericFormat" Enabled="False" Field="vDefPos.Price" FieldFormat=",##0.00;;-" HasCaption="True" Width="25"/>
+              <Component Name="PartyGr" Class="Com.Ctrl.IColumnsGroup" Caption="@Партия" HasCaption="True">
+                <Component Name="Party" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPos.Party" HasCaption="False" LookupField="Name" Width="85"/>
+                <Component Name="PartyJB" Class="Com.Ctrl.IJumpButton" Field="vDefPos.Party" HasCaption="False"/>
+              </Component>
+              <Component Name="Sizes" Class="Com.Ctrl.IEdit" Caption="@Размер" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPos.Size" HasCaption="True" LookupField="Name" Width="30"/>
+              <Component Name="Height" Class="Com.Ctrl.IEdit" Caption="@Рост" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPos.Height" HasCaption="True" LookupField="Name" Width="30"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="TransTab" Class="Com.Ctrl.IFrame" Caption="@Form:TransTab=Проводки" HasCaption="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.БазовыйДокумент">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Кадровые документы.Общие кадровые документы.Штатное расписание">
+    <Component Name="Позиции" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ШтатноеРасписание_Позиции" IsLibrary="1" After="#0"/>
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ШтатноеРасписание" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="тбИтоги" Class="Com.ISubtable"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False">
+          <Component Name="кнЗаполнить" Class="Com.Ctrl.IButton" Caption="Заполнить штатное расписание" HasCaption="True" OnClick="кнЗаполнитьПриНажатии"/>
+          <Component Name="кнИзменить" Class="Com.Ctrl.IButton" Caption="Изменить шт. расписание" HasCaption="True" OnClick="кнИзменить_OnClick"/>
+        </Inherited>
+        <Inherited Name="кнПечатьУнФорма" Caption="Форма Т-3" HasCaption="False" Hint="Унифицированная форма Т-3" Visible="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" CanHideBySplit="True" SplitterAtRight="True" UseSplitter="True">
+        <Inherited Name="grMain">
+          <Inherited Name="Предприятие" OnVerify="Предприятие_OnVerify"/>
+        </Inherited>
+        <Inherited Name="грТипДокумента">
+          <Component Name="ТипДокумента" Class="Com.Ctrl.IEdit" Caption="Тип документа" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ТипыДокументов" Field="EdtRec.ТипДокумента" HasCaption="True" Hint="Тип первичного документа" OnGetLookupFilter="ТипДокумента_OnGetLookupFilter" OnOpenCardForm="ТипДокумента_OnOpenCardForm"/>
+          <Component Name="кнТипПриказа" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ТипДокумента" JumpForm="УправлениеПерсоналом.Frm.Классификаторы.ТипДокумента"/>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+        </Inherited>
+        <Inherited Name="grNumberDate">
+          <Inherited Name="ДатаДокумента" Hint=" Дата составления"/>
+        </Inherited>
+        <Component Name="грПериод" Class="Com.Ctrl.IGroup" After="grNumberDate" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="ИмяПериода" Class="Com.Ctrl.IEdit" Caption="Период" Field="EdtRec.ИмяПериода" HasCaption="True" Hint="Период действия документа (описание)" Width="30"/>
+          <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Caption="с" Field="EdtRec.ДатаНачала" FormatOfDate="DateOnly" HasCaption="False" Hint="Дата начала периода" MaxWidth="35" OnVerify="ДатаНачала_OnVerify" Width="35"/>
+          <Component Name="ДатаОкончания" Class="Com.Ctrl.IEdit" Caption="-" CaptionWidth="7" Field="EdtRec.ДатаОкончания" FormatOfDate="DateOnly" HasCaption="True" Hint="Дата окончания периода" MaxWidth="35" OnVerify="ДатаОкончания_OnVerify" Width="35"/>
+          <Component Name="Static5" Class="Com.Ctrl.IStatic" FixSize="True" Width="37"/>
+        </Component>
+        <Component Name="грПриказ" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="НомерПриказа" Class="Com.Ctrl.IEdit" Caption="Приказ №" Field="EdtRec.НомерПриказа" HasCaption="True" Hint="Утверждено приказом №" Width="50"/>
+          <Component Name="ДатаПриказа" Class="Com.Ctrl.IEdit" Caption="от" CaptionWidth="7" Field="EdtRec.ДатаПриказа" FormatOfDate="DateOnly" HasCaption="True" Hint="Утверждено приказом от (дата)" MaxWidth="35" Width="35"/>
+          <Component Name="Static6" Class="Com.Ctrl.IStatic" FixSize="True" Width="37"/>
+        </Component>
+        <Inherited Name="грОписание">
+          <Inherited Name="Static3" Width="37"/>
+        </Inherited>
+        <Inherited Name="грПримечание">
+          <Inherited Name="Static4" Width="37"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="@Frm:MainTab=Строки" UseSplitter="False">
+          <Component Name="фрНадбавки" Class="Com.Ctrl.IFrame" AutoSize="True" HasCaption="False">
+            <Component Name="грНадбавки" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="ВидНадбавки1" Class="Com.Ctrl.IEdit" Caption="Надбавки" CaptionWidth="25" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Field="EdtRec.Надбавка1" HasCaption="True" Hint="Первая надбавка" LookupField="Name" OnChange="ВидНадбавки_OnChange" OnGetLookupFilter="ВидНадбавки_OnGetLookupFilter" OnVerify="ВидНадбавки1_OnVerify" ShortList="True"/>
+              <Component Name="ВидНадбавки2" Class="Com.Ctrl.IEdit" Caption="Надбавка 2" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Field="EdtRec.Надбавка2" HasCaption="False" Hint="Вторая надбавка" LookupField="Name" OnChange="ВидНадбавки_OnChange" OnGetLookupFilter="ВидНадбавки_OnGetLookupFilter" OnVerify="ВидНадбавки2_OnVerify" ShortList="True"/>
+              <Component Name="ВидНадбавки3" Class="Com.Ctrl.IEdit" Caption="Надбавка 3" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Field="EdtRec.Надбавка3" HasCaption="False" Hint="Третья надбавка" LookupField="Name" OnChange="ВидНадбавки_OnChange" OnGetLookupFilter="ВидНадбавки_OnGetLookupFilter" OnVerify="ВидНадбавки3_OnVerify" ShortList="True"/>
+            </Component>
+          </Component>
+          <Component Name="фрПозиции" Class="Com.Ctrl.IFrame" Margins="5">
+            <Component Name="тблПозиции" Class="Com.Ctrl.ITable" Sortable="True" Subtable="EdtRec.Позиции">
+              <Component Name="грШтЭлемент" Class="Com.Ctrl.IColumnsGroup" Caption="@Штатный элемент" HasCaption="True">
+                <Component Name="ШтЭлемент" Class="Com.Ctrl.IEdit" Caption="@Подразделение" CardFileClass="HRBase.Tab.Data.StaffingUnit" Field="Позиции.ШтЭлемент" HasCaption="True" LookupField="Division.Name" OnChange="ШтЭлемент_OnChange" OnGetLookupFilter="Подразделение_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуПодразделения" OnOutputEx="Подразделение_OnOutputEx" Width="60" Wrap="True"/>
+                <Component Name="Должность" Class="Com.Ctrl.IEdit" Caption="@Должность" CardFileClass="HRBase.Tab.Data.StaffingUnit" Enabled="False" Field="Позиции.ШтЭлемент" HasCaption="True" LookupField="Position.Name" Width="50" Wrap="True"/>
+                <Component Name="Разряд" Class="Com.Ctrl.IEdit" Caption="@Разряд" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ТарифныеРазряды" Enabled="False" Field="Позиции.ШтЭлемент" HasCaption="True" LookupField="Разряд.Name" Width="50" Wrap="True"/>
+                <Component Name="кнРедактировать" Class="Com.Ctrl.IJumpButton" Field="Позиции.ШтЭлемент" ImageName="Com.JumpButton" JumpForm="HRBase.Frm.Data.StaffingUnit"/>
+              </Component>
+              <Component Name="КолЕд" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Кол-во штатных единиц" Enabled="False" Field="Позиции.КолЕд" HasCaption="True" Width="20"/>
+              <Component Name="Ставка" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Тарифная ставка (оклад), руб." Enabled="False" Field="Позиции.Ставка" FieldFormat=",##0.00;;-" HasCaption="True" Width="35"/>
+              <Component Name="грПозицииНадбавки" Class="Com.Ctrl.IColumnsGroup" Caption="Надбавка, руб." HasCaption="True">
+                <Component Name="Сумма1" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Надбавка 1" Enabled="False" Field="Позиции.Сумма1" HasCaption="True" OnOutputEx="Сумма1_OnOutputEx" Width="35"/>
+                <Component Name="Сумма2" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Надбавка 2" Enabled="False" Field="Позиции.Сумма2" HasCaption="True" OnOutputEx="Сумма2_OnOutputEx" Width="35"/>
+                <Component Name="Сумма3" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Надбавка 3" Enabled="False" Field="Позиции.Сумма3" HasCaption="True" OnOutputEx="Сумма3_OnOutputEx" Width="35"/>
+              </Component>
+              <Component Name="ВсегоПоСтроке" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Всего в месяц, руб." Enabled="False" Field="Позиции.ВсегоСумма" FieldFormat=",##0.00;;-" HasCaption="True" Width="35"/>
+              <Component Name="ПримечаниеПоз" Class="Com.Ctrl.IEdit" Caption="Примечание" Field="Позиции.Примечание" HasCaption="True" Multiline="True" Width="60" Wrap="True"/>
+            </Component>
+            <Component Name="тблИтого" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" HasCaption="False" Subtable="тбИтоги">
+              <Component Name="итогоНом" Class="Com.Ctrl.IEdit" HasCaption="False" Width="10"/>
+              <Component Name="итогоШтЭлемент" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Enabled="False" FontBold="True" OnOutputEx="итогоШтЭлемент_OnOutputEx" Width="60"/>
+              <Component Name="итогоДолжность" Class="Com.Ctrl.IEdit" Enabled="False" Width="50"/>
+              <Component Name="итогоРазряд" Class="Com.Ctrl.IEdit" Enabled="False" Width="50"/>
+              <Component Name="кнРедактировать1" Class="Com.Ctrl.IJumpButton" Enabled="False" ImageName="Com.JumpButton"/>
+              <Component Name="итогоКолЕд" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Enabled="False" FontBold="True" OnOutputEx="итогоКол_OnOutputEx" Width="20"/>
+              <Component Name="итогоСтавка" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Enabled="False" FieldFormat=",##0.00;;-" FontBold="True" OnOutputEx="итогоОклад_OnOutputEx" Width="35"/>
+              <Component Name="итогоСумма1" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Enabled="False" FieldFormat=",##0.00;;-" Hint="Итоговая сумма надбавки 1" OnOutputEx="итогоСумма1_OnOutputEx" ValueType="VarNumeric" Width="35"/>
+              <Component Name="итогоСумма2" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Enabled="False" FontBold="True" Hint="Итоговая сумма надбавки 2" OnOutputEx="итогоСумма2_OnOutputEx" Width="35"/>
+              <Component Name="итогоСумма3" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Enabled="False" FontBold="True" Hint="Итоговая сумма надбавки 3" OnOutputEx="итогоСумма3_OnOutputEx" Width="35"/>
+              <Component Name="итогоВсего" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Enabled="False" FieldFormat=",##0.00;;-" FontBold="True" Hint="Итоговая сумма " OnOutputEx="итогоВсего_OnOutputEx" Width="35"/>
+              <Component Name="итогоПримечаниеПоз" Class="Com.Ctrl.IEdit" Enabled="False" Width="60"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Inherited Name="фрПодписи" HasCaption="True">
+          <Inherited Name="фрПодписиОбщ">
+            <Inherited Name="грРуководитель" Excluded="True"/>
+            <Inherited Name="грОтветственный" Excluded="True"/>
+            <Component Name="грКадровик" Class="Com.Ctrl.IGroup" ByColumn="False">
+              <Component Name="Кадровик_Долж" Class="Com.Ctrl.IEdit" Caption="Руководитель кадровой службы" CaptionWidth="70" CardFileClass="Bas.Tab.Ref.Positions" Field="EdtRec.Кадровик_Долж" HasCaption="True" LookupField="Name"/>
+              <Component Name="Кадровик" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Data.StaffersHR" Field="EdtRec.Кадровик" HasCaption="False" LookupField="Name" OnOpenCardForm="НастроитьКартотекуФизЛиц" OnOutputEx="ФИО_OnOutputEx" Width="70"/>
+              <Component Name="кнКадровик" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Кадровик" JumpForm="HRBase.Frm.Data.NaturalPersonHR"/>
+            </Component>
+            <Component Name="грГлавБух" Class="Com.Ctrl.IGroup">
+              <Component Name="ГлавБух" Class="Com.Ctrl.IEdit" CaptionWidth="70" CardFileClass="HRBase.Tab.Data.StaffersHR" Field="EdtRec.ГлавБух" HasCaption="True" LookupField="Name" OnOpenCardForm="НастроитьКартотекуФизЛиц" OnOutputEx="ФИО_OnOutputEx" Width="130"/>
+              <Component Name="кнГлавБух" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ГлавБух" JumpForm="HRBase.Frm.Data.NaturalPersonHR"/>
+            </Component>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

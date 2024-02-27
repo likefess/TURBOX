@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CashFlow.Frm.Doc.BankMoveBase">
+  <Inherited HelpContext="CashFlow.Движение денежных средств.Операции.Документы.Движения по расчетным счетам">
+    <Inherited Name="FRecord" Class="CashFlow.Rec.Doc.BankMove" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False">
+          <Component Name="ButtonOperationTemplate" Class="Com.Ctrl.IButton" Caption="Подобрать шаблон операции" OnClick="ButtonOperationTemplateOnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="FieldsGroup">
+          <Inherited Name="PrintedNumberEditGroup">
+            <Inherited Name="PrintedNumberEdit" Required="True"/>
+            <Inherited Name="EventTimeEdit" Required="True"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="OurCompanyBox">
+            <Inherited Name="OurCompanyBoxGroup">
+              <Inherited Name="OurCompanyLeftGroup">
+                <Inherited Name="OurCompanyGroup">
+                  <Inherited Name="OurCompany" Required="True"/>
+                </Inherited>
+                <Component Name="BankAccountGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="BankAccount" Class="Com.Ctrl.IEditEx" CellFormat="StringFormat" Field="FRecord.BankAccount" HasCaption="True">
+                    <Component Name="BankAccountBtn" Class="Com.Ctrl.IButton" FixSize="True" HasCaption="False" Hint="@BankMove:BankAccountBtn=Выбор счета" ImageName="Biz.id-card-light" OnClick="BankAccountBtn_OnClick" Width="7.5"/>
+                  </Component>
+                </Component>
+              </Inherited>
+              <Inherited Name="OurCompanyRightGroup">
+                <Inherited Name="BankDetailsGroup">
+                  <Inherited Name="BankDetails" Multiline="True" Required="True" Wrap="True"/>
+                </Inherited>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="ContrapartyBox">
+            <Inherited Name="ContrapartyBoxGroup">
+              <Inherited Name="ContrapartyLeftGroup">
+                <Inherited Name="ContrapartyGroup">
+                  <Inherited Name="Contraparty" Required="True"/>
+                </Inherited>
+                <Inherited Name="ContractGroup">
+                  <Inherited Name="Contract" OnLookup="Contract_OnLookup"/>
+                </Inherited>
+                <Component Name="PaymentOrderGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="PaymentOrder" Class="Com.Ctrl.IEdit" Caption="П/поручение №" CardFileClass="CashFlow.Tab.Doc.PaymentOrder" CellFormat="ReferenceFormat" Field="FRecord.PaymentOrder" HasCaption="True" LookupField="PrintedNumber" OnChange="PaymentOrder_OnChange"/>
+                  <Component Name="BtnStatic15" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Inherited>
+              <Inherited Name="ContrapartyRightGroup">
+                <Inherited Name="ContrapartyBankDetailsGroup">
+                  <Inherited Name="ContrapartyBankDetails" Multiline="True" Wrap="True"/>
+                </Inherited>
+                <Component Name="CorrAccount" Class="Com.Ctrl.IEditEx" CellFormat="StringFormat" Field="FRecord.CorrAccount" HasCaption="True">
+                  <Component Name="CorrAccountBtn" Class="Com.Ctrl.IButton" FixSize="True" HasCaption="False" Hint="@BankMove:CorrAccountBtn=Выбор счета" ImageName="Biz.id-card-light" OnClick="CorrAccountBtn_OnClick" Width="7.5"/>
+                </Component>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="SumBox">
+            <Inherited Name="Group13">
+              <Inherited Name="Currency" Required="True"/>
+            </Inherited>
+            <Inherited Name="Group15">
+              <Inherited Name="Group15Left">
+                <Inherited Name="FinalSumGroup">
+                  <Inherited Name="FinalSum" Required="True"/>
+                </Inherited>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Component Name="AnalyticsBox" Class="Com.Ctrl.IBox" Caption="Аналитические признаки">
+            <Component Name="Group18" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="CFR" Class="Com.Ctrl.IEdit" Caption="ЦФО" CardFileClass="Biz.Tab.Ref.CFR" Enabled="True" Field="FRecord.CFR" Required="True"/>
+              <Component Name="BtnStatic21" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="BGI" Class="Com.Ctrl.IEdit" Caption="Статья бюджета" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="FRecord.BGI" LookupField="Name" LookupFilter="Not Closed" Required="True"/>
+              <Component Name="BtnStatic22" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+              <Component Name="Project1" Class="Com.Ctrl.IEditEx" CardFileClass="Bas.Tab.Ref.Project" Field="FRecord.Project" HasCaption="True" LookupField="Name">
+                <Component Name="JumpButton3" Class="Com.Ctrl.IJumpButton" FixSize="True" Width="7.5"/>
+              </Component>
+              <Component Name="Source" Class="Com.Ctrl.IEdit" Caption="Источник" CardFileClass="Biz.Tab.Ref.FundSource" CellFormat="ReferenceFormat" Field="FRecord.Source" LookupField="Name"/>
+              <Component Name="BtnStatic23" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+          </Component>
+          <Component Name="FinancialInstrumentBox" Class="Com.Ctrl.IBox" Caption="@BankMove:FinancialInstrumentBox=Финансовый инструмент" Collapsed="True">
+            <Component Name="FinancialInstrumentGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="FinancialInstrumentEdit" Class="Com.Ctrl.IEdit" Caption="Фин. инструмент" CardFileClass="CashFlow.Tab.Data.FinancialInstrument" CellFormat="ReferenceFormat" Field="FRecord.FinInstrument" HasCaption="True" Hint="Финансовый инструмент" LookupField="Name"/>
+              <Component Name="BtnStatic24" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="OperationType" Class="Com.Ctrl.IEdit" CardFileClass="CashFlow.Tab.Data.OperationType" CellFormat="ReferenceFormat" Field="FRecord.OperationType" HasCaption="True" LookupField="Name" ShortList="True"/>
+              <Component Name="BtnStatic20" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="ClientBankTab" Class="Com.Ctrl.IFrame" Caption="@Frm:ClientBankTab=Реквизиты">
+          <Component Name="BoxPayer" Class="Com.Ctrl.IBox" Caption="@Frm:Payer=Плательщик">
+            <Component Name="Group8" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="EditPayer" Class="Com.Ctrl.IEdit" Caption="@CashFlow:Name=Наименование" CellFormat="StringFormat" Enabled="False" Field="FRecord.Payer" HasCaption="True"/>
+              <Component Name="BtnStatic25" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="EditPayerBankAccount" Class="Com.Ctrl.IEdit" Caption="@EditPayerBankAccount:PayerBankAccount=Номер счета" CellFormat="StringFormat" Enabled="False" Field="FRecord.PayerBankAccount" HasCaption="True" Hint="@EditPayerBankAccount:PayerBankAccountHint=Номер банковского счета"/>
+              <Component Name="BtnStatic26" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+              <Component Name="EditPayerInn" Class="Com.Ctrl.IEdit" Caption="@CashFlow:PayerInn=ИНН" Enabled="False" Field="FRecord.PayerInn" HasCaption="True"/>
+              <Component Name="BtnStatic27" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="EditPayerKpp" Class="Com.Ctrl.IEdit" Caption="@CashFlow:PayerKpp=КПП" Enabled="False" Field="FRecord.PayerKpp" HasCaption="True"/>
+              <Component Name="BtnStatic28" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+          </Component>
+          <Component Name="BoxPayerPaymentReceiver" Class="Com.Ctrl.IBox" Caption="@Frm:PaymentReceiver=Получатель" HasCaption="True">
+            <Component Name="Group9" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="EditPayment" Class="Com.Ctrl.IEdit" Caption="@CashFlow:Name=Наименование" CellFormat="StringFormat" Enabled="False" Field="FRecord.Payment" HasCaption="True"/>
+              <Component Name="BtnStatic29" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="EditPaymentReceiverBankAccount" Class="Com.Ctrl.IEdit" Caption="@EditPaymentReceiverBankAccount:PaymentReceiverBankAccount=Номер счета" CellFormat="StringFormat" Enabled="False" Field="FRecord.PaymentReceiverBankAccount" HasCaption="True" Hint="@EditPaymentReceiverBankAccount:PaymentReceiverBankAccountHint=Номер банковского счета"/>
+              <Component Name="BtnStatic30" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="NewLine3" Class="Com.Ctrl.INewLine"/>
+              <Component Name="EditPaymentReceiverInn" Class="Com.Ctrl.IEdit" Caption="@CashFlow:PaymentReceiverInn=ИНН" Enabled="False" Field="FRecord.PaymentReceiverInn" HasCaption="True"/>
+              <Component Name="BtnStatic31" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="EditPaymentReceiverKpp" Class="Com.Ctrl.IEdit" Caption="@CashFlow:PaymentReceiverKpp=КПП" Enabled="False" Field="FRecord.PaymentReceiverKpp" HasCaption="True"/>
+              <Component Name="BtnStatic32" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+          </Component>
+          <Component Name="BoxPurpose" Class="Com.Ctrl.IBox" Caption="Данные платежа" HasCaption="True">
+            <Component Name="PurposeGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="PurposeEdit1" Class="Com.Ctrl.IEdit" Enabled="False" Field="FRecord.Purpose" HasCaption="True" Multiline="True" Wrap="True"/>
+              <Component Name="BtnStatic33" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="AccountingAndFinance" Class="Com.Ctrl.IFrame" Caption="@CashOrder:AccountingAndFinance=Учет и Финансы" Margins="5" Visible="False">
+          <Component Name="AccountingBox" Class="Com.Ctrl.IBox" Caption="@CashOrder:AccountingBox=Счета учета">
+            <Component Name="AccountingGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="AccDeb" Class="Com.Ctrl.IEdit" Caption="@CashOrder:AccountingGroup_AccDeb=Счет дебета" Enabled="False" FixSize="True" HasCaption="True" OnOutputEx="AccDeb_OnOutputEx" Width="20"/>
+              <Component Name="AccCre" Class="Com.Ctrl.IEdit" Caption="@CashOrder:AccountingGroup_AccCre=Счет кредита" Enabled="False" FixSize="True" HasCaption="True" OnOutputEx="AccCre_OnOutputEx" Width="20"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="TransTab" Class="Com.Ctrl.IFrame" Caption="@BankMove:TransTab=Проводки" Margins="5"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

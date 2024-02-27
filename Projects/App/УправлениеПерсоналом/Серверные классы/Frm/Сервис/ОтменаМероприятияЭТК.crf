@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Кадровые документы.Общие кадровые документы.Электронные трудовые книжки">
+    <Component Name="исхМероприятие" Class="УправлениеПерсоналом.Rec.Документы.Кадры.МероприятиеЭТК" IsLibrary="1" After="#0"/>
+    <Component Name="отмМероприятие" Class="УправлениеПерсоналом.Rec.Документы.Кадры.МероприятиеЭТК" IsLibrary="1"/>
+    <Component Name="новМероприятие" Class="УправлениеПерсоналом.Rec.Документы.Кадры.МероприятиеЭТК" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="создатьЗамену" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="датаОтмены" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="датаНовМероприятия" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="стрИсхМероприятия" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame" AutoSize="True">
+      <Inherited Name="HeaderFrame" Caption="@Отменить запись в электронной трудовой книжке" HasCaption="True">
+        <Inherited Name="ButtonOK" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="стрИсхМероприятияЭТК" Class="Com.Ctrl.IEdit" Caption="Мероприятие" CaptionWidth="50" Enabled="False" Field="стрИсхМероприятия" HasCaption="True" MaxWidth="230" MinWidth="150" Multiline="True" Width="150" Wrap="True"/>
+        <Component Name="Static1" Class="Com.Ctrl.IStatic"/>
+        <Component Name="грОтмена" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="editDate" Class="Com.Ctrl.IEdit" Caption="@Дата отмены" CaptionWidth="50" Field="датаОтмены" HasCaption="True" MaxWidth="35" Width="35"/>
+          <Component Name="editForNew" Class="Com.Ctrl.ICheckBox" Caption="Создать замену" Field="создатьЗамену" Visible="True"/>
+        </Component>
+        <Component Name="грНовое" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="editNewDate" Class="Com.Ctrl.IEdit" Caption="@Дата нового мероприятия" CaptionWidth="50" Enabled="False" Field="датаНовМероприятия" MaxWidth="35" Width="35"/>
+        </Component>
+        <Component Name="грКнопки" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="кнОтмена" Class="Com.Ctrl.IButton" Caption="@Отменить" HasCaption="True" Hint="@Отменить мероприятие, создать замену" OnClick="ОтменитьМероприятие" Width="35"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

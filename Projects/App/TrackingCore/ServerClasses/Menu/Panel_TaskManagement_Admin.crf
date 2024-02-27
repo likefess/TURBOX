@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IMenu">
+  <Inherited FormIcon="TrackingCore.user-settings-fill">
+    <Inherited Name="MainGroup">
+      <Component Name="Group_Main" Class="Com.Cmd2.IGroup" Caption="@TrackingCore:Group_Main=Трекинг" IconName="TrackingCore.macbook-fill">
+        <Component Name="NewTask" Class="Com.ComManaging.OpenIForm" AlwaysOpen="True" Caption="@TrackingCore:NewTask=Новая задача" FormClassName="TrackingCore.Frm.Data.Task" IconName="TrackingCore.file-add-fill"/>
+        <Component Name="Task" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:Task=Картотека задач" FormClassName="TrackingCore.Tab.Data.Tasks" IconName="TrackingCore.folder-3-fill"/>
+        <Component Name="TaskList" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="@TrackingCore:TaskList=Задачи" FormClassName="TrackingCore.Rep.TaskList" IconName="TrackingCore.file-list-2-fill"/>
+        <Component Name="TaskList1" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:TaskList=Задачи" FormClassName="TrackingCore.Rep.TaskList_LeftStaticFilters" IconName="TrackingCore.file-list-2-fill"/>
+        <Component Name="TaskList_New" Class="Com.ComManaging.OpenReport" Excluded="True" Caption="@TrackingCore:TaskList=Задачи" IconName="Com.Tasks" ReportCode="Rep.TaskList_new"/>
+        <Component Name="Kanban" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="@TrackingCore:Kanban=Доска" FormClassName="TrackingCore.Rep.Kanban" IconName="InfoBoard.kanban" Visible="False"/>
+        <Component Name="Kanban2" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="@TrackingCore:Kanban=Доска - 2" FormClassName="TrackingCore.Rep.Kanban2" IconName="InfoBoard.kanban" Visible="False"/>
+        <Component Name="Kanban_Tasks" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="@TrackingCore:Kanban=Доска" FormClassName="TrackingCore.Rep.Kanban_tasks" IconName="InfoBoard.kanban"/>
+        <Component Name="Gantt" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="@TrackingCore:Gantt=Диаграмма Ганта" FormClassName="TrackingCore.Rep.Gantt" IconName="TrackingCore.bar-chart-horizontal-fill"/>
+      </Component>
+      <Component Name="Group_Data" Class="Com.Cmd2.IGroup" Caption="@TrackingCore:Group_Data=Данные" IconName="TrackingCore.archive-drawer-fill">
+        <Component Name="Entity" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:Entity=Люди" FormClassName="Bas.Tab.Data.Entity" IconName="TrackingCore.checkbox-blank-circle-mini-fill"/>
+        <Component Name="Version" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:Version=Версии" FormClassName="TrackingCore.Tab.Ref.Version" IconName="TrackingCore.checkbox-blank-circle-mini-fill"/>
+        <Component Name="Label" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:Label=Метки" FormClassName="TrackingCore.Tab.Ref.Label" IconName="TrackingCore.checkbox-blank-circle-mini-fill"/>
+        <Component Name="PrjComponent" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:PrjComponent=Компоненты" FormClassName="TrackingCore.Tab.Ref.PrjComponent" IconName="TrackingCore.checkbox-blank-circle-mini-fill"/>
+      </Component>
+      <Component Name="Group_Settings" Class="Com.Cmd2.IGroup" Caption="@TrackingCore:Group_Settings=Настройки" IconName="TrackingCore.settings-2-fill">
+        <Component Name="SelectProject" Class="Com.Cmd2.IItem" Command="Commands.SelectProject"/>
+        <Component Name="AddProjectParticipants" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:AddProjectParticipants=Добавить участников" FormClassName="Frm.Services.AddProjectParticipants" IconName="TrackingCore.checkbox-blank-circle-mini-fill"/>
+        <Component Name="TaskStatus" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:TaskStatus=Статусы" FormClassName="Control.Tab.Ref.TaskStatus" IconName="TrackingCore.checkbox-blank-circle-mini-fill"/>
+        <Component Name="TaskCategory" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:TaskCategory=Типы задач" FormClassName="TrackingCore.Tab.Ref.TaskCategory" IconName="TrackingCore.checkbox-blank-circle-mini-fill"/>
+        <Component Name="TransitionRule" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="@TrackingCore:TransitionRule=Правила переходов" FormClassName="Control.Tab.Ref.TransitionRule" IconName="Control.Transition"/>
+        <Component Name="TaskImportance" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="@TrackingCore:TaskImportance=Важности" FormClassName="Control.Tab.Ref.TaskImportance" IconName="Control.Importance"/>
+        <Component Name="TaskPriority" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:TaskPriority=Приоритеты" FormClassName="Control.Tab.Ref.TaskPriority" IconName="TrackingCore.checkbox-blank-circle-mini-fill"/>
+        <Component Name="BondType" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="@TrackingCore:BondType=Связи" FormClassName="TrackingCore.Tab.Ref.BondType" IconName="Control.Transitions_"/>
+        <Component Name="Bond" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:Bond=Зависимости" FormClassName="TrackingCore.Tab.Ref.Bond" IconName="TrackingCore.checkbox-blank-circle-mini-fill"/>
+        <Component Name="Resolution" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:Resolution=Решения" FormClassName="TrackingCore.Tab.Ref.Resolution" IconName="TrackingCore.checkbox-blank-circle-mini-fill"/>
+      </Component>
+      <Component Name="Group_OtherSettings" Class="Com.Cmd2.IGroup" Caption="@TrackingCore:Group_OtherSettings=Прочее" IconName="TrackingCore.folder-3-fill">
+        <Component Name="InstSettings" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:InstSettings=Настройки инсталляции" FormClassName="Bas.Frm.Service.InstSettings" IconName="TrackingCore.checkbox-blank-circle-mini-fill"/>
+        <Component Name="MailAccount" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:MailAccount=Почтовые аккаунты" FormClassName="Bas.Tab.Config.MailAccount" IconName="TrackingCore.checkbox-blank-circle-mini-fill"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Frm.AddIns.BaseTask">
+  <Inherited>
+    <Component Name="CommentsSource" Class="TrackingLib.Ctrl.ChatRecord" After="#0" AddingTime="AddingTime" Attachment="Attachment" ChatOwner="ChatOwner" CommentID="CommentID" CommentOwner="CommentOwner" Direction="chdFIFO" EditingTime="EditingTime" HtmlContent="HTML" Partition="Partition" PartitionValue="1" RecClass="TrackingCore.Rec.Data.TaskChat"/>
+    <Inherited Name="EdtRec" IsLibrary="1" After="CommentsSource"/>
+    <Inherited Name="RootFrame" Color="0x00FFFFFF" Margins="0">
+      <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+      <Component Name="CommentFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0x00FFFFFF" FixSize="False" Margins="0">
+        <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+        <Component Name="CommentOfTask" Class="TrackingLib.Ctrl.IComment" Color="0x00FFFFFF" DataSource="CommentsSource" FixSize="False" ResizeEnabled="True"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

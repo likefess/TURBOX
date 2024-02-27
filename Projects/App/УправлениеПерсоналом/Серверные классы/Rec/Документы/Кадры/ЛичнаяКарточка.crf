@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Rec.Базовая.БазовыйДокумент">
+  <Inherited>
+    <Component Name="УсловияТрудаСотр" Class="Com.Fld.IField" After="#0" FieldName="УсловияТрудаСотр" OnChange="УсловияТрудаСотр_OnChange"/>
+    <Component Name="Сотрудник" Class="Com.Fld.IField" Excluded="True" FieldName="Сотрудник"/>
+    <Component Name="Рождение_Место" Class="Com.Fld.IField" Extra="True" FieldName="сРождение_Место" ValueType="VarString"/>
+    <Component Name="Рождение_ОКАТО" Class="Com.Fld.IField" Extra="True" FieldName="сРождение_ОКАТО" ValueType="VarString"/>
+    <Component Name="Гражданство" Class="Com.Fld.IField" Extra="True" FieldName="сГражданство" ValueType="VarString"/>
+    <Component Name="Гражданство_ОКИН" Class="Com.Fld.IField" Extra="True" FieldName="сГражданство_ОКИН" ValueType="VarString"/>
+    <Component Name="НомерПФР" Class="Com.Fld.IField" Extra="True" FieldName="сНомерПФР" ValueType="VarString"/>
+    <Component Name="ИНН" Class="Com.Fld.IField" Extra="True" FieldName="сИНН" ValueType="VarString"/>
+    <Component Name="ВидЗанятости" Class="Com.Fld.IField" Extra="True" FieldName="цВидЗанятости" ValueType="VarInteger"/>
+    <Component Name="ХарактерРаботы" Class="Com.Fld.IField" Extra="True" FieldName="цХарактерРаботы" ValueType="VarInteger"/>
+    <Component Name="ИнЯзыки" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка_ИнЯзыки" SubtableFilter="ТипЭлемента = 1" SubtableName="Позиции"/>
+    <Component Name="ДокументЛичности__" Class="Com.Fld.IVar" Excluded="True" RecordClass="Biz.Rec.Data.IDcard" ValueType="VarObject"/>
+    <Component Name="ДокументЛичности" Class="Com.Fld.IField" Extra="True" FieldName="зДокументЛичности" ValueType="VarObject"/>
+    <Component Name="Образование" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка_Образование" SubtableFilter="ТипЭлемента = 2" SubtableName="Позиции"/>
+    <Component Name="ОбразованиеЗ" Class="Com.Fld.IField" Excluded="True" Caption="Образование" Extra="True" FieldName="зОбразование_Имя" ValueType="VarObject"/>
+    <Component Name="ОбразованиеКод" Class="Com.Fld.IField" Excluded="True" Caption="Образование ОКИН" Extra="True" FieldName="сОбразование_ОКИН" ValueType="VarString"/>
+    <Component Name="Профессии" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка_Профессии" SubtableFilter="ТипЭлемента = 19" SubtableName="Позиции"/>
+    <Component Name="ДатаСтаж" Class="Com.Fld.IField" Extra="True" FieldName="дДатаСтаж" ValueType="VarDate"/>
+    <Component Name="ОбщСтажЛет" Class="Com.Fld.IField" Extra="True" FieldName="чОбщСтажЛет" ValueType="VarInteger"/>
+    <Component Name="ОбщСтажМес" Class="Com.Fld.IField" Extra="True" FieldName="чОбщСтажМес" ValueType="VarInteger"/>
+    <Component Name="ОбщСтажДни" Class="Com.Fld.IField" Extra="True" FieldName="чОбщСтажДни" ValueType="VarInteger"/>
+    <Component Name="НепрСтажЛет" Class="Com.Fld.IField" Extra="True" FieldName="чНепрСтажЛет" ValueType="VarInteger"/>
+    <Component Name="НепрСтажМес" Class="Com.Fld.IField" Extra="True" FieldName="чНепрСтажМес" ValueType="VarInteger"/>
+    <Component Name="НепрСтажДни" Class="Com.Fld.IField" Extra="True" FieldName="чНепрСтажДни" ValueType="VarInteger"/>
+    <Component Name="ВыслСтажЛет" Class="Com.Fld.IField" Extra="True" FieldName="чВыслСтажЛет" ValueType="VarInteger"/>
+    <Component Name="ВыслСтажМес" Class="Com.Fld.IField" Extra="True" FieldName="чВыслСтажМес" ValueType="VarInteger"/>
+    <Component Name="ВыслСтажДни" Class="Com.Fld.IField" Extra="True" FieldName="чВыслСтажДни" ValueType="VarInteger"/>
+    <Component Name="ДопСтажЛет" Class="Com.Fld.IField" Extra="True" FieldName="чДопСтажЛет" ValueType="VarInteger"/>
+    <Component Name="ДопСтажМес" Class="Com.Fld.IField" Extra="True" FieldName="чДопСтажМес" ValueType="VarInteger"/>
+    <Component Name="ДопСтажДни" Class="Com.Fld.IField" Extra="True" FieldName="чДопСтажДни" ValueType="VarInteger"/>
+    <Component Name="СостояниеБрак" Class="Com.Fld.IField" Extra="True" FieldName="зСостояниеБрак" ValueType="VarObject"/>
+    <Component Name="ТипДокумента" Class="Com.Fld.IField" FieldName="ТипДокумента"/>
+    <Component Name="СоставСемьи" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка_СоставСемьи" SubtableFilter="ТипЭлемента = 3" SubtableName="Позиции"/>
+    <Component Name="АдресФактический" Class="Com.Fld.IField" FieldName="АдресФактический"/>
+    <Component Name="АдресРегистрации" Class="Com.Fld.IField" FieldName="АдресРегистрации"/>
+    <Component Name="АдресРегистрации_Индекс" Class="Com.Fld.IField" Extra="True" FieldName="сАдресРегистрации_Индекс" ValueType="VarString"/>
+    <Component Name="АдресФактический_Индекс" Class="Com.Fld.IField" Extra="True" FieldName="сАдресФактический_Индекс" ValueType="VarString"/>
+    <Component Name="АдресДатаРегистр" Class="Com.Fld.IField" Extra="True" FieldName="дАдресДатаРегистр" ValueType="VarDate"/>
+    <Component Name="ВУ_Категория" Class="Com.Fld.IField" Extra="True" FieldName="цВУ_Категория" ValueType="VarInteger"/>
+    <Component Name="ВУ_Звание" Class="Com.Fld.IField" Extra="True" FieldName="зВУ_Звание" ValueType="VarObject"/>
+    <Component Name="ВУ_Состав" Class="Com.Fld.IField" Extra="True" FieldName="зВУ_Состав" ValueType="VarObject"/>
+    <Component Name="ВУ_КодВУС" Class="Com.Fld.IField" Extra="True" FieldName="cВУ_КодВУС" ValueType="VarString"/>
+    <Component Name="ВУ_Годность" Class="Com.Fld.IField" Extra="True" FieldName="сВУ_Годность" ValueType="VarString"/>
+    <Component Name="ВУ_Военкомат" Class="Com.Fld.IField" Extra="True" FieldName="зВУ_Военкомат" ValueType="VarObject"/>
+    <Component Name="ВУ_НомерКоманды" Class="Com.Fld.IField" Extra="True" FieldName="сВУ_НомерКоманды" ValueType="VarString"/>
+    <Component Name="ВУ_Специальный" Class="Com.Fld.IField" Extra="True" FieldName="сВУ_Специальный" ValueType="VarString"/>
+    <Component Name="ВУ_СнятиеСУчета" Class="Com.Fld.IField" Extra="True" FieldName="цВУ_СнятиеСУчета" ValueType="VarInteger"/>
+    <Component Name="ПриемПеревод" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка_ПриемПеревод" SubtableFilter="ТипЭлемента = 29" SubtableName="Позиции"/>
+    <Component Name="Аттестация" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка_Аттестация" SubtableFilter="ТипЭлемента = 30" SubtableName="Позиции"/>
+    <Component Name="ПовышениеКвалификации" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка_ПовышениеКвалификации" SubtableFilter="ТипЭлемента = 31" SubtableName="Позиции"/>
+    <Component Name="ПрофПереподготовка" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка_ПрофПереподготовка" SubtableFilter="ТипЭлемента = 32" SubtableName="Позиции"/>
+    <Component Name="Поощрения" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка_Поощрения" SubtableFilter="ТипЭлемента = 33" SubtableName="Позиции"/>
+    <Component Name="Отпуск" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка_Отпуск" SubtableFilter="ТипЭлемента = 9" SubtableName="Позиции"/>
+    <Component Name="СоцЛьготы" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка_СоцЛьготы" SubtableFilter="ТипЭлемента = 34" SubtableName="Позиции"/>
+    <Component Name="Договор" Class="Com.Fld.IField" FieldName="Договор"/>
+    <Component Name="НомерТелефона" Class="Com.Fld.IField" Extra="True" FieldName="НомерТелефона" ValueType="VarString"/>
+    <Component Name="Удостоверение" Class="Com.Fld.IField" FieldName="Удостоверение"/>
+    <Component Name="Увольнение" Class="Com.Fld.IField" FieldName="Увольнение" OnChange="Увольнение_OnChange"/>
+    <Component Name="ДопСведения" Class="Com.Fld.IField" Extra="True" FieldName="сДопСведения" ValueType="VarString"/>
+    <Component Name="УвольнениеОснование" Class="Com.Fld.IField" Extra="True" FieldName="сУвольнениеОснование" ValueType="VarString"/>
+    <Inherited Name="Номер" OnChange="Номер_OnChange"/>
+  </Inherited>
+</Resource>

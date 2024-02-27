@@ -1,0 +1,558 @@
+﻿TBCFile VER="3.4" [Created '16.12.2020 12:08:43' by 'Администратор']
+
+DESCRIPTION[
+Count=4
+CountByRef=0
+Integration.Mapping
+(
+  Count=4
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Integration.Mapping
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    OperDoc :Inherited Bas.Base.Event
+    НеОтображаетсяВДереве :Boolean
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    Direction :Integer
+    InternalObjectType1 :String
+    ExtObject1 :Integration.ExternalObject
+    InternalObjectType2 :String
+    ExtObject2 :Integration.ExternalObject
+    FieldList :Struct array Integer
+    (
+      KeyField :Boolean
+      InteriorField1 :String
+      InteriorField2 :String
+      ExternalField1 :String
+      ExternalField2 :String
+      MatchingMethod :Integer
+      InternalDataType1 :Integer
+      InternalDataType2 :Integer
+      Formula :String
+      InteriorFieldType1 :String
+      InteriorFieldType2 :String
+      InterFieldType1 :Integer
+      InterFieldType2 :Integer
+      TableName1 :String
+      TableName2 :String
+      Extra1 :Boolean
+      Extra2 :Boolean
+      XMLNodes :String
+      VarField1 :Boolean
+      VarField2 :Boolean
+      PeriodicField1 :Boolean
+      PeriodicField2 :Boolean
+    )
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Integration.Mapping
+  
+  {Integration.Mapping:"1CClientBankExchangeLoadBankStatement"}
+  (
+    Name = "1CClientBankExchangeLoadBankStatement"
+    InternalObjectType1 = "CashFlow.Frm.Doc.BankStatement"
+    FieldList = (
+      0:(
+        KeyField = True
+        InteriorField1 = "DateStart [DateStart]"
+        ExternalField1 = "ДатаНачала"
+        InterFieldType1 = 5
+      )
+      1:(
+        KeyField = True
+        InteriorField1 = "DateEnd [DateEnd]"
+        ExternalField1 = "ДатаКонца"
+        InterFieldType1 = 5
+      )
+      2:(
+        InteriorField1 = "BankSaldoIn [BankSaldoIn]"
+        ExternalField1 = "НачальныйОстаток"
+        InterFieldType1 = 3
+      )
+      3:(
+        KeyField = True
+        InteriorField1 = "BankDetails [BankDetails]"
+        ExternalField1 = "РасчСчет"
+        MatchingMethod = 1
+        Formula = "AccountNum"
+        InterFieldType1 = 6
+      )
+      4:(
+        InteriorField1 = "Исх. сумма [OutcomeSum]"
+        ExternalField1 = "ВсегоСписано"
+        InterFieldType1 = 3
+      )
+      5:(
+        InteriorField1 = "Вх. сумма [IncomeSum]"
+        ExternalField1 = "ВсегоПоступило"
+        InterFieldType1 = 3
+      )
+      6:(
+        InteriorField1 = "BankSaldoOut [BankSaldoOut]"
+        ExternalField1 = "КонечныйОстаток"
+        InterFieldType1 = 3
+      )
+    )
+  )
+  
+  {Integration.Mapping:"1CClientBankExchangeLoadInBankMove"}
+  (
+    Name = "1CClientBankExchangeLoadInBankMove"
+    InternalObjectType1 = "CashFlow.Frm.Doc.BankMove"
+    FieldList = (
+      0:(
+        KeyField = True
+        InteriorField1 = "Номер [PrintedNumber]"
+        ExternalField1 = "Номер"
+        InterFieldType1 = 1
+      )
+      1:(
+        KeyField = True
+        InteriorField1 = "Дата [EventTime]"
+        ExternalField1 = "ДатаПоступило"
+        InterFieldType1 = 5
+      )
+      2:(
+        InteriorField1 = "Сумма с НДС [FinalSum]"
+        ExternalField1 = "Сумма"
+        InterFieldType1 = 3
+      )
+      3:(
+        InteriorField1 = "Контрагент [Contraparty]"
+        ExternalField1 = "ПлательщикИНН"
+        MatchingMethod = 1
+        Formula = "ИНН"
+        InterFieldType1 = 6
+      )
+      4:(
+        InteriorField1 = "ИНН [PayerInn]"
+        ExternalField1 = "ПлательщикИНН"
+        InterFieldType1 = 1
+      )
+      5:(
+        InteriorField1 = "КПП [PayerKpp]"
+        ExternalField1 = "ПлательщикКПП"
+        InterFieldType1 = 1
+      )
+      6:(
+        InteriorField1 = "Номер банковского счета [PayerBankAccount]"
+        ExternalField1 = "ПлательщикСчет"
+        InterFieldType1 = 1
+      )
+      7:(
+        InteriorField1 = "Расчетный счет [ContrapartyBankDetails]"
+        ExternalField1 = "ПлательщикСчет"
+        MatchingMethod = 1
+        Formula = "AccountNum"
+        InterFieldType1 = 6
+      )
+      8:(
+        InteriorField1 = "Компания [Entity]"
+        ExternalField1 = "ПолучательИНН"
+        MatchingMethod = 1
+        Formula = "ИНН"
+        InterFieldType1 = 6
+      )
+      9:(
+        InteriorField1 = "ИНН [PaymentReceiverInn]"
+        ExternalField1 = "ПолучательИНН"
+        InterFieldType1 = 1
+      )
+      10:(
+        InteriorField1 = "КПП [PaymentReceiverKpp]"
+        ExternalField1 = "ПолучательКПП"
+        InterFieldType1 = 1
+      )
+      11:(
+        InteriorField1 = "Номер банковского счета [PaymentReceiverBankAccount]"
+        ExternalField1 = "ПолучательСчет"
+        InterFieldType1 = 1
+      )
+      12:(
+        KeyField = True
+        InteriorField1 = "Расчетный счет [BankDetails]"
+        ExternalField1 = "ПолучательСчет"
+        MatchingMethod = 1
+        Formula = "AccountNum"
+        InterFieldType1 = 6
+      )
+      13:(
+        InteriorField1 = "Назначение платежа [Purpose]"
+        ExternalField1 = "НазначениеПлатежа"
+        InterFieldType1 = 1
+      )
+      14:(
+        InteriorField1 = "Наименование получатель [Payment]"
+        ExternalField1 = "Получатель"
+        InterFieldType1 = 1
+      )
+      15:(
+        InteriorField1 = "Наименование плательщик [Payer]"
+        ExternalField1 = "Плательщик"
+        InterFieldType1 = 1
+      )
+    )
+  )
+  
+  {Integration.Mapping:"1CClientBankExchangeLoadOutBankMove"}
+  (
+    Name = "1CClientBankExchangeLoadOutBankMove"
+    InternalObjectType1 = "CashFlow.Frm.Doc.BankMove"
+    FieldList = (
+      0:(
+        KeyField = True
+        InteriorField1 = "Номер [PrintedNumber]"
+        ExternalField1 = "Номер"
+        InterFieldType1 = 1
+      )
+      1:(
+        KeyField = True
+        InteriorField1 = "Дата [EventTime]"
+        ExternalField1 = "ДатаСписано"
+        InterFieldType1 = 5
+      )
+      2:(
+        InteriorField1 = "Сумма с НДС [FinalSum]"
+        ExternalField1 = "Сумма"
+        InterFieldType1 = 3
+      )
+      3:(
+        InteriorField1 = "Компания [Entity]"
+        ExternalField1 = "ПлательщикИНН"
+        MatchingMethod = 1
+        Formula = "ИНН"
+        InterFieldType1 = 6
+      )
+      4:(
+        InteriorField1 = "ИНН [PayerInn]"
+        ExternalField1 = "ПлательщикИНН"
+        InterFieldType1 = 1
+      )
+      5:(
+        InteriorField1 = "КПП [PayerKpp]"
+        ExternalField1 = "ПлательщикКПП"
+        InterFieldType1 = 1
+      )
+      6:(
+        InteriorField1 = "Номер банковского счета [PayerBankAccount]"
+        ExternalField1 = "ПлательщикСчет"
+        InterFieldType1 = 1
+      )
+      7:(
+        KeyField = True
+        InteriorField1 = "Расчетный счет [BankDetails]"
+        ExternalField1 = "ПлательщикСчет"
+        MatchingMethod = 1
+        Formula = "AccountNum"
+        InterFieldType1 = 6
+      )
+      8:(
+        InteriorField1 = "Расчетный счет [ContrapartyBankDetails]"
+        ExternalField1 = "ПолучательСчет"
+        MatchingMethod = 1
+        Formula = "AccountNum"
+        InterFieldType1 = 6
+      )
+      9:(
+        InteriorField1 = "Контрагент [Contraparty]"
+        ExternalField1 = "ПолучательИНН"
+        MatchingMethod = 1
+        Formula = "ИНН"
+        InterFieldType1 = 6
+      )
+      10:(
+        InteriorField1 = "ИНН [PaymentReceiverInn]"
+        ExternalField1 = "ПолучательИНН"
+        InterFieldType1 = 1
+      )
+      11:(
+        InteriorField1 = "КПП [PaymentReceiverKpp]"
+        ExternalField1 = "ПолучательКПП"
+        InterFieldType1 = 1
+      )
+      12:(
+        InteriorField1 = "Номер банковского счета [PaymentReceiverBankAccount]"
+        ExternalField1 = "ПолучательСчет"
+        InterFieldType1 = 1
+      )
+      13:(
+        InteriorField1 = "Назначение платежа [Purpose]"
+        ExternalField1 = "НазначениеПлатежа"
+        InterFieldType1 = 1
+      )
+      14:(
+        InteriorField1 = "tmpDate [tmpDate]"
+        ExternalField1 = "ДАТА"
+        Formula = "EventTime"
+        InterFieldType1 = 5
+        VarField1 = True
+      )
+      15:(
+        InteriorField1 = "Наименование получатель [Payment]"
+        ExternalField1 = "Получатель"
+        InterFieldType1 = 1
+      )
+      16:(
+        InteriorField1 = "Наименование плательщик [Payer]"
+        ExternalField1 = "Плательщик"
+        InterFieldType1 = 1
+      )
+    )
+  )
+  
+  {Integration.Mapping:"1CClientBankExchangeExport"}
+  (
+    Name = "1CClientBankExchangeExport"
+    Direction = 1
+    InternalObjectType1 = "CashFlow.Frm.Doc.PaymentOrder"
+    FieldList = (
+      0:(
+        InteriorField1 = "Номер [PrintedNumber]"
+        ExternalField1 = "Номер"
+        InterFieldType1 = 1
+      )
+      1:(
+        InteriorField1 = "Дата [EventTime]"
+        ExternalField1 = "Дата"
+        InterFieldType1 = 5
+      )
+      2:(
+        InteriorField1 = "Итоговая сумма [FinalSum]"
+        ExternalField1 = "Сумма"
+        InterFieldType1 = 3
+      )
+      3:(
+        InteriorField1 = "Расчетный счет [BankDetails]"
+        ExternalField1 = "ПлательщикСчет"
+        MatchingMethod = 1
+        Formula = "AccountNum"
+        InterFieldType1 = 6
+      )
+      4:(
+        InteriorField1 = "Компания [Entity]"
+        ExternalField1 = "ПлательщикИНН"
+        MatchingMethod = 1
+        Formula = "ИНН"
+        InterFieldType1 = 6
+      )
+      5:(
+        InteriorField1 = "vNameINNCompany [vNameINNCompany]"
+        ExternalField1 = "Плательщик"
+        InterFieldType1 = 1
+      )
+      6:(
+        InteriorField1 = "vNameCompany [vNameCompany]"
+        ExternalField1 = "Плательщик1"
+        InterFieldType1 = 1
+        VarField1 = True
+      )
+      7:(
+        InteriorField1 = "Расчетный счет [BankDetails]"
+        ExternalField1 = "ПлательщикБИК"
+        MatchingMethod = 1
+        Formula = "Bank.БИК"
+        InterFieldType1 = 6
+      )
+      8:(
+        InteriorField1 = "Расчетный счет [BankDetails]"
+        ExternalField1 = "ПлательщикКорсчет"
+        MatchingMethod = 1
+        Formula = "Bank.КСчет"
+        InterFieldType1 = 6
+      )
+      9:(
+        InteriorField1 = "Расчетный счет [BankDetails]"
+        ExternalField1 = "ПлательщикБанк1"
+        MatchingMethod = 1
+        Formula = "Bank.Name"
+        InterFieldType1 = 6
+      )
+      10:(
+        InteriorField1 = "Расчетный счет [BankDetails]"
+        ExternalField1 = "ПлательщикБанк2"
+        MatchingMethod = 1
+        Formula = "Bank.City"
+        InterFieldType1 = 6
+      )
+      11:(
+        InteriorField1 = "Расчетный счет [BankDetails]"
+        ExternalField1 = "ПлательщикРасчСчет"
+        MatchingMethod = 1
+        Formula = "AccountNum"
+        InterFieldType1 = 6
+      )
+      12:(
+        InteriorField1 = "vPayerKPP [vPayerKPP]"
+        ExternalField1 = "ПлательщикКПП"
+        MatchingMethod = 1
+        Formula = "КодПричины"
+        InterFieldType1 = 1
+        VarField1 = True
+      )
+      13:(
+        InteriorField1 = "Расчетный счет [ContrapartyBankDetails]"
+        ExternalField1 = "ПолучательСчет"
+        MatchingMethod = 1
+        Formula = "AccountNum"
+        InterFieldType1 = 6
+      )
+      14:(
+        InteriorField1 = "vNameContraparty [vNameContraparty]"
+        ExternalField1 = "Получатель"
+        InterFieldType1 = 1
+        VarField1 = True
+      )
+      15:(
+        InteriorField1 = "vNameContraparty [vNameContraparty]"
+        ExternalField1 = "Получатель1"
+        InterFieldType1 = 1
+        VarField1 = True
+      )
+      16:(
+        InteriorField1 = "Контрагент [Contraparty]"
+        ExternalField1 = "ПолучательИНН"
+        MatchingMethod = 1
+        Formula = "ИНН"
+        InterFieldType1 = 6
+      )
+      17:(
+        InteriorField1 = "Расчетный счет [ContrapartyBankDetails]"
+        ExternalField1 = "ПолучательРасчСчет"
+        MatchingMethod = 1
+        Formula = "AccountNum"
+        InterFieldType1 = 6
+      )
+      18:(
+        InteriorField1 = "Расчетный счет [ContrapartyBankDetails]"
+        ExternalField1 = "ПолучательБанк1"
+        MatchingMethod = 1
+        Formula = "Bank.Name"
+        InterFieldType1 = 6
+      )
+      19:(
+        InteriorField1 = "Расчетный счет [ContrapartyBankDetails]"
+        ExternalField1 = "ПолучательБанк2"
+        MatchingMethod = 1
+        Formula = "Bank.City"
+        InterFieldType1 = 6
+      )
+      20:(
+        InteriorField1 = "Расчетный счет [ContrapartyBankDetails]"
+        ExternalField1 = "ПолучательБИК"
+        MatchingMethod = 1
+        Formula = "Bank.БИК"
+        InterFieldType1 = 6
+      )
+      21:(
+        InteriorField1 = "Расчетный счет [ContrapartyBankDetails]"
+        ExternalField1 = "ПолучательКорсчет"
+        MatchingMethod = 1
+        Formula = "Bank.КСчет"
+        InterFieldType1 = 6
+      )
+      22:(
+        InteriorField1 = "Контрагент [Contraparty]"
+        ExternalField1 = "ПолучательКПП"
+        MatchingMethod = 1
+        Formula = "КодПричины"
+        InterFieldType1 = 6
+      )
+      23:(
+        InteriorField1 = "Назначение платежа [Purpose]"
+        ExternalField1 = "НазначениеПлатежа"
+        InterFieldType1 = 1
+      )
+      24:(
+        InteriorField1 = "vPaymentType [vPaymentType]"
+        ExternalField1 = "ВидОплаты"
+        InterFieldType1 = 1
+        VarField1 = True
+      )
+      25:(
+        InteriorField1 = "vTaxPaymentStatus [vTaxPaymentStatus]"
+        ExternalField1 = "СтатусСоставителя"
+        InterFieldType1 = 1
+        VarField1 = True
+      )
+      26:(
+        InteriorField1 = "vTaxCBC [vTaxCBC]"
+        ExternalField1 = "ПоказательКБК"
+        InterFieldType1 = 1
+        VarField1 = True
+      )
+      27:(
+        InteriorField1 = "vTaxOKTMO [vTaxOKTMO]"
+        ExternalField1 = "ОКАТО"
+        InterFieldType1 = 1
+        VarField1 = True
+      )
+      28:(
+        InteriorField1 = "vTaxPaymentBase [vTaxPaymentBase]"
+        ExternalField1 = "ПоказательОснования"
+        InterFieldType1 = 1
+        VarField1 = True
+      )
+      29:(
+        InteriorField1 = "vPeriodIndicator [vPeriodIndicator]"
+        ExternalField1 = "ПоказательПериода"
+        InterFieldType1 = 1
+        VarField1 = True
+      )
+      30:(
+        InteriorField1 = "vTaxBaseDocNumber [vTaxBaseDocNumber]"
+        ExternalField1 = "ПоказательНомера"
+        InterFieldType1 = 1
+        VarField1 = True
+      )
+      31:(
+        InteriorField1 = "vTaxBaseDocDate [vTaxBaseDocDate]"
+        ExternalField1 = "ПоказательДаты"
+        InterFieldType1 = 1
+        VarField1 = True
+      )
+      32:(
+        InteriorField1 = "vTaxPaymentType [vTaxPaymentType]"
+        ExternalField1 = "ПоказательТипа"
+        InterFieldType1 = 1
+        VarField1 = True
+      )
+      33:(
+        InteriorField1 = "Очер. плат. [TaxPaymentPriority]"
+        ExternalField1 = "Очередность"
+        InterFieldType1 = 2
+      )
+      34:(
+        InteriorField1 = "vTaxUIN [vTaxUIN]"
+        ExternalField1 = "Код"
+        InterFieldType1 = 1
+        VarField1 = True
+      )
+      35:(
+        InteriorField1 = "Назначение платежа кодовое [PurposeCode]"
+        ExternalField1 = "КодНазПлатежа"
+        InterFieldType1 = 1
+      )
+    )
+  )
+]
+
+]

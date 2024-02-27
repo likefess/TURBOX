@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CashFlow.Frm.Doc.CashOrder">
+  <Inherited>
+    <Inherited Name="FRecord" Class="CashFlow.Rec.Doc.CashOrder_Exp" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="DirectorLR" Class="Com.Fld.IVar" Caption="@CashOrder:DirectorLR=Руководитель" OnCalc="DirectorLR_OnCalc" RecordClass="Biz.Rec.Data.LabourRelations" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonReports">
+          <Component Name="BtnPrintForm" Class="Com.Ctrl.IButton" Caption="Кассовый ордер" HasCaption="True" OnClick="BtnPrintForm_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="FieldsGroup">
+          <Inherited Name="PrintedNumberEditGroup">
+            <Inherited Name="PrintedNumberEdit" Required="True"/>
+            <Inherited Name="EventTimeEdit" Required="True"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="OurCompanyBox">
+            <Inherited Name="OurCompanyBoxGroup">
+              <Inherited Name="OurCompanyLeftGroup">
+                <Inherited Name="OurCompanyGroup">
+                  <Inherited Name="OurCompany" Required="True"/>
+                </Inherited>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="SumBox">
+            <Inherited Name="Group10">
+              <Inherited Name="Contraparty1" Required="True"/>
+            </Inherited>
+            <Inherited Name="Group13">
+              <Inherited Name="Currency" Required="True"/>
+            </Inherited>
+            <Inherited Name="Group15">
+              <Inherited Name="Group15Left">
+                <Inherited Name="FinalSumGroup">
+                  <Inherited Name="FinalSum" Required="True"/>
+                </Inherited>
+              </Inherited>
+            </Inherited>
+            <Inherited Name="Group8">
+              <Component Name="RecipientID" Class="Com.Ctrl.IEdit" After="NewLine3" Caption="Удостоверение" CellFormat="StringFormat" Field="FRecord.RecipientID" HasCaption="True" Hint="Удостоверение личности" Wrap="True"/>
+              <Component Name="BtnStatic255" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="Director" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.NaturalEntities" CellFormat="ReferenceFormat" Field="FRecord.Director" HasCaption="True" LookupField="Name" Visible="False" Wrap="True"/>
+              <Component Name="DirectorLREdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.LabourRelations" Field="DirectorLR" HasCaption="True" LookupField="Person.Name" Multiline="True" OnChange="DirectorLREdit_OnChange" OnGetLookupFilter="DirectorLREdit_OnGetLookupFilter" OnOutputEx="DirectorLREdit_OnOutputEx" Wrap="True"/>
+              <Component Name="BtnStatic266" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="NewLine44" Class="Com.Ctrl.INewLine"/>
+              <Inherited Name="Accountant" After="NewLine44"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="AccountingAndFinance" Visible="False">
+          <Inherited Name="AccountingBox">
+            <Inherited Name="AccountingGroup">
+              <Inherited Name="AccDeb" Field="FRecord.CorrAcc"/>
+              <Inherited Name="AccCre" Field="FRecord.CashAcc"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

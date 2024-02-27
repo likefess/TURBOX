@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited HelpContext="CashFlow.Движение денежных средств.Справочники.Шаблоны банковских операций" OnPost="EditorOnPost">
+    <Inherited Name="EdtRec" Class="CashFlow.Rec.Ref.BankOperationTemplate" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" ByColumn="False">
+          <Inherited Name="Code" Visible="True"/>
+          <Component Name="BtnStatic1" Class="Com.Ctrl.IStatic" After="Code" FixSize="True" Width="7.5"/>
+          <Inherited Name="Name" After="BtnStatic1" FontBold="False" Required="True" Visible="True"/>
+          <Component Name="BtnStatic2" Class="Com.Ctrl.IStatic" After="Name" FixSize="True" Width="7.5"/>
+        </Inherited>
+      </Inherited>
+      <Component Name="SearchCriteriaBox" Class="Com.Ctrl.IBox" After="FieldsFrame" Caption="Критерии поиска" HasCaption="True">
+        <Component Name="SearchCriteriaGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+          <Component Name="SearchCriteriaLeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+            <Component Name="LeftGroupLine1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="OurCompany" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="EdtRec.OurCompany" HasCaption="True" Required="True" ShortList="True" Visible="True"/>
+              <Component Name="BtnStatic3" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Component Name="LeftGroupLine2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              <Component Name="IsExpenseDoc" Class="Com.Ctrl.ICheckBox" Caption="Расходный документ" Field="EdtRec.IsExpenseDoc"/>
+              <Component Name="BtnStatic4" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Component Name="LeftGroupLine3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="PartnerINN" Class="Com.Ctrl.IEdit" Field="EdtRec.PartnerINN" HasCaption="True"/>
+              <Component Name="BtnStatic5" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Component Name="LeftGroupLine4" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="PartnerAccount" Class="Com.Ctrl.IEdit" Caption="Счет контрагента" Field="EdtRec.PartnerAccount" HasCaption="True" Hint="Расчетный счет контрагента"/>
+              <Component Name="BtnStatic6" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+          </Component>
+          <Component Name="SearchCriteriaRightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+            <Component Name="RightGroupLine1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="OurAccount" Class="Com.Ctrl.IEdit" Caption="Счет (наш)" Field="EdtRec.OurAccount" HasCaption="True" Hint="Расчетный счет (наш)" OnGetLookupFilter="OurAccountOnGetLookupFilter" ShortList="False"/>
+              <Component Name="BtnStatic7" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Component Name="RightGroupLine2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+            </Component>
+            <Component Name="RightGroupLine3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="PartnerKPP" Class="Com.Ctrl.IEdit" Field="EdtRec.PartnerKPP" HasCaption="True"/>
+              <Component Name="BtnStatic9" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Component Name="RightGroupLine4" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="Static4" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+            </Component>
+          </Component>
+          <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          <Component Name="PaymentPurpose" Class="Com.Ctrl.IEdit" Caption="Назначение" Field="EdtRec.PaymentPurpose" HasCaption="True" Hint="Назначение платежа"/>
+          <Component Name="BtnStatic10" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+        </Component>
+      </Component>
+      <Component Name="BoxLookupParams" Class="Com.Ctrl.IBox" Caption="Параметры подстановки">
+        <Component Name="LookupParamsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+          <Component Name="LookupParamsGroupLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+            <Component Name="LeftGroupLine5" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="Partner" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Field="EdtRec.Partner" HasCaption="True" LookupField="Name" OnChange="PartnerOnChange" OnGetLookupFilter="PartnerOnGetLookupFilter" OnVerify="PartnerOnVerify"/>
+              <Component Name="BtnStatic8" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Component Name="LeftGroupLine6" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="Contract" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Field="EdtRec.Contract" HasCaption="True" LookupField="Code" OnGetLookupFilter="ContractOnGetLookupFilter" OnVerify="ContractOnVerify"/>
+              <Component Name="BtnStatic11" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Component Name="LeftGroupLine7" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="CorrAccount" Class="Com.Ctrl.IEditEx" CellFormat="StringFormat" Field="EdtRec.CorrAccount" HasCaption="True">
+                <Component Name="CorrAccountBtn" Class="Com.Ctrl.IButton" HasCaption="False" ImageName="Biz.id-card-light" OnClick="CorrAccountBtnOnClick"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="LookupParamsGroupRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+            <Component Name="RightGroupLine5" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="Static8" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              <Component Name="UpdatePartner" Class="Com.Ctrl.ICheckBox" Field="EdtRec.UpdatePartner"/>
+              <Component Name="BtnStatic14" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Component Name="RightGroupLine6" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="Static6" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              <Component Name="UpdateContract" Class="Com.Ctrl.ICheckBox" Field="EdtRec.UpdateContract"/>
+              <Component Name="BtnStatic16" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Component Name="RightGroupLine7" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="Static9" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="AnaliticalFeaturesBox" Class="Com.Ctrl.IBox" Caption="Аналитические признаки">
+        <Component Name="AnaliticalFeaturesGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+          <Component Name="AnaliticalFeaturesGroupLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+            <Component Name="LeftGroupLine8" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="CFR" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="EdtRec.CFR" HasCaption="True" LookupField="Name" OnGetLookupFilter="CFROnGetLookupFilter" OnVerify="CFROnVerify"/>
+              <Component Name="BtnStatic12" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Component Name="LeftGroupLine9" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="BGI" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="EdtRec.BGI" HasCaption="True" LookupField="Name" LookupFilter="Not Closed" OnVerify="BGIOnVerify"/>
+              <Component Name="BtnStatic13" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Component Name="LeftGroupLine10" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="Project" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Field="EdtRec.Project" HasCaption="True" LookupField="Name" OnVerify="ProjectOnVerify"/>
+              <Component Name="BtnStatic20" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Component Name="LeftGroupLine11" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="Source" Class="Com.Ctrl.IEdit" Caption="Иточник" CardFileClass="Biz.Tab.Ref.FundSource" CellFormat="ReferenceFormat" Field="EdtRec.Source" HasCaption="True" Hint="Источник финансирования" LookupField="Name" OnVerify="SourceOnVerify"/>
+              <Component Name="BtnStatic21" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+          </Component>
+          <Component Name="AnaliticalFeaturesGroupRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+            <Component Name="RightGroupLine8" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="Static10" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              <Component Name="UpdateCFR" Class="Com.Ctrl.ICheckBox" Field="EdtRec.UpdateCFR"/>
+              <Component Name="BtnStatic15" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Component Name="RightGroupLine9" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="Static7" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              <Component Name="UpdateBGI" Class="Com.Ctrl.ICheckBox" Field="EdtRec.UpdateBGI"/>
+              <Component Name="BtnStatic17" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Component Name="RightGroupLine10" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="Static11" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              <Component Name="UpdateProject" Class="Com.Ctrl.ICheckBox" Field="EdtRec.UpdateProject"/>
+              <Component Name="BtnStatic18" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Component Name="RightGroupLine11" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="Static12" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              <Component Name="UpdateSource" Class="Com.Ctrl.ICheckBox" Field="EdtRec.UpdateSource"/>
+              <Component Name="BtnStatic19" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+      <Inherited Name="TabsFrame" After="AnaliticalFeaturesBox"/>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="vSubtable_Data" Class="Com.ISubtable" StructClass="TaskApprovement.Struct.AllocatedStaffReplacement_Data"/>
+      <Component Name="parmCompany" Class="Com.Fld.IVar" Caption="@TaskApprovement:Company=Предприятие" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="parmDivision" Class="Com.Fld.IVar" Caption="@TaskApprovement:Division=Подразделение" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="parmCFU" Class="Com.Fld.IVar" Caption="@TaskApprovement:CFU=ЦФО" RecordClass="Biz.Rec.Ref.CFR" ValueType="VarObject"/>
+      <Component Name="parmBegDate" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="parmEndDate" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="parmPeriod" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="parmPick" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonOK" Visible="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="ParmDateFrame" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+        <Component Name="ParmBox" Class="Com.Ctrl.IBox" Caption="@TaskApprovement:AllocatedStaffReplacement_Params=Параметры">
+          <Component Name="CompanyEdit" Class="Com.Ctrl.IEdit" CaptionWidth="35" CellFormat="ReferenceFormat" Field="parmCompany" HasCaption="True" LookupField="Name" LookupFilter="not Closed" Width="80"/>
+          <Component Name="DivisionEdit" Class="Com.Ctrl.IEdit" CaptionWidth="35" CellFormat="ReferenceFormat" Field="parmDivision" HasCaption="True" LookupField="Name" LookupFilter="not Closed" Width="80"/>
+        </Component>
+        <Component Name="DataBox" Class="Com.Ctrl.IBox" Caption="@TaskApprovement:AllocatedStaffReplacement_Data=Данные">
+          <Component Name="DataFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="PickStatic" Class="Com.Ctrl.IStatic" Caption=" " FixSize="True" Width="14"/>
+            <Component Name="PickAllEdit" Class="Com.Ctrl.IEdit" Caption="@TaskApprovement:AllocatedStaffReplacement.PickAll=Выбрать все" CellFormat="LogicalFormat" Field="parmPick" OnChange="PickAllEditOnChange" ValueType="VarLogical" Width="30"/>
+            <Component Name="TableData" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" Freezed="False" Numbering="True" Subtable="vSubtable_Data">
+              <Component Name="vStruct_Data" Class="TaskApprovement.Struct.AllocatedStaffReplacement_Data" IsLibrary="1"/>
+              <Component Name="PickEdit" Class="Com.Ctrl.IEdit" Caption="-" CellFormat="LogicalFormat" Field="vStruct_Data.Pick" FixSize="True" OnChange="PickEditOnChange" ValueType="VarLogical" Width="10"/>
+              <Component Name="PrintedNumberEdit" Class="Com.Ctrl.IEdit" Caption="@TaskApprovement:AllocatedStaffReplacement.Num=№" Enabled="False" Field="vStruct_Data.Task" FixSize="True" LookupField="PrintedNumber" Width="30"/>
+              <Component Name="TaskEdit" Class="Com.Ctrl.IEdit" Caption="@TaskApprovement:AllocatedStaffReplacement.Task=Название согласования" Field="vStruct_Data.Task" LookupField="Name" MaxWidth="80" Width="50" Wrap="True"/>
+              <Component Name="TaskJumpButton" Class="Com.Ctrl.IJumpButton" Field="vStruct_Data.Task" OnClick="TaskJumpButtonOnClick"/>
+              <Component Name="LinkedDocEdit" Class="Com.Ctrl.IEdit" Caption="@TaskApprovement:AllocatedStaffReplacement.LinkedDoc=Согласуемый документ" Enabled="False" Field="vStruct_Data.Task" LookupField="Name" MaxWidth="80" OnOutput="LinkedDoc_OnOutput" Width="50" Wrap="True"/>
+              <Component Name="LinkedJumpButton" Class="Com.Ctrl.IJumpButton" Field="vStruct_Data.LinkedDoc"/>
+              <Component Name="StatusEdit" Class="Com.Ctrl.IEdit" Caption="@TaskApprovement:AllocatedStaffReplacement.TaskStatus=Состояние" Enabled="False" Field="vStruct_Data.Status" LookupField="Name" MaxWidth="60" Width="40"/>
+              <Component Name="ImportanceEdit" Class="Com.Ctrl.IEdit" Caption="@TaskApprovement:AllocatedStaffReplacement.Impotance=Важность" Enabled="False" Field="vStruct_Data.Importance" LookupField="Name" MaxWidth="60" Width="40"/>
+              <Component Name="PriorityEdit" Class="Com.Ctrl.IEdit" Caption="@TaskApprovement:AllocatedStaffReplacement.Priority=Приоритет" Enabled="False" Field="vStruct_Data.Priority" FixSize="False" LookupField="Name" Width="27"/>
+              <Component Name="CreateDateEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@TaskApprovement:AllocatedStaffReplacement.CreateDate=Дата создания" Field="vStruct_Data.CreateDate" FormatOfDate="DateAndTime" MinWidth="28" Width="40"/>
+              <Component Name="DeadlineEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@TaskApprovement:AllocatedStaffReplacement.Deadline=Крайний срок" Field="vStruct_Data.Deadline" FormatOfDate="DateAndTime" MinWidth="28" Width="40"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

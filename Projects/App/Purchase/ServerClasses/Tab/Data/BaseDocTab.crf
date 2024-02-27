@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Tab.Base.CodeNameRecordTab">
+  <Inherited>
+    <Inherited Name="Current" Class="Purchase.Rec.Data.BaseDocRec" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="edDocID" Class="Com.Ctrl.IEdit" After="CardFile" Alignment="CenterAlign" Field="Current.DocId" Visible="False" Width="10"/>
+          <Component Name="edCreateDate" Class="Com.Ctrl.IEdit" After="ExtId" Field="Current.CreateDate" Visible="False" Width="35"/>
+          <Component Name="edCreateUser" Class="Com.Ctrl.IEdit" Field="Current.CreateUser" Visible="False" Width="30"/>
+          <Component Name="edUpdateDate" Class="Com.Ctrl.IEdit" Field="Current.UpdateDate" Visible="False" Width="35"/>
+          <Component Name="edUpdateUser" Class="Com.Ctrl.IEdit" Field="Current.UpdateUser" Visible="False" Width="30"/>
+          <Component Name="edModifyDate" Class="Com.Ctrl.IEdit" Field="Current.ModifyDate" Visible="False" Width="35"/>
+          <Component Name="edVersion" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Current.Version" Visible="False" Width="15"/>
+          <Component Name="edBranch" Class="Com.Ctrl.IEdit" Field="Current.Branch" Visible="False" Width="30"/>
+          <Component Name="edConfid" Class="Com.Ctrl.IEdit" Field="Current.Confid" Visible="False" Width="30"/>
+          <Component Name="edClosed" Class="Com.Ctrl.IEdit" Field="Current.Closed" Visible="False" Width="15"/>
+          <Component Name="cb_Р" Class="Com.Ctrl.ICheckBox" Caption="Р" Field="Current.Cont" Width="5"/>
+          <Component Name="cb_З" Class="Com.Ctrl.ICheckBox" Caption="З" Field="Current.Locked" Width="5"/>
+          <Component Name="edJournalDate" Class="Com.Ctrl.IEdit" After="Code" Caption="Дата" Field="Current.JournalDate" FormatOfDate="DateAndTime" Width="40"/>
+          <Component Name="edBegDate" Class="Com.Ctrl.IEdit" Caption="Начало периода" Field="Current.BegDate" OnOutputCard="edBegDateOnOutputCard" Width="32"/>
+          <Component Name="edEndDate" Class="Com.Ctrl.IEdit" Caption="Окончание периода" Field="Current.EndDate" OnOutputCard="edEndDateOnOutputCard" Width="32"/>
+          <Component Name="edCompany" Class="Com.Ctrl.IEdit" Field="Current.Company" Width="35"/>
+          <Component Name="edDivision" Class="Com.Ctrl.IEdit" Field="Current.Division" Width="35"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

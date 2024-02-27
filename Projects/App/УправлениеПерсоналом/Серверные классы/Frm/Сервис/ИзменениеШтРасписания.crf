@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Component Name="исхШтатноеРасписание" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ШтатноеРасписание" IsLibrary="1" After="#0"/>
+    <Component Name="новШтатноеРасписание" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ШтатноеРасписание" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="нДатаНачала" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="нДатаОкончания" Class="Com.Fld.IVar" ValueType="VarDate"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonOK" Visible="False"/>
+        <Inherited Name="ButtonClose" Visible="False"/>
+        <Inherited Name="ButtonRefresh" Visible="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="грПериод" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Caption="Дата начала" Field="нДатаНачала" FormatOfDate="DateOnly" HasCaption="True" Hint="Дата начала действия изменений штатного расписания" MaxWidth="35" OnVerify="ДатаНачала_OnVerify"/>
+          <Component Name="ДатаОкончания" Class="Com.Ctrl.IEdit" Caption="Дата окончания" Enabled="False" Field="нДатаОкончания" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="35"/>
+        </Component>
+        <Component Name="грРазделитель" Class="Com.Ctrl.IGroup">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic"/>
+        </Component>
+        <Component Name="грКнопки" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="кнУтвердить" Class="Com.Ctrl.IButton" Caption="@Изменить" HasCaption="True" Hint="@Изменить штатное расписание" OnClick="Утвердить" Width="35"/>
+          <Component Name="кнОтмена" Class="Com.Ctrl.IButton" Caption="@Отмена" HasCaption="True" Hint="@Выйти из сервиса без изменений" OnClick="ButtonClose_OnClick" Width="35"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

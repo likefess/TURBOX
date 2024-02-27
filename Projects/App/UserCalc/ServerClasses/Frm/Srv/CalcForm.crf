@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited Caption="Пользовательские расчёты" HelpContext="UserCalc.Пользовательские расчеты.Пользовательские расчеты">
+    <Inherited Name="Variables">
+      <Component Name="vCalcType" Class="Com.Fld.IVar" Caption="Вид расчёта" OnChange="vCalcTypeOnChange" RecordClass="UserCalc.Rec.Ref.CalcType" ValueType="VarObject"/>
+      <Component Name="vScript" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="vUserFunc" Class="Com.Fld.IVar" Caption="Скрипт" RecordClass="UserCalc.Rec.Ref.UserFunction" ValueType="VarObject"/>
+      <Component Name="vShow" Class="Com.Fld.IVar" OnChange="vShowOnChange" ValueType="VarLogical"/>
+      <Component Name="vInValSource" Class="Com.Fld.IVar" OnChange="vInValSourceOnChange" ValueType="VarInteger"/>
+      <Component Name="vInValFld" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="vOutValSource" Class="Com.Fld.IVar" OnChange="vOutValSourceOnChange" ValueType="VarInteger"/>
+      <Component Name="vOutValFld" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="vFieldsSettings" Class="Com.Fld.IVar" Caption="Настройки вида" OnChange="vFieldsSettingsOnChange" RecordClass="UserCalc.Rec.Ref.FieldsSettings" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="6">
+        <Component Name="ButtonFromReport" Class="Com.Ctrl.IButton" After="#0" Caption="Получить из отчёта" ImageName="Com.chart-line" OnClick="ButtonFromReportOnClick"/>
+        <Component Name="ButtonFromCardForm" Class="Com.Ctrl.IButton" Caption="Получить из картотеки" ImageName="Com.Cardfile" OnClick="ButtonFromCardFormOnClick"/>
+        <Component Name="ButtonPreCalc" Class="Com.Ctrl.IButton" Caption="Предварительный расчёт" Enabled="False" ImageName="Com.Calculation" OnClick="ButtonPreCalcOnClick"/>
+        <Component Name="ButtonFinCalc" Class="Com.Ctrl.IButton" Caption="Расчёт" Enabled="False" ImageName="Com.play" OnClick="ButtonFinCalcOnClick"/>
+        <Inherited Name="ButtonOK" Visible="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="SettingsFrame" Class="Com.Ctrl.IFrame" Margins="10">
+          <Component Name="GrCalcType" Class="Com.Ctrl.IGroup" Width="100">
+            <Component Name="EdCalcType" Class="Com.Ctrl.IEditEx" CardFileClass="UserCalc.Tab.Ref.CalcType" CellFormat="ReferenceFormat" Field="vCalcType" HasCaption="True" LookupField="Name" OnVerify="NG" ShortList="True" ValueType="VarObject"/>
+            <Component Name="ChShowOnScreen" Class="Com.Ctrl.ICheckBox" Caption="Выводить на экран" Field="vShow" HasCaption="True" Hint="Отображать результат вычислений в виде таблицы" Width="45"/>
+          </Component>
+          <Component Name="GrFieldsSettings" Class="Com.Ctrl.IGroup" Width="100">
+            <Component Name="EdFieldsSettings" Class="Com.Ctrl.IEditEx" CardFileClass="UserCalc.Tab.Ref.FieldsSettings" CellFormat="ReferenceFormat" Field="vFieldsSettings" HasCaption="True" LookupField="Name" OnVerify="NG" ValueType="VarObject">
+              <Component Name="FieldsSettingsJumper" Class="Com.Ctrl.IJumpButton" Field="vFieldsSettings" JumpForm="UserCalc.Frm.Ref.FieldsSettings"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="ParametersBox" Class="Com.Ctrl.IBox" Caption="Параметры расчёта" Collapsed="True" Margins="10" Visible="False">
+          <Component Name="GroupsFrame" Class="Com.Ctrl.IFrame">
+            <Component Name="GrUserFunction" Class="Com.Ctrl.IGroup" Visible="False" Width="100">
+              <Component Name="EdUserFunction" Class="Com.Ctrl.IEditEx" CardFileClass="UserCalc.Tab.Ref.UserFunction" CellFormat="ReferenceFormat" Field="vUserFunc" HasCaption="True" LookupField="Name" LookupFilter="IsGroup = -1 or CodeType = 0" OnChange="UserFunctionOnChange" OnVerify="NG" ValueType="VarObject">
+                <Component Name="UserFunctionJumper" Class="Com.Ctrl.IJumpButton" Field="vUserFunc" JumpForm="UserCalc.Frm.Ref.UserFunction"/>
+              </Component>
+            </Component>
+            <Component Name="GrInValSource" Class="Com.Ctrl.IGroup" Visible="False" Width="100">
+              <Component Name="EdInValSource" Class="Com.Ctrl.IEdit" Caption="Входные данные" CellFormat="EnumFormat" Field="vInValSource" HasCaption="True" ValueType="VarInteger"/>
+              <Component Name="EdInValFld" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="vInValFld" HasCaption="False" OnEnter="EdInValFldOnEnter" ValueType="VarInteger"/>
+            </Component>
+            <Component Name="GrOutValSource" Class="Com.Ctrl.IGroup" Visible="False" Width="100">
+              <Component Name="EdOutValSource" Class="Com.Ctrl.IEdit" Caption="Выходные данные" CellFormat="EnumFormat" Field="vOutValSource" HasCaption="True" OnEnter="EdOutValSourceOnEnter" ValueType="VarInteger"/>
+              <Component Name="EdOutValFld" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="vOutValFld" HasCaption="False" OnEnter="EdOutValFldOnEnter" ValueType="VarInteger"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab" Visible="False"/>
+        <Component Name="CodeTab" Class="Com.Ctrl.IFrame" Caption="Редактор кода" Visible="False">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" MinWidth="100">
+            <Component Name="EdScript" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="vScript" Multiline="True" OnChange="EdScriptOnChange" ValueType="VarString" Wrap="True"/>
+          </Component>
+        </Component>
+        <Component Name="FuncTab" Class="Com.Ctrl.IFrame" Caption="Функции" Visible="False"/>
+        <Component Name="VarTab" Class="Com.Ctrl.IFrame" Caption="Переменные" Visible="False"/>
+        <Component Name="InTab" Class="Com.Ctrl.IFrame" Caption="Входные данные" Visible="False">
+          <Component Name="InFrame" Class="Com.Ctrl.IFrame"/>
+        </Component>
+        <Component Name="OutTab" Class="Com.Ctrl.IFrame" Caption="Выходные данные" Visible="False">
+          <Component Name="OutFrame" Class="Com.Ctrl.IFrame"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

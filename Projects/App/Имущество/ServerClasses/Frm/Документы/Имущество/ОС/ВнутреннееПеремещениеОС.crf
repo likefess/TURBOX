@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Frm.Документы.Имущество.ОС.ИмуществоБазовыйДокументОС">
+  <Inherited HelpContext="Имущество.Имущество.Документы движения и учета ОС.Внутреннее перемещение ОС">
+    <Inherited Name="EdtRec" Class="Имущество.Rec.Документы.Имущество.ОС.ВнутреннееПеремещениеОС" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="перТрудовыеОтношенияКуда" Class="Com.Fld.IVar" Excluded="True" After="#0" ValueType="VarObject"/>
+      <Inherited Name="перТрудовыеОтношения" After="перТрудовыеОтношенияКуда"/>
+      <Component Name="перПоказыватьПараметрыОС" Class="Com.Fld.IVar" After="перТрудовыеОтношения" OnCalc="перПоказыватьПараметрыОС_OnCalc"/>
+      <Component Name="перПоказыватьПеремещено" Class="Com.Fld.IVar" OnCalc="перПоказыватьПеремещено_OnCalc"/>
+      <Component Name="перПоказыватьДополнительно" Class="Com.Fld.IVar" OnCalc="перПоказыватьДополнительно_OnCalc"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Шапка_Фрейм">
+          <Inherited Name="Шапка_Гр">
+            <Component Name="НомерГруппОС" Class="Com.Ctrl.IGroup" After="Шапка_ПервичныйДокумент">
+              <Component Name="ГрупповоеОС" Class="Com.Ctrl.IEdit" CardFileClass="ИмуществоБазовый.Tab.Справочники.ГрупповыеОС" Field="EdtRec.ГрупповоеОС" FixSize="True" HasCaption="True" Hint="Заполняется при условии ввода в эксплуатацию остатков по Групповому ОС.  Необязательно для заполнения.  При указании значения в данном поле табличная часть документа заполняется перечнем ОС, входящих в состав данного Группового ОС" LookupField="КодИмущества" OnChange="ГрупповоеОС_OnChange" OnGetLookupFilter="ГрОС_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуГрОС" OnVerify="ГрупповоеОС_OnVerify" Width="40"/>
+              <Component Name="ГрупповоеОС1" Class="Com.Ctrl.IEdit" CardFileClass="ИмуществоБазовый.Tab.Справочники.ГрупповыеОС" Enabled="False" Field="EdtRec.ГрупповоеОС" HasCaption="False" Hint="Заполняется при условии ввода в эксплуатацию остатков по Групповому ОС.  Необязательно для заполнения.  При указании значения в данном поле табличная часть документа заполняется перечнем ОС, входящих в состав данного Группового ОС" LookupField="Name"/>
+              <Component Name="кнГрупповоеОС" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ГрупповоеОС" JumpForm="ИмуществоБазовый.Frm.Справочники.ГрупповыеОС"/>
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+            </Component>
+            <Inherited Name="Корректировка_Гр" After="НомерГруппОС">
+              <Inherited Name="КорректируемыйДокумент" CardFileClass="Имущество.Tab.Документы.Имущество.ОС.ВнутреннееПеремещениеОС"/>
+              <Inherited Name="кнКорректируемыйДокумент" JumpForm="Имущество.Frm.Документы.Имущество.ОС.ВнутреннееПеремещениеОС"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="Имя_Код_Бокс" Visible="False"/>
+          <Inherited Name="ОбщиеДанные" Excluded="True" Visible="False">
+            <Inherited Name="Стоимость_Гр">
+              <Inherited Name="Стоимость" Enabled="False" Required="False"/>
+            </Inherited>
+            <Inherited Name="Подр_МОЛ_Гр">
+              <Inherited Name="Подразделение" Enabled="False" Required="False"/>
+              <Inherited Name="ТрудовыеОтношения_Выбор" Enabled="False" Visible="False"/>
+              <Inherited Name="МОЛ" Enabled="False" Required="False"/>
+            </Inherited>
+            <Component Name="Подр_МОЛ_ГрКудаНадпись" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ОбъектКВПеремещен" Class="Com.Ctrl.IStatic" Caption="Объект КВ перемещен в:" FontBold="True"/>
+            </Component>
+            <Component Name="Подр_МОЛ_ГрКуда" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ПодразделениеКуда" Class="Com.Ctrl.IEdit" Caption="Подразделение" CardFileClass="Bas.Tab.Data.Divisions" HasCaption="True" Hint="Подразделение, в которое перемещается объект ОС" OnChange="ПодразделениеКуда_OnChange" OnGetLookupFilter="ПодразделениеКуда_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуПодразделение" Required="True"/>
+              <Component Name="ТрудовыеОтношенияКуда_Выбор" Class="Com.Ctrl.IEdit" Caption="МОЛ" CardFileClass="Biz.Tab.Data.LabourRelations" HasCaption="True" Hint="ФИО материально-ответственного лица, за которым закреплен данный объект ОС, по состоянию на текущую дату" LookupField="Person.Name" OnChange="ТрудовыеОтношенияКуда_Выбор_OnChange" OnGetLookupFilter="ТрудовыеОтношенияКуда_Выбор_OnGetLookupFilter" OnOutput="ТрудовыеОтношенияКуда_Выбор_OnOutput" Required="True"/>
+              <Component Name="МОЛКуда" Class="Com.Ctrl.IEdit" Caption="МОЛ" CardFileClass="Bas.Tab.Data.Entity" HasCaption="True" Hint="Материально-ответственное лицо, ответственное за данный объект ОС после перемещения" OnChange="МОЛКуда_OnChange" OnGetLookupFilter="МОЛКуда_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуМОЛ" Required="True" Visible="False"/>
+            </Component>
+          </Inherited>
+          <Component Name="Позиции_Box" Class="Com.Ctrl.IBox" After="ОбщиеДанные" Caption="Перемещение ОС">
+            <Component Name="УправлениеВидимостью_Табл" Class="Com.Ctrl.IGroup" Printed="False">
+              <Component Name="Static_ПоказыватьГрКол" Class="Com.Ctrl.IStatic" Caption="Показывать группу колонок:" FixSize="True" Printed="False" Visible="True" Width="55"/>
+              <Component Name="перПоказыватьПараметрыОС_Флаг" Class="Com.Ctrl.ICheckBox" Caption="Параметры ОС" Field="перПоказыватьПараметрыОС" FixSize="True" HasCaption="True" Hint="Показывать группу колонок &quot;Данные ОС&quot;" OnChange="перПоказыватьПараметрыОС_Флаг_OnChange" Printed="False" Width="40"/>
+              <Component Name="Static_Перемещ" Class="Com.Ctrl.IStatic" Printed="False"/>
+              <Component Name="перПоказыватьПерем_Флаг" Class="Com.Ctrl.ICheckBox" Caption="Перемещение ОС" Field="перПоказыватьПеремещено" FixSize="True" HasCaption="True" Hint="Показывать группу колонок &quot;Перемещение&quot;" OnChange="перПоказыватьПеремещено_Флаг_OnChange" Printed="False" Width="60"/>
+              <Component Name="перПоказыватьДополнительно_Флаг" Class="Com.Ctrl.ICheckBox" Caption="Дополнительно" Field="перПоказыватьДополнительно" FixSize="True" HasCaption="True" Hint="Показывать группу колонок &quot;Дополнительно&quot;" OnChange="перПоказыватьДополнительно_Флаг_OnChange" Printed="False" Width="40"/>
+              <Component Name="Static_ПарамНУ" Class="Com.Ctrl.IStatic" Printed="False"/>
+            </Component>
+            <Component Name="ПозицииОС_Табл" Class="Com.Ctrl.ITable" Sortable="True" Subtable="EdtRec.ПозицииОС">
+              <Component Name="ВнутреннееПеремещениеОС_Позиции" Class="Имущество.Rec.Документы.Имущество.ОС.ВнутреннееПеремещениеОС_Позиции" IsLibrary="1"/>
+              <Component Name="Имя_Табл" Class="Com.Ctrl.IEdit" Caption="Наименование ОС" CardFileClass="ИмуществоБазовый.Tab.Справочники.ОснСредства" CellFormat="ReferenceFormat" Field="ВнутреннееПеремещениеОС_Позиции.ОС" Hint="Краткое наименование ОС" LookupField="Name" Multiline="True" OnChange="ОС_Табл_OnChange" OnGetLookupFilter="ОС_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуОС" OnVerify="ОС_Табл_OnVerify" Required="True" Width="70" Wrap="True"/>
+              <Component Name="ИнвентарныйНомер_Табл" Class="Com.Ctrl.IEdit" Caption="Инвентарный номер" CardFileClass="ИмуществоБазовый.Tab.Справочники.ОснСредства" CellFormat="ReferenceFormat" Field="ВнутреннееПеремещениеОС_Позиции.ОС" Hint="Инвентарный номер ОС" LookupField="КодИмущества" OnChange="ОС_Табл_OnChange" OnGetLookupFilter="ОС_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуОС" OnVerify="ОС_Табл_OnVerify" Required="True" Width="30"/>
+              <Component Name="ОС_JumpButton" Class="Com.Ctrl.IJumpButton" Field="ВнутреннееПеремещениеОС_Позиции.ОС" Hint="Возможность перехода на карточку ОС, просмотра и редактирования доступных полей" JumpForm="ИмуществоБазовый.Frm.Справочники.ОснСредства"/>
+              <Component Name="кн_ОбновитьДанныеПоПозицииОС" Class="Com.Ctrl.IButton" FixSize="True" Hint="Обновить данные по текущей позиции ОС" ImageName="Control.Refresh" OnClick="кн_ОбновитьДанныеПоПозицииОС_OnClick" Width="6"/>
+              <Component Name="ДанныеОС_Гр_Табл" Class="Com.Ctrl.IColumnsGroup" Caption="Данные ОС" HasCaption="True">
+                <Component Name="Подразделение_Табл" Class="Com.Ctrl.IEdit" Caption="Подразделение" CardFileClass="Bas.Tab.Data.Divisions" Field="ВнутреннееПеремещениеОС_Позиции.Подразделение" Hint="Подразделение, в котором числится объект ОС" Multiline="True" OnGetLookupFilter="Подразделение_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуПодразделение" Required="True" Width="40" Wrap="True"/>
+                <Component Name="ТрудовыеОтношения_Выбор_Табл" Class="Com.Ctrl.IEdit" Caption="МОЛ " CardFileClass="Biz.Tab.Data.LabourRelations" Field="ВнутреннееПеремещениеОС_Позиции.перТрудовыеОтношения_Выбор" HasCaption="True" Hint="ФИО материально-ответственного лица, за которым закреплен данный объект имущества, по состоянию на текущую дату" LookupField="Person.Name" Multiline="True" OnGetLookupFilter="ТрудовыеОтношения_Выбор_Табл_OnGetLookupFilter" OnOutputEx="ТрудовыеОтношения_Выбор_Табл_OnOutputEx" Required="True" Width="50" Wrap="True"/>
+                <Component Name="МОЛ_Табл" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" Field="ВнутреннееПеремещениеОС_Позиции.МОЛ" FieldFormat=",##0.00;;-" Hint="Материально-ответственное лицо, ответственное за данный объект ОС" Multiline="True" OnGetLookupFilter="МОЛ_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуМОЛ" Required="True" Visible="False" Width="40" Wrap="True"/>
+                <Component Name="СтоимостьОСпоБУ_Табл" Class="Com.Ctrl.IEdit" Caption="Стоимость" Field="ВнутреннееПеремещениеОС_Позиции.СтоимостьОСпоБУ" FieldFormat=",##0.00;;-" Hint="Стоимость объекта ОС на дату перемещения с учетом проведенных переоценок и модернизации" Required="True" Width="30"/>
+              </Component>
+              <Component Name="Перемещено_Гр_Табл" Class="Com.Ctrl.IColumnsGroup" Caption="Перемещено" HasCaption="True">
+                <Component Name="ПодразделениеКуда_Табл" Class="Com.Ctrl.IEdit" Caption="Подразделение" CardFileClass="Bas.Tab.Data.Divisions" Field="ВнутреннееПеремещениеОС_Позиции.ПодразделениеКуда" HasCaption="True" Hint="Подразделение, в которое перемещается объект ОС" Multiline="True" OnChange="ПодразделениеКуда_OnChange" OnEnter="ПодразделениеКуда_Табл_OnEnter" OnGetLookupFilter="ПодразделениеКуда_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуПодразделение" Required="True" Width="40" Wrap="True"/>
+                <Component Name="ТрудовыеОтношенияКуда_Выбор_Табл" Class="Com.Ctrl.IEdit" Caption="МОЛ" CardFileClass="Biz.Tab.Data.LabourRelations" Field="ВнутреннееПеремещениеОС_Позиции.перТрудовыеОтношенияКуда" HasCaption="True" Hint="ФИО материально-ответственного лица, за которым закреплен данный объект ОС, по состоянию на текущую дату" LookupField="Person.Name" Multiline="True" OnChange="ТрудовыеОтношенияКуда_Выбор_OnChange" OnGetLookupFilter="ТрудовыеОтношенияКуда_Выбор_OnGetLookupFilter" OnOpenCardForm="ТрудовыеОтношенияКуда_Выбор_Табл_OnOpenCardForm" OnOutputEx="ТрудовыеОтношенияКуда_Выбор_Табл_OnOutputEx" Required="True" Width="50" Wrap="True"/>
+                <Component Name="МОЛКуда_Табл" Class="Com.Ctrl.IEdit" Caption="МОЛ" CardFileClass="Bas.Tab.Data.Entity" Field="ВнутреннееПеремещениеОС_Позиции.МОЛКуда" HasCaption="True" Hint="Материально-ответственное лицо, ответственное за данный объект ОС после перемещения" Multiline="True" OnChange="МОЛКуда_OnChange" OnGetLookupFilter="МОЛКуда_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуМОЛ" Required="True" Visible="False" Width="50" Wrap="True"/>
+              </Component>
+              <Component Name="Дополнительно_Гр_Табл" Class="Com.Ctrl.IColumnsGroup" Caption="Дополнительно" HasCaption="True">
+                <Component Name="СуммаОбесценения_Табл" Class="Com.Ctrl.IEdit" Caption="Сумма обесценения" Enabled="False" Field="ВнутреннееПеремещениеОС_Позиции.СуммаОбесценения" FieldFormat=",##0.00;;-" Hint="Сумма обесценения, начисленная на момент ввода остатков по бухгалтерскому учету" Width="30"/>
+                <Component Name="СуммаАмортизацииБУ_Табл" Class="Com.Ctrl.IEdit" Caption="Сумма амортизации" Enabled="False" Field="ВнутреннееПеремещениеОС_Позиции.СуммаАмортизацииБУ" FieldFormat=",##0.00;;-" Hint="Сумма начисленной амортизации на момент ввода остатков по бухгалтерскому учету" Width="35"/>
+              </Component>
+            </Component>
+          </Component>
+          <Inherited Name="Комментарии_Box" After="Позиции_Box"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

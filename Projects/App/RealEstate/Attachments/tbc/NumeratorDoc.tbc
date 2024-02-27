@@ -1,0 +1,234 @@
+﻿TBCFile VER="3.4" [Created '14.10.2022 16:59:25' by 'Администратор']
+
+DESCRIPTION[
+Count=7
+CountByRef=0
+Biz.Data.MAUnit
+(
+  Count=0
+  CountByRef=0
+)
+Biz.Ref.Period
+(
+  Count=0
+  CountByRef=0
+)
+NumExt.Service.NumeratorDoc
+(
+  Count=7
+  CountByRef=0
+)
+NumExt.Service.TypesOfRecordClasses
+(
+  Count=0
+  CountByRef=0
+)
+RealEstateBase.Ref.RealEstateObjKind
+(
+  Count=0
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Biz.Data.MAUnit
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+  [Biz.Ref.Period
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+  [NumExt.Service.NumeratorDoc
+  (
+    Deleted :Boolean
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    isOnDA :Boolean
+    DAApprovalTask :DocApprovement.Data.DATask
+    TypeClassOfRecord :NumExt.Service.TypesOfRecordClasses
+    FieldDoc :String
+    FieldDateDoc :String
+    IsInternal :Boolean
+    Filter :String
+    Rule :Integer
+    OurCompany :Bas.Data.Entity
+    AccUnit :Biz.Data.MAUnit
+    NumerationGen :Boolean
+    Interval :Integer
+    Period_ :Biz.Ref.Period
+    CounterNum :Integer
+    Prefix :String
+    Postfix :String
+    Positions :Struct array Integer
+    (
+      FieldDocPos :String
+      ParamField :Inherited Com.Base.ComFields
+    )
+  )
+  ForeignKey Code
+  ]
+
+  [NumExt.Service.TypesOfRecordClasses
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+  [RealEstateBase.Ref.RealEstateObjKind
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[NumExt.Service.NumeratorDoc
+  
+  {NumExt.Service.NumeratorDoc:"ИК"}
+  (
+    Name = "ИК"
+    TypeClassOfRecord = {NumExt.Service.TypesOfRecordClasses:"Data.RealEstateObject"}
+    FieldDoc = "Number"
+    FieldDateDoc = "JournalDate"
+    IsInternal = True
+    Rule = 1
+    AccUnit = {Biz.Data.MAUnit:0001}
+    Period_ = {Biz.Ref.Period:2022}
+    CounterNum = 1
+    Positions = (
+      0:(
+        FieldDocPos = "RealEstateObjKind"
+        ParamField = {RealEstateBase.Ref.RealEstateObjKind:"Имущественный комплекс"}
+      )
+    )
+  )
+  
+  {NumExt.Service.NumeratorDoc:"ЗД"}
+  (
+    Name = "ЗД"
+    TypeClassOfRecord = {NumExt.Service.TypesOfRecordClasses:"Data.RealEstateObject"}
+    FieldDoc = "Number"
+    FieldDateDoc = "JournalDate"
+    IsInternal = True
+    Rule = 1
+    AccUnit = {Biz.Data.MAUnit:0001}
+    Period_ = {Biz.Ref.Period:2022}
+    CounterNum = 1
+    Positions = (
+      0:(
+        FieldDocPos = "RealEstateObjKind"
+        ParamField = {RealEstateBase.Ref.RealEstateObjKind:Здание}
+      )
+    )
+  )
+  
+  {NumExt.Service.NumeratorDoc:"ТС"}
+  (
+    Name = "ТС"
+    TypeClassOfRecord = {NumExt.Service.TypesOfRecordClasses:"Data.RealEstateObject"}
+    FieldDoc = "Number"
+    FieldDateDoc = "JournalDate"
+    IsInternal = True
+    Rule = 1
+    AccUnit = {Biz.Data.MAUnit:0001}
+    Period_ = {Biz.Ref.Period:2022}
+    CounterNum = 1
+    Positions = (
+      0:(
+        FieldDocPos = "RealEstateObjKind"
+        ParamField = {RealEstateBase.Ref.RealEstateObjKind:Автотранспорт}
+      )
+    )
+  )
+  
+  {NumExt.Service.NumeratorDoc:"ММ"}
+  (
+    Name = "ММ"
+    TypeClassOfRecord = {NumExt.Service.TypesOfRecordClasses:"Data.RealEstateObject"}
+    FieldDoc = "Number"
+    FieldDateDoc = "JournalDate"
+    IsInternal = True
+    Rule = 1
+    AccUnit = {Biz.Data.MAUnit:0001}
+    Period_ = {Biz.Ref.Period:2022}
+    CounterNum = 1
+    Positions = (
+      0:(
+        FieldDocPos = "RealEstateObjKind"
+        ParamField = {RealEstateBase.Ref.RealEstateObjKind:Машино-место}
+      )
+    )
+  )
+  
+  {NumExt.Service.NumeratorDoc:"ПМ"}
+  (
+    Name = "ПМ"
+    TypeClassOfRecord = {NumExt.Service.TypesOfRecordClasses:"Data.RealEstateObject"}
+    FieldDoc = "Number"
+    FieldDateDoc = "JournalDate"
+    IsInternal = True
+    Rule = 1
+    AccUnit = {Biz.Data.MAUnit:0001}
+    Period_ = {Biz.Ref.Period:2022}
+    CounterNum = 1
+    Positions = (
+      0:(
+        FieldDocPos = "RealEstateObjKind"
+        ParamField = {RealEstateBase.Ref.RealEstateObjKind:Помещение}
+      )
+    )
+  )
+  
+  {NumExt.Service.NumeratorDoc:"ЗУ"}
+  (
+    Name = "ЗУ"
+    TypeClassOfRecord = {NumExt.Service.TypesOfRecordClasses:"Data.RealEstateObject"}
+    FieldDoc = "Number"
+    FieldDateDoc = "JournalDate"
+    IsInternal = True
+    Rule = 1
+    AccUnit = {Biz.Data.MAUnit:0001}
+    Period_ = {Biz.Ref.Period:2022}
+    CounterNum = 1
+    Positions = (
+      0:(
+        FieldDocPos = "RealEstateObjKind"
+        ParamField = {RealEstateBase.Ref.RealEstateObjKind:"Земельный участок"}
+      )
+    )
+  )
+  
+  {NumExt.Service.NumeratorDoc:"СР"}
+  (
+    Name = "СР"
+    TypeClassOfRecord = {NumExt.Service.TypesOfRecordClasses:"Data.RealEstateObject"}
+    FieldDoc = "Number"
+    FieldDateDoc = "JournalDate"
+    IsInternal = True
+    Rule = 1
+    AccUnit = {Biz.Data.MAUnit:0001}
+    Period_ = {Biz.Ref.Period:2022}
+    CounterNum = 1
+    Positions = (
+      0:(
+        FieldDocPos = "RealEstateObjKind"
+        ParamField = {RealEstateBase.Ref.RealEstateObjKind:Сооружение}
+      )
+    )
+  )
+]
+
+]

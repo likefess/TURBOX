@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Rep.TaskListRep">
+  <Inherited>
+    <Inherited Name="Grouping">
+      <Inherited Name="SplitByRows">
+        <Component Name="SplitByDoc" Class="Com.Rep.ISplitByDoc"/>
+      </Inherited>
+      <Inherited Name="ContentByRows">
+        <Component Name="PlanHoursSplitContent" Class="Com.Rep.ISplitContent" After="LabelsSplitContent" Caption="План. ч." Contents="Документ.PlanHoursVar" OnUpdateCell="PlanHoursSplitContentOnUpdateCell"/>
+        <Component Name="FactHoursSplitContent" Class="Com.Rep.ISplitContent" Caption="Факт. ч." Contents="Документ.FactHoursVar" OnUpdateCell="FactHoursSplitContentOnUpdateCell"/>
+        <Inherited Name="SprintsSplitContent" After="TaskDescriptionSplitContent"/>
+        <Inherited Name="VoteSplitContent" AfterIndicators="False"/>
+        <Inherited Name="AffVersionsSplitContent" After="VoteSplitContent"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

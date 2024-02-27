@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="RealEstateBase.Tab.Data.RealEstateObject">
+  <Inherited HelpContext="RealEstate.Управление имуществом.Данные.Основные данные.Объект имущества.Полный реестр имущества">
+    <Inherited Name="Variables">
+      <Component Name="FRealEstateObjType" Class="Com.Fld.IVar" After="#0" Caption="@Тип" OnChange="FRealEstateObjType_OnChange" RecordClass="RealEstateBase.Rec.Ref.RealEstateObjType" ValueType="VarObject"/>
+      <Component Name="FRealEstateObjKind" Class="Com.Fld.IVar" Caption="@Вид" OnChange="FRealEstateObjKind_OnChange" RecordClass="RealEstateBase.Rec.Ref.RealEstateObjKind" ValueType="VarObject"/>
+      <Component Name="FName" Class="Com.Fld.IVar" Caption="@Наименование" ValueType="VarString"/>
+      <Component Name="FRegion" Class="Com.Fld.IVar" Caption="@Регион" OnChange="FRegion_OnChange" RecordClass="Biz.Rec.Ref.CountryOrRegion" ValueType="VarObject"/>
+      <Component Name="FFederalDistrict" Class="Com.Fld.IVar" Caption="@Фед. округ" RecordClass="RealEstateBase.Rec.Ref.FederalDistrict" ValueType="VarObject"/>
+      <Component Name="FAddress" Class="Com.Fld.IVar" Caption="@Адрес" ValueType="VarString"/>
+      <Component Name="FCode" Class="Com.Fld.IVar" Caption="@Код карточки" ValueType="VarString"/>
+      <Component Name="FKadastrNumber" Class="Com.Fld.IVar" Caption="@Кадастр. номер" ValueType="VarString"/>
+      <Component Name="FRNFINumber" Class="Com.Fld.IVar" Caption="@РНФИ" ValueType="VarString"/>
+      <Component Name="FObjectNumber" Class="Com.Fld.IVar" Caption="@Инвент. номер" ValueType="VarString"/>
+      <Component Name="FINO" Class="Com.Fld.IVar" Caption="@ИНО" ValueType="VarString"/>
+      <Component Name="FResidential" Class="Com.Fld.IVar" Caption="@Относится к жилому фонду" OnChange="FResidential_OnChange" ValueType="VarInteger"/>
+      <Component Name="FTarget" Class="Com.Fld.IVar" Caption="@Назначение" RecordClass="RealEstate.Rec.Ref.Target" ValueType="VarObject"/>
+      <Component Name="FLandCategory" Class="Com.Fld.IVar" Caption="@Категория земель" RecordClass="RealEstate.Rec.Ref.LandCategory" ValueType="VarObject"/>
+      <Component Name="FBuildYearFrom" Class="Com.Fld.IVar" Caption="@Год возведения" ValueType="VarInteger"/>
+      <Component Name="FBuildYearTo" Class="Com.Fld.IVar" Caption=" - " ValueType="VarInteger"/>
+      <Component Name="FAreaObjectFrom" Class="Com.Fld.IVar" Caption="@Общая площадь" ValueType="VarNumeric"/>
+      <Component Name="FAreaObjectTo" Class="Com.Fld.IVar" Caption=" - " ValueType="VarNumeric"/>
+      <Component Name="FIsCultureObj" Class="Com.Fld.IVar" Caption="@Объект куль. нас." ValueType="VarInteger"/>
+      <Component Name="FRealEstateObjFunc" Class="Com.Fld.IVar" Caption="@Общ. функ. назн." RecordClass="RealEstate.Rec.Ref.RealEstateObjFunc" ValueType="VarObject"/>
+      <Component Name="FEconomyUsedType" Class="Com.Fld.IVar" Caption="@Осн. хоз. назн." RecordClass="RealEstate.Rec.Ref.EconomyUsedType" ValueType="VarObject"/>
+      <Component Name="FCopyrightHolder" Class="Com.Fld.IVar" Caption="@Правообладатель" ValueType="VarString"/>
+      <Component Name="FBalanser" Class="Com.Fld.IVar" Caption="@Балансодержатель" ValueType="VarString"/>
+      <Component Name="FPropertyUser" Class="Com.Fld.IVar" Caption="@Пользователь" ValueType="VarString"/>
+      <Component Name="FPropertyOwner" Class="Com.Fld.IVar" Caption="@Собственник" ValueType="VarString"/>
+      <Component Name="FManufNumber" Class="Com.Fld.IVar" Caption="VIN код" ValueType="VarString"/>
+      <Component Name="FRegNumber" Class="Com.Fld.IVar" Caption="Гос. номер" ValueType="VarString"/>
+      <Component Name="FYearOfBirthFrom" Class="Com.Fld.IVar" Caption="Год выпуска" ValueType="VarInteger"/>
+      <Component Name="FYearOfBirthTo" Class="Com.Fld.IVar" Caption=" - " ValueType="VarInteger"/>
+      <Component Name="ФМодель" Class="Com.Fld.IVar" Caption="Модель" RecordClass="Автотранспорт.Rec.Справочники.МаркиТС" ValueType="VarObject"/>
+      <Component Name="ФМарка" Class="Com.Fld.IVar" Caption="Марка" RecordClass="Автотранспорт.Rec.Справочники.МаркиТС" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonFilters">
+          <Component Name="ButtonFilter" Class="Com.Ctrl.IButton" Caption="@Панель фильтра" ImageName="CommonFilter" IsSwitch="True" OnClick="ButtonFilter_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="JournalStatus" Class="Com.Ctrl.IEdit" After="Name" Caption="@Статус" CellFormat="ReferenceFormat" Field="Current.JournalStatus" HasCaption="True" LookupField="Name" Width="15"/>
+          <Component Name="LandCategory" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.LandCategory" HasCaption="True" LookupField="Name" Width="50"/>
+          <Component Name="Target" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.Target" HasCaption="True" LookupField="Name" Width="50"/>
+          <Component Name="AreaObject" Class="Com.Ctrl.IEdit" Caption="@Общая площадь" CellFormat="NumericFormat" Field="Current.AreaObject" FieldFormat="#,##0.00;;-" HasCaption="True" Width="30"/>
+          <Component Name="CopyrightHolder" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.CopyrightHolder" HasCaption="True" LookupField="Name" Width="50"/>
+          <Component Name="Balanser" Class="Com.Ctrl.IEdit" Caption="@Балансодержатель" CellFormat="ReferenceFormat" Field="Current.Balanser" HasCaption="True" LookupField="Name" Width="50"/>
+          <Component Name="PropertyUser" Class="Com.Ctrl.IEdit" Caption="@Пользователь" CellFormat="ReferenceFormat" Field="Current.PropertyUser" HasCaption="True" LookupField="Name" Width="50"/>
+          <Component Name="StateStatus" Class="Com.Ctrl.IEdit" Excluded="True" CellFormat="ReferenceFormat" Field="Current.StateStatusVar" HasCaption="True" LookupField="StateStatus.Name" Width="30"/>
+          <Component Name="RealEstateObjFunc" Class="Com.Ctrl.IEdit" Caption="@Общ. функ. назначение" CellFormat="ReferenceFormat" Field="Current.RealEstateObjFunc" HasCaption="True" Hint="@Общее функциональное назначение объекта" LookupField="Name"/>
+          <Component Name="EconomyUsedType" Class="Com.Ctrl.IEdit" Caption="@Основ. хоз. назначение" CellFormat="ReferenceFormat" Field="Current.EconomyUsedType" HasCaption="True" Hint="@Основное хозяйственные назначение объекта " LookupField="Name"/>
+          <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Caption="@Замок" Field="Current.Locked" HasCaption="True" Width="15"/>
+          <Component Name="AttachmentsCounter" Class="Com.Ctrl.IEdit" Caption="@Вложений" Enabled="True" Field="Current.AttachmentsCounter" Width="20"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

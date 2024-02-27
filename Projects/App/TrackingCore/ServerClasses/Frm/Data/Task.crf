@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited KeepMounted="True">
+    <Inherited Name="EdtRec" Class="Control.Rec.Data.Task" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" PrimaryButton="ButtonOK1" SecondaryButton="ButtonClose1" Visible="True">
+        <Component Name="ButtonExtraFunctions" Class="Com.Ctrl.IListButton" After="#0" ImageName="TrackingCore.menu" ImageSize="16" VertAlignment="CenterAlign">
+          <Component Name="ButtonCloneNew" Class="Com.Ctrl.IButton" Caption="@Cmd:CloneItem=Дублировать" Command="Commands.CardCloneNew" Fashion="Fashions.TertiaryButton" OnClick="ButtonClone_OnClick"/>
+          <Component Name="ButtonObserve" Class="Com.Ctrl.IButton" Caption="Наблюдать за задачей" HasCaption="True" OnClick="ButtonObserveOnClick"/>
+          <Component Name="ButtonLink" Class="Com.Ctrl.IButton" Caption="Ссылка на задачу" Fashion="Fashions.TertiaryButton" OnClick="ButtonLinkOnClick" Visible="True"/>
+          <Component Name="ButtonDeleteNew" Class="Com.Ctrl.IButton" Caption="@Cmd:DeleteItem=Удалить" Command="Commands.CardDeleteNew" Fashion="Fashions.PrimaryButton" FieldColor="0x000000FF" FontColor="0x000000FF" OnClick="ButtonDelete_OnClick"/>
+        </Component>
+        <Component Name="ButtonPattern" Class="Com.Ctrl.IListButton" Hint="Применить шаблон" ImageName="Com.Blanks" ImageSize="16" VertAlignment="CenterAlign"/>
+        <Inherited Name="ButtonOK" Excluded="True" After="ButtonPattern" Caption="@Cmd:PostClose=Сохранить" Enabled="False" ImageName=" " VertAlignment="CenterAlign"/>
+        <Component Name="ButtonOK1" Class="Com.Ctrl.IButton" After="ButtonOK" Caption="@Cmd:PostClose=Сохранить" Enabled="False" FontSize="11" OnClick="ButtonOK_OnClick" VertAlignment="CenterAlign" Width="22"/>
+        <Inherited Name="ButtonClose" Excluded="True" After="ButtonOK1" Caption="Отменить" Fashion="Fashions.TertiaryButton" ImageName=" " Visible="True"/>
+        <Component Name="ButtonClose1" Class="Com.Ctrl.IButton" After="ButtonClose" Caption="Отменить" Fashion="Fashions.TertiaryButton" OnClick="ButtonClose_OnClick" Visible="True"/>
+        <Inherited Name="ButtonChildForms" After="ButtonClose1" Enabled="False" Visible="False"/>
+        <Inherited Name="ButtonServices" Enabled="False" Visible="False">
+          <Component Name="ButtonMail" Class="Com.Ctrl.IButton" Excluded="True" Caption="@TrackingCore:ButtonMail=Поделиться задачей" ImageName="Bas.Mail" OnClick="ButtonMailOnClick" Visible="False"/>
+          <Component Name="ButtonRemainder" Class="Com.Ctrl.IButton" Excluded="True" Caption="@TrackingCore:ButtonRemainder=Добавить напоминание" ImageName="Bas.bell" OnClick="ButtonRemainderOnClick" Visible="False"/>
+        </Inherited>
+        <Inherited Name="ButtonReports" Excluded="True" After="ButtonServices" Enabled="False"/>
+        <Inherited Name="ButtonAnalytics" Excluded="True" Enabled="False"/>
+        <Inherited Name="HeaderSeparator" Excluded="True" Enabled="False" Visible="False"/>
+        <Inherited Name="ButtonClone" Excluded="True" After="HeaderSeparator" Enabled="False" Visible="False"/>
+        <Inherited Name="ButtonDelete" Excluded="True" Enabled="False" Visible="False"/>
+        <Inherited Name="ButtonPost" Excluded="True" After="ButtonDelete" Enabled="False" Visible="False"/>
+        <Inherited Name="ButtonCancel" Excluded="True" Enabled="False" Visible="False"/>
+        <Inherited Name="ButtonRefresh" Excluded="True" After="ButtonCancel" Enabled="False" Visible="False"/>
+        <Inherited Name="ButtonPrint" Enabled="False" Visible="False"/>
+        <Inherited Name="ButtonExport" Enabled="False" Visible="False"/>
+        <Inherited Name="ButtonImport" Enabled="False" Visible="False"/>
+        <Inherited Name="ButtonHelp" Excluded="True" Enabled="False" Visible="False"/>
+      </Inherited>
+      <Component Name="SubheaderFrame" Class="Com.Ctrl.IFrame" After="HeaderFrame" AutoSize="True" Visible="False">
+        <Component Name="InnerFrame" Class="Com.Ctrl.IFrame" Color="0x00FCE8DA">
+          <Component Name="ButtonGroup" Class="Com.Ctrl.IGroup" Excluded="True">
+            <Component Name="TransitionGroup" Class="Com.Ctrl.IGroup">
+              <Component Name="Button5" Class="Com.Ctrl.IButton" Caption="Переход 2"/>
+              <Component Name="Button4" Class="Com.Ctrl.IButton" Caption="Переход 1"/>
+            </Component>
+            <Component Name="MoreButton" Class="Com.Ctrl.IListButton" Caption="Ещё" ImageName="Com.angle-down" Width="20">
+              <Component Name="SubscribeOnTask" Class="Com.Ctrl.IButton" Caption="@TrackingCore:SubscribeOnTask=Подписаться" OnClick="SubscribeOnTaskOnClick"/>
+              <Component Name="UnsubscribeFromTask" Class="Com.Ctrl.IButton" Caption="@TrackingCore:UnsubscribeFromTask=Отписаться" OnClick="UnsubscribeFromTaskOnClick"/>
+              <Component Name="CreateSubtaskButton" Class="Com.Ctrl.IButton" Caption="@TrackingCore:CreateSubtask=Создать подзадачу" OnClick="CreateTaskButtonOnClick"/>
+              <Component Name="CreateTaskButton" Class="Com.Ctrl.IButton" Caption="@TrackingCore:CreateTask=Создать задачу" OnClick="CreateTaskButtonOnClick"/>
+              <Component Name="DuplicateTaskButton" Class="Com.Ctrl.IButton" Caption="@TrackingCore:DuplicateTask=Дублировать" Enabled="False"/>
+              <Component Name="ChangeProjectButton" Class="Com.Ctrl.IButton" Caption="@TrackingCore:ChangeProject=Сменить проект" Enabled="False"/>
+            </Component>
+            <Component Name="Button1" Class="Com.Ctrl.IButton" Caption="кнопка"/>
+          </Component>
+        </Component>
+        <Component Name="ButtonFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0x00FCE8DA" Margins="2"/>
+      </Component>
+      <Component Name="ContentFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Vertical">
+        <BuiltIn Name="SideMargins" Bottom="24" Left="32" Right="32" Top="24"/>
+        <Component Name="LeftSideFrame" Class="Com.Ctrl.IFrame" Margins="0" Proportion="33">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="32" Top="0"/>
+          <Component Name="Frame1" Class="Com.Ctrl.IFrame" Color="0x00FFFFFF" Margins="0">
+            <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+            <Component Name="TaskTitleFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0x00FFFFFF" Margins="0">
+              <BuiltIn Name="SideMargins" Bottom="16" Left="0" Right="0" Top="0"/>
+              <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="NameEdit" Class="Com.Ctrl.IEdit" Caption="Название" Field="EdtRec.Name" FontBold="False" HasCaption="False" HasInnerCaption="True" Required="True"/>
+              </Component>
+            </Component>
+            <Component Name="TaskDescriptionFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0x00FFFFFF" Margins="0" MinSize="51">
+              <BuiltIn Name="SideMargins" Bottom="2" Left="0" Right="0" Top="0"/>
+              <Component Name="DescriptionQuillJS" Class="Com.Ctrl.IQuillJS" OnSelectionChange="DescriptionQuillJSOnSelectionChange" OnTextChange="ChangeDescription" ResizeEnabled="True" Visible="False"/>
+              <Component Name="DescriptionBrowser" Class="Com.Ctrl.IBrowser" UseEngine="Edge" Visible="False"/>
+            </Component>
+            <Component Name="FrameButtons" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0x00FFFFFF" Margins="0">
+              <BuiltIn Name="SideMargins" Bottom="2" Left="0" Right="0" Top="4"/>
+              <Component Name="AddBondButton1" Class="Com.Ctrl.IButton" Caption="Добавить связь" Fashion="Fashions.TertiaryButton" FixSize="True" ImageName="Com.plus" ImageSize="15" OnClick="AddBondButtonOnClick" Width="45"/>
+              <Component Name="AddTaskEpicButton1" Class="Com.Ctrl.IButton" Caption="Добавить задачу" Fashion="Fashions.TertiaryButton" FixSize="True" ImageName="Com.plus" ImageSize="15" OnClick="AddTaskEpicButtonOnClick" Width="45"/>
+            </Component>
+            <Component Name="BoxAttachFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone" Size="72">
+              <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="16"/>
+              <Component Name="BoxAttach" Class="Com.Ctrl.IBox" AutoSize="True" Caption="Файлы" Color="0x00FFFFFF" FontBold="True" Margins="0" MinSize="20">
+                <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                <BuiltIn Name="Title" Color="0x00FFFFFF" FontBold="True" FontColor="0x001C1817" FontSize="12"/>
+                <Component Name="FrameAttach" Class="Com.Ctrl.IFrame" AutoSize="True" CanResizeBySplit="True" Color="0x00FFFFFF" Margins="0" MinSize="20">
+                  <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="BoxToDoFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone">
+              <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+              <Component Name="BoxToDo" Class="Com.Ctrl.IBox" AutoSize="True" Caption="Чеклист" Color="0x00FFFFFF" FontBold="True" Margins="0" MinSize="0" OnChangeCollapsed="BoxToDoOnChangeCollapsed" ScrollerStyle="ScrollerNone">
+                <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                <BuiltIn Name="Title" Color="0x00FFFFFF" FontBold="True" FontColor="0x001C1817" FontSize="12"/>
+                <Component Name="FrameToDo" Class="Com.Ctrl.IFrame" AutoSize="True" CanResizeBySplit="True" Color="0x00FFFFFF" Margins="0" ScrollerStyle="ScrollerNone">
+                  <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="BoxEpicFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+              <Component Name="BoxEpic" Class="Com.Ctrl.IBox" Caption="Задачи в эпике" Color="0x00FFFFFF">
+                <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="12"/>
+                <BuiltIn Name="Title" Color="0x00FFFFFF" FontBold="True" FontColor="0x001C1817" FontSize="12"/>
+                <Component Name="AddTasksEpicFrame" Class="Com.Ctrl.IFrame" Color="0x00FFFFFF" Margins="0">
+                  <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                  <Component Name="AddTaskEpicButton" Class="Com.Ctrl.IButton" Caption="Добавить задачу" Fashion="Fashions.TertiaryButton" FixSize="True" ImageName="Com.plus" ImageSize="15" OnClick="AddTaskEpicButtonOnClick" Width="45"/>
+                </Component>
+                <Component Name="EpicTasksFrame" Class="Com.Ctrl.IFrame" AutoSize="True" CanResizeBySplit="True" Color="0x00FFFFFF" Margins="0">
+                  <BuiltIn Name="SideMargins" Bottom="24" Left="0" Right="0" Top="0"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="BoxBondFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+              <Component Name="BoxBond" Class="Com.Ctrl.IBox" Caption="Связи с другими задачами" Color="0x00FFFFFF">
+                <BuiltIn Name="SideMargins" Bottom="24" Left="0" Right="0" Top="12"/>
+                <BuiltIn Name="Title" Color="0x00FFFFFF" FontBold="True" FontColor="0x001C1817" FontSize="12"/>
+                <Component Name="AddBondButtonFrame1" Class="Com.Ctrl.IFrame" Color="0x00FFFFFF" Margins="0">
+                  <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                  <Component Name="AddBondButton2" Class="Com.Ctrl.IButton" Caption="Добавить связь" Fashion="Fashions.TertiaryButton" FixSize="True" ImageName="Com.plus" ImageSize="15" OnClick="AddBondButtonOnClick" Width="45"/>
+                </Component>
+                <Component Name="TaskBondFrame" Class="Com.Ctrl.IFrame" AutoSize="True" CanResizeBySplit="True" Color="0x00FFFFFF" Margins="0">
+                  <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="AdditionalTabsFrame" Class="Com.Ctrl.IFrame" Color="0x00FFFFFF" Fashion="Fashions.SecondaryButton" Margins="0" Orientation="WithTabs" ShowTabs="True">
+              <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+              <Component Name="CommentsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Комментарии" Color="0x00FFFFFF" Fashion="Fashions.SecondaryButton" Margins="0" Orientation="Vertical">
+                <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="24"/>
+                <Component Name="ChatTab" Class="Com.Ctrl.IFrame" Caption="@Task:Chat=Обсуждение" Color="0x00FFFFFF" Margins="0">
+                  <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                </Component>
+              </Component>
+              <Component Name="IntegrFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Интеграции" Color="0x00FFFFFF" Fashion="Fashions.SecondaryButton" Margins="0" Orientation="Vertical">
+                <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="24"/>
+              </Component>
+              <Component Name="HistoryStatusFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="История изменений" Color="0x00FFFFFF" Fashion="Fashions.SecondaryButton" Margins="0" Orientation="Vertical">
+                <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="24"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="RightSideFrame" Class="Com.Ctrl.IFrame" Color="0x00FFFFFF" Proportion="17">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="FrameRightAll" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0x00F8F7F7">
+            <BuiltIn Name="SideMargins" Bottom="16" Left="16" Right="16" Top="16"/>
+            <Component Name="TaskPropertiesFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0x00F8F7F7" Margins="0">
+              <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+            </Component>
+            <Component Name="BoxPeople" Class="Com.Ctrl.IBox" Caption="Люди" Color="0x00F8F7F7" Fashion="Fashions.TertiaryButton" Margins="0">
+              <BuiltIn Name="SideMargins" Bottom="12" Left="0" Right="0" Top="12"/>
+              <BuiltIn Name="Title" Color="0x00F8F7F7" FontBold="True" FontColor="0x001C1817" FontSize="12"/>
+              <Component Name="TaskDistributionFrame" Class="Com.Ctrl.IFrame" Color="0x00F8F7F7" Margins="0">
+                <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+              </Component>
+            </Component>
+            <Component Name="AgileBox" Class="Com.Ctrl.IBox" Caption="Agile" Color="0x00F8F7F7">
+              <BuiltIn Name="SideMargins" Bottom="12" Left="0" Right="0" Top="12"/>
+              <BuiltIn Name="Title" Color="0x00F8F7F7" FontBold="True" FontColor="0x001C1817" FontSize="12"/>
+              <Component Name="TaskAgileFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0x00F8F7F7" Margins="0" Orientation="Horizontal">
+                <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                <Component Name="EpicGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="EpicEdit" Class="Com.Ctrl.IEdit" Caption="Эпик" Field="EdtRec.GroupDoc" FixSize="False" FontBold="False" HasCaption="False" HasInnerCaption="True" Multiline="False" Required="True"/>
+                  <Component Name="EpicStaticSeparator" Class="Com.Ctrl.IStatic" Width="1"/>
+                  <Component Name="EpicJumpButton" Class="Com.Ctrl.IJumpButton" Fashion="Fashions.TertiaryButton" Field="EdtRec.GroupDoc"/>
+                </Component>
+                <Component Name="SprintsStoryPointsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False"/>
+                <Component Name="EpicFrame" Class="Com.Ctrl.IFrame" Excluded="True" Color="0x00F8F7F7" Margins="0"/>
+                <Component Name="SprintStoryPointFrame" Class="Com.Ctrl.IFrame" Excluded="True" Color="0x00F8F7F7" Margins="0"/>
+              </Component>
+            </Component>
+            <Component Name="BoxTime" Class="Com.Ctrl.IBox" Caption="Учёт времени" Color="0x00F8F7F7">
+              <BuiltIn Name="SideMargins" Bottom="12" Left="0" Right="0" Top="12"/>
+              <BuiltIn Name="Title" Color="0x00F8F7F7" FontBold="True" FontColor="0x001C1817" FontSize="12"/>
+              <Component Name="GroupEstimate" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="False" ByColumn="True"/>
+              <Component Name="ExpenseGroup" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="True"/>
+              <Component Name="TaskEstimateTime" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0x00F8F7F7" Margins="0" Orientation="Horizontal">
+                <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                <Component Name="TaskEstimateFrame" Class="Com.Ctrl.IFrame" Color="0x00F8F7F7" Margins="0" Orientation="Vertical">
+                  <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                  <Component Name="EstimateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                    <Component Name="EditEstimate" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Первоначальная оценка, ч." CellFormat="NumericFormat" Field="EdtRec.Estimate" HasInnerCaption="True" ValueType="VarNumeric"/>
+                  </Component>
+                  <Component Name="ExpensesGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" Color="0x00F8F7F7">
+                    <Component Name="ExpensePlanGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True"/>
+                    <Component Name="ExpenseFactGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True"/>
+                    <Component Name="ExpensePlanFrame" Class="Com.Ctrl.IFrame" Excluded="True" Color="0x00F8F7F7" Margins="0"/>
+                    <Component Name="ExpenseFactFrame" Class="Com.Ctrl.IFrame" Excluded="True" Color="0x00F8F7F7" Margins="0"/>
+                  </Component>
+                  <Component Name="EstFrame" Class="Com.Ctrl.IFrame" Excluded="True" Color="0x00F8F7F7" Margins="0" Proportion="24"/>
+                  <Component Name="EstimateSeparator" Class="Com.Ctrl.IFrame" Excluded="True" Color="0x00F8F7F7" Margins="0" Proportion="25"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+      <Inherited Name="FieldsFrame" After="ContentFrame" Visible="False"/>
+    </Inherited>
+  </Inherited>
+</Resource>

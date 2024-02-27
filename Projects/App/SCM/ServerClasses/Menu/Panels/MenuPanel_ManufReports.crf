@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IMenu">
+  <Inherited Caption="@Menu.Panel:ManufReports=Отчеты" FormIcon="Com.Report">
+    <Inherited Name="MainGroup" Class="Com.Cmd2.IGroup" Columns="2" Rows="2">
+      <Component Name="отчОсновныеУпрП" Class="Com.Cmd2.IGroup" Columns="2" Rows="2" Caption="Производственные">
+        <Component Name="MenuItem_InfobaseSCMReportscmdTransferToProduction" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdTransferToProduction"/>
+        <Component Name="MenuItem_InfobaseSCMReportscmdReceptionFromProduction" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdReceptionFromProduction"/>
+        <Component Name="MenuItem_InfobaseSCMReportscmdCostOfEquipmentDisassemblyAccordingToDocuments" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdCostOfEquipmentDisassemblyAccordingToDocuments"/>
+      </Component>
+      <Component Name="отчОстаткиУпрП" Class="Com.Cmd2.IGroup" Columns="2" Rows="2" Caption="Остатки">
+        <Component Name="MenuItem_InfobaseSCMReportsInventory_balances_for_consignments_and_production_orders" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_Inventory_balances_for_consignments_and_production_orders"/>
+        <Component Name="MenuItem_InfobaseSCMReportscmdOSVOfProductionOrders" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdOSVOfProductionOrders"/>
+        <Component Name="MenuItem_InfobaseSCMReportscmdMaterialsOnRecycling" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdMaterialsOnRecycling"/>
+      </Component>
+    </Inherited>
+    <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+  </Inherited>
+</Resource>

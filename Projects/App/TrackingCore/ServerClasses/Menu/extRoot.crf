@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Menu.CommandGroups.Root">
+  <Inherited>
+    <Inherited Name="Card">
+      <Component Name="CardCloneNew" Class="Com.ComManaging.ExecProcedure" After="CardClone" Caption="@Cmd:CloneRec=Дублировать" CommandProc="CloneRec_CommandProc" ShortName="CloneRec"/>
+      <Inherited Name="CardDelete" After="CardCloneNew"/>
+      <Component Name="CardDeleteNew" Class="Com.ComManaging.ExecProcedure" After="CardDelete" Caption="@Cmd:DeleteRec=Удалить" CommandProc="DeleteRec_CommandProc" ShortName="DeleteDec"/>
+      <Inherited Name="CardUndelete" After="CardDeleteNew"/>
+    </Inherited>
+    <Inherited Name="Services">
+      <Component Name="SelectProject" Class="Com.ComManaging.ExecProcedure" After="#0" Caption="@Cmd:SelectProject=Выбрать проект" CommandProc="CallSelectProject" IconName="TrackingCore.checkbox-blank-circle-mini-fill"/>
+      <Inherited Name="Настройки_ЗагрузкаБИК" After="SelectProject"/>
+    </Inherited>
+    <Component Name="WFlow_TasksCardfile" Class="Com.ComManaging.OpenIForm" After="Cmd_TasksCardfile" Caption="@Cmd:FWlowTasks=Картотека задач" FormClassName="TrackingCore.Tab.Data.Tasks" IconName="Com.CardfileTree"/>
+    <Inherited Name="Cmd_TasksList" After="WFlow_TasksCardfile"/>
+    <Component Name="BP_and_Schemas" Class="Com.ComManaging.OpenIForm" After="СправочникиУправления" Caption="Бизнес-процессы" FormClassName="Frm.BP_and_Schemas"/>
+  </Inherited>
+</Resource>

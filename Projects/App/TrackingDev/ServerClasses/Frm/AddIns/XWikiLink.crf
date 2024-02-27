@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Frm.AddIns.BaseTask">
+  <Inherited>
+    <Component Name="XWikiLinkSubtable" Class="Com.ISubtable" After="#0" StructClass="TrackingDev.Rec.Data.XWiki_Link"/>
+    <Component Name="XWikiLinkEnterSubtable" Class="Com.ISubtable"/>
+    <Inherited Name="EdtRec" IsLibrary="1" After="XWikiLinkEnterSubtable"/>
+    <Component Name="TabMenu" Class="Com.Ctrl.IPopupMenu" After="EdtRec" AddDefaultItems="False">
+      <Component Name="cmdInsertRow" Class="Com.ComManaging.ExecProcedure" Caption="Добавить" CommandName="Kernel.Edit.InsertObj" CommandProc="InsertRow_CommandProc" IconName="Com.InsertObj"/>
+      <Component Name="cmdDeleteRow" Class="Com.ComManaging.ExecProcedure" Caption="Удалить" CommandName="Kernel.Edit.DeleteObj" CommandProc="DeleteRow_CommandProc" IconName="Com.DeleteObj"/>
+    </Component>
+    <Inherited Name="RootFrame" After="TabMenu" Color="0xFF000005" Margins="0">
+      <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+      <Component Name="TableFrame" Class="Com.Ctrl.IFrame" AutoSize="False" Color="0xFF000005" Margins="0">
+        <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+        <Component Name="XWikiLinkEnterTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="True" CanMove="False" ManualControl="False" Numbering="False" Subtable="XWikiLinkEnterSubtable">
+          <Component Name="XWikiLinkEnterGroup" Class="Com.Ctrl.IColumnsGroup" Alignment="LeftAlign" Caption="Ссылка" FontBold="True" HasCaption="True">
+            <Component Name="XWikiLinkEnter" Class="Com.Ctrl.IEdit" Caption="Вставьте ссылку" HasCaption="False" HasInnerCaption="True" MinWidth="50" Multiline="False" OnChange="XWikiLinkEnterOnChange" ValueType="VarString"/>
+          </Component>
+        </Component>
+        <Component Name="XWikiLinkTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="True" CanInsert="True" CanMove="False" HasCaption="False" ManualControl="False" Numbering="False" Subtable="XWikiLinkSubtable">
+          <Component Name="XWiki_Link" Class="TrackingDev.Rec.Data.XWiki_Link" IsLibrary="1"/>
+          <Component Name="Link" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Ссылка" Enabled="False" Field="XWiki_Link.Link" FontColor="0xFF00000D" OnClick="LinkOnClick"/>
+          <Component Name="LinkType" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Тип ссылки" Field="XWiki_Link.LinkType" Visible="False"/>
+          <Component Name="Name" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Название страницы" Enabled="False" Field="XWiki_Link.Name" Hint="Название страницы заполняется автоматически" Width="50"/>
+          <Component Name="Author" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Автор" CardFileClass="Bas.Tab.Data.Entity" Field="XWiki_Link.Author" LookupField="Name" Visible="False"/>
+          <Component Name="Date" Class="Com.Ctrl.IEdit" Caption="Дата" CellFormat="DateFormat" Field="XWiki_Link.Date" ValueType="VarObject" Visible="False"/>
+          <Component Name="AddButton" Class="Com.Ctrl.IButton" Excluded="True" FixSize="True" Hint="Добавить ссылку" ImageName="Com.InsertObj" OnClick="AddButtonOnClick" Width="7"/>
+          <Component Name="DelButton" Class="Com.Ctrl.IButton" FixSize="True" Hint="Удалить ссылку" ImageName="Com.DeleteAsync" OnClick="DelButtonOnClick" Width="7"/>
+          <Component Name="FollowLinkButton" Class="Com.Ctrl.IButton" Excluded="True" FixSize="True" Hint="Перейти по ссылке" ImageName="Com.arrow-circle-right" OnClick="FollowLinkButtonOnClick" Width="7"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

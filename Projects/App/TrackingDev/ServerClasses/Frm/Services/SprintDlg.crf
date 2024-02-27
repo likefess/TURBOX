@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm" ModalWidth="168.42" WindowStyle="BlockedWindow">
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    </Component>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="Name" Class="Com.Fld.IVar" Caption="Название" OnVerify="NameOnVerify" ValueType="VarString"/>
+      <Component Name="BegDate" Class="Com.Fld.IVar" Caption="Начало" OnChange="BegDateOnChange" OnVerify="BegDateOnVerify" ValueType="VarDate"/>
+      <Component Name="Duration" Class="Com.Fld.IVar" Caption="Длительность спринта" OnChange="DurationOnChange" ValueType="VarInteger"/>
+      <Component Name="EndDate" Class="Com.Fld.IVar" Caption="Конец" OnChange="EndDateOnChange" OnVerify="EndDateOnVerify" ValueType="VarDate"/>
+      <Component Name="Active" Class="Com.Fld.IVar" Caption="Статус" ValueType="VarLogical"/>
+      <Component Name="CloseAction" Class="Com.Fld.IVar" Caption="Перенести в" OnChange="CloseActionOnChange" ValueType="VarInteger"/>
+      <Component Name="OtherSprint" Class="Com.Fld.IVar" Caption="Спринт" RecordClass="TrackingDev.Rec.Ref.Sprint" ValueType="VarObject"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+      <BuiltIn Name="SideMargins" Bottom="-5" Left="0" Right="0" Top="0"/>
+      <Component Name="ParamsFr" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <BuiltIn Name="SideMargins" Bottom="16" Left="32" Right="32" Top="32"/>
+        <Component Name="CloseActionFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0" Visible="False">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="CloseActionGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MinWidth="151">
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" Caption="В спринте есть незавершенные задачи. Решите, что с ними делать" Multiline="True" Wrap="True"/>
+            <Component Name="CloseActionEdt" Class="Com.Ctrl.IEdit" Caption="Перенести в" CellFormat="EnumFormat" Field="CloseAction" HasInnerCaption="True" ListAsString="Новый спринт|0;Существующий спринт|1;Бэклог|2;Оставить в этом спринте|3"/>
+            <Component Name="OtherSprintEdt" Class="Com.Ctrl.IEdit" Caption="Спринт" CardFileClass="TrackingDev.Tab.Ref.Sprint" CellFormat="ReferenceFormat" Field="OtherSprint" HasInnerCaption="True" LookupField="Name" ShortList="True"/>
+          </Component>
+        </Component>
+        <Component Name="AddEditFr" Class="Com.Ctrl.IFrame" Margins="0" Visible="False">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="AddEditGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MinWidth="151">
+            <Component Name="NameEdt" Class="Com.Ctrl.IEdit" Caption="Название" CellFormat="StringFormat" Field="Name" HasInnerCaption="True" Required="True"/>
+            <Component Name="DurationEdt" Class="Com.Ctrl.IEdit" Caption="Длительность спринта" CellFormat="EnumFormat" Field="Duration" HasInnerCaption="True" ListAsString="1 неделя|0;2 недели|1;3 недели|2;4 недели|3;задать свой срок|4"/>
+            <Component Name="AddEditPeriodGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+              <Component Name="BegDateEdt" Class="Com.Ctrl.IEdit" Caption="Начало" CellFormat="DateFormat" Field="BegDate" HasInnerCaption="True" Required="True"/>
+              <Component Name="EndDateEdt" Class="Com.Ctrl.IEdit" Caption="Конец" CellFormat="DateFormat" Field="EndDate" HasInnerCaption="True"/>
+            </Component>
+            <Component Name="ActiveCB" Class="Com.Ctrl.ICheckBox" Caption="Запустить спринт" Field="Active" HasCaption="True"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="ButtonsFr" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <BuiltIn Name="SideMargins" Bottom="32" Left="32" Right="32" Top="16"/>
+        <Component Name="ButtonsGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MinWidth="151">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption=" " FixSize="False"/>
+          <Component Name="CancelBtn" Class="Com.Ctrl.IButton" Caption="Отмена" Fashion="Fashions.SecondaryButton" HasCaption="True" OnClick="CancelBtnOnClick"/>
+          <Component Name="ActionBtn" Class="Com.Ctrl.IButton" Fashion="Fashions.PrimaryButton" HasCaption="True" OnClick="ActionBtnOnClick" Width="50"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Frm.Eqm.EquipmentFrm">
+  <Inherited HelpContext="Repair.Repair.Оборудование.Реестр оборудования">
+    <Component Name="ТехОбслужив" Class="Repair.Rec.Eqm.EquipmentNorm" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="RootFrame" HelpContext="Repair.Repair.Оборудование.Реестр оборудования">
+      <Inherited Name="HeaderFrame" HelpContext="Repair.Repair.Оборудование.Реестр оборудования" MaxButton="5">
+        <Inherited Name="ButtonChildForms" Excluded="False" Visible="True">
+          <Inherited Name="btnOperating" Visible="True"/>
+          <Inherited Name="btnParameters" Visible="True"/>
+          <Inherited Name="btnStartStop" Visible="True"/>
+          <Inherited Name="btnMoving" Visible="True"/>
+          <Component Name="btnDefects" Class="Com.Ctrl.IButton" Caption="@Журнал регистрации дефектов" HasCaption="True" ImageName="Com.table" OnClick="btnDefects_OnClick"/>
+          <Component Name="btnOrders" Class="Com.Ctrl.IButton" Caption="@Журнал заказов на работы" HasCaption="True" ImageName="Com.table" OnClick="btnOrders_OnClick"/>
+          <Component Name="btnAccepting" Class="Com.Ctrl.IButton" Caption="@Журнал приемки работ" HasCaption="True" ImageName="Com.table" OnClick="btnAccepting_OnClick"/>
+          <Component Name="btnMonthPlan" Class="Com.Ctrl.IButton" Caption="@Месячные планы работ" HasCaption="True" ImageName="Com.table" OnClick="btnMonthPlan_OnClick"/>
+          <Component Name="btnAnnual" Class="Com.Ctrl.IButton" Caption="@Годовые планы работ" HasCaption="True" ImageName="Com.table" OnClick="btnAnnual_OnClick"/>
+        </Inherited>
+        <Inherited Name="ButtonReports" Excluded="False">
+          <Inherited Name="btnReportOperating" Visible="True"/>
+          <Inherited Name="btnReportParameters" Visible="True"/>
+          <Inherited Name="btnReportStatus" Visible="True"/>
+          <Inherited Name="btnReportMoving" Visible="True"/>
+          <Inherited Name="btnReportParts" Visible="True"/>
+          <Component Name="btnReportOrders" Class="Com.Ctrl.IButton" Caption="@Заказы на работы" HasCaption="True" ImageName="Com.chart-bar" OnClick="btnReportOrders_OnClick"/>
+          <Component Name="btnReportAccepting" Class="Com.Ctrl.IButton" Caption="@Приемка работ" HasCaption="True" ImageName="Com.chart-bar" OnClick="btnReportAccepting_OnClick"/>
+          <Component Name="btnReportAnnualPlanWorks" Class="Com.Ctrl.IButton" Caption="@Работы годового плана" HasCaption="True" ImageName="Com.chart-bar" OnClick="btnReportAnnualPlanWorks_OnClick"/>
+          <Component Name="btnReportMonthPlanWorks" Class="Com.Ctrl.IButton" Caption="@Работы месячного плана" HasCaption="True" ImageName="Com.chart-bar" OnClick="btnReportMonthPlanWorks_OnClick"/>
+          <Component Name="btnReportAnnualPlan" Class="Com.Ctrl.IButton" Caption="@Затраты годового плана" HasCaption="True" ImageName="Com.chart-bar" OnClick="btnReportAnnualPlan_OnClick"/>
+          <Component Name="btnReportMonthPlan" Class="Com.Ctrl.IButton" Caption="@Затраты месячного плана" HasCaption="True" ImageName="Com.chart-bar" OnClick="btnReportMonthPlan_OnClick"/>
+        </Inherited>
+        <Inherited Name="ButtonServices" Excluded="False" Visible="True">
+          <Inherited Name="btnUpdateFromModel" Visible="True"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="BasicFrame">
+        <Inherited Name="CodeFrame">
+          <Inherited Name="BasicEqmGr" Visible="True">
+            <Component Name="ED_SampleDocGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+              <Component Name="ED_SampleDoc" Class="Com.Ctrl.IEdit" Caption="@Example=Эталон" CardFileClass="Repair.Tab.Samples.SampleEquipment" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.SampleDoc" HasCaption="True" LookupField="Name"/>
+              <Component Name="ED_SampleDocJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.SampleDoc" FixSize="True" Width="7.2"/>
+            </Component>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="MainFrm" Visible="False"/>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="LineBox">
+            <Inherited Name="LineFrm" Visible="False"/>
+          </Inherited>
+          <Inherited Name="bPosition">
+            <Inherited Name="bPositionGr">
+              <Inherited Name="ED_ParentGr" Visible="True"/>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="ED_AttrBox">
+            <Inherited Name="ED_AttrBoxGr">
+              <Inherited Name="ED_AttrBoxColsGr1" Visible="True"/>
+              <Component Name="PlanGroupGr" Class="Com.Ctrl.IGroup" After="ED_DescriptionGr" ByColumn="False">
+                <Component Name="PlanGroup" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.Planes.PlanGroups" CellFormat="ReferenceFormat" Field="EdtRec.PlanGroup" HasCaption="True" LookupField="Name" Wrap="False"/>
+                <Component Name="PlanGroupBtn" Class="Com.Ctrl.IJumpButton" Field="EdtRec.PlanGroup" FixSize="True" Width="7.2"/>
+              </Component>
+              <Inherited Name="ED_AttrBoxColsGr2" Excluded="False" Visible="True"/>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="bGroups" Visible="True"/>
+          <Component Name="bLineData" Class="Com.Ctrl.IBox" Caption="Линейные данные" HasCaption="True">
+            <Component Name="bLineDataGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="bLineDataLGr" Class="Com.Ctrl.IGroup" ByColumn="True">
+                <Component Name="LsoIDGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="LsoID" Class="Com.Ctrl.IEdit" Caption="Лин. ссыл. образец" CardFileClass="Repair.NetO.Tab.LsoObjects" CellFormat="ReferenceFormat" Field="EdtRec.LsoID" HasCaption="True" Hint="Линейный ссылочный образец" LookupField="Code" OnChange="LsoID_OnChange" Required="True"/>
+                  <Component Name="LsoIDJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.LsoID" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="PointBegGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="PointBeg" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.PointBeg" FieldFormat=",##0.00;;0" HasCaption="True" OnChange="PointBeg_OnChange"/>
+                  <Component Name="PointBegJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="NetobLenGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="NetobLen" Class="Com.Ctrl.IEdit" Caption="Длина" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.NetObLen" HasCaption="True" OnChange="PointBeg_OnChange"/>
+                  <Component Name="NetobLenJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="Mark_BegGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="Mark_Beg" Class="Com.Ctrl.IEdit" CardFileClass="Repair.NetO.Tab.Marks" CellFormat="ReferenceFormat" Field="EdtRec.Mark_Beg" HasCaption="True" LookupField="Name" OnChange="Mark_Beg_OnChange" OnGetLookupFilter="set_Marks_Filter" OnOpenCardForm="Mark_Beg_OnOpenCardForm" Required="True"/>
+                  <Component Name="Mark_BegJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Mark_Beg" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="OfsPointBegGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="OfsPointBeg" Class="Com.Ctrl.IEdit" Caption="Смещ. нач.метки" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.OfsPointBeg" HasCaption="True"/>
+                  <Component Name="OfsPointBegJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="UMGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="UM" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Ед.Изм." CardFileClass="Biz.Tab.Ref.UnitsOfMeasure" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.UM" HasCaption="True" LookupField="AlterName" OnGetLookupFilter="UM_OnGetLookupFilter"/>
+                  <Component Name="UMJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.UM" FixSize="True" Width="7.2"/>
+                </Component>
+              </Component>
+              <Component Name="bLineDataRGr" Class="Com.Ctrl.IGroup" ByColumn="True">
+                <Component Name="LsoIDNameGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="LsoIDName" Class="Com.Ctrl.IEdit" Caption=" " CardFileClass="Repair.NetO.Tab.LsoObjects" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.LsoID" HasCaption="False" LookupField="Name"/>
+                  <Component Name="LsoIDNameJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="PointEndGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="PointEnd" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.PointEnd" FieldFormat=",##0.00;;0" HasCaption="True" OnChange="PointEnd_OnChange"/>
+                  <Component Name="PointEndJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="intervalGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="interval" Class="Com.Ctrl.IEdit" Caption="по прямой (GPS)" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.interval" HasCaption="True"/>
+                  <Component Name="intervalJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="Mark_EndGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="Mark_End" Class="Com.Ctrl.IEdit" CardFileClass="Repair.NetO.Tab.Marks" CellFormat="ReferenceFormat" Field="EdtRec.Mark_End" HasCaption="True" LookupField="Name" OnChange="Mark_End_OnChange" OnGetLookupFilter="set_MarkEnd_Filter" OnOpenCardForm="Mark_End_OnOpenCardForm" Required="True"/>
+                  <Component Name="Mark_EndJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Mark_End" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="OfsPointEndGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="OfsPointEnd" Class="Com.Ctrl.IEdit" Caption="Смещ. кон.метки" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.OfsPointEnd" HasCaption="True"/>
+                  <Component Name="OfsPointEndJB" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+        <Inherited Name="CharacteristicsTab" Visible="True"/>
+        <Inherited Name="OperatingsTab" Visible="True">
+          <Inherited Name="OperatingsTable">
+            <Inherited Name="ED_TimeCode" OnVerify="sbtOperOnVerify"/>
+            <Inherited Name="ED_TimeNameGr">
+              <Inherited Name="ED_TimeName" OnVerify="sbtOperOnVerify"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="ParametersFrame" Visible="True">
+          <Inherited Name="ParametersTable">
+            <Component Name="btnShowDeviationValues" Class="Com.Ctrl.IButton" HasCaption="True" Hint="@Deviation=Отклонения" ImageName="Com.Abacus_1" OnClick="btnShowDeviationValues_OnClick"/>
+          </Inherited>
+        </Inherited>
+        <Component Name="NormsTab" Class="Com.Ctrl.IFrame" After="ParametersFrame" Caption="@BaseJournalFrm:Normatives=Нормативы" HasCaption="True" Margins="5">
+          <Component Name="NormsTable" Class="Com.Ctrl.ITable" Freezed="True" Numbering="False" Subtable="EdtRec.sbtNormative">
+            <Component Name="vDefPosN" Class="Repair.Rec.Eqm.EquipmentNorm" IsLibrary="1"/>
+            <Component Name="NT_NormsCode" Class="Com.Ctrl.IEdit" Caption="@BaseJournalFrm:Code=Код" CardFileClass="Repair.Tab.FlowCharts.Norms" CellFormat="ReferenceFormat" Field="vDefPosN.NormsCode" HasCaption="True" LookupField="Code" Required="True" Width="40"/>
+            <Component Name="NT_NormsNameGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Name=Наименование" HasCaption="True">
+              <Component Name="PT_NormsName" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.FlowCharts.Norms" CellFormat="ReferenceFormat" Field="vDefPosN.NormsCode" HasCaption="False" LookupField="Name" Required="True" Width="60"/>
+              <Component Name="PT_NormsNameJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosN.NormsCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="NT_CompletedGr" Class="Com.Ctrl.IColumnsGroup" Caption="@Equipment:Completed=Выполнен" HasCaption="True" Hint="@Equipment:Update value to current date=Обновить значение на текущую дату" OnClick="ForAll_Set_PrevNormativeDateValue" StaticStyle="StaticHyperlink">
+              <Component Name="NT_PrevDate" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="DateFormat" Enabled="False" Field="vDefPosN.PrevDate" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="False" Width="28"/>
+              <Component Name="NT_PrevDateJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosN.PrevOrder" HasCaption="False" Hint="Переход на форму" OnClick="JumpOrderClick"/>
+            </Component>
+            <Component Name="NT_PlannedGr" Class="Com.Ctrl.IColumnsGroup" Caption="@Equipment:Planned=Запланирован" HasCaption="True" Hint="@Equipment:Update value to current date=Обновить значение на текущую дату" OnClick="ForAll_Set_NextNormativeDateValue" StaticStyle="StaticHyperlink">
+              <Component Name="NT_NextDate" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="DateFormat" Enabled="False" Field="vDefPosN.NextDate" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="False" Width="28"/>
+              <Component Name="NT_PrevDateJB1" Class="Com.Ctrl.IJumpButton" Field="vDefPosN.NextOrder" HasCaption="False" Hint="Переход на форму" OnClick="JumpOrderClick"/>
+            </Component>
+            <Component Name="NT_PlaneType" Class="Com.Ctrl.IEdit" Caption="@baseJournalFrm:Planning=Планирование" CellFormat="EnumFormat" Field="vDefPosN.PlaneType" HasCaption="True" ListAsString="Наработка|0;Период|1;Не реже|2;На дату|3;Останов|4;Пуск|5" ValueType="VarInteger" Width="30"/>
+            <Component Name="NT_OperatingGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Operating=Наработка" HasCaption="True">
+              <Component Name="NT_OperCodeGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Code=Код" HasCaption="True">
+                <Component Name="ED_OperTimeCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Attributes.OperatingTab" CellFormat="ReferenceFormat" Field="vDefPosN.OperTimeCode" HasCaption="False" LookupField="Code" OnEnter="ED_OperTimeCode_OnEnter" OnOpenCardForm="ED_OperTimeCode_OnOpenCardForm" Width="30"/>
+                <Component Name="ED_OperTimeCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosN.OperTimeCode" FixSize="True" HasCaption="False" Width="7.2"/>
+              </Component>
+              <Component Name="ED_OperTimeValue" Class="Com.Ctrl.IEdit" Caption="@BaseJournalFrm:Value=Значение" CellFormat="NumericFormat" Field="vDefPosN.OperTimeValue" HasCaption="True" OnEnter="ED_OperTimeValue_OnEnter" OnOutputEx="ED_OperTimeValue_OnOutputEx" Width="30"/>
+            </Component>
+            <Component Name="NT_PeriodGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Period=Период" HasCaption="True">
+              <Component Name="ED_PeriodType" Class="Com.Ctrl.IEdit" Caption="@BaseJournalFrm:Interval=Интервал" CellFormat="EnumFormat" Field="vDefPosN.PeriodType" HasCaption="True" ListAsString="Нет|0;День|1;Месяц|2;Квартал|3;Полугодие|4;Год|5" OnEnter="ED_PeriodType_OnEnter" Width="30"/>
+              <Component Name="ED_PeriodValue" Class="Com.Ctrl.IEdit" Caption="@BaseJournalFrm:Value=Значение" Field="vDefPosN.PeriodValue" HasCaption="True" OnEnter="ED_PeriodType_OnEnter" ValueType="VarInteger" Width="30"/>
+            </Component>
+            <Component Name="NT_StartStopGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:StartStop=Пуск/Останов" HasCaption="True">
+              <Component Name="ED_StartStopRequired" Class="Com.Ctrl.IEdit" Caption="@BaseJournalFrm:StartStopRequired=Обязательность" CellFormat="EnumFormat" Field="vDefPosN.StartStopRequired" HasCaption="True" OnEnter="ED_StartStopGr_OnEnter" Width="30"/>
+              <Component Name="ED_StartStopDuration" Class="Com.Ctrl.IEdit" Caption="@BaseJournalFrm:StartStopDuration=Значение, час" Field="vDefPosN.StartStopDuration" FieldFormat="0.###;; " HasCaption="True" OnEnter="ED_StartStopGr_OnEnter" ValueType="VarNumeric" Width="30"/>
+            </Component>
+            <Component Name="ED_NeedDate" Class="Com.Ctrl.IEdit" Caption="@Equipment:On the date=На дату" CellFormat="DateFormat" Field="vDefPosN.NeedDate" HasCaption="True" OnEnter="ED_NeedDate_OnEnter" Width="28"/>
+            <Component Name="NT_StartDate" Class="Com.Ctrl.IEdit" Caption="@Equipment:To begin with=Начинать с" CellFormat="DateFormat" Field="vDefPosN.StartDate" HasCaption="True" Width="28"/>
+            <Component Name="ED_PlanShift" Class="Com.Ctrl.IEdit" Caption="@baseJournalFrm:Advance=Опережение" CellFormat="NumericFormat" Field="vDefPosN.PlanShift" HasCaption="True" OnEnter="ED_PlanShift_OnEnter" Width="30"/>
+            <Component Name="NT_ExcludeGr" Class="Com.Ctrl.IColumnsGroup" Caption="@Equipment:Exclude=Исключить" HasCaption="True">
+              <Component Name="NT_Exclude" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.FlowCharts.Norms" CellFormat="ReferenceFormat" Field="vDefPosN.Exclude" HasCaption="False" LookupField="Name" OnEnter="ED_PlanShift_OnEnter" OnVerify="NT_Exclude_OnVerify" Width="40"/>
+              <Component Name="NT_ExcludeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosN.Exclude" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="NT_ExcludeDays" Class="Com.Ctrl.IEdit" Caption="@Equipment:Days=Дни" CellFormat="NumericFormat" Field="vDefPosN.ExcludeDays" FieldFormat="#0" HasCaption="True" Hint="Интервал контроля исключения, дней" OnVerify="NT_ExcludeDays_OnVerify" Width="15"/>
+          </Component>
+        </Component>
+        <Inherited Name="ChildUnitsTab" Visible="True"/>
+        <Component Name="ТехОбслуж" Class="Com.Ctrl.IFrame" After="Документы" Caption="@Frm:ТехОбслуж=Техническое обслуживание" Margins="5">
+          <Component Name="NewLine3" Class="Com.Ctrl.INewLine"/>
+          <Component Name="ТекПробег" Class="Com.Ctrl.IEdit" Caption="Текущий пробег, км." CaptionWidth="50" Field="EdtRec.CurMileage" Wrap="True"/>
+          <Component Name="Table_ТО" Class="Com.Ctrl.ITable" Numbering="False" Subtable="EdtRec.sbtNormative">
+            <Component Name="ColumnsGroup1" Class="Com.Ctrl.IColumnsGroup" Caption="Наименование работы" HasCaption="True" Width="100">
+              <Component Name="НаимРаботы" Class="Com.Ctrl.IEdit" Field="ТехОбслужив.NormsCode" HasButton="True" HasCaption="False" Width="90"/>
+              <Component Name="JumpButton1" Class="Com.Ctrl.IJumpButton" Field="ТехОбслужив.NormsCode" HasCaption="False"/>
+            </Component>
+            <Component Name="МежсервиснИнт" Class="Com.Ctrl.IEdit" Caption="Межсервисный интервал, км" Field="ТехОбслужив.OperTimeValue" HasCaption="True" Width="35"/>
+            <Component Name="ПробегПриЗамене" Class="Com.Ctrl.IEdit" Caption="Пробег ТС при последней замене, км" Enabled="False" Field="ТехОбслужив.ПробегПриЗамене" HasCaption="True" Width="35"/>
+            <Component Name="Пройдено" Class="Com.Ctrl.IEdit" Caption="Пройдено, км" Enabled="False" Field="ТехОбслужив.Пройдено" FieldFormat="#0" HasCaption="True" Width="35"/>
+            <Component Name="Заключение" Class="Com.Ctrl.IEdit" Caption="Заключение" CellFormat="EnumFormat" Enabled="False" Field="ТехОбслужив.Заключение" HasCaption="True" Width="35" Wrap="False"/>
+            <Component Name="Флаги" Class="Com.Ctrl.ICheckBox" Field="ТехОбслужив.Флаг" Width="10"/>
+            <Component Name="ColumnsGroup2" Class="Com.Ctrl.IColumnsGroup" Caption="Заказ на работы" HasCaption="True">
+              <Component Name="ЗаказНаРаботы" Class="Com.Ctrl.IEdit" Enabled="False" Field="ТехОбслужив.ЗаказНаРаботы" HasCaption="False" LookupField="code" Width="35"/>
+              <Component Name="JumpButton2" Class="Com.Ctrl.IJumpButton" Field="ТехОбслужив.ЗаказНаРаботы" HasCaption="False"/>
+            </Component>
+          </Component>
+          <Component Name="NewLine4" Class="Com.Ctrl.INewLine"/>
+          <Component Name="NewLine5" Class="Com.Ctrl.INewLine"/>
+          <Component Name="Рекомендации" Class="Com.Ctrl.IEdit" Caption="Рекомендации" CaptionWidth="30" Field="EdtRec.Description" Width="208"/>
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="2"/>
+          <Component Name="cb_Флаг" Class="Com.Ctrl.ICheckBox" Caption=" " Field="EdtRec.Флаг" HasCaption="False" Width="5"/>
+          <Component Name="NewLine6" Class="Com.Ctrl.INewLine"/>
+          <Component Name="NewLine7" Class="Com.Ctrl.INewLine"/>
+          <Component Name="Static31" Class="Com.Ctrl.IStatic" FixSize="True" Width="188"/>
+          <Component Name="btnCreateOrder" Class="Com.Ctrl.IButton" Caption="Создать заказ на работы" OnClick="btnCreateOrderOnClick" Width="50"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

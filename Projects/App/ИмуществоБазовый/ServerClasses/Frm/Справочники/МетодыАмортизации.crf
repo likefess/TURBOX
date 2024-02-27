@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IEditorWithFrames">
+  <Inherited HelpContext="ИмуществоБазовый.Имущество.Методы амортизации" OnVerify="_OnVerify">
+    <Component Name="EdtRec" Class="ИмуществоБазовый.Rec.Справочники.МетодыАмортизации" IsLibrary="1" After="#0"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="Шапка" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+          <Component Name="ИмяМетода" Class="Com.Ctrl.IEdit" Field="EdtRec.ИмяМетода" HasCaption="True" Hint="Наименование метода расчета амортизации"/>
+          <Component Name="ТипУчета" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.ТипУчета" HasCaption="True" Hint="Тип учета, для которого используется метод" OnChange="ТипУчета_OnChange"/>
+          <Component Name="ТипМетода" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.ТипМетода" HasCaption="True"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

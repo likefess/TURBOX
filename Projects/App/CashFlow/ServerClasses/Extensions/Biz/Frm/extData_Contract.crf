@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Frm.Data.Contract">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="GroupFF5">
+          <Inherited Name="Partner" OnChange="Partner_OnChange" OnVerify="Partner_OnVerify"/>
+        </Inherited>
+        <Inherited Name="CheckBoxGroup">
+          <Component Name="Income" Class="Com.Ctrl.ICheckBox" Caption="Приходный" Field="EdtRec.Income" FixSize="True" HasCaption="True" Width="27"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="GeneralBox">
+            <Inherited Name="MainTabGroup">
+              <Inherited Name="DepartmentGroup">
+                <Inherited Name="Department" OnGetLookupFilter="Department_OnGetLookupFilter" OnOpenCardForm="Department_OnOpenCardForm"/>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="ContractSumsBox">
+            <Component Name="ContractSumsFieldsFrame" Class="Com.Ctrl.IFrame" After="#0" FixSize="True" Size="8">
+              <Component Name="AmountControlGroup" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="50" MaxWidth="150">
+                <Component Name="AmountControlStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+                <Component Name="AmountControl" Class="Com.Ctrl.ICheckBox" Caption="Контролировать сумму платежей по договору" Field="EdtRec.AmountControl" HasCaption="True"/>
+              </Component>
+            </Component>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="RequisitesTab">
+          <Inherited Name="PartnerBox">
+            <Inherited Name="PartnerGroup">
+              <Inherited Name="PartnerPaymentAccountEditGroup">
+                <Inherited Name="PartnerPaymentAccountEdit" OnGetLookupFilter="PartnerPaymentAccountEdit_OnGetLookupFilter"/>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="PartnerFinanceBox">
+            <Inherited Name="PartnerFinanceGroup">
+              <Inherited Name="PartnerFinPaymentAccountEditGroup">
+                <Inherited Name="PartnerFinPaymentAccountEdit" OnGetLookupFilter="PartnerPaymentAccountEdit_OnGetLookupFilter"/>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

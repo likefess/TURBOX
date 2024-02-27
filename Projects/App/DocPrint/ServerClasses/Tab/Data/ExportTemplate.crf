@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.CodeName">
+  <Inherited HelpContext="DocPrint.DocPrint.Шаблоны экспорта">
+    <Inherited Name="Current" Class="DocPrint.Rec.Data.ExportTemplate" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ButtonView" Class="Com.Ctrl.IButton" After="ButtonAddItem" Caption="@DocPrint.ExportTemplateButtonView:Caption=Просмотр" ImageName="Com.Analytics" OnClick="ButtonViewOnClick"/>
+        <Inherited Name="ButtonEditItem" After="ButtonView"/>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" Width="60"/>
+          <Component Name="OutputFileNameEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="Current.OutputFileName" Hint="&quot; &quot;" ValueType="VarString" Width="60"/>
+          <Component Name="ExecutionLocEdit" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CellFormat="EnumFormat" Field="Current.ExecutionLoc" ValueType="VarInteger" Width="30"/>
+          <Component Name="InputFileEdit" Class="Com.Ctrl.IEdit" CanSort="False" CellFormat="StringFormat" Field="Current.CardFileInput" ValueType="VarString" Width="50"/>
+          <Component Name="OutputFolderEdit" Class="Com.Ctrl.IEdit" CanSort="False" CellFormat="StringFormat" Field="Current.CardFileOutput" ValueType="VarString" Width="50"/>
+          <Component Name="CommentEdit" Class="Com.Ctrl.IEdit" CanSort="False" CellFormat="StringFormat" Field="Current.Comment" ValueType="VarString" Width="80"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IMenu">
+  <Inherited Caption="РМ менеджера по закупкам">
+    <Inherited Name="MainGroup" Orientation="Vertical">
+      <Component Name="BasicDatas" Class="Com.Cmd2.IGroup" Caption="Основные данные" Columns="2" Orientation="Vertical" Rows="6">
+        <Component Name="Googs" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Directories_Material_assets"/>
+        <Component Name="Договоры_покупки" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Purchases_Purchase_contracts"/>
+        <Component Name="Поставщики" Class="Com.Cmd2.IItem" Command="Commands.SCM_Parameters_Suppliers"/>
+        <Component Name="Договоры_покупки_по_комиссии" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Purchases_Purchase_agreements_by_commission"/>
+        <Component Name="Warehouses" Class="Com.Cmd2.IItem" Command="Commands.SCM_Parameters_Locations"/>
+        <Component Name="Сделки_покупки" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Purchases_Transactions_purchases"/>
+        <Component Name="PriceTypes" Class="Com.Cmd2.IItem" Command="Commands.SCM_Parameters_Price_types"/>
+        <Component Name="ПрайсЛисты_поставщика" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Purchases_Suppliers_Price_Lists"/>
+        <Component Name="Employees" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Employees"/>
+        <Component Name="ГТД" Class="Com.Cmd2.IItem" Command="Commands.SCM_Parameters_Customs_declaration"/>
+        <Component Name="NaturalEntities" Class="Com.Cmd2.IItem" Command="Commands.Cmd_NaturalEntities"/>
+      </Component>
+      <Component Name="Docs_Tasks" Class="Com.Cmd2.IGroup" Orientation="Horizontal">
+        <Component Name="Documents" Class="Com.Cmd2.IGroup" Caption="Документы" Columns="2" Rows="3">
+          <Component Name="Приход_ТМЦ_от_поставщика__простой" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Purchases_The_receipt_from_the_supplier"/>
+          <Component Name="Приход_ТМЦ_с_дополнительными_расходами" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.SCM_Documents_Purchases_The_receipt_with_additional_costs" Rare="True"/>
+          <Component Name="Возврат_ТМЦ_поставщику" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Purchases_Return_To_Supplyer"/>
+          <Component Name="Оплата_поставщику" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Purchases_Payment_To_Supplyer"/>
+          <Component Name="Возврат_оплаты_поставщиком" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Purchases_Return_Payment_From_Supplyer"/>
+          <Component Name="Дополнительные_расходы_не_распр" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.SCM_Documents_Purchases_Additional_costs_not_allocated" Rare="True"/>
+          <Component Name="Дополнительные_расходы_на_док" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.SCM_Documents_Purchases_Additional_costs_for_the_document" Rare="True"/>
+          <Component Name="Списание_затрат" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.SCM_Documents_Purchases_Write_off_costs" Rare="True"/>
+          <Component Name="Списание_затрат_на_склад" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.SCM_Documents_Purchases_Write_off_costs_for_Item" Rare="True"/>
+          <Component Name="Списание_затрат_на_док" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.SCM_Documents_Purchases_Write_off_costs_for_Document" Rare="True"/>
+          <Component Name="Доверенность" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.Разные_документы_Доверенность"/>
+          <Component Name="Закупка_ТМЦ_для_комитента_принципала" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Purchases_TMC_At_The_Principal"/>
+          <Component Name="НачальнаяЗадолженностьНам" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Remainders_Initial_debt_to_us"/>
+          <Component Name="НачальнаяЗадолженностьНаша" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Remainders_Initial_Our_debt"/>
+        </Component>
+        <Component Name="Periodic_tasks" Class="Com.Cmd2.IGroup" Caption="Периодические задания" Columns="2" Rows="2">
+          <Component Name="AutoCalc" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.Сервис_Авторасчеты"/>
+          <Component Name="Prices" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.SCM_Сервис_БлнПрайсЛисты"/>
+          <Component Name="PriceCalculation" Class="Com.Cmd2.IItem" Command="Commands.SCM_PeriodicActivities_Tasks_Price_Calculation"/>
+          <Component Name="TheConverterFromAccounting" Class="Com.Cmd2.IItem" Command="Commands.SCM_Сервис_КонверторИзБухучета"/>
+        </Component>
+      </Component>
+      <Component Name="Reports" Class="Com.Cmd2.IGroup" Caption="Отчеты" Columns="3" Rows="5">
+        <Component Name="Задолженность_перед_поставщиками" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdDebtToSuppliers_"/>
+        <Component Name="Ход_сделок_с_поставщиками" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_The_course_of_transactions_with_suppliers"/>
+        <Component Name="Взаиморасчеты_с_поставщиками_по_товарам" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_Mutual_settlements_with_suppliers_by_goods"/>
+        <Component Name="ContrapartyReport" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_ContrapartyReport_"/>
+        <Component Name="ContrapartyCardItems" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_ContrapartyCardItems"/>
+        <Component Name="Приход_товаров_и_услуг" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_Receipt_of_services_"/>
+        <Component Name="Дополнительные_расходы" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.SCM_Reports_cmdAdditionalCostItems_"/>
+        <Component Name="Распределение_услуг" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdDistributionOfServices"/>
+        <Component Name="Нераспределенные_услуги" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdUnallottedServices"/>
+        <Component Name="CashFlow" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_Cash_flow"/>
+        <Component Name="CashBalancesByLocation" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_Cash_balances_by_location_"/>
+        <Component Name="RemaindersOfGoodsAndMaterials" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_Remainders_of_goods_and_materials_"/>
+        <Component Name="TurnoverBalanceSheetOfInventoryItems" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_Turnover_balance_sheet_of_inventory_items2"/>
+        <Component Name="CardItems" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_Card_items_"/>
+        <Component Name="TurnoverForThePeriod" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdTurnoverForThePeriod_"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

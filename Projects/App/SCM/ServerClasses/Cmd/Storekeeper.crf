@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IMenu">
+  <Inherited Caption="РМ кладовщика">
+    <Inherited Name="MainGroup" Orientation="Vertical">
+      <Component Name="BasicDatas" Class="Com.Cmd2.IGroup" Caption="Основные данные" Columns="2" Orientation="Vertical" Rows="6">
+        <Component Name="Googs" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Directories_Material_assets"/>
+        <Component Name="Warehouses" Class="Com.Cmd2.IItem" Command="Commands.SCM_Parameters_Locations"/>
+        <Component Name="Customers" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.SCM_Parameters_Customers"/>
+        <Component Name="PriceTypes" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.SCM_Parameters_Price_types"/>
+        <Component Name="Employees" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Employees"/>
+        <Component Name="NaturalEntities" Class="Com.Cmd2.IItem" Command="Commands.Cmd_NaturalEntities"/>
+      </Component>
+      <Component Name="Docs_Tasks" Class="Com.Cmd2.IGroup" Orientation="Horizontal">
+        <Component Name="Documents" Class="Com.Cmd2.IGroup" Caption="Документы" Columns="3" Rows="2">
+          <Component Name="ItemMovement" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Inventories_Item_Movement"/>
+          <Component Name="ItemsReGrading" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Inventories_Items_Re_grading"/>
+          <Component Name="ItemWriteOff" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Inventories_Item_write_off"/>
+          <Component Name="ItemInventory" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Inventories_Item_Inventory"/>
+          <Component Name="AssemblyReassembly" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Production_Assembly_and_Reassembly"/>
+          <Component Name="TransferToProductionOrders" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Production_Transfer_To_Production_Orders"/>
+          <Component Name="AcceptanceFromProductionOrders" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Production_Acceptance_From_Production_Orders"/>
+          <Component Name="Спецификации" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Production_Specification"/>
+          <Component Name="Производственные_партии" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Production_Production_Lots"/>
+          <Component Name="Производственные_заказы" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Production_Production_Orders"/>
+          <Component Name="Заявки_на_ТМЦ_внутренние" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Inventories_Item_InternalRequest"/>
+          <Component Name="ItemsInitialBalance" Class="Com.Cmd2.IItem" Command="Commands.SCM_Documents_Remainders_Items_Initial_Balance"/>
+        </Component>
+        <Component Name="Periodic_tasks" Class="Com.Cmd2.IGroup" Caption="Периодические задания" Columns="3" Rows="1">
+          <Component Name="PriceCalculation" Class="Com.Cmd2.IItem" Command="Commands.SCM_PeriodicActivities_Tasks_Price_Calculation"/>
+          <Component Name="TheConverterFromAccounting" Class="Com.Cmd2.IItem" Command="Commands.SCM_Сервис_КонверторИзБухучета"/>
+          <Component Name="AutoCalc" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.Сервис_Авторасчеты"/>
+        </Component>
+        <Component Name="PrimaryDocuments" Class="Com.Cmd2.IGroup" Excluded="True" Caption="Первичные документы" Columns="3" Rows="1">
+          <Component Name="М_4" Class="Com.Cmd2.IItem" Command="Commands.Первичка_М_4"/>
+          <Component Name="М17" Class="Com.Cmd2.IItem" CommandName="Commands.Первичка_М_17"/>
+          <Component Name="СкладскойОрдер" Class="Com.Cmd2.IItem" Command="Commands.Первичка_СкладскойОрдер"/>
+        </Component>
+        <Component Name="Inventory" Class="Com.Cmd2.IGroup" Excluded="True" Caption="Инвентаризация" Columns="3" Rows="1">
+          <Component Name="ИНВ_19" Class="Com.Cmd2.IItem" Command="Commands.Первичка_ИНВ_19"/>
+          <Component Name="ИНВ_22_Приказ_об_инвентаризации" Class="Com.Cmd2.IItem" Command="Commands.Первичка_ИНВ_22"/>
+        </Component>
+      </Component>
+      <Component Name="Reports" Class="Com.Cmd2.IGroup" Caption="Отчеты" Columns="2" Rows="5">
+        <Component Name="RemaindersOfGoodsAndMaterials" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_Remainders_of_goods_and_materials_"/>
+        <Component Name="TurnoverBalanceSheetOfInventoryItems" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_Turnover_balance_sheet_of_inventory_items2"/>
+        <Component Name="CardItems" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_Card_items_"/>
+        <Component Name="Документы_по_ТМЦ_ГТД_партии" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdDocumentsOnGoodsAndMaterialsGTEAndParty"/>
+        <Component Name="Промежуточные_минусы" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_Intermediate_cons_by_day"/>
+        <Component Name="Остатки_ТМЦ_по_партиям_и_производственным_заказам" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_Inventory_balances_for_consignments_and_production_orders"/>
+        <Component Name="ОСВ_производственных_заказов" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdOSVOfProductionOrders"/>
+        <Component Name="Стоимость_комплектации_разукомплектации_по_документам" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdCostOfEquipmentDisassemblyAccordingToDocuments"/>
+        <Component Name="TransferToProduction" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdTransferToProduction"/>
+        <Component Name="ReceptionFromProduction" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_cmdReceptionFromProduction"/>
+        <Component Name="Состояние_внутренних_заявок" Class="Com.Cmd2.IItem" Command="Commands.SCM_Reports_Internal_request_state_"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

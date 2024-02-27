@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm" WindowStyle="BlockedWindow">
+    <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="VarTask" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" Margins="0">
+      <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+      <Component Name="TabsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Fashion="Fashions.SecondaryButton" Margins="0" Orientation="WithTabs" ShowTabs="True">
+        <BuiltIn Name="SideMargins" Bottom="16" Left="17" Right="17" Top="32"/>
+        <Component Name="NewTaskTab" Class="Com.Ctrl.IFrame" Caption="@Frm:NewTask=Новая задача" Margins="0">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="18" Right="15" Top="0"/>
+          <Component Name="Task" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="NewTaskEdit" Class="Com.Ctrl.IEdit" Caption="@TrackingCore:TaskEdit=Название задачи" CellFormat="StringFormat" Field="VarTask" HasCaption="False" HasInnerCaption="True" Required="True" ValueType="VarString"/>
+          </Component>
+        </Component>
+        <Component Name="ExistTaskTab" Class="Com.Ctrl.IFrame" Caption="@Frm:ExistTask=Существующая задача" Margins="0">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="18" Right="15" Top="0"/>
+          <Component Name="TaskGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="ExistTaskEdit" Class="Com.Ctrl.IEdit" Caption="Номер или название задачи" CellFormat="StringFormat" Field="VarTask" HasInnerCaption="True" Required="True" ShortList="True" ValueType="VarString"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="ButtonsFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+        <BuiltIn Name="SideMargins" Bottom="32" Left="32" Right="32" Top="16"/>
+        <Component Name="ButtonsGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="False"/>
+          <Component Name="CloseButton" Class="Com.Ctrl.IButton" Caption="Отмена" Fashion="Fashions.SecondaryButton" HasCaption="True" OnClick="ButtonClose_OnClick"/>
+          <Component Name="AddButton" Class="Com.Ctrl.IButton" Caption="@TrackingCore:AddBond=Добавить" Fashion="Fashions.PrimaryButton" OnClick="AddButtonOnClick"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

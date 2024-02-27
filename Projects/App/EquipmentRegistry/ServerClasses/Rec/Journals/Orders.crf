@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Rec.Base.BaseJournalRec">
+  <Inherited>
+    <Inherited Name="JournalDate" OnChange="JournalDateOnChange"/>
+    <Component Name="ObjectCode" Class="Com.Fld.IField" FieldName="ObjectCode" OnVerify="ObjectCode_OnVerify" ValueType="VarObject"/>
+    <Component Name="CurrentStatus" Class="Com.Fld.IField" FieldName="CurrentStatus" ValueType="VarObject"/>
+    <Component Name="ExecMethod" Class="Com.Fld.IField" FieldName="ExecMethod" ValueType="VarInteger"/>
+    <Component Name="FactBegDate" Class="Com.Fld.IField" FieldName="FactBegDate" ValueType="VarDate"/>
+    <Component Name="FactEndDate" Class="Com.Fld.IField" FieldName="FactEndDate" ValueType="VarDate"/>
+    <Component Name="PlanBegDate" Class="Com.Fld.IField" FieldName="PlanBegDate" ValueType="VarDate"/>
+    <Component Name="PlanEndDate" Class="Com.Fld.IField" FieldName="PlanEndDate" ValueType="VarDate"/>
+    <Component Name="SpareCost" Class="Com.Fld.IField" FieldName="SpareCost" ValueType="VarNumeric"/>
+    <Component Name="WorkCost" Class="Com.Fld.IField" FieldName="WorkCost" ValueType="VarNumeric"/>
+    <Component Name="OtherCost" Class="Com.Fld.IField" FieldName="OtherCost" ValueType="VarNumeric"/>
+    <Component Name="AllIsDone" Class="Com.Fld.IField" FieldName="AllIsDone" ValueType="VarLogical"/>
+    <Component Name="Fixed" Class="Com.Fld.IField" FieldName="Fixed" ValueType="VarLogical"/>
+    <Component Name="TotalCost" Class="Com.Fld.IVar" OnCalc="TotalCostCalc" ValueType="VarNumeric"/>
+    <Component Name="DemandCode" Class="Com.Fld.IVar" OnCalc="DemandCodeCalc" RecordClass="EquipmentRegistry.Rec.Journals.Demand" ValueType="VarObject"/>
+    <Component Name="BaseCode" Class="Com.Fld.IField" Caption="Основание" FieldName="BaseCode" ValueType="VarObject"/>
+    <Component Name="sbtNormatives" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Journals.OrdersNormatives" SubtableName="OrdersJournalLines"/>
+    <Component Name="sbtOperations" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Journals.OrdersOperations" SubtableName="OrdersJournalOperations"/>
+    <Component Name="sbtSpareParts" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Journals.OrdersSpareParts" SubtableName="OrdersJournalSpareParts"/>
+    <Component Name="sbtWorkers" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Journals.OrdersWorkers" SubtableName="OrdersJournalWorkers"/>
+    <Component Name="sbtWorkersE" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Journals.OrdersWorkers" SubtableName="OrdersJournalWorkers"/>
+    <Component Name="sbtCosts" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Journals.OrdersCosts" SubtableName="OrdersJournalCosts"/>
+    <Component Name="sbtShortS" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Journals.OrdersSparePartsShort"/>
+    <Component Name="sbtShortW" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Journals.OrdersWorkersShort"/>
+    <Component Name="sbtShortC" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Journals.OrdersCostsShort"/>
+    <Component Name="EmployeeCode" Class="Com.Fld.IField" Caption="Ответственный" FieldName="EmployeeCode" ValueType="VarObject"/>
+    <Component Name="AcceptingCode" Class="Com.Fld.IVar" OnCalc="AcceptingCodeCalc" RecordClass="EquipmentRegistry.Rec.Journals.Accepting" ValueType="VarObject"/>
+  </Inherited>
+</Resource>

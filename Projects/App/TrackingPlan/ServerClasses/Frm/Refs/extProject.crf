@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.Ref.Project">
+  <Inherited KeepMounted="True">
+    <Inherited Name="TableMenu" Excluded="False">
+      <Component Name="cmdDeleteRow1" Class="Com.ComManaging.ExecProcedure" After="#0" Caption="Удалить" CommandProc="DeleteRow_CommandProc" IconName="Com.DeleteObj"/>
+      <Inherited Name="cmdCloseForm" After="cmdDeleteRow1"/>
+    </Inherited>
+    <Inherited Name="Variables">
+      <Inherited Name="ExternalPriceVisibleVar" OnChange="ExternalPriceVisibleVarOnChange"/>
+      <Component Name="ArchievedChosen" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="ActiveChosen" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="SubtableMilestones" Class="Com.ISubtable" Excluded="True" StructClass="TrackingPlan.Rec.Data.Project_MileStones"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="EndProject" Class="Com.Ctrl.IButton" After="#0" Caption="Завершить проект" OnClick="EndProjectOnClick" Visible="False" Width="40"/>
+        <Inherited Name="ButtonAddToFavorites" After="EndProject"/>
+        <Inherited Name="ButtonSetupScheme" OnClick="ButtonSetupSchemeOnClick"/>
+        <Inherited Name="ButtonServices" Excluded="True"/>
+        <Inherited Name="ButtonPost" Visible="False"/>
+        <Inherited Name="ButtonCancel" Visible="False"/>
+        <Inherited Name="ButtonRefresh" Excluded="True" Printed="False"/>
+        <Inherited Name="ButtonHelp" Visible="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Group2">
+            <Inherited Name="Code1" Visible="False"/>
+          </Inherited>
+          <Component Name="Group5" Class="Com.Ctrl.IGroup" After="Comment1">
+            <Component Name="ProjectColorEdit1" Class="Com.Ctrl.IColorEdit" CaptionWidth="24" Field="EdtRec.ProjectColor" HasCaption="True" Width="20"/>
+          </Component>
+          <Inherited Name="ProjectColorEdit" After="Group5"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" OnSwitch="TabsFrameOnSwitch">
+        <BuiltIn Name="SideMargins" Top="24"/>
+        <Inherited Name="MainTab">
+          <Inherited Name="ContentBodyFrame">
+            <Inherited Name="AboutFrame">
+              <Component Name="ButtonFrame" Class="Com.Ctrl.IFrame" After="FrameDescriptionQuillJS">
+                <BuiltIn Name="SideMargins" Bottom="24" Left="0" Right="0" Top="0"/>
+                <Component Name="ButtonAddMilestone" Class="Com.Ctrl.IButton" Caption="Добавить веху" Fashion="Fashions.TertiaryButton" ImageName="Com.AddItem" OnClick="ButtonAddMilestoneOnClick" Width="45"/>
+              </Component>
+              <Inherited Name="DescriptionBox" Excluded="True" After="ButtonFrame"/>
+              <Inherited Name="BoxAttachments" Caption="@Attachments=Файлы">
+                <Inherited Name="FrameAttachments">
+                  <BuiltIn Name="SideMargins" Bottom="0"/>
+                </Inherited>
+              </Inherited>
+              <Component Name="MilestoneBox" Class="Com.Ctrl.IBox" After="BoxAttachments" Caption="Вехи">
+                <BuiltIn Name="SideMargins" Left="0" Right="0" Top="14"/>
+                <BuiltIn Name="Title" Color="0xFF000005" FontBold="True" FontColor="0x001C1817" FontSize="16"/>
+                <Component Name="Group6" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="Static2" Class="Com.Ctrl.IStatic" Width="100"/>
+                  <Component Name="ButtonAddMilestone2" Class="Com.Ctrl.IButton" Caption="Добавить веху" Fashion="Fashions.TertiaryButton" ImageName="Com.AddItem" OnClick="ButtonAddMilestoneOnClick" Width="45"/>
+                </Component>
+                <Component Name="MilestonesTable" Class="Com.Ctrl.ITable" Adaptive="True" IconName="TrackingCore.romb" Numbering="False" OnDrawIcon="MilestonesTableOnDrawIcon" ShowIcon="True"/>
+              </Component>
+              <Inherited Name="DesignBox" Excluded="True" After="MilestoneBox"/>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="ContentSideFrame" AutoSize="False">
+            <Inherited Name="FrameForPM" AutoSize="True" Color="0x00F8F7F7">
+              <Inherited Name="StakeholfersFrame" Excluded="True"/>
+              <Inherited Name="PeopleInfoFrame">
+                <Component Name="GroupStatus2" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True" ByColumn="True">
+                  <Component Name="ProjectStatus" Class="Com.Ctrl.IEdit" Caption="Статус" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ProjectStatus" HasCaption="True" HasInnerCaption="True" LookupField="Name" OnGetLookupFilter="StatusEditOnGetLookUpFilter" OnVerify="ProjectStatusOnVerify" Required="True" ShortList="True" ValueType="VarObject"/>
+                </Component>
+                <Inherited Name="DatesGroup" After="GroupStatus2"/>
+              </Inherited>
+              <Component Name="StakeholdersBox" Class="Com.Ctrl.IBox" After="PeopleInfoFrame" Caption="Стейкхолдеры" Color="0x00F8F7F7">
+                <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                <BuiltIn Name="Title" Color="0x00F8F7F7" FontBold="True" FontColor="0x001C1817"/>
+                <Component Name="StakeholdersList" Class="Com.Ctrl.IFrame" Color="0x00F8F7F7">
+                  <BuiltIn Name="SideMargins" Bottom="12" Left="16" Right="16" Top="12"/>
+                  <Component Name="StakeholdersGroup1" Class="Com.Ctrl.IGroup" Adaptive="True">
+                    <Component Name="StakeholdersMultiSelect" Class="Com.Ctrl.IListEdit" Caption="Стейкхолдеры" CardFileClass="TrackingCore.Tab.Data.People" CellFormat="CommonFormat" Field="EdtRec.StakeholdersArr" HasCaption="True" HasInnerCaption="True" Multiline="False" ShortList="False" Visible="True"/>
+                  </Component>
+                  <Component Name="StructStakeholders" Class="TrackingPlan.Rec.Refs.Project_Stakeholders" Excluded="True" IsLibrary="1"/>
+                  <Component Name="Group8" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="True">
+                    <Component Name="Group7" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                      <Component Name="RoleEdit" Class="Com.Ctrl.IEdit" Caption="Роль" CardFileClass="Bas.Tab.Ref.EntityRoles" Field="StructStakeholders.Role" HasInnerCaption="True" LookupField="Name" ShortList="True"/>
+                      <Component Name="StaffEdit" Class="Com.Ctrl.IEdit" Caption="ФИО" CardFileClass="Bas.Tab.Data.Entity" Field="StructStakeholders.Staff" HasInnerCaption="True" LookupField="Name" ShortList="True"/>
+                      <Component Name="ButtonDeleteStakeholder" Class="Com.Ctrl.IButton" Fashion="Fashions.GhostButton" ImageName="TrackingCore.trash_bin" OnClick="DeleteStakeHolder" Width="10"/>
+                    </Component>
+                    <Component Name="AddStakeholderButton" Class="Com.Ctrl.IButton" Caption="Добавить стейкхолдера" Fashion="Fashions.TertiaryButton" ImageName="Com.AddItem" OnClick="AddStakeholderButtonOnClick" Width="55"/>
+                  </Component>
+                  <Component Name="StakeholdersTable" Class="Com.Ctrl.ITable" Excluded="True" Adaptive="True" Numbering="False" Subtable="EdtRec.Stakeholders" Visible="False">
+                    <Component Name="Role" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.EntityRoles" Field="StructStakeholders.Role" HasInnerCaption="True" LookupField="Name" ShortList="True"/>
+                    <Component Name="Staff" Class="Com.Ctrl.IEdit" Caption="ФИО" CardFileClass="Bas.Tab.Data.Entity" Field="StructStakeholders.Staff" HasInnerCaption="True" LookupField="Name"/>
+                  </Component>
+                </Component>
+              </Component>
+              <Inherited Name="BudgetBox" After="StakeholdersBox">
+                <Inherited Name="BudgetFrame">
+                  <BuiltIn Name="SideMargins" Bottom="16" Top="12"/>
+                </Inherited>
+              </Inherited>
+            </Inherited>
+            <Inherited Name="FrameForStaff" AutoSize="True" Color="0x00F8F7F7">
+              <Inherited Name="FrameStaffInfo" AutoSize="True" Color="0x00F8F7F7">
+                <BuiltIn Name="SideMargins" Bottom="16" Left="16" Right="16" Top="16"/>
+                <Inherited Name="GroupStatus" ByColumn="False" Color="0x00F8F7F7">
+                  <Component Name="Static3" Class="Com.Ctrl.IStatic" Excluded="True" Width="30"/>
+                </Inherited>
+                <Inherited Name="GroupStartDate" Color="0x00F8F7F7">
+                  <Inherited Name="StartDateCaption" FontColor="0x0070605C"/>
+                </Inherited>
+                <Inherited Name="GroupEndDate" Color="0x00F8F7F7">
+                  <Inherited Name="EndDateCaption" FontColor="0x0070605C"/>
+                </Inherited>
+                <Inherited Name="GroupAuthor" Color="0x00F8F7F7">
+                  <Inherited Name="AuthorCaption" FontColor="0x0070605C"/>
+                </Inherited>
+                <Inherited Name="GroupResponsible" Color="0x00F8F7F7">
+                  <Inherited Name="ResponsibleCaption" FontColor="0x0070605C"/>
+                </Inherited>
+              </Inherited>
+              <Component Name="StakeholdersBox1" Class="Com.Ctrl.IBox" Caption="Стейкхолдеры" Color="0x00F8F7F7">
+                <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                <BuiltIn Name="Title" Color="0x00F8F7F7" FontBold="True" FontColor="0x001C1817"/>
+                <Component Name="StakeholdersList1" Class="Com.Ctrl.IFrame" Color="0x00F8F7F7">
+                  <BuiltIn Name="SideMargins" Bottom="16" Left="16" Right="16" Top="12"/>
+                  <Component Name="Group11" Class="Com.Ctrl.IGroup" Adaptive="True">
+                    <Component Name="StaticStakeholders" Class="Com.Ctrl.IStatic"/>
+                  </Component>
+                </Component>
+              </Component>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Component Name="TeamTab" Class="Com.Ctrl.IFrame" Caption="Команда">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="ButtonFilterFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <BuiltIn Name="SideMargins" Bottom="0" Top="24"/>
+            <Component Name="ShowActiveButton" Class="Com.Ctrl.IButton" Caption="Активные" Fashion="Fashions.GhostButton" Field="ActiveChosen" IsSwitch="True" OnClick="ShowActiveButtonOnClick"/>
+            <Component Name="ShowArchievedButton" Class="Com.Ctrl.IButton" Caption="Архив" Fashion="Fashions.GhostButton" Field="ArchievedChosen" IsSwitch="True" OnClick="ShowArchievedButtonOnClick"/>
+          </Component>
+          <Component Name="TableFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <BuiltIn Name="SideMargins" Bottom="24" Left="32" Right="32" Top="24"/>
+            <Component Name="GroupAddStaff" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="Static13" Class="Com.Ctrl.IStatic" FontBold="True"/>
+              <Component Name="AddButton" Class="Com.Ctrl.IListButton" Caption="Добавить" Fashion="Fashions.SecondaryButton" ImageName="Com.AddItem">
+                <Component Name="AddEmploee" Class="Com.Ctrl.IButton" Caption="Сотрудника" OnClick="AddEmploeeOnClick"/>
+                <Component Name="AddTeam" Class="Com.Ctrl.IButton" Caption="Команду" OnClick="AddTeamOnClick"/>
+              </Component>
+            </Component>
+            <Component Name="TeamTable" Class="Com.Ctrl.ITable" Adaptive="True" Hint="ппппп" Numbering="False" OnClickIcon="TeamTableOnClickIcon" OnDrawIcon="TeamTableOnDrawIcon" ShowIcon="True" Subtable="EdtRec.Members">
+              <Component Name="Team_CurMember" Class="TrackingPlan.Rec.Refs.Project_Team_Member" IsLibrary="1"/>
+              <Component Name="edtWorker" Class="Com.Ctrl.IEdit" Caption="Имя" Field="Team_CurMember.Member" HasButton="True" LookupFilter="UseControl" OnGetLookupFilter="edtWorkerOnGetLookupFilter" OnVerify="edtWorkerOnVerify" Width="20"/>
+              <Component Name="edtWorkerRole" Class="Com.Ctrl.IEdit" ButtonStyle="ComboButton" Caption="Роль" CardFileClass="Bas.Tab.Ref.EntityRoles" Field="Team_CurMember.MemberRole" FixSize="False" HasButton="True" OnGetLookupFilter="Role_OnGetLookupFilter" OnVerify="edtWorkerRoleOnVerify" ShortList="True" Width="20"/>
+              <Component Name="edtBusyness" Class="Com.Ctrl.IEdit" Caption="Занятость, ч/нед." Field="Team_CurMember.Busyness" OnVerify="Busyness_OnVerify" ValueType="VarInteger" Width="14"/>
+              <Component Name="edtExternalPrice" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Внешняя ставка, ₽" CellFormat="NumericFormat" Field="Team_CurMember.ExternalPrice" OnVerify="edtExternalPriceOnVerify" ValueType="VarNumeric" Width="14"/>
+              <Component Name="edtPersonPrice" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Внутренняя ставка, ₽" CellFormat="NumericFormat" Enabled="False" Field="Team_CurMember.PersonPrice" ValueType="VarNumeric" Width="14"/>
+              <Component Name="edtEmail" Class="Com.Ctrl.IEdit" Enabled="False" Field="Team_CurMember.Email" Width="20"/>
+              <Component Name="edtBeginDate" Class="Com.Ctrl.IEdit" Field="Team_CurMember.BeginDate" OnVerify="PersonBegDate_OnVerify" ValueType="VarDate" Width="13"/>
+              <Component Name="edtEndDate" Class="Com.Ctrl.IEdit" Field="Team_CurMember.EndDate" OnVerify="PersonEndDate_OnVerify" ValueType="VarDate" Width="13"/>
+              <Component Name="DelButton" Class="Com.Ctrl.IButton" Fashion="Fashions.GhostButton" FixSize="True" ImageName="TrackingCore.trash_bin" ImageSize="20" OnClick="DelButtonOnClick" Width="7"/>
+              <Component Name="ListButton1" Class="Com.Ctrl.IListButton" Fashion="Fashions.GhostButton" ImageName="Com.ellipsis-v">
+                <Component Name="RestoreButton" Class="Com.Ctrl.IButton" Caption="Восстановить" OnClick="RestoreButtonOnClick"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="TasksTab" Class="Com.Ctrl.IFrame" Caption="Список задач"/>
+        <Component Name="WBSTab" Class="Com.Ctrl.IFrame" Caption="Диаграмма Ганта" ScrollerStyle="ScrollerNone"/>
+        <Component Name="KanbanTab" Class="Com.Ctrl.IFrame" Caption="Доска"/>
+        <Component Name="HistoryTab" Class="Com.Ctrl.IFrame" Caption="История состояний">
+          <Component Name="HistoryOfStatusTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" Enabled="False" ManualControl="False" Numbering="False" Subtable="EdtRec.HistoryOfStatus">
+            <Component Name="Project_History" Class="TrackingPlan.Rec.Refs.Project_HistoryOfTransitions" IsLibrary="1"/>
+            <Component Name="HistoryTimeEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Project_History.TimeOfTransition" FieldFormat="dd.MM.yyyy HH:mm:ss" FormatOfDate="DateAndTime" HasCaption="True"/>
+            <Component Name="HistoryOldStatusEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Project_History.OldStatus" HasCaption="True"/>
+            <Component Name="HistoryNewStatusEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Project_History.NewStatus" HasCaption="True"/>
+          </Component>
+        </Component>
+        <Component Name="PlanFactTab" Class="Com.Ctrl.IFrame" Caption="План-Факт" Orientation="Vertical">
+          <BuiltIn Name="SideMargins" Bottom="24" Left="32" Right="32" Top="24"/>
+          <Component Name="ReportFrame" Class="Com.Ctrl.IFrame" Proportion="33">
+            <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="32" Top="0"/>
+          </Component>
+          <Component Name="ContentSideFramePlanFact" Class="Com.Ctrl.IFrame" AutoSize="False" Proportion="17">
+            <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+            <Component Name="Frame3" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0x00F8F7F7">
+              <Component Name="PeopleInfoFramePlanFact" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0x00F8F7F7">
+                <BuiltIn Name="SideMargins" Bottom="12" Left="16" Right="16" Top="16"/>
+                <Component Name="GroupStatus1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                  <Component Name="ProjectStatus1" Class="Com.Ctrl.IEdit" Caption="Статус" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ProjectStatus" HasCaption="True" HasInnerCaption="True" LookupField="Name" OnGetLookupFilter="StatusEditOnGetLookUpFilter" Required="True" ShortList="True" ValueType="VarObject"/>
+                </Component>
+                <Component Name="DatesGroup1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="BegDate2" Class="Com.Ctrl.IEdit" Caption="Дата начала" Field="EdtRec.BegDate" HasCaption="True" HasInnerCaption="True" OnVerify="BegDate_OnVerify"/>
+                  <Component Name="EndDate2" Class="Com.Ctrl.IEdit" Caption="Дата окончания" Field="EdtRec.EndDate" HasCaption="True" HasInnerCaption="True" OnVerify="EndDate_OnVerify"/>
+                </Component>
+                <Component Name="PeopleGroup1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                  <Component Name="Initiator1" Class="Com.Ctrl.IEdit" Caption="Автор" Enabled="False" Field="EdtRec.Initiator" HasInnerCaption="True" Required="True"/>
+                  <Component Name="Responsible1" Class="Com.Ctrl.IEditEx" Caption="Ответственный" CardFileClass="Bas.Tab.Data.Entity" Field="EdtRec.Responsible" HasCaption="True" HasInnerCaption="True" LookupField="Name" Required="True" ShortList="True">
+                    <Component Name="AppointMeButton1" Class="Com.Ctrl.IButton" Excluded="True" Caption="  Назначить меня  " Fashion="Fashions.TertiaryButton" FixSize="True" MinWidth="60" OnClick="AppointMeButton1OnClick" Width="40"/>
+                  </Component>
+                </Component>
+              </Component>
+              <Component Name="StakeholdersBoxPlanFact" Class="Com.Ctrl.IBox" Caption="Стейкхолдеры" Color="0x00F8F7F7">
+                <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                <BuiltIn Name="Title" Color="0x00F8F7F7" FontBold="True" FontColor="0x001C1817"/>
+                <Component Name="StakeholdersListPlanFact" Class="Com.Ctrl.IFrame" Color="0x00F8F7F7">
+                  <BuiltIn Name="SideMargins" Bottom="12" Left="16" Right="16" Top="12"/>
+                  <Component Name="StakeholdersGroup2" Class="Com.Ctrl.IGroup" Adaptive="True">
+                    <Component Name="StakeholdersMultiSelect1" Class="Com.Ctrl.IListEdit" Caption="Стейкхолдеры" CardFileClass="TrackingCore.Tab.Data.People" CellFormat="CommonFormat" Field="EdtRec.StakeholdersArr" HasCaption="True" HasInnerCaption="True" Multiline="False" ShortList="False" Visible="True"/>
+                  </Component>
+                  <Component Name="Group9" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="True">
+                    <Component Name="Group10" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                      <Component Name="RoleEdit1" Class="Com.Ctrl.IEdit" Caption="Роль" CardFileClass="Bas.Tab.Ref.EntityRoles" Field="StructStakeholders.Role" HasInnerCaption="True" LookupField="Name" ShortList="True"/>
+                      <Component Name="StaffEdit1" Class="Com.Ctrl.IEdit" Caption="ФИО" CardFileClass="Bas.Tab.Data.Entity" Field="StructStakeholders.Staff" HasInnerCaption="True" LookupField="Name" ShortList="True"/>
+                      <Component Name="ButtonDeleteStakeholder1" Class="Com.Ctrl.IButton" Fashion="Fashions.GhostButton" ImageName="TrackingCore.trash_bin" OnClick="DeleteStakeHolder" Width="10"/>
+                    </Component>
+                    <Component Name="AddStakeholderButton1" Class="Com.Ctrl.IButton" Caption="Добавить стейкхолдера" Fashion="Fashions.TertiaryButton" ImageName="Com.AddItem" OnClick="AddStakeholderButtonOnClick" Width="55"/>
+                  </Component>
+                </Component>
+              </Component>
+              <Component Name="BudgetBoxPlanFact" Class="Com.Ctrl.IBox" Caption="Бюджет" Color="0x00F8F7F7">
+                <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                <BuiltIn Name="Title" Color="0x00F8F7F7" FontBold="True" FontColor="0x001C1817"/>
+                <Component Name="BudgetFramePlanFact" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0x00F8F7F7">
+                  <BuiltIn Name="SideMargins" Bottom="12" Left="12" Right="12" Top="12"/>
+                  <Component Name="BudgetGroup1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                    <Component Name="Budget1" Class="Com.Ctrl.IEditEx" Alignment="LeftAlign" Caption="Бюджет проекта" CellFormat="NumericFormat" Field="EdtRec.Budget" FieldFormat=",##0.00;;-" FixSize="False" HasCaption="True" HasInnerCaption="True" Width="50"/>
+                    <Component Name="Static10" Class="Com.Ctrl.IStatic" FixSize="False" FontBold="False" Width="50"/>
+                  </Component>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="SprintKanbanTab" Class="Com.Ctrl.IFrame" Caption="Спринты"/>
+        <Component Name="TestGantt" Class="Com.Ctrl.IFrame" Excluded="True" Caption="Тестовый Гант" ScrollerStyle="ScrollerNone"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

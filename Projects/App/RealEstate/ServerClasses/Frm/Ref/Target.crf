@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited HelpContext="RealEstate.Управление имуществом.Справочники.Имущество.Назначения объектов недвижимости">
+    <Inherited Name="EdtRec" Class="RealEstate.Rec.Ref.Target" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" Excluded="True" CaptionWidth="55" MaxWidth="230">
+          <Inherited Name="Code" Caption="Код" Visible="True"/>
+          <Inherited Name="Name" Caption="Наименование" Visible="True"/>
+        </Inherited>
+        <Component Name="Group8" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="51" MaxWidth="230" MinWidth="150">
+          <Component Name="Group10" Class="Com.Ctrl.IGroup" ByColumn="False">
+            <Component Name="Code1" Class="Com.Ctrl.IEdit" Caption="Код" Field="EdtRec.Code" HasCaption="True" Visible="True"/>
+            <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Caption="@Замок" Field="EdtRec.Locked" FixSize="True" Width="18"/>
+            <Component Name="Closed" Class="Com.Ctrl.ICheckBox" Caption="@Не используется" Field="EdtRec.Closed" FixSize="True" Width="37"/>
+            <Component Name="BtnStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.4"/>
+          </Component>
+          <Component Name="Group9" Class="Com.Ctrl.IGroup" ByColumn="False">
+            <Component Name="Name1" Class="Com.Ctrl.IEdit" Caption="Наименование" Field="EdtRec.Name" FontBold="True" HasCaption="True" Multiline="True" Visible="True" Wrap="True"/>
+            <Component Name="BtnStatic2" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.4"/>
+          </Component>
+        </Component>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+          <Component Name="Comment" Class="Com.Ctrl.IEdit" Caption="Описание" Field="EdtRec.Comment" HasCaption="True"/>
+        </Component>
+        <Component Name="Group3" Class="Com.Ctrl.IGroup" Excluded="True">
+          <Component Name="ClaasCodeTarget" Class="Com.Ctrl.IEdit" Caption="Код в кадастре" Field="EdtRec.ClaasCodeTarget" FixSize="True" HasCaption="True" Width="40"/>
+        </Component>
+        <Component Name="Group4" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="51" MaxWidth="230" MinWidth="150">
+          <Component Name="ObjKindCode" Class="Com.Ctrl.IEdit" Caption="@Вид объекта" CardFileClass="RealEstateBase.Tab.Data.RealEstateObject" Field="EdtRec.ObjKindCode" HasCaption="True" LookupField="Name" ShortList="True"/>
+          <Component Name="btnObjKindCode" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ObjKindCode" HasCaption="False" JumpForm="RealEstate.Frm.Ref.RealEstateObjKind"/>
+        </Component>
+        <Component Name="Group6" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="51" MaxWidth="230" MinWidth="150">
+          <Component Name="FieldName" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Надпись" Field="EdtRec.FieldName" HasCaption="True" Width="40"/>
+          <Component Name="MainCharactType" Class="Com.Ctrl.IEdit" Caption="@Основная характеристика" CardFileClass="RealEstate.Tab.Ref.TargetMainCharactType" CellFormat="ReferenceFormat" Field="EdtRec.MainCharactType" HasCaption="True" LookupField="Name" ShortList="True"/>
+          <Component Name="TargetUnit" Class="Com.Ctrl.IEdit" Caption="@Единица измерения" CaptionWidth="39" CardFileClass="Biz.Tab.Ref.UnitsOfMeasure" Field="EdtRec.TargetUnit" HasCaption="True" LookupField="Code"/>
+          <Component Name="btnTargetUnit" Class="Com.Ctrl.IJumpButton" Field="EdtRec.TargetUnit" HasCaption="False" JumpForm="Biz.Tab.Ref.UnitsOfMeasure"/>
+        </Component>
+        <Component Name="Group5" Class="Com.Ctrl.IGroup" CaptionWidth="51"/>
+        <Component Name="Group7" Class="Com.Ctrl.IGroup" CaptionWidth="51">
+          <Component Name="ResidentialStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="51"/>
+          <Component Name="Residential" Class="Com.Ctrl.ICheckBox" Caption="Относится к жилому фонду" Field="EdtRec.Residential" FixSize="True" HasCaption="True" Width="70"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

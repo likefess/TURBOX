@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.Event">
+  <Inherited Hierarchical="False">
+    <Inherited Name="Current" Class="RealEstate.Rec.Doc.PropertyReturnAct" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="CardFile" CanCopy="False" CanInsert="False"/>
+          <Inherited Name="Name" Excluded="True"/>
+          <Inherited Name="Code" Excluded="True"/>
+          <Component Name="EventTime" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="Current.EventTime" HasCaption="True" Width="30"/>
+          <Component Name="PrintedNumber" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="Current.PrintedNumber" HasCaption="True" Width="30"/>
+          <Component Name="Contract" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.Contract" HasCaption="True" LookupField="Code"/>
+          <Component Name="Obj" Class="Com.Ctrl.IEdit" CanSort="False" CellFormat="ReferenceFormat" Field="Current.CObj" HasCaption="True" LookupField="Code"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

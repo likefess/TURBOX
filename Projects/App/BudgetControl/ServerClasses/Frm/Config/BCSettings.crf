@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="BudgetControl.Rec.Config.BCSettings" IsLibrary="1"/>
+    <Component Name="EdtRec_FilterLine" Class="BudgetControl.Rec.Config.BCSettings_FilterLine" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Component Name="ButtonRecreateBCTrans" Class="Com.Ctrl.IButton" Caption="@BCSettings:ButtonRecreateBCTrans=Пересоздать операции БК" OnClick="ButtonRecreateBCTrans_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" ByColumn="False">
+          <Component Name="LeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+            <Component Name="Code1" Class="Com.Ctrl.IEdit" Field="EdtRec.Code" HasCaption="True" Required="True" Visible="True"/>
+            <Component Name="Name1" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" FontBold="True" HasCaption="True" Required="True" Visible="True"/>
+            <Component Name="RecClassExt" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.RecClassExt" HasCaption="True" OnChange="RecClassExt_OnChange" Required="True"/>
+          </Component>
+          <Component Name="RightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+            <Component Name="ActiveGroup1" Class="Com.Ctrl.IGroup">
+              <Component Name="ActiveStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              <Component Name="Active" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Active" FixSize="True" HasCaption="True" Visible="True" Width="22"/>
+            </Component>
+            <Component Name="RecProject" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.RecProject" HasCaption="True" OnChange="RecProject_OnChange" Required="True"/>
+            <Component Name="RecordType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.RecordType" HasCaption="True" ListAsString="Лимит|0;Резерв|1;Факт прихода|2;Факт расхода|3" OnChange="RecordType_OnChange"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="MainGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+            <Component Name="FNSubtable" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="EdtRec.FNSubtable" HasCaption="True" OnChange="FNSubtable_OnChange"/>
+            <Component Name="FNSubtId" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="EdtRec.FNSubtId" HasCaption="True"/>
+            <Component Name="BudgetTypeGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="BTGroup1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="BudgetType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.BudgetType" HasCaption="True" ListAsString="БДДС|0;БДР|1;Бюджет закупок|2"/>
+              </Component>
+              <Component Name="BTFFGroup1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="FFGroup1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="BudgetTypeFromFieldStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                  <Component Name="BudgetTypeFromField1" Class="Com.Ctrl.ICheckBox" Caption="@BCSettings:BudgetTypeFromField=Из поля записи" Field="EdtRec.BudgetTypeFromField" HasCaption="True" OnChange="BudgetTypeFromField1_OnChange"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="BudgetTypeGroupFF" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="BTGroup2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="FNBudgetType" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="EdtRec.FNBudgetType" HasCaption="True"/>
+              </Component>
+              <Component Name="BTFFGroup2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="FFGroup2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="BudgetTypeFromFieldStatic2" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                  <Component Name="BudgetTypeFromField2" Class="Com.Ctrl.ICheckBox" Caption="@BCSettings:BudgetTypeFromField=Из поля записи" Field="EdtRec.BudgetTypeFromField" HasCaption="True" OnChange="BudgetTypeFromField1_OnChange"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="NewLine4" Class="Com.Ctrl.INewLine"/>
+            <Component Name="FNTransDate" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="EdtRec.FNTransDate" HasCaption="True"/>
+            <Component Name="FNNumenclature" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.FNNomenclature" HasCaption="True"/>
+            <Component Name="NewLine5" Class="Com.Ctrl.INewLine"/>
+            <Component Name="FNPrice" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.FNPrice" HasCaption="True"/>
+            <Component Name="FNQty" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.FNQty" HasCaption="True"/>
+            <Component Name="NewLine6" Class="Com.Ctrl.INewLine"/>
+            <Component Name="FNUnit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.FNUnit" HasCaption="True"/>
+            <Component Name="FNSum" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="EdtRec.FNSum" HasCaption="True"/>
+            <Component Name="NewLine7" Class="Com.Ctrl.INewLine"/>
+            <Component Name="FNCurrency" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="EdtRec.FNCurrency" HasCaption="True"/>
+            <Component Name="FNCompany" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="EdtRec.FNCompany" HasCaption="True"/>
+            <Component Name="NewLine8" Class="Com.Ctrl.INewLine"/>
+            <Component Name="FNCFR" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="EdtRec.FNCFR" HasCaption="True"/>
+            <Component Name="FNBGI" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="EdtRec.FNBGI" HasCaption="True"/>
+            <Component Name="NewLine9" Class="Com.Ctrl.INewLine"/>
+            <Component Name="FNSource" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="EdtRec.FNSource" HasCaption="True"/>
+            <Component Name="FNProject" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="EdtRec.FNProject" HasCaption="True"/>
+            <Component Name="NewLine10" Class="Com.Ctrl.INewLine"/>
+            <Component Name="FNContraparty" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.FNContraparty" HasCaption="True"/>
+            <Component Name="FNContract" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.FNContract" HasCaption="True"/>
+            <Component Name="NewLine12" Class="Com.Ctrl.INewLine"/>
+            <Component Name="LimitGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="FNLimitType" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="EdtRec.FNLimitType" HasCaption="True"/>
+              <Component Name="FNPeriodType" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="EdtRec.FNPeriodType" HasCaption="True"/>
+              <Component Name="NewLine11" Class="Com.Ctrl.INewLine"/>
+              <Component Name="FNControlType" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="EdtRec.FNControlType" HasCaption="True"/>
+              <Component Name="FNSettlementDoc1" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="EdtRec.FNSettlementDoc" HasCaption="True"/>
+            </Component>
+            <Component Name="CancelGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="FNCancelDoc" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="EdtRec.FNCancelDoc" HasCaption="True"/>
+              <Component Name="FNCanceledBy" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="EdtRec.FNCanceledBy" HasCaption="True"/>
+              <Component Name="NewLine13" Class="Com.Ctrl.INewLine"/>
+              <Component Name="FNSettlementDoc2" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="EdtRec.FNSettlementDoc" HasCaption="True"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="FilterTab" Class="Com.Ctrl.IFrame" Caption="@BCSettings:FilterTab=Фильтр" Margins="5">
+          <Component Name="FilterBtnFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="FilterBtnGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="FilterBtnStatic" Class="Com.Ctrl.IStatic"/>
+              <Component Name="AddFLineBtn" Class="Com.Ctrl.IButton" Hint="@BCSettings:AddFLineBtn=Добавить строку фильтра" ImageName="Com.AddItem" OnClick="AddFLineBtn_OnClick"/>
+              <Component Name="DelFLineBtn" Class="Com.Ctrl.IButton" Hint="@BCSettings:DelFLineBtn=Удалить строку фильтра" ImageName="Com.DeleteItem" OnClick="DelFLineBtn_OnClick"/>
+            </Component>
+          </Component>
+          <Component Name="FilterFrame" Class="Com.Ctrl.IFrame">
+            <Component Name="FilterTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" Numbering="False" Sortable="False" Subtable="EdtRec.FilterLine">
+              <Component Name="FilterPreviousUnion" Class="Com.Ctrl.IEdit" Caption="@BC_Settings:FilterPreviousUnion=Связь" CellFormat="EnumFormat" Field="EdtRec_FilterLine.PreviousUnion" HasCaption="True" OnEnter="FilterPreviousUnion_OnEnter" OnOutput="FilterPreviousUnion_OnOutput" ValueType="VarString" Width="15"/>
+              <Component Name="HierarchyGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@BC_Settings:HierarchyGroup=Иерархия" HasCaption="True">
+                <Component Name="HierarchyIdx" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="EdtRec_FilterLine.HierarchyIdx" HasCaption="False" Width="30"/>
+                <Component Name="AddFSubLineBtn" Class="Com.Ctrl.IButton" HasCaption="False" Hint="@BCSettings:AddFSubLineBtn=Добавить подстроку фильтра" ImageName="Com.AddItem" OnClick="AddFSubLineBtn_OnClick"/>
+              </Component>
+              <Component Name="FilterFieldName" Class="Com.Ctrl.IEdit" AutocompleteMode="acmOff" AutoLookup="False" CellFormat="EnumFormat" Field="EdtRec_FilterLine.FieldName" HasCaption="True" OnChange="FilterFieldName_OnChange" OnEnter="FilterFieldName_OnEnter" ValueType="VarString" Width="50"/>
+              <Component Name="FilterComparisonKind" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec_FilterLine.ComparisonKind" HasCaption="True" ListAsString="@BCSettings:PrevUnionAnd:И|0;@BCSettings:PrevUnionOr:ИЛИ|1" OnEnter="FilterComparisonKind_OnEnter" OnOutput="FilterComparisonKind_OnOutput" ValueType="VarString" Width="40"/>
+              <Component Name="FilterFieldValue" Class="Com.Ctrl.IEdit" AutoLookup="False" Field="EdtRec_FilterLine.FieldValue" HasButton="True" HasCaption="True" OnEnter="FilterFieldValue_OnEnter" OnLookup="FilterFieldValue_OnLookup" OnOutput="FilterFieldValue_OnOutput" ValueType="VarString" Width="50"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="AddTab" Class="Com.Ctrl.IFrame" Caption="@BCSettings:AddTab=Дополнительно" Margins="5">
+          <Component Name="NameTemplateBox" Class="Com.Ctrl.IBox" Caption="@BCSettings:NameTemplateBox=Описание операции" HasCaption="True">
+            <Component Name="NameTemplateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="NameTemplate" Class="Com.Ctrl.IEdit" Field="EdtRec.NameTemplate" HasCaption="True" Multiline="True" Visible="True" Wrap="True"/>
+              <Component Name="FieldMarker" Class="Com.Ctrl.IEdit" Field="EdtRec.FieldMarker" HasCaption="True" Required="True"/>
+            </Component>
+          </Component>
+          <Component Name="AddFieldBox" Class="Com.Ctrl.IBox" Caption="@BCSettings:AddFieldBox=Добавление полей">
+            <Component Name="AddFieldGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="AddFieldRecPrj" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.AddFieldRecPrj" HasCaption="True" OnChange="AddFieldRecPrj_OnChange"/>
+              <Component Name="AddFieldRecClassExt" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.AddFieldRecClassExt" HasCaption="True" OnChange="AddFieldRecClassExt_OnChange"/>
+              <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+              <Component Name="AddFieldRecField" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Enabled="False" Field="EdtRec.AddFieldRecField" HasCaption="True"/>
+              <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+              <Component Name="Group5" Class="Com.Ctrl.IGroup">
+                <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                <Component Name="AddFieldBtn" Class="Com.Ctrl.IButton" Caption="@BCSettings:AddFieldBtn=Добавить" FixSize="True" HasCaption="True" OnClick="AddFieldBtn_OnClick" Width="30"/>
+                <Component Name="RestoreBtn" Class="Com.Ctrl.IButton" Caption="@BCSettings:RestoreBtn=Сбросить" FixSize="True" HasCaption="True" OnClick="RestoreBtn_OnClick" Width="30"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

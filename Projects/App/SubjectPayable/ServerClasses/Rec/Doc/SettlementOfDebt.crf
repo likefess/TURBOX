@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="SubjectPayable.Rec.Base.BaseSubjPayableDoc">
+  <Inherited>
+    <Component Name="TypeSettl1" Class="Com.Fld.IField" After="#0" FieldName="TypeSettl1"/>
+    <Component Name="TypeSettl2" Class="Com.Fld.IField" FieldName="TypeSettl2"/>
+    <Inherited Name="Name" OnCalc="Name_OnCalc"/>
+    <Inherited Name="AccDate" Caption="@SettlementOfDebt:AccDate=Дата проведения взаимозачета"/>
+    <Inherited Name="SourceDoc" Caption="@SettlementOfDebt:SourceDoc=Документ, согласно которого проводится взаимозачет"/>
+    <Component Name="DebAccrualOfDebt" Class="Com.Fld.IField" After="SourceDoc" Caption="@SettlementOfDebt:DebAccrualOfDebt=Списание дебиторской задолженности" FieldName="DebAccrualOfDebt" OnChange="DebAccrualOfDebt_OnChange"/>
+    <Component Name="CreAccrualOfDebt" Class="Com.Fld.IField" Caption="@SettlementOfDebt:CreAccrualOfDebt=Списание кредиторской задолженности" FieldName="CreAccrualOfDebt" OnChange="CreAccrualOfDebt_OnChange"/>
+    <Component Name="SumDeb" Class="Com.Fld.IField" FieldName="SumDeb" OnCalc="SumDeb_OnCalc"/>
+    <Component Name="ExchRateDeb" Class="Com.Fld.IField" FieldName="ExchRateDeb" OnCalc="ExchRateDeb_OnCalc"/>
+    <Component Name="ExchRateDebBase" Class="Com.Fld.IVar" OnCalc="ExchRateDebBase_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="CurrencyDeb" Class="Com.Fld.IField" FieldName="CurrencyDeb"/>
+    <Component Name="SumBaseDeb" Class="Com.Fld.IField" FieldName="SumBaseDeb" OnCalc="SumBaseDeb_OnCalc"/>
+    <Component Name="VATRateDeb" Class="Com.Fld.IField" FieldName="VATRateDeb"/>
+    <Component Name="VATSumDeb" Class="Com.Fld.IField" FieldName="VATSumDeb" OnCalc="VATSumDeb_OnCalc"/>
+    <Component Name="SumCre" Class="Com.Fld.IField" FieldName="SumCre" OnCalc="SumCre_OnCalc"/>
+    <Component Name="ExchRateCre" Class="Com.Fld.IField" FieldName="ExchRateCre" OnCalc="ExchRateCre_OnCalc"/>
+    <Component Name="ExchRateCreBase" Class="Com.Fld.IVar" OnCalc="ExchRateCreBase_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="CurrencyCre" Class="Com.Fld.IField" FieldName="CurrencyCre"/>
+    <Component Name="SumBaseCre" Class="Com.Fld.IField" FieldName="SumBaseCre" OnCalc="SumBaseCre_OnCalc"/>
+    <Component Name="VATRateCre" Class="Com.Fld.IField" Caption="@SettlementOfDebt:VATRateCre=Ставка НДС" FieldName="VATRateCre"/>
+    <Component Name="VATSumCre" Class="Com.Fld.IField" Caption="@SettlementOfDebt:VATSumCre=Сумма НДС" FieldName="VATSumCre" OnCalc="VATSumCre_OnCalc"/>
+    <Component Name="DiffContraparty" Class="Com.Fld.IField" Caption="@SettlementOfDebt:DiffContraparty=Разные контрагенты" FieldName="DiffContraparty" OnChange="DiffContraparty_OnChange"/>
+    <Component Name="Contraparty2" Class="Com.Fld.IField" Caption="@SubjectPayable:Contraparty2=Контрагент (второй)" FieldName="Contraparty2" OnChange="Contraparty2_OnChange"/>
+  </Inherited>
+</Resource>

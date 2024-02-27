@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWithFrames">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="Limit" Class="Com.Fld.IVar" OnChange="Limit_OnChange" RecordClass="BudgetControl.Rec.Data.BCLimit" ValueType="VarObject"/>
+      <Component Name="SourceSubtable" Class="Com.ISubtable" StructClass="BudgetControl.Rec.Service.BCCreateLimitCorrection_Line"/>
+      <Component Name="CorrSubtable" Class="Com.ISubtable" StructClass="BudgetControl.Rec.Service.BCCreateLimitCorrection_Line"/>
+      <Component Name="vCompany" Class="Com.Fld.IVar" Caption="@BCCreateLimitCorrection:vCompany=Предприятие" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="vBudgetType" Class="Com.Fld.IVar" Caption="@BCCreateLimitCorrection:vBudgetType=Вид бюджета" ValueType="VarInteger"/>
+      <Component Name="vPeriodType" Class="Com.Fld.IVar" Caption="@BCCreateLimitCorrection:vPeriodType=Тип периода" OnChange="vPeriodType_OnChange" ValueType="VarInteger"/>
+      <Component Name="vStartDate" Class="Com.Fld.IVar" Caption="@BCCreateLimitCorrection:vStartDate=Дата начала" OnChange="vStartDate_OnChange" OnVerify="vStartDate_OnVerify" ValueType="VarDate"/>
+      <Component Name="vCurrency" Class="Com.Fld.IVar" Caption="@BCCreateLimitCorrection:vCurrency=Валюта" RecordClass="Biz.Rec.Ref.UCurrency" ValueType="VarObject"/>
+      <Component Name="vCFR" Class="Com.Fld.IVar" Caption="@BCCreateLimitCorrection:vCFR=ЦФО" OnVerify="vCFR_OnVerify" RecordClass="Biz.Rec.Ref.CFR" ValueType="VarObject"/>
+      <Component Name="vBGI" Class="Com.Fld.IVar" Caption="@BCCreateLimitCorrection:vBGI=Статья бюджета" OnVerify="vBGI_OnVerify" RecordClass="Biz.Rec.Ref.BGI" ValueType="VarObject"/>
+      <Component Name="vProject" Class="Com.Fld.IVar" Caption="@BCCreateLimitCorrection:vProject=Проект" RecordClass="Bas.Rec.Ref.Project" ValueType="VarObject"/>
+      <Component Name="vSource" Class="Com.Fld.IVar" Caption="@BCCreateLimitCorrection:vSource=Источник" RecordClass="Biz.Rec.Ref.FundSource" ValueType="VarObject"/>
+      <Component Name="vNomenclature" Class="Com.Fld.IVar" Caption="@BCCreateLimitCorrection:vNomenclature=Номенклатура" RecordClass="Biz.Rec.Data.Resource" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="4">
+        <Inherited Name="ButtonOK" Excluded="True"/>
+        <Component Name="ButtonRefillSource" Class="Com.Ctrl.IButton" After="ButtonOK" Caption="@BCCreateLimitCorrection:ButtonRefillSource=Подобрать источник" ImageName="Com.Refresh" OnClick="ButtonRefillSource_OnClick"/>
+        <Component Name="ButtonClearFilter" Class="Com.Ctrl.IButton" Caption="@BCCreateLimitCorrection:ButtonClearFilter=Сброс параметров" ImageName="BudgetControl.ClearFilters" OnClick="ButtonClearFilter_OnClick"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="FilterBox" Class="Com.Ctrl.IBox" Caption="@BCCreateLimitCorrection:FilterBox=Параметры" HasCaption="True">
+          <Component Name="FilterGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+            <Component Name="CompanyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Enabled="False" Field="vCompany" HasCaption="True" LookupField="Name"/>
+            <Component Name="BudgetTypeEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Enabled="False" Field="vBudgetType" HasCaption="True" ListAsString="БДДС|0;БДР|1;Бюджет закупок|2"/>
+            <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+            <Component Name="PeriodTypeEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="vPeriodType" HasCaption="True" ListAsString="месяц|0;квартал|1;год|2"/>
+            <Component Name="StartDateEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="vStartDate" HasCaption="True"/>
+            <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CurrencyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Field="vCurrency" HasCaption="True" LookupField="Code" ShortList="True" Width="50"/>
+            <Component Name="NomenclatureEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Resources" CellFormat="ReferenceFormat" Field="vNomenclature" HasCaption="True" LookupField="Name" Width="50"/>
+            <Component Name="NewLine3" Class="Com.Ctrl.INewLine"/>
+            <Component Name="CFREdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="vCFR" HasCaption="True" LookupField="Name"/>
+            <Component Name="BGIEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="vBGI" HasCaption="True" LookupField="Name"/>
+            <Component Name="NewLine4" Class="Com.Ctrl.INewLine"/>
+            <Component Name="ProjectEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Field="vProject" HasCaption="True" LookupField="Name"/>
+            <Component Name="SourceEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.FundSource" CellFormat="ReferenceFormat" Field="vSource" HasCaption="True" LookupField="Name"/>
+          </Component>
+        </Component>
+        <Component Name="SubtFrame" Class="Com.Ctrl.IFrame">
+          <Component Name="SourceFrame" Class="Com.Ctrl.IFrame" CanHideBySplit="True" CanResizeBySplit="True" SplitterAtRight="True" UseSplitter="True">
+            <Component Name="SourceHeadFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="SourceHeadGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                <Component Name="SourceStatic" Class="Com.Ctrl.IStatic" Caption="@BCCreateLimitCorrection:SourceStatic=Источник" FontBold="True" FontItalic="True"/>
+                <Component Name="CreateCorrBtn" Class="Com.Ctrl.IButton" Caption="@BCCreateLimitCorrection:CreateCorrBtn=Создать перенос" FixSize="True" HasCaption="True" ImageName="Com.AddItem" OnClick="CreateCorrBtn_OnClick" Width="40"/>
+              </Component>
+            </Component>
+            <Component Name="SourceSubtFrame" Class="Com.Ctrl.IFrame" Subtable="SourceSubtable">
+              <Component Name="SourceLine" Class="BudgetControl.Rec.Service.BCCreateLimitCorrection_Line" IsLibrary="1"/>
+              <Component Name="SSelectCheckBox" Class="Com.Ctrl.ICheckBox" Caption="@BCCreateLimitCorrection_Line:SelectRelated=Показать связь" Field="SourceLine.SelectRelated" HasCaption="True" OnChange="SSelectCheckBox_OnChange" Width="20"/>
+              <Component Name="SPeriodType" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:PeriodType=Тип периода" CellFormat="EnumFormat" Enabled="False" Field="SourceLine.PeriodType" HasCaption="True" ListAsString="месяц|0;квартал|1;год|2" Width="30"/>
+              <Component Name="SStartDate" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:StartDate=Дата начала" CellFormat="DateFormat" Enabled="False" Field="SourceLine.StartDate" HasCaption="True" Width="30"/>
+              <Component Name="SNomenclature" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:Nomenclature=Номенклатура" CardFileClass="Biz.Tab.Data.Resources" CellFormat="ReferenceFormat" Enabled="False" Field="SourceLine.Nomenclature" HasCaption="True" LookupField="Name" Width="40"/>
+              <Component Name="SUnitOfMeasure" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:UnitOfMeasure=Ед. изм" CardFileClass="Biz.Tab.Ref.UnitsOfMeasure" CellFormat="ReferenceFormat" Enabled="False" Field="SourceLine.UnitOfMeasure" HasCaption="True" LookupField="Code" Width="25"/>
+              <Component Name="SQtySaldoCorr" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:QtySaldo=Остаток количества" CellFormat="NumericFormat" Enabled="False" Field="SourceLine.QtySaldoCorr" HasCaption="True" Width="25"/>
+              <Component Name="SQtyCorr" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:QtyCorr=Количество к переносу" CellFormat="NumericFormat" Field="SourceLine.QtyCorr" HasCaption="True" Width="25"/>
+              <Component Name="SPrice" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:Price=Цена за единицу" CellFormat="NumericFormat" Enabled="False" Field="SourceLine.Price" FieldFormat=",##0.00;;-" HasCaption="True" Width="35"/>
+              <Component Name="SSumSaldoCorr" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@BCCreateLimitCorrection_Line:SumSaldo=Остаток лимита" CellFormat="NumericFormat" Enabled="False" Field="SourceLine.SumSaldoCorr" FieldFormat=",##0.00;" HasCaption="True" Width="35"/>
+              <Component Name="SSumCorr" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@BCCreateLimitCorrection_Line:SumCorr=Сумма к переносу" CellFormat="NumericFormat" Field="SourceLine.SumCorr" FieldFormat=",##0.00;" HasCaption="True" Width="35"/>
+              <Component Name="SCurrency" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:Currency=Валюта" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Enabled="False" Field="SourceLine.Currency" HasCaption="True" LookupField="Code" ShortList="True" Width="15"/>
+              <Component Name="SCFR" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:CFR=ЦФО" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Enabled="False" Field="SourceLine.CFR" HasCaption="True" LookupField="Name" Width="50"/>
+              <Component Name="SBGI" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:BGI=Статья бюджета" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Enabled="False" Field="SourceLine.BGI" HasCaption="True" LookupField="Name" Width="50"/>
+              <Component Name="SProject" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:Project=Проект" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Enabled="False" Field="SourceLine.Project" HasCaption="True" LookupField="Name" Width="50"/>
+              <Component Name="SSource" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:Source=Источник" CardFileClass="Biz.Tab.Ref.FundSource" CellFormat="ReferenceFormat" Enabled="False" Field="SourceLine.Source" HasCaption="True" LookupField="Name" Width="50"/>
+              <Component Name="SControlType" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:ControlType=Вид контроля" CellFormat="EnumFormat" Enabled="False" Field="SourceLine.ControlType" HasCaption="True" ListAsString="Запрещать|0;Предупреждать|1;Пропускать|2" Width="35"/>
+            </Component>
+          </Component>
+          <Component Name="CorrFrame" Class="Com.Ctrl.IFrame">
+            <Component Name="CorrHeadFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="CorrHeadGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                <Component Name="CorrStatic" Class="Com.Ctrl.IStatic" Caption="@BCCreateLimitCorrection:CorrStatic=Получатель" FontBold="True" FontItalic="True"/>
+                <Component Name="CreateLinesBtn" Class="Com.Ctrl.IButton" Caption="@BCCreateLimitCorrection:CreateLinesBtn=Создать строки" FixSize="True" HasCaption="True" ImageName="Com.AddItem" OnClick="CreateLinesBtn_OnClick" Width="40"/>
+              </Component>
+            </Component>
+            <Component Name="CorrSubtFrame" Class="Com.Ctrl.IFrame" Subtable="CorrSubtable">
+              <Component Name="CorrLine" Class="BudgetControl.Rec.Service.BCCreateLimitCorrection_Line" IsLibrary="1"/>
+              <Component Name="CSelectCheckBox" Class="Com.Ctrl.ICheckBox" Caption="@BCCreateLimitCorrection_Line:SelectRelated=Показать связь" Field="CorrLine.SelectRelated" HasCaption="True" OnChange="CSelectCheckBox_OnChange" Width="20"/>
+              <Component Name="CPeriodType" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:PeriodType=Тип периода" CellFormat="EnumFormat" Field="CorrLine.PeriodType" HasCaption="True" ListAsString="месяц|0;квартал|1;год|2" Width="30"/>
+              <Component Name="CStartDate" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:StartDate=Дата начала" CellFormat="DateFormat" Field="CorrLine.StartDate" HasCaption="True" Width="30"/>
+              <Component Name="CNomenclature" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:Nomenclature=Номенклатура" CardFileClass="Biz.Tab.Data.Resources" CellFormat="ReferenceFormat" Enabled="False" Field="CorrLine.Nomenclature" HasCaption="True" LookupField="Name" Width="40"/>
+              <Component Name="CUnitOfMeasure" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:UnitOfMeasure=Ед. изм" CardFileClass="Biz.Tab.Ref.UnitsOfMeasure" CellFormat="ReferenceFormat" Enabled="False" Field="CorrLine.UnitOfMeasure" HasCaption="True" LookupField="Code" Width="25"/>
+              <Component Name="CQtyCorr" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:CQtyCorr=Количество" CellFormat="NumericFormat" Field="CorrLine.QtyCorr" HasCaption="True" OnChange="CQtyCorr_OnChange" OnVerify="CQtyCorr_OnVerify" Width="50"/>
+              <Component Name="CPrice" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:Price=Цена за единицу" CellFormat="NumericFormat" Enabled="False" Field="CorrLine.Price" FieldFormat=",##0.00;;-" HasCaption="True" Width="35"/>
+              <Component Name="CSumCorr" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@BCCreateLimitCorrection_Line:CSumCorr=Лимит" CellFormat="NumericFormat" Field="CorrLine.SumCorr" FieldFormat=",##0.00;" HasCaption="True" OnChange="CSumCorr_OnChange" OnVerify="CSumCorr_OnVerify" Width="70"/>
+              <Component Name="CCurrency" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:Currency=Валюта" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Enabled="False" Field="CorrLine.Currency" HasCaption="True" LookupField="Code" ShortList="True" Width="15"/>
+              <Component Name="CCFR" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:CFR=ЦФО" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="CorrLine.CFR" HasCaption="True" LookupField="Name" Width="50"/>
+              <Component Name="CBGI" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:BGI=Статья бюджета" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="CorrLine.BGI" HasCaption="True" LookupField="Name" Width="50"/>
+              <Component Name="CProject" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:Project=Проект" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Field="CorrLine.Project" HasCaption="True" LookupField="Name" Width="50"/>
+              <Component Name="CSource" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:Source=Источник" CardFileClass="Biz.Tab.Ref.FundSource" CellFormat="ReferenceFormat" Field="CorrLine.Source" HasCaption="True" LookupField="Name" Width="50"/>
+              <Component Name="CControlType" Class="Com.Ctrl.IEdit" Caption="@BCCreateLimitCorrection_Line:ControlType=Вид контроля" CellFormat="EnumFormat" Field="CorrLine.ControlType" HasCaption="True" ListAsString="Запрещать|0;Предупреждать|1;Пропускать|2" Width="35"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

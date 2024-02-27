@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="VarName" Class="Com.Fld.IVar" Caption="@CodeName:Name=Название" ValueType="VarString"/>
+      <Component Name="VarUser" Class="Com.Fld.IVar" Caption="@Reminder:Receiver=Получатель"/>
+      <Component Name="VarLinkedDocClass" Class="Com.Fld.IVar" Caption="@Reminder:LinkedDocClassLbl=Класс записи документа" ValueType="VarString"/>
+      <Component Name="VarLinkedDoc" Class="Com.Fld.IVar" Caption="@Reminder:LinkedDocument=Документ" RecordClass="Com.Rec.ComFields"/>
+      <Component Name="VarChangeDate" Class="Com.Fld.IVar" Caption="@Reminder:ChangeDate=Срок" ValueType="VarDate"/>
+      <Component Name="VarRemindBefore" Class="Com.Fld.IVar" Caption="@Reminder:Recall=Напомнить" ValueType="VarInteger"/>
+      <Component Name="VarReminderDate" Class="Com.Fld.IVar" ValueType="VarDate"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="FieldsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="48" MaxWidth="200" MinWidth="100">
+          <Component Name="NameEdit" Class="Com.Ctrl.IEdit" Caption="@CodeName:Name=Название" Field="VarName"/>
+          <Component Name="UserEdit" Class="Com.Ctrl.IListEdit" Caption="@Reminder:Receiver=Получатель" CardFileClass="Bas.Tab.Access.Users" CellFormat="ReferenceFormat" Field="VarUser" LookupField="Name" Multiline="True" ValueType="VarObject" Wrap="True"/>
+          <Component Name="LinkedDocClassEdit" Class="Com.Ctrl.IEdit" AutocompleteMode="acmOn" Caption="@Reminder:LinkedDocClassLbl=Класс записи документа" CellFormat="StringFormat" Enabled="False" Field="VarLinkedDocClass" HasButton="True" OnAutocomplete="LinkedDocClass_OnAutocomplete" OnChange="LinkedDocClass_OnChange" OnLookup="LinkedDocClass_OnLookup"/>
+          <Component Name="DocGroup" Class="Com.Ctrl.IGroup">
+            <Component Name="LinkedDocEdit" Class="Com.Ctrl.IEdit" Caption="@Reminder:LinkedDocument=Документ" Enabled="False" Field="VarLinkedDoc" LookupField="Name" OnLookup="LinkedDoc_OnLookup" OnOutput="LinkedDoc_OnOutput"/>
+            <Component Name="LinkedDocJump" Class="Com.Ctrl.IJumpButton" Field="VarLinkedDoc"/>
+          </Component>
+          <Component Name="ChangeDateEdit" Class="Com.Ctrl.IEdit" Caption="@Reminder:ChangeDate=Срок" CellFormat="DateFormat" Field="VarChangeDate" FormatOfDate="DateAndTime" MaxWidth="75" OnChange="RemindBefore_OnChange" Width="40"/>
+          <Component Name="DateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="200" MinWidth="100">
+            <Component Name="RemindBeforeEdit" Class="Com.Ctrl.IEdit" Caption="@Reminder:Recall=Напомнить" CellFormat="EnumFormat" Field="VarRemindBefore" MaxWidth="75" OnChange="RemindBefore_OnChange" ValueType="VarInteger"/>
+            <Component Name="DateStatic" Class="Com.Ctrl.IStatic" Caption=" "/>
+            <Component Name="ReminderDateEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="VarReminderDate" FormatOfDate="DateAndTime" OnChange="ReminderDate_OnChange"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Component Name="NetOb_PopUpMenu" Class="Com.Cmd2.IGroup" After="#0">
+      <Component Name="ItemHideCol" Class="Com.ComManaging.ExecProcedure" Caption="Скрыть" CommandProc="cmd_HideCol" IconName="Com.DeleteItem_1"/>
+      <Component Name="ItemWidthUp" Class="Com.ComManaging.ExecProcedure" Caption="Расширить " CommandProc="cmd_WidthUp" IconName="Control.NewTask"/>
+      <Component Name="ItemWidthDown" Class="Com.ComManaging.ExecProcedure" Caption="Сжать" CommandProc="cmd_WidthDown" IconName="Com.Cancel"/>
+      <Component Name="ItemDelimeter" Class="Com.Cmd2.IItem"/>
+      <Component Name="ItemSetVisible" Class="Com.ComManaging.ExecProcedure" Caption="Настроить видимость" CommandProc="cmd_SetVisibleCol" IconName="Repair.SetVisible"/>
+      <Component Name="ItemShowAll" Class="Com.ComManaging.ExecProcedure" Caption="Показать все" CommandProc="cmd_ShowCol" IconName="Repair.PeriodicTasks"/>
+      <Component Name="ItemDelimeter1" Class="Com.Cmd2.IItem"/>
+      <Component Name="ItemUp" Class="Com.Cmd2.IItem" CommandName="Kernel.Form.Run.StrokeMoveUp"/>
+      <Component Name="ItemDown" Class="Com.Cmd2.IItem" CommandName="Kernel.Form.Run.StrokeMoveDown"/>
+      <Component Name="ItemDelimeter3" Class="Com.Cmd2.IItem"/>
+      <Component Name="Item_Insert" Class="Com.ComManaging.ExecProcedure" Caption="Добавить кадр" CommandProc="cmd_Insert" IconName="Repair.InsertObj"/>
+      <Component Name="ItemDeleteObj" Class="Com.Cmd2.IItem" CommandName="Kernel.Edit.DeleteObj"/>
+      <Component Name="ItemInsertObj" Class="Com.Cmd2.IItem" Excluded="True" CommandName="Kernel.Edit.InsertObj"/>
+      <Component Name="ItemDelimeter2" Class="Com.Cmd2.IItem"/>
+      <Component Name="ItemCopy" Class="Com.Cmd2.IItem" CommandName="Kernel.Edit.Copy"/>
+      <Component Name="GroupSelection" Class="Com.Cmd2.IGroup" Caption="Выделение">
+        <Component Name="ItemSelect" Class="Com.Cmd2.IItem" CommandName="Kernel.Edit.Select"/>
+        <Component Name="ItemSelectCol" Class="Com.Cmd2.IItem" CommandName="Kernel.Edit.SelectCol"/>
+        <Component Name="ItemSelectAll" Class="Com.Cmd2.IItem" CommandName="Kernel.Edit.SelectAll"/>
+      </Component>
+    </Component>
+    <Inherited Name="EdtRec" Class="Repair.NetO.Rec.NetObjects" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="ElementSubtable" Class="Com.ISubtable" StructClass="Repair.NetO.Rec.Service.ElementsArea"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonClose" After="ButtonChildForms"/>
+        <Inherited Name="ButtonServices" Excluded="False" After="ButtonReports" Enabled="True" Visible="True"/>
+        <Inherited Name="ButtonAnalytics" After="ButtonServices"/>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Component Name="Con_EO" Class="Com.Ctrl.IFrame" Excluded="True" CanHideBySplit="True" CanResizeBySplit="True" Caption="&quot;Соединения&quot;" FixSize="False" ScrollerStyle="ScrollerBoth" ShowTabs="True" Sortable="True" SplitterAtRight="True" Subtable="ElementSubtable" UseSplitter="True" WebMargins="True">
+          <Component Name="ElementPosition" Class="Repair.NetO.Rec.Service.ElementsArea" IsLibrary="1"/>
+          <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="True">
+            <Component Name="Edit1" Class="Com.Ctrl.IEdit" Caption="Код" CellFormat="StringFormat" Field="ElementPosition.CodeEC" LookupField="Name" ValueType="VarString" Width="20"/>
+            <Component Name="Edit2" Class="Com.Ctrl.IEdit" Caption="Наименование" CellFormat="StringFormat" Field="ElementPosition.NameEC" ValueType="VarString" Width="30"/>
+          </Component>
+        </Component>
+        <Component Name="ConnectionsEO" Class="Com.Ctrl.IFrame" Caption="@ConnectionsEO=Соединения"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

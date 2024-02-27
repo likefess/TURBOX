@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingLib.Frm.AddIns.Base">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Control.Rec.Data.Task" IsLibrary="1"/>
+    <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="RootFrame" After="Fashions" Color="0x00F8F7F7" Margins="0">
+      <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+      <Component Name="DistributionFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0x00F8F7F7" Margins="0" Orientation="Horizontal">
+        <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+        <Component Name="DistributionGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+          <Component Name="GroupDoerEdit" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="TaskDoer" Class="Com.Ctrl.IEdit" Caption="Исполнитель" CardFileClass="TrackingCore.Tab.Data.People" Field="EdtRec.Doer" FixSize="False" FontBold="False" HasCaption="False" HasInnerCaption="True" LookupFilter="not Closed" Multiline="False" ShortList="True"/>
+            <Component Name="DoerStaticSeparator" Class="Com.Ctrl.IStatic" Width="1"/>
+            <Component Name="TaskDoerStatic" Class="Com.Ctrl.IButton" Alignment="CenterAlign" Caption="Я" Fashion="Fashions.TertiaryButton" HasCaption="True" OnClick="TaskDoerStaticOnClick" VertAlignment="CenterAlign" Width="10"/>
+          </Component>
+          <Component Name="AuthorGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="AuthorEdit" Class="Com.Ctrl.IEdit" Caption="Автор" CardFileClass="TrackingCore.Tab.Data.People" Enabled="False" Field="EdtRec.Initiator" HasInnerCaption="True" LookupFilter="not Closed" Required="True" ShortList="True"/>
+            <Component Name="AuthorStaticSeparator" Class="Com.Ctrl.IStatic" Width="1"/>
+            <Component Name="TaskAuthorStatic" Class="Com.Ctrl.IButton" Caption="Я" Fashion="Fashions.TertiaryButton" HasCaption="True" OnClick="TaskAuthorStaticOnClick" Width="10"/>
+          </Component>
+          <Component Name="GroupAssigneeEdit" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="AssigneeEdit" Class="Com.Ctrl.IEdit" Caption="Ответственный" CardFileClass="TrackingCore.Tab.Data.People" Field="EdtRec.Assignee" HasCaption="False" HasInnerCaption="True" LookupFilter="not Closed" ShortList="True"/>
+            <Component Name="AssigneeStaticSeparator" Class="Com.Ctrl.IStatic" Width="1"/>
+            <Component Name="TaskResponsibleStatic" Class="Com.Ctrl.IButton" Alignment="CenterAlign" Caption="Я" Fashion="Fashions.TertiaryButton" HasCaption="True" OnClick="TaskResponsibleStaticOnClick" VertAlignment="CenterAlign" Width="10"/>
+          </Component>
+          <Component Name="GroupWatchersEdit" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="WatchersMultiSelect" Class="Com.Ctrl.IListEdit" Caption="Наблюдатели" CardFileClass="TrackingCore.Tab.Data.People" CellFormat="CommonFormat" Field="EdtRec.WatchersArr" HasCaption="False" HasInnerCaption="True" Multiline="False" ShortList="False" Visible="True"/>
+            <Component Name="WatchersStaticSeparator" Class="Com.Ctrl.IStatic" Width="1"/>
+            <Component Name="TaskWatchersStatic" Class="Com.Ctrl.IButton" Alignment="CenterAlign" Caption="Я" Fashion="Fashions.TertiaryButton" HasCaption="True" OnClick="TaskWatchersStaticOnClick" VertAlignment="CenterAlign" Width="10"/>
+          </Component>
+        </Component>
+        <Component Name="AuthorFrame" Class="Com.Ctrl.IFrame" Excluded="True" Color="0x00F8F7F7" Orientation="Vertical">
+          <Component Name="AuthorEditFrame" Class="Com.Ctrl.IFrame" Color="0x00F8F7F7" Orientation="Vertical"/>
+        </Component>
+        <Component Name="DoerFrame" Class="Com.Ctrl.IFrame" Excluded="True" Color="0x00F8F7F7" Orientation="Vertical">
+          <Component Name="DoerEditFrame" Class="Com.Ctrl.IFrame" Color="0x00F8F7F7" Orientation="Vertical"/>
+        </Component>
+        <Component Name="AssigneeFrame" Class="Com.Ctrl.IFrame" Excluded="True" Color="0x00F8F7F7" Orientation="Vertical">
+          <Component Name="AssigneeEditFrame" Class="Com.Ctrl.IFrame" Color="0x00F8F7F7" Orientation="Vertical"/>
+        </Component>
+        <Component Name="WatchersFrame" Class="Com.Ctrl.IFrame" Excluded="True" Color="0x00F8F7F7" Orientation="Vertical">
+          <Component Name="WatchersEditFrame" Class="Com.Ctrl.IFrame" Color="0x00F8F7F7" Orientation="Vertical"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Базовая.БазовыйДокумент" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="5">
+        <Component Name="кнПечатьУнФорма" Class="Com.Ctrl.IButton" After="ButtonReports" Caption="Печать унифицированной формы" HasCaption="True" ImageName="Com.Blank" OnClick="кнПечатьУнФорма_OnClick" Visible="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" Visible="False"/>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="xFieldsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" CanHideBySplit="True" CanResizeBySplit="True" Margins="5" SplitterAtRight="True" UseSplitter="True">
+            <Component Name="grMain" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Предприятие" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="EdtRec.Предприятие" HasCaption="True" Hint=" Наименование организации " LookupField="Name" OnChange="Предприятие_OnChange" Required="True" ShortList="True"/>
+              <Component Name="кнПредприятие" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Предприятие" JumpForm="Bas.Frm.Data.Entity" Printed="False"/>
+              <Component Name="Замок" Class="Com.Ctrl.ICheckBox" Caption="Замок" Field="EdtRec.Locked" FixSize="True" HasCaption="True" Printed="False" Width="30"/>
+            </Component>
+            <Component Name="грТипДокумента" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150"/>
+            <Component Name="grNumberDate" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Номер" Class="Com.Ctrl.IEdit" Field="EdtRec.Номер" HasCaption="True" Hint=" Номер документа " Required="True" Width="30"/>
+              <Component Name="ДатаДокумента" Class="Com.Ctrl.IEdit" Caption="от" CaptionWidth="7" Field="EdtRec.Дата" FixSize="False" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="35" Required="True" Width="35"/>
+              <Component Name="stEmpty" Class="Com.Ctrl.IStatic" Width="50"/>
+            </Component>
+            <Component Name="грОписание" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Описание" Class="Com.Ctrl.IEdit" Caption="Описание" Field="EdtRec.Описание" HasCaption="True" Multiline="True" Wrap="True"/>
+              <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+            <Component Name="грПримечание" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Примечание" Class="Com.Ctrl.IEdit" Caption="Примечание" Field="EdtRec.Примечание" HasCaption="True" Hint="Дополнительные примечания, комментарии пользователя" Multiline="True" Wrap="True"/>
+              <Component Name="Static4" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+          </Component>
+          <Component Name="xTabsFrame" Class="Com.Ctrl.IFrame" Orientation="WithTabs" ShowTabs="True" Visible="False"/>
+        </Inherited>
+        <Component Name="фрПодписи" Class="Com.Ctrl.IFrame" Caption="Подписи" Printed="False">
+          <Component Name="фрПодписиОбщ" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="грРуководитель" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Руководитель_Долж" Class="Com.Ctrl.IEdit" Caption="Руководитель организации" CaptionWidth="70" CardFileClass="HRBAse.Tab.Ref.PositionsHR" Field="EdtRec.Руководитель_Долж" HasCaption="True" LookupField="Name"/>
+              <Component Name="Руководитель" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Data.StaffersHR" Field="EdtRec.Руководитель" HasCaption="False" LookupField="Name" OnOpenCardForm="НастроитьКартотекуФизЛиц" OnOutputEx="ФИО_OnOutputEx" Width="70"/>
+              <Component Name="кнРуководитель" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Руководитель" JumpForm="HRBase.Frm.Data.NaturalPersonHR"/>
+            </Component>
+            <Component Name="грОтветственный" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Ответственный_Долж" Class="Com.Ctrl.IEdit" Caption="Контроль за исполнением" CaptionWidth="70" CardFileClass="HRBAse.Tab.Ref.PositionsHR" Field="EdtRec.Ответственный_Долж" HasCaption="True" Hint="Ответственный за осуществление контроля за выполнением настоящего приказа" LookupField="Name"/>
+              <Component Name="Ответственный" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Data.StaffersHR" Field="EdtRec.Ответственный" HasCaption="False" LookupField="Name" OnOpenCardForm="НастроитьКартотекуФизЛиц" OnOutputEx="ФИО_OnOutputEx" Width="70"/>
+              <Component Name="кнОтветственный" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Ответственный" JumpForm="HRBase.Frm.Data.NaturalPersonHR"/>
+            </Component>
+          </Component>
+          <Component Name="фрСистПоля" Class="Com.Ctrl.IBox" Caption="Системные поля" HasCaption="True">
+            <Component Name="грСоздал" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="ВремяСоздания" Class="Com.Ctrl.IEdit" Caption="Время создания" Enabled="False" Field="EdtRec.CreateDate" FormatOfDate="DateAndTime" HasCaption="True" MaxWidth="50" Width="50"/>
+              <Component Name="Создал" Class="Com.Ctrl.IEdit" Caption="Создал" Enabled="False" Field="EdtRec.CreateUser" MaxWidth="40" Width="40"/>
+            </Component>
+            <Component Name="грИзменил" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="ВремяИзменения" Class="Com.Ctrl.IEdit" Caption="Время изменения" Enabled="False" Field="EdtRec.UpdateDate" FormatOfDate="DateAndTime" MaxWidth="50" Width="50"/>
+              <Component Name="Изменил" Class="Com.Ctrl.IEdit" Caption="Изменил" Enabled="False" Field="EdtRec.UpdateUser" MaxWidth="40" Width="40"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

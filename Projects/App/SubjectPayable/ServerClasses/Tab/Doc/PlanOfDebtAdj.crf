@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.BasObject">
+  <Inherited HelpContext="SubjectPayable.Расчеты с субъектами.Документы.Плановые документы.Корректировка (списание) плановой задолженности">
+    <Inherited Name="Current" Class="SubjectPayable.Rec.Doc.PlanOfDebtAdj" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" Visible="False"/>
+          <Inherited Name="Code" HasCaption="True" Visible="False"/>
+          <Component Name="edAccounted" Class="Com.Ctrl.IEdit" Field="Current.Accounted" HasCaption="True" Width="15"/>
+          <Component Name="edCompany" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="Current.Company" HasCaption="True" LookupField="Name" Visible="False" Width="40"/>
+          <Component Name="edNumberDoc" Class="Com.Ctrl.IEdit" Field="Current.NumberDoc" HasCaption="True" Width="30"/>
+          <Component Name="edDateDoc" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="Current.DateDoc" FormatOfDate="DateOnly" HasCaption="True" Visible="False" Width="30"/>
+          <Component Name="edAccDate" Class="Com.Ctrl.IEdit" Caption="@PlanOfDebtAdj:AccDate=Дата корректировки/списания" CellFormat="DateFormat" Field="Current.AccDate" FormatOfDate="DateOnly" HasCaption="True" Hint="@PlanOfDebtAdj:AccDate.Hint=Дата проведения корректировки, списания плановой задолженности" Width="30"/>
+          <Component Name="edPlanSaldo" Class="Com.Ctrl.IEdit" Caption="@Остаток задолженности" Field="Current.PlanSaldoDoc" FieldFormat=",0.00;;-" HasCaption="True" Hint="@PlanOfDebtAdj:PlanSaldo.Hint=Остаток суммы плановой задолженности, доступный к списанию" Visible="False" Width="30"/>
+          <Component Name="edSumDoc" Class="Com.Ctrl.IEdit" Caption="@Сумма списания в" Field="Current.SumDoc" FieldFormat=",0.00;;-" HasCaption="True" Hint="@PlanOfDebtAdj:SumDoc.Hint=Сумма списываемой плановой задолженности" Width="30"/>
+          <Component Name="edCurrency" Class="Com.Ctrl.IEdit" Caption="@вал.док." CardFileClass="Biz.Tab.Ref.UCurrencies" Field="Current.Currency" HasCaption="True" LookupField="Code" Width="10"/>
+          <Component Name="edSumBase" Class="Com.Ctrl.IEdit" Caption="Сумма (операционная)" Field="Current.SumBase" FieldFormat=",0.00;;-" HasCaption="True" Hint="@SubjectPayable:SumBase1.Hint=Сумма первичного документа в операционной валюте (в базовой валюте)" Width="30"/>
+          <Component Name="edExchRate" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:ExchRate1=Курс валюты" Field="Current.ExchRate" FieldFormat=",0.00;;-" HasCaption="True" Hint="@SubjectPayable:ExchRate.Hint=Значение курса валюты, используемого при переводе суммы в валюте документа в сумму в операционной валюте" Visible="False" Width="30"/>
+          <Component Name="edComment" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Comment.Hint=Примечание" Field="Current.Comment" HasCaption="True" Visible="False" Width="30"/>
+          <Component Name="edLocked" Class="Com.Ctrl.IEdit" Field="Current.Locked" HasCaption="True" Visible="False" Width="15"/>
+          <Component Name="edClosed" Class="Com.Ctrl.IEdit" Field="Current.Closed" HasCaption="True" Visible="False" Width="15"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited Caption="Выбор данных из отчёта" HelpContext="UserCalc.Пользовательские расчеты.Выбор данных из отчета">
+    <Inherited Name="Variables">
+      <Component Name="vReport" Class="Com.Fld.IVar" Caption="Отчёт" OnChange="vReportOnChange" RecordClass="Com.Rec.Service.Report" ValueType="VarObject"/>
+      <Component Name="vFilter" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="vUsePeriod" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="vUseFilter" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="vIndType" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonOK" Enabled="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="ReportGroup" Class="Com.Ctrl.IGroup" CaptionWidth="20">
+          <Component Name="EdReport" Class="Com.Ctrl.IEdit" CardFileClass="Com.Tab.Service.Report" Field="vReport" HasCaption="True" LookupField="Name" ValueType="VarObject" Width="80"/>
+          <Component Name="JumpReport" Class="Com.Ctrl.IJumpButton" Field="vReport" JumpForm="Com.Frm.Service.Report"/>
+        </Component>
+        <Component Name="CheckBoxGroup" Class="Com.Ctrl.IGroup" CaptionWidth="20">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" Width="20"/>
+          <Component Name="ChUseFilter" Class="Com.Ctrl.ICheckBox" Caption="Применить фильтр" Field="vUseFilter" Width="40"/>
+          <Component Name="ChUsePeriod" Class="Com.Ctrl.ICheckBox" Caption="Применить период" Field="vUsePeriod" Width="40"/>
+          <Component Name="ChIndType" Class="Com.Ctrl.ICheckBox" Caption="Тип показателя" Field="vIndType" Hint="Добавлять тип показателя к заголовку таблицы" Width="40"/>
+        </Component>
+        <Component Name="FilterGroup" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="20">
+          <Component Name="EdFilter" Class="Com.Ctrl.IEdit" Caption="Фильтр" CellFormat="StringFormat" Field="vFilter" ValueType="VarString"/>
+        </Component>
+      </Inherited>
+      <Component Name="PeriodSubFrame" Class="Com.Ctrl.IFrame" After="FieldsFrame" AutoSize="True" Orientation="Vertical">
+        <Component Name="MarginFrame" Class="Com.Ctrl.IFrame" Size="7.2"/>
+        <Component Name="PeriodFrame" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+      </Component>
+      <Inherited Name="TabsFrame" ShowTabs="False" Visible="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

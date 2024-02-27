@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IEditorWithFrames">
+  <Inherited>
+    <Component Name="edtRec" Class="SCM.Rec.ЭДО.УведомлениеОбОстатках" IsLibrary="1" After="#0"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" Orientation="Vertical" ScrollerStyle="ScrollerBoth">
+        <Component Name="Group_All" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="60">
+          <Component Name="Основное" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="60">
+            <Component Name="Гр_Номер_Дата" Class="Com.Ctrl.IGroup">
+              <Component Name="НомерУвед" Class="Com.Ctrl.IEdit" Caption="Номер" Field="edtRec.НомерУвед" HasCaption="True" MaxWidth="40" MinWidth="20" Visible="True"/>
+              <Component Name="ДатаУвед" Class="Com.Ctrl.IEdit" Caption="Дата" CaptionWidth="20" Field="edtRec.ДатаУвед" HasCaption="True" MaxWidth="40" MinWidth="40" Visible="True"/>
+              <Component Name="Static4" Class="Com.Ctrl.IStatic" FixSize="True" Width="10"/>
+            </Component>
+            <Component Name="Name" Class="Com.Ctrl.IEdit" Field="edtRec.Name" HasCaption="True" MaxWidth="207" MinWidth="70" Visible="True"/>
+            <Component Name="Гр_Перв_увед" Class="Com.Ctrl.IGroup">
+              <Component Name="ПервичноеУведомление" Class="Com.Ctrl.IEdit" CardFileClass="SCM.Tab.ЭДО.УведомлениеОбОстатках" Field="edtRec.ПервичноеУведомление" HasButton="True" HasCaption="True" MaxWidth="100" MinWidth="50" Visible="True"/>
+              <Component Name="НомерКорректировки" Class="Com.Ctrl.IEdit" CaptionWidth="40" Field="edtRec.НомерКорректировки" HasCaption="True" MaxWidth="10" MinWidth="10" Visible="True"/>
+              <Component Name="ПризнакУведомления" Class="Com.Ctrl.IEdit" CaptionWidth="50" Field="edtRec.ПризнакУведомления" HasCaption="True" MaxWidth="7" MinWidth="7" Visible="True"/>
+            </Component>
+            <Component Name="Гр_Собственник" Class="Com.Ctrl.IGroup">
+              <Component Name="НашеПредприятие" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="edtRec.Company" HasButton="True" HasCaption="True" Hint="Собственник товаров, подлежащих прослеживаемости" MaxWidth="100" MinWidth="50" Visible="True"/>
+              <Component Name="НашеПредприятие_JumpButton" Class="Com.Ctrl.IJumpButton" Field="edtRec.Company"/>
+              <Component Name="ИНН" Class="Com.Ctrl.IEdit" Caption="ИНН" CaptionWidth="18" Field="edtRec.ИНН" HasCaption="True" Hint="ИНН, собственника товаров, подлежащих прослеживаемости" MaxWidth="25" MinWidth="25" Visible="True"/>
+              <Component Name="КПП" Class="Com.Ctrl.IEdit" Caption="КПП" CaptionWidth="32" Field="edtRec.КПП" HasCaption="True" Hint="КПП, собственника товаров, подлежащих прослеживаемости" MaxWidth="25" MinWidth="25" Visible="True"/>
+            </Component>
+            <Component Name="Гр_ФизЛицо" Class="Com.Ctrl.IGroup">
+              <Component Name="ФизЛицо" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="Физическое лицо:" FixSize="True" Visible="True" Width="60"/>
+              <Component Name="ФизЛицоИНН" Class="Com.Ctrl.IEdit" Caption="ИНН" CaptionWidth="12" Field="edtRec.ФизЛицоИНН" HasCaption="True" MaxWidth="30" MinWidth="30" Visible="True"/>
+              <Component Name="ФизЛицоФамилия" Class="Com.Ctrl.IEdit" Caption="Фамилия" CaptionWidth="65" Field="edtRec.ФизЛицоФамилия" HasCaption="True" Hint="Фамилия физического лица" MaxWidth="100" MinWidth="50" Visible="True"/>
+            </Component>
+            <Component Name="Гр_ФизЛицо2" Class="Com.Ctrl.IGroup">
+              <Component Name="ФизЛицо_Пусто" Class="Com.Ctrl.IStatic" FixSize="True" Width="60"/>
+              <Component Name="ФизЛицоИмя" Class="Com.Ctrl.IEdit" Caption="Имя" CaptionWidth="12" Field="edtRec.ФизЛицоИмя" HasCaption="True" Hint="Имя физического лица" MaxWidth="70" MinWidth="50" Visible="True"/>
+              <Component Name="ФизЛицоОтчество" Class="Com.Ctrl.IEdit" Caption="Отчество" CaptionWidth="25" Field="edtRec.ФизЛицоОтчество" HasCaption="True" Hint="Отчество физического лица" MaxWidth="100" MinWidth="50" Visible="True"/>
+            </Component>
+            <Component Name="Гр_Реорганизация" Class="Com.Ctrl.IGroup">
+              <Component Name="ФормаРеорганизации" Class="Com.Ctrl.IEdit" AutoLookup="True" Caption="Форма реорганизации" CellFormat="EnumFormat" Field="edtRec.ФормаРеорганизации" HasCaption="True" Hint="Форма реорганизации (ликвидации)" ListAsString="Преобразование|1;Слияние|2;Разделение|3;Присоединение|5;Разделение с одновременным присоединением|6;Ликвидация|0" MaxWidth="100" MinWidth="50" Visible="True"/>
+              <Component Name="РеорганизованнаяОрганизацияИНН" Class="Com.Ctrl.IEdit" Caption="ИНН" CaptionWidth="25" Field="edtRec.РеорганизованнаяОрганизацияИНН" HasCaption="True" Hint="ИНН реорганизованной организаци" MaxWidth="25" MinWidth="25" Visible="True"/>
+              <Component Name="РеорганизованнаяОрганизацияКПП" Class="Com.Ctrl.IEdit" Caption="КПП" CaptionWidth="32" Field="edtRec.РеорганизованнаяОрганизацияКПП" HasCaption="True" Hint="КПП  реорганизованной организации" MaxWidth="25" MinWidth="25" Visible="True"/>
+            </Component>
+            <Component Name="Продавец" Class="Com.Ctrl.IGroup">
+              <Component Name="ИННПродавца" Class="Com.Ctrl.IEdit" Field="edtRec.ИННПродавца" HasCaption="True" Hint="ИНН продавца товаров, подлежащих прослеживаемости (для указания нескольких используются разделители: &quot;,&quot; и &quot;;&quot;). Если признак уведомления &quot;1&quot;, то каждый ИНН должен содержать по 12 символов. Если признак уведомления &quot;2&quot;, то каждый ИНН должен содержать по 10 символов." MaxWidth="207" MinWidth="70" Visible="True"/>
+            </Component>
+            <Component Name="Static7" Class="Com.Ctrl.IStatic" Visible="True"/>
+            <Component Name="Гр_Основание" Class="Com.Ctrl.IGroup">
+              <Component Name="Основание" Class="Com.Ctrl.IEdit" CardFileClass="SCM.Tab.Документы.Внутренние.ИнвентаризацияТМЦ" Field="edtRec.Основание" HasButton="True" HasCaption="True" Hint="Ссылка на документ, являющийся основанием для формирования уведомления" MaxWidth="207" MinWidth="70" Visible="True"/>
+              <Component Name="Основание_JumpButton" Class="Com.Ctrl.IJumpButton" Field="edtRec.Основание"/>
+            </Component>
+            <Component Name="ПервичныйДок" Class="Com.Ctrl.IGroup">
+              <Component Name="ПервичныйДокНаим" Class="Com.Ctrl.IEdit" CaptionWidth="80" Field="edtRec.ПервичныйДокНаим" HasCaption="True" MaxWidth="187" MinWidth="70" Visible="True"/>
+            </Component>
+            <Component Name="ПервичныйДок2" Class="Com.Ctrl.IGroup">
+              <Component Name="ПервичныйДокНомер" Class="Com.Ctrl.IEdit" CaptionWidth="80" Field="edtRec.ПервичныйДокНомер" HasCaption="True" MaxWidth="50" MinWidth="30" Visible="True"/>
+              <Component Name="ПервичныйДокаДата" Class="Com.Ctrl.IEdit" CaptionWidth="87" Field="edtRec.ПервичныйДокаДата" HasCaption="True" MaxWidth="50" MinWidth="30" Visible="True"/>
+            </Component>
+            <Component Name="Static6" Class="Com.Ctrl.IStatic" Visible="True"/>
+            <Component Name="Гр_ТМЦ" Class="Com.Ctrl.IGroup">
+              <Component Name="ТМЦИмя" Class="Com.Ctrl.IEdit" Field="edtRec.ТМЦИмя" HasCaption="True" Hint="Общее наименование товара в соответствии с первичным учетным документом (по умолчанию из ТН ВЭД)" MaxWidth="207" MinWidth="80" Visible="True"/>
+            </Component>
+            <Component Name="Гр_ТНВЭД" Class="Com.Ctrl.IGroup">
+              <Component Name="ТНВЭД" Class="Com.Ctrl.IEdit" CardFileClass="BizRus.Tab.Классификаторы.ТНВЭД" Field="edtRec.ТНВЭД" HasButton="True" HasCaption="True" LookupField="Код" MaxWidth="50" MinWidth="30" Visible="True"/>
+              <Component Name="ТНВЭД_JumpButton" Class="Com.Ctrl.IJumpButton" Field="edtRec.ТНВЭД"/>
+              <Component Name="ОКПД2" Class="Com.Ctrl.IEdit" CaptionWidth="100" CardFileClass="BizRus.Tab.Классификаторы.ОКПД2" Field="edtRec.ОКПД2" HasButton="True" HasCaption="True" LookupField="Code" MaxWidth="50" MinWidth="30" Visible="True"/>
+              <Component Name="ОКПД2_JumpButton" Class="Com.Ctrl.IJumpButton" Field="edtRec.ОКПД2"/>
+            </Component>
+            <Component Name="Гр_КоличОснование" Class="Com.Ctrl.IGroup">
+              <Component Name="КоличОснование" Class="Com.Ctrl.IEdit" Caption="Количество (по документу)" Field="edtRec.КоличОснование" HasCaption="True" Hint="Количество товара в соответствии с первичным учетным документом" MaxWidth="50" MinWidth="30" Visible="True"/>
+              <Component Name="ЕдИзмОснование" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UnitsOfMeasure" Field="edtRec.ЕдИзмОснование" HasCaption="False" Hint="Единица измерения товара в соответствии с первичным учетным документом (по ОКЕИ)" LookupField="Code" LookupFilter="not Closed" MaxWidth="30" MinWidth="20" Visible="True"/>
+            </Component>
+            <Component Name="Гр_КоличДляПрослеживаемости" Class="Com.Ctrl.IGroup">
+              <Component Name="КоличДляПрослеживаемости" Class="Com.Ctrl.IEdit" Caption="Количество (прослеживаемое)" Field="edtRec.КоличДляПрослеживаемости" HasCaption="True" Hint="Количество товара, подлежащего прослеживаемости, в количественной единице измерения товара" MaxWidth="50" MinWidth="30" Visible="True"/>
+              <Component Name="ЕдИзмДляПрослеживаемости" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UnitsOfMeasure" Field="edtRec.ЕдИзмДляПрослеживаемости" HasCaption="False" Hint="Единица измерения товара, подлежащего прослеживаемости, в соответствии с ТН ВЭД (по ОКЕИ)&quot;" LookupField="Code" LookupFilter="not Closed" MaxWidth="30" MinWidth="20" Visible="True"/>
+              <Component Name="Стоимость" Class="Com.Ctrl.IEdit" Caption="Стоимость" CaptionWidth="77" Field="edtRec.Стоимость" HasCaption="True" Hint="Стоимость товаров, подлежащих прослеживаемости, (без НДС) в рублях и копейках" MaxWidth="50" MinWidth="30" Visible="True"/>
+            </Component>
+            <Component Name="РНПТ_Group" Class="Com.Ctrl.IGroup">
+              <Component Name="РНПТ" Class="Com.Ctrl.IEdit" CardFileClass="BizRus.Tab.Классификаторы.РНПТ" Field="edtRec.РНПТ" HasCaption="True" Hint="Регистрационный номер партии товара, подлежащего прослеживаемости, отправляемый в уведомлении (сформированный самостоятельно (при наличии сведений); если корректировка, то полученный по первичному уведомлению)" MaxWidth="207" MinWidth="70" Visible="True"/>
+              <Component Name="РНПТ_JumpButton" Class="Com.Ctrl.IJumpButton" Field="edtRec.РНПТ"/>
+            </Component>
+          </Component>
+          <Component Name="Static8" Class="Com.Ctrl.IStatic" Visible="True"/>
+          <Component Name="Гр_Подписант" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="Подписант" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" AutoLookup="True" Caption="Достоверность и полноту сведений, указанных в настоящем уведомлении, подтверждаю:" CaptionWidth="170" CellFormat="EnumFormat" Field="edtRec.Подписант" FixSize="True" HasCaption="True" Hint="Признак лица, подписавшего документ (1 – собственник товара, подлежащего прослеживаемости; 2 – представитель собственника товара, подлежащего прослеживаемости)" ListAsString="1 – собственник товара, подлежащего прослеживаемости|1;2 – представитель собственника товара, подлежащего прослеживаемости|2" Visible="True" Width="12"/>
+          </Component>
+          <Component Name="Гр_Подписант2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="60">
+            <Component Name="ПодписантФамилия" Class="Com.Ctrl.IEdit" Field="edtRec.ПодписантФамилия" HasCaption="True" Hint="Фамилия лица, подписавшего документ" MaxWidth="207" MinWidth="100" Visible="True"/>
+          </Component>
+          <Component Name="Гр_Подписант3" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="60">
+            <Component Name="ПодписантИмя" Class="Com.Ctrl.IEdit" Field="edtRec.ПодписантИмя" HasCaption="True" Hint="Имя лица, подписавшего документ" MaxWidth="80" MinWidth="50" Visible="True" Width="50"/>
+            <Component Name="ПодписантОтчество" Class="Com.Ctrl.IEdit" CaptionWidth="30" Field="edtRec.ПодписантОтчество" HasCaption="True" Hint="Отчество лица, подписавшего документ" MaxWidth="97" MinWidth="50" Visible="True"/>
+          </Component>
+          <Component Name="Гр_Подпись" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Visible="True"/>
+            <Component Name="ДокументПодтвПолномочия_Static" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Наименование и реквизиты документа, подтверждающего полномочия представителя налогоплательщика:" MaxWidth="207" Visible="True"/>
+            <Component Name="ДокументПодтвПолномочия" Class="Com.Ctrl.IEdit" Field="edtRec.ДокументПодтвПолномочия" HasCaption="False" Hint="Наименование и реквизиты документа, подтверждающего полномочия представителя налогоплательщика" MaxWidth="267" MinWidth="120" Visible="True"/>
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" Visible="True"/>
+            <Component Name="НаименованиеПредставителя_Static" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Наименование организации-представителя собственника товара, подлежащего прослеживаемости:" MaxWidth="207" MinWidth="120" Visible="True"/>
+            <Component Name="НаименованиеПредставителя" Class="Com.Ctrl.IEdit" Caption="Организация-представитель" Field="edtRec.НаименованиеПредставителя" HasCaption="False" Hint="Наименование организации - представителя налогоплательщика" MaxWidth="267" MinWidth="120" Visible="True"/>
+            <Component Name="Static3" Class="Com.Ctrl.IStatic" Visible="True"/>
+            <Component Name="ДатаПодписания" Class="Com.Ctrl.IEdit" Caption="Дата формирования" CaptionWidth="60" Field="edtRec.ДатаПодписания" HasCaption="True" MaxWidth="30" MinWidth="25" Visible="True"/>
+            <Component Name="Static5" Class="Com.Ctrl.IStatic" Visible="True"/>
+            <Component Name="ИдентПолучателя" Class="Com.Ctrl.IGroup" CaptionWidth="60">
+              <Component Name="ИдентификаторПолучателя" Class="Com.Ctrl.IEdit" Caption="Идентификатор получателя" Field="edtRec.ИдентификаторПолучателя" FixSize="True" HasCaption="True" Hint="Идентификатор получателя, которому направляется файл обмена" Visible="True" Width="15"/>
+              <Component Name="ИдентификаторПолучателяК" Class="Com.Ctrl.IEdit" Caption="Идентификатор конечного получателя" CaptionWidth="80" Field="edtRec.ИдентификаторПолучателяК" FixSize="True" HasCaption="True" Hint="Идентификатор конечного получателя, для которого предназначена информация из данного файла обмена" Visible="True" Width="15"/>
+            </Component>
+          </Component>
+          <Component Name="Static10" Class="Com.Ctrl.IStatic" Visible="True"/>
+          <Component Name="Выгрузка" Class="Com.Ctrl.IGroup">
+            <Component Name="Static9" Class="Com.Ctrl.IStatic" FixSize="True" Visible="False" Width="35"/>
+            <Component Name="Выгружен" Class="Com.Ctrl.IEdit" CellFormat="LogicalFormat" Enabled="False" Field="edtRec.Выгружен" FixSize="True" HasCaption="True" Hint="XML-файл сформирован" Visible="True" Width="25"/>
+            <Component Name="ПолноеИмяФайла" Class="Com.Ctrl.IEdit" Enabled="False" Field="edtRec.ПолноеИмяФайла" HasCaption="False" MaxWidth="242" Visible="True"/>
+            <Component Name="ПолноеИмяФайла_Button" Class="Com.Ctrl.IButton" Hint="Открыть файл" ImageName="Com.file" OnClick="ПолноеИмяФайла_ButtonOnClick" Visible="True"/>
+            <Component Name="ПутьКФайлу_Button" Class="Com.Ctrl.IButton" Hint="Открыть папку с файлом" ImageName="Com.folder-open" OnClick="ПутьКФайлу_ButtonOnClick"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Tab.Базовая.БазовыйДокументИерархия">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Расчет Зарплаты.Расчет начислений.Карточка расчета">
+    <Inherited Name="Current" Class="УправлениеПерсоналом.Rec.Документы.Зарплата.КарточкаРасчета" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="Учитывать" Class="Com.Ctrl.IEdit" After="CardFile" Caption="Учитывать" Field="Current.Проводить" HasCaption="True" Width="15"/>
+          <Component Name="Скорректирован" Class="Com.Ctrl.IEdit" Caption="Скорректирован" Field="Current.Скорректирован" HasCaption="True" Hint="Расчет скорректирован" Width="15"/>
+          <Component Name="Период" Class="Com.Ctrl.IEdit" After="Дата" Caption="Расчетный период" Field="Current.ПериодРасчета" HasCaption="True" Hint="Расчетный период (месяц)" LookupField="Name"/>
+          <Component Name="УсловияТрудаСотр" Class="Com.Ctrl.IEdit" Caption="Сотрудник" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Field="Current.УсловияТрудаСотр" HasCaption="True" Hint="ФИО сотрудника" LookupField="Name"/>
+          <Component Name="РасчетЗП" Class="Com.Ctrl.IEdit" Caption="Расчет ЗП" CardFileClass="УправлениеПерсоналом.Tab.Документы.Зарплата.Расчет" Field="Current.РасчетЗП" HasCaption="True" Hint="ФИО сотрудника" LookupField="Номер" Width="20"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

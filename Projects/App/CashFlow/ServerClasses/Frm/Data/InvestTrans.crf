@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="CashFlow.Rec.Data.InvestTrans" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" ByColumn="False" CaptionWidth="50">
+          <Component Name="LineNum" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Enabled="False" Field="EdtRec.LineNum" HasCaption="True"/>
+          <Component Name="TransDate" Class="Com.Ctrl.IEdit" Field="EdtRec.TransDate" HasCaption="True"/>
+          <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          <Component Name="SourceType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Enabled="False" Field="EdtRec.SourceType" HasCaption="True" ListAsString="Ручной ввод|0;Расчет|1;Проводка|2"/>
+          <Component Name="Amount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.Amount" FieldFormat=",##0.00;;-" HasCaption="True"/>
+          <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+          <Component Name="PlanFact" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Enabled="False" Field="EdtRec.PlanFact" HasCaption="True" ListAsString="План|0;Факт|1;Неактуально|3"/>
+          <Component Name="OperationType" Class="Com.Ctrl.IEdit" CardFileClass="CashFlow.Tab.Data.OperationType" Field="EdtRec.OperationType" HasCaption="True" LookupField="Name" OnChange="OperationType_OnChange"/>
+          <Component Name="NewLine3" Class="Com.Ctrl.INewLine"/>
+          <Component Name="DtStart" Class="Com.Ctrl.IEdit" Field="EdtRec.DtStart" HasCaption="True"/>
+          <Component Name="DtEnd" Class="Com.Ctrl.IEdit" Field="EdtRec.DtEnd" HasCaption="True"/>
+          <Component Name="NewLine4" Class="Com.Ctrl.INewLine"/>
+          <Component Name="AccountEdit" Class="Com.Ctrl.IEditEx" Excluded="True" Field="EdtRec.AccDeb" FixSize="True" HasCaption="True" Width="20">
+            <Component Name="AccountBtn" Class="Com.Ctrl.IButton" ImageName="Biz.id-card-light" OnClick="AccountBtn_OnClick"/>
+          </Component>
+          <Component Name="NewLine5" Class="Com.Ctrl.INewLine" Excluded="True"/>
+          <Component Name="Note" Class="Com.Ctrl.IEdit" Field="EdtRec.Note" HasCaption="True" Multiline="True" Wrap="True"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

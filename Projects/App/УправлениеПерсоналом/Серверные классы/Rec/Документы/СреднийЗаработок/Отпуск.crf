@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Rec.Документы.СреднийЗаработок.Базовый">
+  <Inherited>
+    <Inherited Name="Заработок" StructClass="УправлениеПерсоналом.Rec.Документы.СреднийЗаработок.Отпуск_Заработок"/>
+    <Inherited Name="ЗаработокИтоги" StructClass="УправлениеПерсоналом.Rec.Документы.СреднийЗаработок.Отпуск_ЗаработокИтоги"/>
+    <Inherited Name="Пособия" StructClass="УправлениеПерсоналом.Rec.Документы.СреднийЗаработок.Отпуск_Пособия"/>
+    <Inherited Name="ДатаНачала" OnChange="ДатаНачала_OnChange"/>
+    <Inherited Name="ВсегоКВыдаче" OnChange="ВсегоКВыдаче_OnChange"/>
+    <Component Name="Начисление" Class="Com.Fld.IField" FieldName="Начисление"/>
+    <Component Name="ЗапискаРасчет" Class="Com.Fld.IField" FieldName="ЗапискаРасчет"/>
+    <Component Name="ВидОтпуска" Class="Com.Fld.IField" FieldName="ВидОтпуска" OnChange="ВидОтпуска_OnChange"/>
+    <Component Name="ОтпускПериод" Class="Com.Fld.IField" FieldName="ОтпускПериод" OnChange="ОтпускПериод_OnChange"/>
+    <Component Name="ОтпускДней" Class="Com.Fld.IField" FieldName="ОтпускДней"/>
+    <Component Name="ЗаПериодС" Class="Com.Fld.IField" FieldName="ЗаПериодС"/>
+    <Component Name="ЗаПериодПо" Class="Com.Fld.IField" FieldName="ЗаПериодПо"/>
+    <Component Name="КолДнейКомпенсации" Class="Com.Fld.IField" Excluded="True" FieldName="КолДнейКомпенсации"/>
+    <Component Name="Премии" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.СреднийЗаработок.Отпуск_Премии" SubtableName="Премии"/>
+  </Inherited>
+</Resource>

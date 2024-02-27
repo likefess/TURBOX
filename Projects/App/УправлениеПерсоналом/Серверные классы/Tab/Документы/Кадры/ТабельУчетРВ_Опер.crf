@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Tab.Базовая.БазовыйДокументИерархия">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Учет рабочего времени.Учет рабочего времени.Оператичный табель учета РВ">
+    <Inherited Name="Current" Class="УправлениеПерсоналом.Rec.Документы.Кадры.Табель_Т13" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="Проводить" Class="Com.Ctrl.IEdit" After="ExtId" Caption="Учитывать" CellFormat="LogicalFormat" Field="Current.Проводить" HasCaption="True" ValueType="VarLogical" Width="15"/>
+          <Component Name="Подразделение" Class="Com.Ctrl.IEdit" After="Предприятие" CellFormat="ReferenceFormat" Field="Current.Подразделение" HasCaption="True" LookupField="Name" Width="50"/>
+          <Component Name="Период" Class="Com.Ctrl.IEdit" After="Дата" Caption="Месяц" Field="Current.Месяц" HasCaption="True" LookupField="Name" Width="50"/>
+          <Component Name="ДатаС" Class="Com.Ctrl.IEdit" Caption="Период с" Field="Current.ДатаС" HasCaption="True" Width="35"/>
+          <Component Name="ДатаПо" Class="Com.Ctrl.IEdit" Caption="Период по" Field="Current.ДатаПо" HasCaption="True" Width="35"/>
+          <Component Name="Cкорректирован" Class="Com.Ctrl.IEdit" Caption="Скорректирован" Field="Current.Скорректирован" HasCaption="True" Width="15"/>
+          <Component Name="Корректировка" Class="Com.Ctrl.IEdit" Field="Current.Корректировка" HasCaption="True" Width="15"/>
+          <Component Name="КорректТабель" Class="Com.Ctrl.IEdit" Caption="Номер корректируемого табеля" CardFileClass="УправлениеПерсоналом.Tab.Документы.Кадры.ТабельУчетРВ_Все" Field="Current.КорректТабель" HasCaption="True" LookupField="Номер" Width="25"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

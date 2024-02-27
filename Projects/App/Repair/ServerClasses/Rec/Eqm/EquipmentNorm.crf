@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.IStruct">
+    <Component Name="NormsCode" Class="Com.Fld.IField" FieldName="NormsCode" OnChange="NormsCode_OnChange"/>
+    <Component Name="PlaneType" Class="Com.Fld.IField" Caption="@baseJournalFrm:Planning=Планирование" FieldName="PlaneType" OnChange="PlaneType_OnChange"/>
+    <Component Name="OperTimeCode" Class="Com.Fld.IField" FieldName="OperTimeCode" OnVerify="OperTimeCode_OnVerify"/>
+    <Component Name="OperTimeValue" Class="Com.Fld.IField" Caption="Интервал" FieldName="OperTimeValue" OnChange="OperTimeValueOnChange" OnVerify="OperTimeValue_OnVerify"/>
+    <Component Name="PeriodType" Class="Com.Fld.IField" Caption="@BaseJournalFrm:Interval=Интервал" FieldName="PeriodType"/>
+    <Component Name="PeriodValue" Class="Com.Fld.IField" Caption="@BaseJournalFrm:Value=Значение" FieldName="PeriodValue" OnVerify="PeriodValue_OnVerify"/>
+    <Component Name="StartStopRequired" Class="Com.Fld.IField" FieldName="StartStopRequired"/>
+    <Component Name="StartStopDuration" Class="Com.Fld.IField" FieldName="StartStopDuration"/>
+    <Component Name="NeedDate" Class="Com.Fld.IField" Caption="@Equipment:On the date=На дату" FieldName="NeedDate"/>
+    <Component Name="StartDate" Class="Com.Fld.IField" Caption="@Equipment:To begin with=Начинать с" FieldName="StartDate" OnVerify="StartDateVerify"/>
+    <Component Name="PlanShift" Class="Com.Fld.IField" Caption="@baseJournalFrm:Advance=Опережение" FieldName="PlanShift" OnVerify="PlanShift_OnVerify"/>
+    <Component Name="Exclude" Class="Com.Fld.IField" FieldName="Exclude"/>
+    <Component Name="ExcludeDays" Class="Com.Fld.IField" Caption="@Equipment:Days=Дни" FieldName="ExcludeDays"/>
+    <Component Name="NextDate" Class="Com.Fld.IVar" OnCalc="NextDateOnCalc" ValueType="VarDate"/>
+    <Component Name="PrevDate" Class="Com.Fld.IVar" OnCalc="PrevDateOnCalc" ValueType="VarDate"/>
+    <Component Name="NextOrder" Class="Com.Fld.IVar" RecordClass="EquipmentRegistry.Rec.Journals.Orders" ValueType="VarObject"/>
+    <Component Name="PrevOrder" Class="Com.Fld.IVar" RecordClass="EquipmentRegistry.Rec.Journals.Orders" ValueType="VarObject"/>
+    <Component Name="ПробегПриЗамене" Class="Com.Fld.IField" FieldName="ПробегПриЗамене"/>
+    <Component Name="Пройдено" Class="Com.Fld.IField" FieldName="Пройдено" OnChange="Пройдено_OnChange"/>
+    <Component Name="Заключение" Class="Com.Fld.IField" FieldName="Заключение"/>
+    <Component Name="Флаг" Class="Com.Fld.IField" FieldName="Флаг"/>
+    <Component Name="ЗаказНаРаботы" Class="Com.Fld.IField" FieldName="ЗаказНаРаботы"/>
+  </Component>
+</Resource>

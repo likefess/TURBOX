@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="ProcType" Class="Com.Fld.IVar" Caption="@TaskApprovement:Procype=Тип запроса" LookupFilter="not Closed" RecordClass="Bas.Rec.Config.ProcType"/>
+      <Component Name="LinkedDocClass" Class="Com.Fld.IVar" Excluded="True" Caption="@TaskApprovement:LinkedDoc=Тип объекта согласования" OnChange="LinkedDocClassOnChange" ValueType="VarString"/>
+      <Component Name="LinkedDoc" Class="Com.Fld.IVar" Excluded="True" Caption="@TaskApprovement:LinkedDoc=Объект согласования" LookupFilter="not Closed" OnVerify="LinkedDocOnVerify" RecordClass="Bas.Rec.BasObject"/>
+      <Component Name="UseExistingTemplate" Class="Com.Fld.IVar" Excluded="True" Caption="@TaskApprovement:UseExistingTemplate=Использовать существующий шаблон согласования" ValueType="VarLogical"/>
+      <Component Name="CreateNewTemplate" Class="Com.Fld.IVar" Excluded="True" Caption="@TaskApprovement:CreateNewTemplate=Создать новый шаблон согласования" ValueType="VarLogical"/>
+      <Component Name="ApprovalTemplate" Class="Com.Fld.IVar" Caption="@TaskApprovement:ApprovalTemplate=Тип согласования" LookupFilter="not Closed" RecordClass="TaskApprovement.Rec.Ref.ApprovalTemplate" ValueType="VarObject"/>
+      <Component Name="TemplateName" Class="Com.Fld.IVar" Excluded="True" Caption="@TaskApprovement:ApprovalTemplateName=Название маршрута" OnChange="TemplateNameOnChange" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonOK" Visible="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="Frame1" Class="Com.Ctrl.IFrame" Excluded="True" AutoSize="True" Orientation="Horizontal" Visible="False">
+          <Component Name="Frame11" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="10" Orientation="Vertical">
+            <Component Name="Group11" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="55" HasCaption="True" MaxWidth="400" MinWidth="200">
+              <Component Name="ProcTypeEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Config.ProcType" CellFormat="ReferenceFormat" Field="ProcType" HasButton="True" HasCaption="True" LookupField="Name" LookupFilter="not Closed" Visible="False"/>
+              <Component Name="LinkedDocClassEdit" Class="Com.Ctrl.IEdit" AutocompleteMode="acmOn" CellFormat="StringFormat" Field="LinkedDocClass" HasButton="True" OnAutocomplete="LinkedDocClassEditOnAutocomplete" OnLookup="LinkedDocClassEditOnLookup" OnOutput="LinkedDocClassEditOnOutput"/>
+              <Component Name="LinkedDocEdit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="LinkedDoc" HasButton="True" HasCaption="True" LookupField="Name" LookupFilter="not Closed" OnLookup="LinkedDocEditOnLookup" OnOutput="LinkedDocEditOnOutput"/>
+            </Component>
+          </Component>
+          <Component Name="Frame12" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0x00FFFFFF" Margins="5" Orientation="Vertical">
+            <Component Name="Group12" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="60" MaxWidth="400" MinWidth="200">
+              <Component Name="Group111" Class="Com.Ctrl.IGroup">
+                <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption=" " FixSize="True" Width="15"/>
+                <Component Name="UseExistingTemplateChb" Class="Com.Ctrl.ICheckBox" Field="UseExistingTemplate" OnChange="UseExistingTemplateChbOnChange"/>
+              </Component>
+              <Component Name="Group112" Class="Com.Ctrl.IGroup">
+                <Component Name="Static2" Class="Com.Ctrl.IStatic" Caption=" " FixSize="True" Width="15"/>
+                <Component Name="CreateNewTemplateChb" Class="Com.Ctrl.ICheckBox" Field="CreateNewTemplate" OnChange="CreateNewTemplateChbOnChange"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="FrameButtons" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="10" Orientation="Vertical">
+          <Component Name="Static5" Class="Com.Ctrl.IStatic" Excluded="True" Caption=" "/>
+          <Component Name="Group221" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="200" MinWidth="200">
+            <Component Name="ButtonPrev" Class="Com.Ctrl.IButton" Caption="@SW:Back=Назад" FixSize="True" OnClick="ButtonPrevOnClick" Width="30"/>
+            <Component Name="Static6" Class="Com.Ctrl.IStatic"/>
+            <Component Name="ButtonApply" Class="Com.Ctrl.IButton" Caption="@SW:Apply=Готово" FixSize="True" OnClick="ButtonApplyOnClick" Width="30"/>
+            <Component Name="ButtonNext" Class="Com.Ctrl.IButton" Caption="@SW:Next=Далее" FixSize="True" OnClick="ButtonNextOnClick" Width="30"/>
+          </Component>
+        </Component>
+        <Component Name="FrameContent" Class="Com.Ctrl.IFrame">
+          <Component Name="FrameTemplate" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="10" Orientation="Horizontal" Size="200" Visible="False">
+            <Component Name="Group21" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="55" HasCaption="True" MaxWidth="200" MinWidth="100">
+              <Component Name="ApprovalTemplateEdit" Class="Com.Ctrl.IEdit" AutocompleteLimit="100" AutocompleteOn="True" CardFileClass="TaskApprovement.Tab.Ref.ApprovalTemplate" Field="ApprovalTemplate" HasCaption="True" HasInnerCaption="True" LookupField="Name" LookupFilter="not Closed" ShortList="True"/>
+              <Component Name="TemplateNameEdit" Class="Com.Ctrl.IEdit" Excluded="True" Field="TemplateName" Visible="False"/>
+            </Component>
+          </Component>
+          <Component Name="FrameTaskForm" Class="Com.Ctrl.IFrame" AutoSize="False" Margins="10" Visible="False"/>
+          <Component Name="FrameRouteForm" Class="Com.Ctrl.IFrame" AutoSize="True" Visible="False"/>
+          <Component Name="FrameFinish" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="10" Orientation="Horizontal" Size="200" Visible="False">
+            <Component Name="GroupFinish" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="200" MinWidth="100">
+              <Component Name="lbFinishMessage" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="@TaskApproovment:TaskWizard.FinishMessage=Запрос на согласование успешно сформирован" FontSize="14"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

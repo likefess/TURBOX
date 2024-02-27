@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.IStruct">
+    <Component Name="UnitCode" Class="Com.Fld.IField" FieldName="UnitCode" OnChange="UnitCodeOnChange" OnVerify="UnitCode_OnVerify" ValueType="VarObject"/>
+    <Component Name="OperCode" Class="Com.Fld.IField" FieldName="OperCode" OnChange="OperCodeOnChange" OnVerify="OperCode_OnVerify" ValueType="VarObject"/>
+    <Component Name="Duration" Class="Com.Fld.IField" FieldName="Duration" OnCalc="OperCodeChangeCalcFields" OnVerify="DurationOnVerify" ValueType="VarNumeric"/>
+    <Component Name="SpareCost" Class="Com.Fld.IField" FieldName="SpareCost" ValueType="VarNumeric"/>
+    <Component Name="WorkCost" Class="Com.Fld.IField" FieldName="WorkCost" ValueType="VarNumeric"/>
+    <Component Name="OtherCost" Class="Com.Fld.IField" FieldName="OtherCost" ValueType="VarNumeric"/>
+    <Component Name="Quantity" Class="Com.Fld.IField" FieldName="Quantity" OnChange="QuantityOnChange" OnVerify="DurationOnVerify" ValueType="VarNumeric"/>
+    <Component Name="IsDone" Class="Com.Fld.IField" FieldName="IsDone" ValueType="VarLogical"/>
+    <Component Name="PlanBegDate" Class="Com.Fld.IField" FieldName="PlanBegDate" OnChange="PlanBegDateOnChange" ValueType="VarDate"/>
+    <Component Name="PlanEndDate" Class="Com.Fld.IField" FieldName="PlanEndDate" OnChange="PlanEndDateOnChange" OnVerify="PlanEndDateOnVerify" ValueType="VarDate"/>
+    <Component Name="FactBegDate" Class="Com.Fld.IField" FieldName="FactBegDate" ValueType="VarDate"/>
+    <Component Name="FactEndDate" Class="Com.Fld.IField" FieldName="FactEndDate" ValueType="VarDate"/>
+    <Component Name="AutoFill" Class="Com.Fld.IField" FieldName="AutoFill" ValueType="VarLogical"/>
+    <Component Name="CreatedNum" Class="Com.Fld.IField" FieldName="CreatedNum" ValueType="VarInteger"/>
+    <Component Name="NormNum" Class="Com.Fld.IField" FieldName="NormNum" ValueType="VarInteger"/>
+    <Component Name="TimeShift" Class="Com.Fld.IField" FieldName="TimeShift" ValueType="VarNumeric"/>
+    <Component Name="Executor" Class="Com.Fld.IField" FieldName="Executor" ValueType="VarString"/>
+    <Component Name="NuminLines" Class="Com.Fld.IField" FieldName="NuminLines" ValueType="VarInteger"/>
+    <Component Name="Contract" Class="Com.Fld.IField" FieldName="Contract" OnChange="ContractOnChange" OnVerify="Contract_OnVerify" ValueType="VarObject"/>
+    <Component Name="Contractor" Class="Com.Fld.IField" FieldName="Contractor" OnChange="ContractorOnChange" OnVerify="Contractor_OnVerify" ValueType="VarObject"/>
+    <Component Name="BaseCode" Class="Com.Fld.IField" FieldName="BaseCode" OnVerify="BaseCode_OnVerify" ValueType="VarObject"/>
+    <Component Name="JobCode" Class="Com.Fld.IVar" OnCalc="JobCodeOnCalc" ValueType="VarInteger"/>
+    <Component Name="Costs" Class="Com.Fld.IVar" OnCalc="CostsCalc" ValueType="VarNumeric"/>
+    <Component Name="TotalCost" Class="Com.Fld.IVar" OnCalc="TotalCostCalc" ValueType="VarNumeric"/>
+    <Component Name="CurExec" Class="Com.Fld.IVar" OnCalc="CurExecOnCalc" ValueType="VarString"/>
+  </Component>
+</Resource>

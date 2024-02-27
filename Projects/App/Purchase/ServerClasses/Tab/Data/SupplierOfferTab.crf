@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Purchase.Tab.Data.BaseDocTab">
+  <Inherited>
+    <Inherited Name="Current" Class="Purchase.Rec.Data.SupplierOfferRec" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" Visible="True"/>
+          <Inherited Name="edBegDate" Visible="False"/>
+          <Inherited Name="edEndDate" Visible="False"/>
+          <Inherited Name="edDivision" After="edEndDate" Visible="False"/>
+          <Inherited Name="edCompany" After="edDivision" Visible="True"/>
+          <Component Name="OfferRequest" Class="Com.Ctrl.IEdit" Caption="Запрос предложений" Field="Current.OfferRequest" LookupField="Name" Width="50"/>
+          <Component Name="Supplier" Class="Com.Ctrl.IEdit" Caption="Контрагент" Field="Current.Suppli" LookupField="Name" Width="50"/>
+          <Component Name="ApplicationNumberETP" Class="Com.Ctrl.IEdit" Caption="Номер заявки на ЭТП" Field="Current.НомерЗаявкиЭТП" Width="50"/>
+          <Component Name="TotalAmount" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Сумма" Field="Current.TotalAmount" FieldFormat="#0.00" Width="30"/>
+          <Component Name="AmountVAT" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="НДС" Field="Current.AmountVAT" FieldFormat="#0.00" Width="30"/>
+          <Component Name="Contract" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Договор" Field="Current.NumberOfContract" Width="50"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

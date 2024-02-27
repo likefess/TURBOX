@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.SysFields">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Справочники.Реквизиты бюджетов">
+    <Inherited Name="Current" Class="УправлениеПерсоналом.Rec.Справочники.РеквизитыБюджетов" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Component Name="ДатаИзменения" Class="Com.Ctrl.IEdit" Field="Current.ДатаИзменения" FormatOfDate="DateOnly" HasCaption="True" Width="35"/>
+          <Component Name="Предприятие" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="Current.Предприятие" HasCaption="True" LookupField="Name" Width="45"/>
+          <Component Name="Подразделение" Class="Com.Ctrl.IEdit" Caption="Обособленное подразделение" CardFileClass="Bas.Tab.Data.Divisions" Field="Current.Подразделение" HasCaption="True" LookupField="Name" Width="45"/>
+          <Component Name="Банк" Class="Com.Ctrl.IEdit" Caption="Банк" CardFileClass="Biz.Tab.Data.BankDetails" Field="Current.Банк" HasCaption="True" LookupField="БанкСубъекта.Name" Width="30"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

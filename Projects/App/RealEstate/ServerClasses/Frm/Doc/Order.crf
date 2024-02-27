@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="RealEstate.Frm.Base.BaseMDocOrder">
+  <Inherited HelpContext="RealEstate.Управление имуществом.Данные.Документы.Документы">
+    <Inherited Name="EdtRec" Class="RealEstate.Rec.Doc.Order" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group2" Adaptive="False">
+          <Inherited Name="MDDate" FixSize="True" FormatOfDate="DateAndTime"/>
+          <Inherited Name="Number" FixSize="True"/>
+          <Inherited Name="Static8" Excluded="True"/>
+          <Inherited Name="Locked" Visible="False"/>
+          <Inherited Name="btnStatus" FixSize="True"/>
+          <Inherited Name="Static6" FixSize="False" Width="55"/>
+        </Inherited>
+        <Inherited Name="Group3" Adaptive="False" FixSize="True" Width="90">
+          <Inherited Name="OurCompany" Visible="False"/>
+          <Inherited Name="Static5" Excluded="True"/>
+        </Inherited>
+        <Inherited Name="Group4" Adaptive="False" FixSize="True" Width="90">
+          <Inherited Name="OrderType" FixSize="True" Width="90"/>
+        </Inherited>
+        <Component Name="Group6" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="RealEstateObjKind" Class="Com.Ctrl.IEdit" Caption="Вид объекта" CardFileClass="RealEstateBase.Tab.Ref.RealEstateObjKind" Field="EdtRec.RealEstateObjKind" FixSize="True" HasCaption="True" Hint="Вид объекта имущества" LookupField="Name" OnChange="RealEstateObjKind_OnChange" OnOpenCardForm="ObjCode_OnOpenCardForm" ShortList="True" Width="90"/>
+          <Component Name="Static9" Class="Com.Ctrl.IStatic" Width="55"/>
+        </Component>
+        <Component Name="Group5" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="ObjCode" Class="Com.Ctrl.IEdit" Caption="Объект имущества" CardFileClass="RealEstateBase.Tab.Data.RealEstateObject" Field="EdtRec.ObjCode" HasCaption="True" Hint="Объект имущества" LookupField="Name" OnGetLookupFilter="ObjCode_OnGetLookupFilter" OnOpenCardForm="ObjCode_OnOpenCardForm"/>
+          <Component Name="btnObjType" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ObjCode" HasCaption="False" JumpForm="RealEstateBase.Frm.Data.RealEstateObject" Width="7"/>
+        </Component>
+        <Component Name="Group7" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="OrderDescription" Class="Com.Ctrl.IEdit" Caption="Описание" Field="EdtRec.OrderDescription" HasCaption="True"/>
+          <Component Name="BtnStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Enabled="True" Visible="True">
+          <Component Name="MainBox" Class="Com.Ctrl.IBox" Caption="Основное" HasCaption="True">
+            <Component Name="grCopyRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="60" MaxWidth="230" MinWidth="150">
+              <Component Name="RightKindGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="RightKind" Class="Com.Ctrl.IEdit" Caption="Вид права" CardFileClass="RealEstate.Tab.Ref.RightKind" Field="EdtRec.RightKind" HasCaption="True" Hint="Вид права" LookupField="Name" OnChange="RightKind_OnChange" OnGetLookupFilter="RightKind_OnGetLookupFilter" Required="True"/>
+                <Component Name="BtnStatic46" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+              </Component>
+              <Component Name="RightKindStatusGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="RightKindStatus" Class="Com.Ctrl.IEdit" Caption="Статус права" CaptionWidth="35" CellFormat="EnumFormat" Field="EdtRec.RightKindStatus" HasCaption="True" Hint="Статус права" Required="True"/>
+                <Component Name="BtnStatic47" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+              </Component>
+              <Component Name="LegalBasisGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="LegalBasis" Class="Com.Ctrl.IEdit" Caption="Док. основание" CaptionWidth="35" CellFormat="EnumFormat" Field="EdtRec.LegalBasis" HasCaption="True"/>
+                <Component Name="BtnStatic48" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+              </Component>
+            </Component>
+            <Component Name="grProperty" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="60" MaxWidth="230" MinWidth="150">
+              <Component Name="PropertyTypeGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="PropertyType" Class="Com.Ctrl.IEdit" Caption="Вид собственности" CardFileClass="RealEstate.Tab.Ref.LandCategoryTarget" CellFormat="ReferenceFormat" Field="EdtRec.PropertyType" LookupField="Name" OnChange="PropertyType_OnChange" Required="True" ShortList="True"/>
+                <Component Name="BtnStatic49" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+              </Component>
+              <Component Name="PropertyFormGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="PropertyForm" Class="Com.Ctrl.IEdit" Caption="Форма" CaptionWidth="35" CardFileClass="BizRus.Tab.Классификаторы.ОКФС" Field="EdtRec.PropertyForm" HasCaption="True" Hint="Форма собственности" LookupField="Name" Required="True"/>
+                <Component Name="BtnStatic50" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+              </Component>
+            </Component>
+            <Component Name="grCopyrightHolder" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="CopyrightHolder" Class="Com.Ctrl.IEdit" Caption="Правообладатель" CardFileClass="Bas.Tab.Data.Entity" Field="EdtRec.CopyrightHolder" HasCaption="True" Hint="Правобладатель" LookupField="Name" Visible="False"/>
+              <Component Name="btnCopyrightHolder" Class="Com.Ctrl.IJumpButton" Field="EdtRec.CopyrightHolder" HasCaption="False" JumpForm="Bas.Frm.Data.Entity" Visible="False" Width="7"/>
+            </Component>
+            <Component Name="grBalanser" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Balanser" Class="Com.Ctrl.IEdit" Caption="Балансодержатель" CardFileClass="Biz.Tab.Ref.CFR" Field="EdtRec.Balanser" HasCaption="True" Hint="Балансодержатель" LookupField="Name" OnOpenCardForm="Balanser_OnOpenCardForm" Visible="False"/>
+              <Component Name="btnBalanser" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Balanser" HasCaption="False" JumpForm="Biz.Frm.Ref.CFR" Visible="False" Width="7"/>
+            </Component>
+            <Component Name="grBalanserNew" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="BalanserNew" Class="Com.Ctrl.IEdit" Caption="Передать на баланс" CardFileClass="Biz.Tab.Ref.CFR" Field="EdtRec.BalanserNew" HasCaption="True" Hint="Балансодержатель к которому переходит объект имущества" LookupField="Name" Visible="False"/>
+              <Component Name="btnBalanserNew" Class="Com.Ctrl.IJumpButton" Field="EdtRec.BalanserNew" HasCaption="False" JumpForm="Biz.Frm.Ref.CFR" Visible="False" Width="7"/>
+            </Component>
+            <Component Name="grPropertyUser" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="PropertyUser" Class="Com.Ctrl.IEdit" Caption="Пользователь" CardFileClass="Bas.Tab.Data.Entity" Field="EdtRec.PropertyUser" HasCaption="True" Hint="Пользователь" LookupField="Name" Visible="False"/>
+              <Component Name="btnPropertyUser" Class="Com.Ctrl.IJumpButton" Field="EdtRec.PropertyUser" HasCaption="False" JumpForm="Bas.Frm.Data.Entity" Visible="False" Width="7"/>
+            </Component>
+            <Component Name="grPropertyUserNew" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="PropertyUserNew" Class="Com.Ctrl.IEdit" Caption="Закрепить за" CardFileClass="Bas.Tab.Data.Entity" Field="EdtRec.PropertyUserNew" HasCaption="True" Hint="Пользователь к которому переходит объект имущества" LookupField="Name" Visible="False"/>
+              <Component Name="btnPropertyUserNew" Class="Com.Ctrl.IJumpButton" Field="EdtRec.PropertyUserNew" HasCaption="False" JumpForm="Bas.Frm.Data.Entity" Visible="False" Width="7"/>
+            </Component>
+            <Component Name="grRegNumber" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="60" MaxWidth="230" MinWidth="150">
+              <Component Name="RegCode" Class="Com.Ctrl.IEdit" Caption="@Номер записи регистрации права" Field="EdtRec.RegCode" HasCaption="True"/>
+              <Component Name="BtnStatic51" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+            <Component Name="grRegContract" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="60" MaxWidth="230" MinWidth="150">
+              <Component Name="RegContract" Class="Com.Ctrl.IEdit" Caption="@№ документа" CellFormat="ReferenceFormat" Field="EdtRec.Contract" HasCaption="True" LookupField="Code" Required="True"/>
+              <Component Name="JBRegContract" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Contract" JumpForm="Biz.Frm.Data.Contract"/>
+            </Component>
+            <Component Name="grRegDates" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="60" MaxWidth="230" MinWidth="150">
+              <Component Name="RegDateStartGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="RegDateStart" Class="Com.Ctrl.IEdit" Caption="@Дата регистрации" CellFormat="DateFormat" Field="EdtRec.RegDateStart" FormatOfDate="DateOnly" HasCaption="True" Hint="@Дата начала по свидетельству регистрации"/>
+                <Component Name="BtnStatic52" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+              </Component>
+              <Component Name="RegDateEndGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="RegDateEnd" Class="Com.Ctrl.IEdit" Caption="@по" CaptionWidth="35" CellFormat="DateFormat" Field="EdtRec.RegDateEnd" FormatOfDate="DateOnly" HasCaption="True" Hint="@Дата завершения"/>
+                <Component Name="BtnStatic53" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+              </Component>
+            </Component>
+            <Component Name="grSeriesNumber" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="60" MaxWidth="230" MinWidth="150">
+              <Component Name="SeriesGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="Series" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.Series" HasCaption="True" ValueType="VarString"/>
+                <Component Name="BtnStatic54" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+              </Component>
+              <Component Name="NumGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="Num" Class="Com.Ctrl.IEdit" CaptionWidth="35" CellFormat="StringFormat" Field="EdtRec.Num" HasCaption="True" ValueType="VarString"/>
+                <Component Name="BtnStatic55" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="LinesBox" Class="Com.Ctrl.IBox" Caption="@Субъект (субъекты) права" HasCaption="True">
+            <Component Name="LinesTable" Class="Com.Ctrl.ITable" Adaptive="True" Freezed="False" Numbering="False" OnDelete="LinesTable_OnDelete" Sortable="True" Subtable="EdtRec.Lines">
+              <Component Name="LinesStruct" Class="RealEstate.Rec.Doc.Order_Lines" IsLibrary="1"/>
+              <Component Name="grLCopyrightHolder" Class="Com.Ctrl.IColumnsGroup" Caption="@Правобладатель" HasCaption="True">
+                <Component Name="CopyrightHolderEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Field="LinesStruct.CopyrightHolder" HasButton="True" HasCaption="False" Hint="@Правобладатель" LookupField="Name" ValueType="VarObject"/>
+                <Component Name="btnCopyrightHolderEdit" Class="Com.Ctrl.IJumpButton" Field="LinesStruct.CopyrightHolder" HasCaption="False" JumpForm="Bas.Frm.Data.Entity" Width="7"/>
+              </Component>
+              <Component Name="grLBalanser" Class="Com.Ctrl.IColumnsGroup" Caption="@Балансодержатель" HasCaption="True">
+                <Component Name="BalanserEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="LinesStruct.Balanser" HasButton="True" HasCaption="False" Hint="@Балансодержатель" LookupField="Name" OnOpenCardForm="Balanser_OnOpenCardForm" ValueType="VarObject"/>
+                <Component Name="btnBalanserEdit" Class="Com.Ctrl.IJumpButton" Field="LinesStruct.Balanser" HasCaption="False" JumpForm="Biz.Frm.Ref.CFR" Width="7"/>
+              </Component>
+              <Component Name="grLBalanserNew" Class="Com.Ctrl.IColumnsGroup" Caption="@Передать на баланс" HasCaption="True">
+                <Component Name="BalanserNewEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="LinesStruct.BalanserNew" HasButton="True" HasCaption="False" Hint="@Балансодержатель к которому переходит объект имущества" LookupField="Name" ValueType="VarObject"/>
+                <Component Name="btnBalanserNewEdit" Class="Com.Ctrl.IJumpButton" Field="LinesStruct.BalanserNew" HasCaption="False" JumpForm="Biz.Frm.Ref.CFR" Width="7"/>
+              </Component>
+              <Component Name="grLPropertyUser" Class="Com.Ctrl.IColumnsGroup" Caption="@Пользователь" HasCaption="True">
+                <Component Name="PropertyUserEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Field="LinesStruct.PropertyUser" HasButton="True" HasCaption="False" Hint="@Пользователь" LookupField="Name" OnLookup="PropertyUserEdit_OnLookup" ValueType="VarObject"/>
+                <Component Name="btnPropertyUserEdit" Class="Com.Ctrl.IJumpButton" Field="LinesStruct.PropertyUser" HasCaption="False" JumpForm="Bas.Frm.Data.Entity" Width="7"/>
+              </Component>
+              <Component Name="grLPropertyUserNew" Class="Com.Ctrl.IColumnsGroup" Caption="@Закрепить за" HasCaption="True">
+                <Component Name="PropertyUserNewEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Field="LinesStruct.PropertyUserNew" HasButton="True" HasCaption="False" Hint="@Пользователь к которому переходит объект имущества" LookupField="Name" ValueType="VarObject"/>
+                <Component Name="btnPropertyUserNewEdit" Class="Com.Ctrl.IJumpButton" Field="LinesStruct.PropertyUserNew" HasCaption="False" JumpForm="Bas.Frm.Data.Entity" Width="7"/>
+              </Component>
+              <Component Name="grLPropertyOwner" Class="Com.Ctrl.IColumnsGroup" Caption="@Собственник" HasCaption="True">
+                <Component Name="PropertyOwnerEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Field="LinesStruct.PropertyOwner" HasButton="True" HasCaption="False" Hint="@Собственник " LookupField="Name" ValueType="VarObject"/>
+                <Component Name="btnPropertyOwnerEdit" Class="Com.Ctrl.IJumpButton" Field="LinesStruct.PropertyOwner" HasCaption="False" JumpForm="Bas.Frm.Data.Entity" Width="7"/>
+              </Component>
+              <Component Name="grLArea" Class="Com.Ctrl.IColumnsGroup" HasCaption="False">
+                <Component Name="AreaObjectEdit" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Объем права" CellFormat="NumericFormat" Field="LinesStruct.AreaObject" FieldFormat="0.00КВМ;;-" FixSize="True" HasCaption="True" OnOutputEx="AreaObjectEditOnOutputEx" Width="50"/>
+                <Component Name="AreaPartEdit" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Доля в праве" Field="LinesStruct.AreaPart" FieldFormat="0.00%;;-" FixSize="True" HasCaption="True" Width="50"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="EncumbrancesBox" Class="Com.Ctrl.IBox" Caption="@Ограничение (обременение) прав" HasCaption="True">
+            <Component Name="EncumbrancesTable" Class="Com.Ctrl.ITable" Adaptive="True" Freezed="False" Numbering="False" Sortable="True" Subtable="EdtRec.Encumbrances">
+              <Component Name="EncumbrancesStruct" Class="RealEstate.Rec.Doc.Order_Encumbrances" IsLibrary="1"/>
+              <Component Name="grEncEncumbrance" Class="Com.Ctrl.IColumnsGroup" Caption="@Ограничение прав и обременение" HasCaption="True" Width="25">
+                <Component Name="EncumbranceEdit" Class="Com.Ctrl.IEdit" CardFileClass="RealEstate.Tab.Ref.Encumbrance" CellFormat="ReferenceFormat" Field="EncumbrancesStruct.Encumbrance" HasButton="True" HasCaption="False" LookupField="Name" Multiline="True" ValueType="VarObject" Wrap="True"/>
+                <Component Name="btnEncumbrance" Class="Com.Ctrl.IJumpButton" Excluded="True" Field="EncumbrancesStruct.Encumbrance" HasCaption="False" JumpForm="RealEstate.Frm.Ref.Encumbrance" Width="7"/>
+              </Component>
+              <Component Name="EncumbranceRegDate" Class="Com.Ctrl.IEdit" Caption="@Дата регистрации" CellFormat="DateFormat" Field="EncumbrancesStruct.RegDate" HasCaption="True" MinWidth="30" ValueType="VarDate" Width="15"/>
+              <Component Name="EncumbranceNum" Class="Com.Ctrl.IEdit" Caption="@Номер" CellFormat="StringFormat" Field="EncumbrancesStruct.Num" HasCaption="True" Multiline="True" ValueType="VarString" Width="15" Wrap="True"/>
+              <Component Name="EncumbranceComment" Class="Com.Ctrl.IEdit" Caption="@Описание" CellFormat="StringFormat" Field="EncumbrancesStruct.Comment" HasCaption="True" Multiline="True" ValueType="VarString" Width="40" Wrap="True"/>
+            </Component>
+          </Component>
+          <Component Name="LegalBasisDocsBox" Class="Com.Ctrl.IBox" Caption="@Документы-основания" HasCaption="True">
+            <Component Name="LegalBasisDocsTable" Class="Com.Ctrl.ITable" Adaptive="True" Freezed="False" Numbering="False" Sortable="True" Subtable="EdtRec.LegalBasisDocs">
+              <Component Name="LegalBasisDocsStruct" Class="RealEstate.Rec.Doc.Order_LegalBasisDocs" IsLibrary="1"/>
+              <Component Name="grLegalBasisDocType" Class="Com.Ctrl.IColumnsGroup" Caption="@Документы-основания" HasCaption="True" Width="25">
+                <Component Name="LegalBasisDocType" Class="Com.Ctrl.IEdit" CardFileClass="RealEstate.Tab.Ref.LegalBasisDocType" CellFormat="ReferenceFormat" Field="LegalBasisDocsStruct.DocType" HasButton="True" HasCaption="False" LookupField="Name" Multiline="True" ValueType="VarObject" Wrap="True"/>
+                <Component Name="btnLegalBasisDocType" Class="Com.Ctrl.IJumpButton" Excluded="True" Field="LegalBasisDocsStruct.DocType" HasCaption="False" JumpForm="RealEstate.Frm.Ref.LegalBasisDocType" Width="7"/>
+              </Component>
+              <Component Name="grRegDateNum" Class="Com.Ctrl.IColumnsGroup">
+                <Component Name="LegalBasisDocRegDate" Class="Com.Ctrl.IEdit" Caption="@Дата регистрации" CellFormat="DateFormat" Field="LegalBasisDocsStruct.RegDate" HasCaption="True" MinWidth="30" ValueType="VarDate" Width="15"/>
+                <Component Name="LegalBasisDocNum" Class="Com.Ctrl.IEdit" Caption="@Номер" CellFormat="StringFormat" Field="EncumbrancesStruct.Num" HasCaption="True" Multiline="True" ValueType="VarString" Width="15" Wrap="True"/>
+              </Component>
+              <Component Name="grContract" Class="Com.Ctrl.IColumnsGroup">
+                <Component Name="grContractNum" Class="Com.Ctrl.IColumnsGroup" Caption="@Номер" HasCaption="True">
+                  <Component Name="Contract" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Field="LegalBasisDocsStruct.Contract" HasCaption="False" LookupField="Code" MinWidth="30" Required="True" Width="40"/>
+                  <Component Name="ContractJB" Class="Com.Ctrl.IJumpButton" Field="LegalBasisDocsStruct.Contract" HasCaption="False" JumpForm="Biz.Frm.Data.Contract"/>
+                </Component>
+                <Component Name="ContractStartDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Дата начала действия" CellFormat="ReferenceFormat" Enabled="False" Field="LegalBasisDocsStruct.Contract" HasCaption="True" LookupField="StartDate" Width="30"/>
+                <Component Name="ContractActExpDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Дата завершения" CellFormat="ReferenceFormat" Enabled="False" Field="LegalBasisDocsStruct.Contract" HasCaption="True" LookupField="ActualExpDate" Width="30"/>
+              </Component>
+              <Component Name="LegalBasisDocComment" Class="Com.Ctrl.IEdit" Caption="@Описание" CellFormat="StringFormat" Field="LegalBasisDocsStruct.Comment" HasCaption="True" Multiline="True" ValueType="VarString" Width="40" Wrap="True"/>
+            </Component>
+          </Component>
+          <Component Name="AddBox" Class="Com.Ctrl.IBox" Caption="@Дополнительно">
+            <Component Name="grArea" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="AreaObject" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Объем права" CellFormat="NumericFormat" Field="EdtRec.AreaObject" FieldFormat="0.00КВМ;;-" HasCaption="True" OnChange="AreaObject_OnChange" OnOutput="AreaObject_OnOutput" Width="80"/>
+              <Component Name="AreaPart" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Доля в праве" CaptionWidth="30" Enabled="True" Field="EdtRec.AreaPart" FieldFormat="0.00%;;-" HasCaption="True" OnChange="AreaPart_OnChange" OnVerify="AreaPart_OnVerify"/>
+            </Component>
+            <Component Name="grIsEncumbrance" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Static7" Class="Com.Ctrl.IStatic" FixSize="True" Width="60"/>
+              <Component Name="isEncumbrance" Class="Com.Ctrl.ICheckBox" Caption="Наличие обременения на объект имущества" Field="EdtRec.isEncumbrance" HasCaption="True" OnChange="isEncumbrance_OnChange"/>
+            </Component>
+            <Component Name="grEncumbrance" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="False" CaptionWidth="60" MaxWidth="230" MinWidth="150">
+              <Component Name="Encumbrance" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Вид обременения" CardFileClass="RealEstate.Tab.Ref.Encumbrance" Enabled="False" Field="EdtRec.Encumbrance" HasCaption="True" LookupField="Name" MaxWidth="230"/>
+              <Component Name="EncumbranceArray" Class="Com.Ctrl.IListEdit" Caption="Вид обременения" CardFileClass="RealEstate.Tab.Ref.Encumbrance" Enabled="True" Field="EdtRec.EncumbranceListArray" HasButton="True" HasCaption="True" LookupField="Code" MaxWidth="230" OnChange="EncumbranceArray_OnChange" OnLookup="EncumbranceArray_OnLookup" OnOutput="EncumbranceArray_OnOutput"/>
+            </Component>
+            <Component Name="grComment" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="60" MaxWidth="230" MinWidth="150">
+              <Component Name="Comment" Class="Com.Ctrl.IEdit" Caption="Комментарий" Field="EdtRec.Comment" HasCaption="True"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="frRelateOrders" Class="Com.Ctrl.IFrame" Caption="@Связанные документы" HasCaption="True" Hint="Документы сформированные при разноске"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,162 @@
+﻿TBCFile VER="3.4" [Created '30.11.2022 12:26:28' by 'Администратор']
+
+DESCRIPTION[
+Count=19
+CountByRef=0
+RealEstate.Ref.OrderType
+(
+  Count=0
+  CountByRef=0
+)
+RealEstate.Ref.RightKind
+(
+  Count=19
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [RealEstate.Ref.OrderType
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+  [RealEstate.Ref.RightKind
+  (
+    Deleted :Boolean
+    Code :String(80)
+    Name :String(255)
+    OrderType :RealEstate.Ref.OrderType
+    IsReal :Boolean
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[RealEstate.Ref.RightKind
+  
+  {RealEstate.Ref.RightKind:"001"}
+  (
+    Name = "Собственность"
+    OrderType = {RealEstate.Ref.OrderType:"ТП.001"}
+    IsReal = True
+  )
+  
+  {RealEstate.Ref.RightKind:"002"}
+  (
+    Name = "Оперативное управление"
+    OrderType = {RealEstate.Ref.OrderType:"ТП.001"}
+    IsReal = True
+  )
+  
+  {RealEstate.Ref.RightKind:"004"}
+  (
+    Name = "Постоянное (бессрочное) пользование"
+    OrderType = {RealEstate.Ref.OrderType:"ТП.001"}
+    IsReal = True
+  )
+  
+  {RealEstate.Ref.RightKind:"005"}
+  (
+    Name = "Сервитут (право)"
+    OrderType = {RealEstate.Ref.OrderType:"ТП.001"}
+    IsReal = True
+  )
+  
+  {RealEstate.Ref.RightKind:"006"}
+  (
+    Name = "Право владения, пользования и распоряжения имуществом Банка России"
+    OrderType = {RealEstate.Ref.OrderType:"ТП.001"}
+  )
+  
+  {RealEstate.Ref.RightKind:"007"}
+  (
+    Name = "Постановка на баланс"
+    OrderType = {RealEstate.Ref.OrderType:"ТП.002"}
+  )
+  
+  {RealEstate.Ref.RightKind:"008"}
+  (
+    Name = "Снятие с баланса"
+    OrderType = {RealEstate.Ref.OrderType:"ТП.002"}
+  )
+  
+  {RealEstate.Ref.RightKind:"009"}
+  (
+    Name = "Установка пользователя"
+    OrderType = {RealEstate.Ref.OrderType:"ТП.003"}
+  )
+  
+  {RealEstate.Ref.RightKind:"010"}
+  (
+    Name = "Прекращение пользования"
+    OrderType = {RealEstate.Ref.OrderType:"ТП.003"}
+  )
+  
+  {RealEstate.Ref.RightKind:"011"}
+  (
+    Name = "Смена балансодержателя"
+    OrderType = {RealEstate.Ref.OrderType:"ТП.004"}
+  )
+  
+  {RealEstate.Ref.RightKind:"012"}
+  (
+    Name = "Смена пользователя"
+    OrderType = {RealEstate.Ref.OrderType:"ТП.004"}
+  )
+  
+  {RealEstate.Ref.RightKind:"014"}
+  (
+    Name = "Аренда"
+    OrderType = {RealEstate.Ref.OrderType:"ТП.001"}
+  )
+  
+  {RealEstate.Ref.RightKind:"016"}
+  (
+    Name = "Безвозмездное пользование (ссуда)"
+    OrderType = {RealEstate.Ref.OrderType:"ТП.001"}
+  )
+  
+  {RealEstate.Ref.RightKind:"017"}
+  (
+    Name = "Аренда с множественностью лиц (арендаторы)"
+    OrderType = {RealEstate.Ref.OrderType:"ТП.001"}
+  )
+  
+  {RealEstate.Ref.RightKind:"018"}
+  (
+    Name = "Аренда с множественностью лиц (арендадатели)"
+    OrderType = {RealEstate.Ref.OrderType:"ТП.001"}
+  )
+  
+  {RealEstate.Ref.RightKind:"019"}
+  (
+    Name = "Аренда(сдача)"
+    OrderType = {RealEstate.Ref.OrderType:"ТП.003"}
+  )
+  
+  {RealEstate.Ref.RightKind:"020"}
+  (
+    Name = "Аренда(возврат)"
+    OrderType = {RealEstate.Ref.OrderType:"ТП.003"}
+  )
+  
+  {RealEstate.Ref.RightKind:"021"}
+  (
+    Name = "Безвозмездное пользование(передача)"
+    OrderType = {RealEstate.Ref.OrderType:"ТП.003"}
+  )
+  
+  {RealEstate.Ref.RightKind:"022"}
+  (
+    Name = "Безвозмездное пользование(возврат)"
+    OrderType = {RealEstate.Ref.OrderType:"ТП.003"}
+  )
+]
+
+]

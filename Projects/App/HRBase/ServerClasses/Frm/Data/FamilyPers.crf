@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="HRBase.Frm.Base.DataNaturalPerson">
+  <Inherited HelpContext="HRBase.Основные данные.Физические лица">
+    <Inherited Name="EdtRec" Class="HRBase.Rec.Data.FamilyPers" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="110">
+          <Component Name="BegDate" Class="Com.Ctrl.IEdit" Field="EdtRec.BegDate" FormatOfDate="DateOnly" HasCaption="True" OnVerify="BegDate_OnVerify"/>
+          <Component Name="EndDate" Class="Com.Ctrl.IEdit" Caption="Дата завершения" Field="EdtRec.EndDate" FormatOfDate="DateOnly" HasCaption="True" Hint="Дата завершения родства" OnVerify="EndDate_OnVerify"/>
+        </Component>
+        <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="110">
+          <Component Name="FamilyRelations" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Ref.FamilyRelations" Field="EdtRec.FamilyRelations" HasCaption="True" LookupField="Name"/>
+          <Component Name="BirthDate" Class="Com.Ctrl.IEdit" Caption="@Дата рождения" Field="EdtRec.BirthDate" FormatOfDate="DateOnly" HasCaption="True" Hint="@Дата рождения члена семьи"/>
+          <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          <Component Name="FIO" Class="Com.Ctrl.IEdit" Field="EdtRec.FIO" HasCaption="True" Multiline="True" Wrap="True"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

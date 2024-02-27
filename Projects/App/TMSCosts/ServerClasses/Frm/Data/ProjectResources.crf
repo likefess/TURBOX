@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Frm.AddIns.BaseProject">
+  <Inherited Caption="@TMS:TaskResources=Ресурсы">
+    <Component Name="Variables" Class="Com.IVarContainer" After="EdtRec">
+      <Component Name="ProjResourcesSubtable" Class="Com.ISubtable" StructClass="TMSCosts.Rec.Data.Task_ResourceItem"/>
+    </Component>
+    <Component Name="TabMenu" Class="Com.Ctrl.IPopupMenu" AddDefaultItems="False">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="cmdInsertRow" Class="Com.Cmd2.IItem" Command="Commands.InsertRow"/>
+      <Component Name="cmdDeleteRow" Class="Com.Cmd2.IItem" Command="Commands.DeleteRow"/>
+    </Component>
+    <Inherited Name="RootFrame" FixSize="True" Margins="5" MinSize="120" Size="100">
+      <Component Name="ButtonsFrame" Class="Com.Ctrl.IFrame" AutoSize="False" FixSize="True" Size="8">
+        <Component Name="ButtonsGroup" Class="Com.Ctrl.IGroup">
+          <Component Name="AddButton" Class="Com.Ctrl.IButton" Caption="Добавить" OnClick="AddButtonOnClick"/>
+        </Component>
+      </Component>
+      <Component Name="ResourcesFrame" Class="Com.Ctrl.IFrame" MinSize="120">
+        <Component Name="ProjResourcesTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="True" CanInsert="True" CanMove="False" Freezed="False" ManualControl="True" Numbering="False" PopupMenu="TabMenu" Subtable="ProjResourcesSubtable">
+          <Component Name="Proj_Resource" Class="TMSCosts.Rec.Data.Task_ResourceItem" IsLibrary="1"/>
+          <Component Name="ResourceEdit" Class="Com.Ctrl.IEdit" CardFileClass="TMSCosts.Tab.Data.TMSResources" CellFormat="ReferenceFormat" Field="Proj_Resource.Resource" FixSize="True" HasButton="True" LookupField="Name" LookupFilter="ResType = 500" ValueType="VarObject" Width="70"/>
+          <Component Name="RoleEdit" Class="Com.Ctrl.IEdit" Caption="@TMSCosts:Role=Роль" CardFileClass="Bas.Tab.Ref.EntityRoles" Field="Proj_Resource.Role" FixSize="True" LookupField="Name" LookupFilter="SystemRole in [7, 8]" ShortList="True" Width="70"/>
+          <Component Name="EntityEdit" Class="Com.Ctrl.IEdit" CardFileClass="TrackingCore.Tab.Data.People" Field="Proj_Resource.Entity" FixSize="True" LookupField="Name" ShortList="True" Width="60"/>
+          <Component Name="GradeEdit" Class="Com.Ctrl.IEdit" Caption="@TMSCosts:Grade=Грейд" CardFileClass="TMS.Tab.Ref.Grade" Field="Proj_Resource.Grade" FixSize="True" LookupField="Name" ShortList="True" Width="25"/>
+          <Component Name="CompanyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="Proj_Resource.Company" FixSize="True" LookupField="Name" ShortList="True" Visible="False" Width="60"/>
+          <Component Name="BusyEdit" Class="Com.Ctrl.IEdit" Field="Proj_Resource.Busy" FieldFormat=",##0.00;;-" FixSize="True" OnVerify="BusyEditOnVerify" Width="20"/>
+          <Component Name="ResPriceEdit" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@TMSCosts:TaskResources.BasePrice=Внутренняя ставка" Enabled="False" Field="Proj_Resource.ResPrice" FieldFormat=",##0.00;;-" FixSize="True" Width="22"/>
+          <Component Name="PriceEdit" Class="Com.Ctrl.IEdit" Caption="Внешняя ставка" Field="Proj_Resource.Price" FieldFormat=",##0.00;;-" FixSize="True" Width="20"/>
+          <Component Name="PriceHistoryButton" Class="Com.Ctrl.IButton" Hint="@TMSCosts:TaskResources.PriceHistory=История" ImageName="Com.bars" OnClick="PriceHistoryButtonOnClick" Width="7"/>
+          <Component Name="DelButton" Class="Com.Ctrl.IButton" FixSize="True" ImageName="Com.DeleteObj" OnClick="DelButtonOnClick" Width="7"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Спецодежда.Frm.Документы.Спецодежда.ОперДокумент">
+  <Inherited>
+    <Inherited Name="FRecord" Class="Спецодежда.Rec.Документы.СОДок" IsLibrary="1"/>
+    <Inherited Name="EdtRec" Class="Спецодежда.Rec.Документы.СОДок" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="MOLLR" Class="Com.Fld.IVar" OnCalc="MOLLR_OnCalc" RecordClass="Biz.Rec.Data.LabourRelations" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonDelete" Visible="False"/>
+      </Inherited>
+      <Inherited Name="UserHeaderFrame">
+        <Inherited Name="UserHeaderGr">
+          <Inherited Name="EventTime" OnChange="EventTime_OnChange"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab" Caption="@Документ">
+          <Inherited Name="MainBox">
+            <Component Name="CompanyGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="EntityEdit" Class="Com.Ctrl.IEdit" Caption="@Предприятие" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="FRecord.Entity" HasCaption="True" LookupField="Name" OnChange="Entity_OnChange" OnOpenCardForm="Entity_OnOpenCardForm"/>
+              <Component Name="EntityJB" Class="Com.Ctrl.IJumpButton" Field="FRecord.Entity" JumpForm="Bas.Frm.Data.Entity"/>
+            </Component>
+            <Component Name="DivisionGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="Division" Class="Com.Ctrl.IEdit" Caption="@Склад" CardFileClass="Bas.Tab.Data.Divisions" CellFormat="ReferenceFormat" Field="FRecord.Division" HasCaption="True" LookupField="Name"/>
+              <Component Name="DivisionJB" Class="Com.Ctrl.IJumpButton" Field="FRecord.Division" JumpForm="Bas.Frm.Data.Entity"/>
+            </Component>
+            <Component Name="StoreGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="Store" Class="Com.Ctrl.IEdit" Caption="@Склад" CardFileClass="SCM.Tab.Данные.Склады" CellFormat="ReferenceFormat" Field="FRecord.Store" HasCaption="True" LookupField="Name" OnOpenCardForm="Store_OnOpenCardForm"/>
+              <Component Name="StoreJB" Class="Com.Ctrl.IJumpButton" Field="FRecord.Store" JumpForm="SCM.Frm.Данные.Склад"/>
+            </Component>
+            <Component Name="MOLREditGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="MOLLREdit" Class="Com.Ctrl.IEdit" Caption="@МОЛ" CardFileClass="Biz.Tab.Data.LabourRelations" CellFormat="ReferenceFormat" Field="MOLLR" HasCaption="True" LookupField="Person.Name" OnChange="MOLLREdit_OnChange" OnGetLookupFilter="MOLLREdit_OnGetLookupFilter" OnOutputEx="MOLLREdit_OnOutputEx"/>
+              <Component Name="MOLLRJB" Class="Com.Ctrl.IJumpButton" Field="MOLLR" JumpForm="Biz.Frm.Data.LabourRelations"/>
+            </Component>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

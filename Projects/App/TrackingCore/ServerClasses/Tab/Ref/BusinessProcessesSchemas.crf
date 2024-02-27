@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.CodeName">
+  <Inherited>
+    <Inherited Name="Current" Class="TrackingCore.Rec.Ref.BusinessProcessSchemas" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="ProjectChosen" Class="Com.Fld.IVar" After="#0" ValueType="VarLogical"/>
+      <Component Name="NameChosen" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="UnactiveChosen" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="ActiveChosen" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Inherited Name="HierarchicalView" After="ActiveChosen"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Visible="False"/>
+      <Inherited Name="NavigatorFrame" Visible="False">
+        <Inherited Name="NavigatorGroup">
+          <Component Name="FilterProjectEdit" Class="Com.Ctrl.IEditEx" ButtonStyle="DefaultButton" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" FixSize="True" HasButton="True" LookupField="Name" OnChange="FilterProjectEdit_OnChange" OnOutputEx="FilterProjectEdit_OnOutputEx" ValueType="VarObject" Width="80"/>
+          <Component Name="ListButton1" Class="Com.Ctrl.IListButton" Fashion="Fashions.TertiaryButton" ImageName="Com.Filters">
+            <Component Name="ButtonName" Class="Com.Ctrl.IButton" Caption="Название" Field="NameChosen" IsSwitch="True" OnClick="ButtonNameOnClick"/>
+            <Component Name="ButtonPoject" Class="Com.Ctrl.IButton" Caption="Проекты" Field="ProjectChosen" IsSwitch="True" OnClick="ButtonPojectOnClick"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="MainFrame" Orientation="Horizontal" ScrollerStyle="ScrollerNone">
+        <Inherited Name="FrameCardTree" Excluded="True" Visible="False"/>
+        <Component Name="ButtonFrame" Class="Com.Ctrl.IFrame" After="FrameCardTree" AutoSize="True" Visible="True">
+          <BuiltIn Name="SideMargins" Left="0" Right="0" Top="0"/>
+          <Component Name="FilterButtons1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" Width="150">
+            <Component Name="Button1" Class="Com.Ctrl.IButton" Excluded="True" Caption="updateBP" OnClick="Button1OnClick"/>
+            <Component Name="ActiveButton" Class="Com.Ctrl.IButton" Caption="Активные" Fashion="Fashions.GhostButton" Field="ActiveChosen" IsSwitch="True" OnClick="ActiveButtonOnClick"/>
+            <Component Name="UnactiveButton" Class="Com.Ctrl.IButton" Caption="Неактивные" Fashion="Fashions.GhostButton" Field="UnactiveChosen" IsSwitch="True" OnClick="UnactiveButtonOnClick"/>
+            <Component Name="AdditionalStatic1" Class="Com.Ctrl.IStatic" Alignment="DefaultAlign" FixSize="False" MinWidth="40"/>
+            <Component Name="ButtonAddItem1" Class="Com.Ctrl.IButton" Caption="@Form:AddButton=Создать схему" Fashion="Fashions.TertiaryButton" ImageName="AddItem" OnClick="AddSchema_OnClick" Width="40"/>
+            <Component Name="ListButtonTop" Class="Com.Ctrl.IListButton" ImageName="Com.ellipsis-v" Visible="True">
+              <Component Name="DublicateButton1" Class="Com.Ctrl.IButton" Caption="Дублировать" OnClick="ButtonCloneItem_OnClick"/>
+              <Component Name="RenameButton1" Class="Com.Ctrl.IButton" Caption="Переименовать" OnClick="EditSchema_OnClick"/>
+              <Component Name="ChangeSchemeButton1" Class="Com.Ctrl.IButton" Caption="Редактировать схему" OnClick="ButtonEditItem_OnClick"/>
+              <Component Name="ChangeDescriptionButton1" Class="Com.Ctrl.IButton" Caption="Редактировать описание" OnClick="EditSchema_OnClick"/>
+              <Component Name="UseByDefaultButton1" Class="Com.Ctrl.IButton" Caption="Использовать по умолчанию" OnClick="UseByDefaultButtonOnClick"/>
+              <Component Name="DeleteButton1" Class="Com.Ctrl.IButton" Caption="Удалить" OnClick="ButtonDeleteItem_OnClick"/>
+            </Component>
+          </Component>
+        </Component>
+        <Inherited Name="FrameCardFile" After="ButtonFrame" AutoSize="False">
+          <Inherited Name="CardFile" OnDrawRow="CardFileOnDrawRow"/>
+          <Inherited Name="Name" Caption="Название схемы"/>
+          <Inherited Name="Code" Visible="False"/>
+          <Component Name="DescriptionEdit" Class="Com.Ctrl.IEdit" Caption="Описание" Field="Current.Description" Visible="False"/>
+          <Component Name="BusinessProcessesEdit" Class="Com.Ctrl.IEdit" Caption="Бизнес-процессы" CellFormat="StringFormat" Visible="True" Width="80"/>
+          <Component Name="ProjectEdit" Class="Com.Ctrl.IEdit" Caption="Проекты" CellFormat="StringFormat" Visible="True" Width="80"/>
+          <Component Name="AdditionalButton" Class="Com.Ctrl.IListButton" Fashion="Fashions.GhostButton" ImageName="Com.ellipsis-v" Visible="True">
+            <Component Name="DublicateButton" Class="Com.Ctrl.IButton" Caption="Дублировать" OnClick="ButtonCloneItem_OnClick"/>
+            <Component Name="RenameButton" Class="Com.Ctrl.IButton" Caption="Переименовать" OnClick="EditSchema_OnClick"/>
+            <Component Name="ChangeSchemeButton2" Class="Com.Ctrl.IButton" Caption="Редактировать схему" OnClick="ButtonEditItem_OnClick"/>
+            <Component Name="ChangeDescriptionButton" Class="Com.Ctrl.IButton" Caption="Редактировать описание" OnClick="EditSchema_OnClick"/>
+            <Component Name="UseByDefaultButton" Class="Com.Ctrl.IButton" Caption="Использовать по умолчанию" OnClick="UseByDefaultButtonOnClick"/>
+            <Component Name="DeleteButton" Class="Com.Ctrl.IButton" Caption="Удалить" OnClick="ButtonDeleteItem_OnClick"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

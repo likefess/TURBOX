@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.BasObject">
+  <Inherited HelpContext="SubjectPayable.Расчеты с субъектами.Документы.Документы.Переоценка задолженности">
+    <Inherited Name="Current" Class="SubjectPayable.Rec.Doc.RevaluationOfDebt" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" HasCaption="True" Visible="False"/>
+          <Inherited Name="Code" HasCaption="True" Visible="False"/>
+          <Component Name="edAccounted" Class="Com.Ctrl.IEdit" Field="Current.Accounted" HasCaption="True" Width="15"/>
+          <Component Name="edCompany" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="Current.Company" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="edNumberDoc" Class="Com.Ctrl.IEdit" Field="Current.NumberDoc" HasCaption="True" Width="30"/>
+          <Component Name="edDateDoc" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="Current.DateDoc" FormatOfDate="DateOnly" HasCaption="True" Width="30"/>
+          <Component Name="edAccDate" Class="Com.Ctrl.IEdit" Caption="@AccrualOfDebt:AccDate2=Дата возникновения обязательства" CellFormat="DateFormat" Field="Current.AccDate" FormatOfDate="DateOnly" HasCaption="True" Hint="@AccrualOfDebt:AccDate1.Hint=Дата возникновения обязательства.&#xD;&#xA;Согласно данной даты будут формироваться оперативные проводки" Width="30"/>
+          <Component Name="edCurrency" Class="Com.Ctrl.IEdit" Caption="@вал.док." CardFileClass="Biz.Tab.Ref.UCurrencies" Field="Current.Currency" HasCaption="True" LookupField="Code" Width="20"/>
+          <Component Name="edExchRate" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:ExchRate1=Курс валюты" Field="Current.ExchRate" FieldFormat=",0.00;;-" HasCaption="True" Hint="@SubjectPayable:ExchRate.Hint=Значение курса валюты, используемого при переводе суммы в валюте документа в сумму в операционной валюте" Visible="False" Width="30"/>
+          <Component Name="edComment" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Comment.Hint=Примечание" Field="Current.Comment" HasCaption="True" Visible="False" Width="30"/>
+          <Component Name="edBaseDoc" Class="Com.Ctrl.IEdit" Caption="Документ" Field="Current.BaseDoc" HasCaption="True" LookupField="Name" OnOutputEx="edBaseDoc_OnOutputEx" Width="40"/>
+          <Component Name="edTotalSumReVal" Class="Com.Ctrl.IEdit" Caption="@RevaluationOfDebt:SumReVal=Сумма переоценки" Field="Current.TotalSumReVal" FieldFormat=",0.00;;-" HasCaption="True" Width="30"/>
+          <Component Name="edLocked" Class="Com.Ctrl.IEdit" Field="Current.Locked" HasCaption="True" Width="15"/>
+          <Component Name="edClosed" Class="Com.Ctrl.IEdit" Field="Current.Closed" HasCaption="True" Width="15"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

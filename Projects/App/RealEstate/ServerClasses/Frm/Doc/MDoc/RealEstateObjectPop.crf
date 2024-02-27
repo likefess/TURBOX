@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="RealEstate.Frm.Base.BaseMDocMeter">
+  <Inherited Caption="@Изменение численности объекта имущества" HelpContext="RealEstate.Управление имуществом.Данные.Основные данные.Изменение численности объекта имущества">
+    <Inherited Name="EdtRec" Class="RealEstate.Rec.Doc.MDoc.RealEstateObjectPop" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Caption="@Изменение численности объекта имущества" HasCaption="True"/>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="DateCodeGr">
+            <Inherited Name="Date" Caption="@Дата" Hint="@Дата проведения документа" Width="50"/>
+            <Inherited Name="CodeEdit" Excluded="True"/>
+          </Inherited>
+          <Inherited Name="NameGr" Excluded="True"/>
+          <Inherited Name="DescriptionGr">
+            <Inherited Name="Description" Hint="@Введите основание для изменения численности"/>
+          </Inherited>
+          <Inherited Name="MBGr">
+            <Component Name="PopImportDocGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="PopImportDoc" Class="Com.Ctrl.IEdit" Caption="@Документ загрузки " CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.PopImportDoc" OnOutput="PopImportDoc_OnOutput"/>
+              <Component Name="PopImportDocJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.PopImportDoc" JumpForm="RealEstate.Frm.Doc.MDoc.PopImport"/>
+            </Component>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="LinesFrame">
+        <Inherited Name="LRightFrame">
+          <Inherited Name="LinesTable" Adaptive="False" CanDelete="False" CanInsert="False" CanMove="False" Freezed="False" ManualControl="False" Numbering="False" Sortable="False">
+            <Inherited Name="vDefPos" Class="RealEstate.Rec.Doc.MDoc.RealEstateObjectPop_Lines" IsLibrary="1"/>
+            <Component Name="MeterCode" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Вид" CellFormat="ReferenceFormat" Color="0xFE000018" Enabled="False" Field="vDefPos.MeterCode" HasCaption="True" LookupField="Name" Width="50"/>
+            <Component Name="ValuesGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@Численность" HasCaption="True">
+              <Component Name="PValue3" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Штатная" CellFormat="NumericFormat" Field="vDefPos.PValue3" FieldFormat="0;-0" HasCaption="True" OnDraw="Value3_OnDraw" OnEnter="Value3_OnEnter" Width="30"/>
+              <Component Name="FValue3" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Фактическая" CellFormat="NumericFormat" Field="vDefPos.FValue3" FieldFormat="0;-0" HasCaption="True" OnDraw="Value3_OnDraw" OnEnter="Value3_OnEnter" Width="30"/>
+            </Component>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

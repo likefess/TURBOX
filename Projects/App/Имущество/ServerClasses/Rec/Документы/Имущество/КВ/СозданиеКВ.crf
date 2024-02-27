@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Rec.Документы.Имущество.КВ.ИмуществоБазовыйДокументКВ">
+  <Inherited>
+    <Inherited Name="Стоимость" OnCalc="Стоимость_OnCalc"/>
+    <Component Name="ВидОбъектаПослеВводаВЭксплуатацию" Class="Com.Fld.IField" FieldName="ВидОбъектаПослеВводаВЭксплуатацию"/>
+    <Component Name="СтоимостьКВСсылка" Class="Com.Fld.ILink" Caption="Стоимость" Field="КВ" FieldName="СтоимостьКВ" RecordClass="ИмуществоБазовый.Rec.Справочники.КапВложения" ValueType="VarNumeric"/>
+    <Component Name="ФормированиеСтоимости" Class="Com.ISubtable" StructClass="Имущество.Rec.Документы.Имущество.КВ.СозданиеКВ_ФормированиеСтоимости" SubtableName="ФормированиеСтоимости"/>
+    <Component Name="ИтогоБезНДС" Class="Com.Fld.IField" Excluded="True" FieldName="ИтогоБезНДС"/>
+    <Component Name="перИтогоБезНДС" Class="Com.Fld.IVar" OnCalc="перИтогоБезНДС_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="СчетНДС" Class="Com.Fld.IField" FieldName="СчетНДС"/>
+    <Component Name="DLUseDocLinks" Class="Com.Fld.IVar" OnCalc="DLUseDocLinks_OnCalc" ValueType="VarLogical"/>
+    <Component Name="DLUseSubjectPayableAccrualOfDebt" Class="Com.Fld.IVar" OnCalc="DLUseSubjectPayableAccrualOfDebt_OnCalc" ValueType="VarLogical"/>
+  </Inherited>
+</Resource>

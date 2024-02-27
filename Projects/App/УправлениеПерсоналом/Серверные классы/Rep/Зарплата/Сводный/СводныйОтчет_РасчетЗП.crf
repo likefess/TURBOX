@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="Начисления" Class="УправлениеПерсоналом.Rec.Сервис.СводныйОтчет.СводныйОтчет_Начисления" IsLibrary="1"/>
+    <Component Name="Удержания" Class="УправлениеПерсоналом.Rec.Сервис.СводныйОтчет.СводныйОтчет_Удержания" IsLibrary="1"/>
+    <Component Name="КВыплате" Class="УправлениеПерсоналом.Rec.Сервис.СводныйОтчет.СводныйОтчет_КВыплате" IsLibrary="1"/>
+    <Component Name="Налоги" Class="УправлениеПерсоналом.Rec.Сервис.СводныйОтчет.СводныйОтчет_Налоги" IsLibrary="1"/>
+    <Component Name="ПлатежиПоНалогам" Class="УправлениеПерсоналом.Rec.Сервис.СводныйОтчет.СводныйОтчет_ПлатежиПоНалогам" IsLibrary="1"/>
+    <Component Name="ПлатежиСотрудникам" Class="УправлениеПерсоналом.Rec.Сервис.СводныйОтчет.СводныйОтчет_ПлатежиСотрудникам" IsLibrary="1"/>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="ПериодРасчета" Class="Com.Fld.IVar" RecordClass="Biz.Rec.Ref.Period" ValueType="VarObject"/>
+      <Component Name="РасчетЗП" Class="Com.Fld.IVar" RecordClass="УправлениеПерсоналом.Rec.Документы.Зарплата.Расчет" ValueType="VarObject"/>
+      <Component Name="Начисления_Позиции" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Сервис.СводныйОтчет.СводныйОтчет_Начисления"/>
+      <Component Name="НачисленияИтого" Class="Com.ISubtable"/>
+      <Component Name="Удержания_Позиции" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Сервис.СводныйОтчет.СводныйОтчет_Удержания"/>
+      <Component Name="УдержанияИтого" Class="Com.ISubtable"/>
+      <Component Name="Налоги_Позиции" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Сервис.СводныйОтчет.СводныйОтчет_Налоги"/>
+      <Component Name="НалогиИтого" Class="Com.ISubtable"/>
+      <Component Name="КВыплате_Позиции" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Сервис.СводныйОтчет.СводныйОтчет_КВыплате"/>
+      <Component Name="ПлатежиПоНалогам_Позиции" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Сервис.СводныйОтчет.СводныйОтчет_ПлатежиПоНалогам"/>
+      <Component Name="ПлатежиНалогиИтого" Class="Com.ISubtable"/>
+      <Component Name="ПлатежиСотрудникам_Позиции" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Сервис.СводныйОтчет.СводныйОтчет_ПлатежиСотрудникам"/>
+      <Component Name="ПлатежиИтого" Class="Com.ISubtable"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" AutoSize="True" CanResizeBySplit="True" HasCaption="False" Margins="5" SplitterAtRight="True" UseSplitter="True">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" AutoSize="True" HasCaption="False" Margins="5" MaxButton="5">
+        <Component Name="ButtonRefresh" Class="Com.Ctrl.IButton" Caption="@Form:RefreshButton=Обновить" ImageName="Refresh" OnClick="ButtonRefresh_OnClick"/>
+      </Component>
+      <Component Name="ParamFrame" Class="Com.Ctrl.IFrame" Excluded="True" AutoSize="True" CanHideBySplit="True" CanResizeBySplit="True" Margins="5" SplitterAtRight="True" UseSplitter="True">
+        <Component Name="varРасчетЗП" Class="Com.Ctrl.IEdit" Excluded="True" CardFileClass="УправлениеПерсоналом.Tab.Документы.Зарплата.Расчет" Field="РасчетЗП"/>
+      </Component>
+      <Component Name="ReportFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="5" OnSwitch="ReportFrame_OnSwitch" Orientation="WithTabs" ShowTabs="True" Visible="True">
+        <Component Name="НачисленияУдержания" Class="Com.Ctrl.IFrame" AutoSize="True" CanHideBySplit="True" CanResizeBySplit="True" Caption="Начисления/Удержания" Enabled="False" HasCaption="True" Margins="5" ShowTabs="True">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption="Начислено" FontBold="True" Visible="True" Width="100" Wrap="False"/>
+            <Component Name="Static3" Class="Com.Ctrl.IStatic" Visible="True" Width="7" Wrap="False"/>
+            <Component Name="ОбновитьНУ" Class="Com.Ctrl.IButton" Excluded="True" Caption="@Form:RefreshButton=Обновить" ImageName="Refresh" OnClick="ОбновитьНУ_OnClick"/>
+          </Component>
+          <Component Name="Начисления_Таблица" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" Caption="Начислено" Enabled="False" Numbering="False" Subtable="Начисления_Позиции">
+            <Component Name="Начисления_ВидНачисления" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Вид начисления" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Enabled="False" Field="Начисления.ВидНачислений" FixSize="True" HasCaption="True" LookupField="Name" Multiline="True" Width="170" Wrap="True"/>
+            <Component Name="Начисления_Сумма" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Сумма" CellFormat="NumericFormat" Enabled="False" Field="Начисления.Сумма" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" ValueType="VarNumeric" Width="50"/>
+          </Component>
+          <Component Name="Начисления_Всего" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Enabled="False" HasCaption="False" Numbering="False" Sortable="False" Subtable="НачисленияИтого">
+            <Component Name="Всего" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Enabled="False" FixSize="True" FontBold="True" Multiline="False" OnOutputEx="ВсегоСтр_OnOutputEx" Width="170"/>
+            <Component Name="СуммаНачисления" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" FieldFormat=",##0.00;;-" FixSize="True" FontBold="True" Multiline="False" OnOutputEx="СуммаНачислений_OnOutputEx" Width="50"/>
+          </Component>
+          <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+            <Component Name="Static10" Class="Com.Ctrl.IStatic" FontBold="True" Visible="True" Wrap="False"/>
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" Caption="Удержано" FontBold="True" Visible="True" Width="100" Wrap="False"/>
+          </Component>
+          <Component Name="Удержания_Таблица" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" Caption="Удержано" Numbering="False" Subtable="Удержания_Позиции">
+            <Component Name="Удержания_ВидУдержания" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Вид удержания" Enabled="False" Field="Удержания.ВидУдержания" FixSize="True" HasCaption="True" Multiline="True" Width="170" Wrap="True"/>
+            <Component Name="Удержания_Сумма" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Сумма" CellFormat="NumericFormat" Enabled="False" Field="Удержания.Сумма" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Width="50"/>
+          </Component>
+          <Component Name="Удержания_Всего" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" HasCaption="False" Numbering="False" Sortable="False" Subtable="УдержанияИтого">
+            <Component Name="ВсегоУдержания" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Enabled="False" FixSize="True" FontBold="True" Multiline="False" OnOutputEx="ВсегоСтр_OnOutputEx" Width="170"/>
+            <Component Name="СуммаУдержаний" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" FieldFormat=",##0.00;;-" FixSize="True" FontBold="True" Multiline="False" OnOutputEx="СуммаУдержаний_OnOutputEx" Width="50"/>
+          </Component>
+          <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+            <Component Name="Static11" Class="Com.Ctrl.IStatic" Visible="True" Wrap="False"/>
+            <Component Name="Static4" Class="Com.Ctrl.IStatic" Caption="К выплате" FontBold="True" Visible="True" Width="100" Wrap="False"/>
+          </Component>
+          <Component Name="КВыплате_Таблица" Class="Com.Ctrl.ITable" Numbering="False" Subtable="КВыплате_Позиции">
+            <Component Name="КВыплате_Итого" Class="Com.Ctrl.IEdit" Enabled="False" Field="КВыплате.ИтогоЗаголовок" FixSize="True" ValueType="VarString" VertAlignment="LeftAlign" Width="170" Wrap="True"/>
+            <Component Name="КВыплате_Текущий" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="КВыплате.Сумма" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Multiline="True" ValueType="VarNumeric" Width="50" Wrap="True"/>
+          </Component>
+          <Component Name="Group4" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+            <Component Name="Static12" Class="Com.Ctrl.IStatic" Visible="True" Wrap="False"/>
+            <Component Name="Static5" Class="Com.Ctrl.IStatic" Caption="Налоги, взносы, отчисления" FontBold="True" Visible="True" Width="100" Wrap="False"/>
+          </Component>
+          <Component Name="Налоги_Таблица" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" Numbering="False" Subtable="Налоги_Позиции">
+            <Component Name="Налоги_ВидПлатежа" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Наименование налога, взноса" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыПлатежа" Enabled="False" Field="Налоги.ВидПлатежа" FixSize="True" HasCaption="True" LookupField="Name" Multiline="True" Width="100" Wrap="True"/>
+            <Component Name="ColumnsGroup1" Class="Com.Ctrl.IColumnsGroup" Caption="Сумма" HasCaption="True">
+              <Component Name="Налоги_Начислено" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="начислено" CellFormat="NumericFormat" Enabled="False" Field="Налоги.Начислено" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" ValueType="VarNumeric" Width="35"/>
+              <Component Name="Налоги_Выплачено" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="платежи" CellFormat="NumericFormat" Enabled="False" Field="Налоги.Выплачено" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" ValueType="VarNumeric" Width="35"/>
+              <Component Name="Налоги_Сумма" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="к выплате" CellFormat="NumericFormat" Enabled="False" Field="Налоги.Сумма" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" ValueType="VarNumeric" Width="50"/>
+            </Component>
+          </Component>
+          <Component Name="НалогиВсего" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" HasCaption="False" Numbering="False" Sortable="False" Subtable="НалогиИтого">
+            <Component Name="ВсегоНалоги" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Enabled="False" FontBold="True" Multiline="False" OnOutputEx="ВсегоСтр_OnOutputEx" Width="100"/>
+            <Component Name="СуммаНачислено" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" FieldFormat=",##0.00;;-" FixSize="True" FontBold="True" Multiline="False" OnOutputEx="СуммаНалогиНачислено_OnOutputEx" Width="35"/>
+            <Component Name="СуммаВЫплачено" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" FieldFormat=",##0.00;;-" FixSize="True" FontBold="True" Multiline="False" OnOutputEx="СуммаНалогиВыплачено_OnOutputEx" Width="35"/>
+            <Component Name="СуммаИтого" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" FieldFormat=",##0.00;;-" FixSize="True" FontBold="True" Multiline="False" OnOutputEx="СуммаНалогиИтого_OnOutputEx" Width="50"/>
+          </Component>
+        </Component>
+        <Component Name="Платежи" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Платежи" Enabled="False" HasCaption="True" Margins="5">
+          <Component Name="Group5" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Static6" Class="Com.Ctrl.IStatic" Caption="Выплаты сотрудникам" FontBold="True" Visible="True" Width="100" Wrap="False"/>
+            <Component Name="Static7" Class="Com.Ctrl.IStatic" Visible="True" Width="7" Wrap="False"/>
+            <Component Name="ОбновитьПлатежи" Class="Com.Ctrl.IButton" Excluded="True" Caption="@Form:RefreshButton=Обновить" ImageName="Refresh" OnClick="ОбновитьПлатежи_OnClick"/>
+          </Component>
+          <Component Name="ПлатежиСотрудникам_Таблица" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" Enabled="False" Numbering="False" Subtable="ПлатежиСотрудникам_Позиции">
+            <Component Name="ТипПлатежа" Class="Com.Ctrl.IEdit" Caption="Тип платежа" Enabled="False" Field="ПлатежиСотрудникам.ВидПлатежа" HasCaption="True" Multiline="True" Width="50" Wrap="True"/>
+            <Component Name="СуммаПлатежа" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Сумма" CellFormat="NumericFormat" Enabled="False" Field="ПлатежиСотрудникам.Сумма" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Width="35"/>
+            <Component Name="ВедомостьДокумент" Class="Com.Ctrl.IEdit" Caption="Ведомость" CardFileClass="УправлениеПерсоналом.Tab.Документы.Выплаты.ВыплатыДокументы" Enabled="False" Field="ПлатежиСотрудникам.Ведомость" LookupField="Name" Multiline="True" Width="40" Wrap="True"/>
+            <Component Name="ПлатежныйДокументНалоги" Class="Com.Ctrl.IEdit" Caption="Платежный документ" Enabled="False" Field="ПлатежиСотрудникам.ПлатежныйДокумент" HasCaption="True" LookupField="Name" Multiline="True" OnOutputEx="ПлатежныйДокументНалоги_OnOutputEx" Width="40" Wrap="True"/>
+            <Component Name="ДатаПлатежаСотрудникам" Class="Com.Ctrl.IEdit" Caption="Дата платежа" Enabled="False" Field="ПлатежиСотрудникам.ДатаПлатежа" FixSize="True" HasCaption="True" Width="30" Wrap="False"/>
+            <Component Name="ПлатежиКонтрагент" Class="Com.Ctrl.IEdit" Caption="Контрагент" Enabled="False" Field="ПлатежиСотрудникам.Контрагент" HasCaption="True" LookupField="Name" Multiline="True" Width="50" Wrap="True"/>
+            <Component Name="ПлатежиСтатусПлатежа" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Статус платежа" CellFormat="EnumFormat" Field="ПлатежиСотрудникам.СтатусПлатежа" HasCaption="True" Multiline="True" Wrap="True"/>
+          </Component>
+          <Component Name="ПлатежиСотрудникамИтого" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" Enabled="False" HasCaption="False" Numbering="False" Subtable="ПлатежиИтого">
+            <Component Name="ТипПлатежа1" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" FontBold="True" HasCaption="False" Multiline="False" OnOutputEx="ВсегоСтр_OnOutputEx" Width="50" Wrap="False"/>
+            <Component Name="СуммаПлатежа1" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" FieldFormat=",##0.00;;-" FixSize="True" FontBold="True" HasCaption="False" Multiline="False" OnOutputEx="СуммаПлатежа_OnOutputEx" Width="35" Wrap="False"/>
+            <Component Name="ВедомостьДокумент1" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Multiline="False" Width="40" Wrap="False"/>
+            <Component Name="ПлатежныйДокументНалоги1" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Multiline="False" Width="40" Wrap="False"/>
+            <Component Name="ДатаПлатежаСотрудникам1" Class="Com.Ctrl.IEdit" Enabled="False" FixSize="True" HasCaption="False" Width="30" Wrap="False"/>
+            <Component Name="ПлатежиКонтрагент1" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Multiline="False" Width="50" Wrap="False"/>
+            <Component Name="ПлатежиСтатусПлатежа1" Class="Com.Ctrl.IEdit" Excluded="True" HasCaption="False" Multiline="False" Wrap="False"/>
+          </Component>
+          <Component Name="Group6" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+            <Component Name="Static9" Class="Com.Ctrl.IStatic" Visible="True" Wrap="False"/>
+            <Component Name="Static8" Class="Com.Ctrl.IStatic" Caption="Платежи по налогам, доп. отчисления" FontBold="True" Visible="True" Wrap="False"/>
+          </Component>
+          <Component Name="ПлатежиПоНалогам_Таблица" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" Numbering="False" Subtable="ПлатежиПоНалогам_Позиции">
+            <Component Name="ВидПлатежа" Class="Com.Ctrl.IEdit" Caption="Тип платежа" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыПлатежа" Enabled="False" Field="ПлатежиПоНалогам.ВидПлатежа" HasCaption="True" LookupField="Name" Multiline="True" Width="50" Wrap="True"/>
+            <Component Name="Сумма" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Сумма" CellFormat="NumericFormat" Enabled="False" Field="ПлатежиПоНалогам.Сумма" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Width="35"/>
+            <Component Name="Ведомость" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Ведомость" HasCaption="True"/>
+            <Component Name="ПлатежныйДокумент" Class="Com.Ctrl.IEdit" Caption="Платежный документ" Enabled="False" Field="ПлатежиПоНалогам.ПлатежныйДокумент" HasCaption="True" Multiline="True" OnOutputEx="ПлатежныйДокументНалоги_OnOutputEx" Width="80" Wrap="True"/>
+            <Component Name="ДатаПлатежа" Class="Com.Ctrl.IEdit" Caption="Дата платежа" Enabled="False" Field="ПлатежиПоНалогам.ДатаПлатежа" FixSize="True" HasCaption="True" Width="30"/>
+            <Component Name="Контрагент" Class="Com.Ctrl.IEdit" Caption="Контрагент" Enabled="False" Field="ПлатежиПоНалогам.Контрагент" HasCaption="True" LookupField="Name" Width="50"/>
+            <Component Name="СтатусПлатежа" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Статус платежа" HasCaption="True"/>
+          </Component>
+          <Component Name="ПлатежиПоНалогамИтого" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" Enabled="False" HasCaption="False" Numbering="False" Subtable="ПлатежиНалогиИтого">
+            <Component Name="ТипПлатежа2" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Enabled="False" FontBold="True" HasCaption="False" Multiline="False" OnOutputEx="ВсегоСтр_OnOutputEx" Width="50" Wrap="False"/>
+            <Component Name="СуммаПлатежа2" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" FieldFormat=",##0.00;;-" FixSize="True" FontBold="True" HasCaption="False" Multiline="False" OnOutputEx="СуммаПлатежиПоНалогам_OnOutputEx" Width="35" Wrap="False"/>
+            <Component Name="ВедомостьДокумент2" Class="Com.Ctrl.IEdit" Excluded="True" Enabled="False" HasCaption="False" Multiline="False" Wrap="False"/>
+            <Component Name="ПлатежныйДокументНалоги2" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Multiline="False" Width="80" Wrap="False"/>
+            <Component Name="ДатаПлатежаСотрудникам2" Class="Com.Ctrl.IEdit" Enabled="False" FixSize="True" HasCaption="False" Width="30" Wrap="False"/>
+            <Component Name="ПлатежиКонтрагент2" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Multiline="False" Width="50" Wrap="False"/>
+            <Component Name="ПлатежиСтатусПлатежа2" Class="Com.Ctrl.IEdit" Excluded="True" HasCaption="False" Multiline="False" Wrap="False"/>
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

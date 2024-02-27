@@ -1,0 +1,1013 @@
+﻿TBCFile VER="3.4" [Created '21.10.2022 16:20:30' by 'Администратор']
+
+DESCRIPTION[
+Count=45
+CountByRef=0
+EquipmentRegistry.Ref.EquipmentClasses
+(
+  Count=45
+  CountByRef=0
+)
+EquipmentRegistry.Settings.EquipmentRegistry.EquipmentCharacteristicTypes
+(
+  Count=0
+  CountByRef=0
+)
+EquipmentRegistry.Settings.EquipmentRegistry.EquipmentOperatingTypes
+(
+  Count=0
+  CountByRef=0
+)
+EquipmentRegistry.Settings.EquipmentRegistry.EquipmentParameters
+(
+  Count=0
+  CountByRef=0
+)
+Repair.Ref.Normatives
+(
+  Count=0
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [EquipmentRegistry.Ref.EquipmentClasses
+  (
+    Deleted :Boolean
+    GroupDoc :EquipmentRegistry.Ref.EquipmentClasses
+    isGroup :Integer
+    CreateDate :Date
+    CreateUser :String(40)
+    UpdateDate :Date
+    UpdateUser :String(40)
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    isOnDA :Boolean
+    DAApprovalTask :DocApprovement.Data.DATask
+    ExtraFields :Struct array Integer
+    (
+      Name :String(128)
+      AsString :String(8000)
+      AsInteger :Integer
+      AsNumeric :Real
+      AsDate :Date
+      AsLogical :Boolean
+      AsRecord :Inherited IDRecord
+    )
+    HistoricalData :Struct array Integer
+    (
+      Name :String(128)
+      Time :Date
+      AsString :String(8000)
+      AsInteger :Integer
+      AsNumeric :Real
+      AsDate :Date
+      AsLogical :Boolean
+      AsRecord :Inherited IDRecord
+    )
+    Comment :Memo
+    ObjType :Bas.Config.ProcType
+    Attachments :Struct array Integer
+    (
+      Attachment :Com.Archive.Attachment
+    )
+    Marker :String
+    GeoObject :Map.Data.GeoObject
+    IconFile :Com.Archive.File
+    Позиции :Struct array Integer
+    (
+      ExtraFields :Struct array Integer
+      (
+        Name :String(255)
+        AsNumeric :Real
+        AsString :String(8000)
+        AsInteger :Integer
+        AsDate :Date
+        AsLogical :Boolean
+        AsRecord :Inherited Com.Base.ComFields
+      )
+    )
+    TaskStatus :Control.Ref.TaskStatus
+    ApprovalTask :Control.Data.Task
+    ClassCode :Integer
+    TypeCode :Integer
+    KindCode :Integer
+    ModelCode :Integer
+    Level :Integer
+    Characteristics :Struct array Integer
+    (
+      CharactCode :EquipmentRegistry.Settings.EquipmentRegistry.EquipmentCharacteristicTypes
+      CharactValue :String
+    )
+    OperatingTime :Struct array Integer
+    (
+      OperTimeCode :EquipmentRegistry.Settings.EquipmentRegistry.EquipmentOperatingTypes
+      ServiceLife :Real
+    )
+    Parameters :Struct array Integer
+    (
+      ParameterCode :EquipmentRegistry.Settings.EquipmentRegistry.EquipmentParameters
+      NeedNotify :Boolean
+      MinForNotify :Real
+      MaxForNotify :Real
+      NotifyDefLevel :Repair.Settings.Repair.EquipmentDefectLevels
+      NotifyDefectType :Repair.Settings.Repair.EquipmentDefectTypes
+      NotifyNormCode :Repair.Ref.Normatives
+      NotifyFlowCode :Repair.Ref.FlowCharts
+      NeedCritical :Boolean
+      MinForCritical :Real
+      MaxForCritical :Real
+      IncludeNMin :Boolean
+      IncludeNMax :Boolean
+      IncludeCMin :Boolean
+      IncludeCMax :Boolean
+      CriticalDefLevel :Repair.Settings.Repair.EquipmentDefectLevels
+      CriticalDefectType :Repair.Settings.Repair.EquipmentDefectTypes
+      CriticalNormCode :Repair.Ref.Normatives
+      CriticalFlowCode :Repair.Ref.FlowCharts
+    )
+    SpareParts :Struct array Integer
+    (
+      PartsCode :EquipmentRegistry.Ref.EquipmentClasses
+    )
+    Normatives :Struct array Integer
+    (
+      NormsCode :Repair.Ref.Normatives
+      PlaneType :Integer
+      OperTimeCode :EquipmentRegistry.Settings.EquipmentRegistry.EquipmentOperatingTypes
+      OperTimeValue :Real
+      PeriodType :Integer
+      PeriodValue :Integer
+      PlanShift :Integer
+    )
+  )
+  ForeignKey Code
+  ]
+
+  [EquipmentRegistry.Settings.EquipmentRegistry.EquipmentCharacteristicTypes
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+  [EquipmentRegistry.Settings.EquipmentRegistry.EquipmentOperatingTypes
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+  [EquipmentRegistry.Settings.EquipmentRegistry.EquipmentParameters
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+  [Repair.Ref.Normatives
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[EquipmentRegistry.Ref.EquipmentClasses
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"40"}
+  (
+    isGroup = -1
+    CreateDate = 08.07.2022 17:24:26
+    CreateUser = "ushakov"
+    UpdateDate = 08.07.2022 17:24:26
+    UpdateUser = "ushakov"
+    Name = "Автотранспорт"
+    ClassCode = 40
+    Level = 1
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"40001"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:40}
+    isGroup = -1
+    CreateDate = 08.07.2022 17:24:55
+    CreateUser = "ushakov"
+    UpdateDate = 08.07.2022 17:24:55
+    UpdateUser = "ushakov"
+    Name = "Грузовой транспорт"
+    ClassCode = 40
+    TypeCode = 1
+    Level = 2
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"40002"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:40}
+    isGroup = -1
+    CreateDate = 08.07.2022 17:25:14
+    CreateUser = "ushakov"
+    UpdateDate = 08.07.2022 17:25:14
+    UpdateUser = "ushakov"
+    Name = "Легковой транспорт"
+    ClassCode = 40
+    TypeCode = 2
+    Level = 2
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"40003"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:40}
+    isGroup = -1
+    CreateDate = 08.07.2022 17:25:39
+    CreateUser = "ushakov"
+    UpdateDate = 08.07.2022 17:25:39
+    UpdateUser = "ushakov"
+    Name = "Самоходные подъемные механизмы"
+    ClassCode = 40
+    TypeCode = 3
+    Level = 2
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"40004"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:40}
+    isGroup = -1
+    CreateDate = 08.07.2022 17:25:50
+    CreateUser = "ushakov"
+    UpdateDate = 08.07.2022 17:25:50
+    UpdateUser = "ushakov"
+    Name = "Спецтехника"
+    ClassCode = 40
+    TypeCode = 4
+    Level = 2
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"400020001"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:40002}
+    isGroup = -1
+    CreateDate = 08.07.2022 17:26:12
+    CreateUser = "ushakov"
+    UpdateDate = 08.07.2022 17:26:12
+    UpdateUser = "ushakov"
+    Name = "Автомобили легковые"
+    ClassCode = 40
+    TypeCode = 2
+    KindCode = 1
+    Level = 3
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"400020002"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:40002}
+    isGroup = -1
+    CreateDate = 08.07.2022 17:26:23
+    CreateUser = "ushakov"
+    UpdateDate = 08.07.2022 17:26:23
+    UpdateUser = "ushakov"
+    Name = "Мотоциклы"
+    ClassCode = 40
+    TypeCode = 2
+    KindCode = 2
+    Level = 3
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"4000200010001"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:400020001}
+    CreateDate = 08.07.2022 17:26:59
+    CreateUser = "ushakov"
+    UpdateDate = 10.08.2022 10:05:04
+    UpdateUser = "ltest7"
+    Name = "Toyota Camry"
+    ClassCode = 40
+    TypeCode = 2
+    KindCode = 1
+    ModelCode = 1
+    Level = 4
+    Normatives = (
+      0:(
+        NormsCode = {Repair.Ref.Normatives:124}
+        OperTimeCode = {EquipmentRegistry.Settings.EquipmentRegistry.EquipmentOperatingTypes:1111}
+        OperTimeValue = 10000
+      )
+      1:(
+        NormsCode = {Repair.Ref.Normatives:"Замена масла АКПП"}
+        OperTimeCode = {EquipmentRegistry.Settings.EquipmentRegistry.EquipmentOperatingTypes:Пробег}
+        OperTimeValue = 30000
+      )
+    )
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"12"}
+  (
+    isGroup = -1
+    CreateDate = 26.07.2022 13:41:43
+    CreateUser = "ltest7"
+    UpdateDate = 26.07.2022 13:41:43
+    UpdateUser = "ltest7"
+    Name = "Здание"
+    ClassCode = 12
+    Level = 1
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"12001"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:12}
+    isGroup = -1
+    CreateDate = 26.07.2022 13:42:01
+    CreateUser = "ltest7"
+    UpdateDate = 26.07.2022 13:42:01
+    UpdateUser = "ltest7"
+    Name = "Общего пользования"
+    ClassCode = 12
+    TypeCode = 1
+    Level = 2
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"120010001"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:12001}
+    isGroup = -1
+    CreateDate = 26.07.2022 13:42:20
+    CreateUser = "ltest7"
+    UpdateDate = 26.07.2022 13:42:20
+    UpdateUser = "ltest7"
+    Name = "Многоэтажное"
+    ClassCode = 12
+    TypeCode = 1
+    KindCode = 1
+    Level = 3
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"1200100010001"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:120010001}
+    CreateDate = 26.07.2022 14:07:58
+    CreateUser = "ltest7"
+    UpdateDate = 20.10.2022 11:44:03
+    UpdateUser = "ltest7"
+    Name = "Здание"
+    ClassCode = 12
+    TypeCode = 1
+    KindCode = 1
+    ModelCode = 1
+    Level = 4
+    Characteristics = (
+      0:(
+        CharactCode = {EquipmentRegistry.Settings.EquipmentRegistry.EquipmentCharacteristicTypes:Недвижимость-001-003-001-01}
+      )
+      1:(
+        CharactCode = {EquipmentRegistry.Settings.EquipmentRegistry.EquipmentCharacteristicTypes:Недвижимость-001-002}
+      )
+      2:(
+        CharactCode = {EquipmentRegistry.Settings.EquipmentRegistry.EquipmentCharacteristicTypes:Недвижимость-008-004}
+        CharactValue = "Профнастил"
+      )
+    )
+    SpareParts = (
+      0:(
+        PartsCode = {EquipmentRegistry.Ref.EquipmentClasses:0100200030001}
+      )
+      1:(
+        PartsCode = {EquipmentRegistry.Ref.EquipmentClasses:0100200030002}
+      )
+      2:(
+        PartsCode = {EquipmentRegistry.Ref.EquipmentClasses:0100200030003}
+      )
+      3:(
+        PartsCode = {EquipmentRegistry.Ref.EquipmentClasses:0100200030004}
+      )
+      4:(
+        PartsCode = {EquipmentRegistry.Ref.EquipmentClasses:0100200020001}
+      )
+      5:(
+        PartsCode = {EquipmentRegistry.Ref.EquipmentClasses:0100200020002}
+      )
+      6:(
+        PartsCode = {EquipmentRegistry.Ref.EquipmentClasses:0100200020003}
+      )
+      7:(
+        PartsCode = {EquipmentRegistry.Ref.EquipmentClasses:0100200010001}
+      )
+      8:(
+        PartsCode = {EquipmentRegistry.Ref.EquipmentClasses:0100200050001}
+      )
+      9:(
+        PartsCode = {EquipmentRegistry.Ref.EquipmentClasses:0100200040001}
+      )
+      10:(
+        PartsCode = {EquipmentRegistry.Ref.EquipmentClasses:0100200040002}
+      )
+      11:(
+        PartsCode = {EquipmentRegistry.Ref.EquipmentClasses:0100200060001}
+      )
+      12:(
+        PartsCode = {EquipmentRegistry.Ref.EquipmentClasses:0100200060002}
+      )
+      13:(
+        PartsCode = {EquipmentRegistry.Ref.EquipmentClasses:0100200070001}
+      )
+      14:(
+        PartsCode = {EquipmentRegistry.Ref.EquipmentClasses:0100200080001}
+      )
+      15:(
+        PartsCode = {EquipmentRegistry.Ref.EquipmentClasses:0100200080002}
+      )
+    )
+    Normatives = (
+      0:(
+        NormsCode = {Repair.Ref.Normatives:"Норматив на капитальный ремонт"}
+        PlaneType = 1
+        PeriodType = 5
+        PeriodValue = 25
+      )
+      1:(
+        NormsCode = {Repair.Ref.Normatives:"Норматив на текущий ремонт"}
+        PlaneType = 1
+        PeriodType = 5
+        PeriodValue = 2
+      )
+    )
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"01"}
+  (
+    isGroup = -1
+    CreateDate = 29.07.2022 16:30:29
+    CreateUser = "ekvo"
+    UpdateDate = 21.10.2022 16:19:40
+    UpdateUser = "ltest7"
+    Name = "Инженерная система"
+    ClassCode = 1
+    Level = 1
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"01001"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:01}
+    isGroup = -1
+    CreateDate = 29.07.2022 16:34:24
+    CreateUser = "ekvo"
+    UpdateDate = 29.07.2022 16:34:24
+    UpdateUser = "ekvo"
+    Name = "Наружная"
+    ClassCode = 1
+    TypeCode = 1
+    Level = 2
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"01002"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:01}
+    isGroup = -1
+    CreateDate = 29.07.2022 16:34:59
+    CreateUser = "ekvo"
+    UpdateDate = 29.07.2022 16:34:59
+    UpdateUser = "ekvo"
+    Name = "Внутренняя"
+    ClassCode = 1
+    TypeCode = 2
+    Level = 2
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"12002"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:12}
+    isGroup = -1
+    CreateDate = 03.08.2022 10:03:22
+    CreateUser = "ltest9"
+    UpdateDate = 03.08.2022 10:03:22
+    UpdateUser = "ltest9"
+    Name = "Помещения"
+    ClassCode = 12
+    TypeCode = 2
+    Level = 2
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"120020001"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:12002}
+    isGroup = -1
+    CreateDate = 03.08.2022 10:04:19
+    CreateUser = "ltest9"
+    UpdateDate = 03.08.2022 10:29:48
+    UpdateUser = "ltest9"
+    Name = "Нежилые"
+    ClassCode = 12
+    TypeCode = 2
+    KindCode = 1
+    Level = 3
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"120020002"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:12002}
+    isGroup = -1
+    CreateDate = 03.08.2022 10:28:34
+    CreateUser = "ltest9"
+    UpdateDate = 03.08.2022 10:29:39
+    UpdateUser = "ltest9"
+    Name = "Жилые"
+    ClassCode = 12
+    TypeCode = 2
+    KindCode = 2
+    Level = 3
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"1200200010002"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:120020001}
+    CreateDate = 03.08.2022 10:33:34
+    CreateUser = "ltest9"
+    UpdateDate = 03.08.2022 11:26:29
+    UpdateUser = "ltest9"
+    Name = "Офисное помещение"
+    ClassCode = 12
+    TypeCode = 2
+    KindCode = 1
+    ModelCode = 2
+    Level = 4
+    Characteristics = (
+      0:(
+        CharactCode = {EquipmentRegistry.Settings.EquipmentRegistry.EquipmentCharacteristicTypes:Недвижимость-001-006-002}
+      )
+      1:(
+        CharactCode = {EquipmentRegistry.Settings.EquipmentRegistry.EquipmentCharacteristicTypes:Недвижимость-001-003-002}
+      )
+      2:(
+        CharactCode = {EquipmentRegistry.Settings.EquipmentRegistry.EquipmentCharacteristicTypes:Недвижимость-001-003-012}
+      )
+      3:(
+        CharactCode = {EquipmentRegistry.Settings.EquipmentRegistry.EquipmentCharacteristicTypes:Недвижимость-001-003-013}
+      )
+    )
+    Normatives = (
+      0:(
+        NormsCode = {Repair.Ref.Normatives:"Норматив на осмотр помещения"}
+        PlaneType = 1
+        PeriodType = 2
+        PeriodValue = 1
+      )
+    )
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"4000200010010"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:400020001}
+    CreateDate = 15.08.2022 10:14:19
+    CreateUser = "ltest7"
+    UpdateDate = 16.08.2022 11:13:05
+    UpdateUser = "ltest7"
+    Name = "Легковой автомобиль"
+    ClassCode = 40
+    TypeCode = 2
+    KindCode = 1
+    ModelCode = 10
+    Level = 4
+    OperatingTime = (
+      0:(
+        OperTimeCode = {EquipmentRegistry.Settings.EquipmentRegistry.EquipmentOperatingTypes:Пробег}
+      )
+    )
+    Parameters = (
+      0:(
+        ParameterCode = {EquipmentRegistry.Settings.EquipmentRegistry.EquipmentParameters:"Время работы"}
+      )
+    )
+    Normatives = (
+      0:(
+        NormsCode = {Repair.Ref.Normatives:"Замена масла ДВС"}
+        OperTimeCode = {EquipmentRegistry.Settings.EquipmentRegistry.EquipmentOperatingTypes:Пробег}
+        OperTimeValue = 10000
+      )
+      1:(
+        NormsCode = {Repair.Ref.Normatives:"Замена масла АКПП"}
+        OperTimeCode = {EquipmentRegistry.Settings.EquipmentRegistry.EquipmentOperatingTypes:Пробег}
+        OperTimeValue = 50000
+      )
+      2:(
+        NormsCode = {Repair.Ref.Normatives:"Замена антифриза"}
+        OperTimeCode = {EquipmentRegistry.Settings.EquipmentRegistry.EquipmentOperatingTypes:Пробег}
+        OperTimeValue = 30000
+      )
+      3:(
+        NormsCode = {Repair.Ref.Normatives:"Замена тормозной жидкости"}
+        OperTimeCode = {EquipmentRegistry.Settings.EquipmentRegistry.EquipmentOperatingTypes:Пробег}
+        OperTimeValue = 30000
+      )
+      4:(
+        NormsCode = {Repair.Ref.Normatives:"Замена жидкости ГУР"}
+        OperTimeCode = {EquipmentRegistry.Settings.EquipmentRegistry.EquipmentOperatingTypes:Пробег}
+        OperTimeValue = 40000
+      )
+      5:(
+        NormsCode = {Repair.Ref.Normatives:"Замена салонного фильтра"}
+        OperTimeCode = {EquipmentRegistry.Settings.EquipmentRegistry.EquipmentOperatingTypes:Пробег}
+        OperTimeValue = 20000
+      )
+      6:(
+        NormsCode = {Repair.Ref.Normatives:"Замена воздушного фильтра"}
+        OperTimeCode = {EquipmentRegistry.Settings.EquipmentRegistry.EquipmentOperatingTypes:Пробег}
+        OperTimeValue = 20000
+      )
+    )
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"010020001"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:01002}
+    isGroup = -1
+    CreateDate = 29.08.2022 14:05:29
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:05:29
+    UpdateUser = "ltest7"
+    Name = "Теплоснабжение"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 1
+    Level = 3
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"010020002"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:01002}
+    isGroup = -1
+    CreateDate = 29.08.2022 14:05:39
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:05:39
+    UpdateUser = "ltest7"
+    Name = "Водоснабжение"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 2
+    Level = 3
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"010020003"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:01002}
+    isGroup = -1
+    CreateDate = 29.08.2022 14:05:49
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:05:49
+    UpdateUser = "ltest7"
+    Name = "Энергоснабжение"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 3
+    Level = 3
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"010020004"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:01002}
+    isGroup = -1
+    CreateDate = 29.08.2022 14:06:05
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:06:05
+    UpdateUser = "ltest7"
+    Name = "Вентиляция и кондиционирование"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 4
+    Level = 3
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"010020005"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:01002}
+    isGroup = -1
+    CreateDate = 29.08.2022 14:06:17
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:06:17
+    UpdateUser = "ltest7"
+    Name = "Газоснабжение"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 5
+    Level = 3
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"010020006"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:01002}
+    isGroup = -1
+    CreateDate = 29.08.2022 14:06:36
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:06:36
+    UpdateUser = "ltest7"
+    Name = "Средства связи"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 6
+    Level = 3
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"010010001"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:01001}
+    isGroup = -1
+    CreateDate = 29.08.2022 14:07:45
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:07:45
+    UpdateUser = "ltest7"
+    Name = "Наружное освещение зданий"
+    ClassCode = 1
+    TypeCode = 1
+    KindCode = 1
+    Level = 3
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"0100200030001"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:010020003}
+    CreateDate = 29.08.2022 14:10:23
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:10:23
+    UpdateUser = "ltest7"
+    Name = "Источник питания системы энергоснабжения"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 3
+    ModelCode = 1
+    Level = 4
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"0100200030002"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:010020003}
+    CreateDate = 29.08.2022 14:10:32
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:10:32
+    UpdateUser = "ltest7"
+    Name = "Источник бесперебойного энергоснабжения"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 3
+    ModelCode = 2
+    Level = 4
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"0100200030003"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:010020003}
+    CreateDate = 29.08.2022 14:10:42
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:10:42
+    UpdateUser = "ltest7"
+    Name = "Источник резервного энергоснабжения"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 3
+    ModelCode = 3
+    Level = 4
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"0100200030004"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:010020003}
+    CreateDate = 29.08.2022 14:10:53
+    CreateUser = "ltest7"
+    UpdateDate = 01.09.2022 13:21:04
+    UpdateUser = "ekvo"
+    Name = "Прибор учёта электроэнергии"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 3
+    ModelCode = 4
+    Level = 4
+    Characteristics = (
+      0:(
+        CharactCode = {EquipmentRegistry.Settings.EquipmentRegistry.EquipmentCharacteristicTypes:ИС-001}
+      )
+      1:(
+        CharactCode = {EquipmentRegistry.Settings.EquipmentRegistry.EquipmentCharacteristicTypes:ИС-002}
+      )
+    )
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"0100200020001"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:010020002}
+    CreateDate = 29.08.2022 14:11:23
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:11:23
+    UpdateUser = "ltest7"
+    Name = "Источник холодного водоснабжения"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 2
+    ModelCode = 1
+    Level = 4
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"0100200020002"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:010020002}
+    CreateDate = 29.08.2022 14:11:29
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:11:29
+    UpdateUser = "ltest7"
+    Name = "Источник горячего водоснабжения"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 2
+    ModelCode = 2
+    Level = 4
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"0100200020003"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:010020002}
+    CreateDate = 29.08.2022 14:11:36
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:11:36
+    UpdateUser = "ltest7"
+    Name = "Канализация"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 2
+    ModelCode = 3
+    Level = 4
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"0100200010001"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:010020001}
+    CreateDate = 29.08.2022 14:11:50
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:11:50
+    UpdateUser = "ltest7"
+    Name = "Источник теплоснабжения"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 1
+    ModelCode = 1
+    Level = 4
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"0100200050001"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:010020005}
+    CreateDate = 29.08.2022 14:12:02
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:12:02
+    UpdateUser = "ltest7"
+    Name = "Газоснабжение"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 5
+    ModelCode = 1
+    Level = 4
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"0100200040001"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:010020004}
+    CreateDate = 29.08.2022 14:12:15
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:12:15
+    UpdateUser = "ltest7"
+    Name = "Приточно-вытяжная вентиляция"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 4
+    ModelCode = 1
+    Level = 4
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"0100200040002"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:010020004}
+    CreateDate = 29.08.2022 14:12:21
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:12:21
+    UpdateUser = "ltest7"
+    Name = "Кондиционер"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 4
+    ModelCode = 2
+    Level = 4
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"0100200060001"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:010020006}
+    CreateDate = 29.08.2022 14:12:55
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:12:55
+    UpdateUser = "ltest7"
+    Name = "Локально вычислительная сеть"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 6
+    ModelCode = 1
+    Level = 4
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"0100200060002"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:010020006}
+    CreateDate = 29.08.2022 14:13:54
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:13:54
+    UpdateUser = "ltest7"
+    Name = "Система видеонаблюдения"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 6
+    ModelCode = 2
+    Level = 4
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"010020007"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:01002}
+    isGroup = -1
+    CreateDate = 29.08.2022 14:21:55
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:21:55
+    UpdateUser = "ltest7"
+    Name = "Лифты"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 7
+    Level = 3
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"0100200070001"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:010020007}
+    CreateDate = 29.08.2022 14:22:08
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:22:08
+    UpdateUser = "ltest7"
+    Name = "Лифт"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 7
+    ModelCode = 1
+    Level = 4
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"010020008"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:01002}
+    isGroup = -1
+    CreateDate = 29.08.2022 14:23:01
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:23:01
+    UpdateUser = "ltest7"
+    Name = "Сигнализация"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 8
+    Level = 3
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"0100200080001"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:010020008}
+    CreateDate = 29.08.2022 14:23:12
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:23:12
+    UpdateUser = "ltest7"
+    Name = "Охранная сигнализация"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 8
+    ModelCode = 1
+    Level = 4
+  )
+  
+  {EquipmentRegistry.Ref.EquipmentClasses:"0100200080002"}
+  (
+    GroupDoc = {EquipmentRegistry.Ref.EquipmentClasses:010020008}
+    CreateDate = 29.08.2022 14:23:22
+    CreateUser = "ltest7"
+    UpdateDate = 29.08.2022 14:23:22
+    UpdateUser = "ltest7"
+    Name = "Пожарная сигнализация"
+    ClassCode = 1
+    TypeCode = 2
+    KindCode = 8
+    ModelCode = 2
+    Level = 4
+  )
+]
+
+]

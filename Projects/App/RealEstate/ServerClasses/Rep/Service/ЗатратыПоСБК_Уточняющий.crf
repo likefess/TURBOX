@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" AccountFilter="AcceptingExpenses|OrderExpenses" AccountPlan="EquipmentRegistryAP" BegSaldoFormat="sfNone" Caption="ЗатратыПоСБК_Уточняющий" CIndicator="1" ColCaptionTurn="Затраты" EndSaldoFormat="sfNone" GeoSplit="1" GeoSplitRef="ОбъектИмущества" HystoKind="hkSide" Legend="lpkAtRight" LinkTables="True" Palette="cpMaterial" Period="3">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorЗаявка" Class="Com.Rep.IIndCalc" AccountFilter="OrderExpenses" Caption="Заявка" Contents="CostCosts"/>
+      <Component Name="IndicatorПриемка" Class="Com.Rep.IIndCalc" AccountFilter="AcceptingExpenses" Caption="Приемка" Contents="CostCosts"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParamUnitCode" Class="Com.Rep.ISplitByParam" SplitParam="UnitCode"/>
+        <Component Name="SplitParamCostCode" Class="Com.Rep.ISplitByParam" ShowTotalsAlways="True" SplitParam="CostCode"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContentRowsUnitCode" Class="Com.Rep.ISplitContent" Caption="ЕО" Contents="UnitCode.Код"/>
+        <Component Name="SplitContentRowsCostCode" Class="Com.Rep.ISplitContent" Caption="СБК" Contents="CostCode.Name"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab">
+        <Component Name="SplitContentTabsCostCode" Class="Com.Rep.ISplitContent" Contents="CostCode.Name" Enabled="False"/>
+      </Component>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_UnitCode" Class="Com.Rep.IRepControl" Caption="RC_UnitCode" CardFileClass="EquipmentRegistry.Tab.Eqm.EquipmentTab" DefaultStr="Object(nil)" MultiSelect="True" Operator=" is " Parameter="UnitCode" Plan="EquipmentRegistryAP" SkipNil="True" ValueType="VarObject" Visible="False"/>
+      <Component Name="RC_RealEstateObject" Class="Com.Rep.IRepControl" Caption="RC_RealEstateObject" CardFileClass="RealEstateBase.Tab.Data.RealEstateObject" DefaultStr="Object(nil)" Operator="=" Parameter="UnitCode.ОбъектИмущества" Plan="EquipmentRegistryAP" SkipNil="True" ValueType="VarObject" Visible="False"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

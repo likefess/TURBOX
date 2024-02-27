@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.Справочник">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Справочники.Прожиточный минимум">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Справочники.ПрожМинимум" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="GroupCode">
+            <Inherited Name="Locked" Visible="True"/>
+          </Inherited>
+          <Inherited Name="GroupName">
+            <Inherited Name="Closed" Visible="True"/>
+          </Inherited>
+        </Inherited>
+        <Component Name="грПараметры" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Регион" Class="Com.Ctrl.IEdit" Caption="Регион" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ПрожМинимум" Field="EdtRec.Регион" HasCaption="True" LookupField="Name"/>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+        </Component>
+        <Component Name="грСумма" Class="Com.Ctrl.IGroup" ByColumn="False">
+          <Component Name="ТипГруппы" Class="Com.Ctrl.IEdit" Caption="Сумма" CellFormat="EnumFormat" Field="EdtRec.ТипГруппы" HasCaption="True" Width="100"/>
+          <Component Name="Сумма" Class="Com.Ctrl.IEdit" Field="EdtRec.Сумма" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="False" Hint="Величина прожиточного минимума" Width="45"/>
+          <Component Name="кнИсторияСумма" Class="Com.Ctrl.IButton" Hint="История" ImageName="Com.bars" OnClick="ИсторияСумма_OnClick"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

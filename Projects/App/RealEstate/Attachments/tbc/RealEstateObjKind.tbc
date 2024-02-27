@@ -1,0 +1,122 @@
+﻿TBCFile VER="3.4" [Created '19.07.2022 17:58:20' by 'Администратор']
+
+DESCRIPTION[
+Count=7
+CountByRef=3
+RealEstate.Ref.RealEstateObjKind
+(
+  Count=7
+  CountByRef=0
+)
+RealEstate.Ref.RealEstateObjType
+(
+  Count=0
+  CountByRef=3
+)
+]
+
+METADATA[
+
+  [RealEstate.Ref.RealEstateObjKind
+  (
+    Deleted :Boolean
+    Code :String(80)
+    Name :String(255)
+    RealEstateObjType :RealEstate.Ref.RealEstateObjType
+    CardFormType :Integer
+  )
+  ForeignKey Code
+  ]
+
+  [RealEstate.Ref.RealEstateObjType
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    GKNCode :String(12)
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[RealEstate.Ref.RealEstateObjKind
+  
+  {RealEstate.Ref.RealEstateObjKind:"Автотранспорт"}
+  (
+    Name = "Автотранспорт"
+    RealEstateObjType = {RealEstate.Ref.RealEstateObjType:"Движимое имущество"}
+    CardFormType = 4
+  )
+  
+  {RealEstate.Ref.RealEstateObjKind:"Здание"}
+  (
+    Name = "Здание"
+    RealEstateObjType = {RealEstate.Ref.RealEstateObjType:"Недвижимое имущество"}
+    CardFormType = 2
+  )
+  
+  {RealEstate.Ref.RealEstateObjKind:"Земельный участок"}
+  (
+    Name = "Земельный участок"
+    RealEstateObjType = {RealEstate.Ref.RealEstateObjType:"Земельный участок"}
+    CardFormType = 1
+  )
+  
+  {RealEstate.Ref.RealEstateObjKind:"Имущественный комплекс"}
+  (
+    Name = "Имущественный комплекс"
+    RealEstateObjType = {RealEstate.Ref.RealEstateObjType:"Недвижимое имущество"}
+    CardFormType = 3
+  )
+  
+  {RealEstate.Ref.RealEstateObjKind:"Машино-место"}
+  (
+    Name = "Машино-место"
+    RealEstateObjType = {RealEstate.Ref.RealEstateObjType:"Недвижимое имущество"}
+    CardFormType = 2
+  )
+  
+  {RealEstate.Ref.RealEstateObjKind:"Помещение"}
+  (
+    Name = "Помещение"
+    RealEstateObjType = {RealEstate.Ref.RealEstateObjType:"Недвижимое имущество"}
+    CardFormType = 2
+  )
+  
+  {RealEstate.Ref.RealEstateObjKind:"Сооружение"}
+  (
+    Name = "Сооружение"
+    RealEstateObjType = {RealEstate.Ref.RealEstateObjType:"Недвижимое имущество"}
+    CardFormType = 2
+  )
+]
+
+[RealEstate.Ref.RealEstateObjType
+  
+  {RealEstate.Ref.RealEstateObjType:"Недвижимое имущество"}
+  (
+    Name = "Недвижимое имущество"
+  )
+  
+  {RealEstate.Ref.RealEstateObjType:"Земельный участок"}
+  (
+    Name = "Земельный участок"
+  )
+  
+  {RealEstate.Ref.RealEstateObjType:"Движимое имущество"}
+  (
+    Name = "Движимое имущество"
+  )
+]
+
+]

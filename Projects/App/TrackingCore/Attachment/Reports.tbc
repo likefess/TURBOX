@@ -1,0 +1,126 @@
+﻿TBCFile VER="3.4" [Created '28.10.2022 12:57:05' by 'Администратор']
+
+DESCRIPTION[
+Count=1
+CountByRef=0
+Com.Service.Report
+(
+  Count=1
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Com.Service.Report
+  (
+    Deleted :Boolean
+    GroupDoc :Com.Service.Report
+    isGroup :Integer
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    НеОтображаетсяВДереве :Boolean
+    MetaLock :Boolean
+    SubsysCode :Integer
+    PartisCode :Integer
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    Content :Memo
+    RType :Integer
+    Errors :String(4000)
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Com.Service.Report
+  
+  {Com.Service.Report:"Канбан"}
+  (
+    Name = "Канбан"
+    Content = 
+      "<?xml version=""1.0"" encoding=""UTF-8""?>\x0D\x0A<Resource Version=""2"">\x0D\x0A  <Compone"
+      "nt Class=""Com.Rep.IReportTurns"" Period=""-1"" OpenPeriod=""opAll"" HidePeriod="
+      """True"" AccountPlan=""Workflow"" BegSaldoFormat=""sfNone"" Caption=""Канбан"" CIn"
+      "dicator=""1"" Palette=""cpDefault"" Legend=""lpkAtRight"" HystoKind=""hkSide"">\x0D\x0A "
+      "   <Component Name=""Indicators"" Class=""Com.RepCtrl.IWrapIndicator"">\x0D\x0A     "
+      " <Component Name=""IndicatorTaskUnit"" Class=""Com.Rep.IIndMain"" Contents=""Ta"
+      "skUnit"" Caption=""IndicatorTaskUnit""/>\x0D\x0A    </Component>\x0D\x0A    <Component Na"
+      "me=""Grouping"" Class=""Com.RepCtrl.IWrapGrouping"">\x0D\x0A      <Component Name=""S"
+      "plitByRows"" Class=""Com.RepCtrl.IWrapDimension"" Dimension=""rdRow"">\x0D\x0A       "
+      " <Component Name=""SplitParam1999D03E"" Class=""Com.Rep.ISplitByParam"" SplitP"
+      "aram=""Task""/>\x0D\x0A      </Component>\x0D\x0A      <Component Name=""SplitByCols"" Cla"
+      "ss=""Com.RepCtrl.IWrapDimension"" Dimension=""rdCol""/>\x0D\x0A      <Component Name"
+      "=""SplitByTabs"" Class=""Com.RepCtrl.IWrapDimension"" Dimension=""rdTab""/>\x0D\x0A   "
+      "   <Component Name=""ContentByRows"" Class=""Com.RepCtrl.IWrapContent"" Dimens"
+      "ion=""rdRow"">\x0D\x0A        <Component Name=""SplitContent19B9D5F8"" Class=""Com.Re"
+      "p.ISplitContent"" Contents=""Task.Состояние""/>\x0D\x0A        <Component Name=""Spl"
+      "itContent46BA3CBD"" Class=""Com.Rep.ISplitContent"" Contents=""Task.Инициатор."
+      "Наименование""/>\x0D\x0A        <Component Name=""SplitContentDDBE1A65"" Class=""Com"
+      ".Rep.ISplitContent"" Contents=""Task.Описание""/>\x0D\x0A        <Component Name=""S"
+      "plitContent85B740DC"" Class=""Com.Rep.ISplitContent"" Contents=""Task.Ответств"
+      "енный.Наименование""/>\x0D\x0A      </Component>\x0D\x0A      <Component Name=""ContentB"
+      "yCols"" Class=""Com.RepCtrl.IWrapContent"" Dimension=""rdCol""/>\x0D\x0A      <Compon"
+      "ent Name=""ContentByTabs"" Class=""Com.RepCtrl.IWrapContent"" Dimension=""rdTab"
+      """/>\x0D\x0A    </Component>\x0D\x0A    <Component Name=""DrillDown"" Class=""Com.RepCtrl."
+      "IWrapExplain""/>\x0D\x0A    <Component Name=""Parameters"" Class=""Com.RepCtrl.IWrap"
+      "Controls"">\x0D\x0A      <Component Name=""RC_Task.ПечатныйНомер"" Class=""Com.Rep.I"
+      "RepControl"" Caption=""Номер"" ValueType=""VarString"" AutoBuild=""True"" Plan=""W"
+      "orkflow"" Parameter=""Task.ПечатныйНомер"" Operator=""="" SkipNil=""True"" Defaul"
+      "tStr=""String(&quot;&quot;)""/>\x0D\x0A      <Component Name=""RC_Project"" Class=""C"
+      "om.Rep.IRepControl"" Caption=""Проект"" ValueType=""VarObject"" AutoBuild=""True"
+      """ Plan=""Workflow"" Parameter=""Project"" Operator=""="" SkipNil=""True"" DefaultS"
+      "tr=""Object(nil)"" MultiSelect=""True"" CaptionWidth=""40""/>\x0D\x0A      <Component "
+      "Name=""RC_Task.Категория"" Class=""Com.Rep.IRepControl"" Caption=""Тип задачи"" "
+      "ValueType=""VarObject"" AutoBuild=""True"" Plan=""Workflow"" Parameter=""Task.Кат"
+      "егория"" Operator=""="" SkipNil=""True"" DefaultStr=""Object(nil)"" MultiSelect="""
+      "True"" CaptionWidth=""40""/>\x0D\x0A      <Component Name=""RC_Label"" Class=""Com.Rep"
+      ".IRepControl"" Caption=""Метка"" ValueType=""VarObject"" AutoBuild=""True"" Plan="
+      """Workflow"" Parameter=""Label"" Operator=""="" SkipNil=""True"" DefaultStr=""Objec"
+      "t(nil)"" MultiSelect=""True""/>\x0D\x0A      <Component Name=""RC_Task.Описание"" Cla"
+      "ss=""Com.Rep.IRepControl"" Caption=""Название"" ValueType=""VarString"" AutoBuil"
+      "d=""True"" Plan=""Workflow"" Parameter=""Task.Описание"" Operator=""="" SkipNil=""T"
+      "rue"" DefaultStr=""String(&quot;&quot;)"" NewLine=""True""/>\x0D\x0A      <Component "
+      "Name=""RC_Task.Состояние"" Class=""Com.Rep.IRepControl"" Caption=""Статус"" V"
+      "alueType=""VarObject"" AutoBuild=""True"" Plan=""Workflow"" Parameter=""Task.Сост"
+      "ояние"" Operator=""="" SkipNil=""True"" DefaultStr=""Object(nil)"" MultiSelect=""T"
+      "rue"" CaptionWidth=""40""/>\x0D\x0A      <Component Name=""RC_Task.Ответственный"" Cl"
+      "ass=""Com.Rep.IRepControl"" Caption=""Ответственный"" ValueType=""VarObject"" Au"
+      "toBuild=""True"" Plan=""Workflow"" Parameter=""Task.Ответственный"" Operator=""="""
+      " SkipNil=""True"" DefaultStr=""Object(nil)"" CaptionWidth=""40""/>\x0D\x0A      <Compo"
+      "nent Name=""RC_Component"" Class=""Com.Rep.IRepControl"" Caption=""Компонент"" V"
+      "alueType=""VarObject"" AutoBuild=""True"" Plan=""Workflow"" Parameter=""Component"
+      """ Operator=""="" SkipNil=""True"" DefaultStr=""Object(nil)"" MultiSelect=""True""/"
+      ">\x0D\x0A      <Component Name=""RC_Task.ОписаниеЗадачи"" Class=""Com.Rep.IRepContr"
+      "ol"" Caption=""Описание"" ValueType=""VarString"" AutoBuild=""True"" Plan=""Workfl"
+      "ow"" Parameter=""Task.ОписаниеЗадачи"" Operator=""="" SkipNil=""True"" DefaultStr"
+      "=""String(&quot;&quot;)"" NewLine=""True""/>\x0D\x0A      <Component Name=""RC_Task.P"
+      "rio"" Class=""Com.Rep.IRepControl"" Caption=""Приоритет"" ValueType=""VarObject"""
+      " AutoBuild=""True"" Plan=""Workflow"" Parameter=""Task.Prio"" Operator=""="" SkipN"
+      "il=""True"" DefaultStr=""Object(nil)"" MultiSelect=""True"" CaptionWidth=""40""/>\x0D"
+      "\x0A      <Component Name=""RC_Task.Инициатор"" Class=""Com.Rep.IRepControl"" Cap"
+      "tion=""Инициатор"" ValueType=""VarObject"" AutoBuild=""True"" Plan=""Workflow"" Pa"
+      "rameter=""Task.Инициатор"" Operator=""="" SkipNil=""True"" DefaultStr=""Object(ni"
+      "l)"" CaptionWidth=""40""/>\x0D\x0A      <Component Name=""RC_Sprint"" Class=""Com.Rep."
+      "IRepControl"" Caption=""Спринт"" ValueType=""VarObject"" AutoBuild=""True"" Plan="
+      """Workflow"" Parameter=""Sprint"" Operator=""="" SkipNil=""True"" DefaultStr=""Obje"
+      "ct(nil)"" MultiSelect=""True""/>\x0D\x0A    </Component>\x0D\x0A    <Component Name=""Join"
+      "edCharts"" Class=""InfoBoard.Rep.IWrapJoinedChart""/>\x0D\x0A    <Component Name=""S"
+      "electedIndicators"" Class=""InfoBoard.Rep.IWrapSelectedIndicators""/>\x0D\x0A    <C"
+      "omponent Name=""AxisBottom"" Class=""Com.Ctrl.Chart.IAxis""/>\x0D\x0A    <Component "
+      "Name=""AxisLeft"" Class=""Com.Ctrl.Chart.IAxis""/>\x0D\x0A    <Component Name=""AxisT"
+      "op"" Class=""Com.Ctrl.Chart.IAxis""/>\x0D\x0A    <Component Name=""AxisRight"" Class="
+      """Com.Ctrl.Chart.IAxis""/>\x0D\x0A  </Component>\x0D\x0A</Resource>\x0D\x0A"
+    RType = 1
+  )
+]
+
+]

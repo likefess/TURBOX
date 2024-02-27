@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited HelpContext="SubjectPayable.Расчеты с субъектами.Документы.Действия.Зачет авансовых платежей(пакетный)">
+    <Component Name="vDefPos" Class="SubjectPayable.Rec.Service.PaymentAdvanceSettle" IsLibrary="1" After="#0"/>
+    <Inherited Name="TableMenu" After="vDefPos"/>
+    <Inherited Name="Variables">
+      <Component Name="tbRefDocs" Class="Com.ISubtable" StructClass="SubjectPayable.Rec.Service.PaymentAdvanceSettle"/>
+      <Component Name="vCompany" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="vDate" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="vAccountedAll" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonOK" Visible="False"/>
+        <Inherited Name="ButtonRefresh" Visible="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="grCompany" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150" MinWidth="100">
+          <Component Name="edCompany" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Company=Предприятие" CardFileClass="Bas.Tab.Data.OurCompanies" Field="vCompany" HasCaption="True" Hint="@ServicePaymentAdvanceSettle:Company.Hint=Наименование нашего предприятия, по которому будет производиться &#xD;&#xA;отбор документов авансовой оплаты с не зачтенной суммой аванса и формироваться документы «Зачет аванса»." LookupField="Name" OnChange="edCompany_OnChange" ShortList="True"/>
+        </Component>
+        <Component Name="grPeriod" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150" MinWidth="100">
+          <Component Name="edDate" Class="Com.Ctrl.IEdit" Caption="@ServicePaymentAdvanceSettle:Date=По состоянию на" Field="vDate" FormatOfDate="DateOnly" HasCaption="True" Hint="@ServicePaymentAdvanceSettle:Date.Hint=Дата, по состоянию на которую будет производиться отбор документов &#xD;&#xA;авансовой оплаты с не зачтенной суммой аванса." MaxWidth="40" OnChange="edDate_OnChange" Width="40"/>
+        </Component>
+        <Component Name="grOther" Class="Com.Ctrl.IGroup">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+          <Component Name="chAccountedAll" Class="Com.Ctrl.ICheckBox" Caption="Выбрать все" Field="vAccountedAll" MaxWidth="40" OnChange="chAccountedAll_OnChange" Printed="False" Width="40"/>
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" Width="20"/>
+          <Component Name="btUpdate" Class="Com.Ctrl.IButton" Caption="Обновить" HasCaption="True" OnClick="btUpdate_OnClick"/>
+          <Component Name="btAccounted" Class="Com.Ctrl.IButton" Caption="Сформировать" HasCaption="True" Hint="Сформировать документы" OnClick="btAccounted_OnClick"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="tblRefDocs" Class="Com.Ctrl.ITable" Numbering="True" Subtable="tbRefDocs">
+            <Component Name="edAccounted" Class="Com.Ctrl.IEdit" Caption="@ServicePaymentAdvanceSettle:chAccounted=Выбор" Field="vDefPos.Accounted" HasCaption="True" Hint="@ServicePaymentAdvanceSettle:chAccounted.Hint=При установке данного флага в программе формируются документы «Зачет аванса» и «Переоценка задолженности» &#xD;&#xA;по сумме зачтенного аванса, указанного в данной строке (после нажатия кнопки «Сформировать документы»)." Width="6"/>
+            <Component Name="grDocPaymentAdvance" Class="Com.Ctrl.IColumnsGroup" Caption="Док-т &quot;Оплата задолженности&quot; (Аванс)&#xD;&#xA;" HasCaption="True">
+              <Component Name="edRefPaymentAdvance" Class="Com.Ctrl.IEdit" Caption="Номер, дата" CardFileClass="SubjectPayable.Tab.Doc.PaymentOfDebt" Color="0x00A8FFFF" Field="vDefPos.refPaymentAdvance" FieldColor="0x00A8FFFF" HasCaption="True" Hint="@ServicePaymentAdvanceSettle:RefPaymentAdvance.Hint=Номер и дата документа «Оплата задолженности» (Авансовый платеж), по которому имеется остаток незакрытого (не зачтенного) &#xD;&#xA;авансового платежа по состоянию на дату формирования данных (дата в поле «По состоянию на»)." LookupField="Name" Multiline="True" OnChange="edRefPaymentAdvance_OnChange" OnGetLookupFilter="edRefPaymentAdvance_OnGetLookupFilter" Width="63" Wrap="True"/>
+              <Component Name="btRefPaymentAdvance" Class="Com.Ctrl.IJumpButton" Color="0x00A8FFFF" Field="vDefPos.refPaymentAdvance" FieldColor="0x00A8FFFF" Hint="Открыть документ" ImageName="Com.arrow-circle-right" JumpForm="SubjectPayable.Frm.Doc.PaymentOfDebt"/>
+              <Component Name="edContraparty" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Contraparty=Контрагент" Color="0x00A8FFFF" Enabled="False" Field="vDefPos.refPaymentAdvance" FieldColor="0x00A8FFFF" HasCaption="True" LookupField="Contraparty.Name" Multiline="True" Width="35" Wrap="True"/>
+              <Component Name="edPaymentAccDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@PaymentOfDebt:AccDate=Дата оплаты" Color="0x00A8FFFF" Enabled="False" Field="vDefPos.refPaymentAdvance" FieldColor="0x00A8FFFF" HasCaption="True" Hint="@ServicePaymentAdvanceSettle:PaymentAccDate.Hint=Дата оплаты данного авансового платежа (поле «Дата оплаты» документа «Оплата задолженности»)." LookupField="AccDate" Width="23"/>
+              <Component Name="edPaymentSumDoc" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Сумма в" Color="0x00A8FFFF" Enabled="False" Field="vDefPos.PaymentSumDoc" FieldColor="0x00A8FFFF" FieldFormat=",0.00;;-" HasCaption="True" Hint="@ServicePaymentAdvanceSettle:PaymSumDoc.Hint=Сумма остатка незакрытого (не зачтенного) авансового платежа в валюте задолженности &#xD;&#xA;по состоянию на дату формирования данных" ValueType="VarNumeric" Width="30"/>
+              <Component Name="edPaymentCurrency" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@вал. задолж." CardFileClass="Biz.Tab.Ref.UCurrencies" Color="0x00A8FFFF" Enabled="False" Field="vDefPos.PaymentCurrency" FieldColor="0x00A8FFFF" HasCaption="True" Hint="Валюта платежа" LookupField="Code" Width="16"/>
+              <Component Name="edPaymentExchRate" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@SubjectPayable:ExchRate1=Курс валюты" Color="0x00A8FFFF" Enabled="False" Field="vDefPos.PaymentExchRate" FieldColor="0x00A8FFFF" FieldFormat=",0.0000;;-" HasCaption="True" Hint="@SubjectPayable:ExchRate.Hint=Значение курса валюты, используемого при переводе суммы в валюте документа в сумму в операционной валюте" ValueType="VarNumeric" Width="20"/>
+              <Component Name="edPaymentSumBase" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Сумма в опер. валюте" Color="0x00A8FFFF" Enabled="False" Field="vDefPos.PaymentSumBase" FieldColor="0x00A8FFFF" FieldFormat=",0.00;;-" HasCaption="True" Hint="@ServicePaymentAdvanceSettle:PaymSumBase.Hint=Сумма остатка незакрытого (не зачтенного) авансового платежа в операционной валюте&#xD;&#xA;по состоянию на дату формирования данных." ValueType="VarNumeric" Width="30"/>
+            </Component>
+            <Component Name="grDocAccrualOfDebt" Class="Com.Ctrl.IColumnsGroup" Caption="Док-т &quot;Начисление задолженности&quot;&#xD;&#xA;" HasCaption="True">
+              <Component Name="edRefAccrualOfDebt" Class="Com.Ctrl.IEdit" Caption="Номер, дата" CardFileClass="SubjectPayable.Tab.Doc.AccrualOfDebt" Color="0x00C5FED8" Field="vDefPos.refAccrualOfDebt" FieldColor="0x00C5FED8" HasCaption="True" Hint="@ServicePaymentAdvanceSettle:RefAccrualOfDebt.Hint=Номер и дата документа «Начисление задолженности», по которому будет производиться зачет авансового платежа.." LookupField="Name" Multiline="True" OnChange="edRefAccrualOfDebt_OnChange" OnGetLookupFilter="edRefAccrualOfDebt_OnGetLookupFilter" OnOpenCardForm="edRefAccrualOfDebt_OnOpenCardForm" Width="63" Wrap="True"/>
+              <Component Name="btRefAccrualOfDebt" Class="Com.Ctrl.IJumpButton" Color="0x00C5FED8" Field="vDefPos.refAccrualOfDebt" FieldColor="0x00C5FED8" Hint="Открыть документ" ImageName="Com.arrow-circle-right" JumpForm="SubjectPayable.Frm.Doc.AccrualOfDebt"/>
+              <Component Name="edAccrualOfDebtAccDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@ServicePaymentAdvanceSettle:AccrualOfDebtAccDate=Дата возн. обязат-ва" Color="0x00C5FED8" Enabled="False" Field="vDefPos.refAccrualOfDebt" FieldColor="0x00C5FED8" HasCaption="True" Hint="@ServicePaymentAdvanceSettle:AccrualOfDebtAccDate.Hint=Дата возникновения обязательства согласно данного документа «Начисление задолженности»" LookupField="AccDate" Width="23"/>
+              <Component Name="edAccrualOfDebtSumDoc" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Сумма в" Color="0x00C5FED8" Enabled="False" Field="vDefPos.AccrualOfDebtSumDoc" FieldColor="0x00C5FED8" FieldFormat=",0.00;;-" HasCaption="True" Hint="@ServicePaymentAdvanceSettle:AccrualOfDebtSumDoc.Hint=Сумма остатка задолженности (без учета не зачтенных авансовых платежей) в валюте задолженности по состоянию на дату формирования данных" ValueType="VarNumeric" Width="30"/>
+              <Component Name="edAccrualOfDebtCurrency" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@вал.док." CardFileClass="Biz.Tab.Ref.UCurrencies" Color="0x00C5FED8" Enabled="False" Field="vDefPos.refAccrualOfDebt" FieldColor="0x00C5FED8" HasCaption="True" LookupField="Currency.Code" Width="10"/>
+              <Component Name="edAccrualOfDebtExchRate" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@SubjectPayable:ExchRate1=Курс валюты" Color="0x00C5FED8" Enabled="False" Field="vDefPos.refAccrualOfDebt" FieldColor="0x00C5FED8" FieldFormat=",0.0000;;-" HasCaption="True" Hint="@ServicePaymentAdvanceSettle:AccrualOfDebtExchRate.Hint=Курс валюты, по которой ведется учет остатка задолженности &#xD;&#xA;(если по данной задолженности не было проведено переоценки (ручное формирование документа «Переоценка задолженности»), &#xD;&#xA;то указывается Курс согласно документа «Начисление задолженности», &#xD;&#xA;если была произведена переоценка – то курс задолженности, согласно последней переоценки)." OnOutputEx="edAccrualOfDebtExchRate_OnOutputEx" ValueType="VarNumeric" Width="20"/>
+              <Component Name="edAccrualOfDebtSumBase" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Сумма в опер. валюте" Color="0x00C5FED8" Enabled="False" Field="vDefPos.AccrualOfDebtSumBase" FieldColor="0x00C5FED8" FieldFormat=",0.00;;-" HasCaption="True" Hint="@ServicePaymentAdvanceSettle:AccrualOfDebtSumBase.Hint=Сумма остатка задолженности (без учета не зачтенных авансовых платежей) в операционной валюте по состоянию на дату формирования данных." ValueType="VarNumeric" Width="30"/>
+            </Component>
+            <Component Name="grDocOffsetOfAdvance" Class="Com.Ctrl.IColumnsGroup" Caption="@SubjectPayable:OffsetOfAdvance=Зачет аванса" HasCaption="True">
+              <Component Name="edSumDoc" Class="Com.Ctrl.IEdit" Caption="Сумма в вал. задолж." Field="vDefPos.SumDoc" FieldFormat=",0.00;;-" HasCaption="True" Hint="@ServicePaymentAdvanceSettle:SumDoc.Hint=Сумма зачитываемого аванса в валюте задолженности" Width="30"/>
+              <Component Name="edExchRate" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:ExchRate1=Курс валюты" Field="vDefPos.ExchRate" FieldFormat=",0.0000;;-" HasCaption="True" Hint="@ServicePaymentAdvanceSettle:ExchRate.Hint=Курс, указанный в документе «Оплата задолженности» (Авансовый платеж).&#xD;&#xA;Допускается редактирование пользователем.&#xD;&#xA;" Width="15"/>
+              <Component Name="edSumBase" Class="Com.Ctrl.IEdit" Caption="Сумма в опер. валюте" Field="vDefPos.SumBase" FieldFormat=",0.00;;-" HasCaption="True" Hint="@ServicePaymentAdvanceSettle:SumBase.Hint=Сумма зачитываемого аванса в операционной валюте." Width="30"/>
+              <Component Name="edOffsetOfAdvanceDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@OffsetOfAdvance:AccDate=Дата зачета аванса" Field="vDefPos.OffsetOfAdvanceDate" HasCaption="True" Hint="@OffsetOfAdvance:AccDate=Дата зачета аванса" Width="30"/>
+              <Component Name="edRefOffsetOfAdvance" Class="Com.Ctrl.IEdit" Caption="Номер, дата" CardFileClass="SubjectPayable.Tab.Doc.OffsetOfAdvance" Enabled="False" Field="vDefPos.refOffsetOfAdvance" HasCaption="True" Hint="@ServicePaymentAdvanceSettle:refOffsetOfAdvanceHint=Номер и дата сформированного в программе документа «Зачет аванса»" LookupField="Name" Multiline="True" Width="45" Wrap="True"/>
+              <Component Name="btRefOffsetOfAdvance" Class="Com.Ctrl.IJumpButton" Field="vDefPos.refOffsetOfAdvance" Hint="Открыть документ" ImageName="Com.arrow-circle-right" JumpForm="SubjectPayable.Frm.Doc.OffsetOfAdvance"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

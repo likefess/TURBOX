@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="HRBase.Frm.Base.Ref">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="HRBase.Rec.Ref.WorkSchedule" IsLibrary="1"/>
+    <Component Name="Position" Class="HRBase.Rec.Ref.WorkSchedule_Positions" IsLibrary="1" After="EdtRec"/>
+    <Component Name="Details" Class="HRBase.Rec.Ref.WorkSchedule_Details" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="grCompany" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Company" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="EdtRec.Company" HasCaption="True" LookupField="Name" ShortList="True"/>
+        </Component>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" After="Group1" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+          <Component Name="grCalendar" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="False">
+            <Component Name="Calendar" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.Calendar" Field="EdtRec.Calendar" HasCaption="True" LookupField="Code" Width="80"/>
+            <Component Name="btnCalendar" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Calendar" JumpForm="Bas.Tab.Ref.Calendar"/>
+          </Component>
+          <Component Name="grParams" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="stParms" Class="Com.Ctrl.IStatic" Width="10"/>
+            <Component Name="ForWeek" Class="Com.Ctrl.ICheckBox" Field="EdtRec.ForWeek" HasCaption="True" Hint="Используются недельные графики работ (5/6 дневные, 2-х недельные и т.д.)" Width="80"/>
+            <Component Name="UseWeekend" Class="Com.Ctrl.ICheckBox" Field="EdtRec.UseWeekend" HasCaption="True" Hint="В установленном виде означает, что необходимо учитывать выходные и праздничные дни в графике" Width="90"/>
+            <Component Name="UsePreHolidays" Class="Com.Ctrl.ICheckBox" Field="EdtRec.UsePreHolidays" HasCaption="True" Hint="В установленном виде означает, что необходимо производить сокращение рабочего времени предпраздничного дня на один час" Width="80"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="@График">
+          <Component Name="bxWorkSchedule" Class="Com.Ctrl.IBox" Caption="@График" HasCaption="True">
+            <Component Name="frWorkScheduleSetup" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="grfrWorkScheduleSetup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="stBegDate" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Дата начала" FixSize="True" Width="40"/>
+                <Component Name="stEndDate" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Дата окончания" FixSize="True" Width="40"/>
+                <Component Name="Static3" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Количество дней по графику" FixSize="True" Width="30"/>
+                <Component Name="Static4" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Цвет рабочий" FixSize="True" Width="20"/>
+                <Component Name="Static5" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Цвет выходной" FixSize="True" Width="20"/>
+                <Component Name="NewLine22" Class="Com.Ctrl.INewLine"/>
+                <Component Name="BegDate" Class="Com.Ctrl.IEdit" Field="EdtRec.BegDate" FixSize="True" FormatOfDate="DateOnly" HasCaption="False" Width="40"/>
+                <Component Name="EndDate" Class="Com.Ctrl.IEdit" Field="EdtRec.EndDate" FixSize="True" FormatOfDate="DateOnly" HasCaption="False" Width="40"/>
+                <Component Name="Qty" Class="Com.Ctrl.IEdit" Field="EdtRec.Qty" FixSize="True" HasCaption="False" OnChange="Qty_OnChange" Width="30"/>
+                <Component Name="ColorWork" Class="Com.Ctrl.IColorEdit" Field="EdtRec.ColorWork" FixSize="True" HasCaption="False" Width="12" ZeroIsTransparent="False"/>
+                <Component Name="ColorWeekend" Class="Com.Ctrl.IColorEdit" Field="EdtRec.ColorWeekend" FixSize="True" HasCaption="False" Width="12" ZeroIsTransparent="True"/>
+              </Component>
+            </Component>
+            <Component Name="frWorkScheduleDetails" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="tbPosition" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Subtable="EdtRec.Position">
+                <Component Name="Weekday" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="День недели" Enabled="False" Field="Position.vWeekDay" HasCaption="True" OnOutputEx="vWeekDay_OnOutputEx" Width="20"/>
+                <Component Name="Weekend" Class="Com.Ctrl.ICheckBox" Alignment="CenterAlign" Caption="Обязательный выходной" Field="Position.vWeekend" HasCaption="True" OnEnter="vWeekend_OnEnter" OnVerify="vWeekend_OnVerify" Width="30"/>
+                <Component Name="Hours" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Часы" Field="Position.vHours" HasCaption="True" OnEnter="vHours_OnEnter" OnOutputEx="vHours_OnOutputEx" OnVerify="vHours_OnVerify" Width="35"/>
+              </Component>
+            </Component>
+            <Component Name="frWorkScheduleTotal" Class="Com.Ctrl.IFrame">
+              <Component Name="grfrWorkScheduleTotal" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+                <Component Name="Total" Class="Com.Ctrl.IEdit" Caption="Всего часов по графику" CaptionWidth="50" Enabled="False" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" OnOutputEx="Total_OnOutputEx" ValueType="VarNumeric" Width="35"/>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,66 @@
+﻿TBCFile VER="3.4" [Created '13.11.2019 11:11:36' by 'Администратор']
+
+DESCRIPTION[
+Count=3
+CountByRef=0
+Repair.DefectStatus
+(
+  Count=0
+  CountByRef=0
+)
+Repair.OrderStatus
+(
+  Count=3
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Repair.DefectStatus
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+  [Repair.OrderStatus
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    MetaLock :Boolean
+    SubsysCode :Integer
+    ModuleCode :String
+    PartisCode :Integer
+    Code :String(80)
+    Name :String(255)
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Repair.OrderStatus
+  
+  {Repair.OrderStatus:"Создан"}
+  (
+    Name = "Создан"
+  )
+  
+  {Repair.OrderStatus:"В работе"}
+  (
+    Name = "В работе"
+  )
+  
+  {Repair.OrderStatus:"Принят"}
+  (
+    Name = "Принят"
+  )
+]
+
+]

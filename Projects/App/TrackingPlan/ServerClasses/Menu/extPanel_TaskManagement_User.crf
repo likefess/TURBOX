@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Menu.Panel_TaskManagement_User">
+  <Inherited>
+    <Inherited Name="MainGroup">
+      <Inherited Name="GroupMemberAdmin">
+        <Component Name="Teams" Class="Com.ComManaging.OpenIForm" After="Kanbans" Caption="@TrackingPlan:Teams=Список команд" FormClassName="TrackingPlan.Tab.Data.Team" IconName="TrackingCore.user-fill"/>
+        <Inherited Name="Goal" After="Teams"/>
+      </Inherited>
+      <Component Name="GroupReports" Class="Com.Cmd2.IGroup" Caption="Отчёты" IconName="TrackingCore.pie-chart-2-fill">
+        <Component Name="BurnDownChart" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:BurnDownChart=Диаграмма сгорания задач" FormClassName="TrackingCore.Rep.BurnDownDiagram.BurnDownChart" IconName="TrackingCore.checkbox-blank-circle-mini-fill"/>
+        <Component Name="StatusChart" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:StatusChart=Диаграмма статусов" FormClassName="TrackingCore.Frm.StatusChart" IconName="TrackingCore.checkbox-blank-circle-mini-fill"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

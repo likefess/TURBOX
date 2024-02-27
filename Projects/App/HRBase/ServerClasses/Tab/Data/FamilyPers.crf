@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="HRBase.Tab.Base.DataNaturalPerson">
+  <Inherited>
+    <Inherited Name="Current" Class="HRBase.Rec.Data.FamilyPers" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="BegDate" Class="Com.Ctrl.IEdit" Caption="Дата начала" Field="Current.BegDate" FormatOfDate="DateOnly" HasCaption="True" Width="30"/>
+          <Component Name="FamilyRelations" Class="Com.Ctrl.IEdit" Caption="Степень родства" CardFileClass="HRBase.Tab.Ref.FamilyRelations" CellFormat="ReferenceFormat" Field="Current.FamilyRelations" HasCaption="True" LookupField="Name" MaxWidth="30" ShortList="True" Width="30"/>
+          <Component Name="FIO" Class="Com.Ctrl.IEdit" Field="Current.FIO" Width="100"/>
+          <Component Name="BirthDate" Class="Com.Ctrl.IEdit" Caption="@Дата рождения" Field="Current.BirthDate" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="40" Width="25"/>
+          <Component Name="EndDate" Class="Com.Ctrl.IEdit" Caption="Дата завершения родства" Field="Current.EndDate" FormatOfDate="DateOnly" HasCaption="True" Hint="Дата завершения родства" MaxWidth="40" Width="25"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

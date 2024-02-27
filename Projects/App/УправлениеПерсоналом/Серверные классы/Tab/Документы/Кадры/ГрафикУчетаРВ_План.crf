@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Tab.Базовая.БазовыйДокументИерархия">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Учет рабочего времени.Учет рабочего времени.График учета РВ (План)">
+    <Inherited Name="Current" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ГрафикУчетаРВ_План" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="Проводить" Class="Com.Ctrl.IEdit" After="ExtId" Caption="Учитывать " Field="Current.Проводить" HasCaption="True" Width="15"/>
+          <Component Name="Подразделение" Class="Com.Ctrl.IEdit" After="Предприятие" CellFormat="ReferenceFormat" Field="Current.Подразделение" HasCaption="True" LookupField="Name" Width="50"/>
+          <Component Name="Период" Class="Com.Ctrl.IEdit" After="Дата" CellFormat="ReferenceFormat" Field="Current.Период" HasCaption="True" LookupField="Name" Width="30"/>
+          <Component Name="Скорректирован" Class="Com.Ctrl.IEdit" Caption="Скорректирован" Field="Current.Скорректирован" HasCaption="True" Width="15"/>
+          <Component Name="Корректировка" Class="Com.Ctrl.IEdit" Field="Current.Корректировка" HasCaption="True" Width="15"/>
+          <Component Name="КорректГрафик" Class="Com.Ctrl.IEdit" Caption="Номер корректируемого графика" CardFileClass="УправлениеПерсоналом.Tab.Документы.Кадры.ГрафикУчетаРВ_План" Field="Current.КорректГрафик" HasCaption="True" LookupField="Номер" Width="25"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

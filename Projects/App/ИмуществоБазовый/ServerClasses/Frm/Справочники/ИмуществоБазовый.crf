@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited OnPost="OnPost_" OnShow="EditorOnShow" OnVerify="OnVerify_">
+    <Inherited Name="EdtRec" Class="ИмуществоБазовый.Rec.Справочники.ИмуществоБазовый" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="vIsChildRec" Class="Com.Fld.IVar" OnCalc="vIsChildRec_OnCalc" ValueType="VarLogical"/>
+      <Component Name="локНП" Class="Com.Fld.IVar" Excluded="True" OnCalc="локНП_OnCalc"/>
+      <Component Name="локВестиБухгалтерскийУчет" Class="Com.Fld.IVar" Excluded="True" OnCalc="локВестиБухгалтерскийУчет_OnCalc"/>
+      <Component Name="локТекущаяДата" Class="Com.Fld.IVar" OnCalc="локТекущаяДата_OnCalc" ValueType="VarDate"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame" CanHideBySplit="True" SplitterAtRight="True" UseSplitter="True">
+        <Inherited Name="Group1" ByColumn="False">
+          <Component Name="КодИмущества" Class="Com.Ctrl.IEdit" After="#0" Field="EdtRec.КодИмущества" FixSize="True" HasCaption="True" Hint="@Код объекта системы &quot;Имущество&quot; (Инвентарный номер ОС / Код КВ / Код групповой карточки ОС)" Required="True" Visible="True" Width="35"/>
+          <Inherited Name="Code" After="КодИмущества" Caption="Код" FixSize="True" Hint="@Уникальный код записи" Required="True" Width="60"/>
+          <Inherited Name="Name" Excluded="True" Caption="Краткое название" Visible="True" Width="100"/>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" After="Name" Alignment="RightAlign" Width="100"/>
+          <Component Name="ТекущаяДата" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Enabled="False" Field="локТекущаяДата" FixSize="True" Hint="Текущая дата карточки" Width="25"/>
+          <Component Name="Static_Ш2" Class="Com.Ctrl.IStatic" Width="2"/>
+          <Component Name="Завершен" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Closed" FixSize="True" HasCaption="True" Hint="@Флаг Завершен устанавливается, если документ закрыт по бухгалтерскому и налоговому учету" Width="30"/>
+          <Component Name="Замок" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Locked" FixSize="True" HasCaption="True" Width="18"/>
+        </Inherited>
+        <Component Name="Имя_Валюта_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+          <Component Name="Name_" Class="Com.Ctrl.IEdit" Caption="Краткое название" Field="EdtRec.Name" FontBold="True" HasCaption="True" MaxWidth="300" MinWidth="50" Required="True" Visible="True"/>
+          <Component Name="БазВалюта" Class="Com.Ctrl.IEdit" Caption="Валюта" CaptionWidth="20" Enabled="False" Field="EdtRec.Валюта" LookupField="Code" MaxWidth="30" MinWidth="20"/>
+        </Component>
+        <Component Name="ПолнИмя_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+          <Component Name="ПолнИмя" Class="Com.Ctrl.IEdit" Caption="Полное название " Field="EdtRec.ПолнИмя" FontBold="True" HasCaption="True" Required="True" Visible="True"/>
+        </Component>
+        <Component Name="НашеПредприятие_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+          <Component Name="НашеПредприятие" Class="Com.Ctrl.IEdit" Caption="Предприятие" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="EdtRec.НашеПредприятие" HasCaption="True" Hint="@Наименование нашего предприятия" LookupField="Name" OnChange="НашеПредприятие_OnChange" OnVerify="НашеПредприятие_OnVerify" Required="True" ShortList="True" Width="100"/>
+          <Component Name="GroupDoc" Class="Com.Ctrl.IEdit" Caption="Группа" CaptionWidth="30" CardFileClass="ИмуществоБазовый.Tab.Справочники.ИмуществоБазовый" Field="EdtRec.GroupDoc"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" OnSwitch="TabsFrame_OnSwitch" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="СистемныеПоля" Class="Com.Ctrl.IBox" Caption="Системные поля" Visible="True">
+            <Component Name="ГрСоздание" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="Создал" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.CreateUser" HasCaption="True"/>
+              <Component Name="СоздалДата" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" Field="EdtRec.CreateDate" FormatOfDate="DateAndTime" HasCaption="True"/>
+            </Component>
+            <Component Name="ГрИзменение" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="Изменил" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.UpdateUser" HasCaption="True"/>
+              <Component Name="ИзменилДата" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" Field="EdtRec.UpdateDate" FormatOfDate="DateAndTime" HasCaption="True"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

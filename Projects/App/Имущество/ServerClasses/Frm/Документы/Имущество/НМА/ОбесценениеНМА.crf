@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Frm.Документы.Имущество.НМА.ИмуществоБазовыйДокументНМА">
+  <Inherited HelpContext="Имущество.Имущество.Ведомости.Обесценение.Обесценение НМА">
+    <Inherited Name="EdtRec" Class="Имущество.Rec.Документы.Имущество.НМА.ОбесценениеНМА" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Шапка_Фрейм">
+          <Inherited Name="Шапка_Гр">
+            <Inherited Name="Шапка_Номер_Дата">
+              <Inherited Name="Номер" Hint="Номер документа по выбытию ОС"/>
+              <Inherited Name="ДатаНачала" Hint="Дата документа по обесценению ОС" OnVerify="ДатаНачала_OnVerify"/>
+            </Inherited>
+            <Inherited Name="Шапка_НашеПредприятие_Валюта">
+              <Inherited Name="ВалютаДок" Hint="Валюта документа по списанию ОС"/>
+            </Inherited>
+            <Component Name="ПериодРасчета_Гр" Class="Com.Ctrl.IGroup" After="Шапка_ПервичныйДокумент">
+              <Component Name="ПериодРасчета" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.Period" Field="EdtRec.ПериодРасчета" HasCaption="True" Hint="Расчетный период" OnChange="ПериодРасчета_OnChange" OnOpenCardForm="ПериодРасчета_OnOpenCardForm" Required="True"/>
+            </Component>
+            <Inherited Name="Корректировка_Гр" After="ПериодРасчета_Гр">
+              <Inherited Name="КорректируемыйДокумент" CardFileClass="Имущество.Tab.Документы.Имущество.НМА.ОбесценениеНМА" Hint="Выбор корректируемого документа"/>
+              <Inherited Name="кнКорректируемыйДокумент" JumpForm="Имущество.Frm.Документы.Имущество.НМА.ОбесценениеНМА"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="ОбщиеДанные" Excluded="True"/>
+          <Component Name="Позиции_Box" Class="Com.Ctrl.IBox" After="ОбщиеДанные" Caption="Обесценение НМА">
+            <Component Name="СтоимостьВывод_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150" Visible="False">
+              <Component Name="СтоимостьВывод" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.Стоимость" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Стоимость объекта (без учета НДС)" MaxWidth="40" MinWidth="30" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify" Visible="False"/>
+            </Component>
+            <Component Name="ПозицииНМА_Табл" Class="Com.Ctrl.ITable" Sortable="True" Subtable="EdtRec.ПозицииНМА">
+              <Component Name="ПозицииНМА" Class="Имущество.Rec.Документы.Имущество.НМА.ОбесценениеНМА_Позиции" IsLibrary="1"/>
+              <Component Name="Имя_Табл" Class="Com.Ctrl.IEdit" Caption="Наименование НМА" CardFileClass="ИмуществоБазовый.Tab.Справочники.НМА" CellFormat="ReferenceFormat" Field="ПозицииНМА.НМА" Hint="Краткое наименование НМА" LookupField="Name" OnChange="НМА_Табл_OnChange" OnGetLookupFilter="НМА_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуНМА" OnVerify="НМА_Табл_OnVerify" Required="True" Width="70"/>
+              <Component Name="ИнвентарныйНомер_Табл" Class="Com.Ctrl.IEdit" Caption="Инвентарный номер" CardFileClass="ИмуществоБазовый.Tab.Справочники.НМА" CellFormat="ReferenceFormat" Field="ПозицииНМА.НМА" Hint="Инвентарный номер НМА" LookupField="КодИмущества" OnChange="НМА_Табл_OnChange" OnGetLookupFilter="НМА_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуНМА" OnVerify="НМА_Табл_OnVerify" Required="True" Width="30"/>
+              <Component Name="НМА_JumpButton" Class="Com.Ctrl.IJumpButton" Field="ПозицииНМА.НМА" Hint="Возможность перехода на карточку НМА, просмотра и редактирования доступных полей" JumpForm="ИмуществоБазовый.Frm.Справочники.НМА"/>
+              <Component Name="кн_ОбновитьДанныеПоПозицииНМА" Class="Com.Ctrl.IButton" FixSize="True" Hint="Обновить данные по текущей позиции НМА" ImageName="Control.Refresh" OnClick="кн_ОбновитьДанныеПоПозицииНМА_OnClick" Width="6"/>
+              <Component Name="ОстаточнаяСтоимость_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ПозицииНМА.ОстаточнаяСтоимость" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Остаточная стоимость  объекта НМА на дату проведения обесценения" Required="True" Width="30"/>
+              <Component Name="СправедливаяСтоимость_Табл" Class="Com.Ctrl.IEdit" Field="ПозицииНМА.СправедливаяСтоимость" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Справедливая стоимость объекта НМА" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify" Width="30"/>
+              <Component Name="УбытокОтОбесценения_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ПозицииНМА.УбытокОтОбесценения" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+              <Component Name="СуммаАмортизации_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ПозицииНМА.СуммаАмортизации" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Сумма амортизации, начисленная по данному объекту НМА до даты обесценения (до соответствующего периода)" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify" Width="30"/>
+              <Component Name="СуммаАмортизацииТекущегоПериода_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ПозицииНМА.СуммаАмортизацииТекущегоПериода" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Сумма амортизации, начисленная по данному объекту НМА за текущий период (соответствующий дате проведения обесценения)" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify" Width="30"/>
+              <Component Name="перАмортизацияНачисленаСтр_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ПозицииНМА.перАмортизацияНачисленаСтр" FixSize="True" Hint="Состояние расчета амортизации за текущий период" OnDrawEx="перАмортизацияНачисленаСтр_ТаблOnDrawEx" Width="50" Wrap="True"/>
+              <Component Name="ПервичныйДокумент_Табл" Class="Com.Ctrl.IEdit" Field="ПозицииНМА.ПервичныйДокумент" FixSize="True" HasCaption="True" Hint="Наименование, номер, дата документ первичного документа, на основании которого производится обесценение объекта НМА" Width="90"/>
+            </Component>
+          </Component>
+          <Inherited Name="Комментарии_Box" After="Позиции_Box"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

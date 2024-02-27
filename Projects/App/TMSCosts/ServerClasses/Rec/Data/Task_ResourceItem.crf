@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.IStruct">
+    <Component Name="TaskResource" Class="Com.Fld.IVar" Caption="@TMSCosts:TaskResources=Ресурсы по задачам" ValueType="VarObject"/>
+    <Component Name="Resource" Class="Com.Fld.ILink" Caption="@TMSCosts:TaskResources.Resource=Ресурс" Field="TaskResource" FieldName="Resource" OnChange="Resource_OnChange" OnVerify="Resource_OnVerify" ValueType="VarObject"/>
+    <Component Name="Role" Class="Com.Fld.ILink" Caption="@TMSCosts:TaskResources.Role=Роль" Field="TaskResource" FieldName="Role" OnChange="Resource_OnChange" OnVerify="Resource_OnVerify" ValueType="VarObject"/>
+    <Component Name="Entity" Class="Com.Fld.ILink" Caption="@TMSCosts:TaskResources.Entity=Сотрудник" Field="TaskResource" FieldName="Entity" OnChange="Resource_OnChange" OnVerify="Resource_OnVerify" ValueType="VarObject"/>
+    <Component Name="Grade" Class="Com.Fld.ILink" Caption="@TMSCosts:TaskResources.Grade=Grade" Field="TaskResource" FieldName="Grade" OnChange="Resource_OnChange" OnVerify="Resource_OnVerify" ValueType="VarObject"/>
+    <Component Name="Company" Class="Com.Fld.ILink" Caption="@TMSCosts:TaskResources.Company=Предприятие" Field="TaskResource" FieldName="Company" OnChange="Resource_OnChange" OnVerify="Resource_OnVerify" ValueType="VarObject"/>
+    <Component Name="Busy" Class="Com.Fld.ILink" Caption="@TMSCosts:TaskResources.Busy=Занятость" Field="TaskResource" FieldName="Busy" OnChange="Resource_OnChange" OnVerify="Resource_OnVerify" ValueType="VarNumeric"/>
+    <Component Name="Price" Class="Com.Fld.ILink" Caption="@TMSCosts:TaskResources.Price=Ставка" Field="TaskResource" FieldName="Price" OnChange="Resource_OnChange" OnVerify="Resource_OnVerify" ValueType="VarNumeric"/>
+    <Component Name="ResPrice" Class="Com.Fld.ILink" Caption="@TMSCosts:TaskResources.BasePrice=Ставка ресурса" Enabled="False" Field="Resource" FieldName="Стоимость" ValueType="VarNumeric"/>
+    <Component Name="Currency" Class="Com.Fld.ILink" Caption="@TMSCosts:TaskResources.Currency=Валюта" Field="TaskResource" FieldName="Currency" OnChange="Resource_OnChange" OnVerify="Resource_OnVerify" ValueType="VarObject"/>
+  </Component>
+</Resource>

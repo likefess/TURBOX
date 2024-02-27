@@ -1,0 +1,92 @@
+TBCFile VER="3.4" [Created '14.07.2022 17:23:30' by 'Администратор']
+
+DESCRIPTION[
+Count=4
+CountByRef=0
+Notifications.Ref.DATextMessageTemplate
+(
+  Count=4
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Notifications.Ref.DATextMessageTemplate
+  (
+    Deleted :Boolean
+    CreateDate :Date
+    CreateUser :String(40)
+    UpdateDate :Date
+    UpdateUser :String(40)
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    НеОтображаетсяВДереве :Boolean
+    MetaLock :Boolean
+    SubsysCode :Integer
+    PartisCode :Integer
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    Theme :String
+    MsgTxt :String(8000)
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Notifications.Ref.DATextMessageTemplate
+  
+  {Notifications.Ref.DATextMessageTemplate:"НаСогласование"}
+  (
+    CreateDate = 23.11.2020 12:30:36
+    CreateUser = "Иванова"
+    UpdateDate = 14.07.2022 17:01:52
+    UpdateUser = "Администратор"
+    Name = "Согласование"
+    Theme = "Согласование %Name%"
+    MsgTxt = "Прошу согласовать %Name%"
+  )
+  
+  {Notifications.Ref.DATextMessageTemplate:"Согласовано"}
+  (
+    CreateDate = 23.11.2020 12:31:39
+    CreateUser = "Иванова"
+    UpdateDate = 14.07.2022 17:03:27
+    UpdateUser = "Администратор"
+    Name = "Согласовано"
+    Theme = "Согласовано %Name%"
+    MsgTxt = "Согласовано %Name%"
+  )
+  
+  {Notifications.Ref.DATextMessageTemplate:"Отказано"}
+  (
+    CreateDate = 23.11.2020 12:32:25
+    CreateUser = "Иванова"
+    UpdateDate = 14.07.2022 17:18:21
+    UpdateUser = "Администратор"
+    Name = "Отказано в согласовании"
+    Theme = "Отказано %Name%"
+    MsgTxt = "Отказано в согласовании %Name%"
+  )
+  
+  {Notifications.Ref.DATextMessageTemplate:"Возвращено"}
+  (
+    CreateDate = 23.11.2020 12:33:14
+    CreateUser = "Иванова"
+    UpdateDate = 14.07.2022 17:20:13
+    UpdateUser = "Администратор"
+    Name = "Возврат на доработку"
+    Theme = "Возврат на доработку %Name%"
+    MsgTxt = "Возвращено на доработку %Name%."
+  )
+]
+
+]

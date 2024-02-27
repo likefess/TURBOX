@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Purchase.Tab.Data.BaseDocTab">
+  <Inherited>
+    <Inherited Name="Current" Class="Purchase.Rec.Data.PurchasePlan" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="9">
+        <Component Name="btnAddPlan" Class="Com.Ctrl.IButton" After="#0" Caption="@Создать план закупок" ImageName="Com.AddFolder" OnClick="CreateNewPlanStructure"/>
+        <Component Name="btnDelPlan" Class="Com.Ctrl.IButton" Caption="@Удалить" ImageName="Com.DeleteItem" OnClick="DeletePlanVersion"/>
+        <Component Name="ButtonReport" Class="Com.Ctrl.IListButton" After="ButtonEditItem" Caption="@Отчеты" ImageName="Com.Chart-bar">
+          <Component Name="btnPlanReport" Class="Com.Ctrl.IButton" Caption="@Отчет по позициям плана закупок" ImageName="Com.Chart-bar" OnClick="ButtonPlanReport_OnClick"/>
+        </Component>
+        <Inherited Name="ButtonClose" After="ButtonCancel"/>
+        <Inherited Name="ButtonFilters" After="ButtonClose"/>
+        <Inherited Name="ButtonCloneItem" After="ButtonFilters"/>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="edCompany" After="edJournalDate" Width="40"/>
+          <Inherited Name="edDivision" Width="40"/>
+          <Inherited Name="edBegDate" After="edDivision"/>
+          <Component Name="ed_Ответственный" Class="Com.Ctrl.IEdit" Field="Current.Ответственный" Width="35"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

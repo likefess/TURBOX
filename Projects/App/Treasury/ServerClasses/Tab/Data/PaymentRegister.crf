@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.CodeName">
+  <Inherited>
+    <Inherited Name="Current" Class="Treasury.Rec.Data.PaymentRegister" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ButtonPrint" Class="Com.Ctrl.IButton" Excluded="True" After="ButtonClose" Caption="Печать" Command="Commands.Print" ImageName="Com.print" Printed="False"/>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="ExtId" Excluded="True"/>
+          <Inherited Name="Name" Excluded="True"/>
+          <Inherited Name="Code" Excluded="True"/>
+          <Component Name="Company" Class="Com.Ctrl.IEdit" Caption="Предприятие" Field="Current.Company" Width="40"/>
+          <Component Name="Number" Class="Com.Ctrl.IEdit" Caption="Номер реестра" Field="Current.Number" Width="30"/>
+          <Component Name="RegisterDate" Class="Com.Ctrl.IEdit" Caption="Дата" Field="Current.RegisterDate" Width="30"/>
+          <Component Name="Status" Class="Com.Ctrl.IEdit" Caption="Статус" Field="Current.DATask_Status" LookupField="Name" OnOutputEx="Status_OnOutputEx" Width="40"/>
+          <Component Name="Description" Class="Com.Ctrl.IEdit" Caption="Описание" Field="Current.Description" Width="50"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

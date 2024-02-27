@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm" Caption="Настройка таблицы" ModalWidth="90">
+    <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="ShowPlanHoursVar" Class="Com.Fld.IVarLink" FieldName="ShowPlanHours" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="ShowFactHoursVar" Class="Com.Fld.IVarLink" FieldName="ShowFactHours" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="ShowSprintsVar" Class="Com.Fld.IVarLink" FieldName="ShowSprints" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="ShowClosedVar" Class="Com.Fld.IVarLink" FieldName="ShowClosed" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="ShowCreatedVar" Class="Com.Fld.IVarLink" FieldName="ShowCreated" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="ShowProjectVar" Class="Com.Fld.IVarLink" FieldName="ShowProject" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="ShowSeriousnessVar" Class="Com.Fld.IVarLink" FieldName="ShowSeriousness" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="ShowIDVar" Class="Com.Fld.IVarLink" FieldName="ShowID" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="ShowDescriptionVar" Class="Com.Fld.IVarLink" FieldName="ShowDescription" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="ShowUpdateDateVar" Class="Com.Fld.IVarLink" FieldName="ShowUpdateDate" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="ShowVotesVar" Class="Com.Fld.IVarLink" FieldName="ShowVotes" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="ShowLabelsVar" Class="Com.Fld.IVarLink" FieldName="ShowLabels" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="ShowComponentVar" Class="Com.Fld.IVarLink" FieldName="ShowComponent" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="ShowVersionVar" Class="Com.Fld.IVarLink" FieldName="ShowVersion" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="ShowDoerVar" Class="Com.Fld.IVarLink" FieldName="ShowDoer" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="ShowPriorityVar" Class="Com.Fld.IVarLink" FieldName="ShowPriority" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="ShowStatusVar" Class="Com.Fld.IVarLink" FieldName="ShowStatus" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="ShowInitiatorVar" Class="Com.Fld.IVarLink" FieldName="ShowInitiator" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="ShowResponsibleVar" Class="Com.Fld.IVarLink" FieldName="ShowResponsible" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="ShowCategoryVar" Class="Com.Fld.IVarLink" FieldName="ShowCategory" StoredVar="True" ValueType="VarLogical"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+      <Component Name="SwitchFrame" Class="Com.Ctrl.IFrame" Margins="0">
+        <BuiltIn Name="SideMargins" Bottom="12" Left="16" Right="16" Top="16"/>
+        <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+          <Component Name="GroupCategory" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" Caption="Тип задачи" Width="90"/>
+            <Component Name="ShowCategorySwitch" Class="Com.Ctrl.ISwitch" Field="ShowCategoryVar" Width="10"/>
+          </Component>
+          <Component Name="GroupID" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static15" Class="Com.Ctrl.IStatic" Caption="Номер" Width="90"/>
+            <Component Name="ShowIDSwitch" Class="Com.Ctrl.ISwitch" Field="ShowIDVar" Width="10"/>
+          </Component>
+          <Component Name="GroupDescription" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static16" Class="Com.Ctrl.IStatic" Caption="Название" Width="90"/>
+            <Component Name="ShowDescriptionSwitch" Class="Com.Ctrl.ISwitch" Field="ShowDescriptionVar" Width="10"/>
+          </Component>
+          <Component Name="GroupDoer" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static6" Class="Com.Ctrl.IStatic" Caption="Исполнитель" Width="90"/>
+            <Component Name="ShowDoerSwitch" Class="Com.Ctrl.ISwitch" Field="ShowDoerVar" Width="10"/>
+          </Component>
+          <Component Name="GroupStatus" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static4" Class="Com.Ctrl.IStatic" Caption="Состояние" Width="90"/>
+            <Component Name="ShowStatusSwitch" Class="Com.Ctrl.ISwitch" Field="ShowStatusVar" Width="10"/>
+          </Component>
+          <Component Name="GroupPriority" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static5" Class="Com.Ctrl.IStatic" Caption="Приоритет" Width="90"/>
+            <Component Name="ShowPrioritySwitch" Class="Com.Ctrl.ISwitch" Field="ShowPriorityVar" Width="10"/>
+          </Component>
+          <Component Name="GroupSeriousness" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static14" Class="Com.Ctrl.IStatic" Caption="Серьезность" Width="90"/>
+            <Component Name="ShowSeriousnessSwitch" Class="Com.Ctrl.ISwitch" Field="ShowSeriousnessVar" Width="10"/>
+          </Component>
+          <Component Name="GroupUpdateDate" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static17" Class="Com.Ctrl.IStatic" Caption="Обновлено" Width="90"/>
+            <Component Name="ShowUpdateDateSwitch" Class="Com.Ctrl.ISwitch" Field="ShowUpdateDateVar" Width="10"/>
+          </Component>
+          <Component Name="GroupInitiator" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static3" Class="Com.Ctrl.IStatic" Caption="Автор" Width="90"/>
+            <Component Name="ShowInitiatorSwitch" Class="Com.Ctrl.ISwitch" Field="ShowInitiatorVar" Width="10"/>
+          </Component>
+          <Component Name="GroupResponsible" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption="Ответственный" Width="90"/>
+            <Component Name="ShowResponsibleSwitch" Class="Com.Ctrl.ISwitch" Field="ShowResponsibleVar" Width="10"/>
+          </Component>
+          <Component Name="GroupProject" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static13" Class="Com.Ctrl.IStatic" Caption="Проект" Width="90"/>
+            <Component Name="ShowProjectSwitch" Class="Com.Ctrl.ISwitch" Field="ShowProjectVar" Width="10"/>
+          </Component>
+          <Component Name="GroupComponent" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static8" Class="Com.Ctrl.IStatic" Caption="Компонент" Width="90"/>
+            <Component Name="ShowComponentSwitch" Class="Com.Ctrl.ISwitch" Field="ShowComponentVar" Width="10"/>
+          </Component>
+          <Component Name="GroupLabels" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static9" Class="Com.Ctrl.IStatic" Caption="Метки" Width="90"/>
+            <Component Name="ShowLabelsSwitch" Class="Com.Ctrl.ISwitch" Field="ShowLabelsVar" Width="10"/>
+          </Component>
+          <Component Name="GroupPlanHours" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static19" Class="Com.Ctrl.IStatic" Caption="План ч." Width="90"/>
+            <Component Name="ShowPlanHoursSwitch" Class="Com.Ctrl.ISwitch" Field="ShowPlanHoursVar" Width="10"/>
+          </Component>
+          <Component Name="GroupFactHours" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static20" Class="Com.Ctrl.IStatic" Caption="Факт ч." Width="90"/>
+            <Component Name="ShowFactHoursSwitch" Class="Com.Ctrl.ISwitch" Field="ShowFactHoursVar" Width="10"/>
+          </Component>
+          <Component Name="GroupSprints" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static10" Class="Com.Ctrl.IStatic" Caption="Спринты" Width="90"/>
+            <Component Name="ShowSprintsSwitch" Class="Com.Ctrl.ISwitch" Field="ShowSprintsVar" Width="10"/>
+          </Component>
+          <Component Name="GroupVotes" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static18" Class="Com.Ctrl.IStatic" Caption="Голоса" Width="90"/>
+            <Component Name="ShowVotesSwitch" Class="Com.Ctrl.ISwitch" Field="ShowVotesVar" Width="10"/>
+          </Component>
+          <Component Name="GroupVersion" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static7" Class="Com.Ctrl.IStatic" Caption="Версия" Width="90"/>
+            <Component Name="ShowVersionSwitch" Class="Com.Ctrl.ISwitch" Field="ShowVersionVar" Width="10"/>
+          </Component>
+          <Component Name="GroupCreated" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static12" Class="Com.Ctrl.IStatic" Caption="Создана" Width="90"/>
+            <Component Name="ShowCreatedSwitch" Class="Com.Ctrl.ISwitch" Field="ShowCreatedVar" Width="10"/>
+          </Component>
+          <Component Name="GroupClosed" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="False">
+            <Component Name="Static11" Class="Com.Ctrl.IStatic" Caption="Показать закрытые" Width="90"/>
+            <Component Name="ShowClosedSwitch" Class="Com.Ctrl.ISwitch" Field="ShowClosedVar" Width="10"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="ButtonFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+        <BuiltIn Name="SideMargins" Bottom="16" Left="16" Right="16" Top="0"/>
+        <Component Name="Static21" Class="Com.Ctrl.IStatic" Width="53"/>
+        <Component Name="ButtonApply" Class="Com.Ctrl.IButton" Caption="Применить" Fashion="Fashions.TertiaryButton" OnClick="ButtonApplyOnClick" Width="30"/>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

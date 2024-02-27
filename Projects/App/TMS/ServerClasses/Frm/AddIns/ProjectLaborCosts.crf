@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Frm.AddIns.BaseProject">
+  <Inherited Caption="@TMS:ProjectLaborCosts=Трудозатраты">
+    <Component Name="Variables" Class="Com.IVarContainer" After="EdtRec">
+      <Component Name="PrjLaborCostsSubtable" Class="Com.ISubtable" StructClass="TMS.Rec.Data.Task_LaborCostsItem"/>
+      <Component Name="TotalTextVar" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="TotalTextVar2" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Component>
+    <Component Name="TabMenu" Class="Com.Ctrl.IPopupMenu" AddDefaultItems="False">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="cmdInsertRow" Class="Com.Cmd2.IItem" Command="Commands.InsertRow"/>
+      <Component Name="cmdDeleteRow" Class="Com.Cmd2.IItem" Command="Commands.DeleteRow"/>
+    </Component>
+    <Inherited Name="RootFrame" FixSize="True" Margins="5" MinSize="120" Size="120">
+      <Component Name="LaborCostsButtons" Class="Com.Ctrl.IFrame" AutoSize="True" FixSize="True" Margins="2" Size="15">
+        <Component Name="GroupButtons" Class="Com.Ctrl.IGroup">
+          <Component Name="AddButton" Class="Com.Ctrl.IButton" Caption="Добавить" OnClick="AddButtonOnClick"/>
+          <Component Name="SumHoursButton" Class="Com.Ctrl.IButton" Caption="Обновить" OnClick="SumHoursButtonOnClick"/>
+        </Component>
+        <Component Name="GroupTotal" Class="Com.Ctrl.IGroup" Adaptive="True">
+          <Component Name="TotalEdit" Class="Com.Ctrl.IEdit" Color="0xFE00000A" Enabled="False" Field="TotalTextVar" FixSize="True" Width="71"/>
+          <Component Name="SumPlanEdit" Class="Com.Ctrl.IEdit" Color="0xFE00000A" Enabled="False" Field="EdtRec.SelfPlanHours" FieldFormat=",##0.00;;-" FixSize="True" Visible="False" Width="21"/>
+          <Component Name="SumPlanSubEdit" Class="Com.Ctrl.IEdit" Color="0xFE00000A" Enabled="False" Field="EdtRec.SubPlanHours" FieldFormat=",##0.00;;-" FixSize="True" Width="21"/>
+          <Component Name="SumFactSubEdit" Class="Com.Ctrl.IEdit" Color="0xFE00000A" Enabled="False" Field="EdtRec.FactHours" FieldFormat=",##0.00;;-" FixSize="True" Width="21"/>
+          <Component Name="TotalCommentEdit" Class="Com.Ctrl.IEdit" Color="0xFE00000A" Enabled="False" Field="TotalTextVar2" Width="135"/>
+          <Component Name="TotalBtnEdit" Class="Com.Ctrl.IEdit" Color="0xFE00000A" Enabled="False" Field="TotalTextVar2" FixSize="True" Width="8"/>
+        </Component>
+      </Component>
+      <Component Name="LaborCostsFrame" Class="Com.Ctrl.IFrame" MinSize="120">
+        <Component Name="PrjLaborCostsTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="True" CanInsert="True" CanMove="False" Freezed="False" ManualControl="True" Numbering="False" PopupMenu="TabMenu" Subtable="PrjLaborCostsSubtable">
+          <Component Name="Proj_LaborCosts" Class="TMS.Rec.Data.Task_LaborCostsItem" IsLibrary="1"/>
+          <Component Name="PrjEventEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:EventEdit=Событие" CardFileClass="TMS.Tab.Data.DayEvent" Field="Proj_LaborCosts.Event" FixSize="True" LookupField="Name" ShortList="True" Visible="False" Width="70"/>
+          <Component Name="PrjRoleEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:RoleEdit=Роль" CardFileClass="Bas.Tab.Ref.EntityRoles" Field="Proj_LaborCosts.Role" FixSize="True" LookupField="Name" LookupFilter="SystemRole in [7, 8]" ShortList="True" Width="70"/>
+          <Component Name="PrjPlanHoursEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:PlanHoursEdit=План по проекту" Field="Proj_LaborCosts.Hours" FieldFormat=",##0.00;;-" FixSize="True" OnChange="PrjPlanHoursEditOnChange" Visible="False" Width="20"/>
+          <Component Name="PrjPlanSubtaskHoursEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:PlanHoursEdit=План по задачам" Enabled="False" Field="Proj_LaborCosts.PlanSubtaskHours" FieldFormat=",##0.00;;-" FixSize="True" Width="20"/>
+          <Component Name="FactHoursEdit" Class="Com.Ctrl.IEdit" Excluded="True" Caption="@TMS:FactHoursEdit=Факт по задаче" Enabled="False" Field="Proj_LaborCosts.FactHours" FieldFormat=",##0.00;;-" FixSize="True" OnChange="FactHoursEditOnChange" Visible="False" Width="20"/>
+          <Component Name="PrjFactSubtaskHoursEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:FactHoursEdit=Факт по задачам" Enabled="False" Field="Proj_LaborCosts.FactSubtaskHours" FieldFormat=",##0.00;;-" FixSize="True" Width="20"/>
+          <Component Name="PrjCommentEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:CommentEdit=Комментарий" Field="Proj_LaborCosts.Comment" Width="140"/>
+          <Component Name="DelButton" Class="Com.Ctrl.IButton" FixSize="True" ImageName="Com.DeleteObj" OnClick="DelButtonOnClick" Width="7"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

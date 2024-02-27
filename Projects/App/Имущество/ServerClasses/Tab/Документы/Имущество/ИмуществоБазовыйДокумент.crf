@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.BasObject">
+  <Inherited>
+    <Inherited Name="Current" Class="Имущество.Rec.Документы.Имущество.ИмуществоБазовыйДокумент" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree">
+          <Inherited Name="CardTree" BeforeModify="ct_BeforeModify"/>
+        </Inherited>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="CardFile" BeforeModify="cf_BeforeModify"/>
+          <Inherited Name="Name" Visible="False"/>
+          <Inherited Name="Code" Visible="False"/>
+          <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Field="Current.ДатаНачала" HasCaption="True" Visible="True" Width="20"/>
+          <Component Name="Номер" Class="Com.Ctrl.IEdit" Field="Current.Номер" HasCaption="True" Visible="True" Width="25"/>
+          <Component Name="НашеПредприятие" Class="Com.Ctrl.IEdit" Field="Current.НашеПредприятие" Width="50"/>
+          <Component Name="Проводить" Class="Com.Ctrl.ICheckBox" Caption="Проводить" Field="Current.Проводить" FixSize="True" HasCaption="True" Visible="True" Width="20"/>
+          <Component Name="Стоимость" Class="Com.Ctrl.IEdit" Field="Current.Стоимость" FieldFormat=",##0.00;;-" FixSize="True" Width="30"/>
+          <Component Name="ВалютаДок" Class="Com.Ctrl.IEdit" Caption="Валюта" Field="Current.ВалютаДок" FixSize="True" LookupField="Code" Width="18"/>
+          <Component Name="Комментарии" Class="Com.Ctrl.IEdit" CanSort="False" Caption="Комментарии" Field="Current.Комментарии" HasCaption="True" Width="100"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,200 @@
+TBCFile VER="3.4" [Created '14.07.2022 17:24:12' by 'Администратор']
+
+DESCRIPTION[
+Count=10
+CountByRef=0
+Control.Ref.TaskStatus
+(
+  Count=10
+  CountByRef=0
+)
+Notifications.Ref.DATextMessageTemplate
+(
+  Count=0
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Control.Ref.TaskStatus
+  (
+    Deleted :Boolean
+    GroupDoc :Control.Ref.TaskStatus
+    isGroup :Integer
+    CreateDate :Date
+    CreateUser :String(40)
+    UpdateDate :Date
+    UpdateUser :String(40)
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    НеОтображаетсяВДереве :Boolean
+    MetaLock :Boolean
+    SubsysCode :Integer
+    PartisCode :Integer
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    Description :String
+    EntityNum :Integer
+    EntityRole :Bas.Ref.EntityRole
+    IsClosedTask :Boolean
+    SendMailToResponsible :Boolean
+    EmailRoles :Struct array Integer
+    (
+      Role :Bas.Ref.EntityRole
+    )
+    Action :String
+    StatusColor :Integer
+    InputComment :Boolean
+    ApprovementRole :Integer
+    TextMsgTemplate :Notifications.Ref.DATextMessageTemplate
+  )
+  ForeignKey Code
+  ]
+
+  [Notifications.Ref.DATextMessageTemplate
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Control.Ref.TaskStatus
+  
+  {Control.Ref.TaskStatus:"НаСогласование"}
+  (
+    CreateDate = 03.06.2022 04:13:49
+    CreateUser = "Администратор"
+    UpdateDate = 14.07.2022 17:16:26
+    UpdateUser = "Администратор"
+    Name = "На согласование"
+    SendMailToResponsible = True
+    StatusColor = -1
+    ApprovementRole = 1
+    TextMsgTemplate = {Notifications.Ref.DATextMessageTemplate:Согласовано}
+  )
+  
+  {Control.Ref.TaskStatus:"ПринятоНаСогласование"}
+  (
+    CreateDate = 03.06.2022 13:03:44
+    CreateUser = "Администратор"
+    UpdateDate = 14.07.2022 17:22:56
+    UpdateUser = "Администратор"
+    Name = "Принято на согласование"
+    StatusColor = -1
+  )
+  
+  {Control.Ref.TaskStatus:"Одобрено"}
+  (
+    CreateDate = 03.06.2022 13:06:45
+    CreateUser = "Администратор"
+    UpdateDate = 01.07.2022 12:49:36
+    UpdateUser = "Администратор"
+    Name = "Одобрено"
+    StatusColor = -1
+    InputComment = True
+    ApprovementRole = 2
+  )
+  
+  {Control.Ref.TaskStatus:"Отказано"}
+  (
+    CreateDate = 03.06.2022 13:13:55
+    CreateUser = "Администратор"
+    UpdateDate = 14.07.2022 17:19:11
+    UpdateUser = "Администратор"
+    Name = "Отказано"
+    SendMailToResponsible = True
+    StatusColor = 8421631
+    InputComment = True
+    ApprovementRole = 3
+    TextMsgTemplate = {Notifications.Ref.DATextMessageTemplate:Отказано}
+  )
+  
+  {Control.Ref.TaskStatus:"Возвращено"}
+  (
+    CreateDate = 08.06.2022 20:50:08
+    CreateUser = "Администратор"
+    UpdateDate = 14.07.2022 17:20:17
+    UpdateUser = "Администратор"
+    Name = "Возвращено инициатору"
+    StatusColor = 8421631
+    InputComment = True
+    ApprovementRole = 4
+    TextMsgTemplate = {Notifications.Ref.DATextMessageTemplate:Возвращено}
+  )
+  
+  {Control.Ref.TaskStatus:"ОтказаноПравомВето"}
+  (
+    CreateDate = 14.06.2022 23:28:59
+    CreateUser = "Администратор"
+    UpdateDate = 14.07.2022 17:15:52
+    UpdateUser = "Администратор"
+    Name = "Отказано правом вето"
+    IsClosedTask = True
+    StatusColor = 8421631
+    InputComment = True
+    ApprovementRole = 6
+    TextMsgTemplate = {Notifications.Ref.DATextMessageTemplate:Отказано}
+  )
+  
+  {Control.Ref.TaskStatus:"Предыдущему"}
+  (
+    CreateDate = 15.06.2022 18:18:07
+    CreateUser = "Администратор"
+    UpdateDate = 14.07.2022 16:57:49
+    UpdateUser = "Администратор"
+    Name = "Возвращено предыдущему"
+    StatusColor = -1
+    InputComment = True
+    ApprovementRole = 5
+  )
+  
+  {Control.Ref.TaskStatus:"Отозвано"}
+  (
+    CreateDate = 17.06.2022 00:43:26
+    CreateUser = "Администратор"
+    UpdateDate = 14.07.2022 17:23:56
+    UpdateUser = "Администратор"
+    Name = "Отозвано"
+    IsClosedTask = True
+    StatusColor = -1
+    ApprovementRole = 4
+  )
+  
+  {Control.Ref.TaskStatus:"Делегировано"}
+  (
+    CreateDate = 17.06.2022 04:57:21
+    CreateUser = "Администратор"
+    UpdateDate = 14.07.2022 16:57:56
+    UpdateUser = "Администратор"
+    Name = "Делегировано"
+    SendMailToResponsible = True
+    StatusColor = -1
+    ApprovementRole = 7
+    TextMsgTemplate = {Notifications.Ref.DATextMessageTemplate:НаСогласование}
+  )
+  
+  {Control.Ref.TaskStatus:"ДопСогласование"}
+  (
+    CreateDate = 20.06.2022 01:32:12
+    CreateUser = "Администратор"
+    UpdateDate = 14.07.2022 17:16:03
+    UpdateUser = "Администратор"
+    Name = "Доп. согласование"
+    SendMailToResponsible = True
+    StatusColor = -1
+    ApprovementRole = 8
+    TextMsgTemplate = {Notifications.Ref.DATextMessageTemplate:НаСогласование}
+  )
+]
+
+]

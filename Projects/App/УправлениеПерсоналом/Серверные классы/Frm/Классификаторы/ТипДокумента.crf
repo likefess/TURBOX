@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.Справочник">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Справочники.Типы приказов">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Классификаторы.ТипДокумента" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="GroupCode">
+            <Component Name="ОКУД" Class="Com.Ctrl.IEdit" After="Code" Field="EdtRec.ОКУД" HasCaption="True" Width="40"/>
+            <Inherited Name="StaticCode" FixSize="True" Width="30"/>
+          </Inherited>
+          <Inherited Name="GroupName">
+            <Component Name="Static4" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+          </Inherited>
+          <Component Name="грГрупповой" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="КадровыйДокумент" Class="Com.Ctrl.IEdit" Caption="Кадровый документ" CellFormat="EnumFormat" Field="EdtRec.КадровыйДокумент"/>
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Excluded="True" Width="40"/>
+            <Component Name="Групповой" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Групповой" FixSize="True" HasCaption="True" Width="30"/>
+          </Component>
+          <Component Name="грПредприятие" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Предприятие" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="EdtRec.Предприятие" HasCaption="True" LookupField="Name"/>
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+          </Component>
+          <Component Name="грШаблон" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="ШаблонЭкспорта" Class="Com.Ctrl.IEdit" Caption="Шаблон" CardFileClass="DocPrint.Tab.Data.ExportTemplate" Field="EdtRec.ШаблонЭкспорта" HasCaption="True" LookupField="Name"/>
+            <Component Name="кнШаблонЭкспорта" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ШаблонЭкспорта" JumpForm="DocPrint.Frm.Data.ExportTemplateEditor"/>
+            <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="23"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab" Caption="@Frm:MainTab= Формуляр" HasCaption="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

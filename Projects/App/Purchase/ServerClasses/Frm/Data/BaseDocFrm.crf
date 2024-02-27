@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Frm.Base.BaseJournalFrm">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Purchase.Rec.Data.BaseDocRec" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="PosRec" Class="Purchase.Rec.Data.BaseDoc_Pos" IsLibrary="1"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonClone" Visible="False"/>
+      </Inherited>
+      <Inherited Name="BasicFrame">
+        <Component Name="PeriodFrame" Class="Com.Ctrl.IFrame" After="#0" AutoSize="True">
+          <Component Name="Group2" Class="Com.Ctrl.IGroup" MaxWidth="250" MinWidth="100"/>
+        </Component>
+        <Inherited Name="CodeFrame">
+          <Inherited Name="CodeGr" MaxWidth="250" MinWidth="180">
+            <Inherited Name="JournalDate" Caption="Дата документа, код" CaptionWidth="55"/>
+            <Inherited Name="CodeStatic1" Width="55"/>
+            <Inherited Name="NameEdit" CaptionWidth="55"/>
+            <Inherited Name="Company" CaptionWidth="55"/>
+          </Inherited>
+          <Component Name="grAgreement" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="180">
+            <Component Name="Agreement" Class="Com.Ctrl.IEdit" Caption="Согласование" CaptionWidth="55" Enabled="False" HasCaption="True" LookupField="Name" OnOutput="AgreementOnOutput" Wrap="False"/>
+            <Component Name="btnAgreement" Class="Com.Ctrl.IJumpButton" JumpForm="DocApprovement.Frm.Ref.DADocStatus"/>
+            <Component Name="btnRevoke" Class="Com.Ctrl.IButton" Excluded="True" Caption="Отозвать" HasCaption="True" Printed="False" Visible="False" Width="35"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Component Name="PosTab" Class="Com.Ctrl.IFrame" Caption="@Frm:PosTab=Позиции" Margins="0">
+          <Component Name="tbPos" Class="Com.Ctrl.ITable" Subtable="EdtRec.Pos">
+            <Component Name="Ed_ТМЦ_услуги_Name" Class="Com.Ctrl.IEdit" Caption="Наименование" Field="PosRec.ТМЦ_услуги" LookupField="Name" Width="35"/>
+            <Component Name="Ed_ТМЦ_услуги_Code" Class="Com.Ctrl.IEdit" Caption="Код" Field="PosRec.ТМЦ_услуги" LookupField="Code" Width="25"/>
+            <Component Name="Jb_ТМЦ_услуги" Class="Com.Ctrl.IJumpButton" Field="PosRec.ТМЦ_услуги"/>
+            <Component Name="Ed_TMC_FullName" Class="Com.Ctrl.IEdit" Caption="Полное название" Field="PosRec.TMC_FullName" Multiline="True" Wrap="True"/>
+            <Component Name="СlmnsGr_Колво" Class="Com.Ctrl.IColumnsGroup" Caption="Количество" HasCaption="True">
+              <Component Name="Колво" Class="Com.Ctrl.IEdit" Field="PosRec.AmountTMC" HasCaption="False" Width="25"/>
+              <Component Name="ЕдИзм" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.ТМЦ_услуги" HasCaption="False" LookupField="ОснЕдИзм.Код" Width="10"/>
+            </Component>
+            <Component Name="ClmnsGr_КолвоУпак" Class="Com.Ctrl.IColumnsGroup" Caption="Количество упаковок" HasCaption="True" Width="40">
+              <Component Name="КолвоУпак" Class="Com.Ctrl.IEdit" Field="PosRec.AmountPackage" HasCaption="False" Width="25"/>
+              <Component Name="ЕдИзмУпак" Class="Com.Ctrl.IEdit" Field="PosRec.AmountPackageUnit" HasCaption="False" LookupField="Code" OnOpenCardForm="ЕдИзмУпак_OnOpenCardForm" Width="15"/>
+            </Component>
+            <Component Name="ClmnsGr_Sum" Class="Com.Ctrl.IColumnsGroup" Caption="Сумма" HasCaption="True">
+              <Component Name="edSum" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.Sum" FieldFormat="#0.00" HasCaption="False" Width="25"/>
+              <Component Name="edSumUnit" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.SumUnit" HasCaption="False" LookupField="code" Width="10"/>
+            </Component>
+            <Component Name="ClmnsGr_VAT" Class="Com.Ctrl.IColumnsGroup" Caption="НДС" HasCaption="True" Width="40">
+              <Component Name="edVATBid" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="ставка" Field="PosRec.VATBid" HasCaption="True" LookupFilter="ВидНДС &lt;> 3" OnOpenCardForm="edVATBidOnOpenCardForm" ShortList="True" Width="20"/>
+              <Component Name="edVATSum" Class="Com.Ctrl.IEdit" Caption="сумма" Enabled="False" Field="PosRec.VATSum" FieldFormat="#0.00" HasCaption="True" LookupField="code" Width="20"/>
+            </Component>
+            <Component Name="Ed_ТМЦ_услуги_Lot" Class="Com.Ctrl.IEdit" Caption="Лот" Enabled="False" Field="PosRec.ТМЦ_услуги" LookupField="PurchaseLot.Name" Width="35"/>
+            <Component Name="Ed_DocObject" Class="Com.Ctrl.IEdit" Field="PosRec.DocObject" HasCaption="True" LookupField="Code"/>
+            <Component Name="Ed_Coefficient_Analog" Class="Com.Ctrl.IEdit" Field="PosRec.Coefficient_Analog"/>
+            <Component Name="Ed_IdService" Class="Com.Ctrl.IEdit" Field="PosRec.IdService" Visible="False"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

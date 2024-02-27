@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Frm.Data.PersonalData">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Component Name="frMain" Class="Com.Ctrl.IFrame" After="#0" AutoSize="True" HasCaption="False">
+            <Component Name="grMain1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="MaritalStatus" Class="Com.Ctrl.IEdit" Caption="@Сем. положение" CardFileClass="HRBase.Tab.Ref.MaritalStatus" CellFormat="ReferenceFormat" Field="EdtRec.MaritalStatus" HasCaption="True" Hint="@Семейное положение" LookupField="Name"/>
+              <Component Name="btnMaritalStatus" Class="Com.Ctrl.IButton" Hint="@Семейное положение (состояние в браке)" ImageName="Biz.list" OnClick="btnMaritalStatus_OnClick"/>
+            </Component>
+          </Component>
+          <Inherited Name="frMainData">
+            <Inherited Name="bxCitizenship">
+              <Inherited Name="grCitizenship">
+                <Inherited Name="grCitizenship1">
+                  <Inherited Name="Residency" Width="40"/>
+                </Inherited>
+                <Component Name="grCitizenship3" Class="Com.Ctrl.IGroup" After="grCitizenship2" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                  <Component Name="TypeCitizenship" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.TypeCitizenship" HasCaption="True"/>
+                </Component>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

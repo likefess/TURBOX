@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Component Name="DataStruct" Class="Treasury.Rec.Reports.RepReservationList_DataStruct" IsLibrary="1" After="#0"/>
+    <Inherited Name="TableMenu" After="DataStruct"/>
+    <Inherited Name="Variables">
+      <Component Name="DataSubtable" Class="Com.ISubtable"/>
+      <Component Name="vOurCompany" Class="Com.Fld.IVar" Caption="Наше предприятие" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="vContraparty" Class="Com.Fld.IVar" Caption="Контрагент" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="vContract" Class="Com.Fld.IVar" Caption="Договор" RecordClass="Biz.Rec.Data.Contract" ValueType="VarObject"/>
+      <Component Name="vPeriodStart" Class="Com.Fld.IVar" Caption="Период с" ValueType="VarDate"/>
+      <Component Name="vPeriodEnd" Class="Com.Fld.IVar" Caption="по" ValueType="VarDate"/>
+      <Component Name="vPredictDate" Class="Com.Fld.IVar" Caption="Прогнозная дата" ValueType="VarLogical"/>
+      <Component Name="vCFR" Class="Com.Fld.IVar" Caption="ЦФО" RecordClass="Biz.Rec.Ref.CFR" ValueType="VarObject"/>
+      <Component Name="vBGI" Class="Com.Fld.IVar" Caption="Статья бюджета" RecordClass="Biz.Rec.Ref.BGI" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonRefresh" After="#0" OnClick="ButtonRefreshOnClick"/>
+        <Inherited Name="ButtonOK" Excluded="True" After="ButtonRefresh"/>
+        <Component Name="ButtonServices" Class="Com.Ctrl.IListButton" After="ButtonOK" ImageName="Com.Services">
+          <Component Name="ButtonCreateRequest" Class="Com.Ctrl.IButton" Caption="Создать заявки" HasCaption="True" OnClick="ButtonCreateRequestOnClick"/>
+        </Component>
+        <Inherited Name="ButtonClose" After="ButtonServices"/>
+        <Inherited Name="ButtonHelp" After="ButtonClose"/>
+        <Inherited Name="HeaderSeparator" After="ButtonHelp"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="FieldsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+          <Component Name="FieldsLeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="100">
+            <Component Name="PeriodStartEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="vPeriodStart" FormatOfDate="DateOnly" HasCaption="True"/>
+            <Component Name="OurCompanyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="vOurCompany" HasCaption="True" LookupField="Name" OnGetLookupFilter="OurCompanyEditOnGetLookupFilter" Required="True" ShortList="True"/>
+            <Component Name="CFREdit" Class="Com.Ctrl.IListEdit" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="vCFR" HasCaption="True" LookupField="Name" OnGetLookupFilter="CFREditOnGetLookupFilter" OnVerify="EditOnVerify"/>
+          </Component>
+          <Component Name="FieldsMidGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="100">
+            <Component Name="PeriodEndEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="vPeriodEnd" FormatOfDate="DateOnly" HasCaption="True"/>
+            <Component Name="ContrapartyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Field="vContraparty" HasCaption="True" LookupField="Name" OnChange="ContrapartyEditOnChange" OnGetLookupFilter="ContrapartyEditOnGetLookupFilter" OnVerify="ContrapartyEditOnVerify"/>
+            <Component Name="BGIEdit" Class="Com.Ctrl.IListEdit" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="vBGI" HasCaption="True" LookupField="Name" OnVerify="EditOnVerify"/>
+          </Component>
+          <Component Name="FieldsRightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="100">
+            <Component Name="PredictDateEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              <Component Name="PredictDateEdit" Class="Com.Ctrl.ICheckBox" Field="vPredictDate" HasCaption="True"/>
+            </Component>
+            <Component Name="ContractEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Field="vContract" HasCaption="True" LookupField="Code" OnGetLookupFilter="ContractEditOnGetLookupFilter"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Component Name="DataFrame" Class="Com.Ctrl.IFrame" Subtable="DataSubtable">
+        <Component Name="OurCompanyCol" Class="Com.Ctrl.IEdit" Caption="Наше предприятие" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.locContract" HasCaption="True" LookupField="Company.Name" Multiline="True" Width="40" Wrap="True"/>
+        <Component Name="ContrapartyCol" Class="Com.Ctrl.IEdit" Caption="Контрагент" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.locContract" HasCaption="True" LookupField="Partner.Name" Multiline="True" Width="50" Wrap="True"/>
+        <Component Name="ContractCol" Class="Com.Ctrl.IEdit" Caption="Договор" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.locContract" HasCaption="True" LookupField="Code" Width="30"/>
+        <Component Name="ContractJumpButton" Class="Com.Ctrl.IJumpButton" Field="DataStruct.locContract" JumpForm="Biz.Frm.Data.Contract"/>
+        <Component Name="PaymentDateCol" Class="Com.Ctrl.IEdit" Caption="Дата платежа / поступления" Enabled="False" Field="DataStruct.locPaymentDate" HasCaption="True" Width="30"/>
+        <Component Name="PredictDateCol" Class="Com.Ctrl.IEdit" Caption="Прогнозная дата платежа / поступления" Enabled="False" Field="DataStruct.locPredictDate" HasCaption="True" Width="30"/>
+        <Component Name="SumCol" Class="Com.Ctrl.IEdit" Caption="Сумма с НДС" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.locFinalSum" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+        <Component Name="CFRCol" Class="Com.Ctrl.IEdit" Caption="ЦФО" Enabled="False" Field="DataStruct.locCFR" HasCaption="True" LookupField="Name" Multiline="True" Width="40" Wrap="True"/>
+        <Component Name="BGICol" Class="Com.Ctrl.IEdit" Caption="Статья бюджета" Enabled="False" Field="DataStruct.locBGI" HasCaption="True" LookupField="Name" Multiline="True" Width="40" Wrap="True"/>
+        <Component Name="ProjectCol" Class="Com.Ctrl.IEdit" Caption="Проект" Enabled="False" Field="DataStruct.locProject" HasCaption="True" LookupField="Name" Multiline="True" Width="40" Wrap="True"/>
+        <Component Name="SourceCol" Class="Com.Ctrl.IEdit" Caption="Источник" Enabled="False" Field="DataStruct.locSource" HasCaption="True" LookupField="Name" Multiline="True" Width="40" Wrap="True"/>
+        <Component Name="AdvanceCol" Class="Com.Ctrl.ICheckBox" Caption="Аванс" Enabled="False" Field="DataStruct.locAdvance" HasCaption="True" Width="30"/>
+        <Component Name="PaymentRequestCol" Class="Com.Ctrl.IEdit" Caption="Заявка на оплату" Enabled="False" Field="DataStruct.locPaymentRequest" HasCaption="True" LookupField="PrintedNumber" Width="30"/>
+        <Component Name="JumpButton1" Class="Com.Ctrl.IJumpButton" Field="DataStruct.locPaymentRequest" JumpForm="Treasury.Frm.Data.PaymentRequest"/>
+        <Component Name="CreateRequestCol" Class="Com.Ctrl.ICheckBox" Caption="Создать заявку" Field="DataStruct.CreateRequest" HasCaption="True" OnVerify="CreateRequestColOnVerify" Width="30"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

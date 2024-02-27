@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited Caption="Платежная позиция" HelpContext="Treasury.Казначейство.Операции.Действия.Оплата утвержденных заявок">
+    <Component Name="RequestStruct" Class="Treasury.Rec.Actions.DoPayRequest_RequestStruct" IsLibrary="1" After="#0"/>
+    <Component Name="FilterRequestStruct" Class="Treasury.Rec.Actions.DoPayRequest_RequestStruct" IsLibrary="1"/>
+    <Component Name="RequestedStruct" Class="Treasury.Rec.Actions.DoPayRequest_RequestedStruct" IsLibrary="1"/>
+    <Component Name="BankAccountStruct" Class="Treasury.Rec.Actions.DoPayRequest_BankAccountStruct" IsLibrary="1"/>
+    <Component Name="CashRegisterStruct" Class="Treasury.Rec.Actions.DoPayRequest_CashRegisterStruct" IsLibrary="1"/>
+    <Inherited Name="TableMenu" After="CashRegisterStruct"/>
+    <Inherited Name="Variables">
+      <Component Name="BankAccountsSubtable" Class="Com.ISubtable"/>
+      <Component Name="CashRegistersSubtable" Class="Com.ISubtable"/>
+      <Component Name="RequestSubtable" Class="Com.ISubtable"/>
+      <Component Name="FilterRequestSubtable" Class="Com.ISubtable"/>
+      <Component Name="RequestedSubtable" Class="Com.ISubtable"/>
+      <Component Name="OurCompany" Class="Com.Fld.IVar" Caption="Наше предприятие" OnChange="OurCompany_OnChange" ValueType="VarObject"/>
+      <Component Name="PaymentDateOption" Class="Com.Fld.IVar" Caption="Оплачивать датой" OnChange="PaymentDateOption_OnChange" ValueType="VarDate"/>
+      <Component Name="Currency" Class="Com.Fld.IVar" Caption="Валюта" OnChange="Currency_OnChange" RecordClass="Biz.Rec.Ref.UnitOrCurrency" ValueType="VarObject"/>
+      <Component Name="PaymentType" Class="Com.Fld.IVar" Caption="Тип оплаты" OnChange="PaymentType_OnChange" ValueType="VarInteger"/>
+      <Component Name="SelectedCashRegister" Class="Com.Fld.IVar" Caption="Из кассы" ValueType="VarObject"/>
+      <Component Name="SelectedBankAccount" Class="Com.Fld.IVar" Caption="Со счета" ValueType="VarObject"/>
+      <Component Name="Manual" Class="Com.Fld.IVar" Caption="Ручной ввод сальдо" OnChange="Manual_OnChange" ValueType="VarLogical"/>
+      <Component Name="Overdraft" Class="Com.Fld.IVar" Caption="Показывать овердрафт" OnChange="Overdraft_OnChange" ValueType="VarLogical"/>
+      <Component Name="MinBalance" Class="Com.Fld.IVar" Caption="Показывать MNO" OnChange="MinBalance_OnChange" ValueType="VarLogical"/>
+      <Component Name="ReqsFrom" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="ReqsTo" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="RequestedBankFilter" Class="Com.Fld.IVar" Caption="Р/c" ValueType="VarObject"/>
+      <Component Name="RequestedCashFilter" Class="Com.Fld.IVar" Caption="Касса" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Caption="Платежная позиция" HasCaption="True">
+        <Inherited Name="ButtonOK" Excluded="True"/>
+        <Inherited Name="ButtonRefresh" After="ButtonOK" Caption="@DoPayRequest:ButtonRefresh=Обновить" OnClick="ButtonRefreshOnClick"/>
+        <Inherited Name="ButtonClose" After="ButtonRefresh"/>
+        <Inherited Name="ButtonHelp" After="ButtonClose"/>
+        <Inherited Name="HeaderSeparator" After="ButtonHelp"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" AutoSize="False" Orientation="Vertical" Size="53">
+        <Component Name="OptionsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" CanHideBySplit="True" CanResizeBySplit="True" Margins="10" ScrollerStyle="ScrollerNone" SplitterAtRight="True" UseSplitter="True">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" ByColumn="True">
+            <Component Name="OurCompanyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="OurCompany" HasCaption="True" LookupField="Name" Required="True" ShortList="True"/>
+            <Component Name="PaymentDateEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="PaymentDateOption" HasCaption="True"/>
+            <Component Name="CurrencyFilterEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Field="Currency" HasCaption="True" LookupField="Code" ShortList="True"/>
+            <Component Name="PaymentTypeFilterEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="PaymentType" HasCaption="True" ListAsString="Банк|0;Касса|1"/>
+            <Component Name="CurrentSelectedBankAccountEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.BankDetails" CellFormat="ReferenceFormat" Enabled="False" Field="SelectedBankAccount" HasCaption="True" LookupField="Name" OnChange="CurrentSelectedBankAccountEdit_OnChange" ShortList="True"/>
+            <Component Name="ManualGroup" Class="Com.Ctrl.IGroup" ByColumn="False">
+              <Component Name="Static6" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="True" Width="40"/>
+              <Component Name="OverdraftCheckBox" Class="Com.Ctrl.ICheckBox" Caption="Овердрафт" Field="Overdraft" FixSize="True" HasCaption="True" Width="27"/>
+              <Component Name="MinBalanceCheckBox" Class="Com.Ctrl.ICheckBox" Caption="МНО" Field="MinBalance" FixSize="True" HasCaption="True" Width="16"/>
+              <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+              <Component Name="Static5" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              <Component Name="ManualCheckBox" Class="Com.Ctrl.ICheckBox" Caption="Ручной ввод сальдо" Field="Manual" FixSize="True" HasCaption="True" Width="50"/>
+            </Component>
+            <Component Name="CurrentSelectedCashRegisterEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.CashRegisters" CellFormat="ReferenceFormat" Enabled="False" Field="SelectedCashRegister" HasCaption="True" LookupField="Name" OnChange="CurrentSelectedCashRegisterEdit_OnChange" ShortList="True"/>
+          </Component>
+        </Component>
+        <Component Name="BankAccountFrame" Class="Com.Ctrl.IFrame" Subtable="BankAccountsSubtable">
+          <Component Name="SelectedBank" Class="Com.Ctrl.ICheckBox" Alignment="CenterAlign" Caption=" " Field="BankAccountStruct.Selected" HasCaption="True" OnChange="SelectedBank_OnChange" Width="5"/>
+          <Component Name="BankAccount" Class="Com.Ctrl.IEdit" Caption="Банковский счет" Enabled="False" Field="BankAccountStruct.BankAccount" HasCaption="True" Width="75"/>
+          <Component Name="BankAccount1" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Вал." Enabled="False" Field="BankAccountStruct.BankAccount" HasCaption="True" LookupField="Currency.Code" Width="14"/>
+          <Component Name="Saldo" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Вх. остаток" Enabled="False" Field="BankAccountStruct.Saldo" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+          <Component Name="SaldoManual" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Вх. остаток" Field="BankAccountStruct.SaldoManual" FieldFormat=",##0.00;;-" HasCaption="True" OnChange="SaldoManual_OnChange" Width="30"/>
+          <Component Name="OutcomeEdit" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Одобрено" Enabled="False" Field="BankAccountStruct.Outcome" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+          <Component Name="ToPayEdit" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="К оплате" Enabled="False" Field="BankAccountStruct.ToPay" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+          <Component Name="SaldoOper" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Исх. остаток" Enabled="False" Field="BankAccountStruct.SaldoOper" FieldFormat=",##0.00;;-" HasCaption="True" OnDrawEx="SaldoOper_OnDrawEx" Width="30"/>
+          <Component Name="OverdraftSum" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Овердрафт" Enabled="False" Field="BankAccountStruct.OverdraftSum" FieldFormat=",##0.00;;-" HasCaption="True" OnOutputEx="OverdraftSum_OnOutputEx" Visible="False" Width="30"/>
+          <Component Name="MinBalanceSum" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="МНО" Enabled="False" Field="BankAccountStruct.MinBalanceSum" FieldFormat=",##0.00;;-" HasCaption="True" Visible="False" Width="30"/>
+          <Component Name="SmashButton" Class="Com.Ctrl.IButton" Excluded="True" Caption="Распределить по заявкам" Enabled="False" OnClick="SmashButtonOnClick" Visible="False" Width="60"/>
+        </Component>
+        <Component Name="CashRegisterFrame" Class="Com.Ctrl.IFrame" Subtable="CashRegistersSubtable">
+          <Component Name="SelectedCash" Class="Com.Ctrl.ICheckBox" Alignment="CenterAlign" Caption=" " Field="CashRegisterStruct.Selected" HasCaption="True" OnChange="SelectedCash_OnChange" Width="5"/>
+          <Component Name="CashRegister" Class="Com.Ctrl.IEdit" Caption="Касса" Enabled="False" Field="CashRegisterStruct.CashRegister" HasCaption="True" Width="75"/>
+          <Component Name="CashRegisterCode" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Вал." Enabled="False" Field="CashRegisterStruct.CashRegister" HasCaption="True" LookupField="CashCurrency.Code" Width="14"/>
+          <Component Name="CashSaldo" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Вх. остаток" Enabled="False" Field="CashRegisterStruct.Saldo" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+          <Component Name="CashOutcomeEdit" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Одобрено" Enabled="False" Field="CashRegisterStruct.Outcome" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+          <Component Name="CashToPayEdit" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="К оплате" Enabled="False" Field="CashRegisterStruct.ToPay" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+          <Component Name="CashSaldoOper" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Исх. остаток" Enabled="False" Field="CashRegisterStruct.SaldoOper" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+        </Component>
+      </Inherited>
+      <Component Name="ApprovedRequestsFrame" Class="Com.Ctrl.IFrame" UseSplitter="True">
+        <Component Name="ButtonsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="5">
+          <Component Name="Group6" Class="Com.Ctrl.IGroup" Adaptive="True" MinWidth="150">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption="Одобренные заявки" FixSize="True" FontBold="True" FontItalic="True" Width="45"/>
+            <Component Name="ReqsFromEdit" Class="Com.Ctrl.IEdit" Caption="с" CaptionWidth="10" Enabled="False" Field="ReqsFrom" FixSize="True" HasCaption="True" Width="35"/>
+            <Component Name="ReqsToEdit" Class="Com.Ctrl.IEdit" Caption="по" CaptionWidth="10" Enabled="False" Field="ReqsTo" FixSize="True" HasCaption="True" Width="35"/>
+            <Component Name="RequestsRefreshButton" Class="Com.Ctrl.IButton" Enabled="False" FixSize="True" Hint="@DoPayRequest:RequestRefreshButton=Обновить список одобренных заявок" ImageName="Com.Refresh" OnClick="RequestsRefreshButton_OnClick"/>
+            <Component Name="Static3" Class="Com.Ctrl.IStatic"/>
+            <Component Name="ToPaymentButton" Class="Com.Ctrl.IButton" Caption="Переместить к оплате" Enabled="False" FixSize="True" ImageName="Com.PageDown" OnClick="ToPaymentButton_OnClick" Width="55"/>
+            <Component Name="SelectAllButton" Class="Com.Ctrl.IButton" Caption="Выбрать все" Enabled="False" FixSize="True" OnClick="SelectAllButtonOnClick"/>
+            <Component Name="UnselectAllButton" Class="Com.Ctrl.IButton" Caption="Отменить все" Enabled="False" FixSize="True" OnClick="UnselectAllButtonOnClick"/>
+          </Component>
+        </Component>
+        <Component Name="ApprovedRequestsVert" Class="Com.Ctrl.IFrame" Orientation="Vertical" ScrollerStyle="ScrollerHorz">
+          <Component Name="ApprovedRequestsHorz" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Horizontal">
+            <Component Name="FilterRequestFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone" Sortable="True" Subtable="FilterRequestSubtable">
+              <Component Name="FClearButton" Class="Com.Ctrl.IButton" Alignment="CenterAlign" HasCaption="False" Hint="Сбросить фильтры" ImageName="Treasury.ClearFilters" OnClick="FClearButton_OnClick" VertAlignment="CenterAlign" Width="10"/>
+              <Component Name="FNum" Class="Com.Ctrl.IEdit" Excluded="True" Enabled="False" HasCaption="False" Width="10"/>
+              <Component Name="FSelectedCheckbox" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption=" " Enabled="False" HasCaption="False" Width="5"/>
+              <Component Name="FRequestEdit" Class="Com.Ctrl.IListEdit" CardFileClass="Treasury.Tab.Data.PaymentRequest" CellFormat="ReferenceFormat" Field="FilterRequestStruct.Request" HasCaption="False" LookupField="PrintedNumber" OnEnter="FRequestEdit_OnEnter" OnGetLookupFilter="FRequestEdit_OnGetLookupFilter" Width="30"/>
+              <Component Name="FRequestJumpButton" Class="Com.Ctrl.IJumpButton" Enabled="False" HasCaption="False"/>
+              <Component Name="FApprovedCompanyEdit" Class="Com.Ctrl.IListEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="FilterRequestStruct.Company" HasCaption="False" LookupField="Name" OnEnter="FApprovedCompanyEdit_OnEnter" OnGetLookupFilter="FApprovedCompanyEdit_OnGetLookupFilter" Visible="False" Width="50"/>
+              <Component Name="FContraparty" Class="Com.Ctrl.IListEdit" CellFormat="ReferenceFormat" Field="FilterRequestStruct.Contraparty" HasCaption="False" LookupField="Name" Width="50"/>
+              <Component Name="FPaymentDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CellFormat="DateFormat" Enabled="False" Field="FilterRequestStruct.PaymentDate" Width="30"/>
+              <Component Name="FPriorityEdit" Class="Com.Ctrl.IListEdit" CardFileClass="Treasury.Tab.Ref.BGIPriority" CellFormat="ReferenceFormat" Field="FilterRequestStruct.RequestPriority" HasCaption="False" LookupField="Name" Width="35"/>
+              <Component Name="FApprovedSum" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" Field="FilterRequestStruct.ApprovedSum" HasCaption="False" Width="30"/>
+              <Component Name="FResidualSumEdit" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" Field="FilterRequestStruct.ResidualSum" HasCaption="False" Width="30"/>
+              <Component Name="FSumToPayEdit" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" Field="FilterRequestStruct.SumToPay" HasCaption="False" Width="30"/>
+              <Component Name="FCurrencyEdit" Class="Com.Ctrl.IListEdit" Alignment="CenterAlign" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Field="FilterRequestStruct.Currency" HasCaption="False" LookupField="Code" Width="12"/>
+              <Component Name="FSelectedBankAccountEdit" Class="Com.Ctrl.IListEdit" CardFileClass="Biz.Tab.Data.BankDetails" CellFormat="ReferenceFormat" Field="FilterRequestStruct.BankAccount" HasCaption="False" LookupField="Name" OnGetLookupFilter="FSelectedBankAccountEdit_OnGetLookupFilter" Width="75"/>
+              <Component Name="FSelectedCashRegisterEdit" Class="Com.Ctrl.IListEdit" CardFileClass="Biz.Tab.Data.CashRegisters" CellFormat="ReferenceFormat" Field="FilterRequestStruct.CashRegister" HasCaption="False" LookupField="Name" OnGetLookupFilter="FSelectedCashRegisterEdit_OnGetLookupFilter" Width="75"/>
+              <Component Name="FCFREdit" Class="Com.Ctrl.IListEdit" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="FilterRequestStruct.CFR" HasCaption="False" LookupField="Name" OnGetLookupFilter="FCFREdit_OnGetLookupFilter" Width="50"/>
+              <Component Name="FBGIEdit" Class="Com.Ctrl.IListEdit" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="FilterRequestStruct.BGI" HasCaption="False" LookupField="Name" Width="100"/>
+            </Component>
+            <Component Name="SelectRequestFrame" Class="Com.Ctrl.IFrame" ScrollerStyle="ScrollerNone" Sortable="True" Subtable="RequestSubtable">
+              <Component Name="SelectedCheckbox" Class="Com.Ctrl.ICheckBox" Alignment="CenterAlign" Caption=" " Enabled="False" Field="RequestStruct.Selected" HasCaption="True" OnChange="SelectedCheckbox_OnChange" OnVerify="SelectedCheckbox_OnVerify" Width="5"/>
+              <Component Name="RequestEdit" Class="Com.Ctrl.IEditEx" Caption="Заявка" CardFileClass="Treasury.Tab.Data.PaymentRequest" Enabled="False" Field="RequestStruct.Request" HasCaption="True" LookupField="PrintedNumber" Width="30"/>
+              <Component Name="RequestJumpButton" Class="Com.Ctrl.IJumpButton" Enabled="False" Field="RequestStruct.Request" HasCaption="True"/>
+              <Component Name="ApprovedCompanyEdit" Class="Com.Ctrl.IEdit" Caption="Предприятие" CellFormat="ReferenceFormat" Enabled="False" Field="RequestStruct.Request" LookupField="Company.Name" Visible="False" Width="50"/>
+              <Component Name="Contraparty" Class="Com.Ctrl.IEdit" Caption="Контрагент" CellFormat="ReferenceFormat" Enabled="False" Field="RequestStruct.Contraparty" LookupField="Name" Width="50"/>
+              <Component Name="PaymentDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Срок оплаты" CellFormat="DateFormat" Enabled="False" Field="RequestStruct.PaymentDate" Width="30"/>
+              <Component Name="PriorityEdit" Class="Com.Ctrl.IEdit" Caption="Приоритет" CardFileClass="Treasury.Tab.Ref.BGIPriority" CellFormat="ReferenceFormat" Enabled="False" Field="RequestStruct.RequestPriority" LookupField="Name" Width="35"/>
+              <Component Name="ApprovedSum" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Исх. сумма" CellFormat="NumericFormat" Enabled="False" Field="RequestStruct.ApprovedSum" FieldFormat=",##0.00;;-" Width="30"/>
+              <Component Name="ResidualSumEdit" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Остаток" CellFormat="NumericFormat" Enabled="False" Field="RequestStruct.ResidualSum" FieldFormat=",##0.00;;-" Width="30"/>
+              <Component Name="SumToPayEdit" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="К оплате" CellFormat="NumericFormat" Enabled="False" Field="RequestStruct.SumToPay" FieldFormat=",##0.00;;-" OnChange="SumToPayEdit_OnChange" OnVerify="SumToPayEdit_OnVerify" Width="30"/>
+              <Component Name="CurrencyEdit" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Вал." CellFormat="ReferenceFormat" Enabled="False" Field="RequestStruct.Currency" LookupField="Code" Width="12"/>
+              <Component Name="SelectedBankAccountEdit" Class="Com.Ctrl.IEdit" Caption="Со счета" CardFileClass="Biz.Tab.Data.BankDetails" CellFormat="ReferenceFormat" Enabled="False" Field="RequestStruct.BankAccount" LookupField="Name" OnChange="SelectedBankAccountEdit_OnChange" ShortList="True" Width="75"/>
+              <Component Name="SelectedCashRegisterEdit" Class="Com.Ctrl.IEdit" Caption="Из кассы" CardFileClass="Biz.Tab.Data.CashRegisters" CellFormat="ReferenceFormat" Enabled="False" Field="RequestStruct.CashRegister" LookupField="Name" OnChange="SelectedCashRegisterEdit_OnChange" ShortList="True" Width="75"/>
+              <Component Name="CFREdit" Class="Com.Ctrl.IEdit" Caption="ЦФО" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Enabled="False" Field="RequestStruct.CFR" LookupField="Name" Width="50"/>
+              <Component Name="BGIEdit" Class="Com.Ctrl.IEdit" Caption="СБК" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Enabled="False" Field="RequestStruct.BGI" LookupField="Name" Width="100"/>
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="RequestsToPayFrame" Class="Com.Ctrl.IFrame" CanHideBySplit="True" CanResizeBySplit="True" UseSplitter="True">
+        <Component Name="ButtonsFrameR" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="5">
+          <Component Name="Group5" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" Caption="К оплате" FixSize="True" FontBold="True" FontItalic="True" Width="35"/>
+            <Component Name="RequestedBankFilterEdit" Class="Com.Ctrl.IEdit" Caption="р/c" CaptionWidth="20" CardFileClass="Biz.Tab.Data.BankDetails" CellFormat="ReferenceFormat" Field="RequestedBankFilter" FixSize="True" HasCaption="True" LookupField="Name" OnChange="RequestedFilterEdit_OnChange" ShortList="True"/>
+            <Component Name="RequestedCashFilterEdit" Class="Com.Ctrl.IEdit" Caption="Касса" CaptionWidth="20" CardFileClass="Biz.Tab.Data.CashRegisters" CellFormat="ReferenceFormat" Field="RequestedCashFilter" FixSize="True" HasCaption="True" LookupField="Name" OnChange="RequestedFilterEdit_OnChange" ShortList="True"/>
+            <Component Name="GenerateOrdersButton" Class="Com.Ctrl.IButton" Caption="Создать" Enabled="False" FixSize="True" FontBold="True" OnClick="GenerateOrdersButton_OnClick" Width="55"/>
+            <Component Name="AddToRegisterButton" Class="Com.Ctrl.IButton" Caption="Включить в реестр платежей" Enabled="False" FixSize="True" FontBold="True" OnClick="AddToRegisterButton_OnClick" Width="65"/>
+            <Component Name="Static4" Class="Com.Ctrl.IStatic"/>
+            <Component Name="ToRequestsButton" Class="Com.Ctrl.IButton" Caption="Убрать из оплаты" Enabled="False" FixSize="True" ImageName="Com.PageUp" OnClick="ToRequestsButton_OnClick" Width="55"/>
+            <Component Name="SelectAllButtonR" Class="Com.Ctrl.IButton" Caption="Выбрать все" Enabled="False" FixSize="True" OnClick="SelectAllButtonR_OnClick"/>
+            <Component Name="UnselectAllButtonR" Class="Com.Ctrl.IButton" Caption="Отменить все" Enabled="False" FixSize="True" OnClick="UnselectAllButtonR_OnClick"/>
+          </Component>
+        </Component>
+        <Component Name="SelectRequestedFrame" Class="Com.Ctrl.IFrame" Sortable="True" Subtable="RequestedSubtable">
+          <Component Name="SelectedCheckboxR" Class="Com.Ctrl.ICheckBox" Alignment="CenterAlign" Caption=" " Enabled="False" Field="RequestedStruct.Selected" HasCaption="True" Width="5"/>
+          <Component Name="RequestREdit" Class="Com.Ctrl.IEditEx" Caption="Заявка" CardFileClass="Treasury.Tab.Data.PaymentRequest" Enabled="False" Field="RequestedStruct.Request" HasCaption="True" LookupField="PrintedNumber" OnEnter="RequestREdit_OnEnter" Width="30"/>
+          <Component Name="RequestRJumpButton" Class="Com.Ctrl.IJumpButton" Field="RequestedStruct.Request" HasCaption="True"/>
+          <Component Name="ToPayCompanyEdit" Class="Com.Ctrl.IEdit" Caption="Предприятие" CellFormat="ReferenceFormat" Enabled="False" Field="RequestedStruct.Request" LookupField="Company.Name" Visible="False" Width="50"/>
+          <Component Name="Contraparty1" Class="Com.Ctrl.IEdit" Caption="Контрагент" CellFormat="ReferenceFormat" Enabled="False" Field="RequestedStruct.Contraparty" LookupField="Name" Width="50"/>
+          <Component Name="PriorityEdit1" Class="Com.Ctrl.IEdit" Caption="Приоритет" CardFileClass="Treasury.Tab.Ref.BGIPriority" CellFormat="ReferenceFormat" Enabled="False" Field="RequestedStruct.RequestPriority" LookupField="Name" Width="35"/>
+          <Component Name="PayAt" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Оплатить" CellFormat="DateFormat" Enabled="False" Field="RequestedStruct.PayAt" Width="30"/>
+          <Component Name="SumToPay1" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="К оплате" CellFormat="NumericFormat" Enabled="False" Field="RequestedStruct.SumToPay" FieldFormat=",##0.00;;-" Width="30"/>
+          <Component Name="CurrencyEdit1" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Вал." CellFormat="ReferenceFormat" Enabled="False" Field="RequestedStruct.Currency" LookupField="Code" Width="10"/>
+          <Component Name="SelectedBankAccountEditR" Class="Com.Ctrl.IEdit" Caption="Со счета" CardFileClass="Biz.Tab.Data.BankDetails" CellFormat="ReferenceFormat" Enabled="False" Field="RequestedStruct.BankAccount" LookupField="Name" OnChange="SelectedBankAccountEdit_OnChange" ShortList="True" Width="75"/>
+          <Component Name="SelectedCashRegisterEditR" Class="Com.Ctrl.IEdit" Caption="Из кассы" CardFileClass="Biz.Tab.Data.CashRegisters" CellFormat="ReferenceFormat" Enabled="False" Field="RequestedStruct.CashRegister" LookupField="Name" OnChange="SelectedCashRegisterEdit_OnChange" ShortList="True" Width="75"/>
+          <Component Name="CFREdit1" Class="Com.Ctrl.IEdit" Caption="ЦФО" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Enabled="False" Field="RequestedStruct.CFR" LookupField="Name" Width="50"/>
+          <Component Name="BGIEdit1" Class="Com.Ctrl.IEdit" Caption="СБК" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Enabled="False" Field="RequestedStruct.BGI" LookupField="Name" Width="100"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Rec.Journals.AcceptingOperations">
+  <Inherited>
+    <Component Name="NormCode" Class="Com.Fld.IField" FieldName="NormCode" ValueType="VarObject"/>
+    <Component Name="FlowCode" Class="Com.Fld.IField" FieldName="FlowCode" ValueType="VarObject"/>
+    <Component Name="FlowNum" Class="Com.Fld.IField" FieldName="FlowNum" ValueType="VarInteger"/>
+    <Component Name="BrigadeCode" Class="Com.Fld.IField" FieldName="BrigadeCode" ValueType="VarObject"/>
+    <Component Name="FactDuration" Class="Com.Fld.IField" FieldName="FactDuration" ValueType="VarNumeric"/>
+    <Component Name="PlanDuration" Class="Com.Fld.IField" FieldName="PlanDuration" ValueType="VarNumeric"/>
+    <Component Name="FlowRowN" Class="Com.Fld.IVar" OnCalc="FlowRowNOnCalc" ValueType="VarInteger"/>
+    <Component Name="OperatingJour" Class="Com.Fld.IVar" OnCalc="OnCalc_OperatingJour" RecordClass="EquipmentRegistry.Rec.Journals.OperatingRec" ValueType="VarObject"/>
+    <Component Name="ParametersJour" Class="Com.Fld.IVar" OnCalc="OnCalc_ParametersJour" RecordClass="EquipmentRegistry.Rec.Journals.ParametersRec" ValueType="VarObject"/>
+    <Component Name="OperatingJourRequired" Class="Com.Fld.IVar" OnCalc="OnCalc_OperatingJourRequired" ValueType="VarLogical"/>
+    <Component Name="ParametersJourRequired" Class="Com.Fld.IVar" OnCalc="OnCalc_ParametersJourRequired" ValueType="VarLogical"/>
+  </Inherited>
+</Resource>

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="ИмуществоБазовый.Frm.Справочники.ИмуществоБазовый">
+  <Inherited HelpContext="ИмуществоБазовый.Имущество.Справочник КВ">
+    <Inherited Name="EdtRec" Class="ИмуществоБазовый.Rec.Справочники.КапВложения" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="перТрудовыеОтношения" Class="Com.Fld.IVar" OnCalc="перТрудовыеОтношения_OnCalc" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame" Printed="False">
+        <Inherited Name="Group1">
+          <Inherited Name="КодИмущества" Caption="Код КВ" Hint="@Уникальный код капитального вложения"/>
+          <Inherited Name="Code" Caption="Код " Hint="@Уникальный код капитального вложения"/>
+          <Inherited Name="Name" Hint="@Краткое наименование капитального вложения"/>
+        </Inherited>
+        <Inherited Name="НашеПредприятие_Гр">
+          <Inherited Name="GroupDoc" CardFileClass="ИмуществоБазовый.Tab.Справочники.КапВложения"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab" Visible="True">
+          <Component Name="БоксОсновное" Class="Com.Ctrl.IBox" After="#0" Caption="Основное">
+            <Component Name="ДатаНачала_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="42" MaxWidth="300" MinWidth="150">
+              <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Caption="@Дата " Field="EdtRec.ДатаОприходованияКВ" Hint="@Дата оприходования" MinWidth="25"/>
+              <Component Name="СтоимостьКВ" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Field="EdtRec.СтоимостьКВ" FieldFormat=",##0.00;;-" HasCaption="True" MinWidth="25" OnVerify="СтоимостьКВ_OnVerify"/>
+              <Component Name="КоличествоКВ" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Field="EdtRec.КоличествоКВ" HasCaption="True" MinWidth="20" OnVerify="СтоимостьКВ_OnVerify"/>
+              <Component Name="ПодписьШтуки" Class="Com.Ctrl.IStatic" Caption="шт." Width="10"/>
+            </Component>
+            <Component Name="ТекущееПодразделение_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="42" MaxWidth="300" MinWidth="150">
+              <Component Name="ТекущееПодразделение" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" Field="EdtRec.ТекущееПодразделение" HasCaption="True" Hint="Наименование подразделения, за которым закреплен данный объект КВ, по состоянию на текущую дату" OnChange="ТекущееПодразделение_OnChange" OnGetLookupFilter="ТекущееПодразделение_OnGetLookupFilter" OnOpenCardForm="ТекущееПодразделение_OnOpenCardForm"/>
+              <Component Name="ТрудовыеОтношения_Выбор" Class="Com.Ctrl.IEdit" Caption="МОЛ" CardFileClass="Biz.Tab.Data.LabourRelations" Field="перТрудовыеОтношения" HasCaption="True" Hint="ФИО материально-ответственного лица, за которым закреплен данный объект имущества, по состоянию на текущую дату" LookupField="Person.Name" OnChange="ТрудовыеОтношения_Выбор_OnChange" OnClick="ТрудовыеОтношения_Выбор_OnClick" OnEnter="ТрудовыеОтношения_Выбор_OnEnter" OnGetLookupFilter="ТрудовыеОтношения_Выбор_OnGetLookupFilter" OnOpenCardForm="ТрудовыеОтношения_Выбор_OnOpenCardForm" OnOutputEx="ТрудовыеОтношения_Выбор_OnOutputEx" Required="True"/>
+              <Component Name="ТекущееМОЛ" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Employees" Field="EdtRec.ТекущееМОЛ" HasCaption="True" Hint="ФИО материально-ответственного лица, за которым закреплен данный объект КВ, по состоянию на текущую дату" OnChange="ТекущееМОЛ_OnChange" OnGetLookupFilter="ТекущееМОЛ_OnGetLookupFilter" OnOpenCardForm="ТекущееМОЛ_OnOpenCardForm" Visible="False"/>
+              <Component Name="СТЗ" Class="Com.Ctrl.IEdit" CardFileClass="BizRus.Tab.Ref.СТЗ" Field="EdtRec.СТЗ" HasCaption="True"/>
+              <Component Name="ВидОбъектаПослеВводаВЭксплуатацию" Class="Com.Ctrl.IEdit" Caption="После ввода в эксп." CellFormat="EnumFormat" Field="EdtRec.ВидОбъектаПослеВводаВЭксплуатацию" Hint="Вид объекта учета, образующийся после ввода в эксплуатацию" OnChange="ВидОбъектаПослеВводаВЭксплуатацию_OnChange"/>
+            </Component>
+            <Component Name="Примечание" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="42" MaxWidth="300" MinWidth="150">
+              <Component Name="Примечания" Class="Com.Ctrl.IEdit" Field="EdtRec.Примечания" HasCaption="True" Hint="Дополнительные данные " Multiline="True" Wrap="True"/>
+            </Component>
+          </Component>
+          <Inherited Name="СистемныеПоля" After="БоксОсновное"/>
+        </Inherited>
+        <Component Name="фрВводВЭксплуатацию" Class="Com.Ctrl.IFrame" Caption="@Frm:ВводВЭксплуатацию=Ввод в эксплуатацию" Margins="5" Visible="False"/>
+        <Component Name="ПечФормаКВ" Class="Com.Ctrl.IFrame" Caption="@Frm:MainTab=Печатная форма карточки" Margins="5">
+          <Component Name="КВ_Предприятие" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="255">
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" Excluded="True" Caption="Карточка Капитального вложения" Width="53"/>
+            <Component Name="Name_П" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Карточка Капитального вложения" Field="EdtRec.Name" HasCaption="False" Hint="@Краткое наименование объекта КВ" Visible="True" Wrap="True"/>
+            <Component Name="ПолнИмяП" Class="Com.Ctrl.IEdit" Caption="Наименование КВ" Field="EdtRec.ПолнИмя" HasCaption="True" Hint="Полное наименование КВ" Visible="True" Wrap="True"/>
+          </Component>
+          <Component Name="ПолнИмя_Код" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="255">
+            <Component Name="Static3" Class="Com.Ctrl.IStatic" Excluded="True" Caption="Наименование КВ" FixSize="True" Width="40"/>
+            <Component Name="CodeП" Class="Com.Ctrl.IEdit" Caption="Код КВ" Field="EdtRec.КодИмущества" FixSize="True" HasCaption="True" Visible="True" Width="35"/>
+            <Component Name="НашеПредприятиеП" Class="Com.Ctrl.IEdit" Caption="Организация" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="EdtRec.НашеПредприятие" HasCaption="True" Hint="@Наименование Нашего предприятия" LookupField="Name" ShortList="True"/>
+          </Component>
+          <Component Name="Строка_3" Class="Com.Ctrl.IGroup">
+            <Component Name="Static6" Class="Com.Ctrl.IStatic" Caption="Общие данные объекта КВ:" FontItalic="True" Width="60"/>
+          </Component>
+          <Component Name="ДатаОприх_Стоимость" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MinWidth="255">
+            <Component Name="Static4" Class="Com.Ctrl.IStatic" Caption="Дата оприходования объекта КВ" FixSize="True" Width="65"/>
+            <Component Name="ДатаОприходП" Class="Com.Ctrl.IEdit" Caption="Дата оприходования объекта КВ" Field="EdtRec.ДатаОприходованияКВ" HasCaption="False"/>
+            <Component Name="СтоимП" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Стоимость" Field="EdtRec.СтоимостьКВ"/>
+            <Component Name="КоличествоП" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Количество" Enabled="False" Field="EdtRec.КоличествоКВ" HasCaption="True" MinWidth="20"/>
+            <Component Name="ПодписьШтукиП" Class="Com.Ctrl.IStatic" Caption="шт." Width="17"/>
+          </Component>
+          <Component Name="Счет_Статья" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MinWidth="255">
+            <Component Name="СтатьяЗатратП" Class="Com.Ctrl.IEdit" Caption="Статья затрат" Field="EdtRec.СТЗ"/>
+            <Component Name="СчетУчетаП" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Счет учета КВ по бух. учету" CaptionWidth="65" Field="EdtRec.СчетКВ" HasCaption="True"/>
+          </Component>
+          <Component Name="Мол_Подразд" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MinWidth="255">
+            <Component Name="Static7" Class="Com.Ctrl.IStatic" Caption="Материально-ответственное лицо" FixSize="True" Width="65"/>
+            <Component Name="МолП" Class="Com.Ctrl.IEdit" Caption="Материально-ответственное лицо" Field="EdtRec.ТекущееМОЛ" HasCaption="False"/>
+            <Component Name="ПозразделениеП" Class="Com.Ctrl.IEdit" Caption="Подразделение" Field="EdtRec.ТекущееПодразделение"/>
+          </Component>
+          <Component Name="Строка_7" Class="Com.Ctrl.IGroup">
+            <Component Name="Static9" Class="Com.Ctrl.IStatic" Caption="Обесценение объекта КВ:" FontItalic="True" Width="60"/>
+          </Component>
+          <Component Name="Обесцен_Табл_П" Class="Com.Ctrl.ITable">
+            <Component Name="ДатаОбесцен_П" Class="Com.Ctrl.IEdit" Caption="Дата обесценения" Enabled="False" Width="82"/>
+            <Component Name="СуммаОбесцен_П" Class="Com.Ctrl.IEdit" Caption="Сумма обесценения" Enabled="False" Hint="Сумма обесценения (убытка)" Width="81"/>
+            <Component Name="Стоимость_П" Class="Com.Ctrl.IEdit" Caption="Стоимость после" Enabled="False" Hint="@Стоимость объекта КВ после проведения обесценения" Width="81"/>
+          </Component>
+          <Component Name="грПереченьОбъектовВведенныхМодернизированныхПосредствомКВЗаголовок" Class="Com.Ctrl.IGroup">
+            <Component Name="стПереченьОбъектовВведенныхМодернизированныхПосредствомКВ" Class="Com.Ctrl.IStatic" Caption="Перечень основных средств, введенных/модернизированных посредством капитального вложения" FontItalic="True" Width="255"/>
+          </Component>
+          <Component Name="ПереченьОбъектов_Табл" Class="Com.Ctrl.ITable">
+            <Component Name="Номер_П" Class="Com.Ctrl.IEdit" Caption="@Инвертарный номер" Enabled="False" HasCaption="True" Width="40"/>
+            <Component Name="НаименованиеОбъекта_П" Class="Com.Ctrl.IEdit" Caption="Наименование ОС (полное)" Enabled="False" Width="123"/>
+            <Component Name="Цена_П" Class="Com.Ctrl.IEdit" Caption="Цена объекта ОС" Enabled="False" Width="41"/>
+            <Component Name="ДатаПринятия_П" Class="Com.Ctrl.IEdit" Caption="Дата принятия к учету объекта ОС" Enabled="False" Width="40"/>
+          </Component>
+          <Component Name="грОтчетПоКапитальномуВложениюЗаголовок" Class="Com.Ctrl.IGroup">
+            <Component Name="стОтчетПоКапитальномуВложению" Class="Com.Ctrl.IStatic" Caption="Отчет по капитальному вложению" FontItalic="True" Width="180"/>
+          </Component>
+          <Component Name="ОтчетПоКВ_Табл" Class="Com.Ctrl.ITable">
+            <Component Name="ДанныеПоОбъектуКВГр_П" Class="Com.Ctrl.IColumnsGroup" Caption="Данные по объекту КВ" FixSize="True" HasCaption="True" Width="100">
+              <Component Name="СуммаКВ_П" Class="Com.Ctrl.IEdit" Caption="Сумма КВ" Enabled="False" Width="30"/>
+              <Component Name="СуммаОбесц_П" Class="Com.Ctrl.IEdit" Caption="Сумма обесценения" Enabled="False" Width="30"/>
+              <Component Name="Подразделение_П" Class="Com.Ctrl.IEdit" Caption="Подразделение" Enabled="False" Visible="False" Width="30"/>
+              <Component Name="МОЛ_П" Class="Com.Ctrl.IEdit" Caption="МОЛ (ФИО)" Enabled="False" Visible="False" Width="34"/>
+            </Component>
+            <Component Name="СписаниеОбъектаКВ_П" Class="Com.Ctrl.IColumnsGroup" Caption="Списание объекта КВ" FixSize="True" HasCaption="True" Width="100">
+              <Component Name="СтоимостьП" Class="Com.Ctrl.IEdit" Caption="Стоимость объектов ОС" Enabled="False" Width="30"/>
+              <Component Name="СуммаСписания_П" Class="Com.Ctrl.IEdit" Caption="Сумма списания объектов КВ" Enabled="False" Width="30"/>
+            </Component>
+            <Component Name="ОстатокСуммыКВ_П" Class="Com.Ctrl.IEdit" Caption="Остаток суммы КВ" Enabled="False" Width="30"/>
+          </Component>
+          <Component Name="Строка_11" Class="Com.Ctrl.IGroup">
+            <Component Name="Static12" Class="Com.Ctrl.IStatic" Caption="Перечень сопроводительных документов, прикрепленных к карточке КВ" FontItalic="True" Width="180"/>
+          </Component>
+          <Component Name="Влож_Табл" Class="Com.Ctrl.ITable" Sortable="True" Subtable="EdtRec.ВложенияТабл">
+            <Component Name="ВложенияБиблиотека" Class="Bas.Rec.BasObject_Attachments" IsLibrary="1"/>
+            <Component Name="НазваниеВложенияП" Class="Com.Ctrl.IEdit" Caption="Название вложения" CardFileClass="Com.Tab.Archive.Attachment" Enabled="False" Field="ВложенияБиблиотека.FilesName" HasCaption="True" Width="245"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Frm.Base.BaseJournalFrm">
+  <Inherited HelpContext="EquipmentRegistry.EquipmentRegistry.Оборудование.Реестр оборудования">
+    <Inherited Name="EdtRec" Class="EquipmentRegistry.Rec.Eqm.EquipmentRec" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="SpareSubt" Class="Com.ISubtable" StructClass="EquipmentRegistry.Frm.Eqm.EquipmentPartFrm"/>
+    </Inherited>
+    <Inherited Name="RootFrame" HelpContext="EquipmentRegistry.EquipmentRegistry.Оборудование.Реестр оборудования">
+      <Inherited Name="HeaderFrame" HelpContext="EquipmentRegistry.EquipmentRegistry.Оборудование.Реестр оборудования" MaxButton="2">
+        <Inherited Name="ButtonChildForms" Hint="@Журналы">
+          <Component Name="btnOperating" Class="Com.Ctrl.IButton" Caption="@Журнал учета наработки" HasCaption="True" ImageName="Com.table" OnClick="btnOperating_OnClick" Visible="False"/>
+          <Component Name="btnParameters" Class="Com.Ctrl.IButton" Caption="@Журнал регистрации параметров" HasCaption="True" ImageName="Com.table" OnClick="btnParameters_OnClick" Visible="False"/>
+          <Component Name="btnStartStop" Class="Com.Ctrl.IButton" Caption="@Журнал пусков и остановов" HasCaption="True" ImageName="Com.table" OnClick="btnStartStop_OnClick" Visible="False"/>
+          <Component Name="btnMoving" Class="Com.Ctrl.IButton" Caption="@Журнал перемещений" HasCaption="True" ImageName="Com.table" OnClick="btnMoving_OnClick" Visible="False"/>
+        </Inherited>
+        <Inherited Name="ButtonReports" Excluded="True" After="ButtonChildForms" Visible="True">
+          <Component Name="btnReportOperating" Class="Com.Ctrl.IButton" Caption="@Наработка оборудования" HasCaption="True" ImageName="Com.chart-bar" OnClick="btnReportOperating_OnClick" Visible="False"/>
+          <Component Name="btnReportParameters" Class="Com.Ctrl.IButton" Caption="@Параметры оборудования" HasCaption="True" ImageName="Com.chart-bar" OnClick="btnReportParameters_OnClick" Visible="False"/>
+          <Component Name="btnReportStatus" Class="Com.Ctrl.IButton" Caption="@Пуски и остановы" HasCaption="True" ImageName="Com.chart-bar" OnClick="btnReportStatus_OnClick" Visible="False"/>
+          <Component Name="btnReportMoving" Class="Com.Ctrl.IButton" Caption="@Перемещения оборудования" HasCaption="True" ImageName="Com.chart-bar" OnClick="btnReportMoving_OnClick" Visible="False"/>
+          <Component Name="btnReportParts" Class="Com.Ctrl.IButton" Caption="Перемещения узлов" HasCaption="True" ImageName="Com.chart-bar" OnClick="btnReportParts_OnClick" Visible="False"/>
+        </Inherited>
+        <Inherited Name="ButtonServices" Excluded="True" After="ButtonReports">
+          <Component Name="btnUpdateFromModel" Class="Com.Ctrl.IButton" Caption="@Обновить значения из модели" HasCaption="True" ImageName="Com.Refresh" OnClick="btnUpdateFromModel_OnClick" Visible="False"/>
+        </Inherited>
+        <Inherited Name="ButtonAnalytics" After="ButtonClose"/>
+      </Inherited>
+      <Inherited Name="BasicFrame">
+        <Inherited Name="CodeFrame">
+          <Inherited Name="CodeGr" MaxWidth="300" MinWidth="150"/>
+          <Component Name="BasicEqmGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150" Visible="False">
+            <Component Name="ED_ModelCodeGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+              <Component Name="ED_ModelCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Equipment.ClassesTab" CellFormat="ReferenceFormat" Field="EdtRec.ModelCode" HasCaption="True" LookupField="Name" OnChange="ED_ModelCode_OnChange" Required="True" Wrap="False"/>
+              <Component Name="ED_ModelCodeJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ModelCode" FixSize="True" Width="7.2"/>
+            </Component>
+            <Component Name="ED_StateGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+              <Component Name="ED_State" Class="Com.Ctrl.IEdit" Caption="Состояние" CardFileClass="EquipmentRegistry.Tab.Ref.Attributes.EquipmentStatusTab" CellFormat="ReferenceFormat" Field="EdtRec.StatusCode" HasCaption="True" LookupField="Name" Required="True" Wrap="False"/>
+              <Component Name="ED_StateJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.StatusCode" FixSize="True" Width="7.2"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="MainBox" Visible="False"/>
+          <Inherited Name="LineBox" Visible="False"/>
+          <Component Name="bPosition" Class="Com.Ctrl.IBox" Caption="Установлено" HasCaption="True">
+            <Component Name="bPositionGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ED_PlaceGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="ED_Place" Class="Com.Ctrl.IEdit" Caption="ТМ" CardFileClass="EquipmentRegistry.Tab.Ref.Places.PlacesTab" CellFormat="ReferenceFormat" Field="EdtRec.PlaceCode" HasCaption="True" LookupField="Name" OnChange="ED_Place_OnChange" OnGetLookupFilter="ED_Place_OnGetLookupFilter" OnVerify="ED_Place_OnVerify" Required="True"/>
+                <Component Name="ED_PlaceJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.PlaceCode" FixSize="True" Width="7.2"/>
+              </Component>
+              <Component Name="eObjectCodeGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="eObjectCode" Class="Com.Ctrl.IEdit" Caption="Объект" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.PlaceCode" HasCaption="True" LookupField="ObjectCode.Name"/>
+                <Component Name="eObjectCodeBtn" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+              </Component>
+              <Component Name="eBuildingCodeGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="eBuildingCode" Class="Com.Ctrl.IEdit" Caption="Здание" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.PlaceCode" HasCaption="True" LookupField="BuildingCode.Name"/>
+                <Component Name="eBuildingCodeBtn" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+              </Component>
+              <Component Name="eDepartmentCodeGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="eDepartmentCode" Class="Com.Ctrl.IEdit" Caption="Цех" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.PlaceCode" HasCaption="True" LookupField="DepartmentCode.Name"/>
+                <Component Name="eDepartmentCodeBtn" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+              </Component>
+              <Component Name="eAreaCodeGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="eAreaCode" Class="Com.Ctrl.IEdit" Caption="Участок" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.PlaceCode" HasCaption="True" LookupField="AreaCode.Name"/>
+                <Component Name="eAreaCodeBtn" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+              </Component>
+              <Component Name="eFlowCodeGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="eFlowCode" Class="Com.Ctrl.IEdit" Caption="Поток" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.PlaceCode" HasCaption="True" LookupField="FlowCode.Name"/>
+                <Component Name="eFlowCodeBtn" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+              </Component>
+              <Component Name="eLineCodeGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="eLineCode" Class="Com.Ctrl.IEdit" Caption="Линия" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.PlaceCode" HasCaption="True" LookupField="LineCode.Name"/>
+                <Component Name="eLineCodeBtn" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+              </Component>
+              <Component Name="ED_ParentGr" Class="Com.Ctrl.IGroup" ByColumn="False" Visible="False">
+                <Component Name="ED_Parent" Class="Com.Ctrl.IEdit" Caption="Входит в" CardFileClass="EquipmentRegistry.Tab.Eqm.EquipmentTab" CellFormat="ReferenceFormat" Field="EdtRec.ParentCode" HasCaption="True" LookupField="Name" OnChange="ED_Parent_OnChange" OnGetLookupFilter="ED_Parent_OnGetLookupFilter"/>
+                <Component Name="ED_ParentJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ParentCode" FixSize="True" Width="7.2"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="ED_AttrBox" Class="Com.Ctrl.IBox" Caption="Атрибуты" HasCaption="True">
+            <Component Name="ED_AttrBoxGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ED_RoleCodeGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="ED_RoleCode" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.RoleCode" HasCaption="True" ListAsString="Нет|0;Основное оборудование|1;Вспомогательное оборудование|2;Приравненное к основному|3" Required="True" Wrap="False"/>
+                <Component Name="ED_RoleCodeBtn" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+              </Component>
+              <Component Name="PriorityCodeGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="PriorityCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Priority.Equipment" CellFormat="ReferenceFormat" Field="EdtRec.PriorityCode" HasCaption="True" LookupField="Name" Required="True" ShortList="True" Wrap="False"/>
+                <Component Name="PriorityCodeBtn" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+              </Component>
+              <Component Name="DispNameGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="DispName" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.DispName" HasCaption="True"/>
+                <Component Name="DispNameBtn" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+              </Component>
+              <Component Name="ED_AttrBoxColsGr1" Class="Com.Ctrl.IGroup" ByColumn="False" Visible="False">
+                <Component Name="ED_AttrBoxColLGr" Class="Com.Ctrl.IGroup" ByColumn="True">
+                  <Component Name="ED_SerialNumberGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                    <Component Name="ED_SerialNumber" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.SerialNumber" HasCaption="True"/>
+                    <Component Name="ED_SerialNumberBtn" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                  </Component>
+                  <Component Name="ED_RegNumberGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                    <Component Name="ED_RegNumber" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.RegNumber" HasCaption="True"/>
+                    <Component Name="ED_RegNumberBtn" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                  </Component>
+                  <Component Name="ED_DateOfBirthGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                    <Component Name="ED_DateOfBirth" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="EdtRec.DateOfBirth" HasCaption="True"/>
+                    <Component Name="ED_DateOfBirthBtn" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                  </Component>
+                  <Component Name="ED_DateOfStartGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                    <Component Name="ED_DateOfStart" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="EdtRec.DateOfStart" HasCaption="True"/>
+                    <Component Name="ED_DateOfStartBtn" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                  </Component>
+                  <Component Name="ED_EmployeeCodeGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                    <Component Name="ED_EmployeeCode" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Employees" CellFormat="ReferenceFormat" Field="EdtRec.EmployeeCode" HasCaption="True" LookupField="Name" OnChange="ED_EmployeeCode_OnChange" OnGetLookupFilter="ED_EmployeeCode_OnGetLookupFilter" OnOpenCardForm="ED_EmployeeCode_OnOpenCardForm"/>
+                    <Component Name="ED_EmployeeCodeJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.EmployeeCode" FixSize="True" JumpForm="Bas.Frm.Data.Entity" Width="7.2"/>
+                  </Component>
+                  <Component Name="ED_ManufCodeGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                    <Component Name="ED_ManufCode" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Contraparties" CellFormat="ReferenceFormat" Field="EdtRec.ManufCode" HasCaption="True" LookupField="Name"/>
+                    <Component Name="ED_ManufCodeJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ManufCode" FixSize="True" JumpForm="Bas.Frm.Data.Entity" Width="7.2"/>
+                  </Component>
+                </Component>
+                <Component Name="ED_AttrBoxColRGr" Class="Com.Ctrl.IGroup" ByColumn="True">
+                  <Component Name="ED_ManufNumberGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                    <Component Name="ED_ManufNumber" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.ManufNumber" HasCaption="True"/>
+                    <Component Name="ED_ManufNumberBtn" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                  </Component>
+                  <Component Name="ED_InventNumberGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                    <Component Name="ED_InventNumber" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.InventNumber" HasCaption="True"/>
+                    <Component Name="ED_InventNumberBtn" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                  </Component>
+                  <Component Name="ED_DateOfInstallGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                    <Component Name="ED_DateOfInstall" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="EdtRec.DateOfInstall" HasCaption="True"/>
+                    <Component Name="ED_DateOfInstallBtn" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                  </Component>
+                  <Component Name="ED_DateOfDeathGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                    <Component Name="ED_DateOfDeath" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="EdtRec.DateOfDeath" HasCaption="True"/>
+                    <Component Name="ED_DateOfDeathBtn" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                  </Component>
+                  <Component Name="ED_RespDivisionGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                    <Component Name="ED_RespDivision" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" CellFormat="ReferenceFormat" Field="EdtRec.RespDivision" HasCaption="True" LookupField="Name" OnChange="ED_RespDivision_OnChange" OnGetLookupFilter="ED_RespDivision_OnGetLookupFilter" OnOpenCardForm="ED_RespDivision_OnOpenCardForm"/>
+                    <Component Name="ED_RespDivisionJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.RespDivision" FixSize="True" JumpForm="Bas.Frm.Data.Entity" Width="7.2"/>
+                  </Component>
+                  <Component Name="ED_SellerCodeGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                    <Component Name="ED_SellerCode" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Contraparties" CellFormat="ReferenceFormat" Field="EdtRec.SellerCode" HasCaption="True" LookupField="Name"/>
+                    <Component Name="ED_SellerCodeJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ManufCode" FixSize="True" JumpForm="Bas.Frm.Data.Entity" Width="7.2"/>
+                  </Component>
+                </Component>
+              </Component>
+              <Component Name="ED_DescriptionGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="ED_Description" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.Description" HasCaption="True"/>
+                <Component Name="ED_DescriptionBtn" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+              </Component>
+              <Component Name="ED_AttrBoxColsGr2" Class="Com.Ctrl.IGroup" Excluded="True" ByColumn="False" Visible="False">
+                <Component Name="ED_AttrBoxColLGr2" Class="Com.Ctrl.IGroup" ByColumn="True">
+                  <Component Name="eForecastingGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                    <Component Name="sForecasting" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                    <Component Name="eForecasting" Class="Com.Ctrl.ICheckBox" Caption="Прогнозирование" Field="EdtRec.Forecasting" HasCaption="True"/>
+                  </Component>
+                  <Component Name="eStateIndexGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                    <Component Name="eStateIndex" Class="Com.Ctrl.IEdit" Caption="ИТС" CellFormat="NumericFormat" Field="EdtRec.StateIndex" FieldFormat="0.#" HasCaption="True" OnVerify="eStateIndex_OnVerify"/>
+                    <Component Name="bCaptionHistory" Class="Com.Ctrl.IButton" Field="EdtRec.StateIndex" ImageName="Biz.list" OnClick="bCaptionHistory_OnClick"/>
+                  </Component>
+                </Component>
+                <Component Name="ED_AttrBoxColRGr2" Class="Com.Ctrl.IGroup" ByColumn="True">
+                  <Component Name="eDateOfFailureGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                    <Component Name="eDateOfFailure" Class="Com.Ctrl.IEdit" Caption="Дата отказа" CellFormat="DateFormat" Field="EdtRec.DateOfFailure" HasCaption="True" Hint="Прогнозная дата отказа"/>
+                    <Component Name="eDateOfFailureBtn" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                  </Component>
+                </Component>
+              </Component>
+              <Component Name="eStateTypeGr" Class="Com.Ctrl.IGroup" ByColumn="False" Visible="False">
+                <Component Name="eStateType" Class="Com.Ctrl.IEdit" Caption="Вид ТС" CardFileClass="EquipmentRegistry.Tab.Ref.Attributes.StateTypeTab" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.StateType" HasCaption="True" LookupField="Name"/>
+                <Component Name="eStateTypeJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.StateType" FixSize="True" JumpForm="EquipmentRegistry.Frm.Ref.Attributes.StateTypeFrm" Width="7.2"/>
+              </Component>
+              <Component Name="ED_AttrBoxColsGr3" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="ED_AttrBoxColLGr3" Class="Com.Ctrl.IGroup" ByColumn="True">
+                  <Component Name="LastRepairDateGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                    <Component Name="LastRepairDate" Class="Com.Ctrl.IEdit" Caption="Дата кап. ремонта" CellFormat="DateFormat" Field="EdtRec.LastRepairDate" HasCaption="True" Hint="Дата последнего кап. ремонта"/>
+                    <Component Name="LastRepairDateBtn" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                  </Component>
+                </Component>
+                <Component Name="ED_AttrBoxColRGr3" Class="Com.Ctrl.IGroup" ByColumn="True">
+                  <Component Name="EmptyCol1" Class="Com.Ctrl.IStatic"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="bGroups" Class="Com.Ctrl.IBox" Caption="@Groups=Группы" HasCaption="True" Visible="False">
+            <Component Name="GroupsTable" Class="Com.Ctrl.ITable" Freezed="False" Numbering="False" Subtable="EdtRec.sbtGroups">
+              <Component Name="vDefPosG" Class="EquipmentRegistry.Rec.Eqm.EquipmentGroupsRec" IsLibrary="1"/>
+              <Component Name="GT_Code" Class="Com.Ctrl.IEdit" Caption="@BaseJournalFrm:Code=Код" CardFileClass="EquipmentRegistry.Tab.Ref.Equipment.GroupsTab" CellFormat="ReferenceFormat" Field="vDefPosG.GroupCode" HasCaption="True" LookupField="Code" Width="40"/>
+              <Component Name="GT_NameGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Name=Наименование" HasCaption="True">
+                <Component Name="GT_Name" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Equipment.GroupsTab" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosG.GroupCode" HasCaption="False" LookupField="Name" Width="60"/>
+                <Component Name="GT_NameJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosG.GroupCode" FixSize="True" HasCaption="False" Width="7.2"/>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="CharacteristicsTab" Class="Com.Ctrl.IFrame" Caption="@Characteristics=Характеристики" HasCaption="True" Margins="5" Visible="False">
+          <Component Name="CharacteristicsTable" Class="Com.Ctrl.ITable" Freezed="True" Numbering="False" Subtable="EdtRec.sbtCharacter">
+            <Component Name="vDefPosC" Class="EquipmentRegistry.Rec.Eqm.EquipmentCharRec" IsLibrary="1"/>
+            <Component Name="CT_Code" Class="Com.Ctrl.IEdit" Caption="@BaseJournalFrm:Code=Код" CardFileClass="EquipmentRegistry.Tab.Ref.Attributes.CharacteristicsTab" CellFormat="ReferenceFormat" Field="vDefPosC.CharactCode" HasCaption="True" LookupField="Code" Required="True" Width="40"/>
+            <Component Name="CT_NameGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Name=Наименование" HasCaption="True">
+              <Component Name="CT_Name" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Attributes.CharacteristicsTab" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosC.CharactCode" HasCaption="False" LookupField="Name" Required="True" Width="60"/>
+              <Component Name="CT_NameJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosC.CharactCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="ED_CharVal" Class="Com.Ctrl.IEdit" ButtonStyle="ComboButton" Caption="@BaseJournalFrm:Value=Значение" Field="vDefPosC.CharactValue" HasButton="True" HasCaption="True" OnLookup="ED_CharVal_OnLookup" OnOutputEx="ED_CharVal_OnOutputEx" Width="80"/>
+            <Component Name="CT_Unit" Class="Com.Ctrl.IEdit" Caption="@BaseJournalFrm:Unit of measure=Ед.изм." CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosC.CharactCode" HasCaption="True" LookupField="UnitOfMeasure.Code" Width="30"/>
+          </Component>
+        </Component>
+        <Component Name="OperatingsTab" Class="Com.Ctrl.IFrame" Caption="@Operating indicators=Показатели наработки" HasCaption="True" Margins="5" Visible="False">
+          <Component Name="OperatingsTable" Class="Com.Ctrl.ITable" Freezed="True" Numbering="False" OnDelete="OperatingsTable_OnDelete" Subtable="EdtRec.sbtOperating">
+            <Component Name="vDefPosO" Class="EquipmentRegistry.Rec.Eqm.EquipmentOperRec" IsLibrary="1"/>
+            <Component Name="OT_LastOper_Date" Class="Com.Ctrl.IEdit" Caption="Дата" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosO.LastOper" HasCaption="True" LookupField="JournalDate" Width="48"/>
+            <Component Name="ED_TimeCode" Class="Com.Ctrl.IEdit" Caption="@BaseJournalFrm:Code=Код" CardFileClass="EquipmentRegistry.Tab.Ref.Attributes.OperatingTab" CellFormat="ReferenceFormat" Field="vDefPosO.OperTimeCode" HasCaption="True" LookupField="Code" Required="True" Width="40"/>
+            <Component Name="ED_TimeNameGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Name=Наименование" HasCaption="True">
+              <Component Name="ED_TimeName" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Attributes.CharacteristicsTab" CellFormat="ReferenceFormat" Field="vDefPosO.OperTimeCode" HasCaption="False" LookupField="Name" Required="True" Width="60"/>
+              <Component Name="ED_TimeNameJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosO.OperTimeCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="ED_TimeUnit" Class="Com.Ctrl.IEdit" Caption="@BaseJournalFrm:Unit of measure=Ед.изм." CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosO.OperTimeCode" HasCaption="True" LookupField="UnitOfMeasure.Code" Width="30"/>
+            <Component Name="OT_CurrentValueGr" Class="Com.Ctrl.IColumnsGroup" Caption="@Current value=Текущее значение" HasCaption="True" Hint="@Equipment:Update value to current date=Обновить значение на текущую дату" OnClick="ForAll_Set_CurrentOperatingValue" StaticStyle="StaticHyperlink">
+              <Component Name="OT_CurrentValue" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosO.CurrentValue" HasCaption="False" OnOutputEx="sbtOperOnOutput" Width="30"/>
+              <Component Name="OT_CurrentValueJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosO.CurrentValue" FixSize="True" HasCaption="False" OnClick="vDefPosO_CurrentValue_JumpButton_OnClick" Width="7.2"/>
+            </Component>
+            <Component Name="OT_MonthMiddleGr" Class="Com.Ctrl.IColumnsGroup" Caption="@Месячная наработка" HasCaption="True">
+              <Component Name="OT_UseSeason" Class="Com.Ctrl.ICheckBox" Caption=" " Field="vDefPosO.UseSeason" FixSize="True" HasCaption="True" Hint="Использовать сезонные значения" Width="7"/>
+              <Component Name="OT_MonthMiddle" Class="Com.Ctrl.IEdit" Caption="@Прогноз" CellFormat="NumericFormat" Field="vDefPosO.MonthMiddle" HasCaption="True" OnEnter="sbtOperOnEnter" OnOutputEx="sbtOperOnOutput" Width="30"/>
+              <Component Name="OT_HistoryValueGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Fact=Факт" HasCaption="True" Hint="@Equipment:Update value to current date=Обновить значение на текущую дату" OnClick="ForAll_Set_FactMonthOperatingValue" StaticStyle="StaticHyperlink">
+                <Component Name="OT_HistoryValue" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosO.HistoryValue" HasCaption="False" OnEnter="sbtOperOnEnter" OnOutputEx="sbtOperOnOutput" Width="30"/>
+              </Component>
+              <Component Name="OT_HistoryValueBtn" Class="Com.Ctrl.IButton" FixSize="True" HasCaption="True" Hint="Открыть сезонные значения" ImageName="Control.calendar-edit" OnClick="btnShowSeasonValues" Width="7.2"/>
+            </Component>
+            <Component Name="OT_BeginValue" Class="Com.Ctrl.IEdit" Caption="@baseJournalFrm:Begin value=Начальное значение" CellFormat="NumericFormat" Field="vDefPosO.BeginValue" HasCaption="True" OnEnter="sbtOperOnEnter" OnOutputEx="sbtOperOnOutput" Width="30"/>
+          </Component>
+        </Component>
+        <Component Name="ParametersFrame" Class="Com.Ctrl.IFrame" Caption="@Контролируемые параметры" HasCaption="True" Margins="5" Visible="False">
+          <Component Name="ParametersTable" Class="Com.Ctrl.ITable" Freezed="True" Numbering="False" OnDelete="ParametersTable_OnDelete" Subtable="EdtRec.sbtParameter">
+            <Component Name="vDefPosP" Class="EquipmentRegistry.Rec.Eqm.EquipmentParaRec" IsLibrary="1"/>
+            <Component Name="PT_Code" Class="Com.Ctrl.IEdit" Caption="@BaseJournalFrm:Code=Код" CardFileClass="EquipmentRegistry.Tab.Ref.Attributes.ParametersTab" CellFormat="ReferenceFormat" Field="vDefPosP.ParameterCode" HasCaption="True" LookupField="Code" Required="True" Width="40"/>
+            <Component Name="PT_NameGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Name=Наименование" HasCaption="True">
+              <Component Name="PT_Name" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Attributes.ParametersTab" CellFormat="ReferenceFormat" Field="vDefPosP.ParameterCode" HasCaption="False" LookupField="Name" Required="True" Width="60"/>
+              <Component Name="PT_NameJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosP.ParameterCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="PT_Unit" Class="Com.Ctrl.IEdit" Caption="@BaseJournalFrm:Unit of measure=Ед.изм." CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosP.ParameterCode" HasCaption="True" LookupField="UnitOfMeasure.Code" Width="30"/>
+            <Component Name="PT_CurrentValueGr" Class="Com.Ctrl.IColumnsGroup" Caption="@Current value=Текущее значение" HasCaption="True" Hint="@Equipment:Update value to current date=Обновить значение на текущую дату" OnClick="SetCurrentParametersValues" StaticStyle="StaticHyperlink">
+              <Component Name="PT_CurrentValue" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosP.CurrentValue" HasCaption="False" OnOutputEx="sbtParaValueOnOutput" Width="30"/>
+              <Component Name="PT_LasParam" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosP.LasParam" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="False" LookupField="JournalDate" Width="28"/>
+              <Component Name="PT_LasParamJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosP.LasParam" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="PT_BeginValue" Class="Com.Ctrl.IEdit" Caption="@baseJournalFrm:Begin value=Начальное значение" CellFormat="NumericFormat" Field="vDefPosO.BeginValue" HasCaption="True" OnEnter="sbtParaOnEnter" OnOutputEx="sbtParaValueOnOutput" Width="30"/>
+          </Component>
+        </Component>
+        <Component Name="ChildUnitsTab" Class="Com.Ctrl.IFrame" Caption="@BaseJournalFrm:Nodes and aggregates=Узлы и агрегаты" HasCaption="True" Margins="5" Visible="False">
+          <Component Name="ChildUnitsTable" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Freezed="True" Numbering="False" Subtable="SpareSubt">
+            <Component Name="vDefPosR" Class="EquipmentRegistry.Frm.Eqm.EquipmentPartFrm" IsLibrary="1"/>
+            <Component Name="CUT_EquipmentCode" Class="Com.Ctrl.IEdit" Caption="@BaseJournalFrm:Code=Код" CardFileClass="EquipmentRegistry.Tab.Eqm.EquipmentTab" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosR.EquipmentCode" HasCaption="True" LookupField="Code" Width="40"/>
+            <Component Name="CUT_EquipmentNameGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Name=Наименование" HasCaption="True">
+              <Component Name="CUT_EquipmentName" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Eqm.EquipmentTab" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosR.EquipmentCode" HasCaption="False" LookupField="Name" Width="60"/>
+              <Component Name="CUT_EquipmentNameJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosR.EquipmentCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="CUT_PartsCodeGr" Class="Com.Ctrl.IColumnsGroup" Caption="@BaseJournalFrm:Model=Модель" HasCaption="True">
+              <Component Name="CUT_PartsCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Equipment.ClassesTab" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosR.PartsCode" HasCaption="False" LookupField="Name" Width="60"/>
+              <Component Name="CUT_PartsCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosR.PartsCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

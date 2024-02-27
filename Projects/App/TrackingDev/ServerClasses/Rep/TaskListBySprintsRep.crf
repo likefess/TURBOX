@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rep.IReportTurns">
+  <Inherited AccountPlan="Workflow" BegSaldoFormat="sfNone" Caption="@TrackingCore:TaskListBySprintsRep=Задачи с разбиением по спринтам" CIndicator="1" EmptyReportCaption="'Задачи отсутствуют'" EndSaldoFormat="sfNone" FreezeHeader="True" HidePeriod="True" HystoKind="hkSide" Legend="lpkAtRight" LinkTables="False" OpenPeriod="opAll" Palette="cpDefault" ShowReportTotalRow="False" ShowSumKindRow="False" TabHeaderFirst="False">
+    <Inherited Name="Grouping">
+      <Inherited Name="SplitByRows">
+        <Component Name="TaskSplitParam" Class="Com.Rep.ISplitByParam" ShowTotals="False" SortOrder="-Task.Prio.PriorityValue,-Task.#UpdateDate" SplitParam="Task"/>
+      </Inherited>
+      <Inherited Name="SplitByTabs">
+        <Component Name="SprintSplitParam" Class="Com.Rep.ISplitByParam" SplitParam="Task.Sprint"/>
+      </Inherited>
+      <Inherited Name="ContentByRows">
+        <Component Name="CategorySplitContent" Class="Com.Rep.ISplitContent" Caption="Тип" Contents="Task.Category.Description" MaxWidth="15" MinWidth="15"/>
+        <Component Name="CodeSplitContent" Class="Com.Rep.ISplitContent" Caption="ID" Contents="Task.Code" MaxWidth="35" MinWidth="35"/>
+        <Component Name="DescriptionSplitContent" Class="Com.Rep.ISplitContent" Caption="Название" Contents="Task.Description" MaxWidth="130" MinWidth="130"/>
+        <Component Name="DoerSplitContent" Class="Com.Rep.ISplitContent" Caption="Исполнитель" Contents="Task.Doer.Description" MaxWidth="40" MinWidth="40"/>
+        <Component Name="TaskStatusSplitContent" Class="Com.Rep.ISplitContent" Caption="Статус" Contents="Task.TaskStatus.Description" MaxWidth="30" MinWidth="30" UseMacro="True"/>
+        <Component Name="ResponsibleSplitContent" Class="Com.Rep.ISplitContent" Caption="Ответственный" Contents="Task.Responsible.Description" MaxWidth="40" MinWidth="40"/>
+        <Component Name="ProjectSplitContent" Class="Com.Rep.ISplitContent" Caption="Проект" Contents="Task.Project.Description" MaxWidth="40" MinWidth="40"/>
+      </Inherited>
+      <Inherited Name="ContentByTabs">
+        <Component Name="SprintSplitContent" Class="Com.Rep.ISplitContent" Contents="Task.Sprint.Name"/>
+      </Inherited>
+    </Inherited>
+    <Inherited Name="Parameters">
+      <Component Name="RC_PrintedNumber" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@Number=Номер" CaptionWidth="40" CellFormat="StringFormat" OnVerify="RC_ValidationOnVerify" Operator="like" Parameter="Task.PrintedNumber" Plan="Workflow" SkipNil="True" ValueType="VarString"/>
+      <Component Name="RC_Project" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@Control:Project=Проект" CaptionWidth="40" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" MultiSelect="True" Operator=" is " Parameter="Project" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Category" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@Control:Task.Categoty=Тип задачи" CaptionWidth="40" CardFileClass="TrackingCore.Tab.Ref.TaskCategory" CellFormat="ReferenceFormat" MultiSelect="True" Operator=" is " Parameter="Task.Category" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Responsible" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@Control:Task.Responsible=Ответственный" CaptionWidth="40" CardFileClass="Control.Tab.Data.Staff" CellFormat="ReferenceFormat" MultiSelect="True" Operator=" is " Parameter="Task.Responsible" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Sprint" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@Control:Task.Sprint=Спринт" CaptionWidth="40" CardFileClass="TrackingDev.Tab.Ref.Sprint" CellFormat="ReferenceFormat" MultiSelect="True" Operator=" is " Parameter="Task.Responsible" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Doer" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@TrackingCore:Task.Doer=Исполнитель" CaptionWidth="40" CardFileClass="Control.Tab.Data.Staff" CellFormat="ReferenceFormat" MultiSelect="True" Operator=" is " Parameter="Task.Doer" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorTaskUnit" Class="Com.Rep.IIndMain" Aggregate="agrSum" BegSaldoFormat="msfDebCre" Caption="IndicatorTaskUnit" Contents="TaskUnit" EndSaldoFormat="msfDebCre" MaxWidth="33" ShowFmt="mshAll" TurnFormat="msfDebCre" Visible="False"/>
+    </Inherited>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Inherited>
+</Resource>

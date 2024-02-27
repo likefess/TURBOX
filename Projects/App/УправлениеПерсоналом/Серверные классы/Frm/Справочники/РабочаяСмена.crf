@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.Справочник">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Справочники.Классификатор смен">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Справочники.РабочаяСмена" IsLibrary="1"/>
+    <Component Name="Позиции" Class="УправлениеПерсоналом.Rec.Справочники.РабочаяСмена_Позиции" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+          <Component Name="СменныйГрафикРаботы" Class="Com.Ctrl.ICheckBox" Field="EdtRec.СменныйГрафикРаботы" HasCaption="True" Hint="@При установке данного флага в Графике учета рабочего времени в колонке «Итого за месяц дней/смен» будет указываться количество смен. Если данный флаг не установлен, то будет ука-зываться количество дней "/>
+          <Component Name="NewLine4" Class="Com.Ctrl.INewLine"/>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="@Период рабочего времени " FontBold="True" Width="120"/>
+          <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          <Component Name="ВремяНачала" Class="Com.Ctrl.IEdit" ButtonStyle="NoButton" Field="EdtRec.ВремяНачала" FormatOfDate="TimeOnly" HasButton="False" HasCaption="True" MaxWidth="35"/>
+          <Component Name="ВремяОкончания" Class="Com.Ctrl.IEdit" ButtonStyle="NoButton" Field="EdtRec.ВремяОкончания" FormatOfDate="TimeOnly" HasButton="False" HasCaption="True" MaxWidth="35"/>
+          <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+          <Component Name="Продолжительность" Class="Com.Ctrl.IEdit" Caption="Продолжительность" Field="EdtRec.Продолжительность" HasCaption="True" Hint="Указывается количество рабочих часов смены или рабочего дня" MaxWidth="35"/>
+          <Component Name="Перерыв" Class="Com.Ctrl.IEdit" Caption="Перерыв" Field="EdtRec.Перерыв" HasCaption="True" Hint="Указывается длительность перерыва (при наличии)" MaxWidth="35"/>
+          <Component Name="NewLine3" Class="Com.Ctrl.INewLine" Excluded="True"/>
+          <Component Name="НочныеЧасы" Class="Com.Ctrl.IEdit" Caption="Ночных часов" Field="EdtRec.НочныеЧасы" HasCaption="True" Hint="Указывается количество ночных часов (при наличии)" MaxWidth="35"/>
+        </Component>
+      </Inherited>
+      <Component Name="фрПозиции" Class="Com.Ctrl.IFrame" After="FieldsFrame" AutoSize="True">
+        <Component Name="тблПозиции" Class="Com.Ctrl.ITable" Subtable="EdtRec.Позиции">
+          <Component Name="ВидВремени" Class="Com.Ctrl.IEdit" Field="Позиции.ВидВремени" HasCaption="True" Width="80"/>
+          <Component Name="Длительность" Class="Com.Ctrl.IEdit" Field="Позиции.Длительность" HasCaption="True" Width="30"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

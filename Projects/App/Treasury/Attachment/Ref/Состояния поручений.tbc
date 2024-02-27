@@ -1,0 +1,139 @@
+﻿TBCFile VER="3.4" [Created '07.02.2021 20:33:41' by 'Администратор']
+
+DESCRIPTION[
+Count=1
+CountByRef=2
+Bas.Ref.EntityRole
+(
+  Count=0
+  CountByRef=1
+)
+Control.Ref.TaskStatus
+(
+  Count=1
+  CountByRef=1
+)
+]
+
+METADATA[
+
+  [Bas.Ref.EntityRole
+  (
+    Deleted :Boolean
+    GroupDoc :Bas.Ref.EntityRole
+    isGroup :Integer
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    OperDoc :Inherited Bas.Base.Event
+    НеОтображаетсяВДереве :Boolean
+    MetaLock :Boolean
+    SubsysCode :Integer
+    PartisCode :Integer
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    SystemRole :Integer
+    PosOrProf :Integer
+    UserRole :Kernel.Settings.Role
+    ChildRoles :Struct array Integer
+    (
+      ChildRoleValue :Bas.Ref.EntityRole
+    )
+    SystemCode :Integer
+    PosOrProfByString :Boolean
+    UpperRolesFiler :Memo
+    UpperRoles :Struct array Integer
+    (
+      Value :Bas.Ref.EntityRole
+    )
+    PageOfEntityForm :Integer array Integer
+    EntityReports :Struct array Integer
+    (
+      Value :Kernel.Отчеты
+      ReportParams :Struct array Integer
+      (
+        AccParams :String
+        CorrValue :Boolean
+        StrictEqu :Boolean
+      )
+      EntityParamName :String
+    )
+    Категория :BizRus.Классификаторы.КатегорияДолжностиИлиПрофессии
+    КодПозицииСписка :String
+    СловоФормаДолжностьПрофессия :String(1000)
+    ДолжностнаяИнструкция :Upr.Данные.Процесс
+    ЭлементШтатногоРасписания :Boolean
+    ТипГрафика :Персонал.Справочники.ТипГрафика
+    MinБазовыйОклад :Real
+    MaxБазовыйОклад :Real
+    ВидНачисления :ПервичкаРСБУ.Справочники.ВидыНачислений
+    ХарактерРаботы :Integer
+    ВидЗанятости :Integer
+    КоэффЗанятости :Real
+    УсловияТруда :Персонал.Справочники.УсловияТруда
+    ОсобыеУсловия :Персонал.Классификаторы.ОсобыеУсловияТруда
+  )
+  ForeignKey Code
+  ]
+
+  [Control.Ref.TaskStatus
+  (
+    Deleted :Boolean
+    GroupDoc :Control.Ref.TaskStatus
+    isGroup :Integer
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    Description :String
+    EntityNum :Integer
+    EntityRole :Bas.Ref.EntityRole
+    IsClosedTask :Boolean
+    SendMailToResponsible :Boolean
+    EmailRoles :Struct array Integer
+    (
+      Role :Bas.Ref.EntityRole
+    )
+    Treasury_Factuality :Biz.Ref.Factuality
+    Color :Integer
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Bas.Ref.EntityRole
+  
+  {Bas.Ref.EntityRole:"Инициатор"}
+  (
+    Name = "Инициатор заявки"
+    SystemRole = 18
+  )
+]
+
+[Control.Ref.TaskStatus
+  
+  {Control.Ref.TaskStatus:"Казначейство.Отменена"}
+  (
+    GroupDoc = {Control.Ref.TaskStatus:Казначейство}
+    Name = "Отменена"
+    Description = "Отменена"
+    EntityRole = {Bas.Ref.EntityRole:Инициатор}
+    IsClosedTask = True
+    SendMailToResponsible = True
+  )
+  
+  {Control.Ref.TaskStatus:"Казначейство"}
+  (
+    isGroup = -1
+    Name = "Казначейство"
+  )
+]
+
+]

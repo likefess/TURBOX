@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="QtyUnit" Class="Com.Fld.IVar" Caption="@Количество " ValueType="VarNumeric"/>
+      <Component Name="DateClosed" Class="Com.Fld.IVar" Caption="@Закрыто " ValueType="VarDate"/>
+      <Component Name="DateChange" Class="Com.Fld.IVar" Caption="@Дата изменения" ValueType="VarDate"/>
+      <Component Name="fromStaffingUnit" Class="Com.Fld.IVar" Caption="@Вакансия" RecordClass="HRBase.Rec.Data.StaffingUnit" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="grStaffingUnit" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+          <Component Name="edStaffingUnit" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Data.StaffingUnit" Enabled="False" Field="fromStaffingUnit" HasCaption="True" LookupField="Name"/>
+          <Component Name="grDates" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="edtDateChange" Class="Com.Ctrl.IEdit" Field="DateChange" HasCaption="True" MaxWidth="35" OnChange="edtDateChange_OnChange" OnVerify="edtDateChange_OnVerify"/>
+            <Component Name="edtDateClosed" Class="Com.Ctrl.IEdit" Field="DateClosed" FixSize="True" FormatOfDate="DateOnly" HasCaption="True" Width="40"/>
+          </Component>
+        </Component>
+        <Component Name="rgMain" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="edQtyUnit" Class="Com.Ctrl.IEdit" Field="QtyUnit" HasCaption="True" MaxWidth="35"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

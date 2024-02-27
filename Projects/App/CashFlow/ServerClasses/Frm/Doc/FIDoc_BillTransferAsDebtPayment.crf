@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CashFlow.Frm.Doc.FIDoc_Add">
+  <Inherited HelpContext="CashFlow.Движение денежных средств.Финансовые инструменты.Документы.Передача собственного простого векселя в счет оплаты задолженности">
+    <Inherited Name="FRecord" Class="CashFlow.Rec.Doc.FIDoc_BillTransferAsDebtPayment" IsLibrary="1"/>
+    <Inherited Name="FIDoc_Positions" Class="CashFlow.Rec.Doc.FIDoc_BillTransferAsDebtPayment_Positions" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="GeneralBox">
+            <Inherited Name="Group9">
+              <Inherited Name="Group9Right">
+                <Component Name="ContrapartyAccountEdit" Class="Com.Ctrl.IEditEx" Field="FRecord.ContrapartyAccount" HasCaption="True">
+                  <Component Name="ContrapartyAccountBtn" Class="Com.Ctrl.IButton" ImageName="Biz.id-card-light" OnClick="ContrapartyAccountBtn_OnClick"/>
+                </Component>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="PositionsBox">
+            <Inherited Name="PositionsTable">
+              <Component Name="AccountGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@FIDoc_Bill:AccountGroup=Счет учета ФИ" HasCaption="True">
+                <Component Name="AccountEdit" Class="Com.Ctrl.IEditEx" Field="FIDoc_Positions.Account" HasCaption="False" Width="20">
+                  <Component Name="AccountBtn" Class="Com.Ctrl.IButton" HasCaption="False" ImageName="Biz.id-card-light" OnClick="AccountBtn_OnClick"/>
+                </Component>
+              </Component>
+              <Component Name="OffBalanceAccountGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@FIDoc_Bill:OffBalanceAccountGroup=Забалансовый счет учета" HasCaption="True">
+                <Component Name="OffBalanceAccountEdit" Class="Com.Ctrl.IEditEx" Field="FIDoc_Positions.OffBalanceAccount" HasCaption="False" Width="20">
+                  <Component Name="OffBalanceAccountBtn" Class="Com.Ctrl.IButton" HasCaption="False" ImageName="Biz.id-card-light" OnClick="OffBalanceAccountBtn_OnClick"/>
+                </Component>
+              </Component>
+              <Component Name="Dimensions" Class="Com.Ctrl.IEdit" Excluded="True" Caption="@FIDocument:Dimensions=Аналитика" HasButton="True" Width="40" Wrap="True"/>
+              <Component Name="ParValue_P" Class="Com.Ctrl.IEdit" Caption="@FIDocument:ParValue_P=Номинальная стоимость" CellFormat="NumericFormat" Field="FIDoc_Positions.ParValue" FieldFormat=",##0.00;;-" HasCaption="True" ValueType="VarNumeric" Width="40"/>
+              <Component Name="Amount" Class="Com.Ctrl.IEdit" Caption="@FIDocument:Amount=Сумма размещения" CellFormat="NumericFormat" Field="FIDoc_Positions.Amount" FieldFormat=",##0.00;;-" HasCaption="True" ValueType="VarNumeric" Width="40"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

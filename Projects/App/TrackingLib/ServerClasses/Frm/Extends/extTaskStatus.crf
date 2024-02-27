@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Control.Frm.Ref.TaskStatus">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="VarColor" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" PrimaryButton="ButtonOK1">
+        <Component Name="ButtonClose1" Class="Com.Ctrl.IButton" After="#0" Caption="Отменить" Fashion="Fashions.SecondaryButton" OnClick="ButtonClose_OnClick" Width="30"/>
+        <Component Name="ButtonOK1" Class="Com.Ctrl.IButton" Caption="Сохранить" FontSize="11" OnClick="ButtonSave_OnClick" Width="30"/>
+        <Inherited Name="ButtonOK" Excluded="True"/>
+        <Inherited Name="ButtonServices" Visible="False"/>
+        <Inherited Name="ButtonClose" Excluded="True"/>
+        <Inherited Name="ButtonReports" Excluded="True"/>
+        <Inherited Name="ButtonAnalytics" Excluded="True"/>
+        <Inherited Name="HeaderSeparator" Excluded="True"/>
+        <Inherited Name="ButtonPost" Excluded="True"/>
+        <Inherited Name="ButtonCancel" Excluded="True"/>
+        <Inherited Name="ButtonClone" Excluded="True"/>
+        <Inherited Name="ButtonDelete" Excluded="True"/>
+        <Inherited Name="ButtonRefresh" Excluded="True"/>
+        <Inherited Name="ButtonHelp" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="FieldsGroup" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True" ByColumn="True">
+          <Component Name="NameEdit1" Class="Com.Ctrl.IEdit" Caption="Название" Field="EdtRec.Name" FixSize="False" HasInnerCaption="True" Required="True" ValueType="VarString" Width="220"/>
+          <Component Name="DescriptionEdit" Class="Com.Ctrl.IEdit" Caption="Описание" Field="EdtRec.Description" FixSize="False" HasInnerCaption="True" ValueType="VarString" Width="220"/>
+          <Component Name="StatusTypeEdit" Class="Com.Ctrl.IEdit" Caption="Тип статуса" Field="EdtRec.StatusType" HasInnerCaption="True" Required="True" ShortList="True" Width="220"/>
+          <Component Name="StatusColorEdit" Class="Com.Ctrl.IEdit" Caption="Цвет" Field="VarColor" HasInnerCaption="True" OnChange="StatusColorEditOnChange" OnOutputEx="StatusColorEditOnOutputEx" ShortList="True" Width="220"/>
+        </Component>
+        <Inherited Name="Group1" Visible="False">
+          <Inherited Name="Code" Visible="False"/>
+        </Inherited>
+      </Inherited>
+      <Component Name="FieldFrame" Class="Com.Ctrl.IFrame" After="FieldsFrame" AutoSize="True" Margins="5" Visible="False">
+        <Component Name="NameEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" HasInnerCaption="True" Visible="True" Width="80"/>
+        <Component Name="StatusColorEdit2" Class="Com.Ctrl.IColorEdit" Field="EdtRec.StatusColor" HasCaption="True" Width="35"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.CodeName">
+  <Inherited Caption="Изменения кадастровой стоимости" Hierarchical="False">
+    <Inherited Name="Current" Class="RealEstate.Rec.Service.RealEstateObjectKadastrCost" IsLibrary="1"/>
+    <Inherited Name="RootFrame" Caption="Изменения статусов объектов имущества">
+      <Inherited Name="HeaderFrame" Caption="Изменения кадастровой стоимости" HasCaption="True"/>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile" Caption="Изменения статусов объектов имущества" HasCaption="True">
+          <Inherited Name="CardFile" CanCopy="False" CanDelete="False" CanEdit="False" CanInsert="False" CanMove="False" CanOpen="False" Hierarchical="False" SortOrder="ChangeDate-"/>
+          <Inherited Name="Name" Visible="False"/>
+          <Inherited Name="Code" Visible="False"/>
+          <Component Name="RealEstateObject" Class="Com.Ctrl.IEdit" Caption="Объект имущества" CardFileClass="RealEstateBase.Tab.Data.RealEstateObject" Field="Current.RealEstateObject" HasButton="True" HasCaption="True" LookupField="Code" Visible="False"/>
+          <Component Name="CostValue" Class="Com.Ctrl.IEdit" Caption="Кадастровая стоимость" CellFormat="NumericFormat" Field="Current.CostValue" FieldFormat=",##0.00;;-" HasCaption="True" Width="40"/>
+          <Component Name="CostDate" Class="Com.Ctrl.IEdit" Caption="Дата определения" CellFormat="DateFormat" Field="Current.CostDate" HasCaption="True" Width="30"/>
+          <Component Name="Login" Class="Com.Ctrl.IEdit" Caption="@Пользователь" Field="Current.Login" HasCaption="True" Width="40"/>
+          <Component Name="ChangeDate" Class="Com.Ctrl.IEdit" Caption="@Дата изменения" Field="Current.ChangeDate" FormatOfDate="DateAndTime" HasCaption="True" Width="35"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

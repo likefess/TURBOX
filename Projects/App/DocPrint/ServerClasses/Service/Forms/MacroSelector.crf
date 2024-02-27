@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="DocPrint.Service.Forms.DataSelector">
+  <Inherited HelpContext="DocPrint.DocPrint.Выбор макроса">
+    <Inherited Name="Data" Class="DocPrint.Service.Data.MacroSelector" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="MacroListArray" Class="Com.Fld.IArray" ValueType="VarString"/>
+      <Component Name="MacroResult" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="3">
+        <Component Name="ButtonRecalc" Class="Com.Ctrl.IButton" After="#0" Caption="@DocPrint.MacroSelector.ButtonRecalc:Caption=Вычислить результат" ImageName="Com.function" OnClick="ButtonRecalcOnClick"/>
+        <Inherited Name="ButtonOK" After="ButtonRecalc"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" AutoSize="False" Orientation="Vertical">
+        <Component Name="MacroTextFrame" Class="Com.Ctrl.IFrame">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MinWidth="150">
+            <Component Name="MacroTextEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.MacroSelector.MacroTextEdit:Caption=Текст макроса" CellFormat="StringFormat" Field="Data.MacroText" HasCaption="True" Multiline="True" ValueType="VarString" Wrap="True"/>
+            <Component Name="MacroResultEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.MacroSelector.MacroResultEdit:Caption=Результат макроса" CellFormat="StringFormat" Enabled="False" Field="MacroResult" HasCaption="True" Multiline="True" ValueType="VarString" Wrap="True"/>
+          </Component>
+        </Component>
+        <Component Name="MacroListFrame" Class="Com.Ctrl.IFrame" AutoSize="True" CanHideBySplit="True" UseSplitter="True">
+          <Component Name="MacroListTable" Class="Com.Ctrl.ITable" HasCaption="False" ManualControl="False">
+            <Component Name="MacroListEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="MacroListArray" Hint="@DocPrint.MacroSelector.MacroListEdit:Hint=Название макроса" OnClick="MacroListEditOnClick" ValueType="VarString" Width="80"/>
+            <Component Name="WebButton" Class="Com.Ctrl.IButton" ImageName="Com.plus" OnClick="WebButtonOnClick" Visible="False"/>
+            <Component Name="InfoButton" Class="Com.Ctrl.IButton" Hint="@DocPrint.MacroSelector.InfoButton:Hint=Информация о макросе" ImageName="Com.Help" OnClick="InfoButtonOnClick"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

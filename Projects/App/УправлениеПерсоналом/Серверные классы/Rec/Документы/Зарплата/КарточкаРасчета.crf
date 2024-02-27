@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Rec.Базовая.БазовыйДокумент">
+  <Inherited>
+    <Component Name="Перерасчет" Class="Com.Fld.IField" After="#0" FieldName="Перерасчет"/>
+    <Component Name="ДатаВыплаты" Class="Com.Fld.IField" FieldName="ДатаВыплаты"/>
+    <Component Name="ДатаКорректировки" Class="Com.Fld.IField" FieldName="ДатаКорректировки"/>
+    <Component Name="Скорректирован" Class="Com.Fld.IField" FieldName="Скорректирован"/>
+    <Component Name="КоррРасчет" Class="Com.Fld.IField" Excluded="True" FieldName="КоррРасчет"/>
+    <Component Name="Корректировка" Class="Com.Fld.IField" Excluded="True" FieldName="Корректировка"/>
+    <Inherited Name="БезРасчета" After="Корректировка"/>
+    <Component Name="РасчетЗП" Class="Com.Fld.IField" After="мРасчетЗП" FieldName="РасчетЗП"/>
+    <Component Name="Проводить" Class="Com.Fld.IField" FieldName="Проводить"/>
+    <Component Name="Подразделение" Class="Com.Fld.IField" FieldName="Подразделение"/>
+    <Component Name="Контрагент" Class="Com.Fld.IField" FieldName="Контрагент" OnChange="Контрагент_OnChange"/>
+    <Component Name="УсловияТрудаСотр" Class="Com.Fld.IField" FieldName="УсловияТрудаСотр"/>
+    <Component Name="ПериодРасчета" Class="Com.Fld.IField" FieldName="ПериодРасчета"/>
+    <Component Name="ЧастьПериода" Class="Com.Fld.IField" FieldName="ЧастьПериода"/>
+    <Component Name="ДатаНачПериода" Class="Com.Fld.IField" FieldName="ДатаНачПериода"/>
+    <Component Name="ДатаКонПериода" Class="Com.Fld.IField" FieldName="ДатаКонПериода"/>
+    <Component Name="Назначение" Class="Com.Fld.IField" FieldName="Назначение"/>
+    <Component Name="НомерПоСотруднику" Class="Com.Fld.IField" Excluded="True" FieldName="НомерПоСотруднику"/>
+    <Component Name="НомерПоПолучРасч" Class="Com.Fld.IField" FieldName="НомерПоПолучРасч"/>
+    <Component Name="НомерПоНазнРасч" Class="Com.Fld.IField" FieldName="НомерПоНазнРасч"/>
+    <Component Name="НомерПоПолучВыпл" Class="Com.Fld.IField" FieldName="НомерПоПолучВыпл"/>
+    <Component Name="НомерПоНазнВыпл" Class="Com.Fld.IField" FieldName="НомерПоНазнВыпл"/>
+    <Component Name="Начисления" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Зарплата.КарточкаРасчета_Начисления" SubtableFilter="ТипЭлемента = 36" SubtableName="Позиции"/>
+    <Component Name="НачисленияРасч" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Зарплата.КарточкаРасчета_НачисленияРасч" SubtableFilter="ТипЭлемента = 36" SubtableName="ПозицииРасч"/>
+    <Component Name="НДФЛ" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Зарплата.КарточкаРасчета_НДФЛ" SubtableFilter="ТипЭлемента = 39" SubtableName="Позиции"/>
+    <Component Name="НДФЛРасч" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Зарплата.КарточкаРасчета_НДФЛРасч" SubtableFilter="ТипЭлемента = 39" SubtableName="ПозицииРасч"/>
+    <Component Name="НДФЛВидНач" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Зарплата.КарточкаРасчета_НДФЛВидНач" SubtableFilter="ТипЭлемента = 38" SubtableName="Позиции"/>
+    <Component Name="НДФЛВидНачРасч" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Зарплата.КарточкаРасчета_НДФЛВидНачРасч" SubtableFilter="ТипЭлемента = 38" SubtableName="ПозицииРасч"/>
+    <Component Name="Удержания" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Зарплата.КарточкаРасчета_Удержания" SubtableFilter="ТипЭлемента = 37" SubtableName="Позиции"/>
+    <Component Name="УдержанияРасч" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Зарплата.КарточкаРасчета_УдержанияРасч" SubtableFilter="ТипЭлемента = 37" SubtableName="ПозицииРасч"/>
+    <Component Name="Вычеты" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Документы.Зарплата.КарточкаРасчета_Вычеты" SubtableFilter="ТипЭлемента = 35" SubtableName="Позиции"/>
+  </Inherited>
+</Resource>

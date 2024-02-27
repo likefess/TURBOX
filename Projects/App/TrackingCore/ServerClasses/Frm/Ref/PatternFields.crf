@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="VarBase" Class="Com.Fld.IVar" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="VarCheckListVisible" Class="Com.Fld.IVar" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="VarSeriousnessVisible" Class="Com.Fld.IVar" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="VarResolutionVisible" Class="Com.Fld.IVar" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="VarCreateDateVisible" Class="Com.Fld.IVar" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="VarDeadlineVisible" Class="Com.Fld.IVar" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="VarPrjComponentsVisible" Class="Com.Fld.IVar" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="VarLabelsNameVisible" Class="Com.Fld.IVar" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="VarAffVersionsVisible" Class="Com.Fld.IVar" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="VarFixVersionsVisible" Class="Com.Fld.IVar" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="VarProgressVisible" Class="Com.Fld.IVar" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="VarAuthorVisible" Class="Com.Fld.IVar" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="VarResponsibleVisible" Class="Com.Fld.IVar" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="VarWatchersVisible" Class="Com.Fld.IVar" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="VarSprintVisible" Class="Com.Fld.IVar" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="VarEstimateVisible" Class="Com.Fld.IVar" StoredVar="True" ValueType="VarLogical"/>
+      <Component Name="VarLaborVisible" Class="Com.Fld.IVar"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Excluded="True"/>
+      <Inherited Name="FieldsFrame" Visible="True">
+        <Inherited Name="Group1" Excluded="True">
+          <Inherited Name="Code" Excluded="True"/>
+          <Inherited Name="Name" Excluded="True"/>
+        </Inherited>
+        <Component Name="GroupSystem" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" Visible="True">
+          <Component Name="StaticSystem" Class="Com.Ctrl.IStatic" Caption="Системные" FontBold="True"/>
+          <Component Name="CheckBoxName" Class="Com.Ctrl.ICheckBox" Caption="Название" Enabled="False" Field="VarBase" HasCaption="True" Visible="True"/>
+          <Component Name="CheckBoxDescription" Class="Com.Ctrl.ICheckBox" Caption="Описание" Enabled="False" Field="VarBase" HasCaption="True" Visible="True"/>
+          <Component Name="CheckBoxCheckList" Class="Com.Ctrl.ICheckBox" Caption="Чеклист" Field="VarCheckListVisible" HasCaption="True" Visible="True"/>
+          <Component Name="CheckBoxType" Class="Com.Ctrl.ICheckBox" Caption="Тип задачи" Enabled="False" Field="VarBase" HasCaption="True" Visible="True"/>
+          <Component Name="CheckBoxStatus" Class="Com.Ctrl.ICheckBox" Caption="Статус" Enabled="False" Field="VarBase" HasCaption="True" Visible="True"/>
+          <Component Name="CheckBoxProject" Class="Com.Ctrl.ICheckBox" Caption="Проект" Enabled="False" Field="VarBase" HasCaption="True" Visible="True"/>
+          <Component Name="CheckBoxCreateDate" Class="Com.Ctrl.ICheckBox" Caption="Дата начала" Field="VarCreateDateVisible" HasCaption="True" Visible="True"/>
+          <Component Name="CheckBoxDeadline" Class="Com.Ctrl.ICheckBox" Caption="Крайний срок" Field="VarDeadlineVisible" HasCaption="True" Visible="True"/>
+          <Component Name="CheckBoxPriority" Class="Com.Ctrl.ICheckBox" Caption="Приоритет" Enabled="False" Field="VarBase" HasCaption="True" Visible="True"/>
+          <Component Name="CheckBoxSeriousness" Class="Com.Ctrl.ICheckBox" Caption="Серьезность" Field="VarSeriousnessVisible" HasCaption="True" Visible="True"/>
+          <Component Name="CheckBoxResolution" Class="Com.Ctrl.ICheckBox" Caption="Решение" Field="VarResolutionVisible" HasCaption="True" Visible="True"/>
+          <Component Name="CheckBoxComponents" Class="Com.Ctrl.ICheckBox" Caption="Компоненты" Field="VarPrjComponentsVisible" HasCaption="True" Visible="True"/>
+          <Component Name="CheckBoxLabels" Class="Com.Ctrl.ICheckBox" Caption="Метки" Field="VarLabelsNameVisible" HasCaption="True" Visible="True"/>
+          <Component Name="CheckBoxVersion" Class="Com.Ctrl.ICheckBox" Caption="Версия" Field="VarAffVersionsVisible" HasCaption="True" Visible="True"/>
+          <Component Name="CheckBoxFixVersion" Class="Com.Ctrl.ICheckBox" Caption="Исправлено в" Field="VarFixVersionsVisible" HasCaption="True" Visible="True"/>
+          <Component Name="CheckBoxProgress" Class="Com.Ctrl.ICheckBox" Caption="Процент выполнения" Field="VarProgressVisible" HasCaption="True" Visible="True"/>
+        </Component>
+        <Component Name="GroupPeople" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+          <Component Name="StaticPeople" Class="Com.Ctrl.IStatic" Caption="Распределние" FontBold="True"/>
+          <Component Name="CheckBoxDoer" Class="Com.Ctrl.ICheckBox" Caption="Исполнитель" Enabled="False" Field="VarBase" HasCaption="True" Visible="True"/>
+          <Component Name="CheckBoxAuthor" Class="Com.Ctrl.ICheckBox" Caption="Автор" Field="VarAuthorVisible" HasCaption="True" Visible="True"/>
+          <Component Name="CheckBoxResponsible" Class="Com.Ctrl.ICheckBox" Caption="Ответственный" Field="VarResponsibleVisible" HasCaption="True" Visible="True"/>
+          <Component Name="CheckBoxWatchers" Class="Com.Ctrl.ICheckBox" Caption="Наблюдатели" Field="VarWatchersVisible" HasCaption="True" Visible="True"/>
+        </Component>
+        <Component Name="GroupAgile" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+          <Component Name="StaticAgile" Class="Com.Ctrl.IStatic" Caption="Agile" FontBold="True"/>
+          <Component Name="CheckBoxEpic" Class="Com.Ctrl.ICheckBox" Caption="Эпик" Enabled="False" Field="VarBase" HasCaption="True" Visible="True"/>
+          <Component Name="CheckBoxStoryPoint" Class="Com.Ctrl.ICheckBox" Excluded="True" Caption="Story Points" HasCaption="True" Visible="True"/>
+          <Component Name="CheckBoxSprint" Class="Com.Ctrl.ICheckBox" Caption="Спринт" Field="VarSprintVisible" HasCaption="True" Visible="True"/>
+        </Component>
+        <Component Name="GroupLaborCosts" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+          <Component Name="StaticLaborCosts" Class="Com.Ctrl.IStatic" Caption="Учет времени" FontBold="True" Visible="True"/>
+          <Component Name="CheckBoxEstimate" Class="Com.Ctrl.ICheckBox" Caption="Первоначальная оценка" Field="VarEstimateVisible" HasCaption="True" Visible="True"/>
+          <Component Name="CheckBoxLabor" Class="Com.Ctrl.ICheckBox" Caption="Блок трудозатраты" Field="VarLaborVisible" HasCaption="True" Visible="True"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Excluded="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

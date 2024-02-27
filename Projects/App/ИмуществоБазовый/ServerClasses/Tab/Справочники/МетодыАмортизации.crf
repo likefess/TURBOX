@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.ComFields">
+  <Inherited HelpContext="ИмуществоБазовый.Имущество.Методы амортизации">
+    <Inherited Name="Current" Class="ИмуществоБазовый.Rec.Справочники.МетодыАмортизации" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Component Name="ИмяМетода" Class="Com.Ctrl.IEdit" Field="Current.ИмяМетода" HasCaption="True" Hint="Наименование метода расчета амортизации" Width="100"/>
+          <Component Name="ТипУчета" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CellFormat="EnumFormat" Field="Current.ТипУчета" HasCaption="True" Hint="Тип учета, для которого используется метод" ListAsString="БУ|0;НУ|1;МСФО|2" Width="20"/>
+          <Component Name="ТипМетода" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Current.ТипМетода" HasCaption="True" ListAsString="Не амортизируется|0;@Линейный|1;Нелинейный|2;Пропорционально количеству продукции|3;Способ уменьшаемого остатка|4" Width="80"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

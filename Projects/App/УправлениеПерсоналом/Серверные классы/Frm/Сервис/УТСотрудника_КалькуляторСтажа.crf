@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Основные данные.Калькулятор стажа">
+    <Inherited Name="Variables">
+      <Component Name="локСтрахСтажДни" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="локСтрахСтажМес" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="локСтрахСтажЛет" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="локДатаСтажП" Class="Com.Fld.IVar" ValueType="VarDate"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="фрмДанныеРасчета" Class="Com.Ctrl.IFrame" AutoSize="True" HasCaption="False">
+          <Component Name="грДанныеРасчета" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="150">
+            <Component Name="ДатаСП" Class="Com.Ctrl.IEdit" Caption="@Дата начала стажа работы на данном предприятии" CaptionWidth="100" CellFormat="DateFormat" Field="локДатаСтажП" HasCaption="True" MaxWidth="40" Width="40"/>
+            <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="@Страховой стаж на дату зачисления на данное предприятие" FontBold="True" FontItalic="True" Width="150"/>
+            <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+            <Component Name="СтрахСтажЛет" Class="Com.Ctrl.IEdit" Caption="@Лет" CaptionWidth="25" CellFormat="NumericFormat" Field="локСтрахСтажЛет" HasCaption="True"/>
+            <Component Name="СтрахСтажМес" Class="Com.Ctrl.IEdit" Caption="@Месяцев" CaptionWidth="25" CellFormat="NumericFormat" Field="локСтрахСтажМес" HasCaption="True"/>
+            <Component Name="СтрахСтажДни" Class="Com.Ctrl.IEdit" Caption="@Дней" CaptionWidth="25" CellFormat="NumericFormat" Field="локСтрахСтажДни" HasCaption="True"/>
+            <Component Name="кнРассчитать" Class="Com.Ctrl.IButton" Caption="@кнРассчитать=Рассчитать" HasCaption="True" OnClick="кнРассчитать_ПриНажатии" Width="30"/>
+            <Component Name="NewLine3" Class="Com.Ctrl.INewLine"/>
+          </Component>
+        </Component>
+        <Component Name="фрмМестаРаботы" Class="Com.Ctrl.IFrame" AutoSize="True" HasCaption="False" MinSize="100"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

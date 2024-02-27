@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.БазовыйДокумент">
+  <Inherited PrintSettings="УправлениеПерсоналом\Форма А4 (15x15x10x10).cfg">
+    <Component Name="Позиции" Class="УправлениеПерсоналом.Rec.Документы.Зарплата.КарточкаРасчетаСВ_Позиции" IsLibrary="1" After="#0"/>
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Документы.Зарплата.КарточкаРасчетаСВ" IsLibrary="1" After="Позиции"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonClone" Enabled="False"/>
+        <Inherited Name="ButtonDelete" Enabled="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" CanHideBySplit="True" CanResizeBySplit="True" SplitterAtRight="True" UseSplitter="True">
+        <Inherited Name="grMain">
+          <Inherited Name="Предприятие" Enabled="False"/>
+          <Inherited Name="Замок" Width="25"/>
+        </Inherited>
+        <Inherited Name="грТипДокумента" Excluded="True"/>
+        <Inherited Name="grNumberDate">
+          <Component Name="НомерРасчетаСВ" Class="Com.Ctrl.IEdit" After="ДатаДокумента" Caption="Номер расчета" CaptionWidth="30" CardFileClass="УправлениеПерсоналом.Tab.Документы.Зарплата.РасчетСВ" Enabled="False" Field="EdtRec.РасчетСВ" FixSize="True" HasCaption="True" Hint="Номер расчета страховых взносов" LookupFilter="Номер" Width="30"/>
+          <Component Name="кнРасчетСВ" Class="Com.Ctrl.IJumpButton" Field="EdtRec.РасчетСВ" JumpForm="УправлениеПерсоналом.Frm.Документы.Зарплата.РасчетСВ"/>
+          <Component Name="Проводить" Class="Com.Ctrl.ICheckBox" Caption="Проводить" Field="EdtRec.Проводить" FixSize="True" HasCaption="True" Printed="False" Width="25"/>
+          <Inherited Name="stEmpty" Excluded="True" After="Проводить" FixSize="True" Width="25"/>
+        </Inherited>
+        <Component Name="грКонтрагент" Class="Com.Ctrl.IGroup" After="grNumberDate" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="ФизЛицо" Class="Com.Ctrl.IEdit" Caption="ФИО" CardFileClass="HRBase.Tab.Data.StaffersHR" Enabled="False" Field="EdtRec.ФизЛицо" HasCaption="True" Hint="Фамилия, Имя, Отчество сотрудника" LookupField="Name" OnOutputEx="ФИО_OnOutputEx"/>
+          <Component Name="ТабНомер" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Таб. номер" CaptionWidth="30" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Enabled="False" Field="EdtRec.УсловияТрудаСотр" FixSize="True" HasCaption="True" Hint="Табельный номер" LookupField="ТабНомер" Multiline="False" OnOpenCardForm="НастроитьКартотекуУслТрудаСотрудников" Width="30" Wrap="False"/>
+          <Component Name="кнТабНомер" Class="Com.Ctrl.IJumpButton" Excluded="True" Field="EdtRec.УсловияТрудаСотр" JumpForm="УправлениеПерсоналом.Frm.Данные.УсловияТрудаСотрудника"/>
+          <Component Name="Static6" Class="Com.Ctrl.IStatic" FixSize="True" Width="32"/>
+        </Component>
+        <Component Name="грПериод" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="ПериодРасчета" Class="Com.Ctrl.IEdit" Caption="Расчетный период" Enabled="False" Field="EdtRec.ПериодРасчета" HasCaption="True" Hint="Расчетный период, за который производится расчет" LookupFilter="IsGroup &lt;> -1" OnChange="ПериодРасчета_OnChange" OnVerify="ПериодРасчета_OnVerify" Required="True"/>
+          <Component Name="кнПериодРасчета" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ПериодРасчета" JumpForm="Biz.Frm.Ref.Period"/>
+          <Component Name="Static12" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+        </Component>
+        <Component Name="грТарифСВ" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="ТарифЕСВ" Class="Com.Ctrl.IEdit" Caption="Тариф ЕСВ" CardFileClass="УправлениеПерсоналом.Tab.Справочники.СтавкиСВ" Field="EdtRec.ТарифЕСВ" HasCaption="True" Hint="Тариф единого страхового взноса" LookupField="Name" Multiline="True" Wrap="True"/>
+          <Component Name="Static5" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+          <Component Name="Static13" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+        </Component>
+        <Component Name="грКатПлательщика" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="КатПлательщика" Class="Com.Ctrl.IEdit" Caption="Категория" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.КатегорииПлательщика" Field="EdtRec.КатегорияПлательщика" HasCaption="True" Hint="Категория плательщика страховых взносов" LookupField="Name" Multiline="True" Wrap="True"/>
+          <Component Name="КатПлательщика1" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.КатегорииПлательщика" Enabled="False" Field="EdtRec.КатегорияПлательщика" FixSize="True" HasCaption="False" Hint="Категория плательщика страховых взносов" LookupField="КодУчета" Multiline="False" Width="30" Wrap="False"/>
+          <Component Name="кнКатПлательщика" Class="Com.Ctrl.IJumpButton" Field="EdtRec.КатегорияПлательщика" JumpForm="УправлениеПерсоналом.Frm.Классификаторы.КатегорииПлательщика"/>
+          <Component Name="Static7" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+        </Component>
+        <Component Name="грТипНалогоплат" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="ТипНалогоплат" Class="Com.Ctrl.IEdit" Caption="Тип налогоплат." CellFormat="EnumFormat" Field="EdtRec.ТипНалогоПлат" HasCaption="True" Hint="Тип налогоплательщика" Multiline="True" Wrap="True"/>
+          <Component Name="ДопТариф" Class="Com.Ctrl.ICheckBox" Caption="Доп. тариф" FixSize="True" HasCaption="True" Hint="Применение доп.тарифа по результатам спец.оценки" Visible="False" Width="30"/>
+          <Component Name="Static8" Class="Com.Ctrl.IStatic" FixSize="True" Width="32"/>
+        </Component>
+        <Component Name="грУсловияТруда" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150" Visible="False">
+          <Component Name="УсловияТруда" Class="Com.Ctrl.IEdit" Caption="Условия труда" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловияТруда" Field="EdtRec.УсловияТруда" HasCaption="True" Hint="Условия труда и установленный подкласс" LookupField="Name" Multiline="True" Wrap="True"/>
+          <Component Name="ПодклассУТ" Class="Com.Ctrl.IEdit" CaptionWidth="7" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловияТруда" Field="EdtRec.УсловияТруда" FixSize="True" LookupField="Подкласс" Multiline="True" Width="30" Wrap="True"/>
+          <Component Name="кнУсловияТруда" Class="Com.Ctrl.IJumpButton" Field="EdtRec.УсловияТруда" JumpForm="УправлениеПерсоналом.Frm.Классификаторы.УсловияТруда"/>
+          <Component Name="Static11" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+        </Component>
+        <Inherited Name="грОписание" Excluded="True" After="грУсловияТруда"/>
+        <Component Name="грРасчетЕСВ" Class="Com.Ctrl.IGroup" After="грОписание" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150" Visible="False">
+          <Component Name="Взносы_ЕСВ" Class="Com.Ctrl.IEdit" Caption="Отд. категория" CellFormat="EnumFormat" Field="EdtRec.Взносы_ЕСВ" HasCaption="True" Hint="Вариант расчета Единого страхового взноса па последнее календарное число расчетного периода" Multiline="True" Wrap="True"/>
+          <Component Name="Static9" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+          <Component Name="Static15" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+        </Component>
+        <Inherited Name="грПримечание" After="грРасчетЕСВ">
+          <Inherited Name="Static4" Width="7"/>
+          <Component Name="Static16" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="тблПозиции" Class="Com.Ctrl.ITable" Sortable="True" Subtable="EdtRec.Позиции">
+            <Component Name="грФизЛицо" Class="Com.Ctrl.IColumnsGroup" Caption="Сотрудник" HasCaption="True">
+              <Component Name="грНазначение" Class="Com.Ctrl.IColumnsGroup" Caption="Назначение" HasCaption="False">
+                <Component Name="Назначение" Class="Com.Ctrl.IEdit" Caption="Подразделение, должность, разряд" CardFileClass="УправлениеПерсоналом.Tab.Данные.Назначения" Enabled="True" Field="Позиции.Назначение" HasCaption="True" Hint="Подразделение, должность, разряд сотрудника" LookupField="Name" Multiline="True" OnDraw="Позиции_OnDraw" OnLookup="Назначение_OnLookup" OnOutput="Назначение_OnOutput" OnVerify="Назначение_OnVerify" Width="65" Wrap="True"/>
+                <Component Name="ПериодРаботы" Class="Com.Ctrl.IEdit" Caption="Период работы" Enabled="False" Field="Позиции.Назначение" HasCaption="True" Hint="Период действия Назначения сотрудника" Multiline="True" OnDraw="Позиции_OnDraw" OnOutput="ПериодРаботы_OnOutput" Width="25" Wrap="True"/>
+              </Component>
+            </Component>
+            <Component Name="ЗаПериод" Class="Com.Ctrl.IEdit" Caption="За период" Enabled="False" Field="Позиции.ЗаПериод" HasCaption="True" Hint="Отчетный период, за который производится расчет" LookupField="Код" LookupFilter="IsGroup &lt;> -1" Required="True" Width="25"/>
+            <Component Name="грСВ" Class="Com.Ctrl.IColumnsGroup" Caption="Страховые взносы" HasCaption="True">
+              <Component Name="грРасчет" Class="Com.Ctrl.IColumnsGroup" Caption="База расчета" HasCaption="True">
+                <Component Name="БазаРасчета_ФОТ" Class="Com.Ctrl.IEdit" Caption="ФОТ за месяц" CellFormat="NumericFormat" Enabled="True" Field="Позиции.БазаРасчета_ФОТ" FieldFormat=",##0.00;-" HasCaption="True" Hint="Сумма начисленного ФОТ сотрудника за указанный расчетный период" Multiline="True" OnChange="Позиции_OnChange" OnDrawEx="Позиции_OnDrawEx" OnOutputEx="Позиции_OnOutputEx" Width="30" Wrap="True"/>
+                <Component Name="БазаРасчета_ДоходБезНалога" Class="Com.Ctrl.IEdit" Caption="В т. ч. не подлежащие налогообложению" Enabled="True" Field="Позиции.БазаРасчета_ФОТНеОбл" FieldFormat=",##0.00;-" HasCaption="True" Hint="Сумма дохода не подлежащая налогообложению" Multiline="True" OnChange="Позиции_OnChange" OnDrawEx="Позиции_OnDrawEx" OnOutputEx="Позиции_OnOutputEx" Width="30" Wrap="True"/>
+                <Component Name="грСуммыФОТ" Class="Com.Ctrl.IColumnsGroup" Caption="Суммы ФОТ" HasCaption="True" Hint="Суммы начисленного ФОТ сотрудника за указанный период расчета">
+                  <Component Name="БазаРасчета_ФОТпредел" Class="Com.Ctrl.IEdit" Caption="в пределах" Enabled="True" Field="Позиции.БазаРасчета_ФОТпредел" FieldFormat=",##0.00;-" HasCaption="True" Hint="Сумма начисленного ФОТ сотрудника, не превывающих единую предельную величину базы СВ" Multiline="True" OnChange="Позиции_OnChange" OnDrawEx="Позиции_OnDrawEx" OnOutputEx="Позиции_OnOutputEx" Width="30" Wrap="True"/>
+                  <Component Name="БазаРасчета_ФОТсвышепредел" Class="Com.Ctrl.IEdit" Caption="свыше предела" Enabled="True" Field="Позиции.БазаРасчета_ФОТСвыше" FieldFormat=",##0.00;-" HasCaption="True" Hint="Сумма начисленного ФОТ сотрудника, свыше единой предельной величины базы СВ" Multiline="True" OnChange="Позиции_OnChange" OnDrawEx="Позиции_OnDrawEx" OnOutputEx="Позиции_OnOutputEx" Width="30" Wrap="True"/>
+                </Component>
+                <Component Name="БазаРасчета_БазаВзносов" Class="Com.Ctrl.IEdit" Caption="База для начисления взносов" Enabled="True" Field="Позиции.БазаРасчета_БазаВзносов" FieldFormat=",##0.00;-" HasCaption="True" Hint="Сумма доходов сотрудника, входящая в базу для расчета ЕСВ" Multiline="True" OnChange="Позиции_OnChange" OnDrawEx="Позиции_OnDrawEx" OnOutputEx="Позиции_OnOutputEx" Width="30" Wrap="True"/>
+              </Component>
+              <Component Name="грВзносыЕСВ" Class="Com.Ctrl.IColumnsGroup" Caption="ЕСВ" HasCaption="True">
+                <Component Name="ЕСВ_ВзносыПредел" Class="Com.Ctrl.IEdit" Caption="предел" Enabled="True" Field="Позиции.ЕСВ_ВзносыПредел" FieldFormat=",##0.00;-" HasCaption="True" Hint="Сумма начисленного взноса ЕСВ в пределах единой предельной величины базы для исчисления СВ" Multiline="True" OnChange="Позиции_OnChange" OnDrawEx="Позиции_OnDrawEx" OnOutputEx="Позиции_OnOutputEx" Width="30" Wrap="True"/>
+                <Component Name="ЕСВ_ВзносыСвыше" Class="Com.Ctrl.IEdit" Caption="свыше предела" Enabled="True" Field="Позиции.ЕСВ_ВзносыСвыше" FieldFormat=",##0.00;-" HasCaption="True" Hint="Сумма начисленного взноса ЕСВ свыше предела единой предельной величины базы для исчисления СВ" Multiline="True" OnChange="Позиции_OnChange" OnDrawEx="Позиции_OnDrawEx" OnOutputEx="Позиции_OnOutputEx" Width="30" Wrap="True"/>
+              </Component>
+              <Component Name="грДопТариф" Class="Com.Ctrl.IColumnsGroup" Caption="Доп. тариф ОПС" HasCaption="True">
+                <Component Name="ОПС_п1ст428" Class="Com.Ctrl.IEdit" Caption="п.1 ст. 428 НК РФ" Enabled="True" Field="Позиции.ОПС_п1ст428" FieldFormat=",##0.00;-" HasCaption="True" Hint="Сумма начисленного доп. взноса ОПС согласно п.1 ст. 428 НК РФ" Multiline="True" OnChange="Позиции_OnChange" OnDrawEx="Позиции_OnDrawEx" OnOutputEx="Позиции_OnOutputEx" Width="30" Wrap="True"/>
+                <Component Name="ОПС_п2ст428" Class="Com.Ctrl.IEdit" Caption="п. 2 ст. 428 НК" Enabled="True" Field="Позиции.ОПС_п2ст428" HasCaption="True" Hint="Сумма начисленного доп. взноса ОПС согласно п.2 ст. 428 НК РФ" LookupField=",##0.00;-" Multiline="True" OnChange="Позиции_OnChange" OnDrawEx="Позиции_OnDrawEx" OnOutputEx="Позиции_OnOutputEx" Width="30" Wrap="True"/>
+              </Component>
+            </Component>
+            <Component Name="грВзносыТравматизм" Class="Com.Ctrl.IColumnsGroup" Caption="Взносы на травматизм" HasCaption="True">
+              <Component Name="грТравматизмВыплаты" Class="Com.Ctrl.IColumnsGroup" Caption="Сумма выплат" HasCaption="True">
+                <Component Name="ФТр_ФОТ" Class="Com.Ctrl.IEdit" Caption="всего" Enabled="True" Field="Позиции.ФТр_ФОТ" FieldFormat=",##0.00;-" HasCaption="True" Multiline="True" OnChange="Позиции_OnChange" OnDrawEx="Позиции_OnDrawEx" OnOutputEx="Позиции_OnOutputEx" Width="30" Wrap="True"/>
+                <Component Name="ФТр_ФОТНеОбл" Class="Com.Ctrl.IEdit" Caption="в т.ч. не подлежащие обложению" Enabled="True" Field="Позиции.ФТр_ФОТНеОбл" FieldFormat=",##0.00;-" HasCaption="True" Multiline="True" OnChange="Позиции_OnChange" OnDrawEx="Позиции_OnDrawEx" OnOutputEx="Позиции_OnOutputEx" Width="30" Wrap="True"/>
+              </Component>
+              <Component Name="ФТр_БазаВзносов" Class="Com.Ctrl.IEdit" Caption="База для начисления взносов" Enabled="True" Field="Позиции.ФТр_БазаВзносов" FieldFormat=",##0.00;-" HasCaption="True" Hint="База для начисления взносов" Multiline="True" OnChange="Позиции_OnChange" OnDrawEx="Позиции_OnDrawEx" OnOutputEx="Позиции_OnOutputEx" Width="30" Wrap="True"/>
+              <Component Name="ФТр_Взносы" Class="Com.Ctrl.IEdit" Caption="Начислено взносов" Enabled="True" Field="Позиции.ФТр_Взносы" FieldFormat=",##0.00;-" HasCaption="True" Hint="Начислено взносов" Multiline="True" OnChange="Позиции_OnChange" OnDrawEx="Позиции_OnDrawEx" OnOutputEx="Позиции_OnOutputEx" Width="30" Wrap="True"/>
+            </Component>
+            <Component Name="грОтдКатегории" Class="Com.Ctrl.IColumnsGroup" Caption="Отдельные виды страхования для категорий ФЛ (прокуроры, СК, судьи (п.4 ст.425 НК), международный договор (п.6.2 ст.431 НК))" HasCaption="True">
+              <Component Name="грОМС" Class="Com.Ctrl.IColumnsGroup" Caption="ОМС" HasCaption="True">
+                <Component Name="ОМС_ВзносыПредел" Class="Com.Ctrl.IEdit" Caption="предел" Enabled="True" Field="Позиции.ОМС_ВзносыПредел" FieldFormat=",##0.00;-" HasCaption="True" Hint="Сумма начисленного взноса ОМС в пределах единой предельной величины базы для исчисления СВ" Multiline="True" OnChange="Позиции_OnChange" OnDrawEx="Позиции_OnDrawEx" OnOutputEx="Позиции_OnOutputEx" Width="30" Wrap="True"/>
+                <Component Name="ОМС_ВзносыСвыше" Class="Com.Ctrl.IEdit" Caption="свыше предела" Enabled="True" Field="Позиции.ОМС_ВзносыСвыше" FieldFormat=",##0.00;-" HasCaption="True" Hint="Сумма начисленного взноса ОМС свыше предела единой предельной величины базы для исчисления СВ" Multiline="True" OnChange="Позиции_OnChange" OnDrawEx="Позиции_OnDrawEx" OnOutputEx="Позиции_OnOutputEx" Width="30" Wrap="True"/>
+              </Component>
+              <Component Name="грОСС" Class="Com.Ctrl.IColumnsGroup" Caption="ОСС и ВНиМ" HasCaption="True">
+                <Component Name="Сумма_ОССпредел" Class="Com.Ctrl.IEdit" Caption="предел" Enabled="True" Field="Позиции.ОСС_ВзносыПредел" FieldFormat=",##0.00;-" HasCaption="True" Hint="Сумма начисленного взноса ОСС в пределах единой предельной величины базы для исчисления СВ" Multiline="True" OnChange="Позиции_OnChange" OnDrawEx="Позиции_OnDrawEx" OnOutputEx="Позиции_OnOutputEx" Width="30" Wrap="True"/>
+                <Component Name="Сумма_ОССсвышепредел" Class="Com.Ctrl.IEdit" Caption="свыше предела" Enabled="True" Field="Позиции.ОСС_ВзносыСвыше" FieldFormat=",##0.00;-" HasCaption="True" Hint="Сумма начисленного взноса ОСС свыше предела единой предельной величины базы для исчисления СВ" Multiline="True" OnChange="Позиции_OnChange" OnDrawEx="Позиции_OnDrawEx" OnOutputEx="Позиции_OnOutputEx" Width="30" Wrap="True"/>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

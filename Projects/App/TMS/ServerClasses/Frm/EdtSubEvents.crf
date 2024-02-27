@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Control.Rec.Data.Task" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="1">
+        <Inherited Name="ButtonOK" Excluded="True"/>
+        <Inherited Name="ButtonReports" Excluded="True"/>
+        <Inherited Name="ButtonAnalytics" Excluded="True"/>
+        <Inherited Name="ButtonPost" Excluded="True"/>
+        <Inherited Name="ButtonCancel" Excluded="True"/>
+        <Inherited Name="ButtonClone" Excluded="True"/>
+        <Inherited Name="ButtonDelete" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Code" Excluded="True"/>
+          <Inherited Name="Name" Enabled="False" Visible="True"/>
+        </Inherited>
+      </Inherited>
+      <Component Name="FramePositions" Class="Com.Ctrl.IFrame" After="FieldsFrame" AutoSize="True" Subtable="EdtRec.Events">
+        <Component Name="PositionStruct" Class="TMS.Rec.Data.Task_EventsItem" IsLibrary="1"/>
+        <Component Name="EditEvent" Class="Com.Ctrl.IEdit" Excluded="True" Caption="@EventName=Name" Field="PositionStruct.Event" HasButton="True" LookupField="Task.Name" Width="60"/>
+        <Component Name="EditEventDate" Class="Com.Ctrl.IEdit" Field="PositionStruct.EventDate" Width="26"/>
+        <Component Name="EditEntity" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Employees" Field="PositionStruct.Entity" LookupField="Name" ShortList="True" Width="50"/>
+        <Component Name="EditPlanHours" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Field="PositionStruct.PlanHours" FieldFormat=",##0.00;;-" Width="18"/>
+        <Component Name="EditFactHours" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Field="PositionStruct.FactHours" FieldFormat=",##0.00;;-" Width="18"/>
+        <Component Name="EditComment" Class="Com.Ctrl.IEdit" Field="PositionStruct.Comment" Width="50"/>
+        <Component Name="EditConfirm" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@TMS:EdtSubEvents.Confirm=Утв." Field="PositionStruct.Confirm" Width="12"/>
+      </Component>
+      <Inherited Name="TabsFrame" Excluded="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

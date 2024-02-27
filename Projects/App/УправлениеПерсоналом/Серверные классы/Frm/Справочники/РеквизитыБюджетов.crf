@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IEditorWithFrames">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Справочники.Реквизиты бюджетов">
+    <Component Name="EdtRec" Class="УправлениеПерсоналом.Rec.Справочники.РеквизитыБюджетов" IsLibrary="1" After="#0"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="грОсновное1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="150">
+          <Component Name="грОсновное" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+            <Component Name="грПредприятие" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Предприятие" Class="Com.Ctrl.IEdit" Caption="@Предприятие" CardFileClass="Bas.Tab.Data.OurCompanies" Field="EdtRec.Предприятие" HasCaption="True" LookupField="Name" OnChange="Предприятие_OnChange" Required="True"/>
+              <Component Name="кнПредприятие" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Предприятие" JumpForm="Bas.Frm.Data.Entity"/>
+            </Component>
+            <Component Name="грПодразделение" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Подразделение" Class="Com.Ctrl.IEdit" Caption="@Подразделение" CardFileClass="Bas.Tab.Data.Divisions" Field="EdtRec.Подразделение" HasCaption="True" LookupField="Name" OnGetLookupFilter="Подразделение_OnGetLookupFilter" OnOpenCardForm="Подразделение_OnOpenCardForm"/>
+              <Component Name="кнПодразделение" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Подразделение" JumpForm="Bas.Frm.Data.Entity"/>
+            </Component>
+            <Component Name="грБанк" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Банк" Class="Com.Ctrl.IEdit" CaptionWidth="50" CardFileClass="Biz.Tab.Data.BankDetails" Field="EdtRec.Банк" HasCaption="True" LookupField="Name" OnGetLookupFilter="Банк_OnGetLookupFilter"/>
+              <Component Name="кнБанк" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Банк" JumpForm="Biz.Frm.Data.BankDetails"/>
+            </Component>
+            <Component Name="ДатаИзменения" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Дата ввода информации (до начала расчетов)" CaptionWidth="95" Field="EdtRec.ДатаИзменения" HasCaption="True" MaxWidth="40" OnChange="ДатаИзменения_OnChange" Width="40"/>
+          </Component>
+          <Component Name="грОсновное2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="30" MinWidth="20">
+            <Component Name="Group11" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="30" MinWidth="20">
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" Width="10"/>
+              <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Locked" HasCaption="True"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="бксНДФЛ" Class="Com.Ctrl.IBox" Caption="НДФЛ" HasCaption="True">
+            <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Рекв_НДФЛ" Class="Com.Ctrl.IEdit" Caption="Получатель" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Рекв_НДФЛ" HasCaption="True" LookupField="Name" OnChange="ПолеРеквИБанк_ПриВыходе"/>
+              <Component Name="кнРекв_НДФЛ" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Рекв_НДФЛ" JumpForm="Bas.Frm.Data.Entity"/>
+              <Component Name="Банк_НДФЛ" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.BankDetails" Field="EdtRec.Банк_НДФЛ" HasCaption="False" LookupField="Bank.Name" OnGetLookupFilter="Банк_НДФЛ_OnGetLookupFilter"/>
+              <Component Name="кнБанк_НДФЛ" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Банк_НДФЛ" JumpForm="Biz.Frm.Data.BankDetails"/>
+              <Component Name="NewLine11" Class="Com.Ctrl.INewLine"/>
+              <Component Name="П1_НДФЛ" Class="Com.Ctrl.IEdit" Caption="Статус плательщика" Field="EdtRec.П1_НДФЛ" HasButton="True" HasCaption="True" Hint="Поле 101 платежки" OnLookup="П1_OnLookup" Width="10"/>
+              <Component Name="П8_НДФЛ" Class="Com.Ctrl.IEdit" Excluded="True" Caption="П8 Тип платежа" CaptionWidth="50" CellFormat="StringFormat" Field="EdtRec.П8_НДФЛ" HasCaption="True" Width="10"/>
+              <Component Name="ОчПлат_НДФЛ" Class="Com.Ctrl.IEdit" Caption="Очеред. платежа" CaptionWidth="50" Field="EdtRec.ОчПлат_НДФЛ" HasCaption="True" Hint="Очередность платежа" Width="10"/>
+            </Component>
+            <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="КБК" FontBold="True" FontItalic="True" Width="120"/>
+              <Component Name="Group19" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="115" MinWidth="75">
+                <Component Name="НДФЛ_09_КБК" Class="Com.Ctrl.IEdit" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.НДФЛ_09_КБК" HasCaption="True" LookupField="Code"/>
+                <Component Name="НДФЛ_13_КБК" Class="Com.Ctrl.IEdit" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.НДФЛ_13_КБК" HasCaption="True" LookupField="Code"/>
+                <Component Name="НДФЛ_15рез_КБК" Class="Com.Ctrl.IEdit" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.НДФЛ_15рез_КБК" HasCaption="True" LookupField="Code"/>
+              </Component>
+              <Component Name="Group20" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="115" MinWidth="75">
+                <Component Name="НДФЛ_15_КБК" Class="Com.Ctrl.IEdit" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.НДФЛ_15_КБК" HasCaption="True" LookupField="Code"/>
+                <Component Name="НДФЛ_30_КБК" Class="Com.Ctrl.IEdit" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.НДФЛ_30_КБК" HasCaption="True" LookupField="Code"/>
+                <Component Name="НДФЛ_35_КБК" Class="Com.Ctrl.IEdit" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.НДФЛ_35_КБК" HasCaption="True" LookupField="Code"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="бксСтрахВзносЕдин" Class="Com.Ctrl.IBox" Caption="Единый страховой взнос" HasCaption="True">
+            <Component Name="Group16" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Рекв_ЕСВ" Class="Com.Ctrl.IEdit" Caption="Получатель" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Рекв_ЕСВ" HasCaption="True" LookupField="Name" OnChange="ПолеРеквИБанк_ПриВыходе"/>
+              <Component Name="кнРекв_Рекв_ЕСВ" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Рекв_ЕСВ" JumpForm="Bas.Frm.Data.Entity"/>
+              <Component Name="Банк_ЕСВ" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.BankDetails" Field="EdtRec.Банк_ЕСВ" HasCaption="False" LookupField="Bank.Name" OnGetLookupFilter="Банк_ЕСВ_OnGetLookupFilter"/>
+              <Component Name="кнБанк_Рекв_ЕСВ" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Банк_ЕСВ" JumpForm="Biz.Frm.Data.BankDetails"/>
+              <Component Name="NewLine12" Class="Com.Ctrl.INewLine"/>
+              <Component Name="П1_ЕСВ" Class="Com.Ctrl.IEdit" Caption="Статус плательщика" Field="EdtRec.П1_ЕСВ" HasButton="True" HasCaption="True" Hint="Поле 101 платежки" OnLookup="П1_OnLookup" Width="10"/>
+              <Component Name="ОчПлат_ЕСВ" Class="Com.Ctrl.IEdit" Caption="Очеред. платежа" CaptionWidth="50" Field="EdtRec.ОчПлат_ЕСВ" HasCaption="True" Hint="Очередность платежа" Width="10"/>
+            </Component>
+            <Component Name="Group17" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="РегКод_ЕСВ" Class="Com.Ctrl.IEdit" Caption="Рег. код" Field="EdtRec.РегКод_ЕСВ" HasCaption="True" Hint="Регистрационный код" MaxWidth="87"/>
+              <Component Name="КБК_ЕСВ" Class="Com.Ctrl.IEdit" CaptionWidth="20" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.КБК_ЕСВ" HasCaption="True" LookupField="Code" MaxWidth="87"/>
+            </Component>
+          </Component>
+          <Component Name="бксДопТариф" Class="Com.Ctrl.IBox" Caption="Доп. тариф ОПС" HasCaption="True">
+            <Component Name="Group21" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Рекв_ДопТарифОПС" Class="Com.Ctrl.IEdit" Caption="Получатель" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Рекв_ДопТарифОПС" HasCaption="True" LookupField="Name" OnChange="ПолеРеквИБанк_ПриВыходе"/>
+              <Component Name="кнРекв_ДопТарифОПС" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Рекв_ДопТарифОПС" JumpForm="Bas.Frm.Data.Entity"/>
+              <Component Name="Банк_ДопТарифОПС" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.BankDetails" Field="EdtRec.Банк_ДопТарифОПС" HasCaption="False" LookupField="Bank.Name" OnGetLookupFilter="Банк_ДопТарифОПС_OnGetLookupFilter"/>
+              <Component Name="кнБанк_ДопТарифОПС" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Банк_ДопТарифОПС" JumpForm="Biz.Frm.Data.BankDetails"/>
+              <Component Name="NewLine13" Class="Com.Ctrl.INewLine"/>
+              <Component Name="П1_ДопТарифОПС" Class="Com.Ctrl.IEdit" Caption="Статус плательщика" Field="EdtRec.П1_ДопТарифОПС" HasButton="True" HasCaption="True" Hint="Поле 101 платежки" OnLookup="П1_OnLookup" Width="10"/>
+              <Component Name="ОчПлат_ДопТарифОПС" Class="Com.Ctrl.IEdit" Caption="Очеред. платежа" CaptionWidth="50" Field="EdtRec.ОчПлат_ДопТарифОПС" HasCaption="True" Hint="Очередность платежа" Width="10"/>
+            </Component>
+            <Component Name="грДопТариф1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="Static3" Class="Com.Ctrl.IStatic" Caption="Доп. тариф п.1 п.1 ст.30, 400-ФЗ" FontBold="True"/>
+              <Component Name="грРекв_Доп1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+                <Component Name="КБК1_ДопТарифОПС" Class="Com.Ctrl.IEdit" Caption="КБК (доптариф не зависит от результатов спецоценки)" CaptionWidth="125" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.КБК1_ДопТарифОПС" HasCaption="True" LookupField="Code" Multiline="False" Width="80" Wrap="True"/>
+                <Component Name="КБК2_ДопТарифОПС" Class="Com.Ctrl.IEdit" Caption="КБК (доптариф зависит от результатов спецоценки)" CaptionWidth="125" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.КБК2_ДопТарифОПС" HasCaption="True" LookupField="Code" Multiline="False" Width="80" Wrap="True"/>
+              </Component>
+            </Component>
+            <Component Name="грДопТариф2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="Static4" Class="Com.Ctrl.IStatic" Caption="Доп. тариф п.п.2-18 ст.30, 400-ФЗ" FontBold="True"/>
+              <Component Name="грРекв_Доп2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+                <Component Name="КБК3_ДопТарифОПС" Class="Com.Ctrl.IEdit" Caption="КБК (доптариф не зависит от результатов спецоценки)" CaptionWidth="125" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.КБК3_ДопТарифОПС" HasCaption="True" LookupField="Code" Multiline="False" Width="80" Wrap="True"/>
+                <Component Name="КБК4_ДопТарифОПС" Class="Com.Ctrl.IEdit" Caption="КБК (доптариф зависит от результатов спецоценки)" CaptionWidth="125" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.КБК4_ДопТарифОПС" HasCaption="True" LookupField="Code" Multiline="False" Width="80" Wrap="True"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="бксСтраховыеВзносы" Class="Com.Ctrl.IBox" Caption="Страховые взносы согласно п. 4 ст. 425 НК (судьи, прокуроры, СК)" HasCaption="True">
+            <Component Name="грСтраховыеВзносы" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="Static5" Class="Com.Ctrl.IStatic" Caption="Обязательное медицинское страхование" FontBold="True"/>
+              <Component Name="грРекв_МедСтрахВз" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Рекв_МедСтрахВз" Class="Com.Ctrl.IEdit" Caption="Получатель" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Рекв_МедСтрахВз" HasCaption="True" LookupField="Name" OnChange="ПолеРеквИБанк_ПриВыходе"/>
+                <Component Name="кнРекв_МедСтрахВз" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Рекв_МедСтрахВз" JumpForm="Bas.Frm.Data.Entity"/>
+                <Component Name="Банк_МедСтрахВз" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.BankDetails" Field="EdtRec.Банк_МедСтрахВз" HasCaption="False" LookupField="Bank.Name" OnGetLookupFilter="Банк_МедСтрахВз_OnGetLookupFilter"/>
+                <Component Name="кнБанк_МедСтрахВз" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Банк_МедСтрахВз" JumpForm="Biz.Frm.Data.BankDetails"/>
+                <Component Name="NewLine14" Class="Com.Ctrl.INewLine"/>
+                <Component Name="П1_МедСтрахВз" Class="Com.Ctrl.IEdit" Caption="Статус плательщика" Field="EdtRec.П1_МедСтрахВз" HasButton="True" HasCaption="True" Hint="Поле 101 платежки" OnLookup="П1_OnLookup" Width="10"/>
+                <Component Name="ОчПлат_МедСтрахВз" Class="Com.Ctrl.IEdit" Caption="Очеред. платежа" CaptionWidth="50" Field="EdtRec.ОчПлат_МедСтрахВз" HasCaption="True" Hint="Очередность платежа" Width="10"/>
+              </Component>
+              <Component Name="грРекв_МедСтрахВзнос" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="РегКод_МедСтрахВз" Class="Com.Ctrl.IEdit" Caption="Рег. код" Field="EdtRec.РегКод_МедСтрахВз" HasCaption="True" Hint="Регистрационный код" MaxWidth="87"/>
+                <Component Name="КБК_МедСтрахВз" Class="Com.Ctrl.IEdit" Caption="КБК" CaptionWidth="20" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.КБК_МедСтрахВз" HasCaption="True" LookupField="Code" MaxWidth="87" Wrap="True"/>
+              </Component>
+            </Component>
+            <Component Name="грРекв_СоцСтрахВзнос" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="Static6" Class="Com.Ctrl.IStatic" Caption="Обязательное социальное страхование:" FontBold="True"/>
+              <Component Name="грРекв_МедСоцВз" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Рекв_СоцСтрахВз" Class="Com.Ctrl.IEdit" Caption="Получатель" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Рекв_СоцСтрахВз" HasCaption="True" LookupField="Name" OnChange="ПолеРеквИБанк_ПриВыходе"/>
+                <Component Name="кнРекв_СоцСтрахВз" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Рекв_СоцСтрахВз" JumpForm="Bas.Frm.Data.Entity"/>
+                <Component Name="Банк_СоцСтрахВз" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.BankDetails" Field="EdtRec.Банк_СоцСтрахВз" HasCaption="False" LookupField="Bank.Name" OnGetLookupFilter="Банк_СоцСтрахВз_OnGetLookupFilter"/>
+                <Component Name="кнБанк_СоцСтрахВз" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Банк_СоцСтрахВз" JumpForm="Biz.Frm.Data.BankDetails"/>
+                <Component Name="NewLine15" Class="Com.Ctrl.INewLine"/>
+                <Component Name="П1_СоцСтрахВз" Class="Com.Ctrl.IEdit" Caption="Статус плательщика" Field="EdtRec.П1_СоцСтрахВз" HasButton="True" HasCaption="True" Hint="Поле 101 платежки" OnLookup="П1_OnLookup" Width="10"/>
+                <Component Name="ОчПлат_СоцСтрахВз" Class="Com.Ctrl.IEdit" Caption="Очеред. платежа" CaptionWidth="50" Field="EdtRec.ОчПлат_СоцСтрахВз" HasCaption="True" Hint="Очередность платежа" Width="10"/>
+              </Component>
+              <Component Name="грРекв_Доп4" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="РегКод_СоцСтрахВз" Class="Com.Ctrl.IEdit" Caption="Рег. код" Field="EdtRec.РегКод_СоцСтрахВз" HasCaption="True" Hint="Регистрационный код" MaxWidth="87"/>
+                <Component Name="КБК_СоцСтрахВз" Class="Com.Ctrl.IEdit" Caption="КБК" CaptionWidth="20" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.КБК_СоцСтрахВз" HasCaption="True" LookupField="Code" MaxWidth="87" Wrap="True"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="бксТравматизм" Class="Com.Ctrl.IBox" Caption="Травматизм" HasCaption="True">
+            <Component Name="грТравматизм" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="грРекв_Травматизм" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Рекв_Травм" Class="Com.Ctrl.IEdit" Caption="Получатель" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Рекв_Травм" HasCaption="True" LookupField="Name" OnChange="ПолеРеквИБанк_ПриВыходе"/>
+                <Component Name="кнРекв_Травм" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Рекв_Травм" JumpForm="Bas.Frm.Data.Entity"/>
+                <Component Name="Банк_Травм" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.BankDetails" Field="EdtRec.Банк_Травм" HasCaption="False" LookupField="Bank.Name" OnGetLookupFilter="Банк_Травм_OnGetLookupFilter"/>
+                <Component Name="кнБанк_Травм" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Банк_Травм" JumpForm="Biz.Frm.Data.BankDetails"/>
+                <Component Name="NewLine16" Class="Com.Ctrl.INewLine"/>
+                <Component Name="П1_Травм" Class="Com.Ctrl.IEdit" Caption="Статус плательщика" Field="EdtRec.П1_Травм" HasButton="True" HasCaption="True" OnLookup="П1_OnLookup" Width="10"/>
+                <Component Name="ОчПлат_Травм" Class="Com.Ctrl.IEdit" Caption="Очеред. платежа" Field="EdtRec.ОчПлат_Травм" HasCaption="True" Hint="Очередность платежа" Width="10"/>
+              </Component>
+              <Component Name="грКод_ЕдНалПлат1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="РегКод_Травм" Class="Com.Ctrl.IEdit" Caption="Рег. код" Field="EdtRec.РегКод_Травм" HasCaption="True" Hint="Регистрационный код" MaxWidth="87"/>
+                <Component Name="КБК_Травм" Class="Com.Ctrl.IEdit" CaptionWidth="20" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.КБК_Травм" HasCaption="True" LookupField="Code" MaxWidth="87"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="бксПенс" Class="Com.Ctrl.IBox" Excluded="True" Caption="Пенсионные взносы" HasCaption="True">
+            <Component Name="грПенс1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="грПенс11" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="115" MinWidth="75">
+                <Component Name="РегКод_Пенс" Class="Com.Ctrl.IEdit" Caption="Рег. код" Field="EdtRec.РегКод_Пенс" HasCaption="True" Hint="Регистрационный код" MaxWidth="87"/>
+                <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="115" MinWidth="75">
+                  <Component Name="П1_Пенс" Class="Com.Ctrl.IEdit" Caption="П1 Статус  пл. пор." Field="EdtRec.П1_Пенс" HasButton="True" HasCaption="True" OnLookup="П1_OnLookup" Width="2"/>
+                  <Component Name="П8_Пенс" Class="Com.Ctrl.IEdit" Caption="П8 Тип платежа" CaptionWidth="35" CellFormat="StringFormat" Field="EdtRec.П8_Пенс" HasCaption="True" Width="2"/>
+                </Component>
+              </Component>
+              <Component Name="грПенс12" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="115" MinWidth="75">
+                <Component Name="ОчПлат_Пенс" Class="Com.Ctrl.IEdit" Caption="Очеред. платежа" Field="EdtRec.ОчПлат_Пенс" HasCaption="True" Hint="Очередность платежа" Width="10"/>
+              </Component>
+            </Component>
+            <Component Name="грСтрахВзносы" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="Static13" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Страховые взносы" FontBold="True" Width="60"/>
+              <Component Name="грРекв_СтрахВзносы" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Рекв_СтрахВз" Class="Com.Ctrl.IEdit" Caption="Реквизиты" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Рекв_СтрахВз" HasCaption="True" LookupField="Name" OnChange="ПолеРеквИБанк_ПриВыходе"/>
+                <Component Name="кнРекв_СтрахВз" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Рекв_СтрахВз" JumpForm="Bas.Frm.Data.Entity"/>
+                <Component Name="Банк_СтрахВз" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.BankDetails" Field="EdtRec.Банк_СтрахВз" HasCaption="False" LookupField="Bank.Name" OnChange="ПолеРеквИБанк_ПриВыходе"/>
+                <Component Name="кнБанк_СтрахВз" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Банк_СтрахВз" JumpForm="Biz.Frm.Data.BankDetails"/>
+              </Component>
+              <Component Name="грКод_СтрахВзносы" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="КБК_СтрахВзносы" Class="Com.Ctrl.IEdit" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.КБК_СтрахВз" HasCaption="True" LookupField="Code" MaxWidth="87"/>
+              </Component>
+            </Component>
+            <Component Name="грДопТар11" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="Static14" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Доп. тариф  п.1 п.1 ст. 30, 400-ФЗ" FontBold="True" Width="80"/>
+              <Component Name="грРекв_ДопТ1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Рекв_ДопТ1" Class="Com.Ctrl.IEdit" Caption="Реквизиты" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Рекв_ДопТ1" HasCaption="True" LookupField="Name" OnChange="ПолеРеквИБанк_ПриВыходе"/>
+                <Component Name="кнРекв_ДопТ1" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Рекв_ДопТ1" JumpForm="Bas.Frm.Data.Entity"/>
+                <Component Name="Банк_ДопТ1" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.BankDetails" Field="EdtRec.Банк_ДопТ1" HasCaption="False" LookupField="Bank.Name" OnChange="ПолеРеквИБанк_ПриВыходе"/>
+                <Component Name="кнБанк_ДопТ1" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Банк_ДопТ1" JumpForm="Biz.Frm.Data.BankDetails"/>
+              </Component>
+              <Component Name="грКод_ДопТар" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+                <Component Name="КБК_ДопТ1" Class="Com.Ctrl.IEdit" Caption="КБК (доптариф не зависит от результатов спецоценки)" CaptionWidth="110" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.КБК_ДопТ1" HasCaption="True" Hint="Доптариф не зависит от результатов спецоценки " LookupField="Code" MaxWidth="82"/>
+                <Component Name="КБК_ДопТ1_Спец" Class="Com.Ctrl.IEdit" Caption="КБК (доптариф зависит от результатов спецоценки)" CaptionWidth="110" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.КБК_ДопТ1_Спец" HasCaption="True" Hint="Доптариф зависит от результатов спецоценки " LookupField="Code" MaxWidth="82"/>
+              </Component>
+            </Component>
+            <Component Name="грДопТар2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="Static15" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Доп. тариф  пп.2-18 п.1 ст. 30, 400-ФЗ" FontBold="True" Width="80"/>
+              <Component Name="грРекв_ДопТ2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Рекв_ДопТ2" Class="Com.Ctrl.IEdit" Caption="Реквизиты" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Рекв_ДопТ2" HasCaption="True" LookupField="Name" OnChange="ПолеРеквИБанк_ПриВыходе"/>
+                <Component Name="кнРекв_ДопТ2" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Рекв_ДопТ2" JumpForm="Bas.Frm.Data.Entity"/>
+                <Component Name="Банк_ДопТ2" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.BankDetails" Field="EdtRec.Банк_ДопТ2" HasCaption="False" LookupField="Bank.Name" OnChange="ПолеРеквИБанк_ПриВыходе"/>
+                <Component Name="кнБанк_ДопТ2" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Банк_ДопТ2" JumpForm="Biz.Frm.Data.BankDetails"/>
+              </Component>
+              <Component Name="грКод_ДопТар1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+                <Component Name="КБК_ДопТ2" Class="Com.Ctrl.IEdit" Caption="КБК (доптариф не зависит от результатов спецоценки)" CaptionWidth="110" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.КБК_ДопТ2" HasCaption="True" Hint="Доптариф не зависит от результатов спецоценки " LookupField="Code" MaxWidth="82"/>
+                <Component Name="КБК_ДопТ2_Спец" Class="Com.Ctrl.IEdit" Caption="КБК (доптариф зависит от результатов спецоценки)" CaptionWidth="110" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.КБК_ДопТ2_Спец" HasCaption="True" Hint="Доптариф зависит от результатов спецоценки " LookupField="Code" MaxWidth="82"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="бксФОМС" Class="Com.Ctrl.IBox" Excluded="True" Caption="ФОМС" HasCaption="True">
+            <Component Name="грФОМС" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="грФОМС1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="115" MinWidth="75">
+                <Component Name="РегКод_ФОМС" Class="Com.Ctrl.IEdit" Caption="Рег. код" Field="EdtRec.РегКод_ФОМС" HasCaption="True" Hint="Регистрационный код" MaxWidth="87"/>
+                <Component Name="Group5" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="115" MinWidth="75">
+                  <Component Name="П1_ФОМС" Class="Com.Ctrl.IEdit" Caption="П1 Статус  пл. пор." Field="EdtRec.П1_ФОМС" HasButton="True" HasCaption="True" OnLookup="П1_OnLookup" Width="2"/>
+                  <Component Name="П8_ФОМС" Class="Com.Ctrl.IEdit" Caption="П8 Тип платежа" CaptionWidth="35" CellFormat="StringFormat" Field="EdtRec.П8_ФОМС" HasCaption="True" Width="2"/>
+                </Component>
+              </Component>
+              <Component Name="грФОМС2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="115" MinWidth="75">
+                <Component Name="ОчПлат_ФОМС" Class="Com.Ctrl.IEdit" Caption="Очеред. платежа" Field="EdtRec.ОчПлат_ФОМС" HasCaption="True" Hint="Очередность платежа" Width="10"/>
+              </Component>
+            </Component>
+            <Component Name="Group9" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="грРекв_ФОМС" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Рекв_ФОМС" Class="Com.Ctrl.IEdit" Caption="Реквизиты" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Рекв_ФОМС" HasCaption="True" LookupField="Name" OnChange="ПолеРеквИБанк_ПриВыходе"/>
+                <Component Name="кнРекв_ФОМС" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Рекв_ФОМС" JumpForm="Bas.Frm.Data.Entity"/>
+                <Component Name="Банк_ФОМС" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.BankDetails" Field="EdtRec.Банк_ФОМС" HasCaption="False" LookupField="Bank.Name" OnChange="ПолеРеквИБанк_ПриВыходе"/>
+                <Component Name="кнБанкФФОМС" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Банк_ФОМС" JumpForm="Biz.Frm.Data.BankDetails"/>
+              </Component>
+              <Component Name="грКод_ФОМС" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="КБК_ФОМС" Class="Com.Ctrl.IEdit" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.КБК_ФОМС" HasCaption="True" LookupField="Code" MaxWidth="87"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="бксФСС" Class="Com.Ctrl.IBox" Excluded="True" Caption="ФСС" HasCaption="True">
+            <Component Name="грРекв_ФСС" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Рекв_ФСС" Class="Com.Ctrl.IEdit" Caption="Реквизиты" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Рекв_ФСС" HasCaption="True" LookupField="Name" OnChange="ПолеРеквИБанк_ПриВыходе"/>
+              <Component Name="кнРекв_ФСС" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Рекв_ФСС" JumpForm="Bas.Frm.Data.Entity"/>
+              <Component Name="Банк_ФСС" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.BankDetails" Field="EdtRec.Банк_ФСС" HasCaption="False" LookupField="Bank.Name" OnChange="ПолеРеквИБанк_ПриВыходе"/>
+              <Component Name="кнБанк_ФСС" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Банк_ФСС" JumpForm="Biz.Frm.Data.BankDetails"/>
+            </Component>
+            <Component Name="Group12" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="грФСС1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="115" MinWidth="75">
+                <Component Name="КБК_ФСС" Class="Com.Ctrl.IEdit" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.КБК_ФСС" HasCaption="True" LookupField="Code" MaxWidth="87"/>
+                <Component Name="Group6" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="115" MinWidth="75">
+                  <Component Name="П1_ФСС" Class="Com.Ctrl.IEdit" Caption="П1 Статус  пл. пор." Field="EdtRec.П1_ФСС" HasButton="True" HasCaption="True" OnLookup="П1_OnLookup" Width="2"/>
+                  <Component Name="П8_ФСС" Class="Com.Ctrl.IEdit" Caption="П8 Тип платежа" CaptionWidth="35" CellFormat="StringFormat" Field="EdtRec.П8_ФСС" HasCaption="True" Width="2"/>
+                </Component>
+              </Component>
+              <Component Name="грФСС2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="115" MinWidth="75">
+                <Component Name="РегКод_ФСС" Class="Com.Ctrl.IEdit" Caption="Рег. код" Field="EdtRec.РегКод_ФСС" HasCaption="True" Hint="Регистрационный код" MaxWidth="87"/>
+                <Component Name="ОчПлат_ФСС" Class="Com.Ctrl.IEdit" Caption="Очеред. платежа" Field="EdtRec.ОчПлат_ФСС" HasCaption="True" Hint="Очередность платежа" Width="10"/>
+              </Component>
+            </Component>
+            <Component Name="грФССНС" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="Static10" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="     травматизм" FontBold="True" FontItalic="True" Width="80"/>
+              <Component Name="грРекв_ФССНС" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Рекв_ФССНС" Class="Com.Ctrl.IEdit" Caption="Реквизиты" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Рекв_ФССНС" HasCaption="True" LookupField="Name" OnChange="ПолеРеквИБанк_ПриВыходе"/>
+                <Component Name="кнРекв_ФССНС" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Рекв_ФССНС" JumpForm="Bas.Frm.Data.Entity"/>
+                <Component Name="Банк_ФССНС" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.BankDetails" Field="EdtRec.Банк_ФССНС" HasCaption="False" LookupField="Bank.Name" OnChange="ПолеРеквИБанк_ПриВыходе"/>
+                <Component Name="кнБанк_ФССНС" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Банк_ФССНС" JumpForm="Biz.Frm.Data.BankDetails"/>
+              </Component>
+              <Component Name="Group13" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="грФССНС1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="115" MinWidth="75">
+                  <Component Name="КБК_ФССНС" Class="Com.Ctrl.IEdit" CardFileClass="BizRus.Tab.Классификаторы.КБК" Field="EdtRec.КБК_ФССНС" HasCaption="True" LookupField="Code" MaxWidth="87"/>
+                  <Component Name="Group7" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="115" MinWidth="75">
+                    <Component Name="П1_ФССНС" Class="Com.Ctrl.IEdit" Caption="П1 Статус  пл. пор." Field="EdtRec.П1_ФССНС" HasButton="True" HasCaption="True" OnLookup="П1_OnLookup" Width="2"/>
+                    <Component Name="П8_ФССНС" Class="Com.Ctrl.IEdit" Caption="П8 Тип платежа" CaptionWidth="35" CellFormat="StringFormat" Field="EdtRec.П8_ФССНС" HasCaption="True" Width="2"/>
+                  </Component>
+                </Component>
+                <Component Name="грФССНС2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="115" MinWidth="75">
+                  <Component Name="ОчПлат_ФССНС" Class="Com.Ctrl.IEdit" Caption="Очеред. платежа" Field="EdtRec.ОчПлат_ФССНС" HasCaption="True" Hint="Очередность платежа" Width="10"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="бксПроф" Class="Com.Ctrl.IBox" Caption="Профсоюзные взносы" HasCaption="True">
+            <Component Name="Group14" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="Group15" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="грПСоюз1" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="True" MaxWidth="115" MinWidth="75"/>
+              </Component>
+              <Component Name="грРекв_ПСоюз" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Рекв_ПСоюз" Class="Com.Ctrl.IEdit" Caption="Получатель" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Рекв_ПСоюз" HasCaption="True" LookupField="Name" OnChange="ПолеРеквИБанк_ПриВыходе"/>
+                <Component Name="кнРекв_ПСоюз" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Рекв_ПСоюз" JumpForm="Bas.Frm.Data.Entity"/>
+                <Component Name="Банк_ПСоюз" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.BankDetails" Field="EdtRec.Банк_ПСоюз" HasCaption="False" LookupField="Bank.Name" OnChange="ПолеРеквИБанк_ПриВыходе" OnGetLookupFilter="Банк_ПСоюз_OnGetLookupFilter"/>
+                <Component Name="кнБанк_ПСоюз" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Банк_ПСоюз" JumpForm="Biz.Frm.Data.BankDetails"/>
+                <Component Name="NewLine17" Class="Com.Ctrl.INewLine"/>
+                <Component Name="П1_ПСоюз" Class="Com.Ctrl.IEdit" Caption="Статус плательщика" Field="EdtRec.П1_ПСоюз" HasButton="True" HasCaption="True" OnLookup="П1_OnLookup" Width="10"/>
+                <Component Name="ОчПлат_ПСоюз" Class="Com.Ctrl.IEdit" Caption="Очеред. платежа" Field="EdtRec.ОчПлат_ПСоюз" HasCaption="True" Hint="Очередность платежа" Width="10"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="бксДоп" Class="Com.Ctrl.IBox" Excluded="True" Caption="Дополнительное отчисление" HasCaption="True">
+            <Component Name="грДоп" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="Наим_Доп" Class="Com.Ctrl.IEdit" Caption="Наименование" Field="EdtRec.Наим_Доп" HasCaption="True"/>
+              <Component Name="грРекв_Доп" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Рекв_Доп" Class="Com.Ctrl.IEdit" Caption="Реквизиты" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Рекв_Доп" HasCaption="True" LookupField="Name" OnChange="ПолеРеквИБанк_ПриВыходе"/>
+                <Component Name="кнРекв_Доп" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Рекв_Доп" JumpForm="Bas.Frm.Data.Entity"/>
+                <Component Name="Банк_Доп" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.BankDetails" Field="EdtRec.Банк_Доп" HasCaption="False" LookupField="Bank.Name" OnChange="ПолеРеквИБанк_ПриВыходе"/>
+                <Component Name="кнБанк_Доп" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Банк_Доп" JumpForm="Biz.Frm.Data.BankDetails"/>
+              </Component>
+              <Component Name="грДоп1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="грДоп11" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="115" MinWidth="75">
+                  <Component Name="РегКод_Доп" Class="Com.Ctrl.IEdit" Caption="Рег. код" Field="EdtRec.РегКод_Доп" HasCaption="True" Hint="Регистрационный код" MaxWidth="87"/>
+                  <Component Name="Group10" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="115" MinWidth="75">
+                    <Component Name="П1_Доп" Class="Com.Ctrl.IEdit" Caption="П1 Статус  пл. пор." Field="EdtRec.П1_Доп" HasButton="True" HasCaption="True" OnLookup="П1_OnLookup" Width="2"/>
+                    <Component Name="П8_Доп" Class="Com.Ctrl.IEdit" Caption="П8 Тип платежа" CaptionWidth="35" CellFormat="StringFormat" Field="EdtRec.П8_Доп" HasCaption="True" Width="2"/>
+                  </Component>
+                </Component>
+                <Component Name="грДоп12" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="115" MinWidth="75">
+                  <Component Name="ОчПлат_Доп" Class="Com.Ctrl.IEdit" Caption="Очеред. платежа" Field="EdtRec.ОчПлат_Доп" HasCaption="True" Hint="Очередность платежа" Width="10"/>
+                </Component>
+              </Component>
+              <Component Name="Group18" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Ставка_Доп" Class="Com.Ctrl.IEdit" Caption="Ставка" Field="EdtRec.Ставка_Доп" FieldFormat="0.00" HasCaption="True" MaxWidth="35"/>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTrans" AccountFilter="Имущество" AccountPlan="Оперативный" BegDate="01.03.2023" Caption="ОС_ВведенныеМодернизированныеПосредствомКВ_ПоПроводкам" CIndicator="1" EndDate="01.04.2023" HystoKind="hkSide" Legend="lpkAtRight" OpenPeriod="opAll" Palette="cpDefault" ParameterFilter="(ИмяЖурнала = &quot;ВводВЭксплуатациюОС&quot; or ИмяЖурнала = &quot;МодернизацияОС&quot;) and ОС &lt;> nil / КВ &lt;> nil" Period="3" Tran_ShowCredit="False" Tran_ShowDebet="False" Tran_ShowJurLink="True">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorСумма" Class="Com.Rep.IIndTrans" Caption="IndicatorСумма" Contents="Сумма"/>
+      <Component Name="IndicatorОС_КодИмущества" Class="Com.Rep.IIndTrans" Caption="ОС" Contents="ОС.КодИмущества"/>
+      <Component Name="IndicatorОС_ПолнИмя" Class="Com.Rep.IIndTrans" Caption="ОС" Contents="ОС.ПолнИмя"/>
+      <Component Name="IndicatorОС_ДатаПризнанияБУ" Class="Com.Rep.IIndTrans" Caption="Дата принятия к учету ОС" Contents="ОС.ДатаПризнанияБУ"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow"/>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow"/>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_КВ" Class="Com.Rep.IRepControl" Caption="КВ" CardFileClass="ИмуществоБазовый.Tab.Справочники.КапВложения" CorrParam="True" DefaultStr="Object(nil)" LookupField="КодИмущества" MultiSelect="True" Operator="=" Parameter="КВ" Plan="Оперативный" SkipNil="True" ValueType="VarObject"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

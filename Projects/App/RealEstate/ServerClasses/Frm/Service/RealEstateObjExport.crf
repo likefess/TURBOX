@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm" Caption="@Экспорт печатных форм объектов имущества" HelpContext="RealEstate.Управление имуществом.Отчеты.Экспорт печатных форм.Экспорт печатных форм объекта имущества">
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    </Component>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="Obj" Class="Com.Fld.IVar" OnChange="Obj_OnChange" RecordClass="RealEstateBase.Rec.Data.RealEstateObject" ValueType="VarObject"/>
+      <Component Name="XLS" Class="Com.Fld.IVar" OnChange="Format_OnChange" ValueType="VarLogical"/>
+      <Component Name="ODS" Class="Com.Fld.IVar" OnChange="Format_OnChange" ValueType="VarLogical"/>
+      <Component Name="DOC" Class="Com.Fld.IVar" OnChange="Format_OnChange" ValueType="VarLogical"/>
+      <Component Name="ODT" Class="Com.Fld.IVar" OnChange="Format_OnChange" ValueType="VarLogical"/>
+      <Component Name="PDF" Class="Com.Fld.IVar" OnChange="Format_OnChange" ValueType="VarLogical"/>
+      <Component Name="Folder" Class="Com.Fld.IVar" OnChange="Folder_OnChange" ValueType="VarString"/>
+      <Component Name="ExportPics" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+      <Component Name="Header" Class="Com.Ctrl.IHeader" Caption="@Экспорт печатных форм объектов имущества" HasCaption="True">
+        <Component Name="ButtonExport" Class="Com.Ctrl.IButton" Command="Commands.ExportCmd" ImageName="Com.download" OnClick="ButtonExport_OnClick"/>
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Command="Commands.CloseForm" ImageName="Com.Close"/>
+      </Component>
+      <Component Name="FieldsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="10">
+        <Component Name="ObjListGr" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+          <Component Name="ObjList" Class="Com.Ctrl.IListEdit" Caption="@Объекты имущества" CardFileClass="RealEstateBase.Tab.Data.RealEstateObject" CellFormat="ReferenceFormat" Field="Obj" HasCaption="True" LookupField="Name"/>
+        </Component>
+        <Component Name="CBGr" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+          <Component Name="CBStatic" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@Формат экспорта" FixSize="True" Width="40"/>
+          <Component Name="PDFCB" Class="Com.Ctrl.ICheckBox" Caption="PDF" Field="PDF" FixSize="True" HasCaption="True" OnChange="CB_OnChange" OnVerify="CB_OnVerify" Width="15"/>
+          <Component Name="XLSCB" Class="Com.Ctrl.ICheckBox" Caption="XLS" Field="XLS" FixSize="True" HasCaption="True" OnChange="CB_OnChange" OnVerify="CB_OnVerify" Width="15"/>
+          <Component Name="ODSCB" Class="Com.Ctrl.ICheckBox" Caption="ODS" Field="ODS" FixSize="True" HasCaption="True" OnChange="CB_OnChange" OnVerify="CB_OnVerify" Width="15"/>
+          <Component Name="DOCCB" Class="Com.Ctrl.ICheckBox" Caption="DOC" Field="DOC" FixSize="True" HasCaption="True" OnChange="CB_OnChange" OnVerify="CB_OnVerify" Width="15"/>
+          <Component Name="ODTCB" Class="Com.Ctrl.ICheckBox" Caption="ODT" Field="ODT" FixSize="True" HasCaption="True" OnChange="CB_OnChange" OnVerify="CB_OnVerify" Width="15"/>
+        </Component>
+        <Component Name="FieldsGr" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+          <Component Name="FolderEdit" Class="Com.Ctrl.IEdit" Caption="@Имя папки" CellFormat="StringFormat" Field="Folder" HasButton="True" HasCaption="True" OnLookup="FolderEdit_OnLookup" Required="True"/>
+        </Component>
+        <Component Name="ExportPicsGr" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+          <Component Name="ExportPicsCBStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+          <Component Name="ExportPicsCB" Class="Com.Ctrl.ICheckBox" Caption="@Сохранить изображения" Field="ExportPics" HasCaption="True"/>
+        </Component>
+        <Component Name="ProgressGr" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+          <Component Name="PStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+          <Component Name="PVStatic" Class="Com.Ctrl.IStatic" FontBold="True" FontColor="0xFE000004" FontSize="14"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

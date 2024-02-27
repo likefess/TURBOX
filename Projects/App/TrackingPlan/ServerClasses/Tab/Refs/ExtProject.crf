@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.Ref.Project">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="NavigatorFrame">
+        <Inherited Name="NavigatorGroup">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" Width="100"/>
+          <Component Name="ListButton2" Class="Com.Ctrl.IListButton" Fashion="Fashions.GhostButton" ImageName="Com.ellipsis-v">
+            <Component Name="ButtonEditItem2" Class="Com.Ctrl.IButton" Caption="@Form:EditButton=Редактировать" OnClick="ButtonEditItem_OnClick"/>
+            <Component Name="ButtonMoveProjectToArchieve1" Class="Com.Ctrl.IButton" Caption="Перенести в архив" OnClick="ButtonMoveProjectToArchieveOnClick"/>
+            <Component Name="ButtonDeleteItem2" Class="Com.Ctrl.IButton" Caption="@Form:DeleteButton=Удалить" FieldColor="0x005233FF" OnClick="ButtonDeleteItem_OnClick"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="MainFrame" AutoSize="True">
+        <Inherited Name="FrameCardTree" Visible="False">
+          <Inherited Name="CardTree" Excluded="True" Visible="False"/>
+        </Inherited>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Code" After="ExtId" Visible="False"/>
+          <Inherited Name="Name" After="Code"/>
+          <Inherited Name="Description" Excluded="True" After="Name" ValueType="VarString" Width="130"/>
+          <Inherited Name="ProjectType" Visible="False"/>
+          <Inherited Name="CreateDate" After="ProjectType"/>
+          <Component Name="ProjectStatus" Class="Com.Ctrl.IEdit" After="Closed" Caption="Состояние" Field="Current.ProjectStatus" LookupField="Name" ValueType="VarString" Width="130"/>
+          <Inherited Name="BegDate" After="ProjectStatus" ValueType="VarDate" Width="62"/>
+          <Inherited Name="EndDate" ValueType="VarDate" Width="62"/>
+          <Component Name="ListButton1" Class="Com.Ctrl.IListButton" After="EndDate" Fashion="Fashions.GhostButton" ImageName="TrackingCore.menu" Width="8">
+            <Component Name="ButtonEditItem1" Class="Com.Ctrl.IButton" Caption="@Form:EditButton=Редактировать" OnClick="ButtonEditItem_OnClick"/>
+            <Component Name="ButtonMoveProjectToArchieve" Class="Com.Ctrl.IButton" Caption="Перенести в архив" OnClick="ButtonMoveProjectToArchieveOnClick"/>
+            <Component Name="ButtonDeleteItem1" Class="Com.Ctrl.IButton" Caption="@Form:DeleteButton=Удалить" FieldColor="0x005233FF" OnClick="ButtonDeleteItem_OnClick"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

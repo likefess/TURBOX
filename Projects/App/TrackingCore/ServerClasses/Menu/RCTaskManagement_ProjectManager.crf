@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IRoleCenter">
+  <Inherited CaptionAlign="CenterAlign" FormIcon="TrackingCore.user-2-fill">
+    <Inherited Name="MainGroup" Orientation="Vertical">
+      <Component Name="Planning" Class="Com.Cmd2.IGroup" Caption="@TrackingPlan:Planning=Планирование" Columns="2" Orientation="Vertical" Rows="7">
+        <Component Name="BusinessProcess" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="Бизнес-процессы" FormClassName="Frm.BP_and_Schemas" IconName="Control.people-carry"/>
+        <Component Name="TaskList" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="@TrackingCore:TaskList=Задачи" FormClassName="TrackingCore.Rep.TaskList" IconName="Com.Tasks"/>
+        <Component Name="TaskList1" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:TaskList=Задачи" FormClassName="TrackingCore.Rep.TaskList_LeftStaticFilters" IconName="TrackingCore.file-list-2-fill"/>
+        <Component Name="Kanbans" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:Kanbans=Доски" FormClassName="TrackingLib.Tab.Services.Kanban" IconName="InfoBoard.kanban" Visible="True"/>
+      </Component>
+      <Component Name="Reports" Class="Com.Cmd2.IGroup" Caption="@TrackingPlan:Planning=Отчеты" Columns="2" Orientation="Vertical" Rows="3">
+        <Component Name="BurnDownChart" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:BurnDownChart=Диаграмма сгорания задач" FormClassName="TrackingCore.Rep.BurnDownDiagram.BurnDownChart" IconName="Com.Analytics"/>
+        <Component Name="ProjectReport" Class="Com.ComManaging.OpenIForm" Caption="Отчеты" CardFilter="Match(Name, &quot;*Отчет о ходе проекта*&quot;)" FormClassName="Infoboard.Tab.Data.Panel" IconName="Com.cell-tab"/>
+        <Component Name="StatusChart" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:StatusChart=Диаграмма статусов" FormClassName="TrackingCore.Frm.StatusChart" IconName="Com.Analytics"/>
+      </Component>
+      <Component Name="Settings" Class="Com.Cmd2.IGroup" Caption="@TrackingCore:Settings=Настройки" Columns="2" Orientation="Vertical" Rows="5">
+        <Component Name="Pattern" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:Pattern=Шаблоны" FormClassName="Tab.Ref.Pattern" IconName="Com.Blanks"/>
+        <Component Name="BP_and_Schemas" Class="Com.ComManaging.OpenIForm" Caption="Бизнес-процессы" FormClassName="Frm.BP_and_Schemas" IconName="TrackingCore.bp1"/>
+        <Component Name="TaskCategory" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:TaskCategory=Типы задач" FormClassName="TrackingCore.Tab.Ref.TaskCategory" IconName="Control.Categories_"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

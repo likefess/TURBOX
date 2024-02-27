@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.Event">
+  <Inherited CaptionAlign="CenterAlign">
+    <Inherited Name="EdtRec" Class="WFlow.Rec.Ref.Sprint" IsLibrary="1"/>
+    <Component Name="TaskRec" Class="Control.Rec.Data.Task" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame" AutoSize="False" MinSize="100">
+        <Inherited Name="Group1" Excluded="True"/>
+        <Component Name="boxMain" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@Main=Основное" HasCaption="True">
+          <Component Name="grpMain" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="200" MinWidth="150">
+            <Component Name="grpCode" Class="Com.Ctrl.IGroup">
+              <Component Name="edtCode" Class="Com.Ctrl.IEdit" Field="EdtRec.Code" HasCaption="True" OnOutput="edtCodeOnOutput"/>
+              <Component Name="cbClose" Class="Com.Ctrl.IEdit" Field="EdtRec.Closed" FixSize="True" HasCaption="True" Width="30"/>
+            </Component>
+            <Component Name="edtName" Class="Com.Ctrl.IEdit" Enabled="True" Field="EdtRec.Name" FontBold="True" HasCaption="True" OnOutput="edtSprintNameOnOutput"/>
+            <Component Name="edtProject" Class="Com.Ctrl.IEdit" AutoLookup="True" Caption="@WFlow:Project=Проект" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Field="EdtRec.Project" HasButton="True" HasCaption="True" LookupField="Name" Required="True" TabStop="True" ValueType="VarObject" Width="50"/>
+            <Component Name="grpDates" Class="Com.Ctrl.IGroup">
+              <Component Name="edtBegDate" Class="Com.Ctrl.IEdit" Caption="@BegDate=Дата начала" CellFormat="DateFormat" Field="EdtRec.EventTime" FormatOfDate="DateOnly" HasButton="True" HasCaption="True" MaxWidth="60" MinWidth="30" Required="True" TabStop="True" ValueType="VarDate" Width="30"/>
+              <Component Name="edtEndDate" Class="Com.Ctrl.IEdit" Caption="@EndDate=Дата завершения" CellFormat="DateFormat" Field="EdtRec.EndDate" FormatOfDate="DateOnly" HasButton="True" HasCaption="True" MaxWidth="60" MinWidth="30" Required="True" TabStop="True" ValueType="VarDate" Width="30"/>
+            </Component>
+            <Component Name="edtDescription" Class="Com.Ctrl.IEdit" Caption="@Description=Описание" Field="EdtRec.Description" HasCaption="True" Multiline="True" ValueType="VarString"/>
+            <Component Name="edtInitiator" Class="Com.Ctrl.IEdit" Caption="Инициатор" CardFileClass="WFlow.Tab.Data.People" Enabled="False" Field="EdtRec.Initiator" HasButton="False" HasCaption="True" Multiline="True" ValueType="VarString"/>
+          </Component>
+        </Component>
+        <Component Name="boxSprintTasks" Class="Com.Ctrl.IBox" AutoSize="False" Caption="@WFlow:Sprint.Tasks=Задачи спринта" HasCaption="True" MinSize="40">
+          <Component Name="frameTaskButtons" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="btnAddTasksToSprint" Class="Com.Ctrl.IButton" Hint="@WFlow.Sprint:AddTasksToSprint=Добавить задачи в спринт" ImageName="Com.AddItem" OnClick="btnAddTasksToSprintOnClick"/>
+            <Component Name="btnDelTasksFromSprint" Class="Com.Ctrl.IButton" Hint="@WFlow.Sprint:RemoveTasksFromSprint=Удалить задачи из спринта" ImageName="Com.DeleteItem" OnClick="btnDelTasksFromSprintOnClick"/>
+          </Component>
+          <Component Name="FrameTasks" Class="Com.Ctrl.IFrame" AutoSize="False">
+            <Component Name="TasksCardFile" Class="Com.Ctrl.ICardFile" CanCopy="False" CanDelete="False" CanInsert="False" CanMove="False" OnDrawRow="CardFileOnDrawRow" ShowCount="True"/>
+            <Component Name="edtTaskName" Class="Com.Ctrl.IEdit" Field="TaskRec.Name" HasCaption="True" MinWidth="30" Width="50"/>
+            <Component Name="edtTaskCode" Class="Com.Ctrl.IEdit" Caption="№" Field="TaskRec.Code" HasCaption="True" MinWidth="30" Width="20"/>
+            <Component Name="edtTaskStatus" Class="Com.Ctrl.IEdit" Field="TaskRec.Status" HasCaption="True" MinWidth="30" Width="30"/>
+            <Component Name="edtTaskAssigned" Class="Com.Ctrl.IEdit" Field="TaskRec.Responsible" HasCaption="True" MinWidth="30" Width="70"/>
+            <Component Name="edtPriority" Class="Com.Ctrl.IEdit" Field="TaskRec.Priority" HasCaption="True" MinWidth="30" Width="30"/>
+            <Component Name="edtTaskType" Class="Com.Ctrl.IEdit" Caption="@Type=Тип" Field="TaskRec.TaskType" HasCaption="True" MinWidth="30" Visible="False" Width="30"/>
+            <Component Name="edtTaskDeadline" Class="Com.Ctrl.IEdit" Caption="@Deadline=Крайний срок" Field="TaskRec.Deadline" HasCaption="True" MinWidth="30" Visible="True" Width="40"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

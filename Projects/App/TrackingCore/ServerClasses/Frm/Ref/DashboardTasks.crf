@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWithFrames">
+  <Inherited>
+    <Component Name="TaskRec" Class="Control.Rec.Data.Task" IsLibrary="1" After="#0"/>
+    <Inherited Name="TableMenu" After="TaskRec"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Visible="False"/>
+      <Inherited Name="FieldsFrame" AutoSize="False">
+        <Component Name="ButtonFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="ButtonGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="AdditionalStatic1" Class="Com.Ctrl.IStatic" Alignment="DefaultAlign" FixSize="False" MinWidth="40"/>
+            <Component Name="ListButtonTop" Class="Com.Ctrl.IListButton" ImageName="Com.ellipsis-v" Visible="True">
+              <Component Name="DeleteButton1" Class="Com.Ctrl.IButton" Caption="Удалить" OnClick="ButtonDeleteItem_OnClick"/>
+              <Component Name="LinkTaskButton1" Class="Com.Ctrl.IButton" Caption="Ссылка на задачу"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="TasksFrame" Class="Com.Ctrl.IFrame" Margins="0">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="TasksCardFile" Class="Com.Ctrl.ICardFile" CanCopy="False" CanDelete="False" CanInsert="False" CanMove="False" OnDrawRow="CardFileOnDrawRow" ShowCount="True"/>
+          <Component Name="edtTaskCode" Class="Com.Ctrl.IEdit" Caption="Номер" Field="TaskRec.Code" HasCaption="True" MinWidth="30" Width="22"/>
+          <Component Name="edtTaskName" Class="Com.Ctrl.IEdit" Caption="Название" Field="TaskRec.Name" HasCaption="True" MaxWidth="200" MinWidth="58" Width="86"/>
+          <Component Name="edtTaskStatus" Class="Com.Ctrl.IEdit" Caption="Статус" Field="TaskRec.TaskStatus" HasCaption="True" MinWidth="30" OnDrawEx="edtTaskStatusOnDrawEx" Width="24"/>
+          <Component Name="AdditionalButton" Class="Com.Ctrl.IListButton" ImageName="Com.ellipsis-v" Visible="True" Width="8">
+            <Component Name="DeleteButton" Class="Com.Ctrl.IButton" Caption="Удалить" OnClick="ButtonDeleteItem_OnClick"/>
+            <Component Name="LinkTaskButton" Class="Com.Ctrl.IButton" Caption="Ссылка на задачу" OnClick="LinkTaskButtonOnClick"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

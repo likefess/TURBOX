@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" AccountFilter="Имущество" AccountPlan="Оперативный" BegDate="01.04.2022" BegSaldoFormat="sfNone" Caption="Объекты НМА, введенные в эксплуатацию посредством использования данного объекта КВ" CIndicator="1" EndDate="01.05.2022" EndSaldoFormat="sfNone" FreezeHeader="True" HystoKind="hkSide" Legend="lpkAtRight" Palette="cpDefault" ParameterFilter="ИмяЖурнала = &quot;ВводВЭксплуатациюНМА&quot; and НМА &lt;> nil / КВ &lt;> nil" Period="3" ShowSumKindRow="False">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="Indicator_Сумма" Class="Com.Rep.IIndMain" Alignment="CenterAlign" Caption="Цена одного объекта " Contents="Сумма" Format=",##0.00;;-"/>
+      <Component Name="Indicator_Количество" Class="Com.Rep.IIndMain" Excluded="True" Alignment="CenterAlign" Caption="Количество, шт." Contents="Количество" Format="0"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParamF9B78016" Class="Com.Rep.ISplitByParam" SplitParam="НМА"/>
+        <Component Name="SplitParam2561B172" Class="Com.Rep.ISplitByParam" CorrParam="True" SplitParam="@КВ"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContentCC86D2C0" Class="Com.Rep.ISplitContent" Alignment="CenterAlign" Caption="Инвентарный номер" Contents="НМА.КодИмущества"/>
+        <Component Name="SplitContent533A3CB3" Class="Com.Rep.ISplitContent" Alignment="CenterAlign" Caption="Наименование НМА" Contents="НМА.ПолнИмя"/>
+        <Component Name="SplitContentA44283B0" Class="Com.Rep.ISplitContent" Excluded="True" Alignment="CenterAlign" Caption="Цена одного объекта " Contents="НМА.ПервоначальнаяСтоимость" Format=",##0.00;;-"/>
+        <Component Name="SplitContent72B84713" Class="Com.Rep.ISplitContent" Alignment="CenterAlign" Caption="Дата принятия к учету НМА" Contents="НМА.ДатаПринятияКУчету"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_КВ" Class="Com.Rep.IRepControl" Caption="КВ" CorrParam="True" DefaultStr="Object(nil)" Operator=" is " Parameter="КВ" Plan="Оперативный" SkipNil="True" ValueType="VarObject"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

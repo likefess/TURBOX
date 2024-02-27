@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Component Name="Позиция" Class="УправлениеПерсоналом.Frm.Служебные.КоррВыборСтрок_Позиции" IsLibrary="1" After="#0"/>
+    <Inherited Name="Variables">
+      <Component Name="тблСтроки" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Frm.Служебные.КоррВыборСтрок_Позиции"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="фрСтроки" Class="Com.Ctrl.IFrame" AutoSize="True" HasCaption="False">
+          <Component Name="тбСтроки" Class="Com.Ctrl.ITable" Adaptive="False" Numbering="False" Subtable="тблСтроки">
+            <Component Name="чВыбор" Class="Com.Ctrl.IEdit" Caption="Выбор" Field="Позиция.Выбор" HasCaption="True" Hint="Выбрать строку" Width="15"/>
+            <Component Name="НомерПП" Class="Com.Ctrl.IEdit" Caption="Номер п/п" Enabled="False" Field="Позиция.НомерСтроки" HasCaption="True" Width="15"/>
+            <Component Name="грУТСотрудника" Class="Com.Ctrl.IColumnsGroup" HasCaption="False">
+              <Component Name="УсловияТрудаСотр" Class="Com.Ctrl.IEdit" Caption="ФИО" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Enabled="False" Field="Позиция.УТСотрудника" HasCaption="True" Hint="Сотрудник" LookupField="Person.Name" Multiline="True" OnOutputEx="УсловияТрудаСотр_OnOutputEx" Required="True" Width="40" Wrap="True"/>
+              <Component Name="ТабНомер" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="таб. номер" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Enabled="False" Field="Позиция.УТСотрудника" HasCaption="True" Hint="Табельный номер сотрудника" LookupField="ТабНомер" Width="20"/>
+            </Component>
+            <Component Name="грНазначениеОтк" Class="Com.Ctrl.IColumnsGroup" Caption="Назначение" HasCaption="False">
+              <Component Name="НазначениеОткуда" Class="Com.Ctrl.IEdit" Caption="подразделение, должность, разряд" Enabled="False" Field="Позиция.Назначение" HasCaption="True" Hint="Подразделение, должность, разряд сотрудника" Multiline="True" OnOutput="ДолжностьРазряд_OnOutput" Width="60" Wrap="True"/>
+              <Component Name="ПериодРаботы" Class="Com.Ctrl.IEdit" Caption="период назначения (с,по)" Enabled="False" Field="Позиция.УТСотрудника" HasCaption="True" Multiline="True" OnOutputEx="ПериодРаботы_OnOutputEx" Width="24" Wrap="True"/>
+            </Component>
+            <Component Name="грФизЛицо" Class="Com.Ctrl.IColumnsGroup" HasCaption="False">
+              <Component Name="ФизЛицоИмя" Class="Com.Ctrl.IEdit" Caption="ФИО" CardFileClass="Bas.Tab.Data.Contraparties" Enabled="False" Field="Позиция.ФизЛицо" HasCaption="True" LookupField="Name" Width="60"/>
+              <Component Name="ФизЛицоКод" Class="Com.Ctrl.IEdit" Caption="Код" CardFileClass="Bas.Tab.Data.Contraparties" Enabled="False" Field="Позиция.ФизЛицо" HasCaption="True" Hint="Код физического лица" LookupField="Code" Width="20"/>
+            </Component>
+            <Component Name="кДатаНачала" Class="Com.Ctrl.IEdit" Caption="Дата начала" Enabled="False" Field="Позиция.ДатаНачала" HasCaption="True" Width="25"/>
+            <Component Name="кДатаОкончания" Class="Com.Ctrl.IEdit" Caption="Дата окончания" Enabled="False" Field="Позиция.ДатаОкончания" HasCaption="True" Width="25"/>
+            <Component Name="грКомандировка" Class="Com.Ctrl.IColumnsGroup" Caption="@Место назначения" HasCaption="True">
+              <Component Name="Страна" Class="Com.Ctrl.IEdit" Caption="Страна" Enabled="False" Field="Позиция.Страна" HasCaption="True" Hint="Страна, город в которые направляется сотрудник" Width="45"/>
+              <Component Name="Город" Class="Com.Ctrl.IEdit" Caption="Город" Enabled="False" Field="Позиция.Город" HasCaption="True" Hint="Страна, город в которые направляется сотрудник" Width="45"/>
+            </Component>
+            <Component Name="грРасчетПремий" Class="Com.Ctrl.IColumnsGroup">
+              <Component Name="КоэффПремирования" Class="Com.Ctrl.IEdit" Caption="Коэффициент премирования (%)" Enabled="False" Field="Позиция.КоэффПремирования" FixSize="True" HasCaption="True" Width="35"/>
+              <Component Name="БазаДляРасчета" Class="Com.Ctrl.IEdit" Caption="База для расчета" Enabled="False" Field="Позиция.БазаДляРасчета" FixSize="True" HasCaption="True" Width="35"/>
+              <Component Name="НормаДнейЧасов" Class="Com.Ctrl.IEdit" Caption="Норма дней (часов)" Enabled="False" Field="Позиция.НормаДнейЧасов" FixSize="True" HasCaption="True" Width="35"/>
+              <Component Name="ОтработаноДнейЧасов" Class="Com.Ctrl.IEdit" Caption="Отработано дней (часов)" Enabled="False" Field="Позиция.ОтработаноДнейЧасов" FixSize="True" HasCaption="True" Width="35"/>
+            </Component>
+            <Component Name="Ставка" Class="Com.Ctrl.IEdit" Caption="Ставка" Enabled="False" Field="Позиция.Ставка" FixSize="True" HasCaption="True" Width="35"/>
+            <Component Name="Сумма" Class="Com.Ctrl.IEdit" Caption="Сумма" CellFormat="NumericFormat" Enabled="False" Field="Позиция.Сумма" FieldFormat=",##0.00;;-" HasCaption="True" Width="25"/>
+            <Component Name="грСверхУрочнРаб" Class="Com.Ctrl.IColumnsGroup" Caption="Сверхурочная работа" HasCaption="True">
+              <Component Name="КолЧасовВсего" Class="Com.Ctrl.IEdit" Caption="Всего часов" Enabled="False" Field="Позиция.ВсегоЧасов" HasCaption="True" Hint="Количество часов, которые отработал сотрудник в выходной праздничный день" Width="30"/>
+              <Component Name="КолЧасовЗа2Часа" Class="Com.Ctrl.IEdit" Caption="за первые 2 ч." Enabled="False" Field="Позиция.КолЧасов1" HasCaption="True" Width="30"/>
+              <Component Name="КолЧасовПосле" Class="Com.Ctrl.IEdit" Caption="за послед. часы" Enabled="False" Field="Позиция.КолЧасов2" HasCaption="True" Hint="за последующие часы" Width="30"/>
+            </Component>
+            <Component Name="Основание" Class="Com.Ctrl.IEdit" Caption="Основание" Enabled="False" Field="Позиция.Основание" HasCaption="True" Width="45"/>
+            <Component Name="КодУО" Class="Com.Ctrl.IEdit" Caption="Усл. обозн." CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловныеОбозначения" Field="Позиция.КодУО" HasCaption="True" Hint="Код условного обозначения" LookupField="Код" Width="15"/>
+            <Component Name="грОтпуск" Class="Com.Ctrl.IColumnsGroup">
+              <Component Name="грОсновнойОтпуск" Class="Com.Ctrl.IColumnsGroup" Caption="Основной отпуск" HasCaption="True">
+                <Component Name="Отпуск" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Вид отпуска" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыОтпусков" Enabled="False" Field="Позиция.Отпуск" HasCaption="True" Hint="Вид отпуска" LookupField="Код" Width="15"/>
+                <Component Name="ОтпускС" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="с" Enabled="False" Field="Позиция.ОтпускС" FormatOfDate="DateOnly" HasCaption="True" Hint="Дата начала отпуска" Width="30"/>
+                <Component Name="ОтпускПо" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="по" Enabled="False" Field="Позиция.ОтпускПо" FormatOfDate="DateOnly" HasCaption="True" Hint="Дата окончания отпуска" Width="30"/>
+                <Component Name="ОтпускДней" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Кол-во дней" Enabled="False" Field="Позиция.ОтпускДней" FieldFormat="##0;;-" HasCaption="True" Hint="Количество календарных дней, на которые предоставляется отпуск" ValueType="VarInteger" Width="15"/>
+              </Component>
+              <Component Name="грДопОтпуска" Class="Com.Ctrl.IColumnsGroup" Caption="Дополнительные отпуска" HasCaption="True">
+                <Component Name="грДопОтпуска1" Class="Com.Ctrl.IColumnsGroup" Caption="I" HasCaption="True">
+                  <Component Name="ДопОтпуск1" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Код" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыОтпусков" Enabled="False" Field="Позиция.ДопОтпуск1" HasCaption="True" Hint="Вид дополнительного отпуска" LookupField="Код" Width="15"/>
+                  <Component Name="ДопОтпуск1С" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="с" Enabled="False" Field="Позиция.ДопОтпуск1С" FormatOfDate="DateOnly" HasCaption="True" Hint="Дата начала отпуска" Width="30"/>
+                  <Component Name="ДопОтпуск1По" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="по" Enabled="False" Field="Позиция.ДопОтпуск1По" FormatOfDate="DateOnly" HasCaption="True" Hint="Дата окончания отпуска" Width="30"/>
+                  <Component Name="ДопОтпуск1Дней" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Кол-во дней" Enabled="False" Field="Позиция.ДопОтпуск1Дней" FieldFormat="##0;;-" HasCaption="True" Hint="Количество календарных дней, на которые предоставляется отпуск" ValueType="VarInteger" Width="15"/>
+                </Component>
+                <Component Name="грДопОтпуска2" Class="Com.Ctrl.IColumnsGroup" Caption="II" HasCaption="True">
+                  <Component Name="ДопОтпуск2" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Код" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыОтпусков" Enabled="False" Field="Позиция.ДопОтпуск2" HasCaption="True" Hint="Вид дополнительного отпуска" LookupField="Код" Width="15"/>
+                  <Component Name="ДопОтпуск2С" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="с" Enabled="False" Field="Позиция.ДопОтпуск2С" FormatOfDate="DateOnly" HasCaption="True" Hint="Дата начала отпуска" Width="30"/>
+                  <Component Name="ДопОтпуск2По" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="по" Enabled="False" Field="Позиция.ДопОтпуск2По" FormatOfDate="DateOnly" HasCaption="True" Hint="Дата окончания отпуска" Width="30"/>
+                  <Component Name="ДопОтпуск2Дней" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Кол-во дней" Enabled="False" Field="Позиция.ДопОтпуск2Дней" FieldFormat="##0;;-" HasCaption="True" Hint="Количество календарных дней, на которые предоставляется отпуск" ValueType="VarInteger" Width="15"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

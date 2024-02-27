@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="HRBase.Rec.Ref.WorkSchedule">
+  <Inherited>
+    <Component Name="РабочаяСмена" Class="Com.Fld.IField" After="#0" FieldName="РабочаяСмена" OnChange="РабочаяСмена_OnChange"/>
+    <Component Name="ПроизвКалендарь" Class="Com.Fld.IField" FieldName="ПроизвКалендарь"/>
+    <Component Name="Характеристики" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Справочники.ГрафикиРабот_Характеристики" SubtableFilter="ТипЭлемента=0" SubtableName="Характеристики"/>
+    <Component Name="ПереносПраздников" Class="Com.ISubtable" Excluded="True" StructClass="УправлениеПерсоналом.Rec.Справочники.ГрафикиРабот_ПереносПраздников" SubtableFilter="ТипЭлемента=42" SubtableName="Характеристики"/>
+  </Inherited>
+</Resource>

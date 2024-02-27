@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingLib.Frm.AddIns.Base">
+  <Inherited Caption="@TrackerService:ExecutorTab=Исполнители">
+    <Inherited Name="EdtRec" Class="Tracker_Service.Rec.Data.ServiceTask" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Component Name="Group5" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="35" MaxWidth="200" MinWidth="150">
+        <Component Name="Group9" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="200" MinWidth="150">
+          <Component Name="WorkingGroupEdit" Class="Com.Ctrl.IEdit" AutoLookup="False" ButtonStyle="LookupButton" CardFileClass="Tracker_Service.Tab.Data.WorkingGroup" Field="EdtRec.WorkingGroup" HasButton="True" HasCaption="True" LookupField="Name" OnChange="WorkingGroupEditOnChange" ShortList="True"/>
+          <Component Name="ResponsibleEdit" Class="Com.Ctrl.IEdit" Caption="Ответственный" Field="EdtRec.Responsible" LookupField="Name" OnGetLookupFilter="ResponsibleEditOnGetLookUpFilter" ShortList="False"/>
+        </Component>
+        <Component Name="Static2" Class="Com.Ctrl.IStatic" Excluded="True" Width="1"/>
+        <Component Name="StatusListButton" Class="Com.Ctrl.IListButton" Excluded="True" Caption="@TrackerService:StatusButtons=Статусная модель" ImageName="Com.angle-down" Width="42"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

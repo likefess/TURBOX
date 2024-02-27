@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Rec.Документы.СреднийЗаработок.Базовый">
+  <Inherited>
+    <Component Name="Итого_ЧислоДней" Class="Com.Fld.IVar" After="#0" ValueType="VarNumeric"/>
+    <Component Name="Итого_ЧислоДней1" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+    <Component Name="Итого_КВыдачеФСС" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+    <Component Name="Итого_КВыдаче" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+    <Component Name="ПричинаНетр" Class="Com.Fld.IField" FieldName="ПричинаНетр"/>
+    <Component Name="КолвоДнОтсут" Class="Com.Fld.IField" FieldName="КолвоДнОтсут"/>
+    <Component Name="КолвоДнОтсутОбщ" Class="Com.Fld.IField" FieldName="КолвоДнОтсутОбщ"/>
+    <Component Name="РасчетныеДни2" Class="Com.Fld.IField" Excluded="True" FieldName="РасчетныеДни2"/>
+    <Component Name="РасчетныеДни" Class="Com.Fld.IField" Excluded="True" FieldName="РасчетныеДни"/>
+    <Component Name="ПричинаИное" Class="Com.Fld.IField" Caption="Иное" Extra="True" FieldName="сПричинаИное" ValueType="VarString"/>
+    <Component Name="ПричинаПерерасчета" Class="Com.Fld.IField" Caption="Причина перерасчета" Extra="True" FieldName="цПричинаПерерасчета" OnChange="ПричинаПерерасчета_OnChange" ValueType="VarInteger"/>
+    <Component Name="БольничныйЛист" Class="Com.Fld.IField" FieldName="БольничныйЛист" OnChange="БольничныйЛист_OnChange"/>
+    <Component Name="НеограниченныйДоход" Class="Com.Fld.IField" FieldName="НеограниченныйДоход"/>
+    <Component Name="РасчетПоМРОТ" Class="Com.Fld.IField" FieldName="РасчетПоМРОТ" OnChange="РасчетПоМРОТ_OnChange"/>
+    <Component Name="РасчетПоМРОТДата" Class="Com.Fld.IField" FieldName="РасчетПоМРОТДата" OnChange="РасчетПоМРОТДата_OnChange"/>
+    <Component Name="НеОграничиватьДень" Class="Com.Fld.IField" FieldName="НеОграничиватьДень"/>
+    <Component Name="ОграничениеДляВсего" Class="Com.Fld.IField" FieldName="ОграничениеДляВсего"/>
+    <Component Name="Статус" Class="Com.Fld.IField" FieldName="Статус"/>
+    <Component Name="ВидПособия" Class="Com.Fld.IField" FieldName="ВидПособия" OnChange="ВидПособия_OnChange"/>
+    <Component Name="ВидОтпуска" Class="Com.Fld.IField" FieldName="ВидОтпуска"/>
+    <Component Name="ОбщийСтажЛет" Class="Com.Fld.IField" FieldName="ОбщийСтажЛет"/>
+    <Component Name="ОбщийСтажМесяцев" Class="Com.Fld.IField" FieldName="ОбщийСтажМесяцев"/>
+    <Component Name="ОбщийСтажДней" Class="Com.Fld.IField" FieldName="ОбщийСтажДней"/>
+    <Component Name="ВтчНеСтрахЛет" Class="Com.Fld.IField" FieldName="ВтчНеСтрахЛет"/>
+    <Component Name="ВтчНеСтрахМес" Class="Com.Fld.IField" FieldName="ВтчНеСтрахМес"/>
+    <Component Name="КоэффЗанятости" Class="Com.Fld.IField" FieldName="КоэффЗанятости"/>
+    <Component Name="Процент" Class="Com.Fld.IField" FieldName="Процент"/>
+    <Component Name="Процент2" Class="Com.Fld.IField" FieldName="Процент2"/>
+    <Component Name="КоличествоДетей" Class="Com.Fld.IField" FieldName="КоличествоДетей" OnChange="КоличествоДетей_OnChange"/>
+    <Component Name="КоличествоДетей2" Class="Com.Fld.IField" FieldName="КоличествоДетей2" OnChange="КоличествоДетей2_OnChange"/>
+    <Component Name="ВсегоЧислоДнейФОТ" Class="Com.Fld.IField" FieldName="ВсегоЧислоДнейФОТ"/>
+    <Component Name="ВсегоЧислоДнейФСС2" Class="Com.Fld.IField" FieldName="ВсегоЧислоДнейФСС2"/>
+    <Component Name="ВсегоКВыдачеФОТ" Class="Com.Fld.IField" FieldName="ВсегоКВыдачеФОТ" OnChange="ВсегоКВыдачеФОТ_OnChange"/>
+    <Component Name="ВсегоКВыдачеФСС2" Class="Com.Fld.IField" FieldName="ВсегоКВыдачеФСС2"/>
+    <Component Name="ИсклПериоды" Class="Com.ISubtable" Excluded="True" StructClass="УправлениеПерсоналом.Rec.Документы.СреднийЗаработок.Больничный_ИсклПериоды" SubtableFilter="ТипПериода=0" SubtableName="Периоды"/>
+    <Component Name="ПериодыПростоя" Class="Com.ISubtable" Excluded="True" StructClass="УправлениеПерсоналом.Rec.Документы.СреднийЗаработок.Больничный_ПериодыПростоя" SubtableFilter="ТипПериода=20" SubtableName="Периоды"/>
+    <Inherited Name="Пособия" StructClass="УправлениеПерсоналом.Rec.Документы.СреднийЗаработок.Больничный_Пособия"/>
+    <Inherited Name="Назначение" OnChange="Назначение_OnChange"/>
+    <Inherited Name="Перерасчет" ValueType="VarObject"/>
+  </Inherited>
+</Resource>

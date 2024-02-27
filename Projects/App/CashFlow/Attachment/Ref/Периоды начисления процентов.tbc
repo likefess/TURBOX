@@ -1,0 +1,72 @@
+﻿TBCFile VER="3.4" [Created '10.12.2020 17:30:11' by 'Administrator']
+
+DESCRIPTION[
+Count=3
+CountByRef=0
+CashFlow.Data.InterestCalcPeriod
+(
+  Count=3
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [CashFlow.Data.InterestCalcPeriod
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    OperDoc :Inherited Bas.Base.Event
+    НеОтображаетсяВДереве :Boolean
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    Periodicity :Integer
+    PeriodType :Integer
+    InvestDayShift :Integer
+    InvestDayOffShift :Integer
+    Calendar :Bas.Ref.Calendar
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[CashFlow.Data.InterestCalcPeriod
+  
+  {CashFlow.Data.InterestCalcPeriod:"Месяц"}
+  (
+    Name = "Месяц"
+    Periodicity = 1
+    PeriodType = 2
+    InvestDayShift = 1
+    InvestDayOffShift = 1
+  )
+  
+  {CashFlow.Data.InterestCalcPeriod:"Год"}
+  (
+    Name = "Год"
+    Periodicity = 1
+    PeriodType = 4
+    InvestDayShift = 1
+    InvestDayOffShift = 1
+  )
+  
+  {CashFlow.Data.InterestCalcPeriod:"Квартал"}
+  (
+    Name = "Квартал"
+    Periodicity = 1
+    PeriodType = 3
+    InvestDayShift = 1
+    InvestDayOffShift = 1
+  )
+]
+
+]

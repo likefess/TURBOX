@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Frm.Документы.Имущество.ОС.ИмуществоБазовыйДокументОС">
+  <Inherited HelpContext="Имущество.Имущество.Документы движения и учета ОС.Частичная ликвидация ОС (продажа)">
+    <Inherited Name="EdtRec" Class="Имущество.Rec.Документы.Имущество.ОС.ЧастичнаяЛиквидацияПродажаОС" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="перПоказыватьПараметрыОС" Class="Com.Fld.IVar" After="#0" OnCalc="перПоказыватьПараметрыОС_OnCalc"/>
+      <Component Name="перПоказыватьДанныеЧастичСпис" Class="Com.Fld.IVar" OnCalc="перПоказыватьДанныеЧастичСпис_OnCalc"/>
+      <Inherited Name="перТрудовыеОтношения" After="перПоказыватьДанныеЧастичСпис"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Component Name="btDocLinksLoad" Class="Com.Ctrl.IButton" Caption="@Сmd:DocLinksLoad=Разнести данные" HasCaption="True" Hint="@Сmd:DocLinksLoad.Hint=Формирование документов в прочих модулях" ImageName="Com.inbox-out" OnClick="btDocLinksLoad_OnClick"/>
+          <Component Name="btDocLinksUnLoad" Class="Com.Ctrl.IButton" Caption="@Сmd:DocLinksUnLoad=Удалить разнесенные данные" HasCaption="True" Hint="@Сmd:DocLinksUnLoad.Hint=Автоматическое удаление не проведенных документов, ранее сформированных в прочих модулях на основании данного документа" ImageName="Com.trash-alt" OnClick="btDocLinksUnLoad_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Шапка_Фрейм">
+          <Inherited Name="Шапка_Гр">
+            <Inherited Name="Шапка_Номер_Дата">
+              <Inherited Name="Номер" Hint="Номер документа по выбытию ОС"/>
+            </Inherited>
+            <Component Name="ГрупповоеОС_Гр" Class="Com.Ctrl.IGroup" After="Шапка_ПервичныйДокумент" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ГрупповоеОС" Class="Com.Ctrl.IEdit" CardFileClass="ИмуществоБазовый.Tab.Справочники.ГрупповыеОС" Field="EdtRec.ГрупповоеОС" FixSize="True" HasCaption="True" Hint="Заполняется при условии ввода в эксплуатацию остатков по Групповому ОС.  Необязательно для заполнения.  При указании значения в данном поле табличная часть документа заполняется перечнем ОС, входящих в состав данного Группового ОС" LookupField="КодИмущества" OnChange="ГрупповоеОС_OnChange" OnGetLookupFilter="ГрОС_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуГрОС" OnVerify="ГрупповоеОС_OnVerify" Width="40"/>
+              <Component Name="ГрупповоеОС_Имя" Class="Com.Ctrl.IEdit" CardFileClass="ИмуществоБазовый.Tab.Справочники.ГрупповыеОС" Enabled="False" Field="EdtRec.ГрупповоеОС" Hint="Наименование группового ОС" LookupField="Name"/>
+              <Component Name="кнГрупповоеОС" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ГрупповоеОС" JumpForm="ИмуществоБазовый.Frm.Справочники.ГрупповыеОС"/>
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+            </Component>
+            <Inherited Name="Корректировка_Гр" After="ГрупповоеОС_Гр">
+              <Inherited Name="КорректируемыйДокумент" CardFileClass="Имущество.Tab.Документы.Имущество.ОС.ПродажаОС" Hint="Выбор корректируемого документа"/>
+              <Inherited Name="кнКорректируемыйДокумент" JumpForm="Имущество.Frm.Документы.Имущество.ОС.ЧастичнаяЛиквидацияПродажаОС"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="Имя_Код_Бокс" Excluded="True"/>
+          <Inherited Name="ОбщиеДанные" Excluded="True"/>
+          <Component Name="Позиции_Box" Class="Com.Ctrl.IBox" After="ОбщиеДанные" Caption="Продажа ОС">
+            <Component Name="УправлениеВидимостью_Табл" Class="Com.Ctrl.IGroup">
+              <Component Name="Static_ПоказыватьГрКол" Class="Com.Ctrl.IStatic" Caption="Показывать группу колонок:" FixSize="True" Printed="False" Visible="True" Width="55"/>
+              <Component Name="перПоказыватьПараметрыОС_Флаг" Class="Com.Ctrl.ICheckBox" Caption="Параметры ОС" Field="перПоказыватьПараметрыОС" FixSize="True" HasCaption="True" Hint="Показывать группу колонок &quot;Параметры ОС&quot;" OnChange="перПоказыватьПараметрыОС_Флаг_OnChange" Printed="False" Width="40"/>
+              <Component Name="перПоказыватьДанныеЧастичСпис_Флаг" Class="Com.Ctrl.ICheckBox" Caption="Данные о частичном списании ОС" Field="перПоказыватьДанныеЧастичСпис" FixSize="True" HasCaption="True" Hint="Показывать группу колонок &quot;Данные о частичном списании ОС&quot;" OnChange="перПоказыватьДанныеЧастичСпис_Флаг_OnChange" Printed="False" Width="75"/>
+              <Component Name="Static_ПарамБУ" Class="Com.Ctrl.IStatic" Printed="False"/>
+              <Component Name="Static_ПарамНУ" Class="Com.Ctrl.IStatic" Printed="False"/>
+            </Component>
+            <Component Name="СтоимостьВывод_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="СтоимостьВывод" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.Стоимость" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Стоимость продаваемых ОС (без учета НДС)" MaxWidth="40" MinWidth="30" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify"/>
+            </Component>
+            <Component Name="ПозицииОС_Табл" Class="Com.Ctrl.ITable" Sortable="True" Subtable="EdtRec.ПозицииОС">
+              <Component Name="ЧастичнаяЛиквидацияПродажаОС_Позиции" Class="Имущество.Rec.Документы.Имущество.ОС.ЧастичнаяЛиквидацияПродажаОС_Позиции" IsLibrary="1"/>
+              <Component Name="Имя_Табл" Class="Com.Ctrl.IEdit" Caption="Наименование ОС" CardFileClass="ИмуществоБазовый.Tab.Справочники.ОснСредства" CellFormat="ReferenceFormat" Field="ЧастичнаяЛиквидацияПродажаОС_Позиции.ОС" Hint="Краткое наименование ОС" LookupField="Name" Multiline="True" OnChange="ОС_Табл_OnChange" OnGetLookupFilter="ОС_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуОС" OnVerify="ОС_Табл_OnVerify" Required="True" Width="70" Wrap="True"/>
+              <Component Name="ИнвентарныйНомер_Табл" Class="Com.Ctrl.IEdit" Caption="Инвентарный номер" CardFileClass="ИмуществоБазовый.Tab.Справочники.ОснСредства" CellFormat="ReferenceFormat" Field="ЧастичнаяЛиквидацияПродажаОС_Позиции.ОС" Hint="Инвентарный номер ОС" LookupField="КодИмущества" OnChange="ОС_Табл_OnChange" OnGetLookupFilter="ОС_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуОС" OnVerify="ОС_Табл_OnVerify" Required="True" Width="30"/>
+              <Component Name="ОС_JumpButton" Class="Com.Ctrl.IJumpButton" Field="ЧастичнаяЛиквидацияПродажаОС_Позиции.ОС" Hint="Возможность перехода на карточку ОС, просмотра и редактирования доступных полей" JumpForm="ИмуществоБазовый.Frm.Справочники.ОснСредства"/>
+              <Component Name="кн_ОбновитьДанныеПоПозицииОС" Class="Com.Ctrl.IButton" FixSize="True" Hint="Обновить данные по текущей позиции ОС" ImageName="Control.Refresh" OnClick="кн_ОбновитьДанныеПоПозицииОС_OnClick" Width="6"/>
+              <Component Name="ПараметрыОС_Гр_Табл" Class="Com.Ctrl.IColumnsGroup" Caption="Параметры ОС" HasCaption="True">
+                <Component Name="СтоимостьОСпоБУ_Табл" Class="Com.Ctrl.IEdit" Caption="Стоимость" Enabled="False" Field="ЧастичнаяЛиквидацияПродажаОС_Позиции.СтоимостьОСпоБУ" FieldFormat=",##0.00;;-" Hint="Стоимость объекта ОС по бухгалтерскому учету на дату продажи (с учетом модернизации, переоценки)" Required="True" Width="30"/>
+                <Component Name="ЛиквидационнаяСтоимость_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ЧастичнаяЛиквидацияПродажаОС_Позиции.ЛиквидационнаяСтоимость" FieldFormat=",##0.00;;-" Hint="Ликвидационная стоимость объекта ОС" Width="30"/>
+                <Component Name="КлассификацияОС_Табл" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Enabled="False" Field="ЧастичнаяЛиквидацияПродажаОС_Позиции.КлассификацияОС" LookupField="КодОКОФ" Multiline="True" Required="True" Width="40" Wrap="True"/>
+                <Component Name="НазначениеОС_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ЧастичнаяЛиквидацияПродажаОС_Позиции.НазначениеОС" Multiline="True" Width="40" Wrap="True"/>
+                <Component Name="Подразделение_Табл" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" Enabled="False" Field="ЧастичнаяЛиквидацияПродажаОС_Позиции.Подразделение" Hint="Подразделение, в котором числится объект ОС" Multiline="True" OnGetLookupFilter="Подразделение_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуПодразделение" Required="True" Width="40" Wrap="True"/>
+                <Component Name="ТрудовыеОтношения_Выбор_Табл" Class="Com.Ctrl.IEdit" Excluded="True" Caption="МОЛ " CardFileClass="Biz.Tab.Data.LabourRelations" Enabled="False" Field="ЧастичнаяЛиквидацияПродажаОС_Позиции.перТрудовыеОтношения_Выбор" FixSize="True" HasCaption="True" Hint="ФИО материально-ответственного лица, за которым закреплен данный объект имущества, по состоянию на текущую дату" LookupField="Person.Name" OnChange="ТрудовыеОтношения_Выбор_Табл_OnChange" OnGetLookupFilter="ТрудовыеОтношения_Выбор_Табл_OnGetLookupFilter" OnOutput="ТрудовыеОтношения_Выбор_Табл_OnOutput" Width="50"/>
+                <Component Name="МОЛ_Табл" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" Enabled="False" Field="ЧастичнаяЛиквидацияПродажаОС_Позиции.МОЛ" FieldFormat=",##0.00;;-" Hint="Материально-ответственное лицо, ответственное за данный объект ОС" Multiline="True" OnChange="МОЛ_Табл_OnChange" OnGetLookupFilter="МОЛ_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуМОЛ" Required="True" Width="40" Wrap="True"/>
+                <Component Name="СуммаОбесценения_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ЧастичнаяЛиквидацияПродажаОС_Позиции.СуммаОбесценения" FieldFormat=",##0.00;;-" Hint="Сумма обесценения, начисленная на дату списания по бухгалтерскому учету" Width="30"/>
+                <Component Name="СуммаАмортизации_Табл" Class="Com.Ctrl.IEdit" Caption="Сумма амортизации" Enabled="False" Field="ЧастичнаяЛиквидацияПродажаОС_Позиции.СуммаАмортизации" FieldFormat=",##0.00;;-" Hint="Сумма начисленной амортизации на дату списания по бухгалтерскому учету" Width="30"/>
+                <Component Name="СуммаАмортизацииТП_Табл" Class="Com.Ctrl.IEdit" Excluded="True" Field="ЧастичнаяЛиквидацияПродажаОС_Позиции.СуммаАмортизацииТП" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Сумма амортизации, начисляемая за текущий период" Width="30"/>
+              </Component>
+              <Component Name="ДанныеЧастичСписОС_Гр_Табл" Class="Com.Ctrl.IColumnsGroup" Caption="Данные о частичном списании ОС" HasCaption="True" Hint="Данные о частичном списании ОС">
+                <Component Name="СтоимостьОСпоБУ_списание_Табл" Class="Com.Ctrl.IEdit" Field="ЧастичнаяЛиквидацияПродажаОС_Позиции.СтоимостьОСпоБУ_списание" FieldFormat=",##0.00;;-" Hint="Стоимость объекта ОС, подлежащая списанию" OnVerify="СтоимостьОСпоБУ_списание_Табл_OnVerify" Required="True" Width="30"/>
+                <Component Name="ЛиквидационнаяСтоимость_списание_Табл" Class="Com.Ctrl.IEdit" Caption="Ликвидационная стоимость  (к списанию)" Field="ЧастичнаяЛиквидацияПродажаОС_Позиции.ЛиквидационнаяСтоимость_списание" FieldFormat=",##0.00;;-" Hint="Ликвидационная стоимость объекта ОС, подлежащая списанию" OnVerify="ЛиквидационнаяСтоимость_списание_Табл_OnVerify" Width="30"/>
+                <Component Name="СуммаОбесценения_списание_Табл" Class="Com.Ctrl.IEdit" Caption="Сумма обесценения  (к списанию)" Field="ЧастичнаяЛиквидацияПродажаОС_Позиции.СуммаОбесценения_списание" FieldFormat=",##0.00;;-" Hint="Сумма обесценения объекта ОС (при наличии), подлежащая списанию" OnVerify="СуммаОбесценения_списание_Табл_OnVerify" Width="30"/>
+                <Component Name="СуммаАмортизации_списание_Табл" Class="Com.Ctrl.IEdit" Caption="Амортизация  (к списанию)" Field="ЧастичнаяЛиквидацияПродажаОС_Позиции.СуммаАмортизации_списание" FieldFormat=",##0.00;;-" Hint="Сумма начисленной амортизации на дату частичной ликвидации, подлежащая списанию" OnVerify="СуммаАмортизации_списание_Табл_OnVerify" Width="30"/>
+              </Component>
+            </Component>
+          </Component>
+          <Inherited Name="Комментарии_Box" After="Позиции_Box"/>
+        </Inherited>
+        <Component Name="ДанныеПродажи" Class="Com.Ctrl.IFrame" Caption="Данные о продаже" Hint="Данные покупателя, выручка от продажи">
+          <Component Name="ДанныеРасчПок" Class="Com.Ctrl.IBox" Caption="Данные о расчетах с покупателем">
+            <Component Name="Покупатель_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="Покупатель" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Покупатель" HasCaption="True" Hint="Наименование покупателя ОС" MinWidth="40" Required="True"/>
+            </Component>
+            <Component Name="Договор_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="Договор" Class="Com.Ctrl.IEdit" Caption="Договор  №" Field="EdtRec.Договор" HasCaption="True" Hint="Номер договора, по которому поступило КВ" LookupField="Code" MinWidth="30" OnChange="Договор_OnChange" OnGetLookupFilter="Договор_OnGetLookupFilter"/>
+              <Component Name="Договор_Дата" Class="Com.Ctrl.IEdit" Caption="дата" CaptionWidth="20" Enabled="False" Field="EdtRec.Договор" FixSize="True" HasCaption="True" Hint="Дата договора, по которому поступило КВ" LookupField="EventTime" Width="30"/>
+            </Component>
+            <Component Name="grDLSubjectPayableAccrualOfDebt" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="edDLAccrualOfDebtTypeOfAcc" Class="Com.Ctrl.IEdit" Caption="@Имущество:SubjectPayableTypeOfAcc=Тип задолженности" CellFormat="EnumFormat" Field="EdtRec.DLAccrualOfDebtTypeOfAcc" HasCaption="True"/>
+            </Component>
+          </Component>
+          <Component Name="ВыручкаОтПродажи" Class="Com.Ctrl.IBox" Caption="Выручка от продажи">
+            <Component Name="Выручка" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="СуммаВыручки" Class="Com.Ctrl.IEdit" Caption="Сумма выручки" Field="EdtRec.СуммаВыручки" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Сумма выручки по продаже ОС (с учетом НДС)" MinWidth="30" Required="True"/>
+              <Component Name="ВалютаВыручки" Class="Com.Ctrl.IEdit" CaptionWidth="20" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ВалютаДок" HasCaption="False" LookupField="Code" MaxWidth="30" MinWidth="20" Required="True" ShortList="True"/>
+              <Component Name="НДС_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+                <Component Name="СтавкаНДС" Class="Com.Ctrl.IEdit" Field="EdtRec.СтавкаНДС" HasCaption="True" MaxWidth="25" MinWidth="20" OnGetLookupFilter="СтавкаНДС_OnGetLookupFilter" OnOpenCardForm="СтавкаНДС_OnOpenCardForm"/>
+                <Component Name="СуммаНДС" Class="Com.Ctrl.IEdit" Field="EdtRec.СуммаНДС" FieldFormat=",##0.00;;-" HasCaption="True" MinWidth="25"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="DocLinksTab" Class="Com.Ctrl.IFrame" Caption="@AppBase:DocLinksTable=Интеграция документов" HasCaption="True">
+          <Component Name="bxDLDocLinksTable" Class="Com.Ctrl.IBox" Caption="Сформированные документы" HasCaption="True">
+            <Component Name="DocLinksTableTab" Class="Com.Ctrl.IFrame" AutoSize="True" HasCaption="False"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CashFlow.Frm.Doc.FIDoc_PercentAccrual">
+  <Inherited HelpContext="CashFlow.Движение денежных средств.Финансовые инструменты.Документы.Переоценка стоимости">
+    <Inherited Name="FRecord" Class="CashFlow.Rec.Doc.FIDoc_Reevaluation" IsLibrary="1"/>
+    <Inherited Name="FIDoc_Positions" Class="CashFlow.Rec.Doc.FIDoc_Reevaluation_Positions" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Inherited Name="PercentAccrualCalc" Visible="False"/>
+          <Component Name="ReevaluationCalc" Class="Com.Ctrl.IButton" Caption="@FIDoc_Reeval:ReevaluationCalc=Переоценка стоимости" ImageName="Com.Calculation" OnClick="ReevaluationCalc_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="PositionsBox">
+            <Inherited Name="PositionsTable">
+              <Inherited Name="TransDate" Excluded="True"/>
+              <Inherited Name="AccountGroup" Caption="@FIDoc_Reeval:AccountGroup=Счет учета ФИ"/>
+              <Component Name="Count" Class="Com.Ctrl.IEdit" After="Dimensions" Caption="@FIDoc_Reeval:Count=Количество" CellFormat="NumericFormat" Field="FIDoc_Positions.Count" HasCaption="True" ValueType="VarNumeric" Width="30"/>
+              <Component Name="PriceBeforeRevaluation" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FIDoc_Positions.PriceBeforeRevaluation" FieldFormat=",##0.00;;-" HasCaption="True" ValueType="VarNumeric" Width="40"/>
+              <Component Name="PriceOnDateRevaluation" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FIDoc_Positions.PriceOnDateRevaluation" FieldFormat=",##0.00;;-" HasCaption="True" ValueType="VarNumeric" Width="40"/>
+              <Inherited Name="Amount" After="PriceOnDateRevaluation" Caption="@FIDoc_Reeval:Amount=Сумма переоценки"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited PrintSettings="CashFlow.UserReportViewer.cfg">
+    <Inherited Name="EdtRec" Class="CashFlow.Rec.Doc.BankStatement" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="BankStatement_MovesStruct" Class="CashFlow.Rec.Doc.BankStatement_MovesStruct" IsLibrary="1"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Component Name="ButtonOperationTemplate" Class="Com.Ctrl.IButton" Caption="Подобрать шаблон операции" OnClick="ButtonOperationTemplateOnClick"/>
+        </Inherited>
+        <Component Name="ButtonRefreshWeb" Class="Com.Ctrl.IButton" After="ButtonReports" Caption="@Cmd:Refresh=Обновить" ImageName="Com.Refresh" OnClick="ButtonRefreshWeb_OnClick"/>
+        <Inherited Name="ButtonAnalytics" After="ButtonRefreshWeb"/>
+        <Inherited Name="ButtonClone" Excluded="True"/>
+        <Inherited Name="ButtonDelete" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+          <Component Name="DateStartEdit" Class="Com.Ctrl.IEdit" Caption="За период с" Enabled="False" Field="EdtRec.DateStart" HasCaption="True"/>
+          <Component Name="DateEndEdit" Class="Com.Ctrl.IEdit" Caption="По" Enabled="False" Field="EdtRec.DateEnd" HasCaption="True"/>
+        </Component>
+        <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+          <Component Name="CompanyEdit" Class="Com.Ctrl.IEdit" Caption="Наше предприятие" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Company" HasCaption="True" LookupField="Name" OnChange="CompanyEdit_OnChange" ShortList="True"/>
+          <Component Name="BankDetailsEdit" Class="Com.Ctrl.IEdit" Caption="Расчетный счет" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.BankDetails" HasCaption="True" LookupField="Name" Multiline="True" OnOutputEx="BankDetails_OnOutputEx" Wrap="True"/>
+        </Component>
+        <Component Name="Group4" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+          <Component Name="BankSaldoInEdit" Class="Com.Ctrl.IEdit" Caption="Вх. остаток" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.BankSaldoIn" FieldFormat=",##0.00;;-" HasCaption="True"/>
+          <Component Name="IncomeSumEdit" Class="Com.Ctrl.IEdit" Caption="Вх. сумма" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.IncomeSum" FieldFormat=",##0.00;;-" HasCaption="True"/>
+        </Component>
+        <Component Name="Group5" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+          <Component Name="OutcomeSumEdit" Class="Com.Ctrl.IEdit" Caption="Исх. сумма" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.OutcomeSum" FieldFormat=",##0.00;;-" HasCaption="True"/>
+          <Component Name="BankSaldoOutEdit" Class="Com.Ctrl.IEdit" Caption="Исх. остаток" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.BankSaldoOut" FieldFormat=",##0.00;;-" HasCaption="True"/>
+        </Component>
+        <Component Name="Group6" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Printed="False" Width="40"/>
+          <Component Name="IsSelectedCheckBox" Class="Com.Ctrl.ICheckBox" Caption="Выбрать все" FixSize="True" OnChange="IsSelectedCheckBox_OnChange" Printed="False" Width="30"/>
+          <Component Name="IsAccountedCheckBox" Class="Com.Ctrl.ICheckBox" Caption="Проводить все" FixSize="True" OnChange="IsAccountedCheckBox_OnChange" Printed="False" Width="40"/>
+        </Component>
+      </Inherited>
+      <Component Name="BankMovesFrame" Class="Com.Ctrl.IFrame" After="FieldsFrame" Subtable="EdtRec.BankMovesSub">
+        <Component Name="chSelected" Class="Com.Ctrl.ICheckBox" Caption="Выбрать" Field="BankStatement_MovesStruct.vSelected" HasCaption="True" Printed="False" Width="20"/>
+        <Component Name="MoveDocIsAccountedCheckBox" Class="Com.Ctrl.ICheckBox" Caption="Проведен" Enabled="False" Field="BankStatement_MovesStruct.IsAccounted" HasCaption="True" Width="30"/>
+        <Component Name="ColumnsGroup3" Class="Com.Ctrl.IColumnsGroup">
+          <Component Name="MoveDocNumberEdit" Class="Com.Ctrl.IEdit" Caption="Номер" CardFileClass="CashFlow.Tab.Doc.BankMove" CellFormat="ReferenceFormat" Enabled="False" Field="BankStatement_MovesStruct.MoveDoc" HasCaption="True" LookupField="PrintedNumber" Width="35"/>
+          <Component Name="JumpButton3" Class="Com.Ctrl.IJumpButton" Field="BankStatement_MovesStruct.MoveDoc"/>
+        </Component>
+        <Component Name="MoveDocDateEdit" Class="Com.Ctrl.IEdit" Caption="Дата" CellFormat="ReferenceFormat" Enabled="False" Field="BankStatement_MovesStruct.MoveDoc" FieldFormat="dd.mm.yyyy" HasCaption="True" LookupField="EventTime" Width="35"/>
+        <Component Name="WriteOffEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Вид платежа" CellFormat="StringFormat" Enabled="False" Field="BankStatement_MovesStruct.vIncome" HasCaption="True" Width="50"/>
+        <Component Name="ColumnsGroup1" Class="Com.Ctrl.IColumnsGroup" Caption="Контрагент" HasCaption="True">
+          <Component Name="ContrapartyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Contraparties" CellFormat="ReferenceFormat" Enabled="False" Field="BankStatement_MovesStruct.MoveDoc" HasCaption="False" LookupField="Contraparty.Name" Width="50"/>
+          <Component Name="JumpButton1" Class="Com.Ctrl.IJumpButton" Excluded="True" Field="BankStatement_MovesStruct.MoveDoc" HasCaption="False"/>
+        </Component>
+        <Component Name="ColumnsGroup2" Class="Com.Ctrl.IColumnsGroup" Caption="Договор" HasCaption="True">
+          <Component Name="ContractEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Enabled="False" Field="BankStatement_MovesStruct.MoveDoc" HasCaption="False" LookupField="Contract.PrintedNumber" Width="50"/>
+          <Component Name="JumpButton2" Class="Com.Ctrl.IJumpButton" Excluded="True" Field="BankStatement_MovesStruct.MoveDoc" HasCaption="False"/>
+        </Component>
+        <Component Name="MoveDocFinalSumEdit" Class="Com.Ctrl.IEdit" Caption="Сумма с НДС" CellFormat="NumericFormat" Enabled="False" Field="BankStatement_MovesStruct.FinalSum" FieldFormat=",##0.00;;-" HasCaption="True" Width="35"/>
+        <Component Name="MoveDocCurrencyEdit" Class="Com.Ctrl.IEdit" Caption="Валюта" CellFormat="ReferenceFormat" Enabled="False" Field="BankStatement_MovesStruct.MoveDoc" HasCaption="True" LookupField="Currency.Code" Width="20"/>
+        <Component Name="MoveDocPurposeEdit" Class="Com.Ctrl.IEdit" Caption="Назначение платежа" CellFormat="ReferenceFormat" Enabled="False" Field="BankStatement_MovesStruct.MoveDoc" HasCaption="True" LookupField="Purpose" Width="100"/>
+        <Component Name="MoveDocCFREdit" Class="Com.Ctrl.IEdit" Caption="ЦФО" CellFormat="ReferenceFormat" Enabled="False" Field="BankStatement_MovesStruct.MoveDoc" HasCaption="True" LookupField="CFR.Name" Width="40"/>
+        <Component Name="MoveDocBGIEdit" Class="Com.Ctrl.IEdit" Caption="СБК" CellFormat="ReferenceFormat" Enabled="False" Field="BankStatement_MovesStruct.MoveDoc" HasCaption="True" LookupField="BGI.Code" Width="40"/>
+        <Component Name="MoveDocProjectEdit" Class="Com.Ctrl.IEdit" Caption="Проект" CellFormat="ReferenceFormat" Enabled="False" Field="BankStatement_MovesStruct.MoveDoc" HasCaption="True" LookupField="Project.Name" Width="60"/>
+        <Component Name="MoveDocSourceEdit" Class="Com.Ctrl.IEdit" Caption="Источник" CellFormat="ReferenceFormat" Enabled="False" Field="BankStatement_MovesStruct.MoveDoc" HasCaption="True" LookupField="Source.Name" Width="60"/>
+      </Component>
+      <Inherited Name="TabsFrame" Excluded="True" After="BankMovesFrame"/>
+    </Inherited>
+  </Inherited>
+</Resource>

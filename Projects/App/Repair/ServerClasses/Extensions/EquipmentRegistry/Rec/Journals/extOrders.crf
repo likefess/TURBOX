@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Rec.Journals.Orders">
+  <Inherited>
+    <Component Name="RequestForCorr" Class="Com.Fld.IField" After="#0" FieldName="RequestForCorr"/>
+    <Component Name="SPACost" Class="Com.Fld.IField" After="AllIsDone" FieldName="SPACost" ValueType="VarNumeric"/>
+    <Inherited Name="sbtWorkersE" SubtableFilter="BrigadeType = nil and BrigadeLine = False"/>
+    <Component Name="sbtWorkersB" Class="Com.ISubtable" After="sbtWorkersE" StructClass="Repair.Rec.Journals.OrdersWorkersBrigade" SubtableFilter="BrigadeLine = True" SubtableName="OrdersJournalWorkers"/>
+    <Component Name="OrderType" Class="Com.Fld.IField" After="sbtShortC" FieldName="OrderType" OnVerify="OrderType_OnVerify" ValueType="VarObject"/>
+    <Component Name="WorkPriority" Class="Com.Fld.IField" FieldName="WorkPriority" ValueType="VarObject"/>
+    <Component Name="FlowChartType" Class="Com.Fld.IField" FieldName="FlowChartType" ValueType="VarObject"/>
+    <Component Name="IncludedPlan" Class="Com.Fld.IField" FieldName="IncludedPlan" ValueType="VarLogical"/>
+    <Component Name="PlanGroup" Class="Com.Fld.IField" FieldName="PlanGroup" OnVerify="PlanGroup_OnVerify" ValueType="VarObject"/>
+    <Component Name="sbtFlowCharts" Class="Com.ISubtable" StructClass="Repair.Rec.Journals.OrdersFlowCharts" SubtableName="OrdersJournalFlowCharts"/>
+    <Component Name="sbtSPALines" Class="Com.ISubtable" StructClass="Repair.Rec.Journals.OrdersSPALines" SubtableName="OrdersJournalSPALines"/>
+    <Component Name="LsoID" Class="Com.Fld.IField" Caption="Лин. ссыл. образец" FieldName="LsoID" ValueType="VarObject"/>
+    <Component Name="Mark_Beg" Class="Com.Fld.IField" Caption="Метка начальная" FieldName="Mark_Beg" ValueType="VarObject"/>
+    <Component Name="Mark_End" Class="Com.Fld.IField" Caption="Метка конечная" FieldName="Mark_End" ValueType="VarObject"/>
+    <Component Name="PointBeg" Class="Com.Fld.IField" Caption="начальная Точка" FieldName="PointBeg" OnChange="PointBeg_OnChange" ValueType="VarNumeric"/>
+    <Component Name="PointEnd" Class="Com.Fld.IField" Caption="конечная Точка" FieldName="PointEnd" OnChange="PointBeg_OnChange" ValueType="VarNumeric"/>
+    <Component Name="UM" Class="Com.Fld.IField" Caption="Ед.Изм." FieldName="UM" ValueType="VarObject"/>
+    <Component Name="NetObLen" Class="Com.Fld.IVar" OnCalc="NetObLen_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="OfsPointBeg" Class="Com.Fld.IVar" OnCalc="OfsPointBeg_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="OfsPointEnd" Class="Com.Fld.IVar" OnCalc="OfsPointEnd_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="interval" Class="Com.Fld.IVar" OnCalc="interval_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="GeoObjectOnPost" Class="Com.Fld.IField" FieldName="GeoObjectOnPost" ValueType="VarObject"/>
+    <Component Name="GeoObjLatitudeOnPost" Class="Com.Fld.IField" FieldName="GeoObjLatitudeOnPost" ValueType="VarObject"/>
+    <Component Name="GeoObjLongitudeOnPost" Class="Com.Fld.IField" FieldName="GeoObjLongitudeOnPost" ValueType="VarObject"/>
+    <Component Name="IsCreatedFromAnnualPlan" Class="Com.Fld.IField" After="AcceptingCode" Caption="Из годового плана" FieldName="IsCreatedFromAnnualPlan" ValueType="VarLogical"/>
+  </Inherited>
+</Resource>

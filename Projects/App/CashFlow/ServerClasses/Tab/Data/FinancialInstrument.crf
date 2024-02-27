@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.BasObject">
+  <Inherited HelpContext="CashFlow.Движение денежных средств.Финансовые инструменты.Основные данные.Финансовые инструменты">
+    <Inherited Name="Current" Class="CashFlow.Rec.Data.FinancialInstrument" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="False" Size="40">
+          <Inherited Name="CardTree" TreeRoot="@CardTree:TreeRoot=Финансовые инструменты" Visible="True"/>
+        </Inherited>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Code" After="ExtId"/>
+          <Inherited Name="Name" After="Code"/>
+          <Component Name="FIGroup" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.FIGroup" HasCaption="True" LookupField="Name" Width="50"/>
+          <Component Name="Status" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Current.Status" HasCaption="True" ListAsString="Запланирован|0;Действует|1;Пролонгирован|2;Закрыт|3;Пусто|4" Width="50"/>
+          <Component Name="NeedRecalc" Class="Com.Ctrl.ICheckBox" Caption="@FinancialInstrument:NeedRecalc=Требуется пересчет" Field="Current.NeedRecalc" FixSize="True" HasCaption="True" Width="20"/>
+          <Component Name="Amount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="Current.Amount" FieldFormat=",##0.00;;-" HasCaption="True" Width="40"/>
+          <Component Name="DtStart" Class="Com.Ctrl.IEdit" Field="Current.DtStart" HasCaption="True" Width="30"/>
+          <Component Name="DtEnd" Class="Com.Ctrl.IEdit" Field="Current.DtEnd" HasCaption="True" Width="30"/>
+          <Component Name="Contraparty" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.Contraparty" HasCaption="True" LookupField="Name" Width="50"/>
+          <Component Name="Contract" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.Contract" HasCaption="True" LookupField="Code" Width="50"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

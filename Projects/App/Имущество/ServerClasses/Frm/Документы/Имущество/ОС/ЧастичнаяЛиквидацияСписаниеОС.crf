@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Frm.Документы.Имущество.ОС.ИмуществоБазовыйДокументОС">
+  <Inherited HelpContext="Имущество.Имущество.Документы движения и учета ОС.Частичная ликвидация ОС (списание)">
+    <Inherited Name="EdtRec" Class="Имущество.Rec.Документы.Имущество.ОС.ЧастичнаяЛиквидацияСписаниеОС" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="перПоказыватьПараметрыОС" Class="Com.Fld.IVar" After="#0" OnCalc="перПоказыватьПараметрыОС_OnCalc"/>
+      <Component Name="перПоказыватьДанныеЧастичСпис" Class="Com.Fld.IVar" OnCalc="перПоказыватьДанныеЧастичСпис_OnCalc"/>
+      <Inherited Name="перТрудовыеОтношения" After="перПоказыватьДанныеЧастичСпис"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Шапка_Фрейм">
+          <Inherited Name="Шапка_Гр">
+            <Inherited Name="Шапка_Номер_Дата">
+              <Inherited Name="Номер" Hint="Номер документа по выбытию ОС"/>
+              <Inherited Name="ДатаНачала" Hint="Дата документа по выбытию ОС"/>
+            </Inherited>
+            <Inherited Name="Шапка_НашеПредприятие_Валюта">
+              <Inherited Name="ВалютаДок" Hint="Валюта документа по списанию ОС"/>
+            </Inherited>
+            <Component Name="ГрупповоеОС_Гр" Class="Com.Ctrl.IGroup" After="Шапка_ПервичныйДокумент" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ГрупповоеОС" Class="Com.Ctrl.IEdit" CardFileClass="ИмуществоБазовый.Tab.Справочники.ГрупповыеОС" Field="EdtRec.ГрупповоеОС" FixSize="True" HasCaption="True" Hint="Заполняется при условии ввода в эксплуатацию остатков по Групповому ОС.  Необязательно для заполнения.  При указании значения в данном поле табличная часть документа заполняется перечнем ОС, входящих в состав данного Группового ОС" LookupField="КодИмущества" OnChange="ГрупповоеОС_OnChange" OnGetLookupFilter="ГрОС_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуГрОС" OnVerify="ГрупповоеОС_OnVerify" Width="40"/>
+              <Component Name="ГрупповоеОС_Имя" Class="Com.Ctrl.IEdit" CardFileClass="ИмуществоБазовый.Tab.Справочники.ГрупповыеОС" Enabled="False" Field="EdtRec.ГрупповоеОС" Hint="Наименование группового ОС" LookupField="Name"/>
+              <Component Name="кнГрупповоеОС" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ГрупповоеОС" JumpForm="ИмуществоБазовый.Frm.Справочники.ГрупповыеОС"/>
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+            </Component>
+            <Inherited Name="Корректировка_Гр" After="ГрупповоеОС_Гр">
+              <Inherited Name="КорректируемыйДокумент" CardFileClass="Имущество.Tab.Документы.Имущество.ОС.ЧастичнаяЛиквидацияСписаниеОС" Hint="Выбор корректируемого документа"/>
+              <Inherited Name="кнКорректируемыйДокумент" JumpForm="Имущество.Frm.Документы.Имущество.ОС.ЧастичнаяЛиквидацияСписаниеОС"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="Имя_Код_Бокс" Excluded="True"/>
+          <Inherited Name="ОбщиеДанные" Excluded="True"/>
+          <Component Name="Позиции_Box" Class="Com.Ctrl.IBox" After="ОбщиеДанные" Caption="Списание ОС">
+            <Component Name="УправлениеВидимостью_Табл" Class="Com.Ctrl.IGroup">
+              <Component Name="Static_ПоказыватьГрКол" Class="Com.Ctrl.IStatic" Caption="Показывать группу колонок:" FixSize="True" Printed="False" Visible="True" Width="55"/>
+              <Component Name="перПоказыватьПараметрыОС_Флаг" Class="Com.Ctrl.ICheckBox" Caption="Параметры ОС" Field="перПоказыватьПараметрыОС" FixSize="True" HasCaption="True" Hint="Показывать группу колонок &quot;Параметры ОС&quot;" OnChange="перПоказыватьПараметрыОС_Флаг_OnChange" Printed="False" Width="40"/>
+              <Component Name="перПоказыватьДанныеЧастичСпис_Флаг" Class="Com.Ctrl.ICheckBox" Caption="Данные о частичном списании ОС" Field="перПоказыватьДанныеЧастичСпис" FixSize="True" HasCaption="True" Hint="Показывать группу колонок &quot;Данные о частичном списании ОС&quot;" OnChange="перПоказыватьДанныеЧастичСпис_Флаг_OnChange" Printed="False" Width="75"/>
+              <Component Name="Static_ПарамБУ" Class="Com.Ctrl.IStatic" Printed="False"/>
+              <Component Name="Static_ПарамНУ" Class="Com.Ctrl.IStatic" Printed="False"/>
+            </Component>
+            <Component Name="СтоимостьВывод_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="СтоимостьВывод" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.Стоимость" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Стоимость объекта (без учета НДС)" MaxWidth="40" MinWidth="30" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify"/>
+            </Component>
+            <Component Name="ПозицииОС_Табл" Class="Com.Ctrl.ITable" Sortable="True" Subtable="EdtRec.ПозицииОС">
+              <Component Name="ЧастичнаяЛиквидацияСписаниеОС_Позиции" Class="Имущество.Rec.Документы.Имущество.ОС.ЧастичнаяЛиквидацияСписаниеОС_Позиции" IsLibrary="1"/>
+              <Component Name="Имя_Табл" Class="Com.Ctrl.IEdit" Caption="Наименование ОС" CardFileClass="ИмуществоБазовый.Tab.Справочники.ОснСредства" CellFormat="ReferenceFormat" Field="ЧастичнаяЛиквидацияСписаниеОС_Позиции.ОС" Hint="Краткое наименование ОС" LookupField="Name" Multiline="True" OnChange="ОС_Табл_OnChange" OnGetLookupFilter="ОС_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуОС" OnVerify="ОС_Табл_OnVerify" Required="True" Width="70" Wrap="True"/>
+              <Component Name="ИнвентарныйНомер_Табл" Class="Com.Ctrl.IEdit" Caption="Инвентарный номер" CardFileClass="ИмуществоБазовый.Tab.Справочники.ОснСредства" CellFormat="ReferenceFormat" Field="ЧастичнаяЛиквидацияСписаниеОС_Позиции.ОС" Hint="Инвентарный номер ОС" LookupField="КодИмущества" OnChange="ОС_Табл_OnChange" OnGetLookupFilter="ОС_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуОС" OnVerify="ОС_Табл_OnVerify" Required="True" Width="30"/>
+              <Component Name="ОС_JumpButton" Class="Com.Ctrl.IJumpButton" Field="ЧастичнаяЛиквидацияСписаниеОС_Позиции.ОС" Hint="Возможность перехода на карточку ОС, просмотра и редактирования доступных полей" JumpForm="ИмуществоБазовый.Frm.Справочники.ОснСредства"/>
+              <Component Name="кн_ОбновитьДанныеПоПозицииОС" Class="Com.Ctrl.IButton" FixSize="True" Hint="Обновить данные по текущей позиции ОС" ImageName="Control.Refresh" OnClick="кн_ОбновитьДанныеПоПозицииОС_OnClick" Width="6"/>
+              <Component Name="ПараметрыОС_Гр_Табл" Class="Com.Ctrl.IColumnsGroup" Caption="Параметры ОС" HasCaption="True">
+                <Component Name="СтоимостьОСпоБУ_Табл" Class="Com.Ctrl.IEdit" Caption="Стоимость" Enabled="False" Field="ЧастичнаяЛиквидацияСписаниеОС_Позиции.СтоимостьОСпоБУ" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Стоимость объекта ОС по бухгалтерскому учету на дату списания (с учетом модернизации, переоценки, обесценения)" Required="True" Width="30"/>
+                <Component Name="ЛиквидационнаяСтоимость_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ЧастичнаяЛиквидацияСписаниеОС_Позиции.ЛиквидационнаяСтоимость" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Ликвидационная стоимость объекта ОС" Width="30"/>
+                <Component Name="КлассификацияОС_Табл" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Enabled="False" Field="ЧастичнаяЛиквидацияСписаниеОС_Позиции.КлассификацияОС" HasCaption="True" LookupField="КодОКОФ" Required="True" Width="40"/>
+                <Component Name="НазначениеОС_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ЧастичнаяЛиквидацияСписаниеОС_Позиции.НазначениеОС" HasCaption="True" Multiline="True" Width="40" Wrap="True"/>
+                <Component Name="Подразделение_Табл" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" Enabled="False" Field="ЧастичнаяЛиквидацияСписаниеОС_Позиции.Подразделение" HasCaption="True" Hint="Подразделение, в котором числится объект ОС" Multiline="True" OnGetLookupFilter="Подразделение_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуПодразделение" Required="True" Width="40" Wrap="True"/>
+                <Component Name="ТрудовыеОтношения_Выбор_Табл" Class="Com.Ctrl.IEdit" Excluded="True" Caption="МОЛ " CardFileClass="Biz.Tab.Data.LabourRelations" Enabled="False" Field="ЧастичнаяЛиквидацияСписаниеОС_Позиции.перТрудовыеОтношения_Выбор" FixSize="True" HasCaption="True" Hint="ФИО материально-ответственного лица, за которым закреплен данный объект имущества, по состоянию на текущую дату" LookupField="Person.Name" OnChange="ТрудовыеОтношения_Выбор_Табл_OnChange" OnGetLookupFilter="ТрудовыеОтношения_Выбор_Табл_OnGetLookupFilter" OnOutput="ТрудовыеОтношения_Выбор_Табл_OnOutput" Required="True" Width="50"/>
+                <Component Name="МОЛ_Табл" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" Enabled="False" Field="ЧастичнаяЛиквидацияСписаниеОС_Позиции.МОЛ" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Материально-ответственное лицо, ответственное за данный объект ОС" Multiline="True" OnGetLookupFilter="МОЛ_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуМОЛ" Required="True" Width="40" Wrap="True"/>
+                <Component Name="СуммаОбесценения_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ЧастичнаяЛиквидацияСписаниеОС_Позиции.СуммаОбесценения" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Сумма обесценения, начисленная на дату списания по бухгалтерскому учету" Width="30"/>
+                <Component Name="СуммаАмортизации_Табл" Class="Com.Ctrl.IEdit" Caption="Сумма амортизации" Enabled="False" Field="ЧастичнаяЛиквидацияСписаниеОС_Позиции.СуммаАмортизации" FieldFormat=",##0.00;;-" Hint="Сумма начисленной амортизации на дату списания по бухгалтерскому учету" Width="30"/>
+                <Component Name="СуммаАмортизацииТП_Табл" Class="Com.Ctrl.IEdit" Excluded="True" Field="ЧастичнаяЛиквидацияСписаниеОС_Позиции.СуммаАмортизацииТП" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Сумма амортизации, начисляемая за текущий период" Width="30"/>
+              </Component>
+              <Component Name="ДанныеЧастичСписОС_Гр_Табл" Class="Com.Ctrl.IColumnsGroup" Caption="Данные о частичном списании ОС" HasCaption="True" Hint="Данные о частичном списании ОС">
+                <Component Name="СтоимостьОСпоБУ_списание_Табл" Class="Com.Ctrl.IEdit" Field="ЧастичнаяЛиквидацияСписаниеОС_Позиции.СтоимостьОСпоБУ_списание" FieldFormat=",##0.00;;-" Hint="Стоимость объекта ОС, подлежащая списанию" OnVerify="СтоимостьОСпоБУ_списание_Табл_OnVerify" Required="True" Width="30"/>
+                <Component Name="ЛиквидационнаяСтоимость_списание_Табл" Class="Com.Ctrl.IEdit" Caption="Ликвидационная стоимость  (к списанию)" Field="ЧастичнаяЛиквидацияСписаниеОС_Позиции.ЛиквидационнаяСтоимость_списание" FieldFormat=",##0.00;;-" Hint="Ликвидационная стоимость объекта ОС, подлежащая списанию" OnVerify="ЛиквидационнаяСтоимость_списание_Табл_OnVerify" Width="30"/>
+                <Component Name="СуммаОбесценения_списание_Табл" Class="Com.Ctrl.IEdit" Caption="Сумма обесценения  (к списанию)" Field="ЧастичнаяЛиквидацияСписаниеОС_Позиции.СуммаОбесценения_списание" FieldFormat=",##0.00;;-" Hint="Сумма обесценения объекта ОС (при наличии), подлежащая списанию" OnVerify="СуммаОбесценения_списание_Табл_OnVerify" Width="30"/>
+                <Component Name="СуммаАмортизации_списание_Табл" Class="Com.Ctrl.IEdit" Caption="Амортизация  (к списанию)" Field="ЧастичнаяЛиквидацияСписаниеОС_Позиции.СуммаАмортизации_списание" FieldFormat=",##0.00;;-" Hint="Сумма начисленной амортизации на дату частичной ликвидации, подлежащая списанию" OnVerify="СуммаАмортизации_списание_Табл_OnVerify" Width="30"/>
+              </Component>
+            </Component>
+          </Component>
+          <Inherited Name="Комментарии_Box" After="Позиции_Box"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

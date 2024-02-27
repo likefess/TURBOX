@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.BasObject">
+  <Inherited Hierarchical="False">
+    <Inherited Name="Current" Class="Bas.Rec.Ref.Project" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Caption="Спринты"/>
+      <Inherited Name="NavigatorFrame" Visible="True"/>
+      <Component Name="HeaderNoBtn" Class="Com.Ctrl.IHeader" After="NavigatorFrame" Caption="Спринты" HasCaption="True">
+        <Component Name="DftSprintDurationBtnClnt" Class="Com.Ctrl.IButton" Caption="Изменить длительность спринта" HasCaption="True" ImageName="Com.EditItem" OnClick="DftSprintDurationBtnOnClick" Width="75"/>
+      </Component>
+      <Inherited Name="MainFrame" After="HeaderNoBtn" Margins="0">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile" Margins="0">
+          <Inherited Name="CardFile" CanCopy="False" CanDelete="False" CanEdit="True" CanInsert="False" CanMove="False" CanOpen="True" Hierarchical="False" OnOpenBlank="CardFileOnOpenBlank"/>
+          <Inherited Name="ExtId" Excluded="True"/>
+          <Inherited Name="CreateDate" Excluded="True"/>
+          <Inherited Name="CreateUser" Excluded="True"/>
+          <Inherited Name="UpdateDate" Excluded="True"/>
+          <Inherited Name="UpdateUser" Excluded="True"/>
+          <Inherited Name="ModifyDate" Excluded="True"/>
+          <Inherited Name="Name" Excluded="True"/>
+          <Inherited Name="Code" Excluded="True"/>
+          <Component Name="Project" Class="Com.Ctrl.IEdit" Caption="Проект" Field="Current.Name" HasCaption="True" Width="50"/>
+          <Component Name="SprintsCount" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CanSort="False" CellFormat="NumericFormat" Field="Current.SprintsCount" FixSize="True" Width="37"/>
+          <Component Name="DftSprintDuration" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Current.DftSprintDuration" FixSize="True" ListAsString="1 неделя|0;2 недели|1;3 недели|2;4 недели|3;задать свой срок|4" Width="40"/>
+          <Component Name="DftSprintDurationBtn" Class="Com.Ctrl.IButton" HasCaption="False" Hint="Изменить длительность спринта" ImageName="Com.EditItem" OnClick="DftSprintDurationBtnOnClick"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

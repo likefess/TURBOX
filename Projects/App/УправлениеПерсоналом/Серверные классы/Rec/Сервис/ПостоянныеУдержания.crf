@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.IStruct">
+    <Component Name="ДатаОкончанияИсх" Class="Com.Fld.IVar" ValueType="VarDate"/>
+    <Component Name="Отменить" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    <Component Name="Назначение" Class="Com.Fld.IVar" RecordClass="УправлениеПерсоналом.Rec.Данные.Назначения" ValueType="VarObject"/>
+    <Component Name="Сотрудник" Class="Com.Fld.IVar" RecordClass="HRBase.Rec.Data.EmployeePlace" ValueType="VarObject"/>
+    <Component Name="Приказ" Class="Com.Fld.IVar" Caption="Приказ" RecordClass="УправлениеПерсоналом.Rec.Документы.Кадры.Приказ" ValueType="VarObject"/>
+    <Component Name="ПриказОтмены" Class="Com.Fld.IVar" Caption="Приказ" RecordClass="УправлениеПерсоналом.Rec.Документы.Кадры.Приказ" ValueType="VarObject"/>
+    <Component Name="Сумма" Class="Com.Fld.IVar" Caption="@StaffingUnit.ПостНачисления:Сумма=Сумма" ValueType="VarNumeric"/>
+    <Component Name="УсловиеРасчета" Class="Com.Fld.IVar" Caption="@Назначения.ПостУдержания:УсловиеРасчета=Условие попадания в расчет" ValueType="VarInteger"/>
+    <Component Name="Очередность" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+    <Component Name="МаксСумма" Class="Com.Fld.IVar" Caption="@Назначения.ПостУдержания:МаксСумма=Максимальная сумма" ValueType="VarNumeric"/>
+    <Component Name="Ставка" Class="Com.Fld.IVar" Caption="@Назначения.ПостУдержания:Ставка=Ставка" ValueType="VarNumeric"/>
+    <Component Name="ВидУдержаний" Class="Com.Fld.IVar" Caption="@Назначения.ПостНачисления:Наименование=Наименование" OnChange="ВидУдержаний_OnChange" RecordClass="УправлениеПерсоналом.Rec.Справочники.ВидУдержаний" ValueType="VarObject"/>
+    <Component Name="ДатаОкончания" Class="Com.Fld.IVar" Caption="@Назначения.ПостУдержания:ДатаОкончания=Дата окончания удержаний" OnVerify="ДатаОкончания_OnVerify" ValueType="VarDate"/>
+    <Component Name="ДатаНачала" Class="Com.Fld.IVar" Caption="@Назначения.ПостУдержания:ДатаНачала=Дата начала удержаний" OnVerify="ДатаНачала_OnVerify" ValueType="VarDate"/>
+  </Component>
+</Resource>

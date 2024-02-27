@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.Event">
+  <Inherited CaptionAlign="CenterAlign">
+    <Inherited Name="EdtRec" Class="TrackingCore.Rec.Ref.Version" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True" ByColumn="True" CaptionWidth="30" MaxWidth="300" MinWidth="150">
+          <Component Name="ObjTypeEdit" Class="Com.Ctrl.IEdit" ButtonStyle="ComboButton" Caption="@TrackingCore:VersionType=Тип версии" Field="EdtRec.ObjType" HasCaption="True" LookupFilter="ClassOfRecord=&quot;TrackingCore.Ref.Version&quot;" ShortList="True"/>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic"/>
+        </Component>
+        <Inherited Name="Group1" CaptionWidth="30">
+          <Inherited Name="Code" Visible="True"/>
+          <Inherited Name="Name" Visible="True"/>
+          <Component Name="PrintedNumberEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.PrintedNumber" HasCaption="True"/>
+        </Inherited>
+        <Component Name="ReleasedEdit" Class="Com.Ctrl.IEdit" After="Group1" Field="EdtRec.Released" FixSize="True" HasCaption="True" Width="30"/>
+        <Component Name="ClosedEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Closed" FixSize="True" HasCaption="True" Width="30"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

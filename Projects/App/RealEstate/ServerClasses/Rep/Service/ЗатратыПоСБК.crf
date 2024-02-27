@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Name="IReportTurns" Class="Com.Rep.IReportTurns" AccountFilter="AcceptingExpenses|OrderExpenses" AccountPlan="EquipmentRegistryAP" Autobuild="True" BegDate="01.01.1900" BegSaldoFormat="sfNone" Caption="Затраты в разрезе СБК" CIndicator="1" ColCaptionTurn="Затраты" EndDate="01.01.2050" EndSaldoFormat="sfNone" GeoSplit="1" GeoSplitRef="ОбъектИмущества" HystoKind="hkSide" Legend="lpkAtRight" LinkTables="True" Palette="cpMaterial" Period="3">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorЗаказ" Class="Com.Rep.IIndCustom" Caption="Заявка" Formula="Turn(&quot;equipmentRegistryAP:OrderExpenses&quot;, &quot;CostCosts&quot;, &quot;CostCode = &quot; + Str(Поле('#', стр, 1)))" MaxWidth="30" MinWidth="30" ShowUnit="False" ValueType="VarNumeric"/>
+      <Component Name="IndicatorПриемка" Class="Com.Rep.IIndCustom" CalcTime="ctAfterSorting" Caption="Приемка" Formula="Turn(&quot;equipmentRegistryAP:AcceptingExpenses&quot;, &quot;CostCosts&quot;, &quot;CostCode = &quot; + Str(Поле('#', стр, 1)))" MaxWidth="30" MinWidth="30" ShowUnit="False" ValueType="VarNumeric"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam57089317" Class="Com.Rep.ISplitByParam" ShowTotalsAlways="True" SplitParam="CostCode"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContentCBB0A5EF" Class="Com.Rep.ISplitContent" Caption="СБК" Contents="CostCode.Name"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab">
+        <Component Name="SplitContent41D21E35" Class="Com.Rep.ISplitContent" Contents="CostCode.Name"/>
+      </Component>
+    </Component>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls"/>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain">
+      <Component Name="ExplainReport" Class="Com.Rep.IExplain" Caption="Затраты по СБК_Уточняющий" ReportName="RealEstate.Rep.Service.ЗатратыПоСБК_Уточняющий"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonPost" Visible="False"/>
+        <Inherited Name="ButtonCancel" Visible="False"/>
+        <Inherited Name="ButtonClone" Visible="False"/>
+        <Inherited Name="ButtonDelete" Visible="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="GeneralBox" Class="Com.Ctrl.IBox" Caption="Основное" HasCaption="True">
+          <Component Name="Code2ColGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="False">
+            <Component Name="Code2Caption" Class="Com.Ctrl.IStatic" Caption="@CodeName:Code=Код" FixSize="True" Width="40"/>
+            <Component Name="Code2" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.Code" FixSize="True" HasCaption="False" Width="80"/>
+          </Component>
+          <Component Name="Name2ColGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="False">
+            <Component Name="Name2Caption" Class="Com.Ctrl.IStatic" Caption="@CodeName:Name=Название" FixSize="True" Width="40"/>
+            <Component Name="Name2" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.Name" FixSize="True" HasCaption="False" Width="80"/>
+          </Component>
+        </Component>
+        <Component Name="DetailesBox" Class="Com.Ctrl.IBox" Caption="Детали" HasCaption="True">
+          <Component Name="PlanGroupTypeColGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="False">
+            <Component Name="PlanGroupTypeCaption" Class="Com.Ctrl.IStatic" Caption="@AnnualPlan:PlanGrpType=Тип группы плана" FixSize="True" Width="40"/>
+            <Component Name="PlanGroupType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Enabled="False" Field="EdtRec.DocId" FixSize="True" HasCaption="False" Width="80"/>
+          </Component>
+          <Component Name="CompanyColGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="False">
+            <Component Name="CompanyCaption" Class="Com.Ctrl.IStatic" Caption="@Task:Company=Предприятие" FixSize="True" Width="40"/>
+            <Component Name="Company" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.DocId" FixSize="True" HasCaption="False" LookupField="Name" Width="80"/>
+            <Component Name="CompanyJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.DocId" FixSize="True" HasCaption="False" Width="7.2"/>
+          </Component>
+          <Component Name="ObjectCodeColGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="False">
+            <Component Name="ObjectCodeCaption" Class="Com.Ctrl.IStatic" Caption="Объект" FixSize="True" Width="40"/>
+            <Component Name="ObjectCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Places.ObjectsTab" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.DocId" FixSize="True" HasCaption="False" LookupField="Name" Width="80"/>
+            <Component Name="ObjectCodeJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.DocId" FixSize="True" HasCaption="False" Width="7.2"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

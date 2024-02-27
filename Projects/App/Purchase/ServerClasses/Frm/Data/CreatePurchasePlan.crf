@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Purchase.Frm.Data.BaseDocFrm">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Purchase.Rec.Data.PurchasePlan" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="1">
+        <Inherited Name="ButtonServices" Excluded="True"/>
+        <Inherited Name="ButtonReports" Excluded="True"/>
+        <Inherited Name="ButtonAnalytics" Excluded="True"/>
+        <Inherited Name="ButtonPost" Excluded="True"/>
+        <Inherited Name="ButtonClone" Excluded="True"/>
+        <Inherited Name="ButtonDelete" Excluded="True"/>
+        <Inherited Name="ButtonRefresh" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="BasicFrame">
+        <Inherited Name="CodeFrame">
+          <Inherited Name="CodeGr" MaxWidth="220" MinWidth="100">
+            <Inherited Name="JournalDate" Caption="Дата документа" Width="70"/>
+            <Inherited Name="CodeEdit" Visible="False"/>
+            <Inherited Name="Locked" Visible="False"/>
+            <Inherited Name="btnStatus" Caption="Создать"/>
+            <Inherited Name="NewLine1" Excluded="True"/>
+            <Inherited Name="NameEdit" Visible="False"/>
+            <Inherited Name="Company" MinWidth="187"/>
+            <Inherited Name="CompanyJB" Width="7"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="MainBox">
+            <Component Name="Gr_Подразделение" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="220" MinWidth="100">
+              <Component Name="ed_Подразделение" Class="Com.Ctrl.IEdit" CaptionWidth="55" CardFileClass="Bas.Tab.Data.Divisions" Field="EdtRec.Division" HasCaption="True" MinWidth="187" OnOpenCardForm="DivisionAuthor_OnOpenCardForm"/>
+              <Component Name="Static_Подразделение" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Component Name="Gr_Ответственный" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="220" MinWidth="100">
+              <Component Name="ed_Ответственный" Class="Com.Ctrl.IEdit" CaptionWidth="55" CardFileClass="Bas.Tab.Data.Employees" Field="EdtRec.Ответственный" HasCaption="True" MinWidth="187" OnOpenCardForm="DivisionAuthor_OnOpenCardForm"/>
+              <Component Name="Static_Ответственный" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Component Name="Gr_РазбиватьПо" Class="Com.Ctrl.IGroup" MaxWidth="220" MinWidth="100">
+              <Component Name="stSplitBy" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="Разбивать по" FixSize="True" Width="55"/>
+              <Component Name="cbSplitBy_ЦФО" Class="Com.Ctrl.ICheckBox" Field="EdtRec.SplitBy_ЦФО" Width="16"/>
+              <Component Name="cbSplitBy_СБК" Class="Com.Ctrl.ICheckBox" Field="EdtRec.SplitBy_СБК" Width="15"/>
+              <Component Name="cbSplitBy_Контрагент" Class="Com.Ctrl.ICheckBox" Field="EdtRec.SplitBy_Контрагент" Width="33"/>
+              <Component Name="cbSplitBy_ВидЗаявки" Class="Com.Ctrl.ICheckBox" Field="EdtRec.SplitBy_ВидЗаявки" Width="33"/>
+              <Component Name="cbSplitBy_ГруппаЗакупок" Class="Com.Ctrl.ICheckBox" Field="EdtRec.SplitBy_ГруппаЗакупок" Width="40"/>
+              <Component Name="cbSplitBy_Лот" Class="Com.Ctrl.ICheckBox" Field="EdtRec.SplitBy_Лот" Width="20"/>
+              <Component Name="cbSplitBy_Валюта" Class="Com.Ctrl.ICheckBox" Field="EdtRec.SplitBy_Валюта" Width="20"/>
+            </Component>
+          </Inherited>
+          <Inherited Name="LineBox" Visible="False"/>
+        </Inherited>
+        <Inherited Name="PosTab" Excluded="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

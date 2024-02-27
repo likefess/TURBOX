@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Tab.Документы.Имущество.ИмуществоБазовыйДокумент">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="NavigatorFrame">
+        <Inherited Name="NavigatorGroup">
+          <Inherited Name="ButtonTree" Excluded="True"/>
+          <Inherited Name="ButtonBack" Excluded="True"/>
+          <Inherited Name="ButtonForward" Excluded="True"/>
+          <Inherited Name="PathEdit" Excluded="True"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Code" After="ExtId"/>
+          <Component Name="ObjType" Class="Com.Ctrl.IEdit" After="Номер" Caption="Тип документа" CardFileClass="Имущество.Tab.Справочники.ТипДокумента_Имущество" Field="Current.ObjType" HasCaption="True" LookupField="Name" Width="50"/>
+          <Component Name="ТипДокумента" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Тип документа" Field="Current.Номер" FixSize="True" HasCaption="True" OnOutputEx="ТипДокумента_OnOutputEx" Visible="True" Width="50"/>
+          <Inherited Name="Name" After="ВалютаДок" Visible="True" Width="80"/>
+          <Inherited Name="Комментарии" After="Name"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

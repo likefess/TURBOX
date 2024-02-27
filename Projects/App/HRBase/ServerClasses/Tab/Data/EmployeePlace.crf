@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="HRBase.Tab.Base.HierarchDivision">
+  <Inherited>
+    <Inherited Name="Current" Class="HRBase.Rec.Data.EmployeePlace" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonAddItem" Visible="False"/>
+        <Inherited Name="ButtonCloneItem" Visible="False"/>
+        <Inherited Name="ButtonDeleteItem" Visible="False"/>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree">
+          <Inherited Name="CardTree" Visible="True"/>
+        </Inherited>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" Visible="False"/>
+          <Inherited Name="Code" Visible="False"/>
+          <Component Name="EmplNumber" Class="Com.Ctrl.IEdit" Field="Current.EmplNumber" HasCaption="True" Width="20"/>
+          <Component Name="Person" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Contraparties" Field="Current.Person" FontBold="False" HasCaption="True" LookupField="Name" Visible="True" Width="60"/>
+          <Component Name="Company" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="Current.Company" FontBold="False" HasCaption="True" LookupField="Name" Visible="True" Width="40"/>
+          <Component Name="Division" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" Field="Current.Division" HasCaption="True" LookupField="Name" Visible="True" Width="40"/>
+          <Component Name="Position" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.Positions" Field="Current.Position" LookupField="Name" Visible="True" Width="40"/>
+          <Component Name="HireDate" Class="Com.Ctrl.IEdit" Field="Current.HireDate" FormatOfDate="DateOnly" HasCaption="True" Visible="True" Width="25"/>
+          <Component Name="FireDate" Class="Com.Ctrl.IEdit" Field="Current.FireDate" FormatOfDate="DateOnly" HasCaption="True" Visible="True" Width="30"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

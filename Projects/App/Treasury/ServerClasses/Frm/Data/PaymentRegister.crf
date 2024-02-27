@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited PrintSettings="Treasury.PaymentRegister.cfg">
+    <Inherited Name="EdtRec" Class="Treasury.Rec.Data.PaymentRegister" IsLibrary="1"/>
+    <Component Name="EdtRecSub" Class="Treasury.Rec.Data.PaymentRegister_Requests" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="TableMenu" After="EdtRecSub"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Component Name="ButtonCreateRegister" Class="Com.Ctrl.IButton" Caption="Сформировать реестр" OnClick="ButtonCreateRegisterOnClick"/>
+          <Component Name="ButtonCancelApprovement" Class="Com.Ctrl.IButton" Caption="Отменить согласование" OnClick="ButtonCancelApprovementOnClick"/>
+          <Component Name="ButtonGenerateOrders" Class="Com.Ctrl.IButton" Caption="Создать п/п" OnClick="ButtonGenerateOrdersOnClick"/>
+        </Inherited>
+        <Component Name="ButtonPrint" Class="Com.Ctrl.IButton" After="ButtonServices" Caption="Печать" Command="Commands.Print" ImageName="Com.print" Printed="False"/>
+        <Inherited Name="ButtonClose" After="ButtonPrint"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" Excluded="True"/>
+        <Component Name="CompanyGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="200" MinWidth="150">
+          <Component Name="CompanyEdit" Class="Com.Ctrl.IEdit" Caption="Предприятие" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="EdtRec.Company" HasCaption="True" LookupField="Name" Required="True" ShortList="True"/>
+        </Component>
+        <Component Name="NumberDateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="200" MinWidth="150">
+          <Component Name="NumberEdit" Class="Com.Ctrl.IEdit" Caption="Номер" CellFormat="StringFormat" Field="EdtRec.Number" FieldFormat="####" HasCaption="True" Required="True"/>
+          <Component Name="RegisterDateEdit" Class="Com.Ctrl.IEdit" Caption="Дата" CellFormat="DateFormat" Field="EdtRec.RegisterDate" HasCaption="True" Required="True"/>
+        </Component>
+        <Component Name="DAGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="200" MinWidth="150">
+          <Component Name="DAStatus" Class="Com.Ctrl.IEdit" Caption="Статус" Enabled="False" Field="EdtRec.DATask_Status" LookupField="Name" OnOutputEx="DAStatus_OnOutputEx"/>
+          <Component Name="DAJumpButton" Class="Com.Ctrl.IJumpButton" Field="EdtRec.DATask"/>
+          <Component Name="ToApprovementButton" Class="Com.Ctrl.IButton" Caption="На согласование" ImageName="Treasury.ToApprovement" OnClick="ToApprovementButton_OnClick" Visible="False" Width="40"/>
+        </Component>
+        <Component Name="DescriptionGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="200" MinWidth="150">
+          <Component Name="DescriptionEdit" Class="Com.Ctrl.IEdit" Caption="Описание" CellFormat="StringFormat" Field="EdtRec.Description" HasCaption="True"/>
+        </Component>
+        <Component Name="AmountSumGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="200" MinWidth="150">
+          <Component Name="AmountEdit" Class="Com.Ctrl.IEdit" Caption="Количество заявок" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.Amount" HasCaption="True"/>
+          <Component Name="SumEdit" Class="Com.Ctrl.IEdit" Caption="Сумма" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.Sum" FieldFormat=",##0.00;;-" HasCaption="True"/>
+        </Component>
+      </Inherited>
+      <Component Name="SubtableFrame" Class="Com.Ctrl.IFrame" Subtable="EdtRec.Requests">
+        <Component Name="SubNumberEdit" Class="Com.Ctrl.IEdit" Caption="№" CardFileClass="Treasury.Tab.Data.PaymentRequest" CellFormat="ReferenceFormat" Field="EdtRecSub.Request" HasCaption="True" LookupField="PrintedNumber" OnGetLookupFilter="SubNumberEditOnGetLookupFilter" Width="25"/>
+        <Component Name="PaymentRequest" Class="Com.Ctrl.IJumpButton" Field="EdtRecSub.Request" JumpForm="Treasury.Frm.Data.PaymentRequest"/>
+        <Component Name="SubPaymentDateEdit" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Срок оплаты" Enabled="False" Field="EdtRecSub.Request" HasCaption="True" LookupField="PaymentDate" Width="30"/>
+        <Component Name="SubStatusEdit" Class="Com.Ctrl.IEdit" Caption="Состояние" Enabled="False" Field="EdtRecSub.Request" HasCaption="True" LookupField="TaskStatus.Name" Width="40"/>
+        <Component Name="SubContrapartyEdit" Class="Com.Ctrl.IEdit" Caption="Контрагент" Enabled="False" Field="EdtRecSub.Request" HasCaption="True" LookupField="Contraparty.Name" Multiline="True" Width="40" Wrap="True"/>
+        <Component Name="SubSumEdit" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Сумма к оплате" Enabled="False" Field="EdtRecSub.RequestSum" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+        <Component Name="SubCurrencyEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Валюта платежа" Enabled="False" Field="EdtRecSub.Request" HasCaption="True" LookupField="Currency.Code" Width="20"/>
+        <Component Name="SubPurposeEdit" Class="Com.Ctrl.IEdit" Caption="Назначение платежа" Enabled="False" Field="EdtRecSub.Request" HasCaption="True" LookupField="PaymentPurpose" Multiline="True" Width="60" Wrap="True"/>
+        <Component Name="SubBankDetailsEdit" Class="Com.Ctrl.IEdit" Caption="Р/счет" Enabled="False" Field="EdtRecSub.Request" HasCaption="True" LookupField="OurBankDetails" Multiline="True" OnOutputEx="BankDetails_OnOutputEx" Width="50" Wrap="True"/>
+        <Component Name="SubCFREdit" Class="Com.Ctrl.IEdit" Caption="ЦФО" Enabled="False" Field="EdtRecSub.Request" HasCaption="True" LookupField="CFR.Name" Multiline="True" Width="40" Wrap="True"/>
+        <Component Name="SubBGIEdit" Class="Com.Ctrl.IEdit" Caption="Статья бюджета" Enabled="False" Field="EdtRecSub.Request" HasCaption="True" LookupField="BGI.Name" Multiline="True" Width="40" Wrap="True"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

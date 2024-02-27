@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rec.CodeName">
+  <Inherited>
+    <Component Name="Status" Class="Com.Fld.IField" Caption="Статус" FieldName="Status" OnVerify="Status_OnVerify" ValueType="VarObject"/>
+    <Component Name="ObjectKind" Class="Com.Fld.IVar" Caption="Вид объекта" OnCalc="ObjectKind_OnCalc" RecordClass="RealEstateBase.Rec.Ref.RealEstateObjKind" ValueType="VarObject"/>
+    <Component Name="Object" Class="Com.Fld.IField" Caption="Объект имущества" FieldName="Object" OnChange="Object_OnChange" ValueType="VarObject"/>
+    <Component Name="Company" Class="Com.Fld.IField" Caption="Организация" FieldName="Company" LookupFilter="IsOurCompany" ValueType="VarObject"/>
+    <Component Name="Controller" Class="Com.Fld.IField" Caption="Орган контроля" FieldName="Controller" LookupFilter="IsContraparty" ValueType="VarObject"/>
+    <Component Name="Act" Class="Com.Fld.IField" Caption="Акт проверки" FieldName="Act" ValueType="VarString"/>
+    <Component Name="StartDate" Class="Com.Fld.IField" Caption="Дата" FieldName="StartDate" ValueType="VarDate"/>
+    <Component Name="NumberDoc" Class="Com.Fld.IField" Caption="Номер" FieldName="NumberDoc" ValueType="VarString"/>
+    <Component Name="EndDate" Class="Com.Fld.IField" Caption="Срок исполнения" FieldName="EndDate" ValueType="VarDate"/>
+    <Component Name="Violations" Class="Com.ISubtable" StructClass="RealEstate.Rec.Doc.EliminationOrder_Violations" SubtableName="Violations"/>
+    <Component Name="ReportDate" Class="Com.Fld.IField" Caption="О выполнении предписания сообщить до" FieldName="ReportDate" ValueType="VarDate"/>
+    <Component Name="ExtendDate" Class="Com.Fld.IField" Caption="Продлить срок до" FieldName="ExtendDate" OnChange="ExtendDate_OnChange" ValueType="VarDate"/>
+    <Component Name="ExtendBase" Class="Com.Fld.IField" Caption="Основание продления" FieldName="ExtendBase" ValueType="VarInteger"/>
+    <Component Name="IssuedBy" Class="Com.Fld.IField" Caption="Предписание выдал" FieldName="IssuedBy" ValueType="VarString"/>
+    <Component Name="ReceivedBy" Class="Com.Fld.IField" Caption="Предписание получил" FieldName="ReceivedBy" ValueType="VarObject"/>
+  </Inherited>
+</Resource>

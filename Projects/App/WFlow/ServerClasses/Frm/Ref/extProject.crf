@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.Ref.Project">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Component Name="ProjectColorEdit" Class="Com.Ctrl.IColorEdit" Field="EdtRec.ProjectColor" HasCaption="True" Width="35"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="Group3" CaptionWidth="50">
+            <Inherited Name="RuleGroup" Visible="False"/>
+            <Component Name="InitialStatus" Class="Com.Ctrl.IEditEx" After="RuleGroup" CardFileClass="Control.Tab.Ref.TaskStatus" CellFormat="ReferenceFormat" Field="EdtRec.InitialStatus" HasCaption="True" LookupField="Name" ValueType="VarObject">
+              <Component Name="JB_InitialStatus" Class="Com.Ctrl.IJumpButton"/>
+            </Component>
+            <Inherited Name="TasksFolder" CardFileClass="WFlow.Tab.Data.Tasks"/>
+            <Component Name="TasksTemplate" Class="Com.Ctrl.IEditEx" After="TasksFolder" CardFileClass="WFlow.Tab.Data.Tasks" Field="EdtRec.TasksTemplate" HasCaption="True" LookupField="Name">
+              <Component Name="TemplateJumpButton" Class="Com.Ctrl.IJumpButton"/>
+            </Component>
+            <Component Name="EMailServer" Class="Com.Ctrl.IEditEx" CardFileClass="Bas.Tab.Config.EMailServer" CellFormat="ReferenceFormat" Field="EdtRec.EMailServer" HasCaption="True" LookupField="Name" ValueType="VarObject">
+              <Component Name="JB_EMailServer" Class="Com.Ctrl.IJumpButton"/>
+            </Component>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.BasObject">
+  <Inherited>
+    <Inherited Name="Current" Class="ИмуществоБазовый.Rec.Справочники.ИмуществоБазовый" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Code" After="ExtId" HasCaption="True" Visible="False" Width="60"/>
+          <Inherited Name="Name" After="Code" Caption="Наименование" HasCaption="True"/>
+          <Component Name="КодИмущества" Class="Com.Ctrl.IEdit" Field="Current.КодИмущества" HasCaption="True" Hint="@Код объекта системы &quot;Имущество&quot; (Инвентарный номер ОС / Код КВ / Код групповой карточки ОС)" Width="30"/>
+          <Component Name="ПолнИмя" Class="Com.Ctrl.IEdit" Caption="Полное наименование" Field="Current.ПолнИмя" FontBold="True" HasCaption="True" Visible="True" Width="50"/>
+          <Component Name="Завершен" Class="Com.Ctrl.ICheckBox" Caption="Завершен" Field="Current.Closed" HasCaption="True" Width="18"/>
+          <Component Name="НашеПредприятие" Class="Com.Ctrl.IEdit" Field="Current.НашеПредприятие" Visible="False"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

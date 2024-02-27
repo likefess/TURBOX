@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IMenu">
+  <Inherited Caption="@MnR.Menu.Panel:Tuning=Настройка" FormIcon="Com.Cogs">
+    <Inherited Name="MainGroup" Columns="2" Rows="2">
+      <Component Name="MnRMenuGroup_Priority" Class="Com.Cmd2.IGroup" Caption="@MnR.Menu.Group:Priority=Система приоритетов" Columns="2" Rows="2">
+        <Component Name="MenuItem_InfobaseMnRMenuCmdEqmPrior" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_EqmPrior"/>
+        <Component Name="MenuItem_InfobaseMnRMenuCmdRepPrior" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_RepPrior"/>
+      </Component>
+      <Component Name="MnRMenuGroup_OrdersAttributes" Class="Com.Cmd2.IGroup" Caption="@MnR.Menu.Group:OrdersAttributes=Атрибуты работ" Columns="2" Rows="2">
+        <Component Name="MenuItem_InfobaseMnRMenuCmdAttOrderDefStatus" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_AttOrderDefStatus"/>
+      </Component>
+      <Component Name="MnRMenuGroup_Approve" Class="Com.Cmd2.IGroup" Caption="@MnR.Menu.Group:Approving=Согласование" Columns="2" Enabled="False" Rows="2" Visible="False">
+        <Component Name="ApprovalRules" Class="Com.ComManaging.OpenIForm" Caption="Правила согласования" FormClassName="Tab.Ref.Approve.ApprovalRules" IconName="Repair.Mail-bulk"/>
+        <Component Name="ApprovalTemplates" Class="Com.ComManaging.OpenIForm" Caption="Шаблоны согласования" FormClassName="Tab.Ref.Approve.AppTaskTemplate" IconName="Repair.Mail-bulk"/>
+        <Component Name="RefApproval" Class="Com.ComManaging.OpenIForm" Caption="Согласование справочников" FormClassName="Tab.Journals.RefApproving" IconName="Repair.Mail-bulk"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

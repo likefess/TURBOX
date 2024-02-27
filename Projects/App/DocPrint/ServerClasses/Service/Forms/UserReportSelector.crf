@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="DocPrint.Service.Forms.DataSelector">
+  <Inherited>
+    <Inherited Name="Data" Class="DocPrint.Service.Data.UserReportSelector" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="ResultArray" Class="Com.Fld.IArray" ValueType="VarVariant"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ButtonPreview" Class="Com.Ctrl.IButton" After="#0" Caption="@DocPrint.UserReportSelector.ButtonPreview:Caption=Предпросмотр результата" ImageName="Com.Report" OnClick="ButtonPreviewOnClick"/>
+        <Inherited Name="ButtonOK" After="ButtonPreview"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="FieldsSubFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+            <Component Name="ReportEdit" Class="Com.Ctrl.IEditEx" Caption="@DocPrint.UserReportSelector.ReportEdit:Caption=Отчёт" CardFileClass="Com.Tab.Service.Report" CellFormat="ReferenceFormat" Field="Data.CurrentReport" HasCaption="True" LookupField="Name" ValueType="VarObject">
+              <Component Name="ReportJumpButton" Class="Com.Ctrl.IJumpButton" Field="Data.CurrentReport" JumpForm="Com.Frm.Service.Report"/>
+            </Component>
+            <Component Name="SourceTypeEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.UserReportSelector.SourceTypeEdit:Caption=Измерение" CellFormat="EnumFormat" Field="Data.CurrentSourceType" HasCaption="True" ValueType="VarInteger"/>
+            <Component Name="SourceEdit" Class="Com.Ctrl.IEdit" AutoLookup="True" Caption="@DocPrint.UserReportSelector.SourceEdit:Caption=Параметр" CellFormat="EnumFormat" Field="Data.CurrentSource" HasCaption="True" OnEnter="SourceEditOnEnter" ValueType="VarString"/>
+            <Component Name="SumPartEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.UserReportSelector.SumPartEdit:Caption=Часть показателя" CellFormat="EnumFormat" Field="Data.CurrentSumPart" HasCaption="True" OnEnter="SumPartEditOnEnter" ValueType="VarInteger" Visible="False"/>
+            <Component Name="RefParamEdit" Class="Com.Ctrl.IEdit" AutoLookup="True" Caption="@DocPrint.UserReportSelector.RefParamEdit:Caption=Поле записи" CellFormat="EnumFormat" Field="Data.CurrentRefParam" HasCaption="True" ValueType="VarString" Visible="False"/>
+            <Component Name="EnumListEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.UserReportSelector.EnumListEdit:Caption=Перечисление" CellFormat="StringFormat" Field="Data.EnumList" HasCaption="True" Multiline="True" ValueType="VarString" Wrap="True"/>
+            <Component Name="FilterEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.UserReportSelector.FilterEdit:Caption=Фильтр" CellFormat="StringFormat" Field="Data.CurrentFilter" HasCaption="True" ValueType="VarString"/>
+          </Component>
+        </Component>
+        <Component Name="PeriodSubFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Vertical">
+          <Component Name="MarginFrame" Class="Com.Ctrl.IFrame" Size="26.2"/>
+          <Component Name="PeriodFrame" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+        </Component>
+        <Component Name="CheckBoxSubFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+            <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="False">
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption=" " Width="40"/>
+              <Component Name="ApplyFilterCheckBox" Class="Com.Ctrl.ICheckBox" Caption="@DocPrint.UserReportSelector.ApplyFilterCheckBox:Caption=Применить фильтр" Field="Data.ApplyFilter" HasCaption="True" Width="40"/>
+              <Component Name="ApplyPeriodCheckBox" Class="Com.Ctrl.ICheckBox" Caption="@DocPrint.UserReportSelector.ApplyPeriodCheckBox:Caption=Применить период" Field="Data.ApplyPeriod" HasCaption="True" Width="40"/>
+              <Component Name="ApplyEnumCheckBox" Class="Com.Ctrl.ICheckBox" Caption="@DocPrint.UserReportSelector.ApplyEnumCheckBox:Caption=Применить перечисление" Field="Data.ApplyEnum" HasCaption="True" Width="55"/>
+              <Component Name="SingleValueCheckBox" Class="Com.Ctrl.ICheckBox" Caption="@DocPrint.UserReportSelector.SingleValueCheckBox:Caption=Одно значение" Field="Data.SingleValue" HasCaption="True" Width="40"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Visible="False"/>
+        <Component Name="ResultTab" Class="Com.Ctrl.IFrame" Caption="@DocPrint.UserReportSelector.ResultTab:Caption=Результат" HasCaption="True">
+          <Component Name="ResultTable" Class="Com.Ctrl.ITable" ManualControl="False">
+            <Component Name="ResultArrayEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.UserRecordSelector.ResultArrayEdit:Caption=Значения" Enabled="False" Field="ResultArray" HasCaption="True" OnOutputEx="ResultArrayEditOnOutputEx" ValueType="VarVariant" Width="150"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CashFlow.Tab.Doc.BankMoveBase">
+  <Inherited Hierarchical="False">
+    <Inherited Name="Current" Class="CashFlow.Rec.Doc.FIDocument" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Code" Excluded="True"/>
+          <Inherited Name="Entity" Excluded="True"/>
+          <Component Name="Accounted" Class="Com.Ctrl.IEdit" After="Entity" Caption="@FIDocument:Accounted=Проводить" Field="Current.Accounted" HasCaption="True" Width="15"/>
+          <Inherited Name="CreateUser" After="Accounted"/>
+          <Inherited Name="Contraparty" Excluded="True"/>
+          <Inherited Name="PrintedNumberEdit" Excluded="True"/>
+          <Inherited Name="EventTime" Excluded="True"/>
+          <Inherited Name="Sum" Excluded="True"/>
+          <Inherited Name="Currency" Excluded="True"/>
+          <Inherited Name="BankDetailsEdit" Excluded="True"/>
+          <Inherited Name="PurposeEdit" Excluded="True"/>
+          <Component Name="EventTimeEdit" Class="Com.Ctrl.IEdit" After="PurposeEdit" Caption="Дата" Field="Current.EventTime" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" Width="30"/>
+          <Component Name="PrintedNumber" Class="Com.Ctrl.IEdit" Caption="Номер" Field="Current.PrintedNumber" HasCaption="True" Width="30"/>
+          <Component Name="DocumentType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Current.DocumentType" HasCaption="True" ListAsString="Выпуск ценных бумаг|0;Передача векселя в счет оплаты задолженности|1;Погашение собственного ФИ|2;Поступление финансовых инструментов|3;Погашение ФИ|4;Начисление процентов финансовые вложения|5;Начисление процентов финансовые активы|6;Реклассификация задолженности|7;Переоценка|8;Выкуп собственных акций|9" Width="50"/>
+          <Component Name="TotalAmount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="Current.TotalAmount" FieldFormat=",##0.00;;-" HasCaption="True" Width="40"/>
+          <Component Name="CurrencyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UnitsOrCurrencies" Field="Current.Currency" LookupField="Code" Width="15"/>
+          <Component Name="EntityEdit" Class="Com.Ctrl.IEdit" Caption="Наше предприятие" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="Current.Entity" LookupField="Name" Width="50"/>
+          <Component Name="Description" Class="Com.Ctrl.IEdit" Field="Current.Description" HasCaption="True" Width="60"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

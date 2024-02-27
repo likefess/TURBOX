@@ -1,0 +1,49 @@
+﻿TBCFile VER="3.4" [Created '16.08.2022 1:55:22' by 'Администратор']
+
+DESCRIPTION[
+Count=3
+CountByRef=0
+Bas.Ref.EntityRole
+(
+  Count=3
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Bas.Ref.EntityRole
+  (
+    Deleted :Boolean
+    Code :String(80)
+    Name :String(255)
+    SystemRole :Integer
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Bas.Ref.EntityRole
+  
+  {Bas.Ref.EntityRole:"Инициатор"}
+  (
+    Name = "Инициатор согласования договора"
+    SystemRole = 18
+  )
+  
+  {Bas.Ref.EntityRole:"Согласующий"}
+  (
+    Name = "Согласующий"
+    SystemRole = 18
+  )
+  
+  {Bas.Ref.EntityRole:"Подписывающий (руководитель)"}
+  (
+    Name = "Подписывающий (руководитель)"
+    SystemRole = 18
+  )
+]
+
+]

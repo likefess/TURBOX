@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.SysFields">
+  <Inherited Caption="@TaskResource:TableCaption=Ресурсы по задачам">
+    <Inherited Name="Current" Class="TMSCosts.Rec.Data.TaskResources" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="CardFile" CanDelete="True" CanEdit="True" CanInsert="True"/>
+          <Component Name="ResourceEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:Resource=Ресурс" CardFileClass="Biz.Tab.Data.Resources" CellFormat="ReferenceFormat" Field="Current.Resource" HasCaption="True" LookupField="Name" LookupFilter="ResType = 500" ValueType="VarObject" Visible="True" Width="70"/>
+          <Component Name="EntityEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" Field="Current.Entity" LookupField="Name" ValueType="VarObject"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

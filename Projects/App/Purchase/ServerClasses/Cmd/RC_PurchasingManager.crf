@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IRoleCenter">
+  <Inherited Caption="РМ менеджера по закупкам">
+    <Inherited Name="MainGroup">
+      <Component Name="Group1" Class="Com.Cmd2.IGroup" Columns="6" Orientation="Vertical" Rows="6">
+        <Component Name="Group7" Class="Com.Cmd2.IGroup" Columns="4" Orientation="Horizontal" Rows="3">
+          <Component Name="grRef" Class="Com.Cmd2.IGroup" Caption="Основные данные" Columns="2" Orientation="Vertical" Rows="3">
+            <Component Name="Resource" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Resources"/>
+            <Component Name="GroupPurchase" Class="Com.Cmd2.IItem" Command="Commands.Cmd_PurchaseGroup"/>
+            <Component Name="Contraparties" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Contraparties"/>
+            <Component Name="Lots" Class="Com.Cmd2.IItem" Command="Commands.Cmd_PurchaseLot"/>
+            <Component Name="Employee" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Employees"/>
+            <Component Name="Individuals" Class="Com.Cmd2.IItem" Command="Commands.Cmd_NaturalEntities"/>
+          </Component>
+          <Component Name="grSettings" Class="Com.Cmd2.IGroup" Caption="Настройка" Columns="2" Orientation="Vertical" Rows="3">
+            <Component Name="StatusOfferRequest" Class="Com.Cmd2.IItem" Command="Commands.Cmd_StatusOfferRequest"/>
+            <Component Name="MethodSelectionsSupplier" Class="Com.Cmd2.IItem" Command="Commands.Cmd_MethodSelectionSupplier"/>
+            <Component Name="StatusSupplier" Class="Com.Cmd2.IItem" Command="Commands.Cmd_StatusSupplier"/>
+            <Component Name="TermsOfferRequest" Class="Com.Cmd2.IItem" Command="Commands.Cmd_TermsOfferRequest"/>
+            <Component Name="MaxDeviationAmount" Class="Com.Cmd2.IItem" Command="Commands.Cmd_MaxDeviationAmount"/>
+          </Component>
+        </Component>
+        <Component Name="Group8" Class="Com.Cmd2.IGroup" Columns="3" Orientation="Horizontal" Rows="4">
+          <Component Name="grData" Class="Com.Cmd2.IGroup" Caption="Документы" Columns="2" Orientation="Vertical" Rows="3">
+            <Component Name="PurchaseOrder" Class="Com.Cmd2.IItem" Command="Commands.Cmd_PurchaseOrder"/>
+            <Component Name="PlanPurchase" Class="Com.Cmd2.IItem" Command="Commands.Cmd_PurchasePlan"/>
+            <Component Name="OfferRequest" Class="Com.Cmd2.IItem" Command="Commands.Cmd_OfferRequest"/>
+            <Component Name="SuppliOffer" Class="Com.Cmd2.IItem" Command="Commands.Cmd_SupplierOffer"/>
+          </Component>
+          <Component Name="grRep" Class="Com.Cmd2.IGroup" Caption="Отчёты" Columns="2" Orientation="Vertical" Rows="3">
+            <Component Name="PurchaseRequisitionReport" Class="Com.Cmd2.IItem" Command="Commands.Cmd_PurchaseRequisitionReport"/>
+            <Component Name="ProcumentPlanItemsRep" Class="Com.Cmd2.IItem" Command="Commands.Cmd_ProcurementPlanItemsRep"/>
+            <Component Name="RequestRep" Class="Com.Cmd2.IItem" Command="Commands.Cmd_RequestRep"/>
+            <Component Name="RepExecutionPurchaseAgreement" Class="Com.Cmd2.IItem" Command="Commands.Cmd_RepExecutionPurchaseAgreement"/>
+          </Component>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

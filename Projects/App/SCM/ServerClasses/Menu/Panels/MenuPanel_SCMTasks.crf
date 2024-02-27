@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IMenu">
+  <Inherited Caption="@Menu.Panel:SCMTasks=Задания" FormIcon="Com.Tasks">
+    <Inherited Name="MainGroup" Columns="2" Rows="2">
+      <Component Name="ЭДО" Class="Com.Cmd2.IGroup" Excluded="True" Caption="ЭДО">
+        <Component Name="MenuItem__ЭДО_УведомлениеОбОстатках" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.SCM_ЭДО_УведомлениеОбОстатках"/>
+      </Component>
+      <Component Name="Сервисы" Class="Com.Cmd2.IGroup" Caption="Сервисы" Columns="2" Rows="2">
+        <Component Name="MenuItem_InfobaseСервисСменить_наше_предприятие" Class="Com.Cmd2.IItem" Command="Commands.SelectOurCompany"/>
+        <Component Name="MenuItem_InfobaseSCMPeriodicActivitiesTasksPrice_Calculation" Class="Com.Cmd2.IItem" Command="Commands.SCM_PeriodicActivities_Tasks_Price_Calculation"/>
+        <Component Name="MenuItem_InfobaseSCMСервисПечатьЦенников" Class="Com.Cmd2.IItem" Command="Commands.SCM_Сервис_ПечатьЦенников"/>
+        <Component Name="MenuItem_InfobaseSCMСервисБлнПрайсЛисты" Class="Com.Cmd2.IItem" Command="Commands.SCM_Сервис_БлнПрайсЛисты"/>
+        <Component Name="MenuItem_InfobaseSCMСервисККТ" Class="Com.Cmd2.IItem" Command="Commands.SCM_Сервис_ККТ"/>
+        <Component Name="MenuItem_InfobaseСервисСтруктурирование" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.Сервис_Структурирование"/>
+        <Component Name="MenuItem_InfobaseSCMSevicesCompleteRTClass" Class="Com.Cmd2.IItem" Command="Commands.SCM_Sevices_CompleteRTClass"/>
+        <Component Name="MenuItem_InfobaseSCMСервисКонтрольИерархииСкладов" Class="Com.Cmd2.IItem" Command="Commands.SCM_Сервис_КонтрольИерархииСкладов"/>
+        <Component Name="MenuItem_InfobaseSCMSevicesSetInPosProcVAT" Class="Com.Cmd2.IItem" Command="Commands.SCM_Сервис_SetInPosProcVAT"/>
+      </Component>
+      <Component Name="Загрузки_НСИ" Class="Com.Cmd2.IGroup" Caption="Загрузки НСИ" Columns="2" Rows="2">
+        <Component Name="MenuItem_InfobaseСервисЗагрузкаСправочниковИКлассиф" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.Сервис_ЗагрузкаСправочниковИКлассиф"/>
+        <Component Name="MenuItem_InfobaseНастройкиЗагрузкаКЛАДР" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.Настройки_ЗагрузкаКЛАДР"/>
+        <Component Name="MenuItem_InfobaseНастройкиЗагрузкаБИК" Class="Com.Cmd2.IItem" Command="Commands.Настройки_ЗагрузкаБИК"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

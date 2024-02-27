@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Component Name="DataStruct" Class="BudgetControl.Rec.Service.BCResultLine" IsLibrary="1" After="#0"/>
+    <Inherited Name="TableMenu" After="DataStruct"/>
+    <Inherited Name="Variables">
+      <Component Name="DataSubtable" Class="Com.ISubtable"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonOK" Visible="False"/>
+        <Inherited Name="ButtonExport" Excluded="False" After="HeaderSeparator"/>
+        <Inherited Name="ButtonPrint" Excluded="False" After="ButtonExport"/>
+        <Inherited Name="ButtonRefresh" After="ButtonPrint"/>
+        <Inherited Name="ButtonHelp" After="ButtonRefresh"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" Subtable="DataSubtable">
+        <Component Name="TransDate" Class="Com.Ctrl.IEdit" Enabled="False" Field="DataStruct.TransDate" HasCaption="True" Width="22" Wrap="True"/>
+        <Component Name="PeriodType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Enabled="False" Field="DataStruct.PeriodType" HasCaption="True" ListAsString="месяц|0;квартал|1;год|2; |3" Width="20" Wrap="True"/>
+        <Component Name="ControlType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Enabled="False" Field="DataStruct.ControlType" HasCaption="True" ListAsString="запрещать|0;предупреждать|1;пропускать|2; |3" Width="40" Wrap="True"/>
+        <Component Name="BudgetType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Enabled="False" Field="DataStruct.BudgetType" HasCaption="True" ListAsString="БДДС|0;БДР|1;Бюджет закупок|2" Width="20" Wrap="True"/>
+        <Component Name="Company" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Company" HasCaption="True" LookupField="Name" ShortList="True" Width="40" Wrap="True"/>
+        <Component Name="Nomenclature" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Resources" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Nomenclature" HasCaption="True" LookupField="Name" Width="40" Wrap="True"/>
+        <Component Name="UnitOfMeasure" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UnitsOfMeasure" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.UnitOfMeasure" HasCaption="True" LookupField="Code" Width="25" Wrap="True"/>
+        <Component Name="Currency" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Currency" HasCaption="True" LookupField="Code" ShortList="True" Width="18" Wrap="True"/>
+        <Component Name="CFR" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.CFR" HasCaption="True" LookupField="Name" Width="40" Wrap="True"/>
+        <Component Name="BGI" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.BGI" HasCaption="True" LookupField="Name" Width="40" Wrap="True"/>
+        <Component Name="Source" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.FundSource" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Source" HasCaption="True" LookupField="Name" Width="40" Wrap="True"/>
+        <Component Name="Project" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Project" HasCaption="True" LookupField="Name" Width="40" Wrap="True"/>
+        <Component Name="Result" Class="Com.Ctrl.IEdit" Enabled="False" Field="DataStruct.Result" HasCaption="True" Width="80" Wrap="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

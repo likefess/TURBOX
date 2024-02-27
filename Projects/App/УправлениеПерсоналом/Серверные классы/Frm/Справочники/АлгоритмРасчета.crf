@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.Справочник">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Справочники.Алгоритмы расчета">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Справочники.АлгоритмРасчета" IsLibrary="1"/>
+    <Component Name="Переменные" Class="УправлениеПерсоналом.Rec.Справочники.АлгоритмРасчета_Переменные" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="грОсновное2" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="GroupDoc" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.GroupDoc" HasCaption="True" LookupField="Name"/>
+          <Component Name="Static14" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+        </Component>
+        <Inherited Name="Group1" Visible="True">
+          <Inherited Name="GroupCode">
+            <Inherited Name="Locked" Visible="True"/>
+          </Inherited>
+          <Inherited Name="GroupName">
+            <Inherited Name="Closed" Visible="True"/>
+          </Inherited>
+        </Inherited>
+        <Component Name="грПериод" Class="Com.Ctrl.IGroup" After="Group1" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Caption="@Период действия" Field="EdtRec.ДатаНачала" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="30"/>
+          <Component Name="ДатаОкончания" Class="Com.Ctrl.IEdit" Caption="-  " CaptionWidth="10" Field="EdtRec.ДатаОкончания" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="30"/>
+        </Component>
+        <Component Name="грОписание" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Описание" Class="Com.Ctrl.IEdit" Caption="Описание" Field="EdtRec.Описание" HasCaption="True" Multiline="True" Wrap="True"/>
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+        </Component>
+        <Component Name="грТипРасчета" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="ТипРасчета" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ТипыРасчетов" Field="EdtRec.ТипРасчета" HasCaption="True" LookupField="Имя" OnChange="ТипРасчета_OnChange"/>
+          <Component Name="кнТипРасчета" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ТипРасчета" JumpForm="УправлениеПерсоналом.Frm.Классификаторы.ТипРасчета"/>
+          <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="18"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="грКлассРеализации" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="КлассРеализации" Class="Com.Ctrl.IEdit" Field="EdtRec.КлассРеализации" HasButton="True" HasCaption="True" OnChange="КлассРеализации_OnChange" OnLookup="КлассРеализации_OnLookup" OnOutputEx="КлассРеализации_OnOutputEx" OnVerify="КлассРеализации_OnVerify"/>
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+          </Component>
+          <Component Name="грПерекрытие" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Static4" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+            <Component Name="Перекрытие" Class="Com.Ctrl.ICheckBox" Caption="@Перекрыть один или несколько методов класса реализации" Field="EdtRec.Перекрытие" HasCaption="True" OnChange="Перекрытие_OnChange"/>
+            <Component Name="Static5" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+          </Component>
+          <Component Name="грПоля" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+            <Component Name="Static6" Class="Com.Ctrl.IStatic" Caption="@Наименование полей в заголовке вида расчета и в документах расчета, параметры группировки проводок" FontBold="True"/>
+            <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Static13" Class="Com.Ctrl.IStatic" FixSize="True" Width="165"/>
+              <Component Name="ГруппироватьПроводки" Class="Com.Ctrl.ICheckBox" Caption="Группировать проводки" Field="EdtRec.ГруппироватьПроводки" HasCaption="True" OnChange="ГруппироватьПроводки_OnChange"/>
+            </Component>
+            <Component Name="грПоказатель1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="ЗаголовокПоля1" Class="Com.Ctrl.IEdit" CaptionWidth="40" Field="EdtRec.ЗаголовокПоля1" FixSize="True" HasCaption="True" OnOutputEx="ЗаголовокПоля1_OnOutputEx" Width="70"/>
+              <Component Name="Показатель1_ЕдИзм" Class="Com.Ctrl.IEdit" CaptionWidth="20" CardFileClass="Biz.Tab.Ref.UnitsOfMeasure" Field="EdtRec.Показатель1_ЕдИзм" FixSize="True" HasCaption="True" LookupField="Код" LookupFilter="not Closed" OnOutputEx="Показатель1_ЕдИзм_OnOutputEx" Width="35"/>
+              <Component Name="Показатель1_Гр" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.Показатель1_Гр" HasCaption="False" Width="25"/>
+            </Component>
+            <Component Name="грПоказатель2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="ЗаголовокПоля2" Class="Com.Ctrl.IEdit" CaptionWidth="40" Field="EdtRec.ЗаголовокПоля2" FixSize="True" HasCaption="True" OnOutputEx="ЗаголовокПоля2_OnOutputEx" Width="70"/>
+              <Component Name="Static11" Class="Com.Ctrl.IStatic" FixSize="True" Width="55"/>
+              <Component Name="Показатель2_Гр" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.Показатель2_Гр" HasCaption="False" Width="25"/>
+            </Component>
+            <Component Name="грПоказатель3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="ЗаголовокПоля3" Class="Com.Ctrl.IEdit" CaptionWidth="40" Field="EdtRec.ЗаголовокПоля3" FixSize="True" HasCaption="True" OnOutputEx="ЗаголовокПоля3_OnOutputEx" Width="70"/>
+              <Component Name="Static12" Class="Com.Ctrl.IStatic" FixSize="True" Width="55"/>
+              <Component Name="Показатель3_Гр" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.Показатель3_Гр" HasCaption="False" Width="25"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="фрмФормулы" Class="Com.Ctrl.IFrame" Caption="@фрмФормулы=Формула расчета" HasCaption="True" Margins="5">
+          <Component Name="грУсловиеПоСубъекту" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+            <Component Name="УсловиеПоСубъекту" Class="Com.Ctrl.IEdit" Caption="Расчет для субъектов" CaptionWidth="47" CellFormat="EnumFormat" Field="EdtRec.УсловиеПоСубъекту" HasCaption="True"/>
+            <Component Name="УсловиеИспользования" Class="Com.Ctrl.IEdit" Caption="Условие использования" CaptionWidth="47" Field="EdtRec.УсловиеИспользования" HasButton="True" HasCaption="True" Hint="@АлгоритмРасчета:УсловиеИспользования=Условие использования расчета при заполнении" Multiline="True" Wrap="True"/>
+            <Component Name="УсловиеВыполнения" Class="Com.Ctrl.IEdit" Caption="Условие выполнения" CaptionWidth="47" Field="EdtRec.УсловиеВыполнения" HasButton="True" HasCaption="True" Hint="@АлгоритмРасчета:УсловиеВыполнения=Условие выполнения расчета" Multiline="True" Wrap="True"/>
+          </Component>
+          <Component Name="грФПоказатель1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+            <Component Name="Static7" Class="Com.Ctrl.IStatic" Caption="@Расчеты для поля 'Показатель №1'" FontBold="True" Width="150"/>
+            <Component Name="Показатель1_Условие" Class="Com.Ctrl.IEdit" CaptionWidth="45" Field="EdtRec.Показатель1_Условие" HasButton="True" HasCaption="True"/>
+            <Component Name="Показатель1_Формула" Class="Com.Ctrl.IEdit" CaptionWidth="45" Field="EdtRec.Показатель1_Формула" HasButton="True" HasCaption="True"/>
+          </Component>
+          <Component Name="грФПоказатель2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+            <Component Name="Static8" Class="Com.Ctrl.IStatic" Caption="@Расчеты для поля 'Показатель №2'" FontBold="True" Width="150"/>
+            <Component Name="Показатель2_Условие" Class="Com.Ctrl.IEdit" CaptionWidth="45" Field="EdtRec.Показатель2_Условие" HasButton="True" HasCaption="True"/>
+            <Component Name="Показатель2_Формула" Class="Com.Ctrl.IEdit" CaptionWidth="45" Field="EdtRec.Показатель2_Формула" HasButton="True" HasCaption="True"/>
+          </Component>
+          <Component Name="грФПоказатель3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+            <Component Name="Static9" Class="Com.Ctrl.IStatic" Caption="@Расчеты для поля 'Показатель №3 (Сумма расчета)'" FontBold="True" Width="150"/>
+            <Component Name="Показатель3_Условие" Class="Com.Ctrl.IEdit" CaptionWidth="45" Field="EdtRec.Показатель3_Условие" HasButton="True" HasCaption="True"/>
+            <Component Name="Показатель3_Формула" Class="Com.Ctrl.IEdit" CaptionWidth="45" Field="EdtRec.Показатель3_Формула" HasButton="True" HasCaption="True"/>
+          </Component>
+        </Component>
+        <Component Name="фрмПеременные" Class="Com.Ctrl.IFrame" Caption="@фрмПеременные=Переменные" HasCaption="True">
+          <Component Name="тблПеременные" Class="Com.Ctrl.ITable" Subtable="EdtRec.Переменные">
+            <Component Name="ПеременныеИмя" Class="Com.Ctrl.IEdit" Field="Переменные.Имя" HasButton="True" Width="50"/>
+            <Component Name="ПеременныеФормула" Class="Com.Ctrl.IEdit" Field="Переменные.Формула" HasButton="True" HasCaption="True" Multiline="True" OnVerify="Формула_OnVerify" Width="150" Wrap="True"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

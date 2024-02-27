@@ -1,0 +1,86 @@
+﻿TBCFile VER="3.4" [Created '24.10.2019 18:27:11' by 'Администратор']
+
+DESCRIPTION[
+Count=9
+CountByRef=0
+Repair.RepairPriority
+(
+  Count=9
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Repair.RepairPriority
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    MetaLock :Boolean
+    SubsysCode :Integer
+    ModuleCode :String
+    PartisCode :Integer
+    Code :String(80)
+    Name :String(850)
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Repair.RepairPriority
+
+  {Repair.RepairPriority:"A"}
+  (
+    Name = "Ликвидация угрозы безопасности персонала"
+  )
+  
+  {Repair.RepairPriority:"B"}
+  (
+    Name = "Ликвидация угрозы промышленной безопасности предприятия"
+  )
+  
+  {Repair.RepairPriority:"C"}
+  (
+    Name = "Ликвидация причин снижения производственной мощности"
+  )
+  
+  {Repair.RepairPriority:"D"}
+  (
+    Name = "Ликвидация причин ухудшения показателей качества"
+  )
+  
+  {Repair.RepairPriority:"E"}
+  (
+    Name = 
+      "Ликвидация потенциального риска безопасности людей/оборудования (не срочно"
+      ")"
+  )
+
+  {Repair.RepairPriority:"F"}
+  (
+    Name = "Ликвидация отклонений в работе оборудования"
+  )
+  
+  {Repair.RepairPriority:"G"}
+  (
+    Name = "Дополнительная настройка/калибровка оборудования"
+  )
+  
+  {Repair.RepairPriority:"H"}
+  (
+    Name = "Восстановление технического состояния предприятия"
+  )
+  
+  {Repair.RepairPriority:"I"}
+  (
+    Name = "Общие улучшения и модернизация оборудования"
+  )
+]
+
+]

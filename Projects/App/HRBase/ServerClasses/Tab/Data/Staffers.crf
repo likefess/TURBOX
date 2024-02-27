@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.BasObject">
+  <Inherited Hierarchical="True">
+    <Inherited Name="Current" Class="Bas.Rec.Data.Entity" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree">
+          <Inherited Name="CardTree" TreeRoot="@Entity:NaturalEntities=Физические лица" Visible="True"/>
+        </Inherited>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" HasCaption="True" Width="60"/>
+          <Inherited Name="Code" HasCaption="True" MaxWidth="30" Width="25"/>
+          <Component Name="Gender" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CellFormat="EnumFormat" Field="Current.Gender" HasCaption="True" MaxWidth="10" Width="10"/>
+          <Component Name="IsStaffer" Class="Com.Ctrl.ICheckBox" Caption="@Является сотрудником" Field="Current.IsStaffer" HasCaption="True" Width="15"/>
+          <Component Name="EmployeePlaces" Class="Com.Ctrl.IEdit" Field="Current.EmployeePlaces" HasCaption="True" Multiline="False" Width="100" Wrap="False"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

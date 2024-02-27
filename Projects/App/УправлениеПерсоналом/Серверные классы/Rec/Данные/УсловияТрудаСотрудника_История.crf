@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.IStruct">
+    <Component Name="Взносы_ПоАттестации" Class="Com.Fld.IVar" Caption="Доп. тариф" OnCalc="Взносы_ПоАттестации_OnCalc" ValueType="VarLogical"/>
+    <Component Name="Взносы_ФСС" Class="Com.Fld.IVar" Excluded="True" Caption="ФСС" OnCalc="Взносы_ФСС_OnCalc" ValueType="VarInteger"/>
+    <Component Name="Взносы_ФТр" Class="Com.Fld.IVar" Caption="Травматизм" OnCalc="Взносы_ФТр_OnCalc" ValueType="VarInteger"/>
+    <Component Name="Взносы_ЕСВ" Class="Com.Fld.IVar" Caption="Единый страховой взнос" OnCalc="Взносы_ЕСВ_OnCalc" ValueType="VarInteger"/>
+    <Component Name="ТипПлательщикаСВ" Class="Com.Fld.IVar" Caption="Тип налогоплательщика" OnCalc="ТипПлательщикаСВ_OnCalc" ValueType="VarInteger"/>
+    <Component Name="Взносы_ОМС" Class="Com.Fld.IVar" Excluded="True" Caption="ОМС" OnCalc="Взносы_ОМС_OnCalc" ValueType="VarInteger"/>
+    <Component Name="ДатаНазначения" Class="Com.Fld.IVar" Caption="Дата назначения" OnCalc="ДатаНазначения_OnCalc" ValueType="VarDate"/>
+    <Component Name="ДатаОкончания" Class="Com.Fld.IVar" Caption="Дата окончания" OnCalc="ДатаОкончания_OnCalc" ValueType="VarDate"/>
+    <Component Name="Предприятие" Class="Com.Fld.IVar" Excluded="True" Caption="Предприятие" OnCalc="Предприятие_OnCalc" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+    <Component Name="Подразделение" Class="Com.Fld.IVar" Caption="Подразделение" OnCalc="Подразделение_OnCalc" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+    <Component Name="Должность" Class="Com.Fld.IVar" Caption="Должность" OnCalc="Должность_OnCalc" RecordClass="Bas.Rec.Ref.Positions" ValueType="VarObject"/>
+    <Component Name="Разряд" Class="Com.Fld.IVar" Caption="Разряд" OnCalc="Разряд_OnCalc" RecordClass="УправлениеПерсоналом.Rec.Справочники.ТарифныйРазряд" ValueType="VarObject"/>
+    <Component Name="КатегорияДолжности" Class="Com.Fld.IVar" Caption="Категория должности" OnCalc="КатегорияДолжности_OnCalc" ValueType="VarObject"/>
+    <Component Name="ТрудДоговор" Class="Com.Fld.IVar" Excluded="True" Caption="Трудовой договор" OnCalc="ТрудДоговор_OnCalc" ValueType="VarString"/>
+    <Component Name="ДоляСтавки" Class="Com.Fld.IVar" Caption="Доля ставки" OnCalc="ДоляСтавки_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="ВидЗанятости" Class="Com.Fld.IVar" Excluded="True" Caption="Вид занятости" OnCalc="ВидЗанятости_OnCalc" ValueType="VarInteger"/>
+    <Component Name="ВидДоговора" Class="Com.Fld.IVar" Caption="Вид договора" OnCalc="ВидДоговора_OnCalc" ValueType="VarInteger"/>
+    <Component Name="ПродолжРабВремени" Class="Com.Fld.IVar" Caption="Продолжительность" OnCalc="ПродолжРабВремени_OnCalc" RecordClass="УправлениеПерсоналом.Rec.Справочники.ПродолжРабВремени" ValueType="VarObject"/>
+    <Component Name="ХарактерРаботы" Class="Com.Fld.IVar" Caption="Характер работы" OnCalc="ХарактерРаботы_OnCalc" ValueType="VarInteger"/>
+    <Component Name="ГрафикРаботы" Class="Com.Fld.IVar" Caption="График работы" OnCalc="ГрафикРаботы_OnCalc" RecordClass="HRBase.Rec.Ref.WorkSchedule" ValueType="VarObject"/>
+    <Component Name="ОсобыеУсловия" Class="Com.Fld.IVar" Caption="Особые условия труда" OnCalc="ОсобыеУсловия_OnCalc" RecordClass="УправлениеПерсоналом.Rec.Классификаторы.ОсобыеУсловияТруда" ValueType="VarObject"/>
+    <Component Name="УсловияТруда" Class="Com.Fld.IVar" Caption="Условия труда" OnCalc="УсловияТруда_OnCalc" RecordClass="УправлениеПерсоналом.Rec.Классификаторы.УсловияТруда" ValueType="VarObject"/>
+    <Component Name="ОснованиеВыслуги" Class="Com.Fld.IVar" Caption="Основание выслуги лет" OnCalc="ОснованиеВыслуги_OnCalc" RecordClass="УправлениеПерсоналом.Rec.Классификаторы.ОснованиеВыслуги" ValueType="VarObject"/>
+    <Component Name="ПосУдержанияСтр" Class="Com.Fld.IVar" Excluded="True" Caption="Постоянные удержания" OnCalc="ПосУдержанияСтр_OnCalc" ValueType="VarString"/>
+    <Component Name="ПостНачисленияСтр" Class="Com.Fld.IVar" Caption="Постоянные начисления" OnCalc="ПостНачисленияСтр_OnCalc" ValueType="VarString"/>
+    <Component Name="ПостВычетыСтр" Class="Com.Fld.IVar" Excluded="True" Caption="Постоянные вычеты" OnCalc="ПостВычетыСтр_OnCalc" ValueType="VarString"/>
+    <Component Name="Индексация" Class="Com.Fld.IVar" Caption="Индекация" OnCalc="Индексация_OnCalc" ValueType="VarLogical"/>
+    <Component Name="Коэффициент" Class="Com.Fld.IVar" Caption="Коэффициент индексации" OnCalc="Коэффициент_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="UpdateDate" Class="Com.Fld.IVar" Caption="Когда изменено" OnCalc="UpdateDate_OnCalc" ValueType="VarDate"/>
+    <Component Name="UpdateUser" Class="Com.Fld.IVar" Caption="Кем изменено" OnCalc="UpdateUser_OnCalc" ValueType="VarString"/>
+  </Component>
+</Resource>

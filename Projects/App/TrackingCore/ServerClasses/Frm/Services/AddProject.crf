@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm" Caption="Новый проект">
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    </Component>
+    <Component Name="EdtRec" Class="Bas.Rec.Ref.Project" IsLibrary="1"/>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="VarName" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="VarPrefix" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="VarMetodology" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" Caption="Новый проект"/>
+      <Component Name="MetodologyFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Visible="False">
+        <BuiltIn Name="SideMargins" Bottom="24" Left="32" Right="32" Top="24"/>
+        <Component Name="TitleFrame1" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption="Выберите тип проекта" FontSize="18" Width="100"/>
+        </Component>
+        <Component Name="RadioButtonFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <BuiltIn Name="SideMargins" Bottom="24" Left="0" Right="0" Top="20"/>
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="RadioButtonScrum" Class="Com.Ctrl.IRadioButton" Caption="Scrum" Field="VarMetodology" StaticValue="0"/>
+            <Component Name="RadioButtonWaterfall" Class="Com.Ctrl.IRadioButton" Caption="Waterfall" Field="VarMetodology" StaticValue="1"/>
+            <Component Name="RadioButtonKanban" Class="Com.Ctrl.IRadioButton" Caption="Kanban" Field="VarMetodology" StaticValue="2"/>
+          </Component>
+        </Component>
+        <Component Name="ButtonFrame1" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="ButtonNext1" Class="Com.Ctrl.IButton" Caption="Далее" Fashion="Fashions.PrimaryButton" OnClick="ButtonNext1OnClick" Width="24"/>
+        </Component>
+      </Component>
+      <Component Name="InfoFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Vertical">
+        <BuiltIn Name="SideMargins" Bottom="24" Left="32" Right="32" Top="24"/>
+        <Component Name="Frame2" Class="Com.Ctrl.IFrame" MaxSize="220">
+          <Component Name="TitleFrame2" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" Caption="Основная информация" FontSize="18" Width="100"/>
+          </Component>
+          <Component Name="MainInfoFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <BuiltIn Name="SideMargins" Bottom="16" Left="0" Right="0" Top="20"/>
+            <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="NameEdit" Class="Com.Ctrl.IEdit" Caption="Название" Field="VarName" HasInnerCaption="True" Required="True" ValueType="VarString"/>
+              <Component Name="NumberPrexif" Class="Com.Ctrl.IEdit" Caption="@Project:NumberPrexif.Caption=Префикс задач (для формирования ID задач)" Field="VarPrefix" FixSize="False" HasCaption="True" HasInnerCaption="True" Required="True" ValueType="VarString" Width="40"/>
+            </Component>
+          </Component>
+          <Component Name="FrameDescriptionQuillJS" Class="Com.Ctrl.IFrame" AutoSize="False" MinSize="50">
+            <BuiltIn Name="SideMargins" Bottom="24" Left="0" Right="0" Top="0"/>
+            <Component Name="DescriptionQuillJS" Class="Com.Ctrl.IQuillJS" OnSelectionChange="DescriptionQuillJSOnSelectionChange" OnTextChange="ChangeDescription" ResizeEnabled="True" Visible="True"/>
+            <Component Name="DescriptionBrowser" Class="Com.Ctrl.IBrowser" Visible="False"/>
+          </Component>
+          <Component Name="ButtonFrame2" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+            <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="ButtonBack" Class="Com.Ctrl.IButton" Caption="Назад" Fashion="Fashions.SecondaryButton" OnClick="ButtonBackOnClick" Visible="False" Width="24"/>
+              <Component Name="Static3" Class="Com.Ctrl.IStatic" Width="100"/>
+              <Component Name="ButtonNext2" Class="Com.Ctrl.IButton" Caption="Далее" Fashion="Fashions.PrimaryButton" OnClick="ButtonNext2OnClick" Width="24"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="Frame1" Class="Com.Ctrl.IFrame" MaxSize="250"/>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="ContractManagement.Rec.Data.ClaimProcess" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="ResponsibleLR" Class="Com.Fld.IVar" Caption="@ClaimProcess:Responsible=Ответственный" OnCalc="ResponsibleLR_OnCalc" RecordClass="Biz.Rec.Data.LabourRelations" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="5">
+        <Inherited Name="ButtonReports" After="ButtonServices" Visible="True">
+          <Component Name="BtnPrintForm" Class="Com.Ctrl.IButton" Caption="@ClaimProcess:BtnPrintForm=Печатная форма" HasCaption="True" OnClick="BtnPrintForm_OnClick"/>
+          <Component Name="BtnClaimProcessReport" Class="Com.Ctrl.IButton" Caption="@ClaimProcess:BtnClaimProcessReport=Отчет по Претензионно-исковой работе" HasCaption="True" OnClick="BtnClaimProcessReport_OnClick"/>
+          <Component Name="BtnClaimProcessReportExt" Class="Com.Ctrl.IButton" Caption="@ClaimProcess:ClaimProcessReportExt=Отчет по Претензионно-исковой работе (расширенный)" HasCaption="True" OnClick="BtnClaimProcessReportExt_OnClick"/>
+          <Component Name="ClaimProcessStatusReport" Class="Com.Ctrl.IButton" Caption="@ClaimProcess:ClaimProcessStatusReport=Сроки рассмотрений, заседаний, движений ПИР (календарь юриста)" HasCaption="True" OnClick="ClaimProcessStatusReport_OnClick"/>
+        </Inherited>
+        <Inherited Name="ButtonClose" After="ButtonReports"/>
+        <Inherited Name="ButtonAnalytics" After="ButtonClose"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" Excluded="True"/>
+        <Component Name="GeneralBox" Class="Com.Ctrl.IBox" Caption="@ClaimProcess:GeneralBox=Общие данные">
+          <Component Name="GeneralGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+            <Component Name="CodeDateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="CodeEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Code" HasCaption="True" OnEnter="FieldEdit_OnEnter"/>
+              <Component Name="CreateDateEdit" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess:CreateDateEdit=Дата создания" CaptionWidth="45" CellFormat="DateFormat" Enabled="False" Field="EdtRec.CreateDate" FormatOfDate="DateAndTime" HasCaption="True" OnChange="CreateDateEdit_OnChange" OnEnter="FieldEdit_OnEnter"/>
+            </Component>
+            <Component Name="CompanyCreateUserEmplGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="CompanyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="EdtRec.Company" HasCaption="True" LookupField="Name" OnChange="CompanyEdit_OnChange" OnEnter="FieldEdit_OnEnter" Required="True" ShortList="True"/>
+              <Component Name="CreateUserEmpl" Class="Com.Ctrl.IEdit" CaptionWidth="45" CardFileClass="Bas.Tab.Data.Employees" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.CreateUserEmpl" HasCaption="True" LookupField="Name"/>
+            </Component>
+            <Component Name="OutgoingStatusGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="OutgoingEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.Outgoing" HasCaption="True" Hint="@ClaimProcess:OutgoingEdit=Входящий/Исходящий" ListAsString="Входящий|0;Исходящий|1" OnEnter="FieldEdit_OnEnter"/>
+              <Component Name="StatusEdit" Class="Com.Ctrl.IEdit" CaptionWidth="45" CardFileClass="ContractManagement.Tab.Ref.ClaimProcessStatus" CellFormat="ReferenceFormat" Field="EdtRec.Status" HasCaption="True" LookupField="Name" OnChange="StatusEdit_OnChange" ShortList="True"/>
+            </Component>
+            <Component Name="PartnerSubjectGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ContractPartnerEdit" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess:ContractPartnerEdit=Субъект" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Contract" HasCaption="True" Hint="@ClaimProcess:ContractPartnerEdit.Hint=Контрагент/физ.лицо" LookupField="Partner.Name"/>
+              <Component Name="ContractSubjectEdit" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess:ContractSubjectEdit=Назначение договора" CaptionWidth="45" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Contract" HasCaption="True" LookupField="ContractSubject.Name"/>
+            </Component>
+            <Component Name="ContractCodeDateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ContractCodeEdit" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess:ContractEdit=Системный номер" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Field="EdtRec.Contract" HasCaption="True" LookupField="Code" OnChange="ContractCodeEdit_OnChange" OnEnter="FieldEdit_OnEnter" Required="True"/>
+              <Component Name="ContractEventTimeEdit" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@ClaimProcess:ContractEventTimeEdit=Дата" CaptionWidth="45" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Contract" FieldFormat="dd.mm.yyy" FormatOfDate="DateOnly" HasCaption="True" LookupField="EventTime"/>
+            </Component>
+            <Component Name="ContractRegCodeDateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ContractPrintedNumberEdit" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess:ContractPrintedNumberEdit=Рег. номер" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Contract" HasCaption="True" Hint="@ClaimProcess:ContractPrintedNumberEdit.Hint=Регистрационный номер" LookupField="PrintedNumber"/>
+              <Component Name="ContractRegistrationDateEdit" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@ClaimProcess:ContractRegistrationDateEdit=Дата регистрации" CaptionWidth="45" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Contract" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" LookupField="RegistrationDate"/>
+            </Component>
+            <Component Name="TypeVarietyGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ClaimTypeEdit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="EdtRec.ClaimType" HasCaption="True" Hint="@ClaimProcess:ClaimTypeEdit=Тип претензии/спора" LookupField="Name" OnEnter="FieldEdit_OnEnter" Required="True" ShortList="True"/>
+              <Component Name="ClaimVarietyEdit" Class="Com.Ctrl.IEdit" CaptionWidth="45" CellFormat="ReferenceFormat" Field="EdtRec.ClaimVariety" HasCaption="True" LookupField="Name" OnEnter="FieldEdit_OnEnter" Required="True"/>
+            </Component>
+            <Component Name="DescriptionEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.ShortDescription" HasCaption="True" Multiline="True" OnEnter="FieldEdit_OnEnter" Wrap="True"/>
+            <Component Name="ResponsibleGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ResponsibleLeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="ResponsibleLREdit" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess:Responsible=Ответственный" CardFileClass="Biz.Tab.Data.LabourRelations" Field="ResponsibleLR" HasCaption="True" LookupField="Person.Name" OnChange="ResponsibleLREdit_OnChange" OnEnter="FieldEdit_OnEnter" OnGetLookupFilter="ResponsibleLREdit_OnGetLookupFilter" OnOutput="ResponsibleLREdit_OnOutput" Required="True"/>
+                <Component Name="ResponsibleDivisionEdit" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess:ResponsibleDivisionEdit=Подразделение" CellFormat="ReferenceFormat" Enabled="False" Field="ResponsibleLR" HasCaption="True" LookupField="Division.Name"/>
+              </Component>
+              <Component Name="ResponsibleRightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="ResponsibleRightGroupStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="45"/>
+                <Component Name="ResponsiblePositionEdit" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess:ResponsiblePositionEdit=Штатная должность" CaptionWidth="45" CellFormat="ReferenceFormat" Enabled="False" Field="ResponsibleLR" HasCaption="True" LookupField="Position.Name"/>
+              </Component>
+            </Component>
+            <Component Name="ResponsibleEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.NaturalEntities" CellFormat="ReferenceFormat" Field="EdtRec.Responsible" HasCaption="True" LookupField="Name" OnEnter="FieldEdit_OnEnter" Required="True" Visible="False"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="@ClaimProcess:MainTab=Досудебное урегулирование ">
+          <Component Name="PreTrialGeneralBox" Class="Com.Ctrl.IBox" Caption="@ClaimProcess:PreTrialGeneralBox=Основное">
+            <Component Name="PreTrialGeneralGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="PreTrialSkipStatusDocVarietyGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="PreTrialSkipStatusGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="PreTrialSkipStatusGroup1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                    <Component Name="PreTrialSkipStatusStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                    <Component Name="PreTrialSkipStatusCheckBox" Class="Com.Ctrl.ICheckBox" Field="EdtRec.PreTrialSkipStatus" HasCaption="True"/>
+                  </Component>
+                </Component>
+                <Component Name="PreTrialDocVarietyEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="PreTrialDocVarietyEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Enabled="True" Field="EdtRec.PreTrialDocVariety" HasCaption="True" ListAsString="Претензия|0;Заявление в государственный орган|1" OnChange="PreTrialDocVarietyEdit_OnChange" OnEnter="FieldEdit_OnEnter"/>
+                </Component>
+              </Component>
+              <Component Name="PreTrialCodeDateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+                <Component Name="PreTrialDocNumberEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.PreTrialDocNumber" HasCaption="True" OnEnter="FieldEdit_OnEnter"/>
+                <Component Name="PreTrialDocDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="EdtRec.PreTrialDocDate" FieldFormat="dd.mm.yyy" FormatOfDate="DateOnly" HasCaption="True" OnEnter="FieldEdit_OnEnter"/>
+              </Component>
+              <Component Name="PreTrialApplicantEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Enabled="True" Field="EdtRec.PreTrialApplicant" HasCaption="True" Hint="@ClaimProcess:PreTrialApplicantEdit=Наименование/ФИО заявителя" LookupField="Name" OnEnter="FieldEdit_OnEnter"/>
+              <Component Name="PreTrialObligeeEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Enabled="True" Field="EdtRec.PreTrialObligee" HasCaption="True" Hint="@ClaimProcess:PreTrialObligeeEdit=Наименование/ФИО обязанного лица" LookupField="Name" OnEnter="FieldEdit_OnEnter"/>
+              <Component Name="PreTrialStateAgencyEdit" Class="Com.Ctrl.IEdit" CardFileClass="ContractManagement.Tab.Ref.StateAgency" CellFormat="ReferenceFormat" Enabled="True" Field="EdtRec.PreTrialStateAgency" HasCaption="True" Hint="@ClaimProcess:PreTrialStateAgencyEdit=Государственный орган" LookupField="Name" OnEnter="FieldEdit_OnEnter"/>
+              <Component Name="PreTrialSubjectEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.PreTrialSubject" HasCaption="True" Hint="@ClaimProcess:PreTrialSubjectEdit=Предмет претензии/заявления" Multiline="True" OnEnter="FieldEdit_OnEnter" Wrap="True"/>
+              <Component Name="PreTrialPeriodStageGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+                <Component Name="PreTrialPeriodEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.PreTrialPeriod" HasCaption="True" OnEnter="PreTrialPeriodEdit_OnEnter"/>
+                <Component Name="PreTrialStageEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.PreTrialStage" HasCaption="True" ListAsString="На рассмотрении|0;Рассмотрено|1;Оставлено без рассмотрения|2" OnEnter="FieldEdit_OnEnter"/>
+              </Component>
+              <Component Name="PreTrialClaimResultEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.PreTrialClaimResult" HasCaption="True" OnEnter="FieldEdit_OnEnter"/>
+              <Component Name="PreTrialActualGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+                <Component Name="PreTrialActPaymentDateEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="EdtRec.PreTrialActPaymentDate" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" Hint="@ClaimProcess:PreTrialActPaymentDateEdit=Фактическая дата оплаты" OnEnter="PreTrialActPaymentDateEdit_OnEnter"/>
+                <Component Name="PreTrialActPaymentAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.PreTrialActPaymentAmount" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@ClaimProcess:PreTrialActPaymentAmountEdit=Фактическая сумма оплаты" OnEnter="PreTrialActPaymentAmountEdit_OnEnter"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="PreTrialAmountBox" Class="Com.Ctrl.IBox" Caption="@ClaimProcess:PreTrialAmountBox=Суммы">
+            <Component Name="PreTrialAmountGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="PreTrialAmountLeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="PreTrialClaimAmountEdit" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@ClaimProcess:PreTrialClaimAmountEdit=Сумма претензии" CellFormat="NumericFormat" Enabled="False" FieldFormat=",##0.00;;-" HasCaption="True" OnOutput="PreTrialClaimAmountEdit_OnOutput"/>
+                <Component Name="PreTrialMainAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.PreTrialMainAmount" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@ClaimResult:PreTrialMainAmountEdit=Сумма основного долга" OnEnter="FieldEdit_OnEnter"/>
+                <Component Name="PreTrialForfeitAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.PreTrialForfeitAmount" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@ClaimResult:PreTrialForfeitAmountEdit=Сумма неустойки" OnEnter="FieldEdit_OnEnter"/>
+              </Component>
+              <Component Name="PreTrialAmountRightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="PreTrialClaimAmountStaticGroup" Class="Com.Ctrl.IGroup">
+                  <Component Name="PreTrialClaimAmountStatic" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@ClaimProcess:PreTrialClaimAmountStatic=В том числе:" FixSize="True" Width="40"/>
+                  <Component Name="PreTrialClaimAmountStatic1" Class="Com.Ctrl.IStatic"/>
+                </Component>
+                <Component Name="PreTrialPercentsAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.PreTrialPercentsAmount" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@ClaimResult:PreTrialPercentsAmountEdit=Сумма процентов" OnEnter="FieldEdit_OnEnter"/>
+                <Component Name="PreTrialOtherExpAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.PreTrialOtherExpAmount" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@ClaimProcess:PreTrialOtherExpAmountEdit=Сумма прочих расходов" OnEnter="FieldEdit_OnEnter"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="PreTrialAddBox" Class="Com.Ctrl.IBox" Caption="@ClaimProcess:PreTrialAddBox=Дополнительно">
+            <Component Name="PreTrialAddBoxGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="PreTrialCommentEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.PreTrialComment" HasCaption="True" Multiline="True" OnEnter="FieldEdit_OnEnter" Wrap="True"/>
+              <Component Name="PreTrialNextStatusEdit" Class="Com.Ctrl.IEdit" CardFileClass="ContractManagement.Tab.Ref.ClaimProcessStatus" CellFormat="ReferenceFormat" Field="EdtRec.PreTrialNextStatus" HasCaption="True" LookupField="Name" OnEnter="FieldEdit_OnEnter" ShortList="True"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="TrialTab" Class="Com.Ctrl.IFrame" Caption="@ClaimProcess:TrialTab=Судебное производство" Margins="5">
+          <Component Name="TrialGeneralBox" Class="Com.Ctrl.IBox" Caption="@ClaimProcess:TrialGeneralBox=Основное">
+            <Component Name="TrialGeneralGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="TrialSkipStatusProcessVarietyGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="TrialSkipStatusGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="TrialSkipStatusGroup1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                    <Component Name="TrialSkipStatusStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                    <Component Name="TrialSkipStatusCheckBox" Class="Com.Ctrl.ICheckBox" Field="EdtRec.TrialSkipStatus" HasCaption="True"/>
+                  </Component>
+                </Component>
+                <Component Name="TrialProcessVarietyEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="TrialProcessVarietyEdit" Class="Com.Ctrl.IEdit" CardFileClass="ContractManagement.Tab.Ref.TrialProcessVariety" CellFormat="ReferenceFormat" Enabled="True" Field="EdtRec.TrialProcessVariety" HasCaption="True" LookupField="Name" OnEnter="FieldEdit_OnEnter" ShortList="True"/>
+                </Component>
+              </Component>
+              <Component Name="TrialAuthorityEdit" Class="Com.Ctrl.IEdit" CardFileClass="ContractManagement.Tab.Ref.TrialAuthority" CellFormat="ReferenceFormat" Enabled="True" Field="EdtRec.TrialAuthority" HasCaption="True" LookupField="Name" OnEnter="FieldEdit_OnEnter" ShortList="True"/>
+              <Component Name="TrialCodeDateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+                <Component Name="TrialDocNumberEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.TrialDocNumber" HasCaption="True" OnEnter="FieldEdit_OnEnter"/>
+                <Component Name="TrialDocDateEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="EdtRec.TrialDocDate" FieldFormat="dd.mm.yyy" FormatOfDate="DateOnly" HasCaption="True" OnEnter="FieldEdit_OnEnter"/>
+              </Component>
+              <Component Name="TrialNameEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.TrialName" HasCaption="True" Multiline="True" OnEnter="FieldEdit_OnEnter" Wrap="True"/>
+              <Component Name="TrialApplicantEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Enabled="True" Field="EdtRec.TrialApplicant" HasCaption="True" Hint="@ClaimProcess:TrialApplicantEdit=Наименование/ФИО заявителя/истца" LookupField="Name" OnEnter="FieldEdit_OnEnter"/>
+              <Component Name="TrialObligeeEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Enabled="True" Field="EdtRec.TrialObligee" HasCaption="True" Hint="@ClaimProcess:TrialObligeeEdit=Наименование/ФИО ответчика/заинтересованного лица" LookupField="Name" OnEnter="FieldEdit_OnEnter"/>
+              <Component Name="TrialThirdPartiesEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="True" Field="EdtRec.TrialThirdParties" HasCaption="True" Multiline="True" OnEnter="FieldEdit_OnEnter" Wrap="True"/>
+            </Component>
+          </Component>
+          <Component Name="TrialAmountBox" Class="Com.Ctrl.IBox" Caption="@ClaimProcess:TrialAmountBox=Суммы">
+            <Component Name="TrialAmountGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="TrialAmountLeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="TrialStateDutyAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.TrialStateDutyAmount" FieldFormat=",##0.00;;-" HasCaption="True" OnEnter="FieldEdit_OnEnter"/>
+                <Component Name="TrialClaimAmountEdit" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@ClaimProcess:TrialClaimAmountEdit=Сумма иска" CellFormat="NumericFormat" Enabled="False" FieldFormat=",##0.00;;-" HasCaption="True" OnOutput="TrialClaimAmountEdit_OnOutput"/>
+                <Component Name="TrialMainAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.TrialMainAmount" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@ClaimProcess:TrialMainAmountEdit=Сумма основного долга" OnEnter="FieldEdit_OnEnter"/>
+                <Component Name="TrialForfeitAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.TrialForfeitAmount" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@ClaimProcess:TrialForfeitAmountEdit=Сумма неустойки" OnEnter="FieldEdit_OnEnter"/>
+              </Component>
+              <Component Name="TrialAmountRightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="TrialClaimAmountStatic3" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="True" Width="40"/>
+                <Component Name="TrialClaimAmountStaticGroup" Class="Com.Ctrl.IGroup">
+                  <Component Name="TrialClaimAmountStatic1" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@ClaimProcess:TrialClaimAmountStatic=В том числе:" FixSize="True" Width="40"/>
+                  <Component Name="TrialClaimAmountStatic2" Class="Com.Ctrl.IStatic"/>
+                </Component>
+                <Component Name="TrialPercentsAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.TrialPercentsAmount" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@ClaimProcess:TrialPercentsAmountEdit=Сумма процентов" OnEnter="FieldEdit_OnEnter"/>
+                <Component Name="TrialOtherExpAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.TrialOtherExpAmount" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@ClaimProcess:TrialOtherExpAmountEdit=Сумма прочих расходов" OnEnter="FieldEdit_OnEnter"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="TrialSessionDataBox" Class="Com.Ctrl.IBox" Caption="@ClaimProcess:TrialSessionData=Данные по судебным заседаниям">
+            <Component Name="TrialSessionDataFrame" Class="Com.Ctrl.IFrame" Subtable="EdtRec.TrialSessionData">
+              <Component Name="ClaimProcess_TrialSessionData" Class="ContractManagement.Rec.Data.ClaimProcess_TrialSessionData" IsLibrary="1"/>
+              <Component Name="TrialSessionDateEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="ClaimProcess_TrialSessionData.SessionDate" FormatOfDate="DateAndTime" HasCaption="True" OnEnter="FieldEdit_OnEnter" Width="50"/>
+              <Component Name="TrialSessionResultEdit" Class="Com.Ctrl.IEdit" Field="ClaimProcess_TrialSessionData.SessionResult" HasCaption="True" OnEnter="FieldEdit_OnEnter" Width="60"/>
+              <Component Name="TrialSessionCommentEdit" Class="Com.Ctrl.IEdit" Field="ClaimProcess_TrialSessionData.Comment" HasCaption="True" OnEnter="FieldEdit_OnEnter" Width="90"/>
+            </Component>
+          </Component>
+          <Component Name="TrialAddBox" Class="Com.Ctrl.IBox" Caption="@ClaimProcess:TrialAddBox=Дополнительно">
+            <Component Name="TrialAddBoxGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="TrialCommentEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.TrialComment" HasCaption="True" Multiline="True" OnEnter="FieldEdit_OnEnter" Wrap="True"/>
+              <Component Name="TrialNextStatusEdit" Class="Com.Ctrl.IEdit" CardFileClass="ContractManagement.Tab.Ref.ClaimProcessStatus" CellFormat="ReferenceFormat" Field="EdtRec.TrialNextStatus" HasCaption="True" LookupField="Name" OnEnter="FieldEdit_OnEnter" ShortList="True"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="ExecTab" Class="Com.Ctrl.IFrame" Caption="@ClaimProcess:ExecTab=Исполнительное производство" Margins="5">
+          <Component Name="ExecGeneralBox" Class="Com.Ctrl.IBox" Caption="@ClaimProcess:ExecGeneralBox=Основное">
+            <Component Name="ExecGeneralGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ExecCodeDateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+                <Component Name="ExecDocNumberEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.ExecDocNumber" HasCaption="True" Hint="@ClaimProcess:ExecDocNumberEdit=Номер исполнительного документа" OnEnter="FieldEdit_OnEnter"/>
+                <Component Name="ExecDocDateEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Enabled="True" Field="EdtRec.ExecDocDate" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" Hint="@ClaimProcess:ExecDocDateEdit=Дата исполнительного документа" OnEnter="FieldEdit_OnEnter"/>
+              </Component>
+              <Component Name="ExecProcessNumberEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.ExecProcessNumber" HasCaption="True" Hint="@ClaimProcess:ExecProcessNumberEdit=Номер дела во исполнение решения, по которому выдан исполнительный лист" OnEnter="FieldEdit_OnEnter"/>
+              <Component Name="ExecApplicantEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Enabled="True" Field="EdtRec.ExecApplicant" HasCaption="True" Hint="@ClaimProcess:ExecApplicantEdit=Наименование/ФИО взыскателя" LookupField="Name" OnEnter="FieldEdit_OnEnter"/>
+              <Component Name="ExecObligeeEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Enabled="True" Field="EdtRec.ExecObligee" HasCaption="True" Hint="@ClaimProcess:ExecObligeeEdit=Наименование/ФИО должника" LookupField="Name" OnEnter="FieldEdit_OnEnter"/>
+            </Component>
+          </Component>
+          <Component Name="ExecAmountBox" Class="Com.Ctrl.IBox" Caption="@ClaimProcess:ExecAmountBox=Суммы">
+            <Component Name="ExecAmountGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ExecAmountLeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="ExecStateDutyAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.ExecStateDutyAmount" FieldFormat=",##0.00;;-" HasCaption="True" OnEnter="FieldEdit_OnEnter"/>
+                <Component Name="ExecClaimAmountEdit" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@ClaimProcess:ExecClaimAmountEdit=Задолженность" CellFormat="NumericFormat" Enabled="False" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@ClaimProcess:ExecClaimAmountEditHint=Сумма задолженности" OnOutput="ExecClaimAmountEdit_OnOutput"/>
+                <Component Name="ExecMainAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.ExecMainAmount" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@ClaimProcess:ExecMainAmountEdit=Сумма основного долга" OnEnter="FieldEdit_OnEnter"/>
+                <Component Name="ExecForfeitAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.ExecForfeitAmount" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@ClaimProcess:ExecForfeitAmountEdit=Сумма неустойки" OnEnter="FieldEdit_OnEnter"/>
+              </Component>
+              <Component Name="ExecAmountRightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="ExecClaimAmountStatic3" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="True" Width="40"/>
+                <Component Name="TrialClaimAmountStaticGroup1" Class="Com.Ctrl.IGroup">
+                  <Component Name="ExecClaimAmountStatic1" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@ClaimProcess:ExecClaimAmountStatic=В том числе:" FixSize="True" Width="40"/>
+                  <Component Name="ExecClaimAmountStatic2" Class="Com.Ctrl.IStatic"/>
+                </Component>
+                <Component Name="ExecPercentsAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.ExecPercentsAmount" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@ClaimProcess:ExecPercentsAmountEdit=Сумма процентов" OnEnter="FieldEdit_OnEnter"/>
+                <Component Name="ExecOtherExpAmountEdit" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess:ExecOtherExpAmountEdit=Прочее" CellFormat="NumericFormat" Field="EdtRec.ExecOtherExpAmount" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@ClaimProcess:ExecOtherExpAmountEdit=Сумма прочих расходов" OnEnter="FieldEdit_OnEnter"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="ExecMoveDataBox" Class="Com.Ctrl.IBox" Caption="@ClaimProcess:ExecMoveData=Информация по движению Исполнительного листа">
+            <Component Name="ExecMoveDataFrame" Class="Com.Ctrl.IFrame" Subtable="EdtRec.ExecMoveData">
+              <Component Name="ClaimProcess_ExecMoveData" Class="ContractManagement.Rec.Data.ClaimProcess_ExecMoveData" IsLibrary="1"/>
+              <Component Name="ExecMoveDateEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="ClaimProcess_ExecMoveData.ExecMoveDate" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" OnEnter="FieldEdit_OnEnter" Width="50"/>
+              <Component Name="ExecMoveDescriptionEdit" Class="Com.Ctrl.IEdit" Field="ClaimProcess_ExecMoveData.Description" HasCaption="True" OnEnter="FieldEdit_OnEnter" Width="60"/>
+              <Component Name="ExecMoveCommentEdit" Class="Com.Ctrl.IEdit" Field="ClaimProcess_ExecMoveData.Comment" HasCaption="True" OnEnter="FieldEdit_OnEnter" Width="90"/>
+            </Component>
+          </Component>
+          <Component Name="ExecBailiffBox" Class="Com.Ctrl.IBox" Caption="@ClaimProcess:ExecBailiffBox=Cудебный пристав">
+            <Component Name="ExecBailiffBoxGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ExecBailiffNameEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.ExecBailiffName" HasCaption="True" Hint="@ClaimProcess:ExecBailiffNameEdit=ФИО судебного пристава" OnEnter="FieldEdit_OnEnter" Width="45"/>
+              <Component Name="ExecBailiffPhoneEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.ExecBailiffPhone" HasCaption="True" Hint="@ClaimProcess:ExecBailiffPhoneEdit=Телефон судебного пристава" OnEnter="FieldEdit_OnEnter" Width="45"/>
+              <Component Name="ExecBailiffAddressEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Addresses" CellFormat="ReferenceFormat" Field="EdtRec.ExecBailiffAddress" HasCaption="True" Hint="@ClaimProcess:ExecBailiffAddressEdit=Адрес судебного пристава" LookupField="StringAddress" OnEnter="FieldEdit_OnEnter" Width="45"/>
+            </Component>
+          </Component>
+          <Component Name="ExecAddBox" Class="Com.Ctrl.IBox" Caption="@ClaimProcess:ExecAddBox=Дополнительно">
+            <Component Name="ExecAddBoxGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ExecCommentEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.ExecComment" HasCaption="True" Multiline="True" OnEnter="FieldEdit_OnEnter" Wrap="True"/>
+              <Component Name="ExecIsClosedGroup" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+                <Component Name="ExecIsClosedStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                <Component Name="ExecIsClosedCheckBox" Class="Com.Ctrl.ICheckBox" Field="EdtRec.ExecIsClosed" OnChange="ExecIsClosedCheckBox_OnChange" OnVerify="FieldCheckBox_OnVerify"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="TimelinesTab" Class="Com.Ctrl.IFrame" Caption="@ClaimProcess:TimelinesTab=График платежей/поступлений" Margins="5">
+          <Component Name="PaymentTimelineBox" Class="Com.Ctrl.IBox" Caption="@ClaimProcess:PaymentTimelineBox=График платежей">
+            <Component Name="PaymentTimelineFrame" Class="Com.Ctrl.IFrame" Subtable="EdtRec.PaymentTimeline">
+              <Component Name="ClaimProcess_PaymentTimeline" Class="ContractManagement.Rec.Data.ClaimProcess_PaymentTimeline" IsLibrary="1"/>
+              <Component Name="PaymPaymentDateEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="ClaimProcess_PaymentTimeline.PaymentDate" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" OnEnter="FieldEdit_OnEnter" Width="30"/>
+              <Component Name="PaymPaymentAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="ClaimProcess_PaymentTimeline.PaymentAmount" FieldFormat=",##0.00;;-" HasCaption="True" OnEnter="FieldEdit_OnEnter" Width="40"/>
+              <Component Name="PaymCFREdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="ClaimProcess_PaymentTimeline.CFR" HasCaption="True" LookupField="Name" OnEnter="FieldEdit_OnEnter" Width="40"/>
+              <Component Name="PaymBGIEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="ClaimProcess_PaymentTimeline.BGI" HasCaption="True" LookupField="Name" LookupFilter="Not Closed" OnEnter="FieldEdit_OnEnter" Width="40"/>
+              <Component Name="PaymProjectEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Field="ClaimProcess_PaymentTimeline.Project" HasCaption="True" LookupField="Name" OnEnter="FieldEdit_OnEnter" Width="40"/>
+              <Component Name="PaymSourceEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.FundSource" CellFormat="ReferenceFormat" Field="ClaimProcess_PaymentTimeline.Source" HasCaption="True" LookupField="Name" OnEnter="FieldEdit_OnEnter" Width="40"/>
+              <Component Name="PaymPaymentNameEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="ClaimProcess_PaymentTimeline.PaymentName" HasCaption="True" OnEnter="FieldEdit_OnEnter" Width="60"/>
+              <Component Name="PaymDocNumberEdit" Class="Com.Ctrl.IEdit" Field="ClaimProcess_PaymentTimeline.DocNumber" HasButton="True" HasCaption="True" OnEnter="FieldEdit_OnEnter" OnLookup="DocNumberEdit_OnLookup" OnVerify="DocNumberEdit_OnVerify" ShortList="True" Width="40"/>
+              <Component Name="PaymDocDateEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="ClaimProcess_PaymentTimeline.DocDate" HasCaption="True" OnEnter="FieldEdit_OnEnter" Width="30"/>
+              <Component Name="PaymIsFactPaymentCheckBox" Class="Com.Ctrl.ICheckBox" Caption="@ClaimProcess:PaymIsFactPaymentCheckBox=Наличие фактической оплаты" Field="ClaimProcess_PaymentTimeline.IsFactPayment" OnVerify="FieldCheckBox_OnVerify" Width="30"/>
+              <Component Name="PaymPaymDocNumberEdit" Class="Com.Ctrl.IEdit" Field="ClaimProcess_PaymentTimeline.PaymDocNumber" HasCaption="True" OnEnter="PaymPaymDoc_OnEnter" Width="40"/>
+              <Component Name="PaymPaymDocDateEdit" Class="Com.Ctrl.IEdit" Field="ClaimProcess_PaymentTimeline.PaymDocDate" HasCaption="True" OnEnter="PaymPaymDoc_OnEnter" Width="30"/>
+              <Component Name="PaymPaymDocAmountEdit" Class="Com.Ctrl.IEdit" Field="ClaimProcess_PaymentTimeline.PaymDocAmount" HasCaption="True" OnEnter="PaymPaymDoc_OnEnter" Width="40"/>
+              <Component Name="PaymNotesEdit" Class="Com.Ctrl.IEdit" Field="ClaimProcess_PaymentTimeline.Notes" HasCaption="True" OnEnter="FieldEdit_OnEnter" Width="60"/>
+            </Component>
+          </Component>
+          <Component Name="PaymentAddBox" Class="Com.Ctrl.IBox" Caption="@ClaimProcess:PaymentAddBox=Дополнительно">
+            <Component Name="PaymentCommentGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="PaymCommentEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.PaymComment" HasCaption="True" Multiline="True" OnEnter="FieldEdit_OnEnter" ValueType="VarString" Wrap="True"/>
+            </Component>
+          </Component>
+          <Component Name="ReceiptTimelineBox" Class="Com.Ctrl.IBox" Caption="@ClaimProcess:ReceiptTimelineBox=График поступлений денежных средств в рамках ПИР">
+            <Component Name="ReceiptTimelineFrame" Class="Com.Ctrl.IFrame" Subtable="EdtRec.ReceiptTimeline">
+              <Component Name="ClaimProcess_ReceiptTimeline" Class="ContractManagement.Rec.Data.ClaimProcess_ReceiptTimeline" IsLibrary="1"/>
+              <Component Name="ReceiptPaymentDateEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="ClaimProcess_ReceiptTimeline.PaymentDate" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" OnEnter="FieldEdit_OnEnter" Width="30"/>
+              <Component Name="ReceiptPaymentAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="ClaimProcess_ReceiptTimeline.PaymentAmount" FieldFormat=",##0.00;;-" HasCaption="True" OnEnter="FieldEdit_OnEnter" Width="40"/>
+              <Component Name="ReceiptPaymDocNumberEdit" Class="Com.Ctrl.IEdit" Field="ClaimProcess_ReceiptTimeline.PaymDocNumber" HasCaption="True" OnEnter="FieldEdit_OnEnter" Width="40"/>
+              <Component Name="ReceiptPayerEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Contraparties" CellFormat="ReferenceFormat" Field="ClaimProcess_ReceiptTimeline.Payer" HasCaption="True" LookupField="Name" OnEnter="FieldEdit_OnEnter" Width="30"/>
+              <Component Name="ReceiptPaymentNameEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="ClaimProcess_ReceiptTimeline.PaymentName" HasCaption="True" OnEnter="FieldEdit_OnEnter" Width="60"/>
+              <Component Name="ReceiptCFREdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="ClaimProcess_ReceiptTimeline.CFR" HasCaption="True" LookupField="Name" OnEnter="FieldEdit_OnEnter" Width="40"/>
+              <Component Name="ReceiptBGIEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="ClaimProcess_PaymentTimeline.BGI" HasCaption="True" LookupField="Name" LookupFilter="Not Closed" OnEnter="FieldEdit_OnEnter" Width="40"/>
+              <Component Name="ReceiptProjectEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Field="ClaimProcess_ReceiptTimeline.Project" HasCaption="True" LookupField="Name" OnEnter="FieldEdit_OnEnter" Width="40"/>
+              <Component Name="ReceiptSourceEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.FundSource" CellFormat="ReferenceFormat" Field="ClaimProcess_ReceiptTimeline.Source" HasCaption="True" LookupField="Name" OnEnter="FieldEdit_OnEnter" Width="40"/>
+              <Component Name="ReceiptDocNumberEdit" Class="Com.Ctrl.IEdit" Field="ClaimProcess_ReceiptTimeline.DocNumber" HasButton="True" HasCaption="True" OnEnter="FieldEdit_OnEnter" OnLookup="DocNumberEdit_OnLookup" OnVerify="DocNumberEdit_OnVerify" ShortList="True" Width="40"/>
+              <Component Name="ReceiptDocDateEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="ClaimProcess_ReceiptTimeline.DocDate" HasCaption="True" OnEnter="FieldEdit_OnEnter" Width="30"/>
+              <Component Name="ReceiptDebtorName" Class="Com.Ctrl.IEdit" Enabled="False" Field="ClaimProcess_ReceiptTimeline.DebtorName" HasCaption="True" OnEnter="FieldEdit_OnEnter" Width="30"/>
+              <Component Name="ReceiptNotesEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="ClaimProcess_ReceiptTimeline.Notes" HasCaption="True" OnEnter="FieldEdit_OnEnter" ValueType="VarString" Width="60"/>
+            </Component>
+          </Component>
+          <Component Name="ReceiptAddBox" Class="Com.Ctrl.IBox" Caption="@ClaimProcess:ReceiptAddBox=Дополнительно">
+            <Component Name="ReceiptCommentGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ReceiptCommentEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.ReceiptComment" HasCaption="True" Multiline="True" OnEnter="FieldEdit_OnEnter" ValueType="VarString" Wrap="True"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="RelatedDocsTab" Class="Com.Ctrl.IFrame" Caption="@ClaimProcess:RelatedDocsTab=Документы" Margins="5">
+          <Component Name="RelatedDocsBox" Class="Com.Ctrl.IBox" Caption="@Contract:RelatedDocsBox=Документы">
+            <Component Name="RelatedDocsFrame" Class="Com.Ctrl.IFrame" Sortable="True" Subtable="EdtRec.RelatedDocs">
+              <Component Name="ClaimProcess_RelatedDocs" Class="ContractManagement.Rec.Data.ClaimProcess_RelatedDocs" IsLibrary="1"/>
+              <Component Name="ContractPartnerEdit1" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess:ContractPartnerEdit1=Наименование контрагента (покупателя/поставщика)" Enabled="False" HasCaption="True" OnOutput="ContractPartnerEdit1_OnOutput" Width="50"/>
+              <Component Name="ContractPrintedNumberEdit1" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess:ContractPrintedNumberEdit1=Номер договора" Enabled="False" HasCaption="True" OnOutput="ContractPrintedNumberEdit1_OnOutput" Width="30"/>
+              <Component Name="RelatedDocCaption" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="ClaimProcess_RelatedDocs.Caption" HasCaption="True" OnEnter="RelatedDocCaption_OnEnter" Width="68"/>
+              <Component Name="RelatedDocRecordGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@ClaimProcess:RelatedDocRecordGroup=Номер документа" HasCaption="True">
+                <Component Name="RelatedDocRecord" Class="Com.Ctrl.IListEdit" CellFormat="ReferenceFormat" Field="ClaimProcess_RelatedDocs.DocRecord" HasCaption="False" OnEnter="RelatedDocRecord_OnEnter" OnLookup="RelatedDocRecord_OnLookup" OnOutput="RelatedDocRecord_OnOutput" Width="50"/>
+                <Component Name="RelatedDocRecordJumpBtn" Class="Com.Ctrl.IJumpButton" Field="ClaimProcess_RelatedDocs.DocRecord" HasCaption="False" OnClick="RelatedDocRecordJumpBtn_OnClick" Printed="False"/>
+              </Component>
+              <Component Name="RelatedDocDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@ClaimProcess:RelatedDocDate=Дата документа" CellFormat="ReferenceFormat" Enabled="False" Field="ClaimProcess_RelatedDocs.DocRecord" HasCaption="True" OnOutput="RelatedDocDate_OnOutput" Width="23"/>
+              <Component Name="RelatedDocAccountedDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@ClaimProcess:RelatedDocAccountedDate=Дата учета" CellFormat="ReferenceFormat" Enabled="False" Field="ClaimProcess_RelatedDocs.DocRecord" HasCaption="True" OnOutput="RelatedDocAccountedDate_OnOutput" Width="23"/>
+              <Component Name="RelatedDocSum" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@ClaimProcess:RelatedDocSum=Сумма документа" CellFormat="NumericFormat" Enabled="False" FieldFormat=",##0.00;;-" HasCaption="True" OnOutput="RelatedDocSum_OnOutput" ValueType="VarNumeric" Width="35"/>
+              <Component Name="RelatedDocComment" Class="Com.Ctrl.IEdit" Caption="@ClaimProcess:RelatedDocComment=Примечание" CellFormat="StringFormat" Field="ClaimProcess_RelatedDocs.Comment" HasCaption="True" Width="60"/>
+            </Component>
+          </Component>
+          <Component Name="RelatedDocsAddBox" Class="Com.Ctrl.IBox" Caption="@Contract:RelatedDocsAddBox=Дополнительно">
+            <Component Name="RelatedDocsAddGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+              <Component Name="RelatedDocsCommentEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.RelatedDocsComment" HasCaption="True" Multiline="True" Wrap="True"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

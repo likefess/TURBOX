@@ -1,0 +1,59 @@
+﻿TBCFile VER="3.4" [Created '26.11.2020 15:00:00' by 'Администратор']
+
+DESCRIPTION[
+Count=4
+CountByRef=0
+Repair.ExpensesItems
+(
+  Count=4
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Repair.ExpensesItems
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    MetaLock :Boolean
+    SubsysCode :Integer
+    ModuleCode :String
+    PartisCode :Integer
+    Code :String(80)
+    Name :String(850)
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Repair.ExpensesItems
+  
+  {Repair.ExpensesItems:"МАТ"}
+  (
+    Name = "Материальные"
+  )
+  
+  {Repair.ExpensesItems:"ТРУД"}
+  (
+    Name = "Трудовые"
+  )
+  
+  {Repair.ExpensesItems:"ФИН"}
+  (
+    Name = "Финансовые"
+  )
+  
+  {Repair.ExpensesItems:"ВПС"}
+  (
+    Name = "ВПС"
+  )
+]
+
+]

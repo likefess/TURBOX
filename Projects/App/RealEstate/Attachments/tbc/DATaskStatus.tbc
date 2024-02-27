@@ -1,0 +1,110 @@
+﻿TBCFile VER="3.4" [Created '16.08.2022 1:48:14' by 'Администратор']
+
+DESCRIPTION[
+Count=8
+CountByRef=0
+Bas.Ref.EntityRole
+(
+  Count=0
+  CountByRef=0
+)
+DocApprovement.Ref.Trans.DATaskStatus
+(
+  Count=8
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Bas.Ref.EntityRole
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+  [DocApprovement.Ref.Trans.DATaskStatus
+  (
+    Deleted :Boolean
+    Code :String(80)
+    Name :String(255)
+    Description :String
+    EntityNum :Integer
+    EntityRole :Bas.Ref.EntityRole
+    IsClosedTask :Boolean
+    SendMailToResponsible :Boolean
+    EmailRoles :Struct array Integer
+    (
+      Role :Bas.Ref.EntityRole
+    )
+    Treasury_Factuality :Biz.Ref.Factuality
+    Is4SystemUser :Boolean
+    IsDataInput :Boolean
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[DocApprovement.Ref.Trans.DATaskStatus
+  
+  {DocApprovement.Ref.Trans.DATaskStatus:"Статусы согласования договоров"}
+  (
+    Name = "Статусы согласования договоров"
+    SendMailToResponsible = True
+  )
+  
+  {DocApprovement.Ref.Trans.DATaskStatus:"Новый договор"}
+  (
+    Name = "Новый договор"
+    Description = "Черновик"
+    EntityRole = {Bas.Ref.EntityRole:Инициатор}
+  )
+  
+  {DocApprovement.Ref.Trans.DATaskStatus:"Договор на согласовании"}
+  (
+    Name = "Договор на согласовании"
+    Description = "Договор отправлен на согласование"
+    EntityRole = {Bas.Ref.EntityRole:Инициатор}
+  )
+  
+  {DocApprovement.Ref.Trans.DATaskStatus:"Договор согласован"}
+  (
+    Name = "Договор согласован"
+    Description = "Договор согласован - отправлен на подпись"
+    EntityRole = {Bas.Ref.EntityRole:Согласующий}
+  )
+  
+  {DocApprovement.Ref.Trans.DATaskStatus:"Договор подписан"}
+  (
+    Name = "Договор подписан"
+    Description = "Договор подписан - действует"
+    EntityRole = {Bas.Ref.EntityRole:"Подписывающий (руководитель)"}
+    IsClosedTask = True
+  )
+  
+  {DocApprovement.Ref.Trans.DATaskStatus:"Договор не подписан"}
+  (
+    Name = "Договор не подписан"
+    Description = "Договор не подписан - возвращен автору на доработку"
+    EntityRole = {Bas.Ref.EntityRole:"Подписывающий (руководитель)"}
+  )
+  
+  {DocApprovement.Ref.Trans.DATaskStatus:"Договор не согласован"}
+  (
+    Name = "Договор не согласован"
+    Description = "Договор не согласован - возвращен автору на доработку"
+    EntityRole = {Bas.Ref.EntityRole:Согласующий}
+  )
+  
+  {DocApprovement.Ref.Trans.DATaskStatus:"Договор на подписи"}
+  (
+    Name = "Договор на подписи"
+    Description = "Договор на подписи у руководителя - подписан"
+    EntityRole = {Bas.Ref.EntityRole:Согласующий}
+  )
+]
+
+]

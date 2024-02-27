@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="TaskApprovement.Rec.Ref.TaskStatusFldBlock" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="MainBox" Class="Com.Ctrl.IBox" Caption="@Frm:MainBox=Основное">
+            <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="60" HasCaption="True" MaxWidth="300" MinWidth="150">
+              <Component Name="TaskStatusEdit" Class="Com.Ctrl.IEdit" CardFileClass="Control.Tab.Ref.TaskStatus" CellFormat="ReferenceFormat" Field="EdtRec.TaskStatus" LookupField="Name" Required="True"/>
+              <Component Name="LinkedDocClassEdit" Class="Com.Ctrl.IEdit" AutocompleteMode="acmOn" CellFormat="StringFormat" Field="EdtRec.LinkedDocClass" HasButton="True" OnAutocomplete="LinkedDocClassEditOnAutocomplete" OnLookup="LinkedDocClassEditOnLookup" Required="True"/>
+            </Component>
+          </Component>
+          <Component Name="PositionBox" Class="Com.Ctrl.IBox" AutoSize="False" Caption="@Frm:Positions=Позиции" MinSize="60">
+            <Component Name="PositionFrame" Class="Com.Ctrl.IFrame" AutoSize="False" Caption="@Frm:Positions=Позиции">
+              <Component Name="PositionTable" Class="Com.Ctrl.ITable" Freezed="True" Subtable="EdtRec.FieldArray">
+                <Component Name="EdtPositionStruct" Class="TaskApprovement.Rec.Ref.TaskStatusFldBlock_FieldArray" IsLibrary="1"/>
+                <Component Name="LinkedDocFieldEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtPositionStruct.LinkedDocField" ValueType="VarString" Width="80"/>
+                <Component Name="BlockChk" Class="Com.Ctrl.ICheckBox" Field="EdtPositionStruct.Block" Width="80"/>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

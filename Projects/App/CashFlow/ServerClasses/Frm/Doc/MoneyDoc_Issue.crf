@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CashFlow.Frm.Doc.MoneyDocument">
+  <Inherited Caption="@MoneyDoc_Issue:Caption=Выдача денежных документов" HelpContext="CashFlow.Движение денежных средств.Денежные документы.Документы.Движение ден документов.Выдача ден документов">
+    <Inherited Name="FRecord" Class="CashFlow.Rec.Doc.MoneyDoc_Issue" IsLibrary="1"/>
+    <Inherited Name="vDefPos" Class="CashFlow.Rec.Doc.MoneyDoc_Issue_Positions" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="ResponsibleLR" Class="Com.Fld.IVar" Caption="@CashOrder:ResponsibleLR=Получатель" OnCalc="ResponsibleLR_OnCalc" RecordClass="Biz.Rec.Data.LabourRelations" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Visible="True"/>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="GeneralBox">
+            <Inherited Name="GeneralGroup">
+              <Inherited Name="GeneralGroupLeft">
+                <Component Name="ResponsibleGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="ResponsibleLREdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.LabourRelations" Field="ResponsibleLR" HasCaption="True" LookupField="Person.Name" OnChange="ResponsibleLREdit_OnChange" OnGetLookupFilter="ResponsibleLREdit_OnGetLookupFilter" OnOutputEx="ResponsibleLREdit_OnOutputEx"/>
+                  <Component Name="BtnStatic24" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="Contract1Group" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="Contract1" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Field="FRecord.Contract" HasCaption="True" LookupField="Code" OnChange="Contract1_OnChange" Wrap="False"/>
+                  <Component Name="BtnStatic25" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Inherited>
+              <Inherited Name="GeneralGroupRight">
+                <Component Name="ToEmployeeGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="ToEmployeeStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                  <Component Name="ToEmployee" Class="Com.Ctrl.ICheckBox" Field="FRecord.ToEmployee" HasCaption="True" OnChange="ToEmployee_OnChange"/>
+                </Component>
+              </Inherited>
+            </Inherited>
+            <Component Name="Responsible" Class="Com.Ctrl.IEdit" After="Cashier" CardFileClass="Bas.Tab.Data.NaturalEntities" CellFormat="ReferenceFormat" Field="FRecord.Responsible" HasCaption="True" LookupField="Name" Visible="False"/>
+            <Inherited Name="Group6" After="Responsible"/>
+          </Inherited>
+          <Inherited Name="ExtraBox" Visible="True">
+            <Inherited Name="ExtraGroup">
+              <Component Name="ExtraGroupLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="ResponsibleAccount" Class="Com.Ctrl.IEditEx" CellFormat="StringFormat" Field="FRecord.ResponsibleAccount" HasCaption="True">
+                  <Component Name="ResponsibleAccountBtn" Class="Com.Ctrl.IButton" HasCaption="False" Hint="@MoneyDoc_Issue:ResponsibleAccountBtn=Выбор счета" ImageName="Biz.id-card-light" OnClick="ResponsibleAccountBtn_OnClick"/>
+                </Component>
+              </Component>
+              <Component Name="ExtraGroupRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="Static1" Class="Com.Ctrl.IStatic"/>
+              </Component>
+              <Component Name="NewLine3" Class="Com.Ctrl.INewLine" Excluded="True"/>
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Visible="False" Width="40"/>
+              <Component Name="IsOffBal" Class="Com.Ctrl.ICheckBox" Excluded="True" Field="FRecord.IsOffBal" HasCaption="True" OnChange="IsOffBal_OnChange" Visible="False"/>
+              <Component Name="NewLine4" Class="Com.Ctrl.INewLine" Excluded="True"/>
+              <Component Name="AccountOffBal" Class="Com.Ctrl.IEditEx" Excluded="True" CellFormat="StringFormat" Field="FRecord.AccountOffBal" FixSize="True" HasCaption="True" Visible="False" Width="20">
+                <Component Name="AccountOffBalBtn" Class="Com.Ctrl.IButton" HasCaption="False" ImageName="Biz.id-card-light" OnClick="AccountOffBalBtn_OnClick"/>
+              </Component>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="SumBox">
+            <Inherited Name="SumBoxGroup">
+              <Component Name="BtnStatic26" Class="Com.Ctrl.IStatic" After="AmountHeader" FixSize="True" Width="7.5"/>
+              <Inherited Name="QtyHeader" Excluded="True" After="BtnStatic26"/>
+              <Component Name="Currency1" Class="Com.Ctrl.IEdit" Excluded="True" After="QtyHeader" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Field="FRecord.Currency" FixSize="True" HasCaption="False" LookupField="Code" ShortList="True" Visible="False" Width="15"/>
+              <Component Name="NewLine5" Class="Com.Ctrl.INewLine" Excluded="True"/>
+              <Component Name="QtyHeader1" Class="Com.Ctrl.IEdit" Caption="@MoneyDocument:QtyHeader=Количество" CellFormat="NumericFormat" Enabled="False" Field="FRecord.Quantity" FieldFormat=",##0.00;;-" HasCaption="True"/>
+              <Component Name="BtnStatic27" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="SumBoxGroupLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="ContractCurrencyGroup" Class="Com.Ctrl.IGroup">
+                  <Component Name="ContractCurrency" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Field="FRecord.ContractCurrency" HasCaption="True" LookupField="Code" ShortList="True"/>
+                  <Component Name="BtnStatic28" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+              <Component Name="SumBoxGroupRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              </Component>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

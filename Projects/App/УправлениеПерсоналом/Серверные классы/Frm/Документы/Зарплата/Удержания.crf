@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.БазовыйДокумент2">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Документы.Зарплата.Удержания" IsLibrary="1"/>
+    <Component Name="Затраты" Class="УправлениеПерсоналом.Rec.Документы.Зарплата.Удержания_Затраты" IsLibrary="1" After="EdtRec"/>
+    <Component Name="Параметры" Class="УправлениеПерсоналом.Rec.Документы.Зарплата.Удержания_Параметры" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="xFieldsFrame">
+            <Component Name="грСкорректирован" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="стСкорректирован" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="True" Hint="Документ сторнирован" Visible="False" Width="40"/>
+              <Component Name="флСкорректирован" Class="Com.Ctrl.ICheckBox" Caption="Скорректирован" Enabled="False" Field="EdtRec.Скорректирован" FixSize="True" HasCaption="True" Width="40"/>
+              <Component Name="ДатаКорректировки" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.ДатаКорректировки" HasCaption="False" Hint="Дата корректировки документа" MaxWidth="35"/>
+              <Component Name="стСкорректирован2" Class="Com.Ctrl.IStatic" FixSize="True" Width="42"/>
+            </Component>
+            <Inherited Name="grMain">
+              <Inherited Name="Замок" Width="35"/>
+            </Inherited>
+            <Inherited Name="грТипДокумента">
+              <Component Name="ТипДокумента" Class="Com.Ctrl.IEdit" Caption="Тип документа" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ТипыДокументов" Field="EdtRec.ТипДокумента" HasCaption="True" Hint="Тип первичного документа" OnChange="ТипДокумента_OnChange" OnGetLookupFilter="ТипДокумента_OnGetLookupFilter" OnOpenCardForm="ТипДокумента_OnOpenCardForm" Required="True"/>
+              <Component Name="кнТипДокумента" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ТипДокумента" JumpForm="УправлениеПерсоналом.Frm.Классификаторы.ТипДокумента" Printed="False"/>
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="35"/>
+            </Inherited>
+            <Inherited Name="grNumberDate">
+              <Inherited Name="Номер" Width="35"/>
+              <Component Name="Корректировка" Class="Com.Ctrl.ICheckBox" Caption="Корректировка" Field="EdtRec.Корректировка" FixSize="True" HasCaption="True" OnChange="Корректировка_OnChange" Width="35"/>
+            </Inherited>
+            <Component Name="грКорДок" Class="Com.Ctrl.IGroup" After="grNumberDate" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Перерасчет" Class="Com.Ctrl.IEdit" Caption="Корр. документ" CardFileClass="УправлениеПерсоналом.Tab.Документы.Зарплата.Удержания" Field="EdtRec.Перерасчет" HasCaption="True" LookupField="Номер" OnChange="Перерасчет_OnChange" OnGetLookupFilter="Перерасчет_OnGetLookupFilter" Visible="False"/>
+              <Component Name="кнКоррДок" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Перерасчет" JumpForm="УправлениеПерсоналом.Frm.Документы.Зарплата.Удержания" Visible="False" Width="7"/>
+              <Component Name="stEmpty7" Class="Com.Ctrl.IStatic" FixSize="True" Width="35"/>
+            </Component>
+            <Component Name="грСотрудник" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Сотрудник" Class="Com.Ctrl.IEdit" Caption="@Сотрудник" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Enabled="True" Field="EdtRec.УсловияТрудаСотр" HasCaption="True" Hint="Сотрудник предприятия" LookupField="Person.Name" OnChange="Сотрудник_OnChange" OnGetLookupFilter="Сотрудник_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуУслТрудаСотрудников" OnOutputEx="УсловияТрудаСотр_OnOutputEx" Required="True" Visible="True"/>
+              <Component Name="ТабНомер" Class="Com.Ctrl.IEdit" Caption="-" CaptionWidth="5" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Enabled="False" Field="EdtRec.УсловияТрудаСотр" HasCaption="True" LookupField="ТабНомер" MaxWidth="30" Visible="True" Width="30"/>
+              <Component Name="кнСотрудник" Class="Com.Ctrl.IJumpButton" Field="EdtRec.УсловияТрудаСотр" JumpForm="УправлениеПерсоналом.Frm.Данные.УсловияТрудаСотрудника"/>
+              <Component Name="кнУтвердить" Class="Com.Ctrl.IButton" Caption="Утвердить" Hint="Утвердить/Отменить документ" OnClick="кнУтвердить_OnClick" Width="35"/>
+            </Component>
+            <Component Name="грНазначение" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Назначение" Class="Com.Ctrl.IEdit" Caption=" " CardFileClass="УправлениеПерсоналом.Tab.Данные.Назначения" Enabled="False" Field="EdtRec.Назначение" HasCaption="True" Hint="Подразделение, должность, разряд сотрудника" Multiline="True" OnOutputEx="Назначение_OnOutputEx" Wrap="True"/>
+              <Component Name="Static5" Class="Com.Ctrl.IStatic" FixSize="True" Width="42"/>
+            </Component>
+            <Inherited Name="грОписание" Excluded="True"/>
+            <Inherited Name="грПримечание">
+              <Component Name="Static6" Class="Com.Ctrl.IStatic" FixSize="True" Width="35"/>
+            </Inherited>
+            <Component Name="грНомерДата" Class="Com.Ctrl.IGroup" After="грПримечание" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="НомерДок" Class="Com.Ctrl.IEdit" Caption="№" Field="EdtRec.НомерДок" HasCaption="True" Hint="Номер документа-основания (например, № исп. листа)" MaxWidth="30" ValueType="VarString" Width="30"/>
+              <Component Name="ДатаДок" Class="Com.Ctrl.IEdit" Caption="дата" CaptionWidth="15" Field="EdtRec.ДатаДок" HasCaption="True" Hint="Дата документа-основания (например, Дата исп. листа)" MaxWidth="30" Width="30"/>
+              <Component Name="Очередность" Class="Com.Ctrl.IEdit" Caption="Очередность" CellFormat="EnumFormat" Field="EdtRec.Очередность" HasCaption="True" Hint="Очередность в соответствии с ч.1 ст.111 229-ФЗ" Width="30"/>
+              <Component Name="stEmpty2" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+              <Component Name="stEmpty8" Class="Com.Ctrl.IStatic" FixSize="True" Width="35"/>
+            </Component>
+            <Component Name="грПроцентОчередность" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Процент" Class="Com.Ctrl.IEdit" Caption="% удержания" Field="EdtRec.ПроцентУдержания" FieldFormat="0.00;;-" HasCaption="True" Hint="Ежемесячный процент удержания" MaxWidth="30" Width="30"/>
+              <Component Name="stEmpty3" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="7"/>
+              <Component Name="ОграничениеУдержания" Class="Com.Ctrl.IEdit" Caption="Ограничение по зар.плате, %" CaptionWidth="85" Field="EdtRec.ОгрУдержания" FieldFormat="0.00;;-" HasCaption="True" Hint="Максимально допустимый процент удержаний из заработной платы сотрудника в соответствии со ст. 138 ТК РФ и ч. 2 ст.99 229-ФЗ" Width="30"/>
+              <Component Name="stEmpty4" Class="Com.Ctrl.IStatic" FixSize="True" Width="42"/>
+            </Component>
+            <Component Name="грВариантУчета" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="ВариантУчета" Class="Com.Ctrl.IEdit" Caption="Вариант учета затрат" CaptionWidth="45" CellFormat="EnumFormat" Field="EdtRec.ЗатратыВарУчета" HasCaption="True" MaxWidth="65" Width="65"/>
+              <Component Name="УчетПрожитМин" Class="Com.Ctrl.ICheckBox" Caption="Учет прож.минимума" Field="EdtRec.УчетПрожитМин" HasCaption="True" Hint="С учетом прожиточного минимума" OnChange="УчетПрожитМин_OnChange" Width="40"/>
+              <Component Name="ПрожМинимум" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ПрожМинимум" Field="EdtRec.ПрожМинимум" HasCaption="False" Hint="Прожиточный минимум" LookupField="Код" Width="30"/>
+              <Component Name="кнПрожМинимум" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ПрожМинимум" FixSize="True" JumpForm="УправлениеПерсоналом.Frm.Справочники.ПрожМинимум" Width="7"/>
+              <Component Name="stEmpty6" Class="Com.Ctrl.IStatic" FixSize="True" Width="35"/>
+            </Component>
+            <Component Name="тблПараметры" Class="Com.Ctrl.ITable" CanInsert="True" Freezed="False" Numbering="True" OnDelete="тблПараметры_OnDelete" Subtable="EdtRec.Параметры">
+              <Component Name="грЗаголовок" Class="Com.Ctrl.IColumnsGroup" Caption="Параметры" HasCaption="True">
+                <Component Name="ВидВзыскания" Class="Com.Ctrl.IEdit" Caption="Вид взыскания" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыВзысканий" Field="Параметры.ВидВзыскания" HasCaption="True" LookupField="Name" Multiline="True" OnChange="ВидВзыскания_OnChange" Width="60" Wrap="True"/>
+                <Component Name="ВидУдержания" Class="Com.Ctrl.IEdit" Caption="Вид удержания" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыУдержаний" Field="Параметры.ВидУдержания" HasCaption="True" LookupField="Name" Multiline="True" OnGetLookupFilter="ВидУдержания_OnGetLookupFilter" Width="60" Wrap="True"/>
+                <Component Name="грПериод" Class="Com.Ctrl.IColumnsGroup" Caption="Период" HasCaption="True">
+                  <Component Name="ПериодС" Class="Com.Ctrl.IEdit" Caption="с" Field="Параметры.ПериодС" HasCaption="True" Width="30"/>
+                  <Component Name="ПериодПо" Class="Com.Ctrl.IEdit" Caption="по" Field="Параметры.ПериодПо" HasCaption="True" Width="30"/>
+                </Component>
+                <Component Name="Доля" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Доля" Field="Параметры.ДоляСтрока" HasCaption="True" Hint="Доля распределения" OnVerify="Доля_OnVerify" Width="12"/>
+                <Component Name="МаксСумма" Class="Com.Ctrl.IEdit" Caption="Макс. сумма" Field="Параметры.МаксСумма" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+                <Component Name="ОчередностьВнт" Class="Com.Ctrl.IEdit" Caption="Очер. (внутр)" Field="Параметры.ОчередностьВнт" HasCaption="True" Hint="Очередность (внутр)" Width="15"/>
+                <Component Name="Взыскатель" Class="Com.Ctrl.IEdit" Caption="Взыскатель/получатель" CardFileClass="Bas.Tab.Data.Contraparties" Field="Параметры.Взыскатель" HasCaption="True" Multiline="True" OnChange="Взыскатель_OnChange" Required="True" Width="45" Wrap="True"/>
+                <Component Name="РеквизитыВзыскатель" Class="Com.Ctrl.IEdit" Caption="Реквизиты" CardFileClass="Biz.Tab.Data.BankDetails" Field="Параметры.Реквизиты" HasCaption="True" Hint="Реквизиты для перечисления денежных средств, удержанных с сотрудника в рамках соответствующего взыскания" LookupField="AccountNum" Multiline="True" OnOpenCardForm="РеквизитыВзыскатель_OnOpenCardForm" OnOutputEx="РеквизитыБанка_OnOutputEx" Required="True" Width="50" Wrap="True"/>
+              </Component>
+            </Component>
+            <Component Name="Group3" Class="Com.Ctrl.IGroup">
+              <Component Name="Static8" Class="Com.Ctrl.IStatic"/>
+            </Component>
+            <Component Name="тблЗатраты" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Numbering="True" Subtable="EdtRec.Затраты">
+              <Component Name="грЗаголовок1" Class="Com.Ctrl.IColumnsGroup" Caption="Затраты" HasCaption="True">
+                <Component Name="ВидВзысканияЗатраты" Class="Com.Ctrl.IEdit" Caption="Вид взыскания" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыВзысканий" Enabled="False" Field="Затраты.ВидВзыскания" HasCaption="True" LookupField="Name" Width="60"/>
+                <Component Name="ПроцентДопЗатрат" Class="Com.Ctrl.IEdit" Caption="Процент" Field="Затраты.Процент" FieldFormat="0.00%;;-" HasCaption="True" Width="20"/>
+                <Component Name="Сумма" Class="Com.Ctrl.IEdit" Caption="Сумма" Field="Затраты.Сумма" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+                <Component Name="МинСумма" Class="Com.Ctrl.IEdit" Caption="Мин. сумма" Field="Затраты.МинСумма" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+                <Component Name="МакСумма" Class="Com.Ctrl.IEdit" Caption="Макс. сумма" Field="Затраты.МаксСумма" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+                <Component Name="Получатель" Class="Com.Ctrl.IEdit" Caption="Получатель" CardFileClass="Bas.Tab.Data.Contraparties" Field="Затраты.Получатель" HasCaption="True" Multiline="True" OnChange="Получатель_OnChange" Width="80" Wrap="True"/>
+                <Component Name="РеквизитыПолучатель" Class="Com.Ctrl.IEdit" Caption="Реквизиты " CardFileClass="Biz.Tab.Data.BankDetails" Field="Параметры.Реквизиты" HasCaption="True" Hint="Реквизиты для перечисления затрат" LookupField="AccountNum" Multiline="True" OnOpenCardForm="РеквизитыПолучатель_OnOpenCardForm" OnOutputEx="РеквизитыБанка_OnOutputEx" Width="82" Wrap="True"/>
+              </Component>
+            </Component>
+          </Inherited>
+          <Inherited Name="xTabsFrame">
+            <Component Name="фрПараметрыЗатраты" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Параметры" HasCaption="True" Margins="5"/>
+          </Inherited>
+        </Inherited>
+        <Component Name="фрАналитика" Class="Com.Ctrl.IFrame" After="MainTab" Caption="Данные БУ" Enabled="False" HasCaption="True"/>
+        <Component Name="фрКорректировка" Class="Com.Ctrl.IFrame" Caption="Корректировки" HasCaption="True" Visible="False">
+          <Component Name="фрКорректировки" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+        </Component>
+        <Inherited Name="фрПодписи" Caption="Прочее">
+          <Inherited Name="фрПодписиОбщ" Excluded="True"/>
+        </Inherited>
+        <Component Name="фрОтчет" Class="Com.Ctrl.IFrame" After="фрПодписи" Caption="Отчет" HasCaption="True" Visible="False"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

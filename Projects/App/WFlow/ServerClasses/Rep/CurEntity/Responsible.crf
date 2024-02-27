@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" AccountPlan="Workflow" BegDate="01.06.2022" BegSaldoFormat="sfNone" Caption="Я ответственный" CIndicator="1" EndDate="01.07.2022" EndSaldoFormat="sfNone" HidePeriod="True" HystoKind="hkSide" Legend="lpkAtRight" OpenPeriod="opAll" Palette="cpDefault" Period="-1">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorTaskUnit" Class="Com.Rep.IIndMain" Caption="IndicatorTaskUnit" Contents="TaskUnit" Visible="False"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParamAFB95CC1" Class="Com.Rep.ISplitByParam" ShowTotals="False" SortOrder="Task.СрокЗавершения" SplitParam="Task"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContent372ACA37" Class="Com.Rep.ISplitContent" Caption="№" Contents="Task.ПечатныйНомер" MaxWidth="30" MinWidth="30"/>
+        <Component Name="SplitContentFE8C3EBD" Class="Com.Rep.ISplitContent" Caption="Описание" Contents="Task.Описание" MaxWidth="160" MinWidth="160"/>
+        <Component Name="SplitContent3C54B176" Class="Com.Rep.ISplitContent" Alignment="CenterAlign" Caption="Состояние" Contents="Task.Состояние.Описание" MaxWidth="40" MinWidth="40"/>
+        <Component Name="SplitContent3F39E399" Class="Com.Rep.ISplitContent" Caption="К сроку" Contents="Task.СрокЗавершения" MaxWidth="30" MinWidth="30"/>
+        <Component Name="SplitContent6D86439C" Class="Com.Rep.ISplitContent" Caption="Инициатор" Contents="Task.Инициатор.Описание" MaxWidth="60" MinWidth="60"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_Task.Responsible" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Ответственный" CaptionWidth="40" DefaultFunc="Com.Vars.CurrentEntity.Internal" DefaultStr="Object(nil)" Operator=" is " Parameter="Responsible" Plan="Workflow" SkipNil="True" ValueType="VarObject" Width="70"/>
+      <Component Name="RC_Task.Closed" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Завершенные" CellFormat="LogicalFormat" DefaultStr="Logical(False)" Operator="=" Parameter="Task.Closed" Plan="Workflow" SkipNil="True" ValueType="VarLogical"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Menu.CommandGroups.Root">
+  <Inherited>
+    <Inherited Name="Справочники">
+      <Inherited Name="НалогУчет_команды">
+        <Inherited Name="Cmd_Directories_Expenses_for_tax_purposes" AdvRTIForm="BizRus.Frm.Ref.Расход"/>
+      </Inherited>
+      <Inherited Name="Имущество_команды">
+        <Inherited Name="Cmd_Directories_Property_assignment" Caption="@Cmd:Directories.Property assignment=Назначение ОС,НМА"/>
+        <Inherited Name="Cmd_Directories_Preferential_regimes_of_property" Caption="@Cmd:Directories.Preferential regimes of property=Льготные режимы ОС"/>
+      </Inherited>
+      <Component Name="КарточкиОС_КВ_ГрОС" Class="Com.Cmd2.ICommandGroup">
+        <Component Name="Cmd_ОС" Class="Com.ComManaging.OpenIForm" AdvRTIForm="ИмуществоБазовый.Frm.Справочники.ОснСредства " Caption="@Cmd:PropertyManagement_СправочникОС=Справочник ОС" FormClassName="ИмуществоБазовый.Tab.Справочники.ОснСредства " IconName="Com.Cardfile"/>
+        <Component Name="Cmd_КВ" Class="Com.ComManaging.OpenIForm" AdvRTIForm="ИмуществоБазовый.Frm.Справочники.КапВложения " Caption="@Cmd:PropertyManagement_СправочникКВ=Справочник КВ" FormClassName="ИмуществоБазовый.Tab.Справочники.КапВложения " IconName="Com.Cardfile"/>
+        <Component Name="Cmd_ГрОС" Class="Com.ComManaging.OpenIForm" AdvRTIForm="ИмуществоБазовый.Frm.Справочники.ГрупповыеОС " Caption="@Cmd:PropertyManagement_СправочникГрОС=Справочник групповые ОС" FormClassName="ИмуществоБазовый.Tab.Справочники.ГрупповыеОС" IconName="Com.Cardfile"/>
+        <Component Name="Cmd_НМА" Class="Com.ComManaging.OpenIForm" AdvRTIForm="ИмуществоБазовый.Frm.Справочники.НМА " Caption="@Cmd:PropertyManagement_СправочникНМА=Справочник НМА" FormClassName="ИмуществоБазовый.Tab.Справочники.НМА " IconName="Com.Cardfile"/>
+      </Component>
+      <Component Name="Cmd_МетодыАмортизации" Class="Com.ComManaging.OpenIForm" AdvRTIForm="ИмуществоБазовый.Frm.Справочники.МетодыАмортизации " Caption="@Cmd:PropertyManagement_МетодыАмортизации=Методы амортизации" FormClassName="ИмуществоБазовый.Tab.Справочники.МетодыАмортизации " IconName="Com.Cardfile"/>
+      <Component Name="Cmd_ТрудовыеОтношения" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Biz.Frm.Data.LabourRelations" Caption="@Cmd:LabourRelations_ТрудовыеОтношения=Трудовые отношения" FormClassName="Biz.Tab.Data.LabourRelations" IconName="Com.Cardfile"/>
+    </Inherited>
+    <Inherited Name="Классификаторы">
+      <Component Name="Cmd_Классификаторы_ОКТМО" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:Классификаторы.ОКТМО=ОКТМО" FormClassName="BizRus.Tab.Классификаторы.ОКТМО" IconName="Com.Cardfile"/>
+    </Inherited>
+  </Inherited>
+</Resource>

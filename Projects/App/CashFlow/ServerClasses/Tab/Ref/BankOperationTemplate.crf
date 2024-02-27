@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.CodeName">
+  <Inherited HelpContext="CashFlow.Движение денежных средств.Справочники.Шаблоны банковских операций" Hierarchical="False">
+    <Inherited Name="Current" Class="CashFlow.Rec.Ref.BankOperationTemplate" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Code" After="ExtId"/>
+          <Inherited Name="Name" After="Code"/>
+          <Inherited Name="CreateDate" After="Name"/>
+          <Component Name="OurCompany" Class="Com.Ctrl.IEdit" Field="Current.OurCompany" Width="50"/>
+          <Component Name="IsExpenseDoc" Class="Com.Ctrl.ICheckBox" Caption="Расходный документ" Field="Current.IsExpenseDoc" HasCaption="True" Width="40"/>
+          <Component Name="PaymentPurpose" Class="Com.Ctrl.IEdit" Field="Current.PaymentPurpose" Width="60"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

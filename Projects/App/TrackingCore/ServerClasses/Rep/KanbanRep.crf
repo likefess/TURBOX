@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" AccountPlan="Workflow" BegSaldoFormat="sfNone" Caption="Канбан" CIndicator="1" EndSaldoFormat="sfNone" HidePeriod="True" HystoKind="hkSide" Legend="lpkAtRight" OpenPeriod="opAll" Palette="cpDefault">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorTaskUnit" Class="Com.Rep.IIndMain" Caption="IndicatorTaskUnit" Contents="TaskUnit"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam1999D03E" Class="Com.Rep.ISplitByParam" SplitParam="Task"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContent19B9D5F8" Class="Com.Rep.ISplitContent" Contents="Task.Состояние"/>
+        <Component Name="SplitContent46BA3CBD" Class="Com.Rep.ISplitContent" Contents="Task.Инициатор.Наименование"/>
+        <Component Name="SplitContentDDBE1A65" Class="Com.Rep.ISplitContent" Contents="Task.Описание"/>
+        <Component Name="SplitContent85B740DC" Class="Com.Rep.ISplitContent" Contents="Task.Ответственный.Наименование"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_PrintedNumber" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Номер" CaptionWidth="40" DefaultStr="String(&quot;&quot;)" Operator="=" Parameter="Task.ПечатныйНомер" Plan="Workflow" SkipNil="True" ValueType="VarString"/>
+      <Component Name="RC_Project" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Проект" CaptionWidth="40" DefaultStr="Object(nil)" MultiSelect="True" Operator="=" Parameter="Project" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Category" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Тип задачи" CaptionWidth="40" DefaultStr="Object(nil)" MultiSelect="True" Operator="=" Parameter="Task.Категория" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Label" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Метка" DefaultStr="Object(nil)" MultiSelect="True" Operator="=" Parameter="Label" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Description" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Название" DefaultStr="String(&quot;&quot;)" NewLine="True" Operator="=" Parameter="Task.Описание" Plan="Workflow" SkipNil="True" ValueType="VarString"/>
+      <Component Name="RC_TaskStatus" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Состояние" CaptionWidth="40" DefaultStr="Object(nil)" MultiSelect="True" Operator="=" Parameter="Task.Состояние" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Responsible" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Ответственный" CaptionWidth="40" DefaultStr="Object(nil)" Operator="=" Parameter="Task.Ответственный" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Component" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Компонент" DefaultStr="Object(nil)" MultiSelect="True" Operator="=" Parameter="Component" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_TaskDescription" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Описание" DefaultStr="String(&quot;&quot;)" NewLine="True" Operator="=" Parameter="Task.ОписаниеЗадачи" Plan="Workflow" SkipNil="True" ValueType="VarString"/>
+      <Component Name="RC_Priority" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Приоритет" CaptionWidth="40" DefaultStr="Object(nil)" MultiSelect="True" Operator="=" Parameter="Task.Prio" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Initiator" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Инициатор" CaptionWidth="40" DefaultStr="Object(nil)" Operator="=" Parameter="Task.Инициатор" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Sprint" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Спринт" DefaultStr="Object(nil)" MultiSelect="True" Operator="=" Parameter="Sprint" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Seriousness" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Серьезность" DefaultStr="Object(nil)" Operator="=" Parameter="Task.Seriousness" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_AffVersion" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Версия" DefaultStr="Object(nil)" Operator="=" Parameter="AffVersion" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Watcher" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Наблюдатель" DefaultStr="Object(nil)" Operator="=" Parameter="Watcher" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_WatcherRole" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Роль" DefaultStr="Object(nil)" Operator="=" Parameter="WatcherRole" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Doer" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Исполнитель" DefaultStr="Object(nil)" Operator="=" Parameter="Task.Исполнитель" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

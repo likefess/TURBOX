@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Purchase.Frm.Data.BaseDocFrm">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Purchase.Rec.Data.OfferRequest" IsLibrary="1"/>
+    <Component Name="EdtRec_Pos" Class="Purchase.Rec.Data.OfferRequest_PositionsLinks" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="Variables">
+      <Component Name="MainPosRec" Class="Purchase.Rec.Data.OfferRequest_MainPos" IsLibrary="1"/>
+      <Component Name="Conditions" Class="Purchase.Rec.Data.OfferRequest_Conditions" IsLibrary="1"/>
+      <Component Name="Participants" Class="Purchase.Rec.Data.OfferRequest_Participants" IsLibrary="1"/>
+      <Component Name="SuppliOffer" Class="Purchase.Rec.Data.OfferRequest_PosSupplierOffer" IsLibrary="1"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Component Name="btnHistoryChangesHead" Class="Com.Ctrl.IButton" Caption="История изменений заголовка" ImageName="Com.CardFile1" OnClick="btnHistoryChangesHead_OnClick"/>
+          <Component Name="btnSelectPosPlan" Class="Com.Ctrl.IButton" Caption="Подобрать позиции из планов закупок" ImageName="Com.CardFile1" OnClick="btnSelectPosPlan_OnClick"/>
+          <Component Name="btnSelectPosOrder" Class="Com.Ctrl.IButton" Caption="Подобрать позиции из заявок" ImageName="Com.CardFile1" OnClick="btnSelectPosOrder_OnClick"/>
+        </Inherited>
+        <Inherited Name="ButtonReports">
+          <Component Name="btnSupplierPriceAnalysis" Class="Com.Ctrl.IButton" Caption="Анализ цен поставщиков" ImageName="Com.Report" OnClick="btnSupplierPriceAnalysisOnClick"/>
+          <Component Name="btnAnalysisSupOffer" Class="Com.Ctrl.IButton" Caption="Анализ условий поставщиков" ImageName="Com.Report" OnClick="btnAnalysisSupOffer_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="BasicFrame">
+        <Inherited Name="CodeFrame">
+          <Inherited Name="CodeGr">
+            <Inherited Name="JournalDate" CaptionWidth="65" OnChange="JournalDate_OnChange"/>
+            <Inherited Name="NameEdit" CaptionWidth="65"/>
+            <Inherited Name="Company" CaptionWidth="65"/>
+          </Inherited>
+          <Inherited Name="grAgreement" Excluded="False">
+            <Inherited Name="Agreement" CaptionWidth="65"/>
+          </Inherited>
+          <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250" MinWidth="180">
+            <Component Name="edGroupDoc" Class="Com.Ctrl.IEdit" Caption="Группа" CaptionWidth="65" Enabled="False" Field="EdtRec.GroupDoc"/>
+            <Component Name="stGroupDoc" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+          </Component>
+        </Inherited>
+        <Inherited Name="MainFrm" AutoSize="True">
+          <Component Name="Gr_Состояние" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="220" MinWidth="180">
+            <Component Name="ed_Состояние" Class="Com.Ctrl.IEdit" CaptionWidth="65" CardFileClass="Purchase.Tab.Ref.StatusOfferRequest" Field="EdtRec.СостояниеЗП" HasCaption="True" MaxWidth="250" MinWidth="178" OnGetLookupFilter="ed_СостояниеOnGetLookupFilter" OnLookup="ed_Состояние_OnLookup" Required="True" ShortList="True"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab" Caption="@Frm:MainTab=Общие">
+          <Inherited Name="MainBox" AutoSize="True">
+            <Component Name="Gr_ОргЗакупки" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="220" MinWidth="180">
+              <Component Name="ed_Организатор" Class="Com.Ctrl.IEdit" CaptionWidth="65" CardFileClass="Bas.Tab.Data.OurCompanies" Field="EdtRec.Организатор" HasCaption="True" MaxWidth="245" MinWidth="178" Required="True" ShortList="True"/>
+              <Component Name="CompanyJB2" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Организатор" FixSize="True" JumpForm="Bas.Frm.Data.Entity" Width="7.2"/>
+            </Component>
+            <Component Name="Gr_Ответственный" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="220" MinWidth="180">
+              <Component Name="ed_Ответственный" Class="Com.Ctrl.IEdit" CaptionWidth="65" CardFileClass="Bas.Tab.Data.Employees" Field="EdtRec.Ответственный" HasCaption="True" MaxWidth="245" MinWidth="178" Required="True"/>
+            </Component>
+            <Component Name="Gr_Заказчик" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="220" MinWidth="100">
+              <Component Name="ed_Заказчик" Class="Com.Ctrl.IEdit" CaptionWidth="65" CardFileClass="Bas.Tab.Data.Divisions" Field="EdtRec.Заказчик" HasCaption="True" MaxWidth="245" MinWidth="178" Required="True"/>
+              <Component Name="CompanyJB1" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Заказчик" FixSize="True" JumpForm="Bas.Frm.Data.Entity" Width="7.2"/>
+            </Component>
+            <Component Name="Gr_ПредметДоговора" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="220" MinWidth="100">
+              <Component Name="edContractSubject" Class="Com.Ctrl.IEdit" CaptionWidth="65" Field="EdtRec.ContractSubject" HasCaption="True" MaxWidth="245" MinWidth="178"/>
+            </Component>
+            <Component Name="Gr_ОбщСумма" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250" MinWidth="205">
+              <Component Name="ed_ОбщСумма" Class="Com.Ctrl.IEdit" CaptionWidth="65" Field="EdtRec.TotalAmount" FieldFormat="#0.00" HasCaption="True" OnOutput="ed_ОбщСумма_OnOutput" Width="35"/>
+              <Component Name="ed_Валюта" Class="Com.Ctrl.IEdit" Field="EdtRec.TotalUnit" FixSize="True" LookupField="code" LookupFilter="UnitKind = 1" OnOpenCardForm="ed_Валюта_OnOpenCardForm" ShortList="True" Width="15"/>
+              <Component Name="cbPriceWithVAT" Class="Com.Ctrl.ICheckBox" Field="EdtRec.IsPriceWithVAT" FixSize="True" OnChange="cbPriceWithVATOnChange" Width="43"/>
+              <Component Name="ed_AmountVAT" Class="Com.Ctrl.IEdit" CaptionWidth="25" Field="EdtRec.AmountVAT" FieldFormat="#0.00" HasCaption="True" OnOutput="ed_AmountVAT_OnOutput" Width="35"/>
+              <Component Name="cbWithoutPrice" Class="Com.Ctrl.ICheckBox" Field="EdtRec.IsWithoutPrice" FixSize="True" OnChange="cbWithoutPriceOnChange" Width="41"/>
+            </Component>
+            <Component Name="Gr_СпВыбПоставщ" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="220" MinWidth="100">
+              <Component Name="edMethodSelectionSupplier" Class="Com.Ctrl.IEdit" CaptionWidth="65" Field="EdtRec.MethodSelectionSupplier" HasCaption="True" MaxWidth="245" MinWidth="178" OnChange="edMethodSelectionSupplierOnChange" Required="True" ShortList="True"/>
+            </Component>
+            <Component Name="Gr_СБ_Закупки" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250" MinWidth="100">
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="65"/>
+              <Component Name="cbClosedPurchase" Class="Com.Ctrl.ICheckBox" Field="EdtRec.IsClosedPurchase" FixSize="True" OnChange="cbClosedPurchaseOnChange" Width="39"/>
+              <Component Name="cbElectronicForm" Class="Com.Ctrl.ICheckBox" Field="EdtRec.IsElectronicForm" FixSize="True" OnChange="cbElectronivFormOnChange" Width="46"/>
+              <Component Name="cbComplianceFedLaw" Class="Com.Ctrl.ICheckBox" Field="EdtRec.IsComplianceFedLaw" FixSize="True" Width="75"/>
+            </Component>
+            <Component Name="Gr_ЭлекПлощадка" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="220" MinWidth="100">
+              <Component Name="ed_ElectronicPlatform" Class="Com.Ctrl.IEdit" Caption="Электронная площадка" CaptionWidth="65" Field="edtRec.ElectronicPlatform" HasCaption="True" MaxWidth="245" MinWidth="178"/>
+            </Component>
+            <Component Name="Gr_НомЗаявЭТП" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="220" MinWidth="100">
+              <Component Name="ed_НомерЗаявкиЭТП" Class="Com.Ctrl.IEdit" CaptionWidth="65" CardFileClass="Purchase.Tab.Ref.StatusOfferRequest" Field="EdtRec.НомерЗаявкиЭТП" HasCaption="True" MaxWidth="245" MinWidth="178"/>
+            </Component>
+          </Inherited>
+          <Component Name="MainPosBox" Class="Com.Ctrl.IBox" After="MainBox" Caption="ОКПД 2">
+            <Component Name="tbMainPos" Class="Com.Ctrl.ITable" Numbering="False" Subtable="EdtRec.MainPos">
+              <Component Name="edCode" Class="Com.Ctrl.IEdit" Caption="Код" CaptionWidth="55" CardFileClass="BizRus.Tab.Классификаторы.ОКПД2" Field="MainPosRec.ОКПД2" HasCaption="True" LookupField="Code"/>
+              <Component Name="ОКПД2" Class="Com.Ctrl.IEdit" Caption="Наименование" CaptionWidth="55" CardFileClass="BizRus.Tab.Классификаторы.ОКПД2" Field="MainPosRec.ОКПД2" HasCaption="True" LookupField="Name" Multiline="True" Width="150" Wrap="True"/>
+            </Component>
+          </Component>
+          <Inherited Name="LineBox" Caption="Даты">
+            <Inherited Name="LineFrm">
+              <Component Name="Group5" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150" MinWidth="100">
+                <Component Name="ed_НачПодготовки" Class="Com.Ctrl.IEdit" CaptionWidth="65" Field="EdtRec.НачПодготовки" FormatOfDate="DateAndTime" HasCaption="True" Required="True"/>
+                <Component Name="ed_НачПодачи" Class="Com.Ctrl.IEdit" CaptionWidth="65" Field="EdtRec.НачПодачи" FormatOfDate="DateAndTime" HasCaption="True" Required="True"/>
+                <Component Name="ed_ОкончПодачи" Class="Com.Ctrl.IEdit" CaptionWidth="65" Field="EdtRec.ОкончПодачи" FormatOfDate="DateAndTime" HasCaption="True" Required="True"/>
+                <Component Name="ed_EndPurchase" Class="Com.Ctrl.IEdit" CaptionWidth="65" Field="EdtRec.EndPurchase" FormatOfDate="DateAndTime" HasCaption="True" Required="True"/>
+              </Component>
+            </Inherited>
+          </Inherited>
+          <Component Name="Additionally" Class="Com.Ctrl.IBox" After="LineBox" Caption="Дополнительная информация">
+            <Component Name="Group6" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="220" MinWidth="100">
+              <Component Name="edDescription" Class="Com.Ctrl.IEdit" Caption="Комментарии" CaptionWidth="65" Field="EdtRec.Description" HasCaption="True" MaxWidth="245" MinWidth="178" Multiline="True" Wrap="True"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Inherited Name="PosTab">
+          <Inherited Name="tbPos">
+            <Inherited Name="Ed_ТМЦ_услуги_Name" Enabled="False"/>
+            <Inherited Name="Ed_ТМЦ_услуги_Code" Enabled="False"/>
+            <Component Name="btn_Аналог" Class="Com.Ctrl.IButton" After="Jb_ТМЦ_услуги" ImageName="SCM.Letter_A" OnClick="btn_Аналог_OnClick"/>
+            <Component Name="Id" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.Id"/>
+            <Inherited Name="Ed_TMC_FullName" Enabled="False"/>
+            <Inherited Name="СlmnsGr_Колво" Enabled="True">
+              <Inherited Name="Колво" Enabled="True" OnVerify="КолвоOnVerify"/>
+            </Inherited>
+            <Inherited Name="ClmnsGr_КолвоУпак" Excluded="True"/>
+            <Component Name="edPriceWithoutVAT" Class="Com.Ctrl.IEdit" After="ClmnsGr_КолвоУпак" Field="PosRec.PriceWithoutVAT" FieldFormat="#0.00" OnChange="edPriceOnChange" OnVerify="edPriceWithoutVAT_OnVerify" Width="25"/>
+            <Component Name="edPriceWithVAT" Class="Com.Ctrl.IEdit" Field="PosRec.PriceWithVAT" FieldFormat="#0.00" OnChange="edPriceOnChange" OnVerify="edPriceWithVAT_OnVerify" Width="25"/>
+            <Component Name="СlmnsGr_SumWithoutVAT" Class="Com.Ctrl.IColumnsGroup" Caption="Сумма без НДС" Enabled="False" HasCaption="True" Visible="False">
+              <Component Name="edSumWithoutVAT" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.SumWithoutVAT" FieldFormat="#0.00" HasCaption="False" Width="25"/>
+              <Component Name="edSumUnit1" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.SumUnit" HasCaption="False" LookupField="Code" Width="10"/>
+            </Component>
+            <Inherited Name="ClmnsGr_Sum" Enabled="False"/>
+            <Inherited Name="ClmnsGr_VAT" Enabled="True">
+              <Inherited Name="edVATBid" Enabled="True" OnVerify="edVATBidOnVerify"/>
+            </Inherited>
+            <Inherited Name="Ed_DocObject" Excluded="True" Caption="План закупок" CardFileClass="Purchase.Tab.Data.PurchasePlan"/>
+            <Component Name="btn_ScanPosItem" Class="Com.Ctrl.IButton" After="Ed_DocObject" ImageName="Biz.list-ul" OnClick="btn_ScanPosItemOnClick"/>
+            <Inherited Name="Ed_Coefficient_Analog" Visible="False"/>
+          </Inherited>
+          <Component Name="tbBundlePlanOrder" Class="Com.Ctrl.ITable" Subtable="EdtRec.PositionsLinksTable" Visible="False">
+            <Component Name="Ed_Id" Class="Com.Ctrl.IEdit" Caption="id" Field="EdtRec_Pos.IdPos" ValueType="VarString"/>
+            <Component Name="Edt_PurchasePlan" Class="Com.Ctrl.IEdit" Caption="План" Enabled="False" Field="EdtRec_Pos.PurchasePlan"/>
+            <Component Name="Edt_PurchaseOrder" Class="Com.Ctrl.IEdit" Caption="Заявка" Enabled="False" Field="EdtRec_Pos.PurchaseOrder"/>
+            <Component Name="Ed_IdPosDoc" Class="Com.Ctrl.IEdit" Caption="Id позиции" Enabled="False" Field="EdtRec_Pos.IdPosDoc"/>
+            <Component Name="Ed_AmountTMCPos" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec_Pos.AmountTMCPos"/>
+            <Component Name="Ed_PriceWithVATPos" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec_Pos.PriceWithVATPos" Visible="True"/>
+            <Component Name="Ed_PriceWithoutVATPos" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec_Pos.PriceWithoutVATPos"/>
+            <Component Name="Ed_SumVatPos" Class="Com.Ctrl.IEdit" Field="EdtRec_Pos.SumVatPos"/>
+          </Component>
+        </Inherited>
+        <Component Name="TermsTab" Class="Com.Ctrl.IFrame" Caption="@Frm:TermsTab=Условия" Margins="0">
+          <Component Name="Delivery" Class="Com.Ctrl.IBox" Caption="Условия поставки">
+            <Component Name="Group7" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="220" MinWidth="100">
+              <Component Name="edTermsDelivery" Class="Com.Ctrl.IEdit" CaptionWidth="65" Field="EdtRec.termsDelivery" HasCaption="True" MaxWidth="245" MinWidth="178" Multiline="True" Required="True" Wrap="True"/>
+              <Component Name="edPlaceDelivery" Class="Com.Ctrl.IEdit" Caption="Место поставки " CaptionWidth="65" Field="EdtRec.placeDelivery" HasCaption="True" Hint="Место поставки товаров (оказания услуг)" MaxWidth="245" MinWidth="178" Multiline="True" Required="True" Wrap="True"/>
+            </Component>
+          </Component>
+          <Component Name="Payment" Class="Com.Ctrl.IBox" Caption="Условия оплаты">
+            <Component Name="Group9" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="220" MinWidth="100">
+              <Component Name="edPaymentConditions" Class="Com.Ctrl.IEdit" CaptionWidth="65" Field="EdtRec.paymentConditions" HasCaption="True" MaxWidth="245" MinWidth="178" OnGetLookupFilter="edPaymentConditions_OnGetLookupFilter" Required="True"/>
+              <Component Name="JbPaymentConditions" Class="Com.Ctrl.IJumpButton" Enabled="True" Field="EdtRec.paymentConditions"/>
+            </Component>
+            <Component Name="Group8" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="220" MinWidth="100">
+              <Component Name="edDescriptionPayment" Class="Com.Ctrl.IEdit" Caption="Описание" CaptionWidth="65" Enabled="False" Field="EdtRec.paymentConditions" HasCaption="True" LookupField="Description" MaxWidth="245" MinWidth="178" Multiline="True" Wrap="True"/>
+              <Component Name="edSourceFunding" Class="Com.Ctrl.IEdit" CaptionWidth="65" CardFileClass="Biz.Tab.Ref.FundSource" Field="EdtRec.SourceFunding" HasCaption="True" MaxWidth="245" MinWidth="178"/>
+            </Component>
+          </Component>
+          <Component Name="Additional" Class="Com.Ctrl.IBox" Caption="Дополнительно">
+            <Component Name="tbConditions" Class="Com.Ctrl.ITable" Subtable="EdtRec.Conditions">
+              <Component Name="edAdditionalConditions" Class="Com.Ctrl.IEdit" CardFileClass="Purchase.Tab.Ref.TermsOfferRequest" Field="Conditions.additionalConditions" HasCaption="True"/>
+              <Component Name="cbFlag" Class="Com.Ctrl.ICheckBox" Field="Conditions.flag"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="ParticipantsTab" Class="Com.Ctrl.IFrame" Caption="@Frm:ParticipantsTab=Участники" Margins="0">
+          <Component Name="tbParticipants" Class="Com.Ctrl.ITable" Subtable="EdtRec.Participants">
+            <Component Name="Организация" Class="Com.Ctrl.IColumnsGroup" Caption="Организация" HasCaption="True">
+              <Component Name="edCounterparties" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Contraparties" Field="Participants.Counterparties" HasCaption="False" LookupField="Name"/>
+              <Component Name="JbCounterparties" Class="Com.Ctrl.IJumpButton" Field="Participants.Counterparties" HasCaption="False"/>
+            </Component>
+            <Component Name="edMail" Class="Com.Ctrl.IEdit" Caption="Почта для связи" Enabled="False" Field="Participants.Counterparties" HasCaption="True" LookupField="E_Mail"/>
+            <Component Name="edPhone" Class="Com.Ctrl.IEdit" Caption="Телефон для связи" Enabled="False" Field="Participants.Counterparties" HasCaption="True" LookupField="Phone"/>
+          </Component>
+          <Component Name="NewLine4" Class="Com.Ctrl.INewLine"/>
+          <Component Name="NewLine7" Class="Com.Ctrl.INewLine"/>
+          <Component Name="BtnGenerateInvitation" Class="Com.Ctrl.IButton" Caption="Сформировать приглашение" OnClick="BtnGenerateInvitationOnClick" Width="55"/>
+          <Component Name="NewLine5" Class="Com.Ctrl.INewLine"/>
+          <Component Name="Ed_Path" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.Path" Visible="False" Width="200"/>
+          <Component Name="BtnSendInvitation" Class="Com.Ctrl.IButton" Caption="Отправка" OnClick="BtnSendInvitationOnClick" Width="55"/>
+        </Component>
+        <Component Name="SupplierOffersTab" Class="Com.Ctrl.IFrame" Caption="@Frm:SupplierOffersTab=Предложения поставщиков" Margins="0">
+          <Component Name="tbSupplier" Class="Com.Ctrl.ITable" Subtable="EdtRec.PosSupplierOffer">
+            <Component Name="edCounterparties1" Class="Com.Ctrl.IEdit" Caption="Контрагент" CardFileClass="Bas.Tab.Data.Contraparties" Enabled="False" Field="SuppliOffer.Suppl" LookupField="Name"/>
+            <Component Name="Ed_SuppliOffer" Class="Com.Ctrl.IEdit" Caption="Предложение поставщика" Enabled="False" Field="SuppliOffer.SupplierOffer" LookupField="Code"/>
+            <Component Name="JumpButton1" Class="Com.Ctrl.IJumpButton" Field="SuppliOffer.SupplierOffer" JumpForm="Purchase.Frm.Data.SupplierOfferFrm"/>
+            <Component Name="Gr_Condition" Class="Com.Ctrl.IColumnsGroup">
+              <Component Name="Ed_ConditionSupplier" Class="Com.Ctrl.IEdit" Caption="Состояние" CardFileClass="Purchase.Tab.Ref.StatusSupplier" Field="SuppliOffer.ConditionSupplier"/>
+            </Component>
+            <Component Name="Gr_Sum" Class="Com.Ctrl.IColumnsGroup">
+              <Component Name="Ed_TotalAmountSupplier" Class="Com.Ctrl.IEdit" Caption="Общая сумма" Enabled="False" Field="SuppliOffer.TotalAmountSupplier" FieldFormat="#0.00" HasCaption="True"/>
+              <Component Name="Ed_AmountVATSupplier" Class="Com.Ctrl.IEdit" Caption="Сумма НДС" Enabled="False" Field="SuppliOffer.AmountVATSupplier" FieldFormat="#0.00" HasCaption="True"/>
+              <Component Name="Ed_TotalUnitSupplier" Class="Com.Ctrl.IEdit" Caption="Валюта" Enabled="False" Field="SuppliOffer.TotalUnitSupplier" HasCaption="True" LookupField="Code"/>
+            </Component>
+            <Component Name="Gr_Contract" Class="Com.Ctrl.IColumnsGroup">
+              <Component Name="Ed_Contract" Class="Com.Ctrl.IEdit" Enabled="False" Field="SuppliOffer.Contract" LookupField="code"/>
+              <Component Name="JBContractSuppli" Class="Com.Ctrl.IJumpButton" Field="SuppliOffer.Contract" JumpForm="Biz.Frm.Data.Contract"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

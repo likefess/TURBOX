@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rep.IReportTurns">
+  <Inherited AccountFilter="РВ" AccountPlan="ПланСУРВ" BegSaldoFormat="sfNone" Caption="Уточнение по рабочему времени" CIndicator="2" EndSaldoFormat="sfFull" OpenPeriod="opAll" Palette="cpDefault" ParameterFilter="(Status = Plan and BaseEvent = nil) or (Status = Fact and BaseEvent &lt;> nil)" Period="3" ShowDebCreRow="False" ShowSumKindRow="False" TurnFormat="sfNone">
+    <Inherited Name="Grouping">
+      <Inherited Name="SplitByRows">
+        <Component Name="SplitByParamTask" Class="Com.Rep.ISplitByParam" GroupTotals="True" GroupTotalsInHeader="True" Hierarchy="True" LiveHierarchy="True" Sort="True" SortOrder="Deadline" SplitParam="Task" SplitType="byParam"/>
+      </Inherited>
+      <Inherited Name="SplitByTabs">
+        <Component Name="SplitByParamProject" Class="Com.Rep.ISplitByParam" Sort="True" SortOrder="Description" SplitParam="Project" SplitType="byParam"/>
+      </Inherited>
+      <Inherited Name="ContentByRows">
+        <Component Name="SplitContentTaskDescription" Class="Com.Rep.ISplitContent" Caption="Задача" Contents="Task.Description" MaxWidth="80" MinWidth="80"/>
+        <Component Name="SplitContentTaskDeadline" Class="Com.Rep.ISplitContent" Caption="Срок" Contents="Task.Deadline" MaxWidth="30" MinWidth="30"/>
+      </Inherited>
+      <Inherited Name="ContentByTabs">
+        <Component Name="SplitContentProject" Class="Com.Rep.ISplitContent" Caption="Проект" Contents="Project.Description"/>
+      </Inherited>
+    </Inherited>
+    <Inherited Name="Indicators">
+      <Component Name="IndicatorHours" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="Часы" Contents="Hours" EndSaldoFormat="msfDeb" ShowFmt="mshSplit" ShowUnit="False" TurnFormat="msfNone"/>
+    </Inherited>
+  </Inherited>
+</Resource>

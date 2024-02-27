@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IMenu">
+  <Inherited Caption="@MnR.Menu.Panel:Executing=Выполнение работ" FormIcon="EquipmentRegistry.Ballot">
+    <Inherited Name="MainGroup" Columns="2" Rows="2">
+      <Component Name="MnRMenuGroup_Orders" Class="Com.Cmd2.IGroup" Caption="@MnR.Menu.Group:Orders=Заказы на работу" Columns="2" Rows="2">
+        <Component Name="MenuItem_InfobaseMnRMenuCmdOrders" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_Orders"/>
+      </Component>
+      <Component Name="MnRMenuGroup_Accept" Class="Com.Cmd2.IGroup" Caption="@MnR.Menu.Group:Accept=Исполнение работ" Columns="2" Rows="2">
+        <Component Name="MenuItem_InfobaseMnRMenuCmdAccepting" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_Accepting"/>
+        <Component Name="MenuItem_InfobaseMnRMenuCmdWorkCosts" Class="Com.ComManaging.OpenIForm" Caption="Расчет стоимости работ" FormClassName="Tab.Journals.WorkCosts" IconName="Com.Abacus"/>
+      </Component>
+      <Component Name="MnRMenuGroup_Demand" Class="Com.Cmd2.IGroup" Caption="@MnR.Menu.Group:Demand=Заявки на ТМЦ" Columns="2" Rows="2">
+        <Component Name="MenuItem_InfobaseMnRMenuCmdDemand" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_Demand"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

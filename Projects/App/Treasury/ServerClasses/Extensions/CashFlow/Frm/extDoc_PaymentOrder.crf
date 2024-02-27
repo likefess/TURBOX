@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CashFlow.Frm.Doc.PaymentOrder">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="OurCompanyBox">
+            <Inherited Name="OurCompanyBoxGroup">
+              <Inherited Name="OurCompanyLeftGroup">
+                <Component Name="RequestCompanyGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="RequestCompany" Class="Com.Ctrl.IEdit" Caption="Компания заявки" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="FRecord.RequestCompany" HasCaption="True" LookupField="Name"/>
+                  <Component Name="BtnStatic16" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="ContrapartyBox">
+            <Inherited Name="ContrapartyBoxGroup">
+              <Inherited Name="ContrapartyLeftGroup">
+                <Component Name="PaymentRequestEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="PaymentRequestEdit" Class="Com.Ctrl.IEdit" Caption="Заявка" CardFileClass="Treasury.Tab.Data.PaymentRequest" CellFormat="ReferenceFormat" Field="FRecord.PaymentRequest" LookupField="PrintedNumber" OnChange="PaymentRequestEdit_OnChange" OnLookup="PaymentRequestEdit_OnLookup"/>
+                  <Component Name="PaymentRequestJumpButton" Class="Com.Ctrl.IJumpButton" Field="FRecord.PaymentRequest" FixSize="True" JumpForm="Treasury.Frm.Data.PaymentRequest" Width="7.5"/>
+                </Component>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

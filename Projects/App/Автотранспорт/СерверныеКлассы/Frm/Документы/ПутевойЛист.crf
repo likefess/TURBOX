@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited HelpContext="Автотранспорт.Автотранспорт.Документы.Путевой лист">
+    <Inherited Name="EdtRec" Class="Автотранспорт.Rec.Документы.ПутевойЛист" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="Frame1" Class="Com.Ctrl.IFrame" Size="45">
+            <Component Name="Gr_Дата" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="150">
+              <Component Name="Ed_ДатаС" Class="Com.Ctrl.IEdit" Caption="Действителен с" CaptionWidth="50" Field="EdtRec.ДатаС"/>
+              <Component Name="Ed_ДатаДо" Class="Com.Ctrl.IEdit" Caption="Действителен до" Field="EdtRec.ДатаПо"/>
+              <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Enabled="False" Field="EdtRec.Locked" FixSize="True" HasCaption="True" Width="20"/>
+              <Component Name="btn_Разнести" Class="Com.Ctrl.IButton" Caption="Разнести" ImageName="Com.redo" OnClick="CommitReCommit"/>
+            </Component>
+            <Component Name="Gr_Серия" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="150">
+              <Component Name="Ed_Серия" Class="Com.Ctrl.IEdit" Caption="Серия" CaptionWidth="50" Field="EdtRec.Серия"/>
+              <Component Name="Static7" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+            </Component>
+            <Component Name="Gr_Номер" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="150">
+              <Component Name="Ed_Номер" Class="Com.Ctrl.IEdit" Caption="№" CaptionWidth="50" Field="EdtRec.PrintedNumber"/>
+              <Component Name="Static8" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+            </Component>
+            <Component Name="Gr_ТС" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="150">
+              <Component Name="Ed_ТС" Class="Com.Ctrl.IEdit" Caption="Транспортное средство" CaptionWidth="50" CardFileClass="Автотранспорт.Tab.ОсновныеДанные.ТранспортныеСредства" Field="EdtRec.Транспорт" OnOpenCardForm="Ed_ТС_OnOpenCardForm" Required="True"/>
+              <Component Name="JumpButton1" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Транспорт" JumpForm="EquipmentRegistry.Frm.Eqm.EquipmentFrm"/>
+              <Component Name="Static9" Class="Com.Ctrl.IStatic" FixSize="True" Width="42.8"/>
+            </Component>
+            <Component Name="Gr_Коды" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="150">
+              <Component Name="Ed_код" Class="Com.Ctrl.IEdit" Caption="код" CaptionWidth="50" Enabled="False" Field="EdtRec.Транспорт" LookupField="code"/>
+              <Component Name="Ed_ГосНомер" Class="Com.Ctrl.IEdit" Caption="гос.номер" Enabled="False" Field="EdtRec.Транспорт" LookupField="ГОС_НОМЕР"/>
+              <Component Name="Static10" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+            </Component>
+            <Component Name="Gr_Водитель" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="150">
+              <Component Name="Ed_Водитель" Class="Com.Ctrl.IEdit" Caption="Водитель" CaptionWidth="50" Field="EdtRec.Водитель" OnGetLookupFilter="Ed_Водитель_OnGetLookupFilter" OnOpenCardForm="Ed_Водитель_OnOpenCardForm"/>
+              <Component Name="Static11" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+            </Component>
+          </Component>
+          <Component Name="Frame2" Class="Com.Ctrl.IFrame">
+            <Component Name="Box1" Class="Com.Ctrl.IBox" Caption="Адреса и выезд">
+              <Component Name="Gr_Заголовки" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="220" MinWidth="150">
+                <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="45"/>
+                <Component Name="Static2" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Время" FixSize="True" FontBold="True" Width="50"/>
+                <Component Name="Static3" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Контролер (механик)" FontBold="True" Width="60"/>
+              </Component>
+              <Component Name="Gr_ВыездИзГаража" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="220" MinWidth="150">
+                <Component Name="Static4" Class="Com.Ctrl.IStatic" Caption="Выезд из гаража" FixSize="True" Width="45"/>
+                <Component Name="Ed_ВремяВыезда" Class="Com.Ctrl.IEdit" Field="EdtRec.ДатаВыезда" FixSize="True" FormatOfDate="DateAndTime" Required="True" Width="50"/>
+                <Component Name="Ed_ДиспВыезд" Class="Com.Ctrl.IEdit" Field="EdtRec.ДиспетчерВыезд"/>
+              </Component>
+              <Component Name="Gr_ВозвращВГараж" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="220" MinWidth="150">
+                <Component Name="Static5" Class="Com.Ctrl.IStatic" Caption="Возвращение в гараж" FixSize="True" Width="45"/>
+                <Component Name="Ed_ВремяВозвращения" Class="Com.Ctrl.IEdit" Field="EdtRec.ДатаВозвращения" FixSize="True" FormatOfDate="DateAndTime" Required="True" Width="50"/>
+                <Component Name="Ed_ДиспВозвращение" Class="Com.Ctrl.IEdit" Field="EdtRec.ДиспетчерВозвращение"/>
+              </Component>
+            </Component>
+            <Component Name="Box2" Class="Com.Ctrl.IBox" Caption="Горючее и пробег">
+              <Component Name="Gr_Горючее" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="220" MinWidth="150">
+                <Component Name="Ed_Горючее" Class="Com.Ctrl.IEdit" Caption="Горючее" CaptionWidth="45" CardFileClass="Автотранспорт.Tab.Справочники.Горючее" Field="EdtRec.Горючее" Required="True"/>
+              </Component>
+              <Component Name="Gr_ЗаправочнЛист" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="220" MinWidth="150">
+                <Component Name="Ed_ЗаправЛист" Class="Com.Ctrl.IEdit" Caption="Заправочный лист №" CaptionWidth="45" Field="EdtRec.ЗаправочныйЛист"/>
+              </Component>
+              <Component Name="Gr_Заправлено" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="220" MinWidth="150">
+                <Component Name="Ed_Заправлено" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Заправлено" CaptionWidth="45" Field="EdtRec.Заправлено" FixSize="True" Width="45"/>
+                <Component Name="NewLine3" Class="Com.Ctrl.INewLine"/>
+              </Component>
+              <Component Name="Gr_ОстатокПриВыезде" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="220" MinWidth="150">
+                <Component Name="Ed_ОстатокВыезд" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Остаток при выезде" CaptionWidth="45" Enabled="False" Field="EdtRec.ОстатокВыезд" FixSize="True" Width="45"/>
+                <Component Name="Static13" Class="Com.Ctrl.IStatic"/>
+                <Component Name="Ed_ОстатокВозвращение" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Остаток при возвращении" CaptionWidth="70" Field="EdtRec.ОстатокВозвращение" FixSize="True" Width="45"/>
+                <Component Name="NewLine4" Class="Com.Ctrl.INewLine"/>
+              </Component>
+              <Component Name="Gr_ИзрасходЗаПоездку" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="220" MinWidth="150">
+                <Component Name="Static6" Class="Com.Ctrl.IStatic"/>
+                <Component Name="Ed_Израсходовано" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Израсходовано за поездку" CaptionWidth="70" Enabled="False" Field="EdtRec.Израсходовано" FixSize="True" Width="45"/>
+                <Component Name="NewLine5" Class="Com.Ctrl.INewLine"/>
+              </Component>
+              <Component Name="Gr_Показ" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="220" MinWidth="150">
+                <Component Name="Static12" Class="Com.Ctrl.IStatic" Caption="Показания одометра" FixSize="True" FontBold="True" Width="95"/>
+              </Component>
+              <Component Name="Gr_Нач" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="220" MinWidth="150">
+                <Component Name="Ed_ПоказОдоНач" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="начальные" CaptionWidth="45" Enabled="False" Field="EdtRec.ПоказОдоНач" FixSize="True" Width="45"/>
+              </Component>
+              <Component Name="Gr_Кон" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="220" MinWidth="150">
+                <Component Name="Ed_ПоказОдоКон" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="конечные" CaptionWidth="45" Field="EdtRec.ПоказОдоКон" FixSize="True" Required="True" Width="45"/>
+                <Component Name="Static14" Class="Com.Ctrl.IStatic"/>
+                <Component Name="Ed_ИтогоЗаПоездку" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Итого за поездку" CaptionWidth="70" Enabled="False" Field="EdtRec.ИтогоЗаПоездку" FixSize="True" Width="45"/>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

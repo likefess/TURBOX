@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Frm.Report.ContractPeriodReport">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Inherited Name="Company" Caption="@Организация"/>
+      <Component Name="PMonthCount" Class="Com.Fld.IVar" Caption="Срок действия" ValueType="VarInteger"/>
+      <Component Name="PRegDateFrom" Class="Com.Fld.IVar" Caption="Период заключения с" ValueType="VarDate"/>
+      <Component Name="PRegDateTo" Class="Com.Fld.IVar" Caption="По" ValueType="VarDate"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="ParamFrame">
+            <Inherited Name="ParamGroup">
+              <Component Name="PMonthCountEdit" Class="Com.Ctrl.IEdit" After="NewLine3" Field="PMonthCount" HasCaption="True" OnOutput="PMonthCountEdit_OnOutput" ValueType="VarInteger" Width="40"/>
+              <Component Name="NewLine5" Class="Com.Ctrl.INewLine"/>
+              <Component Name="PRegDateFromEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="PRegDateFrom" FormatOfDate="DateOnly" HasCaption="True" ValueType="VarDate"/>
+              <Component Name="PRegDateToEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="PRegDateTo" FormatOfDate="DateOnly" HasCaption="True" ValueType="VarDate"/>
+              <Component Name="NewLine6" Class="Com.Ctrl.INewLine"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="DataFrame">
+        <Inherited Name="DataTable">
+          <Component Name="Code" Class="Com.Ctrl.IEdit" After="Partner" Caption="Номер" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Contract" HasCaption="True" Hint="@ContractPeriodReport:DocGroupHint=Перейти к договору" LookupField="Code" OnClick="PrintedNumber_OnClick" Width="40" Wrap="True"/>
+          <Inherited Name="RegistrationDate" Caption="@ContractPeriodReport:RegistrationDate=Дата регистрации договора" Width="35"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

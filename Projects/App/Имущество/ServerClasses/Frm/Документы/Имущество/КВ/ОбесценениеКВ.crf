@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Frm.Документы.Имущество.КВ.ИмуществоБазовыйДокументКВ">
+  <Inherited HelpContext="Имущество.Имущество.Ведомости.Обесценение.Обесценение КВ">
+    <Inherited Name="EdtRec" Class="Имущество.Rec.Документы.Имущество.КВ.ОбесценениеКВ" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False">
+          <Component Name="кнУдалитьПозицииКВ" Class="Com.Ctrl.IButton" Caption="@ОС:Удалить=Удалить" Hint="@ОС:УдалитьПозиции=Удалить позиции КВ" ImageName="Com.DelPositions" OnClick="кнУдалитьКВ_OnClick" Visible="True"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Шапка_Фрейм">
+          <Inherited Name="Шапка_Гр">
+            <Inherited Name="Шапка_ПервичныйДокумент" Excluded="True"/>
+            <Component Name="ПериодРасчета_Гр" Class="Com.Ctrl.IGroup" After="Шапка_ПервичныйДокумент">
+              <Component Name="ПериодРасчета" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.Period" Field="EdtRec.ПериодРасчета" HasCaption="True" Hint="Расчетный период" OnChange="ПериодРасчета_OnChange" Required="True"/>
+              <Component Name="btnStatic9" Class="Com.Ctrl.IStatic" FixSize="True" Printed="False" Width="32"/>
+            </Component>
+            <Inherited Name="КВ_Гр" Excluded="True" After="ПериодРасчета_Гр">
+              <Component Name="КВ_Имя_РучнойВвод" Class="Com.Ctrl.IEdit" Caption="Наименование" HasCaption="True" Hint=" Полное наименование объекта капитального вложения" OnChange="КВ_Имя_РучнойВвод_OnChange" Required="True" ValueType="VarString"/>
+              <Component Name="СоздатьКВ" Class="Com.Ctrl.IButton" Caption="С" FixSize="True" Hint="Создать КВ" OnClick="СоздатьКВ_OnClick" Width="7"/>
+            </Inherited>
+            <Inherited Name="Корректировка_Гр">
+              <Inherited Name="КорректируемыйДокумент" CardFileClass="Имущество.Tab.Документы.Имущество.КВ.ОбесценениеКВ"/>
+              <Inherited Name="кнКорректируемыйДокумент" JumpForm="Имущество.Frm.Документы.Имущество.КВ.ОбесценениеКВ"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="ОбщиеДанные" Excluded="True">
+            <Inherited Name="Подр_МОЛ_Гр" Excluded="True"/>
+            <Inherited Name="Стоимость_Гр" Excluded="True">
+              <Inherited Name="СтоимостьКВ" Excluded="True" Enabled="False" Hint="Текущая стоимость объекта (без учета НДС) из карточки" Required="False"/>
+            </Inherited>
+          </Inherited>
+          <Component Name="ПозицииКВ_Бокс" Class="Com.Ctrl.IBox" After="ОбщиеДанные" Caption="@ОбесцениваемыеОбъектыКВ=Обесцениваемые объекты КВ">
+            <Component Name="ПозицииКВ_Табл" Class="Com.Ctrl.ITable" Sortable="True" Subtable="EdtRec.ПозицииКВ">
+              <Component Name="ПозицииКВ" Class="Имущество.Rec.Документы.Имущество.КВ.ОбесценениеКВ_ПозицииКВ" IsLibrary="1"/>
+              <Component Name="КВПоз" Class="Com.Ctrl.IEdit" Caption="Инвентарный номер" CardFileClass="ИмуществоБазовый.Tab.Справочники.КапВложения" Field="ПозицииКВ.КВПоз" HasCaption="True" Hint="Объект КВ, подлежащего обесценению" LookupField="КодИмущества" OnChange="КВПоз_OnChange" OnGetLookupFilter="КВПоз_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуКВ" OnVerify="КВПоз_OnVerify" Required="True" Width="30"/>
+              <Component Name="кнКВПоз" Class="Com.Ctrl.IJumpButton" Field="ПозицииКВ.КВПоз" JumpForm="ИмуществоБазовый.Frm.Справочники.КапВложения" Printed="False"/>
+              <Component Name="СтоимостьПоз" Class="Com.Ctrl.IEdit" Enabled="False" Field="ПозицииКВ.СтоимостьПоз" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Стоимость выбранного объекта КВ на дату проведения обесценения" MinWidth="25" Required="True" Width="30"/>
+              <Component Name="СправедливаяСтоимостьПоз" Class="Com.Ctrl.IEdit" Field="ПозицииКВ.СправедливаяСтоимостьПоз" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Справедливая стоимость объекта КВ" MinWidth="25" OnVerify="СправедливаяСтоимостьПоз_OnVerify" Required="True" Width="30"/>
+              <Component Name="УбытокОтОбесцененияПоз" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Сумма убытка" Enabled="False" Field="ПозицииКВ.УбытокОтОбесценения" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Сумма убытка от обесценения актива" MinWidth="25" Width="30"/>
+              <Component Name="ПервичныйДокументПоз" Class="Com.Ctrl.IEdit" Field="ПозицииКВ.ПервичныйДокументПоз" HasCaption="True" Hint="Наименование первичного документа, на основании которого поступили составляющие для объекта КВ" Width="90"/>
+            </Component>
+          </Component>
+          <Inherited Name="Комментарии_Box" After="ПозицииКВ_Бокс"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

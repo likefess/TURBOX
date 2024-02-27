@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IMenu">
+  <Inherited FormIcon="Com.money-bill">
+    <Inherited Name="MainGroup">
+      <Component Name="ВыплатыЧерезБанк" Class="Com.Cmd2.IGroup" Caption="@Cmd:Группа_ВыплатыЧерезБанк=Выплаты через банк">
+        <Component Name="Cmd_УП_ВыплатыДокументы" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.УП_ВыплатыДокументы"/>
+        <Component Name="Cmd_УП_Ведомость_в_Банк" Class="Com.Cmd2.IItem" Command="Commands.УП_Ведомость_в_Банк"/>
+        <Component Name="Cmd_УП_ВедомостьПеречисленийНаСчета" Class="Com.Cmd2.IItem" Command="Commands.УП_ВедомостьПеречисленийНаСчета"/>
+      </Component>
+      <Component Name="ВыплатыЧерезКассу" Class="Com.Cmd2.IGroup" Excluded="True" Caption="@Cmd:Группа_ВыплатыЧерезКассу=Выплаты через кассу">
+        <Component Name="Cmd_УП_ПлатежнаяВедомость" Class="Com.Cmd2.IItem" Command="Commands.УП_ПлатежнаяВедомость"/>
+        <Component Name="Cmd_УП_РасходныйКассовыйОрдер" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.УП_РасходныйКассовыйОрдер"/>
+      </Component>
+      <Component Name="ПлатежныеДокументы" Class="Com.Cmd2.IGroup" Caption="@Cmd:Группа_ПлатежныеДокументы=Платежные документы">
+        <Component Name="Cmd_УП_ПлатежныйДокумент" Class="Com.Cmd2.IItem" Command="Commands.УП_ПлатежныйДокумент"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

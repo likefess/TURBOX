@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.Справочник">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Справочники.Типы баз НДФЛ">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Справочники.ТипБазыНДФЛ" IsLibrary="1"/>
+    <Component Name="Ставки" Class="УправлениеПерсоналом.Rec.Справочники.ТипБазыНДФЛ_Ставки" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="GroupCode">
+            <Inherited Name="Locked" Visible="True"/>
+          </Inherited>
+          <Inherited Name="GroupName">
+            <Inherited Name="Closed" Visible="True"/>
+          </Inherited>
+        </Inherited>
+        <Component Name="грНастройки" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Приоритет" Class="Com.Ctrl.IEdit" Caption="Порядок расчета" Field="EdtRec.Приоритет" FixSize="True" HasCaption="True" Hint="Указывается очередность проведения расчета базы НДФЛ" Width="35"/>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="10"/>
+          <Component Name="Основная" Class="Com.Ctrl.ICheckBox" Caption="Основная" Field="EdtRec.Основная" FixSize="True" HasCaption="True" Hint="Ставится при условии, что данная Расчетная база НДФЛ используется как основная база расчета (т.е. к данной расчетной базе применяются стандартные налоговые вычеты)" Width="35"/>
+          <Component Name="УчетЛимита" Class="Com.Ctrl.IEdit" Caption="Совокупность баз" Field="EdtRec.УчетЛимита" FieldFormat="##" FixSize="True" Hint="Признак, определяющий совокупные налоговые базы" ValueType="VarInteger" Width="20"/>
+          <Component Name="кнИсторияУчетЛимита" Class="Com.Ctrl.IButton" Hint="История" ImageName="Com.bars" OnClick="ИсторияУчетЛимита_OnClick"/>
+        </Component>
+        <Component Name="грПериод" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Caption="Период действия" Field="EdtRec.ДатаНачала" FixSize="True" FormatOfDate="DateOnly" HasCaption="True" Width="35"/>
+          <Component Name="ДатаОкончания" Class="Com.Ctrl.IEdit" Caption="-  " CaptionWidth="10" Field="EdtRec.ДатаОкончания" FixSize="True" FormatOfDate="DateOnly" HasCaption="True" Width="35"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="Ставки">
+          <Component Name="тблСтавки" Class="Com.Ctrl.ITable" Numbering="False" Subtable="EdtRec.Ставки">
+            <Component Name="БазаОт" Class="Com.Ctrl.IEdit" Caption="База от" Field="Ставки.От" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Сумма дохода, начиная с которой применяется указанная в поле «Ставка» (соответствующей строки) ставка НДФЛ" Width="30"/>
+            <Component Name="БазаДо" Class="Com.Ctrl.IEdit" Caption="База до" Field="Ставки.До" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Сумма дохода, до достижения которой применяется указанная в поле «Ставка» (соответствующей строки) ставка НДФЛ" Width="30"/>
+            <Component Name="СтавкаНДФЛ" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Ставка" CardFileClass="УправлениеПерсоналом.Tab.Справочники.СтавкиНДФЛ" Field="Ставки.СтавкаНДФЛ" HasCaption="True" Hint="Ставка НДФЛ, по которой должно производится налогообложение доходов сотрудника" LookupField="Name" Width="80"/>
+            <Component Name="Учет_Резидент" Class="Com.Ctrl.IEdit" Caption="Резидент" Field="Ставки.Учет_Резидент" HasCaption="True" Hint="Флаг устанавливается в случае, если данная ставка НДФЛ действует при расчете НДФЛ для сотрудников, являющихся резидентами" Width="20"/>
+            <Component Name="Учет_Нерезидент" Class="Com.Ctrl.IEdit" Caption="Нерезидент" Field="Ставки.Учет_Нерезидент" HasCaption="True" Hint="Флаг устанавливается в случае, если данная ставка НДФЛ действует при расчете НДФЛ для сотрудников, являющихся нерезидентами" Width="25"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

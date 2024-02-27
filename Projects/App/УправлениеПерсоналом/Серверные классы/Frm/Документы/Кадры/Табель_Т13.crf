@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.БазовыйДокумент">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Учет рабочего времени.Учет рабочего времени.Табель учета рабочего времени">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Документы.Кадры.Табель_Т13" IsLibrary="1"/>
+    <Component Name="Строка" Class="УправлениеПерсоналом.Rec.Документы.Кадры.Табель_Т13_Строки" IsLibrary="1" After="EdtRec"/>
+    <Component Name="Позиция" Class="УправлениеПерсоналом.Rec.Документы.Кадры.Табель_Т13_Позиции" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False">
+          <Component Name="кнЗаполнитьНазначения" Class="Com.Ctrl.IButton" Caption="Заполнить списком сотрудников" OnClick="кнЗаполнитьНазначения_OnClick"/>
+          <Component Name="кнЗаполнитьОтсутствия" Class="Com.Ctrl.IButton" Caption="Обновить периоды отсутствия" OnClick="кнЗаполнитьОтсутствия_OnClick"/>
+          <Component Name="кнЗаполнитьИзГрафикаУчетаРВ" Class="Com.Ctrl.IButton" Caption="Заполнить часы из Графика учета РВ" Enabled="True" Hint="Заполнить часы в соответствии с документом &quot;График учета РВ (План)&quot;" OnClick="кнЗаполнитьИзГрафикаУчетаРВ_OnClick" Visible="False"/>
+          <Component Name="кнЗаполнитьИзГрафикаРабот" Class="Com.Ctrl.IButton" Caption="Заполнить часы в соответствии с графиком работ" OnClick="кнЗаполнитьИзГрафикаРабот_OnClick"/>
+          <Component Name="кнСорт_ФИО" Class="Com.Ctrl.IButton" Caption="Сортировать по ФИО" HasCaption="True" OnClick="кнСорт_ФИО_OnClick"/>
+          <Component Name="кнСорт_Долж" Class="Com.Ctrl.IButton" Caption="Сортировать по должности" HasCaption="True" OnClick="кнСорт_Долж_OnClick"/>
+          <Component Name="кнСорт_Подр" Class="Com.Ctrl.IButton" Caption="Сортировать по подразделению" HasCaption="True" OnClick="кнСорт_Подр_OnClick"/>
+        </Inherited>
+        <Inherited Name="кнПечатьУнФорма" Visible="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" CanHideBySplit="True" SplitterAtRight="True" UseSplitter="True">
+        <Inherited Name="Group1" Visible="False"/>
+        <Component Name="грСкорректирован" Class="Com.Ctrl.IGroup" After="Group1" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Static18" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+          <Component Name="флСкорректирован" Class="Com.Ctrl.ICheckBox" Caption="Скорректирован" Enabled="False" Field="EdtRec.Скорректирован" FixSize="True" HasCaption="True" Width="40"/>
+          <Component Name="ДатаКорректировки" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.ДатаКорректировки" HasCaption="False" Hint="Дата корректировки документа" MaxWidth="35" Width="35"/>
+          <Component Name="Static21" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+          <Component Name="Static19" Class="Com.Ctrl.IStatic" FixSize="True" Width="35"/>
+        </Component>
+        <Inherited Name="grMain" Visible="True">
+          <Inherited Name="Предприятие" Caption="Предприятие"/>
+          <Inherited Name="кнПредприятие" FixSize="True"/>
+          <Inherited Name="Замок" Width="35"/>
+        </Inherited>
+        <Inherited Name="грТипДокумента" Visible="True">
+          <Component Name="ТипДокумента" Class="Com.Ctrl.IEdit" Field="EdtRec.ТипДокумента" HasCaption="True" OnChange="ТипДокумента_OnChange" OnGetLookupFilter="ТипДокумента_OnGetLookupFilter" OnOpenCardForm="ТипДокумента_OnOpenCardForm"/>
+          <Component Name="кнТипДокумента" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ТипДокумента" JumpForm="УправлениеПерсоналом.Frm.Классификаторы.ТипДокумента"/>
+          <Component Name="Static14" Class="Com.Ctrl.IStatic" FixSize="True" Width="35"/>
+        </Inherited>
+        <Inherited Name="grNumberDate" Visible="True">
+          <Inherited Name="ДатаДокумента" CaptionWidth="8"/>
+          <Component Name="Период" Class="Com.Ctrl.IEdit" After="ДатаДокумента" Caption="Период" CaptionWidth="20" Field="EdtRec.Месяц" HasCaption="True" OnChange="Период_OnChange" Required="True" Width="40"/>
+          <Inherited Name="stEmpty" FixSize="True" Width="7"/>
+          <Component Name="кнПериод" Class="Com.Ctrl.IJumpButton" Excluded="True" After="stEmpty" Field="EdtRec.Месяц" FixSize="True" JumpForm="Biz.Frm.Ref.Period"/>
+          <Component Name="Корректировка" Class="Com.Ctrl.ICheckBox" Enabled="False" Field="EdtRec.Корректировка" FixSize="True" OnChange="Корректировка_OnChange" Printed="False" Width="35"/>
+        </Inherited>
+        <Component Name="грПериодТабеля" Class="Com.Ctrl.IGroup" After="grNumberDate" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="ДатаС" Class="Com.Ctrl.IEdit" Caption="Период с" CellFormat="DateFormat" Field="EdtRec.ДатаС" FormatOfDate="DateOnly" OnChange="ДатаС_OnChange" OnVerify="ДатаС_OnVerify" ShortList="False" Width="30"/>
+          <Component Name="ДатаПо" Class="Com.Ctrl.IEdit" Caption="по" CaptionWidth="8" Field="EdtRec.ДатаПо" MaxWidth="35" OnChange="ДатаПо_OnChange" OnVerify="ДатаПо_OnVerify" Width="35"/>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="20"/>
+          <Component Name="Static26" Class="Com.Ctrl.IStatic" Width="40"/>
+          <Component Name="Static24" Class="Com.Ctrl.IStatic" FixSize="True" Width="42"/>
+        </Component>
+        <Inherited Name="грОписание" Visible="False"/>
+        <Component Name="грКоррТабель" Class="Com.Ctrl.IGroup" After="грОписание" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="КорректТабель" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Документы.Кадры.ТабельУчетРВ_Т13" Field="EdtRec.КорректТабель" HasCaption="True" Hint="Корректируемый табель учета РВ" LookupField="Номер" OnChange="КорректТабель_OnChange" OnGetLookupFilter="КорректТабель_OnGetLookupFilter" Visible="True"/>
+          <Component Name="КорректТабель1" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Документы.Кадры.ТабельУчетРВ_Опер" Field="EdtRec.КорректТабель" HasCaption="True" Hint="Корректируемый табель учета РВ" LookupField="Номер" OnChange="КорректТабель_OnChange" OnGetLookupFilter="КорректТабель_OnGetLookupFilter" Visible="True"/>
+          <Component Name="кнКорректТабель" Class="Com.Ctrl.IJumpButton" Field="EdtRec.КорректТабель" FixSize="True" JumpForm="УправлениеПерсоналом.Frm.Документы.Кадры.Табель_Т13"/>
+          <Component Name="Static17" Class="Com.Ctrl.IStatic" FixSize="True" Width="35"/>
+        </Component>
+        <Component Name="грГрафик" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="ГрафикОснование" Class="Com.Ctrl.IEdit" Caption="График учета РВ" Field="EdtRec.ГрафикОснование" HasCaption="True" LookupField="Name" OnChange="ГрафикОснование_OnChange" OnGetLookupFilter="ГрафикОснование_OnGetLookupFilter" Visible="True"/>
+          <Component Name="кнГрафикОснование" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ГрафикОснование" FixSize="True" JumpForm="УправлениеПерсоналом.Frm.Документы.Кадры.ГрафикУчетаРВ_План"/>
+          <Component Name="ЗаполнитьИзГрафика" Class="Com.Ctrl.ICheckBox" Caption="На основании" Field="EdtRec.ЗаполнитьИзГрафика" FixSize="True" Hint="Заполнить на основании документа График учета РВ (план)" OnChange="ЗаполнитьИзГрафика_OnChange" Printed="False" Width="35"/>
+        </Component>
+        <Component Name="грПодразделение" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Подразделение" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" Field="EdtRec.Подразделение" HasCaption="True" Hint=" Наименование подразделения организации " LookupField="Name" OnChange="Подразделение_OnChange" OnGetLookupFilter="Подразделение_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуПодразделения"/>
+          <Component Name="кнПодразделение" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Подразделение" FixSize="True" JumpForm="Bas.Frm.Data.Entity"/>
+          <Component Name="кнУтвердить" Class="Com.Ctrl.IButton" Caption="Утвердить" HasCaption="True" OnClick="кнУтвердить_OnClick" Printed="False" Width="35"/>
+          <Component Name="кнОтменитьУтверждение" Class="Com.Ctrl.IButton" Caption="Отменить" HasCaption="True" Hint="Отменить утверждение табеля учета РВ" OnClick="кнОтменить_OnClick" Printed="False" Width="35"/>
+        </Component>
+        <Inherited Name="грПримечание" Visible="True">
+          <Component Name="Static25" Class="Com.Ctrl.IStatic" After="Примечание" FixSize="True" Width="7.2"/>
+          <Inherited Name="Static4" Width="35"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" OnSwitch="TabsFrameOnSwitch" Visible="True">
+        <Inherited Name="MainTab" Caption="Основное" Visible="True">
+          <Component Name="КнопкиТабеля" Class="Com.Ctrl.IFrame" AutoSize="True" Enabled="True">
+            <Component Name="грКнопки" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="Static11" Class="Com.Ctrl.IStatic"/>
+              <Component Name="кнДобавить" Class="Com.Ctrl.IButton" Enabled="True" Hint="Добавить строку табеля" ImageName="Com.AddItem_1" OnClick="кнДобавить_OnClick"/>
+              <Component Name="кнУдалить" Class="Com.Ctrl.IButton" Hint="Удалить строку табеля" ImageName="Com.DeleteItem_1" OnClick="кнУдалить_OnClick"/>
+            </Component>
+          </Component>
+          <Component Name="фрТаблица" Class="Com.Ctrl.IFrame">
+            <Component Name="ТаблицаТабель" Class="Com.Ctrl.ITable" Adaptive="False" CanDelete="False" CanInsert="False" CanMove="False" Caption="tableCaption" ManualControl="False" Numbering="False" Sortable="False" Subtable="EdtRec.Строки">
+              <Component Name="редНомер" Class="Com.Ctrl.IEdit" Excluded="True" Caption="№" CellFormat="NumericFormat" Enabled="False" Field="Строка.ind" HasButton="False" OnOutput="OneOfFourOnOutput" ValueType="VarInteger" Visible="True" Width="20"/>
+              <Component Name="редПеремещение" Class="Com.Ctrl.IEdit" Caption="ФИО, подразделение, должность" CardFileClass="УправлениеПерсоналом.Tab.Данные.Назначения" CellFormat="ReferenceFormat" Field="Строка.Перемещение" LookupField="УсловияТрудаСотрудника.ФизЛицо.Имя" OnChange="Перемещение_OnChange" OnDrawEx="Перемещение_OnDrawEx" OnEnter="Перемещение_OnEnter" OnOpenCardForm="редПеремещение_OnOpenCardForm" OnOutputEx="Перемещение_OnOutputEx" ValueType="VarObject" Width="70"/>
+              <Component Name="редТабНомер" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Таб. номер" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" CellFormat="ReferenceFormat" Enabled="False" Field="Строка.Сотрудник" HasCaption="True" LookupField="ТабНомер" OnDrawEx="ТабНомер_OnDrawEx" OnOutputEx="OneOfFour_OnOutputEx" Width="20"/>
+              <Component Name="грОтметки" Class="Com.Ctrl.IColumnsGroup" Caption="Отметки о явках и неявках на работу по числам месяца" HasCaption="True" Visible="True">
+                <Component Name="грД01" Class="Com.Ctrl.IColumnsGroup" Caption="1" HasCaption="True">
+                  <Component Name="грД16" Class="Com.Ctrl.IColumnsGroup" Caption="17" HasCaption="True">
+                    <Component Name="дКол01" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Строка.д01" HasButton="True" HasCaption="False" OnDrawEx="День_OnDrawEx" OnEnter="День_OnEnter" OnLookup="День_OnLookup" OnOutputEx="День_OnOutputEx" OnVerify="День_OnVerify" ValueType="VarString" Width="16"/>
+                  </Component>
+                </Component>
+                <Component Name="грД02" Class="Com.Ctrl.IColumnsGroup" Caption="2" HasCaption="True">
+                  <Component Name="грД17" Class="Com.Ctrl.IColumnsGroup" Caption="18" HasCaption="True">
+                    <Component Name="дКол02" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Строка.д02" HasButton="True" HasCaption="False" OnDrawEx="День_OnDrawEx" OnEnter="День_OnEnter" OnLookup="День_OnLookup" OnOutputEx="День_OnOutputEx" OnVerify="День_OnVerify" Visible="True" Width="16"/>
+                  </Component>
+                </Component>
+                <Component Name="грД03" Class="Com.Ctrl.IColumnsGroup" Caption="3" HasCaption="True">
+                  <Component Name="грД18" Class="Com.Ctrl.IColumnsGroup" Caption="19" HasCaption="True">
+                    <Component Name="дКол03" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Строка.д03" HasButton="True" HasCaption="False" OnDrawEx="День_OnDrawEx" OnEnter="День_OnEnter" OnLookup="День_OnLookup" OnOutputEx="День_OnOutputEx" OnVerify="День_OnVerify" Width="16"/>
+                  </Component>
+                </Component>
+                <Component Name="грД04" Class="Com.Ctrl.IColumnsGroup" Caption="4" HasCaption="True">
+                  <Component Name="грД19" Class="Com.Ctrl.IColumnsGroup" Caption="20" HasCaption="True">
+                    <Component Name="дКол04" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Строка.д04" HasButton="True" HasCaption="False" OnDrawEx="День_OnDrawEx" OnEnter="День_OnEnter" OnLookup="День_OnLookup" OnOutputEx="День_OnOutputEx" OnVerify="День_OnVerify" Width="16"/>
+                  </Component>
+                </Component>
+                <Component Name="грД05" Class="Com.Ctrl.IColumnsGroup" Caption="5" HasCaption="True">
+                  <Component Name="грД20" Class="Com.Ctrl.IColumnsGroup" Caption="21" HasCaption="True">
+                    <Component Name="дКол05" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Строка.д05" HasButton="True" HasCaption="False" OnDrawEx="День_OnDrawEx" OnEnter="День_OnEnter" OnLookup="День_OnLookup" OnOutputEx="День_OnOutputEx" OnVerify="День_OnVerify" Width="16"/>
+                  </Component>
+                </Component>
+                <Component Name="грД06" Class="Com.Ctrl.IColumnsGroup" Caption="6" HasCaption="True">
+                  <Component Name="грД21" Class="Com.Ctrl.IColumnsGroup" Caption="22" HasCaption="True">
+                    <Component Name="дКол06" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Строка.д06" HasButton="True" HasCaption="False" OnDrawEx="День_OnDrawEx" OnEnter="День_OnEnter" OnLookup="День_OnLookup" OnOutputEx="День_OnOutputEx" OnVerify="День_OnVerify" Width="16"/>
+                  </Component>
+                </Component>
+                <Component Name="грД07" Class="Com.Ctrl.IColumnsGroup" Caption="7" HasCaption="True">
+                  <Component Name="грД22" Class="Com.Ctrl.IColumnsGroup" Caption="23" HasCaption="True">
+                    <Component Name="дКол07" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Строка.д07" HasButton="True" HasCaption="False" OnDrawEx="День_OnDrawEx" OnEnter="День_OnEnter" OnLookup="День_OnLookup" OnOutputEx="День_OnOutputEx" OnVerify="День_OnVerify" Width="16"/>
+                  </Component>
+                </Component>
+                <Component Name="грД08" Class="Com.Ctrl.IColumnsGroup" Caption="8" HasCaption="True">
+                  <Component Name="грД23" Class="Com.Ctrl.IColumnsGroup" Caption="24" HasCaption="True">
+                    <Component Name="дКол08" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Строка.д08" HasButton="True" HasCaption="False" OnDrawEx="День_OnDrawEx" OnEnter="День_OnEnter" OnLookup="День_OnLookup" OnOutputEx="День_OnOutputEx" OnVerify="День_OnVerify" Width="16"/>
+                  </Component>
+                </Component>
+                <Component Name="грД09" Class="Com.Ctrl.IColumnsGroup" Caption="9" HasCaption="True">
+                  <Component Name="грД24" Class="Com.Ctrl.IColumnsGroup" Caption="25" HasCaption="True">
+                    <Component Name="дКол09" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Строка.д09" HasButton="True" HasCaption="False" OnDrawEx="День_OnDrawEx" OnEnter="День_OnEnter" OnLookup="День_OnLookup" OnOutputEx="День_OnOutputEx" OnVerify="День_OnVerify" Width="16"/>
+                  </Component>
+                </Component>
+                <Component Name="грД10" Class="Com.Ctrl.IColumnsGroup" Caption="10" HasCaption="True">
+                  <Component Name="грД25" Class="Com.Ctrl.IColumnsGroup" Caption="26" HasCaption="True">
+                    <Component Name="дКол10" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Строка.д10" HasButton="True" HasCaption="False" OnDrawEx="День_OnDrawEx" OnEnter="День_OnEnter" OnLookup="День_OnLookup" OnOutputEx="День_OnOutputEx" OnVerify="День_OnVerify" Width="16"/>
+                  </Component>
+                </Component>
+                <Component Name="грД11" Class="Com.Ctrl.IColumnsGroup" Caption="11" HasCaption="True">
+                  <Component Name="грД26" Class="Com.Ctrl.IColumnsGroup" Caption="27" HasCaption="True">
+                    <Component Name="дКол11" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Строка.д11" HasButton="True" HasCaption="False" OnDrawEx="День_OnDrawEx" OnEnter="День_OnEnter" OnLookup="День_OnLookup" OnOutputEx="День_OnOutputEx" OnVerify="День_OnVerify" Width="16"/>
+                  </Component>
+                </Component>
+                <Component Name="грД12" Class="Com.Ctrl.IColumnsGroup" Caption="12" HasCaption="True">
+                  <Component Name="грД27" Class="Com.Ctrl.IColumnsGroup" Caption="28" HasCaption="True">
+                    <Component Name="дКол12" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Строка.д12" HasButton="True" HasCaption="False" OnDrawEx="День_OnDrawEx" OnEnter="День_OnEnter" OnLookup="День_OnLookup" OnOutputEx="День_OnOutputEx" OnVerify="День_OnVerify" Width="16"/>
+                  </Component>
+                </Component>
+                <Component Name="грД13" Class="Com.Ctrl.IColumnsGroup" Caption="13" HasCaption="True">
+                  <Component Name="грД28" Class="Com.Ctrl.IColumnsGroup" Caption="29" HasCaption="True">
+                    <Component Name="дКол13" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Строка.д13" HasButton="True" HasCaption="False" OnDrawEx="День_OnDrawEx" OnEnter="День_OnEnter" OnLookup="День_OnLookup" OnOutputEx="День_OnOutputEx" OnVerify="День_OnVerify" Width="16"/>
+                  </Component>
+                </Component>
+                <Component Name="грД14" Class="Com.Ctrl.IColumnsGroup" Caption="14" HasCaption="True">
+                  <Component Name="грД29" Class="Com.Ctrl.IColumnsGroup" Caption="30" HasCaption="True">
+                    <Component Name="дКол14" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Строка.д14" HasButton="True" HasCaption="False" OnDrawEx="День_OnDrawEx" OnEnter="День_OnEnter" OnLookup="День_OnLookup" OnOutputEx="День_OnOutputEx" OnVerify="День_OnVerify" Width="16"/>
+                  </Component>
+                </Component>
+                <Component Name="грД15" Class="Com.Ctrl.IColumnsGroup" Caption="15" HasCaption="True">
+                  <Component Name="грД30" Class="Com.Ctrl.IColumnsGroup" Caption="31" HasCaption="True">
+                    <Component Name="дКол15" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Строка.д15" HasButton="True" HasCaption="False" OnDrawEx="День_OnDrawEx" OnEnter="День_OnEnter" OnLookup="День_OnLookup" OnOutputEx="День_OnOutputEx" OnVerify="День_OnVerify" Width="16"/>
+                  </Component>
+                </Component>
+                <Component Name="грДХ" Class="Com.Ctrl.IColumnsGroup" Caption="X" HasCaption="True">
+                  <Component Name="грД31" Class="Com.Ctrl.IColumnsGroup" Caption="31" HasCaption="True">
+                    <Component Name="дКол16" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Строка.д16" HasButton="True" HasCaption="False" OnDrawEx="День_OnDrawEx" OnEnter="День_OnEnter" OnLookup="День_OnLookup" OnOutputEx="День_OnOutputEx" OnVerify="День_OnVerify" Width="16"/>
+                  </Component>
+                </Component>
+              </Component>
+              <Component Name="HalfColGroups" Class="Com.Ctrl.IColumnsGroup" Caption="Итого за половину месяца" HasCaption="True">
+                <Component Name="ПоловинаДнейЧасов" Class="Com.Ctrl.IEdit" Caption="дней/ часов" Field="Строка.ДнейЧасовЗаПоловинуМесяца" HasCaption="True" OnDrawEx="SumEditOnDrawEx" OnEnter="ReadOnlyEditOnEnter" Width="15"/>
+                <Component Name="ПоловинаНЧасов" Class="Com.Ctrl.IEdit" Caption="ночных часов" Field="Строка.НочныхЧасовЗаПоловинуМесяца" HasCaption="True" OnDrawEx="SumEditOnDrawEx" OnEnter="ReadOnlyEditOnEnter" Width="15"/>
+              </Component>
+              <Component Name="FullColGroups" Class="Com.Ctrl.IColumnsGroup" Caption="Итого за месяц" HasCaption="True">
+                <Component Name="МесяцДней" Class="Com.Ctrl.IEdit" Caption="дней" Field="Строка.ДнейЗаМесяц" HasCaption="True" OnDrawEx="SumEditOnDrawEx2" OnEnter="ReadOnlyEditOnEnter" Width="13"/>
+                <Component Name="МесяцЧасов" Class="Com.Ctrl.IEdit" Caption="часов" Field="Строка.ЧасовЗаМесяц" HasCaption="True" OnDrawEx="SumEditOnDrawEx2" OnEnter="ReadOnlyEditOnEnter" Width="15"/>
+                <Component Name="МесяцНЧасов" Class="Com.Ctrl.IEdit" Caption="ночных часов" Field="Строка.НочныхЧасовЗаМесяц" HasCaption="True" OnDrawEx="SumEditOnDrawEx2" OnEnter="ReadOnlyEditOnEnter" Width="15"/>
+              </Component>
+              <Component Name="NormColGroups" Class="Com.Ctrl.IColumnsGroup" Caption="Норма" HasCaption="True">
+                <Component Name="НормаДни" Class="Com.Ctrl.IEdit" Caption="дней" Field="Строка.НормаДнейЗаМесяц" HasCaption="True" OnDrawEx="SumEditOnDrawEx2" OnEnter="ReadOnlyEditOnEnter" Width="13"/>
+                <Component Name="НормаЧасы" Class="Com.Ctrl.IEdit" Caption="часов" Field="Строка.НормаЧасовЗаМесяц" HasCaption="True" OnDrawEx="SumEditOnDrawEx2" OnEnter="ReadOnlyEditOnEnter" Width="15"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="фрПозиции" Class="Com.Ctrl.IFrame" Visible="False">
+            <Component Name="Позиции" Class="Com.Ctrl.ITable" Adaptive="False" CanDelete="False" CanInsert="False" CanMove="False" ManualControl="False" Numbering="False" Sortable="True" Subtable="EdtRec.Позиции">
+              <Component Name="Сорт_ФИО" Class="Com.Ctrl.IEdit" Caption="ФИО" CellFormat="StringFormat" Enabled="False" Field="Позиция.Сорт_ФИО" FixSize="True" HasCaption="True" Width="80"/>
+              <Component Name="Сорт_Долж" Class="Com.Ctrl.IEdit" Caption="Должность" CellFormat="StringFormat" Enabled="False" Field="Позиция.Сорт_Долж" FixSize="True" HasCaption="True" Width="80"/>
+              <Component Name="Сорт_Подр" Class="Com.Ctrl.IEdit" Caption="Подразделение" CellFormat="StringFormat" Enabled="False" Field="Позиция.Сорт_Подр" FixSize="True" HasCaption="True" Width="80"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Inherited Name="фрПодписи">
+          <Inherited Name="фрПодписиОбщ" Margins="5">
+            <Inherited Name="грОтветственный" After="#0">
+              <Inherited Name="Ответственный_Долж" Visible="False"/>
+              <Inherited Name="Ответственный" Caption="Ответственное лицо" CaptionWidth="60" HasCaption="True" Hint="ФИО ответственного лица"/>
+            </Inherited>
+            <Inherited Name="грРуководитель" After="грОтветственный">
+              <Inherited Name="Руководитель_Долж" Visible="False"/>
+              <Inherited Name="Руководитель" Caption="Руководитель подразделения" CaptionWidth="60" HasCaption="True" Hint="ФИО руководителя структурного подразделения"/>
+            </Inherited>
+            <Component Name="грКадровик" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Кадровик" Class="Com.Ctrl.IEdit" Caption="Работник кадровой службы" CaptionWidth="60" CardFileClass="HRBase.Tab.Data.StaffersHR" Field="EdtRec.Кадровик" HasCaption="True" Hint="ФИО работника кадровой службы" LookupField="Name" OnOpenCardForm="НастроитьКартотекуФизЛиц" OnOutputEx="ФИО_OnOutputEx" Width="70"/>
+              <Component Name="кнКадровик" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Кадровик" JumpForm="HRBase.Frm.Data.NaturalPersonHR"/>
+            </Component>
+          </Inherited>
+        </Inherited>
+        <Component Name="фрКорректировки" Class="Com.Ctrl.IFrame" Caption="Корректировки"/>
+        <Component Name="фрОперативные" Class="Com.Ctrl.IFrame" Caption="Оперативные табели"/>
+        <Component Name="фрОперТабельСтроки" Class="Com.Ctrl.IFrame" Caption="Табель учета" HasCaption="True">
+          <Component Name="ОперТабель" Class="Com.Ctrl.ITable" Adaptive="False" CanDelete="False" CanInsert="False" CanMove="False" ManualControl="False" Numbering="True" Sortable="False" Subtable="EdtRec.Позиции">
+            <Component Name="грСотрудник" Class="Com.Ctrl.IColumnsGroup" Caption="Сотрудник" HasCaption="True">
+              <Component Name="Перемещение" Class="Com.Ctrl.IEdit" Caption="ФИО" CardFileClass="УправлениеПерсоналом.Tab.Данные.Назначения" CellFormat="ReferenceFormat" Enabled="False" Field="Позиция.Перемещение" HasCaption="True" LookupField="УсловияТрудаСотрудника.ФизЛицо.Имя" Multiline="True" ValueType="VarObject" Width="60" Wrap="True"/>
+              <Component Name="ПеремещениеПодр" Class="Com.Ctrl.IEdit" Caption="подразделение" CardFileClass="УправлениеПерсоналом.Tab.Данные.Назначения" CellFormat="ReferenceFormat" Enabled="False" Field="Позиция.Перемещение" HasCaption="True" LookupField="Подразделение.Имя" Multiline="True" ValueType="VarObject" Width="60" Wrap="True"/>
+              <Component Name="ПеремещениеДолжн" Class="Com.Ctrl.IEdit" Caption="должность" CardFileClass="УправлениеПерсоналом.Tab.Данные.Назначения" CellFormat="ReferenceFormat" Enabled="False" Field="Позиция.Перемещение" HasCaption="True" LookupField="Должность.Имя" Multiline="True" ValueType="VarObject" Width="50" Wrap="True"/>
+              <Component Name="ПеремещениеРазряд" Class="Com.Ctrl.IEdit" Caption="разряд" CardFileClass="УправлениеПерсоналом.Tab.Данные.Назначения" CellFormat="ReferenceFormat" Enabled="False" Field="Позиция.Перемещение" HasCaption="True" LookupField="Разряд.Имя" Multiline="True" ValueType="VarObject" Width="40" Wrap="True"/>
+              <Component Name="ТабНомер" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="таб. номер" Enabled="False" Field="Позиция.Перемещение" HasCaption="True" LookupField="УсловияТрудаСотрудника.ТабНомер" Width="25"/>
+            </Component>
+            <Component Name="грТабельУчетаРВ" Class="Com.Ctrl.IColumnsGroup" Caption="Табель учета РВ" HasCaption="True">
+              <Component Name="ЕстьТабель" Class="Com.Ctrl.IEdit" Caption="проведен" Enabled="False" Field="Позиция.ЕстьТабель" HasCaption="True" Width="20"/>
+              <Component Name="ТабельРВ" Class="Com.Ctrl.IEdit" Caption="номер" CardFileClass="УправлениеПерсоналом.Tab.Документы.Кадры.ТабельУчетРВ_Т13" Enabled="False" Field="Позиция.ТабельРВ" HasCaption="True" LookupField="Номер" Width="30"/>
+              <Component Name="кнТабельРВ" Class="Com.Ctrl.IJumpButton" Field="Позиция.ТабельРВ" JumpForm="УправлениеПерсоналом.Frm.Документы.Кадры.Табель_Т13"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

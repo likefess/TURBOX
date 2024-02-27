@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="RealEstateBase.Menu.Panels.Rep">
+  <Inherited>
+    <Inherited Name="MainGroup">
+      <Inherited Name="Reports">
+        <Inherited Name="RE_reestr" ReportCode="RealEstate.Rep.Service.РеестрОИ"/>
+        <Component Name="Cmd_RE_RepairExpenses" Class="Com.Cmd2.IItem" CommandName="Commands.RE_RepairExpenses"/>
+        <Component Name="CmdContractReport" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.Cmd_RepByContractSum"/>
+        <Component Name="CmdContractConcludedCanceledReport" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.Cmd_ContractConcludedCanceledReportNew"/>
+        <Component Name="CmdContractPeriodReport" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.Cmd_ContractPeriodReportNew"/>
+        <Component Name="Cmd_Re_Contract_Insurance" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.RE_Contract_Insurance"/>
+        <Component Name="RE_Contract_Insurance" Class="Com.ComManaging.OpenReport" Excluded="True" Caption="Анализ сроков страхования" IconName="Com.Report" ReportCode="RealEstate.Rep.Contract_Insurance"/>
+        <Component Name="Cmd_RE_RealEstateObjList" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.RE_RealEstateObjList"/>
+      </Inherited>
+      <Component Name="Export" Class="Com.Cmd2.IGroup" Caption="@Экспорт печатных форм">
+        <Component Name="Cmd_RE_RealEstateObjExport" Class="Com.Cmd2.IItem" CommandName="Commands.RE_RealEstateObjExport"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

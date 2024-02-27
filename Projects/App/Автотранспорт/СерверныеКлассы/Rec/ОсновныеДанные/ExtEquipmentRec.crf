@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Rec.Eqm.EquipmentRec">
+  <Inherited>
+    <Component Name="IsAuto" Class="Com.Fld.IField" FieldName="IsAuto"/>
+    <Component Name="Объект" Class="Com.Fld.IField" Caption="Объект" FieldName="Объект"/>
+    <Component Name="ТипТС" Class="Com.Fld.IField" FieldName="ТипТС"/>
+    <Component Name="КатегорияТС" Class="Com.Fld.IField" FieldName="КатегорияТС"/>
+    <Component Name="ВидТС" Class="Com.Fld.IField" FieldName="ВидТС"/>
+    <Component Name="ГОС_НОМЕР" Class="Com.Fld.IField" FieldName="ГОС_НОМЕР" OnVerify="CheckUnique"/>
+    <Component Name="ЗАВОД_НОМ" Class="Com.Fld.IField" FieldName="ЗАВОД_НОМ" OnVerify="CheckUnique"/>
+    <Component Name="НОМ_КУЗОВА" Class="Com.Fld.IField" FieldName="НОМ_КУЗОВА" OnVerify="CheckUnique"/>
+    <Component Name="НОМ_ШАССИ" Class="Com.Fld.IField" FieldName="НОМ_ШАССИ" OnVerify="CheckUnique"/>
+    <Component Name="МаркаМодельТС" Class="Com.Fld.IField" Caption="Модель" FieldName="МаркаМодельТС" LookupFilter="GroupDoc&lt;>nil" OnChange="МаркаМодельТС_OnChange" ValueType="VarObject"/>
+    <Component Name="МаркаТС" Class="Com.Fld.IField" Caption="Марка" FieldName="МаркаТС" ValueType="VarObject"/>
+    <Component Name="ResColor" Class="Com.Fld.IField" Caption="@Resource:ResColor=Цвет" FieldName="ResColor"/>
+    <Component Name="NetWeight" Class="Com.Fld.IField" FieldName="NetWeight"/>
+    <Component Name="GrossWeight" Class="Com.Fld.IField" FieldName="GrossWeight"/>
+    <Component Name="WeightUnit" Class="Com.Fld.IField" FieldName="WeightUnit"/>
+    <Component Name="ДАТА_ВЫПУСКА" Class="Com.Fld.IField" FieldName="ДАТА_ВЫПУСКА"/>
+    <Component Name="ГодВыпуска" Class="Com.Fld.IField" Caption="@Год выпуска" FieldName="ГодВыпуска"/>
+    <Component Name="Дата_РегистрацииТС" Class="Com.Fld.IField" FieldName="Дата_РегистрацииТС" OnVerify="Дата_РегистрацииТС_OnVerify"/>
+    <Component Name="Дата_ПрекращенияРегистрацииТС" Class="Com.Fld.IField" FieldName="Дата_ПрекращенияРегистрацииТС" OnVerify="Дата_ПрекращенияРегистрацииТС_OnVerify"/>
+    <Component Name="ВКлВПланЗамены" Class="Com.Fld.IField" Caption="@Включен в план замены в" FieldName="ВКлВПланЗамены"/>
+    <Component Name="Заменен" Class="Com.Fld.IField" Caption="@Исполнено" FieldName="Заменен"/>
+    <Component Name="ДАТА_С" Class="Com.Fld.IField" FieldName="ДАТА_С" OnVerify="ДАТА_С_OnVerify"/>
+    <Component Name="ДАТА_ПО" Class="Com.Fld.IField" FieldName="ДАТА_ПО" OnVerify="ДАТА_ПО_OnVerify"/>
+    <Component Name="НомерПарковки" Class="Com.Fld.IField" FieldName="НомерПарковки"/>
+    <Component Name="ИнвентНомер" Class="Com.Fld.IField" FieldName="ИнвентНомер"/>
+    <Component Name="Водитель" Class="Com.Fld.IField" Excluded="True" FieldName="Водитель"/>
+    <Component Name="МОЛ" Class="Com.Fld.IField" FieldName="МОЛ"/>
+    <Component Name="sbt_Водители" Class="Com.ISubtable" StructClass="Автотранспорт.Rec.ОсновныеДанные.Equipment_DriversPositions" SubtableName="DriversPositions"/>
+    <Component Name="ДатаВыдачиПаспорта" Class="Com.Fld.IField" FieldName="ДатаВыдачиПаспорта"/>
+    <Component Name="СерияПаспорта" Class="Com.Fld.IField" FieldName="СерияПаспорта" OnChange="ПТС_OnChange"/>
+    <Component Name="НомерПаспорта" Class="Com.Fld.IField" FieldName="НомерПаспорта" OnChange="ПТС_OnChange"/>
+    <Component Name="СерияНомерПТС" Class="Com.Fld.IField" FieldName="СерияНомерПТС" OnVerify="CheckUnique"/>
+    <Component Name="ДатаВыдачиСвидетРег" Class="Com.Fld.IField" FieldName="ДатаВыдачиСвидетРег"/>
+    <Component Name="СерияСвидетРег" Class="Com.Fld.IField" FieldName="СерияСвидетРег" OnChange="СТС_OnChange"/>
+    <Component Name="НомерСвидетРег" Class="Com.Fld.IField" FieldName="НомерСвидетРег" OnChange="СТС_OnChange"/>
+    <Component Name="СерияНомерСТС" Class="Com.Fld.IField" FieldName="СерияНомерСТС" OnVerify="CheckUnique"/>
+    <Component Name="ОператорТО_ДиагностичКарта" Class="Com.Fld.IField" FieldName="ОператорТО_ДиагностичКарта"/>
+    <Component Name="НомерДиагностичКарта" Class="Com.Fld.IField" FieldName="НомерДиагностичКарта" OnVerify="CheckUnique"/>
+    <Component Name="ДатаНачалаДиагностичКарта" Class="Com.Fld.IField" FieldName="ДатаНачалаДиагностичКарта"/>
+    <Component Name="ДатаОкончанияДиагностичКарта" Class="Com.Fld.IField" FieldName="ДатаОкончанияДиагностичКарта"/>
+    <Component Name="СтоимостьДиагностичКарта" Class="Com.Fld.IField" FieldName="СтоимостьДиагностичКарта"/>
+    <Component Name="типГСМ" Class="Com.Fld.IField" FieldName="типГСМ"/>
+    <Component Name="Расход" Class="Com.Fld.IField" FieldName="Расход"/>
+    <Component Name="текОст" Class="Com.Fld.IField" FieldName="текОст"/>
+    <Component Name="МаркаШин" Class="Com.Fld.IField" FieldName="МаркаШин"/>
+    <Component Name="ВыданоШин" Class="Com.Fld.IField" FieldName="ВыданоШин"/>
+    <Component Name="ПробегШин" Class="Com.Fld.IField" FieldName="ПробегШин"/>
+    <Component Name="ДатаНачШин" Class="Com.Fld.IField" FieldName="ДатаНачШин"/>
+    <Component Name="ДатаВыбытияШин" Class="Com.Fld.IField" FieldName="ДатаВыбытияШин"/>
+    <Component Name="ВыбылоШин" Class="Com.Fld.IField" FieldName="ВыбылоШин"/>
+  </Inherited>
+</Resource>

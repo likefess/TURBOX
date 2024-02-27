@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="UserCalc.Frm.Srv.CalcForm">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="vInputBGIItem" Class="Com.Fld.IVar" After="#0" RecordClass="Com.Rec.IRecord" ValueType="VarObject"/>
+      <Component Name="vInputCostItem" Class="Com.Fld.IVar" RecordClass="Com.Rec.IRecord" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="ParametersBox">
+          <Component Name="DateFrame" Class="Com.Ctrl.IFrame" After="#0" Margins="10"/>
+          <Inherited Name="GroupsFrame" AutoSize="True">
+            <Component Name="GrDataTransfer" Class="Com.Ctrl.IGroup" After="#0" ByColumn="True">
+              <Component Name="ParametrsGroupDataTransfer" Class="Com.Ctrl.IGroup" ByColumn="True">
+                <Component Name="EdMAUnitDataTransfer" Class="Com.Ctrl.IEdit" Caption="Единица учета" CardFileClass="Biz.Tab.Data.MAUnit" CellFormat="ReferenceFormat" Field="vMAUnit" HasCaption="True" LookupField="Code" ValueType="VarObject"/>
+              </Component>
+              <Component Name="InputOutputGroupDataTransfer" Class="Com.Ctrl.IGroup">
+                <Component Name="InputDataGroupDataTransfer" Class="Com.Ctrl.IGroup" ByColumn="True" Printed="True" Visible="True">
+                  <Component Name="InputDataDataTransfer" Class="Com.Ctrl.IStatic" Caption="Данные до переноса" FontBold="True" Width="100"/>
+                  <Component Name="EdInputDimensionKindDataTransfer" Class="Com.Ctrl.IEdit" Caption="Тип аналитики" CellFormat="EnumFormat" Field="vInputDimensionKind" ValueType="VarInteger"/>
+                  <Component Name="EdInputDimensionValueDataTransfer" Class="Com.Ctrl.IEdit" Caption="Значение аналитики" CellFormat="ReferenceFormat" Field="vInputDimensionValue" LookupField="Code" ValueType="VarObject"/>
+                  <Component Name="EdInputCostItemDataTransfer" Class="Com.Ctrl.IEdit" Caption="Статья затрат" CardFileClass="BizRus.Tab.Ref.СТЗ" CellFormat="ReferenceFormat" Field="vInputCostItem" LookupField="Code" OnChange="EdInputCostItemDataTransferOnChange" ValueType="VarObject"/>
+                  <Component Name="EdInputBGIItemDataTransfer" Class="Com.Ctrl.IEdit" CanDesignate="False" Caption="Статья бюджетной классификации" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="vInputBGIItem" LookupField="Code" OnChange="EdInputBGIItemDataTransferOnChange" ValueType="VarObject"/>
+                </Component>
+                <Component Name="OutputDataGroupDataTransfer" Class="Com.Ctrl.IGroup" ByColumn="True">
+                  <Component Name="OutputDataDataTransfer" Class="Com.Ctrl.IStatic" Caption="Перенесенные данные" FontBold="True" Width="100"/>
+                  <Component Name="EdOutputDimensionKindDataTransfer" Class="Com.Ctrl.IEdit" Caption="Тип аналитики" CellFormat="EnumFormat" Field="vOutputDimensionKind" ValueType="VarInteger"/>
+                  <Component Name="EdOutputDimensionValueDataTransfer" Class="Com.Ctrl.IEdit" Caption="Значение аналитики" CellFormat="ReferenceFormat" Field="vOutputDimensionValue" LookupField="Code" ValueType="VarObject"/>
+                </Component>
+              </Component>
+            </Component>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Menu.CommandGroups.Root">
+  <Inherited>
+    <Inherited Name="Cmd_OurCompanies" Caption="@RealEstate_Entity:OurCompanies=Организации"/>
+    <Component Name="RealEstate" Class="Com.Cmd2.ICommandGroup">
+      <Component Name="Data" Class="Com.Cmd2.ICommandGroup">
+        <Component Name="Data_RealEstateObject" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RealEstateObject:=Полный реестр имущества" FormClassName="RealEstateBase.Tab.Data.RealEstateObject" IconName="Bas.atlas"/>
+        <Component Name="Data_RealEstateObjectLand" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RealEstateObjectLand:=Земля" FormClassName="RealEstateBase.Tab.Data.RealEstateObjectLand" IconName="Biz.Tree"/>
+        <Component Name="Data_RealEstateObjectReal" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RealEstateObjectReal:=Недвижимость" FormClassName="RealEstateBase.Tab.Data.RealEstateObjectReal" IconName="Bas.building"/>
+      </Component>
+      <Component Name="Ref" Class="Com.Cmd2.ICommandGroup">
+        <Component Name="RE_FederalDistrict" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RE_FederalDistrict:=Федеральные округа" FormClassName="RealEstateBase.Tab.Ref.FederalDistrict" IconName="Com.Cardfile"/>
+        <Component Name="RE_RegionStatus" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RE_RegionStatus:=Административные единицы" FormClassName="RealEstateBase.Tab.Ref.RegionStatus" IconName="Com.Cardfile"/>
+        <Component Name="RE_Region" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RE_Region:=Регионы" FormClassName="Biz.Tab.Ref.CountriesOrRegions" IconName="Com.Cardfile"/>
+        <Component Name="RE_RealEstateObjKind" Class="Com.ComManaging.OpenIForm" Caption="@Виды объектов имущества" FormClassName="RealEstateBase.Tab.Ref.RealEstateObjKind" IconName="Com.Cardfile"/>
+        <Component Name="RE_RealEstateObjType" Class="Com.ComManaging.OpenIForm" Caption="@Типы объектов имущества" FormClassName="RealEstateBase.Tab.Ref.RealEstateObjType" IconName="Com.Cardfile"/>
+        <Component Name="Map_GEOObject" Class="Com.ComManaging.OpenIForm" Caption="@ГЕО Объекты" FormClassName="Map.Tab.GeoObject" IconName="Com.map-marker"/>
+      </Component>
+      <Component Name="Rep" Class="Com.Cmd2.ICommandGroup">
+        <Component Name="RE_Reestr" Class="Com.ComManaging.OpenReport" Caption="Реестр объектов имущества" IconName="Com.Report" ReportCode="RealEstateBase.Rep.ОбъектыИмущества"/>
+      </Component>
+    </Component>
+  </Inherited>
+</Resource>

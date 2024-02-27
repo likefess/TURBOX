@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.BasObject">
+  <Inherited HelpContext="CashFlow.Движение денежных средств.Финансовые инструменты.Профили разноски ФИ" Hierarchical="False">
+    <Inherited Name="Current" Class="CashFlow.Rec.Data.PostingProfile" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" HasCaption="True"/>
+          <Inherited Name="Code" Visible="False"/>
+          <Component Name="CodeExt" Class="Com.Ctrl.IEdit" Field="Current.CodeExt" HasCaption="True" Width="30"/>
+          <Component Name="FinancialInstrumentGroup" Class="Com.Ctrl.IEdit" CardFileClass="CashFlow.Tab.Data.FinancialInstrumentGroup" CellFormat="EnumFormat" Field="Current.FinancialInstrumentGroup" HasCaption="True" LookupField="Name" Width="50"/>
+          <Component Name="Company" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="EnumFormat" Field="Current.Company" HasCaption="True" LookupField="Name" Width="50"/>
+          <Component Name="AccountShortTerm" Class="Com.Ctrl.IEdit" Field="Current.AccountShortTerm" HasCaption="True" Width="44"/>
+          <Component Name="AccountLongTerm" Class="Com.Ctrl.IEdit" Field="Current.AccountLongTerm" HasCaption="True" Width="42"/>
+          <Component Name="AccountShortLongTerm" Class="Com.Ctrl.IEdit" Excluded="True" Field="Current.AccountShortLongTerm" HasCaption="True" Width="76"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

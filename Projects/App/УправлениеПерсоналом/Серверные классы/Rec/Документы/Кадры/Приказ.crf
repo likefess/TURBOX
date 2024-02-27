@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Rec.Базовая.БазовыйДокументГруп">
+  <Inherited>
+    <Inherited Name="БезРасчета" After="#0"/>
+    <Component Name="чСуммаРаспределяемойПремии" Class="Com.Fld.IField" After="Code" Caption="Сумма распределяемой премии" Extra="True" FieldName="чСуммаРаспределяемойПремии" ValueType="VarNumeric"/>
+    <Inherited Name="Дата" Caption="@от"/>
+    <Inherited Name="Номер" OnChange="Номер_OnChange"/>
+    <Component Name="ТипОтпуска" Class="Com.Fld.IField" After="Предприятие" FieldName="ТипОтпуска"/>
+    <Component Name="Подразделение" Class="Com.Fld.IField" FieldName="Подразделение"/>
+    <Component Name="Проводить" Class="Com.Fld.IField" FieldName="Проводить"/>
+    <Component Name="текСтрокаПриказа" Class="УправлениеПерсоналом.Rec.Документы.Кадры.Приказ_Позиции" IsLibrary="1"/>
+    <Component Name="Групповой" Class="Com.Fld.IField" FieldName="Групповой"/>
+    <Component Name="Сотрудник" Class="Com.Fld.IField" FieldName="Сотрудник"/>
+    <Component Name="ТипПриказа" Class="Com.Fld.IField" FieldName="ТипПриказа" OnChange="ТипПриказа_OnChange"/>
+    <Component Name="УсловияТрудаСотр" Class="Com.Fld.IField" FieldName="УсловияТрудаСотр"/>
+    <Component Name="Корректировка" Class="Com.Fld.IField" FieldName="Корректировка" OnChange="Корректировка_OnChange"/>
+    <Component Name="КоррПриказ" Class="Com.Fld.IField" FieldName="КоррПриказ" OnChange="КоррПриказ_OnChange"/>
+    <Component Name="ПолучателиПоощрения" Class="Com.Fld.IField" FieldName="ПолучателиПоощрения" OnChange="ПолучателиПоощрения_OnChange"/>
+    <Component Name="ВариантРасчетаПоощрения" Class="Com.Fld.IField" FieldName="ВариантРасчетаПоощрения"/>
+    <Inherited Name="Позиции" After="ППРСумма" StructClass="УправлениеПерсоналом.Rec.Документы.Кадры.Приказ_Позиции"/>
+    <Inherited Name="ПозицииКорр" StructClass="УправлениеПерсоналом.Rec.Документы.Кадры.Приказ_ПозицииКорр"/>
+    <Inherited Name="РучнКорр" After="ДопАналитикаОпер"/>
+    <Component Name="ЗаПериод" Class="Com.Fld.IField" After="мРасчетЗП" Caption="Период" FieldName="ЗаПериод" OnChange="ЗаПериод_OnChange" OnVerify="ЗаПериод_OnVerify" ValueType="VarObject"/>
+    <Component Name="ПериодРасчета" Class="Com.Fld.IField" Caption="Расч. период" FieldName="ПериодРасчета" OnChange="ПериодРасчета_OnChange" OnVerify="ПериодРасчета_OnVerify" ValueType="VarObject"/>
+    <Component Name="Скорректирован" Class="Com.Fld.IField" FieldName="Скорректирован"/>
+    <Component Name="КадровыйДокумент" Class="Com.Fld.IField" FieldName="КадровыйДокумент"/>
+    <Component Name="ИнойНормАкт" Class="Com.Fld.IField" Extra="True" FieldName="лИнойНормАкт" ValueType="VarLogical"/>
+  </Inherited>
+</Resource>

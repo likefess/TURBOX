@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="HRBase.Rec.Base.Ref">
+  <Inherited>
+    <Component Name="Details" Class="Com.ISubtable" After="#0" StructClass="HRBase.Rec.Ref.WorkSchedule_Details" SubtableName="Details"/>
+    <Component Name="Position" Class="Com.ISubtable" StructClass="HRBase.Rec.Ref.WorkSchedule_Positions"/>
+    <Component Name="Company" Class="Com.Fld.IField" Caption="Предприятие" FieldName="Company" OnChange="Company_OnChange"/>
+    <Component Name="ColorWeekend" Class="Com.Fld.IField" FieldName="ColorWeekend"/>
+    <Component Name="ColorWork" Class="Com.Fld.IField" FieldName="ColorWork"/>
+    <Component Name="Qty" Class="Com.Fld.IField" FieldName="Qty"/>
+    <Component Name="EndDate" Class="Com.Fld.IField" Caption="@WorkSchedule:ДатаОкончания=Дата окончания" FieldName="ДатаОкончания" OnVerify="EndDate_OnVerify"/>
+    <Component Name="BegDate" Class="Com.Fld.IField" Caption="@WorkSchedule:ДатаНачала=Дата начала" FieldName="ДатаНачала" OnVerify="BegDate_OnVerify"/>
+    <Component Name="Calendar" Class="Com.Fld.IField" Excluded="True" FieldName="Calendar"/>
+    <Component Name="UsePreHolidays" Class="Com.Fld.IField" FieldName="UsePreHolidays"/>
+    <Component Name="UseWeekend" Class="Com.Fld.IField" FieldName="UseWeekend"/>
+    <Component Name="ForWeek" Class="Com.Fld.IField" FieldName="ForWeek"/>
+  </Inherited>
+</Resource>

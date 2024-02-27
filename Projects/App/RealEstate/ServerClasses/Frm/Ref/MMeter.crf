@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="RealEstate.Rec.Ref.MMeter" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Component Name="CodeNameGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+            <Component Name="CodeEdit" Class="Com.Ctrl.IEdit" Caption="@Код/Наименование" Field="EdtRec.Code" FixSize="True" HasCaption="True" Width="45"/>
+            <Component Name="NameEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" HasCaption="False"/>
+            <Component Name="BtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+          </Component>
+          <Component Name="DescriptionGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+            <Component Name="Description" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.Description" HasCaption="True"/>
+            <Component Name="BtnStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+          </Component>
+          <Component Name="GroupGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+            <Component Name="GroupDoc" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="EdtRec.GroupDoc" HasCaption="True" LookupField="Name"/>
+            <Component Name="GroupDocJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.GroupDoc" JumpForm="RealEstate.Frm.Ref.MMeter"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

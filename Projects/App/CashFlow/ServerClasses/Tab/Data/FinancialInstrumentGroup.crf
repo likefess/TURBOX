@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.BasObject">
+  <Inherited HelpContext="CashFlow.Движение денежных средств.Финансовые инструменты.Группы финансовых инструментов" Hierarchical="False">
+    <Inherited Name="Current" Class="CashFlow.Rec.Data.FinancialInstrumentGroup" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Code" After="ExtId" HasCaption="True"/>
+          <Inherited Name="Name" After="Code" HasCaption="True"/>
+          <Component Name="FinancialInstrumentType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Current.FinancialInstrumentType" HasCaption="True" ListAsString="Финансовые активы|0;Финансовые обязательства|1" Width="60"/>
+          <Component Name="AssetLiability" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Current.AssetLiability" HasCaption="True" ListAsString="Кредит/займ|0;Депозит|1;Вексель простой|2;Вексель финансовый|3;Акция|4;Облигация прочая|5;Облигация муниципальная|6;Облигация государственная|7;Акция собственная|8" Width="60"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

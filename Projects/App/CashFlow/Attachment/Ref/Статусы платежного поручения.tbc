@@ -1,0 +1,66 @@
+﻿TBCFile VER="3.4" [Created '08.04.2020 20:40:51' by 'Administrator']
+
+DESCRIPTION[
+Count=5
+CountByRef=0
+CashFlow.Ref.PaymentOrderStatus
+(
+  Count=5
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [CashFlow.Ref.PaymentOrderStatus
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    MetaLock :Boolean
+    SubsysCode :Integer
+    ModuleCode :String
+    PartisCode :Integer
+    OperDoc :Inherited Biz.Doc.Event
+    НеОтображаетсяВДереве :Boolean
+    Code :String(80)
+    Name :String(255)
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[CashFlow.Ref.PaymentOrderStatus
+  
+  {CashFlow.Ref.PaymentOrderStatus:"ПлатПоруч.Создано"}
+  (
+    Name = "Создано"
+  )
+  
+  {CashFlow.Ref.PaymentOrderStatus:"ПлатПоруч.Отправлено"}
+  (
+    Name = "Отправлено"
+  )
+  
+  {CashFlow.Ref.PaymentOrderStatus:"ПлатПоруч.Возвращено"}
+  (
+    Name = "Возвращено"
+  )
+  
+  {CashFlow.Ref.PaymentOrderStatus:"ПлатПоруч.Аннулировано"}
+  (
+    Name = "Аннулировано"
+  )
+  
+  {CashFlow.Ref.PaymentOrderStatus:"ПлатПоруч.Проведено"}
+  (
+    Name = "Проведено"
+  )
+]
+
+]

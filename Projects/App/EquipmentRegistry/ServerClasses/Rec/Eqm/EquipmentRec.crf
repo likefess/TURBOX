@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Rec.Base.BaseJournalRec">
+  <Inherited>
+    <Component Name="CurrentPlace" Class="Com.Fld.IField" After="#0" Caption="@Equipment:CurrentPlace=ТМ" FieldName="CurrentPlace" ValueType="VarObject"/>
+    <Component Name="CurrentParent" Class="Com.Fld.IField" Caption="@Equipment:CurrentParent=Входит в" FieldName="CurrentParent" ValueType="VarObject"/>
+    <Component Name="CurrentStatus" Class="Com.Fld.IField" Caption="@BaseJournalFrm:CurrentStatus=Состояние" FieldName="CurrentStatus" ValueType="VarObject"/>
+    <Component Name="ModelCode" Class="Com.Fld.IField" Caption="@BaseJournalFrm:Model=Модель" FieldName="ModelCode" ValueType="VarObject"/>
+    <Component Name="DispName" Class="Com.Fld.IField" Caption="@BaseJournalFrm:Name=Наименование" FieldName="DispName" ValueType="VarString"/>
+    <Component Name="RoleCode" Class="Com.Fld.IField" Caption="@Equipment:Role=Роль" FieldName="RoleCode" ValueType="VarInteger"/>
+    <Component Name="Forecasting" Class="Com.Fld.IField" Caption="@Equipment:Forecasting=Прогнозирование" FieldName="Forecasting" ValueType="VarLogical"/>
+    <Component Name="DateOfFailure" Class="Com.Fld.IField" Caption="@Equipment:DateOfFailure=Прогнозная дата отказа" FieldName="DateOfFailure" ValueType="VarDate"/>
+    <Component Name="StateIndex" Class="Com.Fld.IPeriodicField" FieldName="StateIndex" ValueType="VarNumeric"/>
+    <Component Name="SerialNumber" Class="Com.Fld.IField" Caption="@Equipment:SerialNumber=Серийный №" FieldName="SerialNumber" ValueType="VarString"/>
+    <Component Name="ManufNumber" Class="Com.Fld.IField" Caption="@Equipment:ManufNumber=Заводской №" FieldName="ManufNumber" ValueType="VarString"/>
+    <Component Name="RegNumber" Class="Com.Fld.IField" Caption="@Equipment:RegNumber=Регистрационный №" FieldName="RegNumber" ValueType="VarString"/>
+    <Component Name="InventNumber" Class="Com.Fld.IField" Caption="@Equipment:InventNumber=Инвентарный №" FieldName="InventNumber" ValueType="VarString"/>
+    <Component Name="DateOfBirth" Class="Com.Fld.IField" Caption="@Equipment:DateOfBirth=Дата выпуска" FieldName="DateOfBirth" ValueType="VarDate"/>
+    <Component Name="DateOfInstall" Class="Com.Fld.IField" Caption="@Equipment:DateOfInstall=Дата монтажа" FieldName="DateOfInstall" ValueType="VarDate"/>
+    <Component Name="DateOfStart" Class="Com.Fld.IField" Caption="@Equipment:DateOfStart=Дата ввода" FieldName="DateOfStart" ValueType="VarDate"/>
+    <Component Name="DateOfDeath" Class="Com.Fld.IField" Caption="@Equipment:DateOfDeath=Дата списания" FieldName="DateOfDeath" ValueType="VarDate"/>
+    <Component Name="EmployeeCode" Class="Com.Fld.IField" Caption="@baseJournalFrm:Employee=Сотрудник" FieldName="EmployeeCode" OnChange="EmployeeCode_OnChange" OnVerify="EmployeeCode_OnVerify" ValueType="VarObject"/>
+    <Component Name="RespDivision" Class="Com.Fld.IField" Caption="@BaseJournalFrm:Division=Подразделение" FieldName="RespDivision" OnChange="RespDivision_OnChange" OnVerify="RespDivision_OnVerify" ValueType="VarObject"/>
+    <Component Name="ManufCode" Class="Com.Fld.IField" Caption="@Equipment:Manufacturer=Производитель" FieldName="ManufCode" OnVerify="ManufCode_OnVerify" ValueType="VarObject"/>
+    <Component Name="SellerCode" Class="Com.Fld.IField" Caption="@Equipment:Seller=Поставщик" FieldName="SellerCode" OnVerify="SellerCode_OnVerify" ValueType="VarObject"/>
+    <Component Name="LastRepairDate" Class="Com.Fld.IField" Caption="@Equipment:LastRepairDate=Дата последнего кап. ремонта" FieldName="LastRepairDate" ValueType="VarDate"/>
+    <Component Name="sbtGroups" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Eqm.EquipmentGroupsRec" SubtableName="Groups"/>
+    <Component Name="sbtOperating" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Eqm.EquipmentOperRec" SubtableName="OperatingTime"/>
+    <Component Name="sbtCharacter" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Eqm.EquipmentCharRec" SubtableName="Characteristics"/>
+    <Component Name="sbtParameter" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Eqm.EquipmentParaRec" SubtableName="Parameters"/>
+    <Component Name="sbtStartPlace" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.Eqm.EquipmentStartRec" SubtableName="StartPlace"/>
+    <Component Name="PlaceCode" Class="Com.Fld.IVar" OnCalc="PlaceCodeCalc" OnChange="PlaceCode_OnChange" OnVerify="PlaceCode_OnVerify" RecordClass="EquipmentRegistry.Rec.Ref.Places.PlacesRec" ValueType="VarObject"/>
+    <Component Name="ParentCode" Class="Com.Fld.IVar" OnCalc="ParentCodeCalc" OnChange="ParentCode_OnChange" RecordClass="EquipmentRegistry.Rec.Eqm.EquipmentRec" ValueType="VarObject"/>
+    <Component Name="StatusCode" Class="Com.Fld.IVar" OnCalc="StatusCodeCalc" OnChange="StatusCode_OnChange" OnVerify="StatusCode_OnVerify" RecordClass="EquipmentRegistry.Rec.Ref.Attributes.EquipmentStatusRec" ValueType="VarObject"/>
+    <Component Name="StateType" Class="Com.Fld.IVar" OnCalc="StateTypeOnCalc" RecordClass="EquipmentRegistry.Rec.Ref.Attributes.StateTypeRec" ValueType="VarObject"/>
+    <Component Name="PriorityCode" Class="Com.Fld.IField" Caption="@Equipment:PriorityCode=Приоритет" FieldName="PriorityCode"/>
+  </Inherited>
+</Resource>

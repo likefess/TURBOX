@@ -1,0 +1,476 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.БазовыйДокумент">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Кадровые документы.Кадровые документы сотрудников.Личная карточка сотрудника">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка" IsLibrary="1"/>
+    <Component Name="ИнЯзык" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка_ИнЯзыки" IsLibrary="1" After="EdtRec"/>
+    <Component Name="Профессия" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка_Профессии" IsLibrary="1"/>
+    <Component Name="Образование" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка_Образование" IsLibrary="1"/>
+    <Component Name="СоставСемьи" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка_СоставСемьи" IsLibrary="1"/>
+    <Component Name="ПриемПеревод" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка_ПриемПеревод" IsLibrary="1"/>
+    <Component Name="Аттестация" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка_Аттестация" IsLibrary="1"/>
+    <Component Name="ПовышениеКвалификации" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка_ПовышениеКвалификации" IsLibrary="1"/>
+    <Component Name="ПрофПереподготовка" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка_ПрофПереподготовка" IsLibrary="1"/>
+    <Component Name="Поощрения" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка_Поощрения" IsLibrary="1"/>
+    <Component Name="Отпуск" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка_Отпуск" IsLibrary="1"/>
+    <Component Name="СоцЛьготы" Class="УправлениеПерсоналом.Rec.Документы.Кадры.ЛичнаяКарточка_СоцЛьготы" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="тбОтпускИтого" Class="Com.ISubtable"/>
+    </Inherited>
+    <Inherited Name="RootFrame" AutoSize="True" Margins="5">
+      <Inherited Name="HeaderFrame" HasCaption="True">
+        <Inherited Name="кнПечатьУнФорма" Visible="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" CanHideBySplit="True" CanResizeBySplit="False" SplitterAtRight="True" UseSplitter="True">
+        <Inherited Name="грТипДокумента">
+          <Component Name="ТипДокумента" Class="Com.Ctrl.IEdit" Caption="@Тип документа" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ТипыДокументов" Field="EdtRec.ТипДокумента" FixSize="False" HasCaption="True" LookupField="Name" OnGetLookupFilter="ТипДокумента_OnGetLookupFilter" OnOpenCardForm="ТипДокумента_OnOpenCardForm"/>
+          <Component Name="кнТипДокумента" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ТипДокумента" JumpForm="УправлениеПерсоналом.Frm.Классификаторы.ТипДокумента"/>
+          <Component Name="Static27" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+        </Inherited>
+        <Component Name="СотрудникДанные" Class="Com.Ctrl.IGroup" After="грТипДокумента" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Сотрудник" Class="Com.Ctrl.IEdit" Caption="@Сотрудник" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Enabled="True" Field="EdtRec.УсловияТрудаСотр" HasCaption="True" LookupField="Person.Name" OnChange="Сотрудник_OnChange" OnOpenCardForm="НастроитьКартотекуУслТрудаСотрудников" OnOutput="Сотрудник_OnOutput" Visible="True"/>
+          <Component Name="ТабНомер" Class="Com.Ctrl.IEdit" Caption="-" CaptionWidth="10" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Enabled="False" Field="EdtRec.УсловияТрудаСотр" HasCaption="True" LookupField="ТабНомер" MaxWidth="30" Visible="True" Width="30"/>
+          <Component Name="кнСотрудник" Class="Com.Ctrl.IJumpButton" Field="EdtRec.УсловияТрудаСотр" JumpForm="УправлениеПерсоналом.Frm.Данные.УсловияТрудаСотрудника"/>
+          <Component Name="Static28" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="Общие сведения" Margins="7">
+          <Component Name="Frame1" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="Group36" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="кнОбщее" Class="Com.Ctrl.IButton" Hint="Заполнить блок Общие сведения" ImageName="Com.Refresh" OnClick="кнОбщее_OnClick"/>
+              <Component Name="Static58" Class="Com.Ctrl.IStatic" Caption="Общее" FontBold="True"/>
+            </Component>
+            <Component Name="грМестоРаботы" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="grDivision" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Division" Class="Com.Ctrl.IEdit" Caption="Подразделение" CardFileClass="Bas.Tab.Data.Divisions" Enabled="False" Field="EdtRec.УсловияТрудаСотр" HasCaption="True" LookupField="Division.Name" OnOpenCardForm="НастроитьКартотекуПодразделения" Required="True"/>
+                <Component Name="btDivision" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Division" JumpForm="Bas.Frm.Data.Entity"/>
+              </Component>
+              <Component Name="grPosition" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Position" Class="Com.Ctrl.IEdit" Caption="Должность" CardFileClass="HRBase.Tab.Ref.PositionsHR" Enabled="False" Field="EdtRec.УсловияТрудаСотр" HasCaption="True" LookupField="Position.Name" Required="True"/>
+                <Component Name="btPosition" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Position" JumpForm="HRBase.Frm.Ref.PositionHR"/>
+              </Component>
+              <Component Name="грРазряд" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Разряд_" Class="Com.Ctrl.IEdit" Caption="Разряд" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ТарифныеРазряды" Enabled="False" Field="EdtRec.УсловияТрудаСотр" HasCaption="True" Hint="Тарифный (квалификационный) разряд" LookupField="Разряд.Name"/>
+                <Component Name="кнРазряд" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Разряд" JumpForm="УправлениеПерсоналом.Frm.Справочники.ТарифныйРазряд"/>
+              </Component>
+            </Component>
+            <Component Name="грПериодРаботы" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Caption="@Дата назначения" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Enabled="False" Field="EdtRec.УсловияТрудаСотр" FixSize="True" HasCaption="True" Hint="Дата начала работы" LookupField="HireDate" MaxWidth="45" Visible="True" Width="45"/>
+              <Component Name="ДатаУвольнения" Class="Com.Ctrl.IEdit" Caption="@Дата увольнения" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Enabled="False" Field="EdtRec.УсловияТрудаСотр" FixSize="True" HasCaption="True" Hint="Дата увольнения сотрудника" LookupField="FireDate" MaxWidth="45" Visible="True" Width="45"/>
+            </Component>
+            <Component Name="грТрудовойДоговор" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="ТрудовойДоговор" Class="Com.Ctrl.IEdit" Caption="@Трудовой договор" CardFileClass="УправлениеПерсоналом.Tab.Документы.Кадры.ТрудовойДоговор" Enabled="True" Field="EdtRec.Договор" HasCaption="True" Hint="Трудовой договор" LookupField="Name" OnGetLookupFilter="Договор_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуДоговор" OnOutputEx="ДоговорНомерДата_OnOutputEx" Width="50"/>
+              <Component Name="кнТрудДоговор" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Договор" JumpForm="УправлениеПерсоналом.Frm.Документы.Кадры.ТрудовойДоговор"/>
+            </Component>
+            <Component Name="грВидЗанятости" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Static60" Class="Com.Ctrl.IStatic" Excluded="True" Caption="Вид работы " FontBold="True" Hint="Вид работы (основная, по совместительству)" Width="100"/>
+              <Component Name="ВидЗанятости" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@ Вид работы" CellFormat="EnumFormat" Field="EdtRec.ВидЗанятости" HasCaption="True" Hint="Вид занятости" ValueType="VarString" Width="100"/>
+              <Component Name="ХарактерРаботы" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@ Характер работы" CellFormat="EnumFormat" Field="EdtRec.ХарактерРаботы" HasCaption="True" Width="100"/>
+              <Component Name="stEmpty6" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Component Name="грДокументЛичности" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="грДокументЛичности1" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="ДокЛичности_тип" Class="Com.Ctrl.IEdit" Caption="Удост. личности" CardFileClass="Biz.Tab.Data.IDcards" Enabled="True" Field="EdtRec.ДокументЛичности" HasCaption="True" Hint="Удостоверение личности" LookupField="IDtype.Name" OnGetLookupFilter="Удостоверение_OnGetLookupFilter" OnOpenCardForm="Удостоверение_OnOpenCardForm" Width="120"/>
+                <Component Name="кнДокЛичности" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ДокументЛичности" JumpForm="Biz.Frm.Data.IDcard"/>
+              </Component>
+              <Component Name="грДокументЛичности2" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="ДокЛичности_серия" Class="Com.Ctrl.IEdit" Caption="@Серия" CardFileClass="Biz.Tab.Data.IDcards" Enabled="False" Field="EdtRec.ДокументЛичности" HasCaption="True" LookupField="Series"/>
+                <Component Name="ДокЛичности_номер" Class="Com.Ctrl.IEdit" Caption="@Номер" CaptionWidth="20" CardFileClass="Biz.Tab.Data.IDcards" Enabled="False" Field="EdtRec.ДокументЛичности" HasCaption="True" LookupField="Number"/>
+                <Component Name="ДокЛичности_ДатаВыдачи" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Дата выдачи" CaptionWidth="28" CardFileClass="Biz.Tab.Data.IDcards" Enabled="False" Field="EdtRec.ДокументЛичности" HasCaption="True" LookupField="DateOfIssue"/>
+                <Component Name="stEmpty7" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+              </Component>
+              <Component Name="грДокументЛичности3" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="ДокЛичности_КемВыдан" Class="Com.Ctrl.IEdit" Caption="@Кем выдан" CardFileClass="Biz.Tab.Data.IDcards" Enabled="False" Field="EdtRec.ДокументЛичности" HasCaption="True" LookupField="Issuer" Multiline="True" Width="100" Wrap="True"/>
+                <Component Name="ДокЛичности_КодПодразделения" Class="Com.Ctrl.IEdit" Caption="@Код подразделения" CardFileClass="Biz.Tab.Data.IDcards" Enabled="False" Field="EdtRec.ДокументЛичности" HasCaption="True" LookupField="КодПодразделения" MaxWidth="30" Width="30"/>
+                <Component Name="stEmpty9" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+              </Component>
+            </Component>
+            <Component Name="грМестоРождения" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Static53" Class="Com.Ctrl.IStatic" Excluded="True" Caption="3. Место рождения" FontBold="True" Width="100"/>
+              <Component Name="Рождение_Место" Class="Com.Ctrl.IEdit" Caption="Место рождения" Field="EdtRec.Рождение_Место" HasCaption="True" ValueType="VarString" Width="60"/>
+              <Component Name="Рождение_ОКАТО" Class="Com.Ctrl.IEdit" Caption="ОКАТО" CaptionWidth="20" Field="EdtRec.Рождение_ОКАТО" HasCaption="True" MaxWidth="30" ValueType="VarString" Width="30"/>
+              <Component Name="кнМестоРождения" Class="Com.Ctrl.IButton" Excluded="True" ImageName="Com.Refresh" OnClick="кнМестоРождения_OnClick"/>
+              <Component Name="stEmpty11" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Component Name="грГражданство" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Static56" Class="Com.Ctrl.IStatic" Excluded="True" Caption="4. Гражданство" FontBold="True" Width="100"/>
+              <Component Name="Гражданство" Class="Com.Ctrl.IEdit" Caption="Гражданство" CellFormat="EnumFormat" Field="EdtRec.Гражданство" HasCaption="True" ValueType="VarString" Width="60"/>
+              <Component Name="Гражданство_ОКИН" Class="Com.Ctrl.IEdit" Caption="ОКИН" CaptionWidth="20" Field="EdtRec.Гражданство_ОКИН" HasCaption="True" MaxWidth="30" ValueType="VarString" Width="30"/>
+              <Component Name="кнГражданство" Class="Com.Ctrl.IButton" Excluded="True" ImageName="Com.Refresh" OnClick="кнГражданство_OnClick"/>
+              <Component Name="stEmpty10" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+          </Component>
+          <Component Name="фрИнЯзыки" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="грИнЯзыкиПарам" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="кнИнЯзыки" Class="Com.Ctrl.IButton" Hint="Заполнить блок Знание иностранных языков" ImageName="Com.Refresh" OnClick="кнИнЯзыки_OnClick"/>
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption="Знание иностранного языка" FixSize="True" FontBold="True" Width="100"/>
+            </Component>
+            <Component Name="тблИнЯзыки" Class="Com.Ctrl.ITable" Subtable="EdtRec.ИнЯзыки" Width="150">
+              <Component Name="Язык" Class="Com.Ctrl.IEdit" Caption="Наименование" CardFileClass="HRBase.Tab.Ref.Languages" CellFormat="ReferenceFormat" Field="ИнЯзык.Язык" HasButton="True" HasCaption="True" LookupField="Name" ValueType="VarObject" Width="70"/>
+              <Component Name="УровеньЗнания" Class="Com.Ctrl.IEdit" Caption="Степень знания" CardFileClass="HRBase.Tab.Ref.LanguageLevels" CellFormat="ReferenceFormat" Field="ИнЯзык.УровеньЗнания" HasButton="True" HasCaption="True" LookupField="Name" ShortList="True" ValueType="VarObject" Width="70"/>
+              <Component Name="ЯзыкОКИН" Class="Com.Ctrl.IEdit" Caption="ОКИН" Enabled="False" Field="ИнЯзык.Язык" HasCaption="True" LookupField="КодКлассификатора" Width="35"/>
+            </Component>
+          </Component>
+          <Component Name="фрОбразование" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="грОбразованиеПарам" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="кнОбразование" Class="Com.Ctrl.IButton" Hint="Заполнить блок Образование" ImageName="Com.Refresh" OnClick="кнОбразование_OnClick"/>
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" Caption="Образование" FixSize="True" FontBold="True" Width="100"/>
+            </Component>
+            <Component Name="тблОбразование" Class="Com.Ctrl.ITable" Subtable="EdtRec.Образование">
+              <Component Name="ВидОбразования" Class="Com.Ctrl.IEdit" Caption="Вид образования" CardFileClass="HRBase.Tab.Ref.EducationTypes" CellFormat="ReferenceFormat" Field="Образование.ВидОбразования" HasCaption="True" Hint="Среднее (полное) общее, начальное профессиональное, среднее профессиональное, высшее профессиональное" LookupField="Name" Multiline="True" ValueType="VarObject" Width="60" Wrap="True"/>
+              <Component Name="УчебноеЗаведение" Class="Com.Ctrl.IEdit" Field="Образование.УчебноеЗаведение" HasCaption="True" Hint="Наименование образовательного  учреждения" Multiline="True" Width="60" Wrap="True"/>
+              <Component Name="грДиплом" Class="Com.Ctrl.IColumnsGroup" Caption="Документ об образовании, о квалификации или наличии специальных знаний" HasCaption="True">
+                <Component Name="Диплом_Имя" Class="Com.Ctrl.IEdit" Caption="наименование" Field="Образование.Диплом_Имя" HasCaption="True" Multiline="True" Width="40" Wrap="True"/>
+                <Component Name="Диплом_серия" Class="Com.Ctrl.IEdit" Caption="серия" Field="Образование.Диплом_Серия" HasCaption="True" Width="25"/>
+                <Component Name="Диплом_Номер" Class="Com.Ctrl.IEdit" Caption="номер" Field="Образование.Диплом_Номер" HasCaption="True" Width="25"/>
+              </Component>
+              <Component Name="ГодОкончания" Class="Com.Ctrl.IEdit" Caption="Год окончания" Field="Образование.ГодОкончания" HasCaption="True" Width="25"/>
+              <Component Name="Квалификация" Class="Com.Ctrl.IEdit" Caption="Квалификация" CardFileClass="HRBase.Tab.Ref.Qualification" CellFormat="ReferenceFormat" Field="Образование.Квалификация" HasCaption="True" Hint="Квалификация по документу об образовании" LookupField="Name" Multiline="True" ValueType="VarObject" Width="30" Wrap="True"/>
+            </Component>
+          </Component>
+          <Component Name="фрПрофессия" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="грПрофессияПарам" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="кнПрофессия" Class="Com.Ctrl.IButton" Hint="Заполнить блок Профессия" ImageName="Com.Refresh" OnClick="кнПрофессия_OnClick"/>
+              <Component Name="Static5" Class="Com.Ctrl.IStatic" Caption="Профессия" FixSize="True" FontBold="True" Width="100"/>
+            </Component>
+            <Component Name="тблПрофессии" Class="Com.Ctrl.ITable" Subtable="EdtRec.Профессии">
+              <Component Name="Профессии" Class="Com.Ctrl.IEdit" Caption="Наименование" Field="Профессия.Профессия" HasCaption="True" Width="70"/>
+              <Component Name="ПрофессияОКПДТР" Class="Com.Ctrl.IEdit" Caption="Код по ОКПДТР" Field="Профессия.ПрофессияОКПДТР" HasCaption="True" Width="35"/>
+              <Component Name="ПрофессияОсн" Class="Com.Ctrl.IEdit" Caption="Основная" Field="Профессия.ПрофессияОсн" HasCaption="True" OnChange="ПрофессияОсн_OnChange" Visible="True" Width="20"/>
+            </Component>
+          </Component>
+          <Component Name="фрСтажРаботы" Class="Com.Ctrl.IFrame" AutoSize="True" Enabled="True" Visible="True">
+            <Component Name="грСтажРаботы" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="кнСтажРаботы" Class="Com.Ctrl.IButton" Hint="Заполнить блок Стаж работы" ImageName="Com.Refresh" OnClick="кнСтажРаботы_OnClick"/>
+              <Component Name="Static6" Class="Com.Ctrl.IStatic" Caption="Стаж работы ( по состоянию на )" FixSize="True" FontBold="True" Width="80"/>
+              <Component Name="датаСтаж" Class="Com.Ctrl.IEdit" CaptionWidth="2" Field="EdtRec.ДатаСтаж" MaxWidth="35" ValueType="VarDate"/>
+            </Component>
+            <Component Name="грВидыСтажа" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="грОбщий" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="Static8" Class="Com.Ctrl.IStatic" Caption="Общий" FixSize="True" Width="50"/>
+                <Component Name="Group4" Class="Com.Ctrl.IGroup">
+                  <Component Name="общЛет" Class="Com.Ctrl.IEdit" Caption="лет" Field="EdtRec.ОбщСтажЛет" FixSize="True" HasCaption="False" ValueType="VarInteger" Width="20"/>
+                  <Component Name="Static13" Class="Com.Ctrl.IStatic" Caption="лет" FixSize="True" Width="15"/>
+                </Component>
+                <Component Name="Group3" Class="Com.Ctrl.IGroup">
+                  <Component Name="общМесяцев" Class="Com.Ctrl.IEdit" Caption="дней" Field="EdtRec.ОбщСтажМес" FixSize="True" HasCaption="False" ValueType="VarInteger" Width="20"/>
+                  <Component Name="Static12" Class="Com.Ctrl.IStatic" Caption="месяцев" FixSize="True" Width="25"/>
+                </Component>
+                <Component Name="Group2" Class="Com.Ctrl.IGroup">
+                  <Component Name="общДней" Class="Com.Ctrl.IEdit" Caption="дней" Field="EdtRec.ОбщСтажДни" FixSize="True" HasCaption="False" ValueType="VarInteger" Width="20"/>
+                  <Component Name="Static11" Class="Com.Ctrl.IStatic" Caption="дней" FixSize="True" Width="15"/>
+                </Component>
+              </Component>
+              <Component Name="грНепрерыв" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="Static9" Class="Com.Ctrl.IStatic" Caption="Непрерывный" FixSize="True" Width="50"/>
+                <Component Name="Group7" Class="Com.Ctrl.IGroup">
+                  <Component Name="непрЛет" Class="Com.Ctrl.IEdit" Caption="лет" Field="EdtRec.НепрСтажЛет" FixSize="True" HasCaption="False" ValueType="VarInteger" Width="20"/>
+                  <Component Name="Static16" Class="Com.Ctrl.IStatic" Caption="лет" FixSize="True" Width="15"/>
+                </Component>
+                <Component Name="Group6" Class="Com.Ctrl.IGroup">
+                  <Component Name="непрМесяцев" Class="Com.Ctrl.IEdit" Caption="дней" Field="EdtRec.НепрСтажМес" FixSize="True" HasCaption="False" ValueType="VarInteger" Width="20"/>
+                  <Component Name="Static15" Class="Com.Ctrl.IStatic" Caption="месяцев" FixSize="True" Width="25"/>
+                </Component>
+                <Component Name="Group5" Class="Com.Ctrl.IGroup">
+                  <Component Name="непрДней" Class="Com.Ctrl.IEdit" Caption="дней" Field="EdtRec.НепрСтажДни" FixSize="True" HasCaption="False" ValueType="VarInteger" Width="20"/>
+                  <Component Name="Static14" Class="Com.Ctrl.IStatic" Caption="дней" FixSize="True" Width="15"/>
+                </Component>
+              </Component>
+              <Component Name="грЗаВыслугу" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="Static10" Class="Com.Ctrl.IStatic" Caption="Дающий право на надбавку за выслугу лет" FixSize="True" Width="50" Wrap="True"/>
+                <Component Name="Group10" Class="Com.Ctrl.IGroup">
+                  <Component Name="выслЛет" Class="Com.Ctrl.IEdit" Caption="лет" Field="EdtRec.ВыслСтажЛет" FixSize="True" HasCaption="False" ValueType="VarInteger" Width="20"/>
+                  <Component Name="Static19" Class="Com.Ctrl.IStatic" Caption="лет" FixSize="True" Width="15"/>
+                </Component>
+                <Component Name="Group9" Class="Com.Ctrl.IGroup">
+                  <Component Name="выслМеяцев" Class="Com.Ctrl.IEdit" Caption="месяцев" CaptionWidth="0" Field="EdtRec.ВыслСтажМес" FixSize="True" HasCaption="False" ValueType="VarInteger" Width="20"/>
+                  <Component Name="Static18" Class="Com.Ctrl.IStatic" Caption="месяцев" FixSize="True" Width="25"/>
+                </Component>
+                <Component Name="Group8" Class="Com.Ctrl.IGroup">
+                  <Component Name="выслДней" Class="Com.Ctrl.IEdit" Caption="дней" Field="EdtRec.ВыслСтажДни" FixSize="True" HasCaption="False" ValueType="VarInteger" Width="20"/>
+                  <Component Name="Static17" Class="Com.Ctrl.IStatic" Caption="дней" FixSize="True" Width="15"/>
+                </Component>
+              </Component>
+              <Component Name="грДопст" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="Static21" Class="Com.Ctrl.IStatic" FixSize="True" Width="50" Wrap="True"/>
+                <Component Name="Group13" Class="Com.Ctrl.IGroup">
+                  <Component Name="допЛет" Class="Com.Ctrl.IEdit" Caption="лет" Field="EdtRec.ДопСтажЛет" FixSize="True" HasCaption="False" ValueType="VarInteger" Width="20"/>
+                  <Component Name="Static24" Class="Com.Ctrl.IStatic" Caption="лет" FixSize="True" Width="15"/>
+                </Component>
+                <Component Name="Group12" Class="Com.Ctrl.IGroup">
+                  <Component Name="допМесяцев" Class="Com.Ctrl.IEdit" Caption="дней" Field="EdtRec.ДопСтажМес" FixSize="True" HasCaption="False" ValueType="VarInteger" Width="20"/>
+                  <Component Name="Static23" Class="Com.Ctrl.IStatic" Caption="месяцев" FixSize="True" Width="25"/>
+                </Component>
+                <Component Name="Group11" Class="Com.Ctrl.IGroup">
+                  <Component Name="допДней" Class="Com.Ctrl.IEdit" Caption="дней" Field="EdtRec.ДопСтажДни" FixSize="True" HasCaption="False" ValueType="VarInteger" Width="20"/>
+                  <Component Name="Static22" Class="Com.Ctrl.IStatic" Caption="дней" FixSize="True" Width="15"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="фрСостояниеБрак" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="грСостояниеБрак" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="кнСостояниеБрак" Class="Com.Ctrl.IButton" Hint="Заполнить блок Состояние в браке" ImageName="Com.Refresh" OnClick="кнСостояниеБрак_OnClick"/>
+              <Component Name="Static7" Class="Com.Ctrl.IStatic" Caption="Состояние в браке" FixSize="True" FontBold="True" Width="100"/>
+            </Component>
+            <Component Name="грСостояниеБракСт" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="СостояниеБракСт" Class="Com.Ctrl.IEdit" Caption="Состояние в браке" CardFileClass="HRBase.Tab.Ref.MaritalStatus" Field="EdtRec.СостояниеБрак" HasCaption="True" LookupField="Name" ValueType="VarObject" Width="60"/>
+              <Component Name="СостояниеБракОКИН" Class="Com.Ctrl.IEdit" Caption="ОКИН" CaptionWidth="20" Enabled="False" Field="EdtRec.СостояниеБрак" HasCaption="True" Hint="Код по ОКИН" LookupField="Код" MaxWidth="30" Width="30"/>
+              <Component Name="stEmpty8" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+          </Component>
+          <Component Name="фрСоставСемьи" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="грСоставСемьиПарам" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" FontBold="True" MaxWidth="230" MinWidth="150">
+              <Component Name="кнСоставСемьи" Class="Com.Ctrl.IButton" Hint="Заполнить блок Состав семьи" ImageName="Com.Refresh" OnClick="кнСоставСемьи_OnClick"/>
+              <Component Name="Static20" Class="Com.Ctrl.IStatic" Caption="Состав семьи" FixSize="True" FontBold="True" Width="100"/>
+            </Component>
+            <Component Name="тблСоставСемьи" Class="Com.Ctrl.ITable" Subtable="EdtRec.СоставСемьи">
+              <Component Name="СтепеньРодства" Class="Com.Ctrl.IEdit" Caption="Степень родства (ближайшие родственики)" CardFileClass="HRBase.Tab.Ref.FamilyRelations" CellFormat="ReferenceFormat" Field="СоставСемьи.СтепеньРодства" HasCaption="True" LookupField="Name" ValueType="VarObject" Width="70"/>
+              <Component Name="ФИО" Class="Com.Ctrl.IEdit" Caption="Фамилия, имя, отчество" Field="СоставСемьи.ФИО" HasCaption="True" Width="100"/>
+              <Component Name="ГодРождения" Class="Com.Ctrl.IEdit" Caption="Год рождения" Field="СоставСемьи.ГодРождения" HasCaption="True" Width="20"/>
+            </Component>
+          </Component>
+          <Component Name="фрПаспорт" Class="Com.Ctrl.IFrame" Excluded="True" AutoSize="True">
+            <Component Name="грПаспорт" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" FontBold="True" MaxWidth="230" MinWidth="150">
+              <Component Name="кнПаспорт" Class="Com.Ctrl.IButton" ImageName="Com.Refresh" OnClick="кнПаспорт_OnClick"/>
+              <Component Name="Static25" Class="Com.Ctrl.IStatic" Caption="11. " FixSize="True" FontBold="True" Width="100"/>
+            </Component>
+          </Component>
+          <Component Name="фрАдресМЖ" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="грАдресМЖ" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" FontBold="True" MaxWidth="230" MinWidth="150">
+              <Component Name="кнАдресМЖ" Class="Com.Ctrl.IButton" Hint="Заполнить блок Адрес места жительства" ImageName="Com.Refresh" OnClick="кнАдресМЖ_OnClick"/>
+              <Component Name="Static26" Class="Com.Ctrl.IStatic" Caption="Адрес места жительства" FixSize="True" FontBold="True" Width="100"/>
+            </Component>
+            <Component Name="грАдресПаспорт" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="поПаспорту" Class="Com.Ctrl.IEdit" Caption="По паспорту" CardFileClass="Biz.Tab.Data.Addresses" Field="EdtRec.АдресРегистрации" HasCaption="True" OnGetLookupFilter="Адрес_OnGetLookupFilter" OnOutputEx="Адрес_OnOutputEx" Width="100"/>
+              <Component Name="кнАдресРег" Class="Com.Ctrl.IJumpButton" Field="EdtRec.АдресРегистрации" JumpForm="Biz.Frm.Data.Address"/>
+            </Component>
+            <Component Name="грАдресФакт" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="поФакт" Class="Com.Ctrl.IEdit" Caption="Фактический" CardFileClass="Biz.Tab.Data.Addresses" Field="EdtRec.АдресФактический" HasCaption="True" OnGetLookupFilter="Адрес_OnGetLookupFilter" OnOutputEx="Адрес_OnOutputEx" Width="100"/>
+              <Component Name="кнАдресФакт" Class="Com.Ctrl.IJumpButton" Field="EdtRec.АдресФактический" JumpForm="Biz.Frm.Data.Address"/>
+            </Component>
+            <Component Name="грДатаРегистрации" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="датаРегистрацииМЖ" Class="Com.Ctrl.IEdit" Caption="Дата регистрации" Field="EdtRec.АдресДатаРегистр" HasCaption="True" Hint="Дата регистрации по месту жительства" MaxWidth="35" ValueType="VarDate" Width="35"/>
+              <Component Name="stEmpty13" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Component Name="грТелефон" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="номТелефона" Class="Com.Ctrl.IEdit" Caption="Номер телефона" Field="EdtRec.НомерТелефона" HasCaption="True" Width="35"/>
+              <Component Name="stEmpty12" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+          </Component>
+          <Component Name="Frame2" Class="Com.Ctrl.IFrame" Excluded="True" AutoSize="True">
+            <Component Name="грУдостоверение" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Удостоверение" Class="Com.Ctrl.IEdit" Caption="Документ/паспорт " CardFileClass="Biz.Tab.Data.IDcards" Field="EdtRec.Удостоверение" HasCaption="True" Hint="Реквизиты документа, удостоверяющего личность" LookupField="IDtype.Name" Multiline="True" OnGetLookupFilter="Удостоверение_OnGetLookupFilter" OnOutput="Удостоверение_OnOutput" Wrap="True"/>
+              <Component Name="кнУдостоверение" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Удостоверение" JumpForm="Biz.Frm.Data.IDcard"/>
+            </Component>
+            <Component Name="грАдрес" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="грФакт" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="АдресФактический" Class="Com.Ctrl.IEdit" Caption="@Адрес фактический" CardFileClass="Biz.Tab.Data.Addresses" Field="EdtRec.АдресФактический" Multiline="True" OnOutput="АдресФактический_OnOutput" Wrap="True"/>
+                <Component Name="кнАдресФактический" Class="Com.Ctrl.IJumpButton" Field="EdtRec.АдресФактический" JumpForm="Biz.Frm.Data.Address"/>
+              </Component>
+              <Component Name="грПроп" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="АдресРегистрации" Class="Com.Ctrl.IEdit" Caption="@Адрес регистрации" CardFileClass="Biz.Tab.Data.Addresses" Field="EdtRec.АдресРегистрации" Multiline="True" OnOutput="АдресРегистрации_OnOutput" Wrap="True"/>
+                <Component Name="кнАдресРегистрации" Class="Com.Ctrl.IJumpButton" Field="EdtRec.АдресРегистрации" JumpForm="Biz.Frm.Data.Address"/>
+              </Component>
+            </Component>
+            <Component Name="грУвольнение" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Увольнение" Class="Com.Ctrl.IEdit" Caption="Приказ об увольнении" CardFileClass="УправлениеПерсоналом.Tab.Документы.Кадры.Приказы" Field="EdtRec.Увольнение" HasCaption="True" Hint="Приказ об увольнении работника " LookupFilter="Проводить" OnOpenCardForm="НастроитьКартотекуПриказы" OnOutput="Приказ_ПриВыводе"/>
+              <Component Name="кнПриказ" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Увольнение" JumpForm="УправлениеПерсоналом.Frm.Документы.Кадры.Приказ"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="фрВоинскийУчет" Class="Com.Ctrl.IFrame" After="MainTab" AutoSize="True" Caption="Раздел II" Hint="II. Сведения о воинском учете">
+          <Component Name="Group16" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="кнВоинскийУчет" Class="Com.Ctrl.IButton" Hint="Заполнить блок Сведения о воинском учете" ImageName="Com.Refresh" OnClick="кнВоинскийУчет_OnClick"/>
+            <Component Name="Static34" Class="Com.Ctrl.IStatic" Caption="Сведения о воинском учете" FontBold="True"/>
+            <Component Name="Group17" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="Group19" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="Static32" Class="Com.Ctrl.IStatic" Caption="1.Категория запаса" Width="50"/>
+                <Component Name="КатегорияЗапаса" Class="Com.Ctrl.IEdit" AutoLookup="True" CellFormat="EnumFormat" Field="EdtRec.ВУ_Категория"/>
+              </Component>
+              <Component Name="Group20" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="Static35" Class="Com.Ctrl.IStatic" Caption="2.Воинское звание" Width="50"/>
+                <Component Name="ВоинЗвание" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВоинскоеЗвание" Field="EdtRec.ВУ_Звание" LookupField="Name"/>
+              </Component>
+              <Component Name="Group21" Class="Com.Ctrl.IGroup">
+                <Component Name="Static36" Class="Com.Ctrl.IStatic" Caption="3.Состав (профиль)" Width="50"/>
+                <Component Name="Состав" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.СоставВоинскогоУчета" Field="EdtRec.ВУ_Состав" LookupField="Name"/>
+              </Component>
+              <Component Name="Group22" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="Static37" Class="Com.Ctrl.IStatic" Caption="4.Полное кодовое обозначение ВУС" Width="50"/>
+                <Component Name="кодВУС" Class="Com.Ctrl.IEdit" Field="EdtRec.ВУ_КодВУС"/>
+              </Component>
+              <Component Name="Group23" Class="Com.Ctrl.IGroup">
+                <Component Name="Static38" Class="Com.Ctrl.IStatic" Caption="5.Категория годности к военной службе" Width="50"/>
+                <Component Name="КатегорияГодности" Class="Com.Ctrl.IEdit" AutoLookup="True" CellFormat="EnumFormat" Field="EdtRec.ВУ_Годность"/>
+              </Component>
+            </Component>
+            <Component Name="Group18" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="Group24" Class="Com.Ctrl.IGroup">
+                <Component Name="Static33" Class="Com.Ctrl.IStatic" Caption="6.Наименование военного комиссариата по месту жительства" Multiline="True" Width="50" Wrap="True"/>
+                <Component Name="наимКомиссариат" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Справочники.Комиссариаты" Field="EdtRec.ВУ_Военкомат" LookupField="Name" Multiline="True" ValueType="VarObject" Wrap="True"/>
+              </Component>
+              <Component Name="Static54" Class="Com.Ctrl.IStatic" Caption="7.Состоит на воинском учете" Width="40"/>
+              <Component Name="Group25" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="Static39" Class="Com.Ctrl.IStatic" Caption="а)общем (номер команды, партии)" Multiline="True" Width="50" Wrap="True"/>
+                <Component Name="ВУ_НомерКоманды" Class="Com.Ctrl.IEdit" Caption="а) общем (номер команды, партии)" Field="EdtRec.ВУ_НомерКоманды" HasCaption="False"/>
+              </Component>
+              <Component Name="Group38" Class="Com.Ctrl.IGroup">
+                <Component Name="Static55" Class="Com.Ctrl.IStatic" Caption="б)специальном" Multiline="True" Width="50" Wrap="True"/>
+                <Component Name="ВУ_Специальный" Class="Com.Ctrl.IEdit" Caption="б) специальном" Field="EdtRec.ВУ_Специальный" HasCaption="False"/>
+              </Component>
+              <Component Name="Group26" Class="Com.Ctrl.IGroup">
+                <Component Name="Static40" Class="Com.Ctrl.IStatic" Caption="8.Отметка о снятии с воинского учета" Hint="Отметка о снятии с воинского учета " Width="50" Wrap="True"/>
+                <Component Name="СнятиеСУчета" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.ВУ_СнятиеСУчета"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="фрПриемПереводы" Class="Com.Ctrl.IFrame" Caption="Раздел III" HasCaption="True" Hint="III Прием на работу и переводы на др. работу">
+          <Component Name="Group34" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="кнПриемПереводы" Class="Com.Ctrl.IButton" Hint="Заполнить блок Приказы о приеме (переводе) на другую работу" ImageName="Com.Refresh" OnClick="кнПриемПереводы_OnClick"/>
+            <Component Name="Static51" Class="Com.Ctrl.IStatic" Caption="Прием на работу и переводы на другую  работу" FontBold="True"/>
+          </Component>
+          <Component Name="тблПриемПеревод" Class="Com.Ctrl.ITable" Subtable="EdtRec.ПриемПеревод">
+            <Component Name="ДатаПриемПеревод" Class="Com.Ctrl.IEdit" Caption="Дата " CellFormat="DateFormat" Field="ПриемПеревод.ДатаПрием" HasCaption="True" ValueType="VarDate" Width="30"/>
+            <Component Name="ПодразделениеПрием" Class="Com.Ctrl.IEdit" Caption="Подразделение" CardFileClass="Bas.Tab.Data.Divisions" CellFormat="ReferenceFormat" Field="ПриемПеревод.Подразделение" HasCaption="True" Hint="Структурное подразделение" LookupField="Name" Multiline="True" OnGetLookupFilter="Подразделение_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуПодразделения" OnOutputEx="Подразделение_OnOutputEx" ValueType="VarObject" Width="60" Wrap="True"/>
+            <Component Name="грДолжностьРазряд" Class="Com.Ctrl.IColumnsGroup" Caption="Должность (специальность, профессия), разряд, класс (категория квалификации)" HasCaption="True">
+              <Component Name="Должность" Class="Com.Ctrl.IEdit" Caption="Должность" CardFileClass="HRBase.Tab.Ref.PositionsHR" CellFormat="ReferenceFormat" Field="ПриемПеревод.Должность" LookupField="Name" Multiline="True" ValueType="VarObject" Width="40" Wrap="True"/>
+              <Component Name="Разряд" Class="Com.Ctrl.IEdit" Caption="Разряд" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ТарифныеРазряды" CellFormat="ReferenceFormat" Field="ПриемПеревод.Разряд" LookupField="Name" Multiline="True" OnOpenCardForm="НастроитьКартотекуРазряды" ValueType="VarObject" Width="40" Wrap="True"/>
+              <Component Name="Категория" Class="Com.Ctrl.IEdit" Caption="Категория" CardFileClass="BizRus.Tab.Классификаторы.КатегорииДолжностиИлиПрофессии" CellFormat="ReferenceFormat" Field="ПриемПеревод.Категория" LookupField="Name" ValueType="VarObject" Width="40"/>
+            </Component>
+            <Component Name="Ставка" Class="Com.Ctrl.IEdit" Caption="Тарифная ставка (оклад), надбавка, руб" CellFormat="NumericFormat" Field="ПриемПеревод.Ставка" FieldFormat=",##0.00;;-" HasCaption="True" Width="30" Wrap="True"/>
+            <Component Name="ОснованиеПрием" Class="Com.Ctrl.IEdit" Caption="Основание" Field="ПриемПеревод.Основание" HasCaption="True" Multiline="True" ValueType="VarString" Width="70" Wrap="True"/>
+          </Component>
+        </Component>
+        <Component Name="фрРаздел47" Class="Com.Ctrl.IFrame" Caption="Разделы IV-VII" HasCaption="True" Hint="Аттестация, Повышение квалификации, Переподготовка, Награды">
+          <Component Name="фрРаздел" Class="Com.Ctrl.IFrame">
+            <Component Name="Group30" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Static44" Class="Com.Ctrl.IStatic" Caption="Аттестация" FontBold="True"/>
+            </Component>
+            <Component Name="тблАттестация" Class="Com.Ctrl.ITable" Subtable="EdtRec.Аттестация">
+              <Component Name="ДатаАттестации" Class="Com.Ctrl.IEdit" Caption="Дата аттестации" Field="Аттестация.ДатаАттестации" HasCaption="True" ValueType="VarDate" Width="30"/>
+              <Component Name="РешениеКомиссии" Class="Com.Ctrl.IEdit" Caption="Решение комиcсии" Field="Аттестация.РешениеКомиссии" HasCaption="True" ValueType="VarString" Width="70"/>
+              <Component Name="грДокумент" Class="Com.Ctrl.IColumnsGroup" Caption="Документ (протокол)" HasCaption="True" Visible="True">
+                <Component Name="ПротоколНомер" Class="Com.Ctrl.IEdit" Caption="номер" Field="Аттестация.ПротоколНомер" HasCaption="True" ValueType="VarInteger" Width="30"/>
+                <Component Name="ПротоколДата" Class="Com.Ctrl.IEdit" Caption="дата " Field="Аттестация.ПротоколДата" HasCaption="True" ValueType="VarDate" Width="30"/>
+              </Component>
+              <Component Name="ОснованиеАттестация" Class="Com.Ctrl.IEdit" Caption="Основание" Field="Аттестация.Основание" HasCaption="True" ValueType="VarString" Width="50"/>
+            </Component>
+            <Component Name="Group31" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Static45" Class="Com.Ctrl.IStatic" Caption="Повышение квалификации" FontBold="True"/>
+            </Component>
+            <Component Name="тблПовышениеКвалификации" Class="Com.Ctrl.ITable" Subtable="EdtRec.ПовышениеКвалификации">
+              <Component Name="грДата" Class="Com.Ctrl.IColumnsGroup" Caption="Дата" HasCaption="True" Visible="True">
+                <Component Name="ДатаНачало" Class="Com.Ctrl.IEdit" Caption="начала обучения" Field="ПовышениеКвалификации.ДатаНачала" HasCaption="True" ValueType="VarDate" Width="30"/>
+                <Component Name="ДатаОкончания" Class="Com.Ctrl.IEdit" Caption="окончания обучения" Field="ПовышениеКвалификации.датаОкончания" HasCaption="True" ValueType="VarDate" Width="30"/>
+              </Component>
+              <Component Name="ВидПовышения" Class="Com.Ctrl.IEdit" Caption="Вид повышения квалификации" Field="ПовышениеКвалификации.ВидПовышения" HasCaption="True" ValueType="VarString" Width="60"/>
+              <Component Name="МестоУчебы" Class="Com.Ctrl.IEdit" Caption="Наименование образовательного учреждения, место его нахождения" Field="ПовышениеКвалификации.МестоУчебы" HasCaption="True" ValueType="VarString" Width="70"/>
+              <Component Name="грДокументПовышение" Class="Com.Ctrl.IColumnsGroup" Caption="Документ (удостоверение,свидетельство)" HasCaption="True" Visible="True">
+                <Component Name="Документ_Имя" Class="Com.Ctrl.IEdit" Caption="наименование" Field="ПовышениеКвалификации.Документ_Имя" HasCaption="True" ValueType="VarString" Width="40"/>
+                <Component Name="Документ_Номер" Class="Com.Ctrl.IEdit" Caption="серия, номер" Field="ПовышениеКвалификации.Документ_Номер" HasCaption="True" ValueType="VarString" Width="20"/>
+                <Component Name="Документа_Дата" Class="Com.Ctrl.IEdit" Caption="дата" Field="ПовышениеКвалификации.Документ_Дата" HasCaption="True" ValueType="VarDate" Width="30"/>
+              </Component>
+              <Component Name="ОснованиеПовышение" Class="Com.Ctrl.IEdit" Caption="Основание" Field="ПовышениеКвалификации.Основание" HasCaption="True" ValueType="VarString" Width="50"/>
+            </Component>
+            <Component Name="Group32" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Static46" Class="Com.Ctrl.IStatic" Caption="Профессиональная переподготовка" FontBold="True"/>
+            </Component>
+            <Component Name="тблПрофПереподготовка" Class="Com.Ctrl.ITable" Subtable="EdtRec.ПрофПереподготовка">
+              <Component Name="грДатаПроф" Class="Com.Ctrl.IColumnsGroup" Caption="Дата" HasCaption="True" Visible="True">
+                <Component Name="ДатаНачалаПереподг" Class="Com.Ctrl.IEdit" Caption="начала" Field="ПрофПереподготовка.ДатаНачала" HasCaption="True" Hint="начала переподготовки" ValueType="VarDate" Width="30"/>
+                <Component Name="ДатаОкончанияПереподготовка" Class="Com.Ctrl.IEdit" Caption="окончания" Field="ПрофПереподготовка.ДатаОкончания" HasCaption="True" Hint="окончания переподготовки" ValueType="VarDate" Width="30"/>
+              </Component>
+              <Component Name="Специальность" Class="Com.Ctrl.IEdit" Caption="Специальность (направление,  профессия)" Field="ПрофПереподготовка.Специальность" HasCaption="True" ValueType="VarString" Width="60"/>
+              <Component Name="грДокументПереподготовка" Class="Com.Ctrl.IColumnsGroup" Caption="Документ (удостоверение,свидетельство)" HasCaption="True" Visible="True">
+                <Component Name="Документ_ИмяПереподготовка" Class="Com.Ctrl.IEdit" Caption="наименование" Field="ПрофПереподготовка.Документ_Имя" HasCaption="True" ValueType="VarString" Width="50"/>
+                <Component Name="Документ_НомерПереподготовка" Class="Com.Ctrl.IEdit" Caption="серия, номер" Field="ПрофПереподготовка.Документ_Номер" HasCaption="True" ValueType="VarString" Width="20"/>
+                <Component Name="Документа_ДатаПереподготовка" Class="Com.Ctrl.IEdit" Caption="дата" Field="ПрофПереподготовка.Документ_Дата" HasCaption="True" ValueType="VarDate" Width="30"/>
+              </Component>
+              <Component Name="ОснованиеПереподготовка" Class="Com.Ctrl.IEdit" Caption="Основание" Field="ПрофПереподготовка.Основание" HasCaption="True" ValueType="VarString" Width="50"/>
+            </Component>
+            <Component Name="Group33" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Static50" Class="Com.Ctrl.IStatic" Caption="Награды (поощрения), почетные звания" FontBold="True"/>
+            </Component>
+            <Component Name="тблНаграды" Class="Com.Ctrl.ITable" Subtable="EdtRec.Поощрения">
+              <Component Name="НаименованиеПоощрения" Class="Com.Ctrl.IEdit" Caption="Наименование награды" Field="Поощрения.Наименование" HasCaption="True" ValueType="VarString" Width="70"/>
+              <Component Name="грДокументПоощрение" Class="Com.Ctrl.IColumnsGroup" Caption="Документ" HasCaption="True" Visible="True">
+                <Component Name="ДокументПоощрение_Имя" Class="Com.Ctrl.IEdit" Caption="наименование" Field="Поощрения.Документ_Имя" HasCaption="True" ValueType="VarString" Width="50"/>
+                <Component Name="ДокументПоощрение_Номер" Class="Com.Ctrl.IEdit" Caption="номер" Field="Поощрения.Документ_Номер" HasCaption="True" ValueType="VarInteger" Width="20"/>
+                <Component Name="ДокументаПоощрение_Дата" Class="Com.Ctrl.IEdit" Caption="дата" Field="Поощрения.Документ_Дата" HasCaption="True" ValueType="VarDate" Width="30"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="фрОтпуск" Class="Com.Ctrl.IFrame" Caption="Раздел VIII" HasCaption="True" Hint="VIII Отпуск">
+          <Component Name="Group35" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="кнОтпуск" Class="Com.Ctrl.IButton" Hint="Заполнить блок Отпуск" ImageName="Com.Refresh" OnClick="кнОтпуск_OnClick"/>
+            <Component Name="Static57" Class="Com.Ctrl.IStatic" Caption="Отпуск" FontBold="True"/>
+          </Component>
+          <Component Name="тблОтпуск" Class="Com.Ctrl.ITable" Subtable="EdtRec.Отпуск">
+            <Component Name="НаименованиеОтпуска" Class="Com.Ctrl.IEdit" Caption="Вид отпуска (ежегодный,учебный, без сохранение зп и др." CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыОтпусков" CellFormat="ReferenceFormat" Field="Отпуск.Отпуск" HasCaption="True" LookupField="Name" ValueType="VarObject" Width="50"/>
+            <Component Name="ОтпускУО" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Усл. об." CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловныеОбозначения" Field="Отпуск.УслОбозначения" HasCaption="True" Hint="Условное обозначение, которое будет указано в Графике учета рабочего времени и/или Табеле учета рабочего времени" LookupField="Код" Width="15"/>
+            <Component Name="грПериодРаботыОтпуск" Class="Com.Ctrl.IColumnsGroup" Caption="Период работы" HasCaption="True" Visible="True">
+              <Component Name="ПериодС" Class="Com.Ctrl.IEdit" Caption="с" Field="Отпуск.ЗаПериодС" HasCaption="True" ValueType="VarDate" Width="30"/>
+              <Component Name="ПериодПо" Class="Com.Ctrl.IEdit" Caption="по" Field="Отпуск.ЗаПериодПо" HasCaption="True" ValueType="VarDate" Width="30"/>
+            </Component>
+            <Component Name="грДатаОтпуска" Class="Com.Ctrl.IColumnsGroup" Caption="Дата" HasCaption="True" Visible="True">
+              <Component Name="ОтпускС" Class="Com.Ctrl.IEdit" Caption="начала" Field="Отпуск.ОтпускС" HasCaption="True" ValueType="VarDate" Width="30"/>
+              <Component Name="ОтпускПо" Class="Com.Ctrl.IEdit" Caption="окончания" Field="Отпуск.ОтпускПо" HasCaption="True" ValueType="VarDate" Width="30"/>
+            </Component>
+            <Component Name="КаленДней" Class="Com.Ctrl.IEdit" Caption="Календ. дней" Field="Отпуск.ОтпускДней" HasCaption="True" Hint="Количество календарных дней отпуска" ValueType="VarInteger" Width="17"/>
+            <Component Name="ОснованиеОтпуск" Class="Com.Ctrl.IEdit" Caption="Основание" Field="Отпуск.Основание" HasCaption="True" Multiline="True" ValueType="VarString" Width="50" Wrap="True"/>
+          </Component>
+        </Component>
+        <Component Name="фрРаздел911" Class="Com.Ctrl.IFrame" Caption="Разделы IX-XI" HasCaption="True" Hint="Социальные льготы, Дополнительные сведения, Прекращение трудового договора">
+          <Component Name="фрСоцЛьготы" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Социальные льготы" HasCaption="True" Hint="Социальные льготы, на которые работник имеет право в соответствии с законодательством">
+            <Component Name="грСоцЛьготы" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Static52" Class="Com.Ctrl.IStatic" Caption="Социальные льготы" FontBold="True"/>
+            </Component>
+            <Component Name="тблСоцЛьготы" Class="Com.Ctrl.ITable" Subtable="EdtRec.СоцЛьготы">
+              <Component Name="НаименованиеЛльготы" Class="Com.Ctrl.IEdit" Caption="Наименование льготы" Field="СоцЛьготы.Наименование" HasCaption="True" ValueType="VarString" Width="70"/>
+              <Component Name="грДокументЛьготы" Class="Com.Ctrl.IColumnsGroup" Caption="Документ" HasCaption="True" Visible="True">
+                <Component Name="Документ_НомерЛьгота" Class="Com.Ctrl.IEdit" Caption="номер" Field="СоцЛьготы.Документ_Номер" HasCaption="True" ValueType="VarInteger" Width="30"/>
+                <Component Name="Документ_ДатаЛльгота" Class="Com.Ctrl.IEdit" Caption="дата" Field="СоцЛьготы.Документ_Дата" HasCaption="True" ValueType="VarDate" Width="30"/>
+              </Component>
+              <Component Name="ОснованиеЛьгота" Class="Com.Ctrl.IEdit" Caption="Основание" Field="СоцЛьготы.Основание" HasCaption="True" ValueType="VarString" Width="70"/>
+            </Component>
+          </Component>
+          <Component Name="фрДопСведения" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Дополнительные сведения" HasCaption="True">
+            <Component Name="грДопСведения" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="Static41" Class="Com.Ctrl.IStatic" Caption="Дополнительные сведения" FontBold="True"/>
+              <Component Name="ДопСведения" Class="Com.Ctrl.IEdit" Field="EdtRec.ДопСведения" HasCaption="False" Multiline="True" Wrap="True"/>
+              <Component Name="stEmpty15" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Component Name="грПрекращениеТД" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="Group27" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="кнПрекращениеТД" Class="Com.Ctrl.IButton" Hint="Заполнить блок Основание прекращения трудового договора" ImageName="Com.Refresh" OnClick="кнПрекращениеТД_OnClick"/>
+                <Component Name="Static43" Class="Com.Ctrl.IStatic" Caption="Основание прекращения трудового договора (увольнения)" FontBold="True"/>
+              </Component>
+              <Component Name="грОснованиеУвольнение" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Увольнение_Основание" Class="Com.Ctrl.IEdit" Field="EdtRec.УвольнениеОснование" Multiline="True" ValueType="VarString" Wrap="True"/>
+                <Component Name="stEmpty14" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+              </Component>
+              <Component Name="грУвольнениеПриказ" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="ПриказУвольнение" Class="Com.Ctrl.IEdit" Caption="Приказ об увольнении" CaptionWidth="50" CardFileClass="УправлениеПерсоналом.Tab.Документы.Кадры.Приказы" Field="EdtRec.Увольнение" HasCaption="True" Hint="Приказ об увольнении работника " LookupFilter="Проводить and ТипПриказа.КадровыйДокумент = 5" OnGetLookupFilter="Приказ_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуПриказы" OnOutput="Приказ_ПриВыводе"/>
+                <Component Name="кнПриказУвольнение" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Увольнение" JumpForm="УправлениеПерсоналом.Frm.Документы.Кадры.Приказ"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Inherited Name="фрПодписи" HasCaption="True">
+          <Inherited Name="фрПодписиОбщ">
+            <Inherited Name="грРуководитель" Excluded="True"/>
+            <Inherited Name="грОтветственный" Excluded="True"/>
+            <Component Name="грКадровик" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Кадровик_Долж" Class="Com.Ctrl.IEdit" Caption="Работник кадровой службы" CaptionWidth="70" CardFileClass="Bas.Tab.Ref.Positions" Field="EdtRec.Кадровик_Долж" HasCaption="True" LookupField="Name"/>
+              <Component Name="Кадровик" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Data.StaffersHR" Field="EdtRec.Кадровик" HasCaption="False" LookupField="Name" OnOpenCardForm="НастроитьКартотекуФизЛиц" OnOutputEx="ФИО_OnOutputEx" Width="70"/>
+              <Component Name="кнКадровик" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Кадровик" JumpForm="HRBase.Frm.Data.NaturalPersonHR"/>
+            </Component>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

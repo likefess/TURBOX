@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rep.IReportTurns">
+  <Inherited AccountFilter="РВ" AccountPlan="ПланСУРВ" BegSaldoFormat="sfNone" Caption="План-факт по рабочему времени" CIndicator="2" EndSaldoFormat="sfFull" NilCaption=" " OpenPeriod="opAll" Palette="cpDefault" ParameterFilter="(Status = Plan and BaseEvent = nil) or (Status = Fact and BaseEvent &lt;> nil)" Period="3" ShowDebCreRow="False" ShowSumKindRow="False" TurnFormat="sfNone">
+    <Inherited Name="Grouping">
+      <Inherited Name="SplitByRows">
+        <Component Name="SplitByParamTask" Class="Com.Rep.ISplitByParam" GroupTotals="True" GroupTotalsInHeader="True" Hierarchy="True" LiveHierarchy="True" ShowTotals="True" Sort="True" SortOrder="Deadline" SplitParam="Task" SplitType="byParam"/>
+        <Component Name="SplitByParamRole" Class="Com.Rep.ISplitByParam" Enabled="False" GroupTotals="True" GroupTotalsInHeader="True" Hierarchy="True" LiveHierarchy="True" Sort="True" SortOrder="Description" SplitParam="Role" SplitType="byParam"/>
+      </Inherited>
+      <Inherited Name="SplitByCols">
+        <Component Name="SplitByParamStatus" Class="Com.Rep.ISplitByParam" ShowTotals="True" Sort="False" SplitParam="Статус" SplitType="byParam"/>
+      </Inherited>
+      <Inherited Name="SplitByTabs">
+        <Component Name="SplitByParamProject" Class="Com.Rep.ISplitByParam" Sort="True" SortOrder="Description" SplitParam="Project" SplitType="byParam"/>
+      </Inherited>
+      <Inherited Name="ContentByRows">
+        <Component Name="SplitContentTaskDescription" Class="Com.Rep.ISplitContent" Caption="Задача" Contents="Task.Description" MaxWidth="80" MinWidth="80"/>
+        <Component Name="SplitContentRole" Class="Com.Rep.ISplitContent" Caption="Роль" Contents="Role.Description" Enabled="False" MaxWidth="50" MinWidth="50"/>
+        <Component Name="SplitContentTaskDeadline" Class="Com.Rep.ISplitContent" Caption="Срок" Contents="Task.Deadline" MaxWidth="30" MinWidth="30"/>
+      </Inherited>
+      <Inherited Name="ContentByCols">
+        <Component Name="SplitContentStatus" Class="Com.Rep.ISplitContent" Caption="Статус" Contents="Статус.Description" OutputType="otValue"/>
+      </Inherited>
+      <Inherited Name="ContentByTabs">
+        <Component Name="SplitContentProject" Class="Com.Rep.ISplitContent" Caption="Проект" Contents="Project.Description"/>
+      </Inherited>
+    </Inherited>
+    <Inherited Name="DrillDown">
+      <Component Name="Explain1" Class="Com.Rep.IExplain" DisableDefault="True"/>
+    </Inherited>
+    <Inherited Name="Parameters">
+      <Component Name="RC_Entity" Class="Com.Rep.IRepControl" Caption="Сотрудник" CardFileClass="TrackingCore.Tab.Data.People" DefaultStr="Object(nil)" Operator="=" Parameter="Entity" Plan="ПланСУРВ" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Project" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Проект" CardFileClass="Bas.Tab.Ref.Project" DefaultStr="Object(nil)" MultiSelect="True" Operator="=" Parameter="Project" Plan="ПланСУРВ" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Task" Class="Com.Rep.IRepControl" Caption="Задача" CardFileClass="TrackingCore.Tab.Data.Tasks" DefaultStr="Object(nil)" Operator="is" Parameter="Task" Plan="ПланСУРВ" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Closed" Class="Com.Rep.IRepControl" Caption="Закрытые" DefaultStr="Object(nil)" Operator="=" Parameter="Task.Closed" Plan="ПланСУРВ" SkipNil="False" ValueType="VarLogical" Width="27"/>
+      <Component Name="RC_Split" Class="Com.Rep.IRepControl" Caption="Детали" CellFormat="EnumFormat" ListAsString="Нет|0&#xD;&#xA;По ролям|1" OnChange="RC_SplitOnChange" ShortList="True" ValueType="VarInteger" Width="25"/>
+    </Inherited>
+    <Inherited Name="Indicators">
+      <Component Name="IndicatorHours" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="Часы" Contents="Hours" EndSaldoFormat="msfDeb" MaxWidth="20" MinWidth="20" ShowFmt="mshSplit" ShowUnit="False" TurnFormat="msfNone"/>
+      <Component Name="IndicatorDiff" Class="Com.Rep.IIndCustom" Aggregate="agrCalc" BegSaldoFormat="msfNone" Caption="Отклонение" EndSaldoFormat="msfDeb" Formula="Чис(&quot;Hours&quot;, КОст, Деб, 2) - Чис(&quot;Hours&quot;, КОст, Деб, 1)" MaxWidth="27" MinWidth="27" ShowFmt="mshTotal" TurnFormat="msfNone" ValueType="VarNumeric"/>
+      <Component Name="IndicatorCompletion" Class="Com.Rep.IIndCustom" Aggregate="agrCalc" BegSaldoFormat="msfNone" Caption="Выполнение" EndSaldoFormat="msfDeb" Format=",##0.00%;;-" Formula="Чис(&quot;Hours&quot;, КОст, Деб, 2) / Чис(&quot;Hours&quot;, КОст, Деб, 1) * 100" MaxWidth="27" MinWidth="27" ShowFmt="mshTotal" TurnFormat="msfNone" ValueType="VarNumeric"/>
+    </Inherited>
+  </Inherited>
+</Resource>

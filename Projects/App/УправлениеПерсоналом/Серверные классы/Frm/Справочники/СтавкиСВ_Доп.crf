@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.КодИмя">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Справочники.Ставки страховых взносов по доп тарифам">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Справочники.СтавкиСВ_Доп" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="GroupCode">
+            <Component Name="КодТаблицы" Class="Com.Ctrl.IEdit" After="Code" Field="EdtRec.КодТаблицы" HasCaption="True"/>
+            <Inherited Name="Locked" Visible="True"/>
+          </Inherited>
+          <Inherited Name="GroupName">
+            <Inherited Name="Closed" Visible="True"/>
+          </Inherited>
+        </Inherited>
+        <Component Name="грДаты" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Caption="Период действия" Field="EdtRec.ДатаНачала" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="35" Width="35"/>
+          <Component Name="ДатаОкончания" Class="Com.Ctrl.IEdit" Caption=" - " CaptionWidth="10" Field="EdtRec.ДатаОкончания" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="35" Width="35"/>
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" Width="50"/>
+          <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+        </Component>
+        <Component Name="грНастройки" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+          <Component Name="Аттестация" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Аттестация" HasCaption="True" OnChange="Аттестация_OnChange" Width="100"/>
+        </Component>
+        <Component Name="грУсловияТруда" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="УсловияТруда" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловияТруда" Field="EdtRec.УсловияТруда" HasCaption="True" LookupField="Name" Multiline="True" Width="150" Wrap="True"/>
+          <Component Name="УсловияТрудаПодкласс" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловияТруда" Enabled="False" Field="EdtRec.УсловияТруда" HasCaption="False" Hint="@Подкласс" LookupField="Подкласс" Width="15"/>
+          <Component Name="кнУсловияТруда" Class="Com.Ctrl.IJumpButton" Field="EdtRec.УсловияТруда" JumpForm="УправлениеПерсоналом.Frm.Классификаторы.УсловияТруда"/>
+          <Component Name="Static4" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+        </Component>
+        <Component Name="грУсловияТруда2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+          <Component Name="Ставка" Class="Com.Ctrl.IEdit" Field="EdtRec.Ставка" FieldFormat="0.00%" HasCaption="True" Width="-20"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

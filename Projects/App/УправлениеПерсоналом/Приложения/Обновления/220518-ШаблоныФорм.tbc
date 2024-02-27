@@ -1,0 +1,841 @@
+﻿TBCFile VER="3.4" [Created '18.05.2022 9:06:48' by 'Администратор']
+
+DESCRIPTION[
+Count=2
+CountByRef=0
+Com.Archive.File
+(
+  Count=0
+  CountByRef=0
+)
+DocPrint.Data.ExportTemplate
+(
+  Count=2
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Com.Archive.File
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+  [DocPrint.Data.ExportTemplate
+  (
+    Deleted :Boolean
+    GroupDoc :DocPrint.Data.ExportTemplate
+    isGroup :Integer
+    CreateDate :Date
+    CreateUser :String(40)
+    UpdateDate :Date
+    UpdateUser :String(40)
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    InputFileLoc :Integer
+    OutputFolderLoc :Integer
+    InputFile :String
+    OutputFolder :String
+    InputFileArchive :Com.Archive.File
+    OutputFolderArchive :Com.Archive.File
+    OutputFileName :String(255)
+    ExecutionLoc :Integer
+    DocProcessorClass :String
+    Comment :Memo
+    DoNotSave :Boolean
+    DoNotDelete :Boolean
+    CalcDynamic :Boolean
+    ForceRefresh :Boolean
+    Links :Struct array Integer
+    (
+      VarName :String
+      InTable :Integer
+      DataFormat :String
+      DataSource :String
+      DataString :Memo
+    )
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[DocPrint.Data.ExportTemplate
+  
+  {DocPrint.Data.ExportTemplate:"T-13"}
+  (
+    Name = "T-13 Табель учета РВ"
+    InputFileLoc = 1
+    InputFileArchive = {Com.Archive.File:t13-2}
+    OutputFileName = "<DocName>_<Date> - <Time>"
+    DocProcessorClass = "Сервис.ExcelAutoProcessorML"
+    DoNotSave = True
+    ForceRefresh = True
+    Links = (
+      0:(
+        VarName = "field_OKPO"
+        InTable = 1
+        DataSource = "Field"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Кадры.Табель_Т13"""
+          ",\x0D\x0A  ""Lines"": {\x0D\x0A    ""1"": [\x0D\x0A      1,\x0D\x0A      ""Предприятие"",\x0D\x0A      """"\x0D"
+          "\x0A    ],\x0D\x0A    ""2"": [\x0D\x0A      0,\x0D\x0A      ""ОКПО"",\x0D\x0A      """"\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      1:(
+        VarName = "field_ДатаДокумента"
+        InTable = 1
+        DataSource = "Field"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Кадры.Табель_Т13"""
+          ",\x0D\x0A  ""Lines"": {\x0D\x0A    ""1"": [\x0D\x0A      0,\x0D\x0A      ""Дата"",\x0D\x0A      """"\x0D\x0A    ]\x0D"
+          "\x0A  }\x0D\x0A}"
+      )
+      2:(
+        VarName = "field_ДатаНачалаПериода"
+        InTable = 1
+        DataSource = "Field"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Кадры.Табель_Т13"""
+          ",\x0D\x0A  ""Lines"": {\x0D\x0A    ""1"": [\x0D\x0A      1,\x0D\x0A      ""Месяц"",\x0D\x0A      """"\x0D\x0A    ]"
+          ",\x0D\x0A    ""2"": [\x0D\x0A      0,\x0D\x0A      ""ДатаНачала"",\x0D\x0A      """"\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      3:(
+        VarName = "field_ДатаОкончанияПериода"
+        InTable = 1
+        DataSource = "Field"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Кадры.Табель_Т13"""
+          ",\x0D\x0A  ""Lines"": {\x0D\x0A    ""1"": [\x0D\x0A      1,\x0D\x0A      ""Месяц"",\x0D\x0A      """"\x0D\x0A    ]"
+          ",\x0D\x0A    ""2"": [\x0D\x0A      0,\x0D\x0A      ""ДатаОкончания"",\x0D\x0A      """"\x0D\x0A    ]\x0D\x0A  }\x0D"
+          "\x0A}"
+      )
+      4:(
+        VarName = "field_КадровикДолжность"
+        InTable = 1
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""КадровикДолжность"",\x0D\x0A  ""Lines"": {}\x0D\x0A}"
+      )
+      5:(
+        VarName = "field_КадровикФИО"
+        InTable = 1
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""КадровикФИО"",\x0D\x0A  ""Lines"": {}\x0D\x0A}"
+      )
+      6:(
+        VarName = "field_НомерДокумента"
+        InTable = 1
+        DataSource = "Field"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Кадры.Табель_Т13"""
+          ",\x0D\x0A  ""Lines"": {\x0D\x0A    ""1"": [\x0D\x0A      0,\x0D\x0A      ""Номер"",\x0D\x0A      """"\x0D\x0A    ]"
+          "\x0D\x0A  }\x0D\x0A}"
+      )
+      7:(
+        VarName = "field_ОтветственныйДолжность"
+        InTable = 1
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ОтветственныйДолжность"",\x0D\x0A  ""Lines"": {"
+          "}\x0D\x0A}"
+      )
+      8:(
+        VarName = "field_ОтветственныйФИО"
+        InTable = 1
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ОтветственныйФИО"",\x0D\x0A  ""Lines"": {}\x0D\x0A}"
+      )
+      9:(
+        VarName = "field_ПодписьКадровик_Год"
+        InTable = 1
+      )
+      10:(
+        VarName = "field_ПодписьКадровик_День"
+        InTable = 1
+      )
+      11:(
+        VarName = "field_ПодписьКадровик_Месяц"
+        InTable = 1
+      )
+      12:(
+        VarName = "field_ПодписьРук_Год"
+        InTable = 1
+      )
+      13:(
+        VarName = "field_ПодписьРук_День"
+        InTable = 1
+      )
+      14:(
+        VarName = "field_ПодписьРук_Месяц"
+        InTable = 1
+      )
+      15:(
+        VarName = "field_Подразделение"
+        InTable = 1
+        DataSource = "Field"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Кадры.Табель_Т13"""
+          ",\x0D\x0A  ""CurrentLookup"": ""Name"",\x0D\x0A  ""SingleValue"": true,\x0D\x0A  ""Lines"": {\x0D\x0A "
+          "   ""1"": [\x0D\x0A      1,\x0D\x0A      ""Подразделение"",\x0D\x0A      """"\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      16:(
+        VarName = "field_Предприятие"
+        InTable = 1
+        DataSource = "Field"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Кадры.Табель_Т13"""
+          ",\x0D\x0A  ""Lines"": {\x0D\x0A    ""1"": [\x0D\x0A      1,\x0D\x0A      ""Предприятие"",\x0D\x0A      """"\x0D"
+          "\x0A    ],\x0D\x0A    ""2"": [\x0D\x0A      0,\x0D\x0A      ""Name"",\x0D\x0A      """"\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      17:(
+        VarName = "field_РуководительДолжность"
+        InTable = 1
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""РуководительФИО"",\x0D\x0A  ""Lines"": {}\x0D\x0A}"
+      )
+      18:(
+        VarName = "field_РуководительФИО"
+        InTable = 1
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""РуководительФИО"",\x0D\x0A  ""Lines"": {}\x0D\x0A}"
+      )
+      19:(
+        VarName = "Table_1_Д01"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      4\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      20:(
+        VarName = "Table_1_Д02"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      5\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      21:(
+        VarName = "Table_1_Д03"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      6\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      22:(
+        VarName = "Table_1_Д04"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      7\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      23:(
+        VarName = "Table_1_Д05"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      8\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      24:(
+        VarName = "Table_1_Д06"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      9\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      25:(
+        VarName = "Table_1_Д07"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      10\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      26:(
+        VarName = "Table_1_Д08"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      11\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      27:(
+        VarName = "Table_1_Д09"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      12\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      28:(
+        VarName = "Table_1_Д10"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      13\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      29:(
+        VarName = "Table_1_Д11"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      14\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      30:(
+        VarName = "Table_1_Д12"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      15\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      31:(
+        VarName = "Table_1_Д13"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      16\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      32:(
+        VarName = "Table_1_Д14"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      17\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      33:(
+        VarName = "Table_1_Д15"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      18\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      34:(
+        VarName = "Table_1_Д16"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      19\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      35:(
+        VarName = "Table_1_ДниЧасыДляЗачисления"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      24\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      36:(
+        VarName = "Table_1_ДниЧасыДляНачисления2"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      27\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      37:(
+        VarName = "Table_1_ДниЧасыНеявки1"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      29\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      38:(
+        VarName = "Table_1_ДниЧасыНеявки2"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      31\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      39:(
+        VarName = "Table_1_КодВидаОплаты"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      22\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      40:(
+        VarName = "Table_1_КодВидаОплаты2"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      25\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      41:(
+        VarName = "Table_1_КодНеявки1"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      28\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      42:(
+        VarName = "Table_1_КодНеявки2"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      30\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      43:(
+        VarName = "Table_1_КоррСчет"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      23\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      44:(
+        VarName = "Table_1_КоррСчет2"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      26\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      45:(
+        VarName = "Table_1_ОтработаноПоловинаМесяца"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      20\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      46:(
+        VarName = "Table_2_ОтработаноМесяц"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      21\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      47:(
+        VarName = "Table_4_НомерПоз"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      1\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      48:(
+        VarName = "Table_4_НомерТаб"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      3\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      49:(
+        VarName = "Table_4_Перемещение"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.Табель_Т13"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"": {\x0D\x0A    "
+          """aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      2\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+    )
+  )
+  
+  {DocPrint.Data.ExportTemplate:"ГрафикУчетаРВ_План"}
+  (
+    CreateDate = 13.05.2022 17:04:59
+    CreateUser = "ivas"
+    UpdateDate = 18.05.2022 09:05:18
+    UpdateUser = "ivas"
+    Name = "График учета РВ (План)"
+    InputFileLoc = 1
+    InputFileArchive = {Com.Archive.File:_N3HJ919378K2EC}
+    DocProcessorClass = "Сервис.ExcelAutoProcessorML"
+    DoNotSave = True
+    Links = (
+      0:(
+        VarName = "field_ДатаДокумента"
+        InTable = 1
+        DataSource = "Field"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Кадры.ГрафикУчета"
+          "РВ_План"",\x0D\x0A  ""Lines"": {\x0D\x0A    ""1"": [\x0D\x0A      0,\x0D\x0A      ""Дата"",\x0D\x0A      """""
+          "\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      1:(
+        VarName = "field_ДатаНачалаПериода"
+        InTable = 1
+        DataSource = "Field"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Кадры.ГрафикУчета"
+          "РВ_План"",\x0D\x0A  ""Lines"": {\x0D\x0A    ""1"": [\x0D\x0A      1,\x0D\x0A      ""Период"",\x0D\x0A      "
+          """""\x0D\x0A    ],\x0D\x0A    ""2"": [\x0D\x0A      0,\x0D\x0A      ""ДатаНачала"",\x0D\x0A      """"\x0D\x0A    ]"
+          "\x0D\x0A  }\x0D\x0A}"
+      )
+      2:(
+        VarName = "field_ДатаОкончанияПериода"
+        InTable = 1
+        DataSource = "Field"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Кадры.ГрафикУчета"
+          "РВ_План"",\x0D\x0A  ""Lines"": {\x0D\x0A    ""1"": [\x0D\x0A      1,\x0D\x0A      ""Период"",\x0D\x0A      "
+          """""\x0D\x0A    ],\x0D\x0A    ""2"": [\x0D\x0A      0,\x0D\x0A      ""ДатаОкончания"",\x0D\x0A      """"\x0D\x0A  "
+          "  ]\x0D\x0A  }\x0D\x0A}"
+      )
+      3:(
+        VarName = "field_НомерДокумента"
+        InTable = 1
+        DataSource = "Field"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Кадры.ГрафикУчета"
+          "РВ_План"",\x0D\x0A  ""Lines"": {\x0D\x0A    ""1"": [\x0D\x0A      0,\x0D\x0A      ""Номер"",\x0D\x0A      """
+          """\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      4:(
+        VarName = "field_ОтветственныйДолжность"
+        InTable = 1
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ОтветственныйДолжность"",\x0D\x0A  ""L"
+          "ines"": {}\x0D\x0A}"
+      )
+      5:(
+        VarName = "field_ОтветственныйФИО"
+        InTable = 1
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ОтветственныйФИО"",\x0D\x0A  ""Lines"":"
+          " {}\x0D\x0A}"
+      )
+      6:(
+        VarName = "field_Подразделение"
+        InTable = 1
+        DataSource = "Field"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Кадры.ГрафикУчета"
+          "РВ_План"",\x0D\x0A  ""Lines"": {\x0D\x0A    ""1"": [\x0D\x0A      1,\x0D\x0A      ""Подразделение"",\x0D"
+          "\x0A      """"\x0D\x0A    ],\x0D\x0A    ""2"": [\x0D\x0A      0,\x0D\x0A      ""Name"",\x0D\x0A      """"\x0D\x0A    "
+          "]\x0D\x0A  }\x0D\x0A}"
+      )
+      7:(
+        VarName = "field_Предприятие"
+        InTable = 1
+        DataSource = "Field"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Кадры.ГрафикУчета"
+          "РВ_План"",\x0D\x0A  ""Lines"": {\x0D\x0A    ""1"": [\x0D\x0A      1,\x0D\x0A      ""Предприятие"",\x0D\x0A "
+          "     """"\x0D\x0A    ],\x0D\x0A    ""2"": [\x0D\x0A      0,\x0D\x0A      ""Name"",\x0D\x0A      """"\x0D\x0A    ]\x0D"
+          "\x0A  }\x0D\x0A}"
+      )
+      8:(
+        VarName = "Table_1_Д01"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      4\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      9:(
+        VarName = "Table_1_Д02"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      5\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      10:(
+        VarName = "Table_1_Д03"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      6\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      11:(
+        VarName = "Table_1_Д04"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      7\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      12:(
+        VarName = "Table_1_Д05"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      8\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      13:(
+        VarName = "Table_1_Д06"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      9\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      14:(
+        VarName = "Table_1_Д07"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      10\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      15:(
+        VarName = "Table_1_Д08"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      11\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      16:(
+        VarName = "Table_1_Д09"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      12\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      17:(
+        VarName = "Table_1_Д10"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      13\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      18:(
+        VarName = "Table_1_Д11"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      14\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      19:(
+        VarName = "Table_1_Д12"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      15\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      20:(
+        VarName = "Table_1_Д13"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      16\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      21:(
+        VarName = "Table_1_Д14"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      17\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      22:(
+        VarName = "Table_1_Д15"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      18\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      23:(
+        VarName = "Table_1_Д16"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      19\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      24:(
+        VarName = "Table_1_ИзТаблицыДолжность"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""СтрокаДляПодписи"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aArg"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      1\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      25:(
+        VarName = "Table_1_ИзТаблицыФИО"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""СтрокаДляПодписи"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aArg"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      2\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      26:(
+        VarName = "Table_1_НомерПоз"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""СтрокаДляПодписи"",\x0D\x0A  ""Lines"":"
+          " {}\x0D\x0A}"
+      )
+      27:(
+        VarName = "Table_4_ЗаМесяцДней"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      20\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      28:(
+        VarName = "Table_4_ЗаМесяцНочныхЧасов"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      22\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      29:(
+        VarName = "Table_4_ЗаМесяцЧасов"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      21\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      30:(
+        VarName = "Table_4_НомерПоз"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      1\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      31:(
+        VarName = "Table_4_НомерТаб"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      3\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      32:(
+        VarName = "Table_4_НормаДней"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      23\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      33:(
+        VarName = "Table_4_НормаЧасов"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      24\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+      34:(
+        VarName = "Table_4_Перемещение"
+        InTable = 2
+        DataSource = "Function"
+        DataString = 
+          "{\x0D\x0A  ""Project"": ""УправлениеПерсоналом"",\x0D\x0A  ""Class"": ""Rec.Документы.Кад"
+          "ры.ГрафикУчетаРВ_План"",\x0D\x0A  ""Function"": ""ТабПереченьСтрок"",\x0D\x0A  ""Lines"":"
+          " {\x0D\x0A    ""aCol"": [\x0D\x0A      ""Integer"",\x0D\x0A      2,\x0D\x0A      2\x0D\x0A    ]\x0D\x0A  }\x0D\x0A}"
+      )
+    )
+  )
+]
+
+]

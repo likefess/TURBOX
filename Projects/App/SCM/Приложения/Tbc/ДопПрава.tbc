@@ -1,0 +1,139 @@
+TBCFile VER="3.4" [Created '03.04.2019 17:35:28' by 'Администратор']
+
+DESCRIPTION[
+Count=12
+CountByRef=0
+Bas.Appendant
+(
+  Count=12
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Bas.Appendant
+  (
+    Deleted :Boolean
+    GroupDoc :Bas.Appendant
+    isGroup :Integer
+    RTClass :String
+    Branch :String(80)
+    Confid :Integer
+    IsMeta :Boolean
+    Locked :Boolean
+    Closed :Boolean
+    ЗамокЭлементаСБ :Boolean
+    КодПодсистемы :Integer
+    КодМодуля :String
+    КодУчастника :Integer
+    Code :String(80)
+    Name :String(850)
+    FieldType :Integer
+    InputFormat :String
+    FormatAttribute :Integer
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Bas.Appendant
+  
+  {Bas.Appendant:"Это_Админ"}
+  (
+    IsMeta = True
+    КодМодуля = "БЖТ,ТиС"
+    Name = "Пользователь является администратором системы"
+  )
+  
+  {Bas.Appendant:"ПроводкиВидны"}
+  (
+    GroupDoc = {Bas.Appendant:Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Показывать проводки"
+  )
+  
+  {Bas.Appendant:"РазрешеноИзменятьФлПереданВБухгалтерию"}
+  (
+    GroupDoc = {Bas.Appendant:Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Разрешено изменять флаг ""Передан в бухгалтерию"""
+  )
+  
+  {Bas.Appendant:"РазрешенаПовторнаяПередачаВБух"}
+  (
+    GroupDoc = {Bas.Appendant:Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Разрешена повторная передача в бухгалтерию"
+  )
+  
+  {Bas.Appendant:"ПоказыватьРоли"}
+  (
+    GroupDoc = {Bas.Appendant:Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Показывать роли субъекта"
+  )
+  
+  {Bas.Appendant:"Торговля"}
+  (
+    isGroup = -1
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Торговля"
+  )
+  
+  {Bas.Appendant:"УправлениеВариантамиСтУчета"}
+  (
+    GroupDoc = {Bas.Appendant:Торговля}
+    Branch = "Тис"
+    Name = "Разрешено управлять вариантами ст. учета"
+  )
+  
+  {Bas.Appendant:"ПоказыватьИерархиюКонтрагентов"}
+  (
+    GroupDoc = {Bas.Appendant:Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Показывать иерархию контрагентов при выборе в документе"
+  )
+  
+  {Bas.Appendant:"ПоказСкидкиКонтрагента"}
+  (
+    GroupDoc = {Bas.Appendant:Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Показывать скидку/наценку контрагента в документе"
+  )
+  
+  {Bas.Appendant:"СтатусФакт_ИзмДатаВремя"}
+  (
+    GroupDoc = {Bas.Appendant:Торговля}
+    isGroup = -1
+    Branch = "Тис"
+    Name = "Изменять в документе при установке статуса ""Факт"""
+  )
+  
+  {Bas.Appendant:"СтатусФакт_ИзмДата"}
+  (
+    GroupDoc = {Bas.Appendant:СтатусФакт_ИзмДатаВремя}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Дату документа"
+  )
+  
+  {Bas.Appendant:"СтатусФакт_ИзмВремя"}
+  (
+    GroupDoc = {Bas.Appendant:СтатусФакт_ИзмДатаВремя}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Время документа"
+  )
+]
+
+]

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rep.Viewer">
+  <Inherited>
+    <Inherited Name="VarContainer">
+      <Component Name="VarGraph" Class="Com.Fld.IVar" OnChange="VarGraphOnChange" ValueType="VarInteger"/>
+      <Component Name="VarRepBy" Class="Com.Fld.IVar" OnChange="VarRepByOnChange" ValueType="VarInteger"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="SettingsFrame">
+        <Component Name="HeaderButton" Class="Com.Ctrl.IHeader" After="#0" Caption="Диаграмма сгорания задач" Visible="False">
+          <Component Name="ButtonChartType1" Class="Com.Ctrl.IButton" Excluded="True" Hint="Смена вида графика" ImageName="Com.chart-bar" OnClick="ButtonChartTypeOnClick"/>
+          <Component Name="ButtonRefresh2" Class="Com.Ctrl.IButton" Caption="@Cmd:Refresh=Обновить" Hint="Обновить" ImageName="Refresh" OnClick="ButtonRefresh_OnClick" Printed="False" Visible="True"/>
+          <Component Name="ButtonClose1" Class="Com.Ctrl.IButton" Caption="@Cmd:Close=Закрыть" Command="Commands.CloseForm" ImageName="Close" Printed="False" Visible="True"/>
+        </Component>
+        <Inherited Name="HeaderFrame" After="HeaderButton" MaxButton="9" Visible="False">
+          <Inherited Name="ButtonRefresh" Visible="False"/>
+          <Component Name="ButtonChartType" Class="Com.Ctrl.IButton" Excluded="True" After="ButtonRefresh" Hint="Смена вида графика" ImageName="Com.chart-bar" OnClick="ButtonChartTypeOnClick"/>
+          <Inherited Name="ButtonChooseR" After="ButtonChartType"/>
+          <Inherited Name="ButtonSetup" Enabled="False" Visible="False"/>
+          <Inherited Name="ButtonClose" Visible="False"/>
+          <Inherited Name="ButtonPrint" Visible="False"/>
+          <Inherited Name="ExportGroup" Visible="False"/>
+          <Inherited Name="ButtonHelp" Visible="False"/>
+        </Inherited>
+        <Inherited Name="DateFrame" Visible="False"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

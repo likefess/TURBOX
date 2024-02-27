@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rep.IReportTurns">
+  <Inherited AccountFilter="РВ" AccountPlan="ПланСУРВ" BegSaldoFormat="sfNone" Caption="Плановая и фактическая стоимость работ" CIndicator="2" EndSaldoFormat="sfFull" OpenPeriod="opAll" Palette="cpDefault" ParameterFilter="BaseEvent &lt;> nil" Period="3" ShowDebCreRow="False" ShowReportTotalRow="False" ShowSumKindRow="False" TurnFormat="sfNone">
+    <Inherited Name="Grouping">
+      <Inherited Name="SplitByRows">
+        <Component Name="SplitByParamTask" Class="Com.Rep.ISplitByParam" GroupTotals="True" GroupTotalsInHeader="True" Hierarchy="True" LiveHierarchy="True" Sort="True" SortOrder="Deadline" SplitParam="Task" SplitType="byParam"/>
+        <Component Name="SplitByParamTaskResource" Class="Com.Rep.ISplitByParam" GroupTotals="True" GroupTotalsInHeader="True" Hierarchy="True" LiveHierarchy="True" Sort="True" SplitParam="TaskResource" SplitType="byParam"/>
+      </Inherited>
+      <Inherited Name="SplitByCols">
+        <Component Name="SplitByParamStatus" Class="Com.Rep.ISplitByParam" Enabled="False" ShowTotals="True" Sort="False" SplitParam="Status" SplitType="byParam"/>
+      </Inherited>
+      <Inherited Name="SplitByTabs">
+        <Component Name="SplitByParamProject" Class="Com.Rep.ISplitByParam" Sort="True" SortOrder="Description" SplitParam="Project" SplitType="byParam"/>
+      </Inherited>
+      <Inherited Name="ContentByRows">
+        <Component Name="SplitContentTaskDescription" Class="Com.Rep.ISplitContent" Caption="Задача" Contents="Task.Description" MaxWidth="60" MinWidth="50"/>
+        <Component Name="SplitContentTaskDeadline" Class="Com.Rep.ISplitContent" Excluded="True" Caption="Срок" Contents="Task.Deadline" MaxWidth="30" MinWidth="30"/>
+        <Component Name="SplitContentTaskResource" Class="Com.Rep.ISplitContent" Caption="Сотрудник" Contents="TaskResource.Entity.Description" MaxWidth="60" MinWidth="50"/>
+      </Inherited>
+      <Inherited Name="ContentByCols">
+        <Component Name="SplitContentStatus" Class="Com.Rep.ISplitContent" Caption="Статус" Contents="Status.Description" Enabled="False"/>
+      </Inherited>
+      <Inherited Name="ContentByTabs">
+        <Component Name="SplitContentProject" Class="Com.Rep.ISplitContent" Caption="Проект" Contents="Project.Description"/>
+      </Inherited>
+    </Inherited>
+    <Inherited Name="DrillDown">
+      <Component Name="ExplainTasks" Class="Com.Rep.IExplain" DisableDefault="True"/>
+    </Inherited>
+    <Inherited Name="Parameters">
+      <Component Name="RC_Entity" Class="Com.Rep.IRepControl" Caption="Сотрудник" CardFileClass="TrackingCore.Tab.Data.People" DefaultStr="Object(nil)" Operator="=" Parameter="Entity" Plan="ПланСУРВ" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Project" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Проект" CardFileClass="Bas.Tab.Ref.Project" DefaultStr="Object(nil)" MultiSelect="True" Operator="=" Parameter="Project" Plan="ПланСУРВ" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Task" Class="Com.Rep.IRepControl" Caption="Задача" CardFileClass="TrackingCore.Tab.Data.Tasks" DefaultStr="Object(nil)" Operator="is" Parameter="Task" Plan="ПланСУРВ" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Split" Class="Com.Rep.IRepControl" Caption="Детали" CellFormat="EnumFormat" ListAsString="Нет|0&#xD;&#xA;Да|1" OnChange="RC_SplitOnChange" ShortList="True" ValueType="VarInteger" Width="25"/>
+    </Inherited>
+    <Inherited Name="Indicators">
+      <Component Name="IndGroupHours" Class="Com.Rep.IIndGroup" Caption="Часы" MaxWidth="60" MinWidth="50"/>
+      <Component Name="IndGroupNetPrice" Class="Com.Rep.IIndGroup" Caption="Себестоимость" MaxWidth="60" MinWidth="50"/>
+      <Component Name="IndGroupPrice" Class="Com.Rep.IIndGroup" Caption="Стоимость" MaxWidth="60" MinWidth="50"/>
+      <Component Name="IndicatorPlanHours" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="План" Contents="Hours" EndSaldoFormat="msfDeb" Group="IndGroupHours" ParameterFilter="Status = Plan" ShowFmt="mshSplit" ShowUnit="False" TurnFormat="msfNone"/>
+      <Component Name="IndicatorFactHours" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="Факт" Contents="Hours" EndSaldoFormat="msfDeb" Group="IndGroupHours" ParameterFilter="Status = Fact" ShowFmt="mshSplit" ShowUnit="False" TurnFormat="msfNone"/>
+      <Component Name="IndicatorPlanCost" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="План" Contents="Cost" EndSaldoFormat="msfDeb" Group="IndGroupPrice" ParameterFilter="Status = Plan" ShowFmt="mshSplit" ShowUnit="False" TurnFormat="msfNone"/>
+      <Component Name="IndicatorFactCost" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="Факт" Contents="Cost" EndSaldoFormat="msfDeb" Group="IndGroupPrice" ParameterFilter="Status = Fact" ShowFmt="mshSplit" ShowUnit="False" TurnFormat="msfNone"/>
+      <Component Name="IndicatorPlanNetCost" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="План" Contents="NetCost" EndSaldoFormat="msfDeb" Group="IndGroupNetPrice" MaxWidth="33" ParameterFilter="Status = Plan" ShowFmt="mshSplit" ShowUnit="False" TurnFormat="msfNone"/>
+      <Component Name="IndicatorFactNetCost" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="Факт" Contents="NetCost" EndSaldoFormat="msfDeb" Group="IndGroupNetPrice" MaxWidth="33" ParameterFilter="Status = Fact" ShowFmt="mshSplit" ShowUnit="False" TurnFormat="msfNone"/>
+    </Inherited>
+  </Inherited>
+</Resource>

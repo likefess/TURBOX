@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="TrackingLib.Rec.Services.Kanban" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="Var1" Class="Com.Fld.IVar"/>
+      <Component Name="Columns_Positions" Class="TrackingLib.Rec.Services.Columns" IsLibrary="1"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Visible="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Name" FontBold="False" HasInnerCaption="True" Required="True" Visible="True" Width="100"/>
+          <Component Name="Report" Class="Com.Ctrl.IEditEx" Caption="@Report=Отчет" CardFileClass="Com.Tab.Service.Report" Field="EdtRec.Report" HasCaption="True" HasInnerCaption="True" LookupField="Name" OnChange="ReportOnChange" Width="100">
+            <Component Name="JumpButton1" Class="Com.Ctrl.IJumpButton"/>
+          </Component>
+          <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+            <Component Name="UseReportColumnsCB" Class="Com.Ctrl.ICheckBox" Field="EdtRec.UseReportColumns" HasCaption="True" OnChange="UseReportColumnsCBOnChange"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Orientation="Horizontal" Visible="True">
+        <Component Name="BoxColumns" Class="Com.Ctrl.IBox" After="#0" AutoSize="True" Caption="@TrackingLib:ColumnsSettings=Настройка доски">
+          <Component Name="FieldNameFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="ColFieldName" Class="Com.Ctrl.IEdit" Caption="@TrackingLib:ColFieldName=Поле колонок" CellFormat="EnumFormat" Field="EdtRec.ColFieldName" HasButton="True" HasInnerCaption="True" OnEnter="ColFieldNameOnEnter" OnVerify="ColFieldNameOnVerify" ValueType="VarString" Width="70"/>
+          </Component>
+          <Component Name="FirstStatusFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="FirstStatus_Label" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="@TrackingLib:BackLog=Бэклог (Начальное значение)" Visible="True" Width="100"/>
+            <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+            <Component Name="FirstStatusName" Class="Com.Ctrl.IEdit" Field="EdtRec.FirstStatusName" HasInnerCaption="True" Width="60"/>
+            <Component Name="FirstStatus" Class="Com.Ctrl.IEdit" CardFileClass="Control.Tab.Ref.TaskStatus" Field="EdtRec.FirstStatus" HasButton="True" HasInnerCaption="True" LookupField="Name" OnChange="FirstStatusOnChange" ValueType="VarObject" Width="50"/>
+          </Component>
+          <Component Name="FrameColumns" Class="Com.Ctrl.IFrame" Margins="1">
+            <Component Name="Columns" Class="Com.Ctrl.ITable" OnDelete="ColumnsOnDelete" OnInsert="ColumnsOnInsert" Subtable="EdtRec.Columns">
+              <Component Name="ColumnName" Class="Com.Ctrl.IEdit" Caption="@TrackingLib:ColumnName=Наименование колонки" Field="Columns_Positions.Name" ValueType="VarString" Width="50"/>
+              <Component Name="Status" Class="Com.Ctrl.IEdit" Caption="@TrackingLib:KanbanColValue=Значение" CardFileClass="Control.Tab.Ref.TaskStatus" Field="Columns_Positions.Status" HasButton="True" LookupField="Name" OnChange="StatusOnChange" ValueType="VarObject" Visible="False" Width="50"/>
+              <Component Name="Values" Class="Com.Ctrl.IListEdit" Caption="@TrackingLib:Values=Значения" CardFileClass="Control.Tab.Ref.TaskStatus" CellFormat="ReferenceFormat" Field="Columns_Positions.Values" HasButton="True" LookupField="Name" OnChange="ValuesOnChange" OnGetLookupFilter="ValuesOnGetLookupFilter" ValueType="VarObject" Width="50"/>
+              <Component Name="ColumnColor" Class="Com.Ctrl.IColorEdit" Caption="@TrackingLib:Color = Цвет" Field="Columns_Positions.Color" Width="50"/>
+              <Component Name="Limit" Class="Com.Ctrl.IEdit" Caption="@TrackingLib:Limit = Лимит задач (wip)" Field="Columns_Positions.Limit" ValueType="VarInteger" Width="50"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="BoxCards" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@TrackingLib:CardsSettings=Настройка карточек" Visible="True">
+          <Component Name="FrameCards" Class="Com.Ctrl.IFrame" Caption="@TrackingLib:CardsSettings=Настройка карточек" Visible="True">
+            <Component Name="ShowVersion" Class="Com.Ctrl.ICheckBox" Caption="Добавить поле &quot;Версия&quot;" Field="EdtRec.ShowVersion" FixSize="False" Width="80"/>
+            <Component Name="SetVersionColor" Class="Com.Ctrl.IColorEdit" Alignment="LeftAlign" Caption="Изменить цвет поля &quot;Версия&quot;" CaptionWidth="60" Field="EdtRec.SetVersionColor" HasCaption="False" Width="30" ZeroIsTransparent="True"/>
+            <Component Name="NewLine6" Class="Com.Ctrl.INewLine"/>
+            <Component Name="ShowLabel" Class="Com.Ctrl.ICheckBox" Caption="Добавить поле &quot;Метка&quot;" Field="EdtRec.ShowLabel" FixSize="False" Width="80"/>
+            <Component Name="SetLabelColor" Class="Com.Ctrl.IColorEdit" Caption="Изменить цвет поля &quot;Метка&quot;" CaptionWidth="60" Field="EdtRec.SetLabelColor" HasCaption="False" Width="30" ZeroIsTransparent="True"/>
+            <Component Name="NewLine5" Class="Com.Ctrl.INewLine"/>
+            <Component Name="ShowComponent" Class="Com.Ctrl.ICheckBox" Caption="Добавить поле &quot;Компонент&quot;" Field="EdtRec.ShowComponent" FixSize="False" Width="80"/>
+            <Component Name="SetComponentColor" Class="Com.Ctrl.IColorEdit" Caption="Изменить цвет поля &quot;Компонент&quot;" CaptionWidth="60" Field="EdtRec.SetComponentColor" HasCaption="False" Width="30" ZeroIsTransparent="True"/>
+            <Component Name="NewLine7" Class="Com.Ctrl.INewLine"/>
+            <Component Name="ShowPlanHours" Class="Com.Ctrl.ICheckBox" Caption="Добавить поле &quot;Плановые часы&quot;" Field="EdtRec.ShowPlanHours" FixSize="False" Width="80"/>
+            <Component Name="SetPlanHoursColor" Class="Com.Ctrl.IColorEdit" Caption="Изменить цвет поля &quot;Плановые часы&quot;" CaptionWidth="60" Field="EdtRec.SetPlanHoursColor" HasCaption="False" Width="30" ZeroIsTransparent="True"/>
+            <Component Name="NewLine8" Class="Com.Ctrl.INewLine"/>
+            <Component Name="ShowFactHours" Class="Com.Ctrl.ICheckBox" Caption="Добавить поле &quot;Фактические часы&quot;" Field="EdtRec.ShowFactHours" FixSize="False" Width="80"/>
+            <Component Name="SetFactHoursColor" Class="Com.Ctrl.IColorEdit" Caption="Изменить цвет поля &quot;Фактические часы&quot;" Field="EdtRec.SetFactHoursColor" HasCaption="False" Width="30" ZeroIsTransparent="True"/>
+          </Component>
+        </Component>
+        <Inherited Name="MainTab" After="BoxCards" Visible="False"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWithFrames">
+  <Inherited>
+    <Component Name="vDefPos" Class="CashFlow.Rec.Service.MoneyDoc_FillByOnHandReport_Positions" IsLibrary="1" After="#0"/>
+    <Inherited Name="TableMenu" After="vDefPos"/>
+    <Inherited Name="Variables">
+      <Component Name="Subt" Class="Com.ISubtable"/>
+      <Component Name="BegDate" Class="Com.Fld.IVar" OnChange="BegDate_OnChange" ValueType="VarDate"/>
+      <Component Name="PeriodBeg" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="EndDate" Class="Com.Fld.IVar" OnChange="EndDate_OnChange" ValueType="VarDate"/>
+      <Component Name="PeriodEnd" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="Period" Class="Com.Fld.IVar" OnChange="Period_OnChange" ValueType="VarInteger"/>
+      <Component Name="PeriodSel" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="SelectAll" Class="Com.Fld.IVar" Caption="@FillByReportMoneyDocOnhand:SelectAll=Все количество" ValueType="VarLogical"/>
+      <Component Name="Responsible" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="CashRegister" Class="Com.Fld.IVar" Caption="@FillByReportMoneyDocOnhand:CashRegisterEdit=Касса" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="Company" Class="Com.Fld.IVar" Caption="@FillByReportMoneyDocOnhand:Company=Предприятие" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="MoneyDoc" Class="Com.Fld.IVar" Caption="@FillByReportMoneyDocOnhand:MoneyDoc=Денежный документ" RecordClass="Biz.Rec.Data.Resource" ValueType="VarObject"/>
+      <Component Name="SourceRecord" Class="Com.Fld.IVar" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonRefresh" After="ButtonOK"/>
+        <Inherited Name="ButtonClose" After="ButtonRefresh"/>
+        <Inherited Name="ButtonHelp" Excluded="True" After="ButtonClose"/>
+        <Inherited Name="HeaderSeparator" After="ButtonHelp"/>
+      </Inherited>
+      <Component Name="DateFrame" Class="Com.Ctrl.IFrame" After="HeaderFrame" AutoSize="True" Visible="False"/>
+      <Inherited Name="FieldsFrame" Class="Com.Ctrl.IBox" After="DateFrame" Caption="@FillReportMoneyDocOnhand:FieldsFrame=Параметры отчета" HasCaption="True">
+        <Component Name="FieldsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+          <Component Name="CompanyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Enabled="False" Field="Company" HasCaption="True" LookupField="Name" OnGetLookupFilter="CompanyEdit_OnGetLookupFilter"/>
+          <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          <Component Name="CashRegisterEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Enabled="False" Field="CashRegister" HasCaption="True" LookupField="Name" OnChange="CashRegisterEdit_OnChange" OnGetLookupFilter="CashRegisterEdit_OnGetLookupFilter"/>
+          <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+          <Component Name="MoneyDocEdit" Class="Com.Ctrl.IEdit" CardFileClass="CashFlow.Tab.Data.MoneyDocument" CellFormat="ReferenceFormat" Field="MoneyDoc" HasCaption="True" LookupField="Name" OnChange="MoneyDocEdit_OnChange"/>
+          <Component Name="NewLine3" Class="Com.Ctrl.INewLine"/>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+          <Component Name="SelectAllCheckBox" Class="Com.Ctrl.ICheckBox" Field="SelectAll" OnChange="SelectAllCheckBox_OnChange"/>
+        </Component>
+      </Inherited>
+      <Component Name="DataFrame" Class="Com.Ctrl.IFrame" After="FieldsFrame" Caption="@FillReportMoneyDocOnhand:DataFrame=Данные для переноса" HasCaption="True" Subtable="Subt">
+        <Component Name="DataMoneyDocEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Resources" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPos.MoneyDocument" LookupField="Name" Width="50" Wrap="True"/>
+        <Component Name="DataMoneyDocNumEdit" Class="Com.Ctrl.IEdit" CardFileClass="CashFlow.Tab.Ref.MoneyDocNumber" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPos.MoneyDocNumber" LookupField="MoneyDocNumber" Width="50" Wrap="True"/>
+        <Component Name="DataQtyEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPos.Qty" FieldFormat=",##0.00;;-" Width="22"/>
+        <Component Name="DataQtyToFillEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="vDefPos.QtyToFill" FieldFormat=",##0.00;;-" Width="20"/>
+        <Component Name="DataPriceEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPos.Price" FieldFormat=",##0.00;;-" Width="35"/>
+        <Component Name="DataAmountEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPos.Amount" FieldFormat=",##0.00;;-" Width="35"/>
+      </Component>
+      <Inherited Name="TabsFrame" Excluded="True" After="DataFrame"/>
+    </Inherited>
+  </Inherited>
+</Resource>

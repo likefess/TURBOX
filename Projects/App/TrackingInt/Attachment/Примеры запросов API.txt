@@ -1,0 +1,84 @@
+﻿Авторизация
+http://localhost:81/api/xcom/userAuth/login
+{
+    "user": "Администратор",
+    "password": "",
+    "forceLogin": false,
+    "language": "ru",
+    "obf": false
+}
+В следующих запросах указывается SessionID
+
+
+http://localhost:81/api/tracking/Core/Task/DEV.0028/URL
+Header: Referer - http://localhost:81/webui/index.html
+
+
+http://localhost:81/api/tracking/Core/Task/DEV.0011/AddComment
+{
+    "requestComment": {
+        "Comment": "Новый комментарий к задаче.",
+        "Author": {
+            "Id": "Петров",
+            "Name": "Петров Петр",
+            "UserName": "Петров"
+        },
+        "Event": {
+            "Id": "Add57", 
+            "Title": "Merge",
+            "Description": "Функция разбора параметров",
+            "Time": "05.12.2022 16:00:00"
+        }
+    }
+}
+
+
+http://localhost:81/api/tracking/Core/Task/DEV.0019/CanChangeStatus
+{
+    "newStatusId": "Выполнена"
+}
+{
+    "newStatusId": "Готова к работе"
+}
+
+
+http://localhost:81/api/tracking/Core/Task/DEV.0011/CanChangeStatus
+{
+    "newStatusId": "В работе"
+}
+
+
+http://localhost:81/api/tracking/Core/Task/DEV.0028/ChangeStatus
+{
+    "newStatusId": "Готова к работе"
+}
+
+
+http://localhost:81/api/tracking/Core/Task/DEV.0028/CurrentStatus
+
+
+http://localhost:81/api/tracking/Core/Task/DEV.0028/AvailableTransitions
+
+
+http://localhost:81/api/tracking/Core/Project/Разработка/NewTask
+{
+    "requestTask": {
+        "Id": "DEV0077",
+        "Title": "Доработать функции API",
+        "Description": "<p>Сделать функции WebEvent.</p>",
+        "Time": "06.12.2022 16:00",
+        "Initiator": {
+            "Id": "Петров",
+            "Name": "Петров Петр",
+            "UserName": "Петров"
+        },
+        "Responsible": {
+            "Id": "ФЛ.00001",
+            "Name": "Администратор",
+            "UserName": "Администратор"
+        },
+        "PriorityId": ""
+    }
+}
+
+http://localhost:81/api/tracking/Core/Project/Разработка/GetTaskPrefix

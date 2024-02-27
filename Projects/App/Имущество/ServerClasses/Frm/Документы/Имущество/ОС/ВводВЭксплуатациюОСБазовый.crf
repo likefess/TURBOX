@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Frm.Документы.Имущество.ОС.ИмуществоБазовыйДокументОС">
+  <Inherited HelpContext="Имущество.Имущество.Документы движения и учета ОС.Ввод в эксплуатацию ОС">
+    <Inherited Name="EdtRec" Class="Имущество.Rec.Документы.Имущество.ОС.ВводВЭксплуатациюОСБазовый" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="перПоказыватьПараметрыОС" Class="Com.Fld.IVar" OnCalc="перПоказыватьПараметрыОС_OnCalc"/>
+      <Component Name="перСтоимостьКВ" Class="Com.Fld.IVar" Caption="Стоимость" OnCalc="перСтоимостьКВ_OnCalc" ValueType="VarNumeric"/>
+      <Component Name="перСтоимостьКВ_Остаток" Class="Com.Fld.IVar" Caption="Остаток стоимости" OnCalc="перСтоимостьКВ_Остаток_OnCalc" ValueType="VarNumeric"/>
+      <Component Name="перКоличествоКВ" Class="Com.Fld.IVar" Caption="КоличествоКВ" OnCalc="перКоличествоКВ_OnCalc" ValueType="VarInteger"/>
+      <Component Name="перКоличествоКВ_Остаток" Class="Com.Fld.IVar" Caption="Остаток количества" OnCalc="перКоличествоКВ_Остаток_OnCalc" ValueType="VarInteger"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Шапка_Фрейм">
+          <Inherited Name="Шапка_Гр">
+            <Component Name="КВ_Гр" Class="Com.Ctrl.IGroup" After="Шапка_ПервичныйДокумент" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="КВ" Class="Com.Ctrl.IEdit" Caption="Код КВ" CardFileClass="ИмуществоБазовый.Tab.Справочники.КапВложения" CellFormat="ReferenceFormat" Field="EdtRec.КВ" HasCaption="True" LookupField="КодИмущества" MaxWidth="40" OnChange="КВ_OnChange" OnGetLookupFilter="КВ_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуКВ" Required="True" Width="40"/>
+              <Component Name="КВ_ПолнИмя" Class="Com.Ctrl.IEdit" Caption="Наименование" CardFileClass="ИмуществоБазовый.Tab.Справочники.КапВложения" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.КВ" HasCaption="False" Hint=" Полное наименование объекта капитального вложения" LookupField="ПолнИмя" Multiline="True" Wrap="True"/>
+              <Component Name="КВ_Карточка" Class="Com.Ctrl.IJumpButton" Field="EdtRec.КВ" Hint="Перехода на карточку КВ" JumpForm="ИмуществоБазовый.Frm.Справочники.КапВложения"/>
+              <Component Name="btnStatic8" Class="Com.Ctrl.IStatic" FixSize="True" Printed="False" Width="25"/>
+            </Component>
+            <Component Name="Подр_КВ_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="Подразделение_КВ" Class="Com.Ctrl.IEdit" Caption="Подразделение" CardFileClass="Bas.Tab.Data.Divisions" Enabled="False" Field="EdtRec.Подразделение" HasCaption="True" Hint="Наименование подразделения, за которым закреплен данный объект имущества, по состоянию на текущую дату" Multiline="True" OnChange="Подразделение_OnChange" OnGetLookupFilter="Подразделение_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуПодразделение" Required="True" Wrap="True"/>
+              <Component Name="кнПодразделение_КВ" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Подразделение" JumpForm="Bas.Frm.Data.Entity"/>
+              <Component Name="btnStatic9" Class="Com.Ctrl.IStatic" FixSize="True" Printed="False" Width="25"/>
+            </Component>
+            <Component Name="МОЛ_КВ_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="МОЛ_КВ" Class="Com.Ctrl.IEdit" Caption="МОЛ" CardFileClass="Bas.Tab.Data.Entity" Enabled="False" Field="EdtRec.МОЛ" HasCaption="True" Hint="ФИО материально-ответственного лица, за которым закреплен данный объект имущества, по состоянию на текущую дату" Multiline="True" OnChange="МОЛ_OnChange" OnGetLookupFilter="МОЛ_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуМОЛ" Required="True" Wrap="True"/>
+              <Component Name="кнМОЛ_КВ" Class="Com.Ctrl.IJumpButton" Field="EdtRec.МОЛ" JumpForm="Bas.Frm.Data.Entity"/>
+              <Component Name="btnStatic10" Class="Com.Ctrl.IStatic" FixSize="True" Printed="False" Width="25"/>
+            </Component>
+            <Inherited Name="Корректировка_Гр" After="МОЛ_КВ_Гр">
+              <Inherited Name="КорректируемыйДокумент" CardFileClass="Имущество.Tab.Документы.Имущество.ОС.ВводВЭксплуатациюОС"/>
+              <Inherited Name="кнКорректируемыйДокумент" JumpForm="Имущество.Frm.Документы.Имущество.ОС.ВводВЭксплуатациюОСБазовый"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="ОбщиеДанные" Caption="@Frm:ОбщаяИнформация=Общая информация">
+            <BuiltIn Name="Title" Hint="@Frm:ОбщаяИнформацияХинтВводВЭксплуатацию=Отображение общей информации (для всех объектов ОС, вводимых в эксплуатацию)"/>
+            <Inherited Name="Стоимость_Гр">
+              <Component Name="СтоимостьРасчПоказ" Class="Com.Ctrl.IEdit" After="#0" Caption="Стоимость КВ" Enabled="False" Field="перСтоимостьКВ" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Текущая стоимость объекта КВ (без учета НДС)" MaxWidth="40" MinWidth="30"/>
+              <Inherited Name="Стоимость" Excluded="True" After="СтоимостьРасчПоказ" CaptionWidth="30" Enabled="False" Hint="Стоимость объекта КВ списываемая по документу (без учета НДС)"/>
+              <Component Name="СтоимостьПоказ" Class="Com.Ctrl.IEdit" After="Стоимость" CaptionWidth="30" Enabled="False" Field="EdtRec.Стоимость" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Стоимость объекта КВ списываемая по документу (без учета НДС)" MaxWidth="40" MinWidth="30"/>
+            </Inherited>
+            <Inherited Name="Подр_МОЛ_Гр" Excluded="True"/>
+            <Component Name="КоличествоПоказ_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="КоличествоРасчПоказ" Class="Com.Ctrl.IEdit" Caption="Количество КВ" Enabled="False" Field="перКоличествоКВ" HasCaption="True" Hint="Текущее количество объекта КВ" MaxWidth="40" MinWidth="30"/>
+              <Component Name="КоличествоКВПоказ" Class="Com.Ctrl.IEdit" CaptionWidth="30" Enabled="False" Field="EdtRec.КоличествоКВ" HasCaption="True" Hint="Количество объектов ОС, принятых к учету по данному КВ. Данное количество будет списано с объекта КВ." MaxWidth="40" MinWidth="30"/>
+            </Component>
+            <Component Name="КлассифИмущПоказ_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="КлассификацияИмуществаПоказ" Class="Com.Ctrl.IEdit" Caption="Классификация" CellFormat="EnumFormat" Enabled="False" Field="EdtRec.КлассификацияИмущества" HasCaption="True" Hint="Классификация имущества (вид основного средства)" MaxWidth="110" MinWidth="52" OnChange="КлассификацияИмущества_OnChange"/>
+              <Component Name="НедвижФлагиПоказ" Class="Com.Ctrl.IGroup" Adaptive="False" MaxWidth="300" MinWidth="150">
+                <Component Name="Static5" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+                <Component Name="ЗемляПоказ" Class="Com.Ctrl.ICheckBox" Caption="Земля" Enabled="False" Field="EdtRec.Земля" Hint="Устанавливается при условии, что данный объект ОС является Землей" MaxWidth="35" MinWidth="35" OnChange="Флаги_OnChange" Width="30"/>
+                <Component Name="ЗданиеПоказ" Class="Com.Ctrl.ICheckBox" Caption="Здание" Enabled="False" Field="EdtRec.Здание" Hint="Устанавливается при условии, что данный объект ОС является Зданием" MaxWidth="25" MinWidth="25" OnChange="Флаги_OnChange"/>
+              </Component>
+              <Component Name="ДвижФлагиПоказ" Class="Com.Ctrl.IGroup" Adaptive="False" MaxWidth="300" MinWidth="150">
+                <Component Name="Static4" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+                <Component Name="АвтотранспортПоказ" Class="Com.Ctrl.ICheckBox" Caption="Автотранспорт" Enabled="False" Field="EdtRec.Автотранспорт" Hint="Устанавливается при условии, что данный объект ОС является автотранспортом" MaxWidth="35" MinWidth="35" OnChange="Флаги_OnChange" Width="60"/>
+                <Component Name="ПрочееИмуществоПоказ" Class="Com.Ctrl.ICheckBox" Caption="Прочее" Enabled="False" Field="EdtRec.ПрочееИмущество" Hint="Устанавливается при условии, что данный объект ОС является прочим имуществом" MaxWidth="25" MinWidth="25" Width="60"/>
+              </Component>
+            </Component>
+            <Component Name="КлассификацияОСПоказ_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="40" MaxWidth="300" MinWidth="150">
+              <Component Name="КлассификацияОСПоказ" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="ОКОФ" Enabled="False" Field="EdtRec.КлассификацияОС" HasCaption="True" Hint="Классификация основного средства" LookupField="Name" Multiline="True" Required="True" Wrap="True"/>
+              <Component Name="КлассификацияОСПоказКод" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Enabled="False" Field="EdtRec.КлассификацияОС" HasCaption="False" Hint="Классификация основного средства" LookupField="КодОКОФ" Width="20"/>
+            </Component>
+            <Component Name="НазначениеОСПоказ_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="40" MaxWidth="300" MinWidth="150">
+              <Component Name="НазначениеОСПоказ" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Enabled="False" Field="EdtRec.НазначениеОС" HasCaption="True" Hint="Назначение основного средства" Multiline="True" Wrap="True"/>
+              <Component Name="НазначениеОСПоказКод" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Enabled="False" Field="EdtRec.НазначениеОС" HasCaption="False" Hint="Назначение основного средства" LookupField="Code" Width="20"/>
+            </Component>
+          </Inherited>
+          <Component Name="ДанныеОбОбъектахОС_Box" Class="Com.Ctrl.IBox" Excluded="True" After="ОбщиеДанные" Caption="@Frm:ДанныеОбОбъектахОС=Данные об объектах ОС"/>
+          <Inherited Name="Комментарии_Box" After="ДанныеОбОбъектахОС_Box"/>
+        </Inherited>
+        <Component Name="ВводВЭксплуатацию" Class="Com.Ctrl.IFrame" Caption="@Frm:ВводВЭксплуатацию=Ввод в эксплуатацию">
+          <Component Name="ОбщиеДанныеВвод" Class="Com.Ctrl.IBox" Caption="@Frm:ОбщиеДанные=Общие данные">
+            <BuiltIn Name="Title" Hint="@Frm:ОбщиеДанныеХинтВводВЭксплуатациюВвод=Общие данные для всех объектов ОС, вводимых в эксплуатацию"/>
+            <Component Name="Стоимость_Гр_Ввод" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="СтоимостьРасч" Class="Com.Ctrl.IEdit" Caption="Стоимость КВ" Enabled="False" Field="перСтоимостьКВ" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Текущая стоимость объекта КВ (без учета НДС)" MaxWidth="40" MinWidth="30"/>
+              <Component Name="Стоимость_Ввод" Class="Com.Ctrl.IEdit" CaptionWidth="30" Enabled="False" Field="EdtRec.Стоимость" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Стоимость объекта КВ списываемая по документу (без учета НДС)" MaxWidth="40" MinWidth="30"/>
+              <Component Name="СтоимостьКВ_Остаток" Class="Com.Ctrl.IEdit" Caption="остаток" CaptionWidth="20" Enabled="False" Field="перСтоимостьКВ_Остаток" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Остаток текущей стоимости объекта КВ (без учета НДС), не отнесенной на ОС, вводимые в эксплуатацию по текущему документу" MaxWidth="40" MinWidth="30"/>
+            </Component>
+            <Component Name="Количество_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="КоличествоРасч" Class="Com.Ctrl.IEdit" Caption="Количество КВ" Enabled="False" Field="перКоличествоКВ" HasCaption="True" Hint="Текущее количество объекта КВ" MaxWidth="40" MinWidth="30"/>
+              <Component Name="КоличествоКВ" Class="Com.Ctrl.IEdit" CaptionWidth="30" Field="EdtRec.КоличествоКВ" HasCaption="True" Hint="Количество объектов ОС, принятых к учету по данному КВ. Данное количество будет списано с объекта КВ." MaxWidth="40" MinWidth="30" OnChange="КоличествоКВ_OnChange" OnVerify="КоличествоКВ_OnVerify"/>
+              <Component Name="КоличествоКВ_Остаток" Class="Com.Ctrl.IEdit" Caption="остаток" CaptionWidth="20" Enabled="False" Field="перКоличествоКВ_Остаток" HasCaption="True" Hint="Остаток текущего количества объекта КВ, не отнесенный на ОС, вводимые в эксплуатацию по текущему документу" MaxWidth="40" MinWidth="30"/>
+            </Component>
+            <Component Name="КлассифИмущ_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="КлассификацияИмущества" Class="Com.Ctrl.IEdit" Caption="Классификация" CellFormat="EnumFormat" Field="EdtRec.КлассификацияИмущества" HasCaption="True" Hint="Классификация имущества (вид основного средства)" MaxWidth="110" MinWidth="52" OnChange="КлассификацияИмущества_OnChange"/>
+              <Component Name="НедвижФлаги" Class="Com.Ctrl.IGroup" Adaptive="False" MaxWidth="300" MinWidth="150">
+                <Component Name="Static6" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+                <Component Name="Земля" Class="Com.Ctrl.ICheckBox" Caption="Земля" Field="EdtRec.Земля" Hint="Устанавливается при условии, что данный объект ОС является Землей" MaxWidth="35" MinWidth="35" OnChange="Флаги_OnChange" Width="30"/>
+                <Component Name="Здание" Class="Com.Ctrl.ICheckBox" Caption="Здание" Field="EdtRec.Здание" Hint="Устанавливается при условии, что данный объект ОС является Зданием" MaxWidth="25" MinWidth="25" OnChange="Флаги_OnChange"/>
+              </Component>
+              <Component Name="ДвижФлаги" Class="Com.Ctrl.IGroup" Adaptive="False" MaxWidth="300" MinWidth="150">
+                <Component Name="Static7" Class="Com.Ctrl.IStatic" FixSize="True" Width="5"/>
+                <Component Name="Автотранспорт" Class="Com.Ctrl.ICheckBox" Caption="Автотранспорт" Field="EdtRec.Автотранспорт" Hint="Устанавливается при условии, что данный объект ОС является автотранспортом" MaxWidth="35" MinWidth="35" OnChange="Флаги_OnChange" Width="60"/>
+                <Component Name="ПрочееИмущество" Class="Com.Ctrl.ICheckBox" Caption="Прочее" Field="EdtRec.ПрочееИмущество" Hint="Устанавливается при условии, что данный объект ОС является прочим имуществом" MaxWidth="25" MinWidth="25" Width="60"/>
+              </Component>
+            </Component>
+            <Component Name="КлассификацияОС_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="40" MaxWidth="300" MinWidth="150">
+              <Component Name="КлассификацияОС" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="ОКОФ" Field="EdtRec.КлассификацияОС" HasCaption="True" Hint="Классификация основного средства" LookupFilter="not НеИспользуется" Multiline="True" OnOpenCardForm="НастроитьКартотекуОКОФ" Required="True" Wrap="True"/>
+              <Component Name="КлассификацияОС_Код" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="ОКОФ" Enabled="False" Field="EdtRec.КлассификацияОС" HasCaption="False" Hint="Классификация основного средства" LookupField="КодОКОФ" Width="25"/>
+            </Component>
+            <Component Name="НазначениеОС_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="40" MaxWidth="300" MinWidth="150">
+              <Component Name="НазначениеОС" Class="Com.Ctrl.IEdit" Field="EdtRec.НазначениеОС" HasCaption="True" Hint="Назначение основного средства" Multiline="True" Wrap="True"/>
+              <Component Name="НазначениеОС2" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Enabled="False" Field="EdtRec.НазначениеОС" HasCaption="False" Hint="Назначение основного средства" LookupField="Код" Width="25"/>
+            </Component>
+            <Component Name="Подр_Гр_Ввод" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="Подразделение_Ввод" Class="Com.Ctrl.IEdit" Caption="Подразделение" CardFileClass="Bas.Tab.Data.Divisions" Field="EdtRec.перПодразделениеПоУмолчанию" HasCaption="True" Hint="Наименование подразделения, за которым закреплен данный объект имущества, по состоянию на текущую дату" Multiline="True" OnChange="Подразделение_OnChange" OnGetLookupFilter="Подразделение_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуПодразделение" Required="True" Wrap="True"/>
+            </Component>
+            <Component Name="МОЛ_Гр_Ввод" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ТрудовыеОтношения_Выбор_Ввод" Class="Com.Ctrl.IEdit" Caption="МОЛ" CardFileClass="Biz.Tab.Data.LabourRelations" Field="EdtRec.перТрудовыеОтношенияПоУмолчанию" HasCaption="True" Hint="ФИО материально-ответственного лица, за которым закреплен данный объект имущества, по состоянию на текущую дату" LookupField="Person.Name" Multiline="True" OnChange="ТрудовыеОтношения_Выбор_Ввод_OnChange" OnGetLookupFilter="ТрудовыеОтношения_Выбор_Ввод_OnGetLookupFilter" Wrap="True"/>
+              <Component Name="МОЛ_Ввод" Class="Com.Ctrl.IEdit" Caption="МОЛ" CardFileClass="Bas.Tab.Data.Entity" Field="EdtRec.перМОЛПоУмолчанию" HasCaption="True" Hint="ФИО материально-ответственного лица, за которым закреплен данный объект имущества, по состоянию на текущую дату" Multiline="True" OnChange="МОЛ_OnChange" OnGetLookupFilter="МОЛ_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуМОЛ" Required="True" Visible="False" Wrap="True"/>
+            </Component>
+          </Component>
+          <Component Name="Позиции_Box" Class="Com.Ctrl.IBox" Caption="@Frm:Позиции=Позиции">
+            <Component Name="УправлениеВидимостью_Табл" Class="Com.Ctrl.IGroup" Printed="False">
+              <Component Name="Static_ПоказыватьГрКол" Class="Com.Ctrl.IStatic" Caption="Показывать группу колонок:" FixSize="True" Printed="False" Visible="True" Width="55"/>
+              <Component Name="перПоказыватьПараметрыОС_Флаг" Class="Com.Ctrl.ICheckBox" Caption="Параметры ОС" Field="перПоказыватьПараметрыОС" FixSize="True" HasCaption="True" Hint="Показывать группу колонок &quot;Параметры ОС&quot;" OnChange="перПоказыватьПараметрыОС_Флаг_OnChange" Printed="False" Width="40"/>
+            </Component>
+            <Component Name="ПозицииОС_Табл" Class="Com.Ctrl.ITable" Sortable="True" Subtable="EdtRec.ПозицииОС">
+              <Component Name="ПозицииОС" Class="Имущество.Rec.Документы.Имущество.ОС.ВводВЭксплуатациюОСБазовый_Позиции" IsLibrary="1"/>
+              <Component Name="НаименованиеОСПоз" Class="Com.Ctrl.IEdit" Field="ПозицииОС.НаименованиеОСПоз" Hint="Краткое наименование основного средства" Multiline="True" OnVerify="НаименованиеОСПоз_OnVerify" Width="70" Wrap="True"/>
+              <Component Name="ИнвентарныйНомерОСПоз" Class="Com.Ctrl.IEdit" Field="ПозицииОС.ИнвентарныйНомерОСПоз" Hint="Инвентарный номер ОС " OnOutputEx="ИнвентарныйНомерОСПоз_OnOutputEx" OnVerify="ИнвентарныйНомерОСПоз_OnVerify" Width="30"/>
+              <Component Name="Имя_Табл" Class="Com.Ctrl.IEdit" Caption="Наименование ОС" CardFileClass="ИмуществоБазовый.Tab.Справочники.ОснСредства" CellFormat="ReferenceFormat" Enabled="False" Field="ПозицииОС.ОС" Hint="Краткое наименование ОС" LookupField="Name" Multiline="True" OnGetLookupFilter="ОС_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуОС" Required="True" Visible="False" Width="70" Wrap="True"/>
+              <Component Name="ИнвентарныйНомер_Табл" Class="Com.Ctrl.IEdit" Caption="Инвентарный номер" CardFileClass="ИмуществоБазовый.Tab.Справочники.ОснСредства" CellFormat="ReferenceFormat" Enabled="False" Field="ПозицииОС.ОС" Hint="Инвентарный номер ОС" LookupField="КодИмущества" OnGetLookupFilter="ОС_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуОС" Required="True" Visible="False" Width="30"/>
+              <Component Name="ОС_JumpButton" Class="Com.Ctrl.IJumpButton" Field="ПозицииОС.ОС" Hint="Возможность перехода на карточку ОС, просмотра и редактирования доступных полей" JumpForm="ИмуществоБазовый.Frm.Справочники.ОснСредства" Printed="False"/>
+              <Component Name="ПараметрыОС_Гр_Табл" Class="Com.Ctrl.IColumnsGroup" Caption="Параметры ОС" HasCaption="True">
+                <Component Name="ПервоначальнаяСтоимость_Табл" Class="Com.Ctrl.IEdit" Field="ПозицииОС.ПервоначальнаяСтоимостьПоз" FieldFormat=",##0.00;;-" Hint="Первоначальная стоимость объекта ОС" OnChange="ПервоначальнаяСтоимость_Табл_OnChange" Required="True" Width="32"/>
+                <Component Name="Подразделение_Табл" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" Field="ПозицииОС.ПодразделениеПоз" FieldFormat=",##0.00;;-" Hint="Подразделение, в котором числится объект ОС" Multiline="True" OnEnter="Подразделение_Табл_OnEnter" OnGetLookupFilter="Подразделение_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуПодразделение" OnVerify="Подразделение_Табл_OnVerify" Required="True" Width="40" Wrap="True"/>
+                <Component Name="ТрудовыеОтношения_Выбор_Табл" Class="Com.Ctrl.IEdit" Caption="МОЛ" CardFileClass="Biz.Tab.Data.LabourRelations" Field="ПозицииОС.перТрудовыеОтношенияПоз_Выбор" HasCaption="True" Hint="ФИО материально-ответственного лица, за которым закреплен данный объект имущества, по состоянию на текущую дату" LookupField="Person.Name" Multiline="True" OnChange="ТрудовыеОтношения_Выбор_Табл_OnChange" OnGetLookupFilter="ТрудовыеОтношения_Выбор_Табл_OnGetLookupFilter" OnOutputEx="ТрудовыеОтношения_Выбор_Табл_OnOutputEx" Required="True" Width="50" Wrap="True"/>
+                <Component Name="МОЛ_Табл" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" Field="ПозицииОС.МОЛПоз" FieldFormat=",##0.00;;-" Hint="Материально-ответственное лицо, ответственное за данный объект ОС" Multiline="True" OnChange="МОЛ_Табл_OnChange" OnGetLookupFilter="МОЛ_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуМОЛ" Required="True" Visible="False" Width="40" Wrap="True"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

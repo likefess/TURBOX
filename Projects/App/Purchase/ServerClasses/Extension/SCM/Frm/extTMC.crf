@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="SCM.Rec.Справочники.ТМЦ" IsLibrary="1"/>
+    <Component Name="CostHistory" Class="Purchase.Extension.SCM.Rec.TMCCostHistory" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame" Visible="True">
+        <Component Name="FrameCostHistory" Class="Com.Ctrl.IFrame" After="#0" Caption="Плановые цены" HasCaption="True" Visible="True">
+          <Component Name="BoxCostHistory" Class="Com.Ctrl.IBox" Caption="История стоимости" HasCaption="True" Visible="True">
+            <Component Name="TblCostHistory" Class="Com.Ctrl.ITable" Sortable="True" Subtable="EdtRec.CostHistory">
+              <Component Name="CostDateBegin" Class="Com.Ctrl.IEdit" Caption="С" Field="CostHistory.CostDateBegin" HasCaption="True" Width="35"/>
+              <Component Name="CostDateEnd" Class="Com.Ctrl.IEdit" Caption="По" Field="CostHistory.CostDateEnd" HasCaption="True" Width="35"/>
+              <Component Name="CostItemNotVAT" Class="Com.Ctrl.IEdit" Caption="Стоимость без НДС" Field="CostHistory.CostItemNotVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="35"/>
+              <Component Name="CostItemVAT" Class="Com.Ctrl.IEdit" Caption="Стоимость с НДС" Field="CostHistory.CostItemVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="35"/>
+              <Component Name="CostCurrency" Class="Com.Ctrl.IEdit" Caption="Валюта" CardFileClass="Biz.Tab.Ref.UnitsOrCurrencies" Field="CostHistory.CostCurrency" HasCaption="True" LookupField="Code" LookupFilter="IsCurrency = 1" ShortList="True" Width="35"/>
+            </Component>
+          </Component>
+        </Component>
+        <Inherited Name="MainTab" AutoSize="True">
+          <Component Name="BoxPurchaseGroupLot" Class="Com.Ctrl.IBox" Caption="Закупки">
+            <Component Name="grPurchaseLot" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="220" MinWidth="150">
+              <Component Name="PurchaseLot" Class="Com.Ctrl.IEdit" Caption="Лот" Field="EdtRec.PurchaseLot" HasCaption="True"/>
+            </Component>
+            <Component Name="grProductionTime" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150" MinWidth="70">
+              <Component Name="ProductionTime" Class="Com.Ctrl.IEdit" Caption="Плановый срок поставки,дн" Field="EdtRec.ProductionTime" HasCaption="True"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

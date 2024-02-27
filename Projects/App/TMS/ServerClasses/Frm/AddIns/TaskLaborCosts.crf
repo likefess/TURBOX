@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Frm.AddIns.BaseTask">
+  <Inherited Caption="@TMS:TaskLaborCosts=Трудозатраты">
+    <Component Name="Variables" Class="Com.IVarContainer" After="EdtRec">
+      <Component Name="LaborCostsSubtable" Class="Com.ISubtable" StructClass="TMS.Rec.Data.Task_LaborCostsItem"/>
+      <Component Name="TotalTextVar" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="TotalTextVar2" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Component>
+    <Component Name="TabMenu" Class="Com.Ctrl.IPopupMenu">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="cmdInsertRow" Class="Com.Cmd2.IItem" Command="Commands.InsertRow"/>
+      <Component Name="cmdDeleteRow" Class="Com.Cmd2.IItem" Command="Commands.DeleteRow"/>
+    </Component>
+    <Inherited Name="RootFrame" After="TabMenu" Color="0x00FAF6F5" Margins="0">
+      <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+      <Component Name="LaborCostsField" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0xFF000005" Margins="0" Visible="False">
+        <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+        <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+          <Component Name="GroupAssessment" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" Width="30">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Excluded="True" Caption="Первоначальная оценка (в часах)"/>
+            <Component Name="EditEstimate" Class="Com.Ctrl.IEdit" Excluded="True" CellFormat="NumericFormat" Field="EdtRec.Estimate" FixSize="True" ValueType="VarNumeric" Width="60"/>
+            <Component Name="InitialAssessmentEdit" Class="Com.Ctrl.IEdit" Excluded="True" Field="EdtRec.InitialAssessment" ValueType="VarInteger"/>
+          </Component>
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" MaxWidth="100" Width="60"/>
+        </Component>
+      </Component>
+      <Component Name="LaborCostsFrame" Class="Com.Ctrl.IFrame" AutoSize="False" Color="0xFF000005" Margins="0">
+        <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+        <Component Name="TableFrame" Class="Com.Ctrl.IFrame" AutoSize="False" Margins="0">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="LaborCostsTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="True" CanInsert="True" CanMove="False" Freezed="True" ManualControl="True" Numbering="False" PopupMenu="TabMenu" Subtable="LaborCostsSubtable">
+            <Component Name="Task_LaborCosts" Class="TMS.Rec.Data.Task_LaborCostsItem" IsLibrary="1"/>
+            <Component Name="EventEdit" Class="Com.Ctrl.IEdit" Excluded="True" Caption="@TMS:EventEdit=Событие" CardFileClass="TMS.Tab.Data.DayEvent" Field="Task_LaborCosts.Event" FixSize="True" LookupField="Name" ShortList="True" Visible="False" Width="40"/>
+            <Component Name="RoleEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:RoleEdit=Роль" CardFileClass="Bas.Tab.Ref.EntityRoles" Field="Task_LaborCosts.Role" LookupField="Name" LookupFilter="SystemRole in [7, 8]" MinWidth="20" ShortList="True" Width="40"/>
+            <Component Name="EntityEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:EntityEdit=Исполнитель" CardFileClass="TrackingCore.Tab.Data.People" Field="Task_LaborCosts.Entity" LookupField="Name" MinWidth="20" ShortList="True" Width="60"/>
+            <Component Name="PlanHoursEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:PlanHoursEdit=План, ч" Field="Task_LaborCosts.Hours" FieldFormat=",##0.00;;-" OnChange="PlanHoursEditOnChange" Width="20"/>
+            <Component Name="PlanSubtaskHoursEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:PlanHoursEdit=План по дочерним" Enabled="False" Field="Task_LaborCosts.PlanSubtaskHours" FieldFormat=",##0.00;;-" Visible="False" Width="20"/>
+            <Component Name="FactHoursEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:FactHoursEdit=Факт, ч" Enabled="False" Field="Task_LaborCosts.FactHoursVar" FieldFormat=",##0.00;;-" Width="20"/>
+            <Component Name="FactSubtaskHoursEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:FactHoursEdit=Факт по дочерним" Enabled="False" Field="Task_LaborCosts.FactSubtaskHours" FieldFormat=",##0.00;;-" Visible="False" Width="20"/>
+            <Component Name="CommentEdit" Class="Com.Ctrl.IEdit" Excluded="True" Caption="@TMS:CommentEdit=Комментарий" Field="Task_LaborCosts.Comment" MinWidth="30"/>
+            <Component Name="DelButton" Class="Com.Ctrl.IButton" FixSize="True" ImageName="Com.DeleteObj" OnClick="DelButtonOnClick" Width="10"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="LaborCostsButtons" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0xFF000005" Margins="0">
+        <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+        <Component Name="GroupButtons" Class="Com.Ctrl.IGroup" Visible="True">
+          <Component Name="AddButton" Class="Com.Ctrl.IButton" Caption="Добавить" OnClick="AddButtonOnClick" Visible="False"/>
+          <Component Name="SumHoursButton" Class="Com.Ctrl.IButton" Caption="Обновить" OnClick="SumHoursButtonOnClick" Visible="False"/>
+        </Component>
+        <Component Name="GroupTotal" Class="Com.Ctrl.IGroup" Adaptive="True" Enabled="False">
+          <Component Name="TotalEdit" Class="Com.Ctrl.IEdit" Color="0xFE00000A" Enabled="False" Field="TotalTextVar" MinWidth="20" Width="100"/>
+          <Component Name="SumPlanEdit" Class="Com.Ctrl.IEdit" Color="0xFE00000A" Enabled="False" Field="EdtRec.SelfPlanHours" FieldFormat=",##0.00;;-" Width="20"/>
+          <Component Name="SumPlanSubEdit" Class="Com.Ctrl.IEdit" Color="0xFE00000A" Enabled="False" Field="EdtRec.SubPlanHours" FieldFormat=",##0.00;;-" Visible="False" Width="20"/>
+          <Component Name="SumFactEdit" Class="Com.Ctrl.IEdit" Color="0xFE00000A" Enabled="False" Field="EdtRec.SelfFactHours" FieldFormat=",##0.00;;-" Width="20"/>
+          <Component Name="SumFactSubEdit" Class="Com.Ctrl.IEdit" Color="0xFE00000A" Enabled="False" Field="EdtRec.SubFactHours" FieldFormat=",##0.00;;-" Visible="False" Width="20"/>
+          <Component Name="TotalCommentEdit" Class="Com.Ctrl.IEdit" Excluded="True" Color="0xFE00000A" Enabled="False" Field="TotalTextVar2"/>
+          <Component Name="TotalBtnEdit" Class="Com.Ctrl.IEdit" Color="0xFE00000A" Enabled="False" Field="TotalTextVar2" FixSize="True" Width="10"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Frm.AddIns.BaseProject">
+  <Inherited Caption="@Task:StatusHistory=История состояний">
+    <Inherited Name="RootFrame" AutoSize="True" MinSize="50" Size="50">
+      <Component Name="TableFrame" Class="Com.Ctrl.IFrame" Enabled="False">
+        <Component Name="HistoryOfStatusTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" Enabled="False" ManualControl="False" Numbering="False" Subtable="EdtRec.HistoryOfStatus">
+          <Component Name="Project_History" Class="TrackingPlan.Rec.Refs.Project_HistoryOfTransitions" IsLibrary="1"/>
+          <Component Name="HistoryTimeEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Project_History.TimeOfTransition" FieldFormat="dd.MM.yyyy HH:mm:ss" FormatOfDate="DateAndTime" HasCaption="True"/>
+          <Component Name="HistoryOldStatusEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Project_History.OldStatus" HasCaption="True"/>
+          <Component Name="HistoryNewStatusEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Project_History.NewStatus" HasCaption="True"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

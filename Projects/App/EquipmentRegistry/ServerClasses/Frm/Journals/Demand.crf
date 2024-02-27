@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Frm.Base.BaseJournalFrm">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="EquipmentRegistry.Rec.Journals.Demand" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Component Name="btnTransferToSCM" Class="Com.Ctrl.IButton" Caption="@Создать документ &quot;Заявка на ТМЦ (внутренняя)&quot;" Hint="@Создать в подсистеме УЦП документ &quot;Заявка на ТМЦ (внутренняя)&quot;" ImageName="Com.Report" OnClick="btnTransferToSCMClick"/>
+          <Component Name="btnShowSCMDocs" Class="Com.Ctrl.IButton" Caption="@Показать документы &quot;Заявка на ТМЦ (внутренняя)&quot;" Hint="@Показать созданные документы &quot;Заявка на ТМЦ (внутренняя)&quot;" ImageName="Com.Service" OnClick="btnShowSCMDocsClick"/>
+        </Inherited>
+        <Inherited Name="ButtonReports" After="ButtonServices"/>
+        <Inherited Name="ButtonClose" After="ButtonReports"/>
+        <Inherited Name="ButtonAnalytics" After="ButtonClose"/>
+        <Inherited Name="ButtonClone" Enabled="False"/>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="MainBox" Visible="False"/>
+          <Component Name="LinesBox" Class="Com.Ctrl.IBox" After="MainBox" HasCaption="True" Margins="5">
+            <Component Name="LineTable" Class="Com.Ctrl.ITable" Freezed="False" Numbering="True" Subtable="EdtRec.sbtOrders">
+              <Component Name="vDefPosO" Class="EquipmentRegistry.Rec.Journals.DemandOrders" IsLibrary="1"/>
+              <Component Name="sbtOOrderDate" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosO.OrderCode" FixSize="True" HasCaption="True" LookupField="JournalDate" Width="42"/>
+              <Component Name="sbtOOrderCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Journals.Orders" CellFormat="ReferenceFormat" Field="vDefPosO.OrderCode" FixSize="True" HasCaption="True" LookupField="Code" OnVerify="sbtOOrderCode_OnVerify" Required="True" Width="40"/>
+              <Component Name="sbtOOrderNameGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+                <Component Name="sbtOOrderName" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Journals.Orders" CellFormat="ReferenceFormat" Field="vDefPosO.OrderCode" FixSize="True" HasCaption="False" LookupField="Name" OnVerify="sbtOOrderCode_OnVerify" Required="True" Width="120"/>
+                <Component Name="sbtOOrderNameJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosO.OrderCode" FixSize="True" HasCaption="False" Width="7.2"/>
+              </Component>
+            </Component>
+          </Component>
+          <Inherited Name="LineBox" Visible="False"/>
+        </Inherited>
+        <Component Name="SparePartsFrame" Class="Com.Ctrl.IFrame" Caption="@Материалы" HasCaption="True" Margins="5">
+          <Component Name="SparePartsTable" Class="Com.Ctrl.ITable" Freezed="False" Numbering="True" Subtable="EdtRec.sbtSpareParts">
+            <Component Name="vDefPosS" Class="EquipmentRegistry.Rec.Journals.DemandSpareParts" IsLibrary="1"/>
+            <Component Name="sbtSResCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Equipment.Resource_PartTab" CellFormat="ReferenceFormat" Field="vDefPosS.ResourceCode" FixSize="True" HasCaption="True" LookupField="Code" OnEnter="sbtSResCode_OnEnter" Required="True" Width="40"/>
+            <Component Name="sbtSResNameGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtSResName" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Equipment.Resource_PartTab" CellFormat="ReferenceFormat" Field="vDefPosS.ResourceCode" FixSize="True" HasCaption="False" LookupField="Name" OnEnter="sbtSResCode_OnEnter" Required="True" Width="60"/>
+              <Component Name="sbtSResNameJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosS.ResourceCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtSResQuantity" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="vDefPosS.ResourceQuantity" FixSize="True" HasCaption="True" OnEnter="sbtSResQuantity_OnEnter" OnOutputEx="sbtSResQuantity_OnOutput" OnVerify="sbtSResQuantity_OnVerify" Required="True" Width="30"/>
+            <Component Name="sbtSResUnit" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CardFileClass="EquipmentRegistry.Tab.Ref.Equipment.Resource_PartTab" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosS.ResourceCode" FixSize="True" HasCaption="True" LookupField="MainUnit.Code" Required="True" Width="30"/>
+            <Component Name="sbtSStoreGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtSStore" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" CellFormat="ReferenceFormat" Field="vDefPosS.Store" FixSize="True" HasCaption="False" LookupField="Name" OnEnter="sbtSStore_OnEnter" OnGetLookupFilter="sbtSStore_OnGetLookupFilter" OnOpenCardForm="sbtSStore_OnOpenCardForm" Required="True" Width="40"/>
+              <Component Name="sbtSStoreJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosS.Store" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtSOrderGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtSOrder" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Journals.Orders" CellFormat="ReferenceFormat" Field="vDefPosS.OrderCode" FixSize="True" HasCaption="False" LookupField="Code" OnEnter="sbtSOrder_OnEnter" OnGetLookupFilter="sbtSOrder_OnGetLookupFilter" OnOpenCardForm="sbtSOrder_OnOpenCardForm" Required="True" Width="40"/>
+              <Component Name="sbtSOrderJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosS.OrderCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

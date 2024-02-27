@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.Ref.Project">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="ExternalPriceVisibleVar" Class="Com.Fld.IVar" Excluded="True" StoredVar="True" ValueType="VarLogical"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="5" PrimaryButton="ButtonOK1">
+        <Component Name="ButtonAddToFavorites" Class="Com.Ctrl.IButton" After="#0" ImageName="TrackingCore.star_white" OnClick="ButtonAddToFavoritesOnClick"/>
+        <Inherited Name="ButtonOK" After="ButtonAddToFavorites" Enabled="False" Visible="False" Width="30"/>
+        <Component Name="ButtonOK1" Class="Com.Ctrl.IButton" After="ButtonOK" Caption="@Cmd:PostClose=OK" Enabled="False" FontSize="11" OnClick="ButtonOK_OnClick" Width="30"/>
+        <Component Name="ButtonSetupScheme" Class="Com.Ctrl.IButton" ImageName="Control.Setup"/>
+        <Inherited Name="ButtonChildForms" After="ButtonSetupScheme"/>
+        <Component Name="btnTaskTransfer" Class="Com.Ctrl.IButton" After="ButtonClone" Caption="@TrackingCore:Project.TasksTransfer=Перенести задачи" ImageName="Bas.share" OnClick="btnTaskTransferOnClick"/>
+        <Inherited Name="ButtonDelete" After="btnTaskTransfer"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" Visible="False">
+        <Inherited Name="Group1" Excluded="True">
+          <Inherited Name="Group2" Excluded="True"/>
+          <Inherited Name="Name" OnChange="NameOnChange"/>
+          <Inherited Name="Comment1" Excluded="True"/>
+          <Component Name="ProjectColorEdit" Class="Com.Ctrl.IColorEdit" Excluded="True" Field="EdtRec.ProjectColor" HasCaption="True" Width="35"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab" Caption="@Frm:MainTab=О проекте" Margins="0" Orientation="Vertical" ScrollerStyle="ScrollerVert">
+          <BuiltIn Name="SideMargins" Bottom="24" Left="32" Right="32" Top="24"/>
+          <Component Name="ContentBodyFrame" Class="Com.Ctrl.IFrame" After="#0" Proportion="33">
+            <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="32" Top="0"/>
+            <Component Name="MainInfoFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <BuiltIn Name="SideMargins" Bottom="16" Left="0" Right="0" Top="0"/>
+              <Component Name="Group4" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="Name2" Class="Com.Ctrl.IEdit" Caption="Название" Field="EdtRec.Name" FontBold="False" HasCaption="True" HasInnerCaption="True" Required="True" Visible="True"/>
+              </Component>
+            </Component>
+            <Component Name="AboutFrame" Class="Com.Ctrl.IFrame" AutoSize="True" ScrollerStyle="ScrollerNone">
+              <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+              <Component Name="FrameDescriptionQuillJS" Class="Com.Ctrl.IFrame" AutoSize="True" MinSize="50">
+                <BuiltIn Name="SideMargins" Bottom="24" Left="0" Right="0" Top="0"/>
+                <Component Name="DescriptionQuillJS" Class="Com.Ctrl.IQuillJS" OnSelectionChange="DescriptionQuillJSOnSelectionChange" OnTextChange="ChangeDescription" ResizeEnabled="True" Visible="False"/>
+                <Component Name="DescriptionBrowser" Class="Com.Ctrl.IBrowser" Visible="False"/>
+              </Component>
+              <Component Name="DescriptionBox" Class="Com.Ctrl.IBox" Caption="Описание" Color="0x00FAF6F5" Margins="5" Visible="False">
+                <Component Name="DatesFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+                  <BuiltIn Name="SideMargins" Left="12" Right="12"/>
+                </Component>
+              </Component>
+              <Component Name="BoxAttachments" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@Attachments=Вложения" Margins="0" Visible="True">
+                <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                <BuiltIn Name="Title" Color="0xFF000005" FontBold="True" FontColor="0x001C1817" FontSize="16"/>
+                <Component Name="FrameAttachments" Class="Com.Ctrl.IFrame" AutoSize="True" CanResizeBySplit="True" Caption="Файлы" Margins="0" MinSize="20">
+                  <BuiltIn Name="SideMargins" Bottom="24" Left="0" Right="0" Top="0"/>
+                  <Component Name="AttachmentsOfTask" Class="TrackingLib.Ctrl.IAttachment" Excluded="True" FixSize="False" ResizeEnabled="True"/>
+                </Component>
+              </Component>
+              <Component Name="DesignBox" Class="Com.Ctrl.IBox" Caption="Оформление и задачи" Color="0x00FAF6F5" Margins="5" Visible="False">
+                <Component Name="Group16" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                  <Component Name="NumberPrexif1" Class="Com.Ctrl.IEdit" Caption="@Project:NumberPrexif.Caption=Префикс номера" Field="EdtRec.NumberPrefix" FixSize="False" HasCaption="True" HasInnerCaption="True" Required="True" Width="40"/>
+                  <Component Name="Static21" Class="Com.Ctrl.IStatic" FixSize="False" Width="40"/>
+                </Component>
+                <Component Name="Group17" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" Visible="False">
+                  <Component Name="InitialStatus1" Class="Com.Ctrl.IEdit" Caption="@Project:InitialStatus.Caption=Начальное состояние задач" Field="EdtRec.InitialStatus" HasCaption="True" HasInnerCaption="True" Required="False" ShortList="True" Visible="False" Width="40"/>
+                  <Component Name="TaskTemplate" Class="Com.Ctrl.IEdit" Caption="@Project:TasksTemplate.Caption=Шаблон задачи" Field="EdtRec.TasksTemplate" FixSize="False" HasCaption="True" HasInnerCaption="True" Visible="False" Width="40"/>
+                </Component>
+                <Component Name="Group15" Class="Com.Ctrl.IGroup" Adaptive="True" Visible="False">
+                  <Component Name="Static11" Class="Com.Ctrl.IStatic"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="ContentSideFrame" Class="Com.Ctrl.IFrame" Proportion="17">
+            <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+            <Component Name="FrameForPM" Class="Com.Ctrl.IFrame">
+              <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+              <Component Name="StakeholfersFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0x00F8F7F7">
+                <BuiltIn Name="SideMargins" Left="0"/>
+                <Component Name="StakeHoldersGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                  <Component Name="Static8" Class="Com.Ctrl.IStatic" Caption="Стейкхолдеры" FontBold="True" FontSize="12"/>
+                </Component>
+              </Component>
+              <Component Name="PeopleInfoFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0x00F8F7F7">
+                <BuiltIn Name="SideMargins" Bottom="12" Left="16" Right="16" Top="16"/>
+                <Component Name="DatesGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="BegDate1" Class="Com.Ctrl.IEdit" Caption="Дата начала" Field="EdtRec.BegDate" HasCaption="True" HasInnerCaption="True" OnVerify="BegDate_OnVerify"/>
+                  <Component Name="EndDate1" Class="Com.Ctrl.IEdit" Caption="Дата окончания" Field="EdtRec.EndDate" HasCaption="True" HasInnerCaption="True" OnVerify="EndDate_OnVerify"/>
+                </Component>
+                <Component Name="PeopleGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                  <Component Name="Initiator" Class="Com.Ctrl.IEdit" Caption="Автор" Enabled="False" Field="EdtRec.Initiator" HasInnerCaption="True" Required="True"/>
+                  <Component Name="Responsible" Class="Com.Ctrl.IEditEx" Caption="Ответственный" CardFileClass="Bas.Tab.Data.Entity" Field="EdtRec.Responsible" HasCaption="True" HasInnerCaption="True" LookupField="Name" Required="True" ShortList="True">
+                    <Component Name="AppointMeButton" Class="Com.Ctrl.IButton" Excluded="True" Caption="  Назначить меня  " Fashion="Fashions.TertiaryButton" FixSize="True" MinWidth="60" OnClick="AppointMeButton1OnClick" Width="40"/>
+                  </Component>
+                </Component>
+              </Component>
+              <Component Name="BudgetBox" Class="Com.Ctrl.IBox" Caption="Бюджет" Color="0x00F8F7F7">
+                <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                <BuiltIn Name="Title" Color="0x00F8F7F7" FontBold="True" FontColor="0x001C1817"/>
+                <Component Name="BudgetFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0x00F8F7F7">
+                  <BuiltIn Name="SideMargins" Bottom="0" Left="12" Right="12" Top="0"/>
+                  <Component Name="BudgetGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                    <Component Name="Budget" Class="Com.Ctrl.IEditEx" Alignment="LeftAlign" Caption="Бюджет проекта" CellFormat="NumericFormat" Field="EdtRec.Budget" FieldFormat=",##0.00;;-" FixSize="False" HasCaption="True" HasInnerCaption="True" Width="50"/>
+                    <Component Name="Static9" Class="Com.Ctrl.IStatic" FixSize="False" FontBold="False" Width="50"/>
+                  </Component>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="FrameForStaff" Class="Com.Ctrl.IFrame" Visible="False">
+              <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+              <Component Name="FrameStaffInfo" Class="Com.Ctrl.IFrame">
+                <Component Name="GroupStatus" Class="Com.Ctrl.IGroup" Adaptive="True">
+                  <Component Name="StatusStatic" Class="Com.Ctrl.IStatic"/>
+                </Component>
+                <Component Name="GroupStartDate" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="StartDateCaption" Class="Com.Ctrl.IStatic" Caption="Дата начала"/>
+                  <Component Name="StartDateStaff" Class="Com.Ctrl.IStatic"/>
+                </Component>
+                <Component Name="GroupEndDate" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="EndDateCaption" Class="Com.Ctrl.IStatic" Caption="Дата окончания"/>
+                  <Component Name="EndDateStaff" Class="Com.Ctrl.IStatic"/>
+                </Component>
+                <Component Name="GroupAuthor" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="AuthorCaption" Class="Com.Ctrl.IStatic" Caption="Автор"/>
+                  <Component Name="AuthorStaff" Class="Com.Ctrl.IStatic"/>
+                </Component>
+                <Component Name="GroupResponsible" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="ResponsibleCaption" Class="Com.Ctrl.IStatic" Caption="Ответственный"/>
+                  <Component Name="ResponsibleStaff" Class="Com.Ctrl.IStatic"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Inherited Name="Group3" Excluded="True" After="ContentSideFrame" CaptionWidth="50">
+            <Inherited Name="BegDate" Excluded="True"/>
+            <Inherited Name="RuleGroup" Visible="False"/>
+            <Component Name="InitialStatus" Class="Com.Ctrl.IEditEx" After="RuleGroup" CardFileClass="Control.Tab.Ref.TaskStatus" CellFormat="ReferenceFormat" Field="EdtRec.InitialStatus" HasCaption="True" LookupField="Name" ValueType="VarObject">
+              <Component Name="JB_InitialStatus" Class="Com.Ctrl.IJumpButton"/>
+            </Component>
+            <Inherited Name="TasksFolder" After="InitialStatus" CardFileClass="TrackingCore.Tab.Data.Tasks" Visible="False"/>
+            <Component Name="TasksTemplate" Class="Com.Ctrl.IEditEx" After="TasksFolder" CardFileClass="TrackingCore.Tab.Data.Tasks" Field="EdtRec.TasksTemplate" HasCaption="True" LookupField="Name">
+              <Component Name="TemplateJumpButton" Class="Com.Ctrl.IJumpButton"/>
+            </Component>
+            <Component Name="EMailServer" Class="Com.Ctrl.IEditEx" CardFileClass="Bas.Tab.Config.EMailServer" CellFormat="ReferenceFormat" Field="EdtRec.EMailServer" HasCaption="True" LookupField="Name" ValueType="VarObject">
+              <Component Name="JB_EMailServer" Class="Com.Ctrl.IJumpButton"/>
+            </Component>
+            <Inherited Name="NumberPrexif" After="EMailServer"/>
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" After="NumberPrexif"/>
+            <Component Name="Contraparty" Class="Com.Ctrl.IEditEx" CardFileClass="Bas.Tab.Data.Entity" Field="EdtRec.Contraparty" HasCaption="True" LookupField="Name" OnGetLookupFilter="ContrapartyOnGetLookupFilter"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

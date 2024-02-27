@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CashFlow.Frm.Doc.MoneyDocument">
+  <Inherited HelpContext="CashFlow.Движение денежных средств.Денежные документы.Документы.Межфилиальное перемещение.Выдача ден документов в филиал">
+    <Inherited Name="FRecord" Class="CashFlow.Rec.Doc.MoneyDoc_BranchIssue" IsLibrary="1"/>
+    <Inherited Name="vDefPos" Class="CashFlow.Rec.Doc.MoneyDoc_BranchIssue_Positions" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Visible="True">
+          <Component Name="ButtonMoveToBranch" Class="Com.Ctrl.IButton" Caption="@MoneyDocument:ButtonMoveToBranch=Передать в филиал" ImageName="Com.CloneItem" OnClick="ButtonMoveToBranch_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="GeneralBox">
+            <Inherited Name="GeneralGroup">
+              <Inherited Name="GeneralGroupLeft">
+                <Component Name="Contraparty1Group" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="Contraparty1" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="FRecord.Contraparty" HasCaption="True" LookupField="Name" Wrap="False"/>
+                  <Component Name="BtnStatic24" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Inherited>
+              <Inherited Name="GeneralGroupRight">
+                <Component Name="Contract1Group" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="Contract1" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Field="FRecord.Contract" HasCaption="True" LookupField="Code" OnChange="Contract1_OnChange" Wrap="False"/>
+                  <Component Name="BtnStatic25" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="ExtraBox" Visible="True">
+            <Inherited Name="ExtraGroup">
+              <Inherited Name="BtnStatic23" Excluded="True"/>
+              <Component Name="ExtraGroupLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="OffsetAccount" Class="Com.Ctrl.IEditEx" CellFormat="StringFormat" Field="FRecord.OffsetAccount" HasCaption="True">
+                  <Component Name="OffsetAccountBtn" Class="Com.Ctrl.IButton" HasCaption="False" Hint="@MoneyDoc_BranchIssue:OffsetAccountBtn=Выбор счета" ImageName="Biz.id-card-light" OnClick="OffsetAccountBtn_OnClick"/>
+                </Component>
+              </Component>
+              <Component Name="ExtraGroupRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="Group10" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                  <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                  <Component Name="MovedToBranch" Class="Com.Ctrl.ICheckBox" Field="FRecord.MovedToBranch"/>
+                  <Component Name="BtnStatic26" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="SumBox">
+            <Inherited Name="SumBoxGroup">
+              <Inherited Name="AmountHeader" Excluded="True"/>
+              <Inherited Name="QtyHeader" Excluded="True"/>
+              <Component Name="Currency1" Class="Com.Ctrl.IEdit" Excluded="True" Caption="@MoneyDoc_BranchReception:Currency=Валюта" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Field="FRecord.Currency" FixSize="True" HasCaption="True" LookupField="Code" ShortList="True" Visible="False" Width="15"/>
+              <Component Name="SumBoxGroupLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="ContractCurrencyGroup" Class="Com.Ctrl.IGroup">
+                  <Component Name="ContractCurrency" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Field="FRecord.ContractCurrency" HasCaption="True" LookupField="Code" ShortList="True"/>
+                  <Component Name="BtnStatic32" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+              <Component Name="SumBoxGroupRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              </Component>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="PositionsBox">
+            <Inherited Name="PositionsTable">
+              <Inherited Name="Price" Excluded="True"/>
+              <Inherited Name="Amount" Excluded="True"/>
+              <Inherited Name="ResAccountGroup" Excluded="True"/>
+              <Component Name="InputPrice" Class="Com.Ctrl.IEdit" Caption="@MoneyDocument:InputPrice=Цена для ввода" CellFormat="NumericFormat" Field="vDefPos.InputPrice" FieldFormat=",##0.00;;-" HasButton="True" HasCaption="True" Width="30"/>
+              <Component Name="Price1" Class="Com.Ctrl.IEdit" Caption="@MoneyDocument:Price=Цена" CellFormat="NumericFormat" Enabled="False" Field="vDefPos.Price" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@MoneyDocument:Price.Hint=Окончательная цена с налогами и скидками" Width="30"/>
+              <Component Name="Amount1" Class="Com.Ctrl.IEdit" Caption="@MoneyDocument:Amount=Сумма" CellFormat="NumericFormat" Field="vDefPos.Amount" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@MoneyDocument:Amount.Hint=Сумма в валюте документа" Width="30"/>
+              <Component Name="ResAccountGroup1" Class="Com.Ctrl.IColumnsGroup" Caption="@MoneyDoc_WriteOff:ResAccountGroup=Счет учета" HasCaption="True">
+                <Component Name="ResAccount1" Class="Com.Ctrl.IEditEx" Field="vDefPos.ResAccount" HasCaption="False" Width="30">
+                  <Component Name="ResAccountBtn1" Class="Com.Ctrl.IButton" HasCaption="False" Hint="@MoneyDoc_BranchIssue:ResAccountBtn1=Выбор счета" ImageName="Biz.id-card-light" OnClick="ResAccountBtn1_OnClick"/>
+                </Component>
+              </Component>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

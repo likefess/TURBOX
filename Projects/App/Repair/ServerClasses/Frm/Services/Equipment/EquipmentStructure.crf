@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Component Name="GridDataSource" Class="Repair.Service.EqmStruct.EqmStructDataSource" After="#0"/>
+    <Component Name="Filter" Class="Repair.Service.EqmStruct.Filters.EqmStructDataFilters" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="3">
+        <Inherited Name="ButtonOK" Visible="False"/>
+        <Component Name="ButtonRefreshByFilters" Class="Com.Ctrl.IButton" After="ButtonOK" Caption="Обновить" ImageName="Com.Refresh" OnClick="ButtonRefreshByFiltersClick"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="FilterBox" Class="Com.Ctrl.IBox" Caption="Фильтр" HasCaption="True">
+          <Component Name="eCompanyFilterGr" Class="Com.Ctrl.IGroup">
+            <Component Name="eCompanyFilter" Class="Com.Ctrl.IEdit" Caption="Предприятие" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="Filter.Company" HasCaption="True" LookupField="Name" OnGetLookupFilter="eCompanyFilterOnGetLookupFilter" Wrap="False"/>
+            <Component Name="eCompanyFilterJB" Class="Com.Ctrl.IJumpButton" Field="Filter.Company" FixSize="True" HasCaption="False" Width="7.2"/>
+          </Component>
+          <Component Name="eObjectFilterGr" Class="Com.Ctrl.IGroup">
+            <Component Name="eObjectFilter" Class="Com.Ctrl.IEdit" Caption="Объект" CardFileClass="EquipmentRegistry.Tab.Ref.Places.ObjectsTab" CellFormat="ReferenceFormat" Field="Filter.ObjectCode" HasCaption="True" LookupField="Name" OnGetLookupFilter="eObjectFilterOnGetLookupFilter" Wrap="False"/>
+            <Component Name="eObjectFilterJB" Class="Com.Ctrl.IJumpButton" Field="Filter.ObjectCode" FixSize="True" HasCaption="False" Width="7.2"/>
+          </Component>
+          <Component Name="eLineFilterGr" Class="Com.Ctrl.IGroup">
+            <Component Name="eLineFilter" Class="Com.Ctrl.IEdit" Caption="Линия" CardFileClass="EquipmentRegistry.Tab.Ref.Places.LinesTab" CellFormat="ReferenceFormat" Field="Filter.Line" HasCaption="True" LookupField="Name" OnGetLookupFilter="eObjectFilterOnGetLookupFilter" Wrap="False"/>
+            <Component Name="eLineFilterJB" Class="Com.Ctrl.IJumpButton" Field="Filter.Line" FixSize="True" HasCaption="False" Width="7.2"/>
+          </Component>
+          <Component Name="ePlaceFilterGr" Class="Com.Ctrl.IGroup">
+            <Component Name="ePlaceFilter" Class="Com.Ctrl.IEdit" Caption="Техместо" CardFileClass="EquipmentRegistry.Tab.Ref.Places.PlacesTab" CellFormat="ReferenceFormat" Field="Filter.Place" HasCaption="True" LookupField="Name" OnGetLookupFilter="ePlaceFilterOnGetLookupFilter" Wrap="False"/>
+            <Component Name="ePlaceFilterJB" Class="Com.Ctrl.IJumpButton" Field="Filter.Place" FixSize="True" HasCaption="False" Width="7.2"/>
+          </Component>
+          <Component Name="eEquipmentFilterGr" Class="Com.Ctrl.IGroup">
+            <Component Name="eEquipmentFilter" Class="Com.Ctrl.IEdit" Caption="Оборудование" CardFileClass="EquipmentRegistry.Tab.Eqm.EquipmentTab" CellFormat="ReferenceFormat" Field="Filter.Equipment" HasCaption="True" LookupField="Name" OnGetLookupFilter="eEquipmentFilterOnGetLookupFilter" Wrap="False"/>
+            <Component Name="eEquipmentFilterJB" Class="Com.Ctrl.IJumpButton" Field="Filter.Equipment" FixSize="True" HasCaption="False" Width="7.2"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Visible="False"/>
+        <Component Name="GridTab" Class="Com.Ctrl.IFrame" Caption="Структура оборудования">
+          <Component Name="Grid" Class="Com.Ctrl.IGrid">
+            <Component Name="GridRows" Class="Com.Ctrl.Grid.INode" DataSource="GridDataSource" Enabled="False" HasCaption="False" Hierarchical="True" IsColumn="False" Width="80"/>
+            <Component Name="GridColumns" Class="Com.Ctrl.Grid.INode" HasCaption="False" IsColumn="True">
+              <Component Name="NameColumn" Class="Com.Ctrl.Grid.INode" Caption="Наименование" FixSize="False" HasCaption="True" Width="120"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

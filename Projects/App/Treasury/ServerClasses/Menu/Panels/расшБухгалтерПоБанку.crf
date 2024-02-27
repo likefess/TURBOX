@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CashFlow.Menu.Panels.БухгалтерПоБанку">
+  <Inherited>
+    <Inherited Name="MainGroup">
+      <Inherited Name="Справочники" Rows="3">
+        <Component Name="MenuItem_InfobaseCmdCountries" Class="Com.Cmd2.IItem" After="Cmd_Currencies" Command="Commands.Cmd_Countries"/>
+        <Component Name="MenuItem_InfobaseCmdVAT" Class="Com.Cmd2.IItem" Command="Commands.Cmd_VAT"/>
+        <Component Name="MenuItem_InfobaseCmdDivisions" Class="Com.Cmd2.IItem" After="Cmd_Contract" Command="Commands.Cmd_Divisions"/>
+        <Component Name="Cmd_Addresses" Class="Com.ComManaging.OpenIForm" After="Cmd_NaturalEntities" AdvRTIForm="Biz.Frm.Data.Address" Caption="@Cmd:Addresses=Адреса" FormClassName="Biz.Tab.Data.Addresses" IconName="Biz.Address"/>
+        <Component Name="кмдСтатусыНалогоплательщиков" Class="Com.Cmd2.IItem" Command="Commands.кмдСтатусыНалогоплательщиков"/>
+        <Component Name="кмдКБК" Class="Com.Cmd2.IItem" Command="Commands.кмдКБК"/>
+        <Component Name="кмдКодыОснованийПлатежей" Class="Com.Cmd2.IItem" Command="Commands.кмдКодыОснованийПлатежей"/>
+        <Component Name="кмдТипыНалоговыхПлатежей" Class="Com.Cmd2.IItem" Command="Commands.кмдТипыНалоговыхПлатежей"/>
+        <Component Name="Item_LoadBIC" Class="Com.Cmd2.IItem" Command="Commands.Cmd_Сервис_ЗагрузкаБИК"/>
+      </Inherited>
+      <Inherited Name="Документы">
+        <Component Name="Заявки_на_оплату" Class="Com.Cmd2.IItem" After="#0" Command="Commands.Заявки_на_оплату"/>
+        <Inherited Name="cmdClientBankExport" Excluded="True"/>
+        <Inherited Name="cmdClientBankImport" Excluded="True"/>
+      </Inherited>
+      <Component Name="Операции" Class="Com.Cmd2.IGroup" After="Документы" Caption="@Cmd:Группа_Операции=Операции" Columns="6">
+        <Component Name="cmdClientBankExport1" Class="Com.Cmd2.IItem" Command="Commands.cmdClientBankExport"/>
+        <Component Name="cmdClientBankImport1" Class="Com.Cmd2.IItem" Command="Commands.cmdClientBankImport"/>
+      </Component>
+      <Inherited Name="Отчеты">
+        <Inherited Name="cmdRepTSRBank" Excluded="True"/>
+        <Component Name="Реестр_платежных_поручений" Class="Com.Cmd2.IItem" Command="Commands.Реестр_платежных_поручений"/>
+        <Component Name="Отчет_о_движении_денежных_средств" Class="Com.Cmd2.IItem" Command="Commands.Отчет_о_движении_денежных_средств"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

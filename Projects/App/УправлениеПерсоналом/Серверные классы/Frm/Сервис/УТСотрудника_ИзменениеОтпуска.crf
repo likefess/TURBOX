@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Component Name="ОтпускКорр" Class="УправлениеПерсоналом.Rec.Сервис.ОтпускОстатки" IsLibrary="1" After="#0"/>
+    <Component Name="ОтпускКоррИтого" Class="УправлениеПерсоналом.Rec.Сервис.ОтпускОстатки" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="ОтпускаКорр" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Сервис.ОтпускОстатки"/>
+      <Component Name="ОтпускаКоррИтого" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Сервис.ОтпускОстатки"/>
+      <Component Name="УсловияТрудаСотрудника" Class="Com.Fld.IVar" RecordClass="HRBase.Rec.Data.EmployeePlace" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="грСотрудник" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Сотрудник" Class="Com.Ctrl.IEdit" Caption="Сотрудник" Enabled="False" Field="УсловияТрудаСотрудника" HasCaption="True" LookupField="Person.Name"/>
+          <Component Name="УсловияТруда" Class="Com.Ctrl.IEdit" Caption="Таб. номер " Enabled="False" Field="УсловияТрудаСотрудника" HasCaption="True" LookupField="ТабНомер" Width="25"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="тблОтпускаКорр" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Numbering="False" Subtable="ОтпускаКорр">
+            <Component Name="грОтпускОстаткиЗаПериод" Class="Com.Ctrl.IColumnsGroup" Caption="Период работы (рабочий год)" HasCaption="True">
+              <Component Name="ПериодС" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="с" Enabled="False" Field="ОтпускКорр.ПериодС" FormatOfDate="DateOnly" HasCaption="True" Width="30"/>
+              <Component Name="ПериодПо" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="по" Enabled="False" Field="ОтпускКорр.ПериодПо" FormatOfDate="DateOnly" HasCaption="True" Width="30"/>
+            </Component>
+            <Component Name="КолМесяцев" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Кол-во полных месяцев" Field="ОтпускКорр.КолМесяцев" FieldFormat=",##0;;-" HasCaption="True" Hint="Количество полных месяцев в периоде" OnChange="КолМесяцев_OnChange" Width="25"/>
+            <Component Name="грОсновнойОтпуск" Class="Com.Ctrl.IColumnsGroup" Caption="Основной отпуск" HasCaption="True">
+              <Component Name="ОсновнойКод" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Код" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыОтпусков" Enabled="False" Field="ОтпускКорр.Основной" HasCaption="True" LookupField="Код" Width="15"/>
+              <Component Name="ОснНорма" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Норма дней" Enabled="False" Field="ОтпускКорр.ОснНорма" HasCaption="True" Width="30"/>
+              <Component Name="ОснКолДней" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Кол-во дней" Enabled="True" Field="ОтпускКорр.ОснКолДней" HasCaption="True" Width="30"/>
+            </Component>
+            <Component Name="грДопОтпуска" Class="Com.Ctrl.IColumnsGroup" Caption="Дополнительные отпуска" HasCaption="True">
+              <Component Name="грДопОтпуск1" Class="Com.Ctrl.IColumnsGroup" Caption="I" HasCaption="True">
+                <Component Name="ДопОтпуск1" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Код" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыОтпусков" Enabled="False" Field="ОтпускКорр.ДопОтпуск1" HasCaption="True" LookupField="Код" Width="15"/>
+                <Component Name="ДопОтпуск1Норма" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Норма дней" Enabled="False" Field="ОтпускКорр.ДопОтпуск1Норма" HasCaption="True" Width="30"/>
+                <Component Name="Доп1КолДней" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Кол-во дней" Field="ОтпускКорр.ДопОтпуск1КолДней" HasCaption="True" Width="30"/>
+              </Component>
+              <Component Name="грДопОтпуск2" Class="Com.Ctrl.IColumnsGroup" Caption="II" HasCaption="True">
+                <Component Name="ДопОтпуск2" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Код" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыОтпусков" Enabled="False" Field="ОтпускКорр.ДопОтпуск2" HasCaption="True" LookupField="Код" Width="15"/>
+                <Component Name="ДопОтпуск2Норма" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Норма дней" Enabled="False" Field="ОтпускКорр.ДопОтпуск2Норма" HasCaption="True" Width="30"/>
+                <Component Name="Доп2КолДней" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Кол-во дней" Field="ОтпускКорр.ДопОтпуск2КолДней" HasCaption="True" Width="30"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="тблКоррИтого" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" HasCaption="False" Numbering="False" Subtable="ОтпускаКоррИтого">
+            <Component Name="итогоЗаПериодС" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Enabled="False" Field="ОтпускКорр.ПериодС" FormatOfDate="DateOnly" HasCaption="False" Width="30"/>
+            <Component Name="итогоЗаПериодПо" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Enabled="False" Field="ОтпускКорр.ПериодПо" FontBold="True" HasCaption="False" OnOutput="итогоЗаПериодПо_OnOutput" Width="30"/>
+            <Component Name="итогоКолМесяцев" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Enabled="False" Field="ОтпускКоррИтого.КолМесяцев" FieldFormat=",##0;;-" FontBold="True" HasCaption="False" OnOutput="итогоКолМесяцев_OnOutput" Width="25"/>
+            <Component Name="итогоОсновнойКод" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыОтпусков" Enabled="False" Field="ОтпускКоррИтого.Основной" HasCaption="False" LookupField="Код" Width="15"/>
+            <Component Name="итогоОснНорма" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Enabled="False" Field="ОтпускКоррИтого.ОснНорма" HasCaption="False" Width="30"/>
+            <Component Name="итогоОснКолДней" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Enabled="False" Field="ОтпускКоррИтого.ОснКолДней" FontBold="True" HasCaption="False" OnOutput="итогоОснКолДней_OnOutput" Width="30"/>
+            <Component Name="итогоДопОтпуск1" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Код" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыОтпусков" Enabled="False" Field="ОтпускКоррИтого.ДопОтпуск1" HasCaption="False" LookupField="Код" Width="15"/>
+            <Component Name="итогоДопОтпуск1Норма" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Enabled="False" Field="ОтпускКоррИтого.ДопОтпуск1Норма" HasCaption="False" Width="30"/>
+            <Component Name="итогоДоп1КолДней" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Кол-во дней" Field="ОтпускКоррИтого.ДопОтпуск1КолДней" FontBold="True" HasCaption="False" OnOutput="итогоДоп1КолДней_OnOutput" Width="30"/>
+            <Component Name="итогоДопОтпуск2" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыОтпусков" Enabled="False" Field="ОтпускКоррИтого.ДопОтпуск2" HasCaption="False" LookupField="Код" Width="15"/>
+            <Component Name="итогоДопОтпуск2Норма" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Enabled="False" Field="ОтпускКоррИтого.ДопОтпуск2Норма" HasCaption="False" Width="30"/>
+            <Component Name="итогоДоп2КолДней" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Enabled="False" Field="ОтпускКоррИтого.ДопОтпуск2КолДней" FontBold="True" HasCaption="False" OnOutput="итогоДоп2КолДней_OnOutput" Width="30"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

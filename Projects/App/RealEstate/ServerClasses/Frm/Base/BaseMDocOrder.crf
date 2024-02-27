@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="RealEstate.Frm.Base.BaseMDoc">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="RealEstate.Rec.Base.BaseMDocOrder" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="40" MaxWidth="230" MinWidth="150">
+          <Component Name="MDDate" Class="Com.Ctrl.IEdit" Caption="Дата, Номер" CellFormat="DateFormat" Field="EdtRec.MDDate" FormatOfDate="DateOnly" HasCaption="True" Width="45"/>
+          <Component Name="Number" Class="Com.Ctrl.IEdit" Field="EdtRec.Number" HasCaption="False" Width="45"/>
+          <Component Name="Static8" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+          <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Caption="Замок" Field="EdtRec.Locked" FixSize="True" HasCaption="True" Width="18"/>
+          <Component Name="btnStatus" Class="Com.Ctrl.IButton" Caption="Разнести" HasCaption="True" ImageName="Com.Collapse" OnClick="CommitReCommit" Width="30"/>
+          <Component Name="Static6" Class="Com.Ctrl.IStatic" FixSize="True" Width="35"/>
+        </Component>
+        <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="OurCompany" Class="Com.Ctrl.IEdit" Caption="Организация" CardFileClass="Bas.Tab.Data.Entity" Field="EdtRec.OurCompany" HasCaption="True" LookupField="Name"/>
+          <Component Name="NumDoc" Class="Com.Ctrl.IEdit" Excluded="True" CardFileClass="NumExt.Tab.Service.NumeratorDoc" Enabled="False" Field="EdtRec.NumDoc" Hint="Ссылка на нумератор по выбранной организации" Width="45"/>
+          <Component Name="btnNumDoc" Class="Com.Ctrl.IJumpButton" Excluded="True" Enabled="False" Field="EdtRec.NumDoc" HasCaption="False" JumpForm="NumExt.Frm.Service.NumeratorDoc" Width="7"/>
+          <Component Name="Static5" Class="Com.Ctrl.IStatic" Width="55"/>
+        </Component>
+        <Component Name="Group4" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="OrderType" Class="Com.Ctrl.IEdit" Caption="Документ" CardFileClass="RealEstate.Tab.Ref.OrderType" Field="EdtRec.OrderType" HasCaption="True" LookupField="Name" OnChange="OrderType_OnChange" OnGetLookupFilter="OrderType_OnGetLookupFilter" OnOpenCardForm="OrderType_OnOpenCardForm" ShortList="True"/>
+          <Component Name="Static3" Class="Com.Ctrl.IStatic" Width="55"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

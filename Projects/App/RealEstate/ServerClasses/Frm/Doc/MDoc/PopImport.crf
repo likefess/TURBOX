@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="RealEstate.Frm.Base.BaseMDocMeter">
+  <Inherited HelpContext="RealEstate.Управление имуществом.Загрузки.Загрузка численности для объекта имущества">
+    <Inherited Name="EdtRec" Class="RealEstate.Rec.Doc.MDoc.PopImport" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Caption="@Загрузка численности" HasCaption="True">
+        <Inherited Name="ButtonServices">
+          <Component Name="ValidateButton" Class="Com.Ctrl.IButton" Caption="@Проверить" HasCaption="True" ImageName="Repair.clipboard-list-check" OnClick="ValidateButton_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="DateCodeGr">
+            <Inherited Name="Date" Caption="@Дата"/>
+            <Inherited Name="CodeEdit" Visible="False"/>
+          </Inherited>
+          <Inherited Name="NameGr" Visible="False"/>
+          <Inherited Name="DescriptionGr">
+            <Component Name="BtnStatic3" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+          </Inherited>
+          <Inherited Name="MBGr" Visible="False"/>
+          <Component Name="ImportFileGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+            <Component Name="ImportFile" Class="Com.Ctrl.IEdit" CellFormat="CommonFormat" Field="EdtRec.ImportFile" HasButton="True" HasCaption="True" OnEnter="ImportFile_OnEnter" OnLookup="ImportFile_OnLookup" Required="True"/>
+            <Component Name="btnFileOpen" Class="Com.Ctrl.IButton" FixSize="True" Hint="@Открыть" ImageName="Com.play" OnClick="btnFileOpen_OnClick" Width="7.2"/>
+            <Component Name="btnFileSave" Class="Com.Ctrl.IButton" FixSize="True" Hint="@Скачать" ImageName="RealEstate.arrow-alt-to-bottom" OnClick="btnFileSave_OnClick" Width="7.2"/>
+          </Component>
+          <Component Name="ImportParamGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+            <Component Name="ImportStateGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="Static4" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              <Component Name="ImportState" Class="Com.Ctrl.ICheckBox" Field="EdtRec.ImportState" FixSize="True" HasCaption="True" Width="70"/>
+              <Component Name="ImportFact" Class="Com.Ctrl.ICheckBox" Field="EdtRec.ImportFact" HasCaption="True"/>
+            </Component>
+          </Component>
+          <Component Name="ProgressGr" Class="Com.Ctrl.IGroup" Visible="False">
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+            <Component Name="ProgressStatic" Class="Com.Ctrl.IStatic" FontBold="True" FontSize="14"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="LinesFrame" Visible="False">
+        <Inherited Name="LRightFrame">
+          <Inherited Name="LinesTable">
+            <Inherited Name="vDefPos" Class="RealEstate.Rec.Doc.MDoc.PopImport_Lines" IsLibrary="1"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="@Данные файла импорта">
+          <Component Name="LinesTable1" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" Freezed="False" Subtable="EdtRec.sbtLines">
+            <Component Name="ObjGr" Class="Com.Ctrl.IColumnsGroup" Caption="@Объект имущества" HasCaption="True">
+              <Component Name="KadastrNumber" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="vDefPos.KadastrNumber" HasCaption="False" OnDraw="Col_OnDraw" Width="100"/>
+              <Component Name="Obj" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPos.Obj" HasCaption="False" LookupField="Name" Visible="False" Width="100"/>
+              <Component Name="ObjJB" Class="Com.Ctrl.IJumpButton" Field="vDefPos.Obj" FixSize="True" HasCaption="False" JumpForm="RealEstate.Frm.Data.RealEstateObject" Width="7.2"/>
+            </Component>
+            <Component Name="ServFKUGr" Class="Com.Ctrl.IColumnsGroup" Excluded="True" Caption="@Гос. служащие ФКУ &quot;ЦОКР&quot;" HasCaption="True">
+              <Component Name="PServFKU" Class="Com.Ctrl.IEdit" Caption="@Штатная" CellFormat="StringFormat" Enabled="False" Field="vDefPos.PServFKU" HasCaption="True" OnDraw="Col_OnDraw" Width="30"/>
+              <Component Name="FServFKU" Class="Com.Ctrl.IEdit" Caption="@Фактическая" CellFormat="StringFormat" Enabled="False" Field="vDefPos.FServFKU" HasCaption="True" OnDraw="Col_OnDraw" Width="30"/>
+            </Component>
+            <Component Name="WorkFKUGr" Class="Com.Ctrl.IColumnsGroup" Caption="@Работники УК" HasCaption="True">
+              <Component Name="PWorkFKU" Class="Com.Ctrl.IEdit" Caption="@Штатная" CellFormat="StringFormat" Enabled="False" Field="vDefPos.PWorkFKU" HasCaption="True" OnDraw="Col_OnDraw" Width="30"/>
+              <Component Name="FWorkFKU" Class="Com.Ctrl.IEdit" Caption="@Фактическая" CellFormat="StringFormat" Enabled="False" Field="vDefPos.FWorkFKU" HasCaption="True" OnDraw="Col_OnDraw" Width="30"/>
+            </Component>
+            <Component Name="Log" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="vDefPos.Log" HasCaption="True" Multiline="True" Width="120" Wrap="True"/>
+            <Component Name="DocGr" Class="Com.Ctrl.IColumnsGroup" Caption="@Документ" HasCaption="True">
+              <Component Name="Doc" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPos.Doc" HasCaption="False" LookupField="Code" Width="30"/>
+              <Component Name="DocJB" Class="Com.Ctrl.IJumpButton" Field="vDefPos.Doc" HasCaption="False" JumpForm="RealEstate.Frm.Doc.MDoc.RealEstateObjectPop"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

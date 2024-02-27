@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Purchase.Rec.Ref.PurchaseGroup" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Component Name="Number" Class="Com.Ctrl.IEdit" After="#0" Caption="Номер" Field="EdtRec.Number" HasCaption="True" Visible="False"/>
+          <Inherited Name="Code" Caption="Код" Required="True" Visible="True"/>
+          <Inherited Name="Name" Caption="Название" Required="True" Visible="True"/>
+          <Component Name="Group" Class="Com.Ctrl.IEdit" After="Name" Caption="Группа" Enabled="False" Field="EdtRec.GroupDoc" HasCaption="True"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="ContactsBox" Class="Com.Ctrl.IBox" Caption="Контакты" HasCaption="True">
+            <Component Name="grPhoneEmail" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="240" MinWidth="150">
+              <Component Name="Phone" Class="Com.Ctrl.IEdit" Caption="Телефон" Field="EdtRec.Phone" HasCaption="True"/>
+              <Component Name="EMail" Class="Com.Ctrl.IEdit" Caption="E_Mail" Field="EdtRec.Email" HasCaption="True"/>
+            </Component>
+            <Component Name="grSurnameRP" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="120" MinWidth="75">
+              <Component Name="SurnameRespPerson" Class="Com.Ctrl.IEdit" Caption="Фамилия КЛ" Field="EdtRec.SurnameRespPerson" HasCaption="True"/>
+            </Component>
+            <Component Name="grNamePatronymicRP" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="240" MinWidth="150">
+              <Component Name="NameRespPerson" Class="Com.Ctrl.IEdit" Caption="Имя КЛ" Field="EdtRec.NameRespPerson" HasCaption="True"/>
+              <Component Name="PatronymicRespPerson" Class="Com.Ctrl.IEdit" Caption="Отчество КЛ" Field="EdtRec.PatronymicRespPerson" HasCaption="True"/>
+            </Component>
+            <Component Name="grSpecification" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="240" MinWidth="150">
+              <Component Name="Specification" Class="Com.Ctrl.IEdit" Caption="Описание" Field="EdtRec.Specification" HasCaption="True"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

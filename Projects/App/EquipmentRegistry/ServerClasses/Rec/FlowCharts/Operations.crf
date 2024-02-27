@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rec.CodeName">
+  <Inherited>
+    <Component Name="Duration" Class="Com.Fld.IField" FieldName="Duration" OnVerify="Duration_OnVerify" ValueType="VarNumeric"/>
+    <Component Name="SpareCost" Class="Com.Fld.IField" FieldName="SpareCost" ValueType="VarNumeric"/>
+    <Component Name="WorkCost" Class="Com.Fld.IField" FieldName="WorkCost" ValueType="VarNumeric"/>
+    <Component Name="OtherCost" Class="Com.Fld.IField" FieldName="OtherCost" ValueType="VarNumeric"/>
+    <Component Name="UnitOfMeasure" Class="Com.Fld.IField" FieldName="UnitOfMeasure" ValueType="VarObject"/>
+    <Component Name="TotalCost" Class="Com.Fld.IVar" OnCalc="TotalCostCalc" ValueType="VarNumeric"/>
+    <Component Name="sbtSpareParts" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.FlowCharts.OperationsSpareParts" SubtableName="SpareParts"/>
+    <Component Name="sbtWorkers" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.FlowCharts.OperationsWorkers" SubtableName="Workers"/>
+    <Component Name="sbtWorkersE" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.FlowCharts.OperationsWorkers" SubtableName="Workers"/>
+    <Component Name="sbtOtherCosts" Class="Com.ISubtable" StructClass="EquipmentRegistry.Rec.FlowCharts.OperationsCosts" SubtableName="Costs"/>
+  </Inherited>
+</Resource>

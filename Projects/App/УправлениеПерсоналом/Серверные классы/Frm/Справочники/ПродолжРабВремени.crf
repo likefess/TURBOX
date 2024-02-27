@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.Справочник">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Справочники.Продолжительность рабочего времени">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Справочники.ПродолжРабВремени" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False">
+          <Component Name="кнПроизвКалендарь" Class="Com.Ctrl.IButton" Caption="Производственный календарь" HasCaption="True" Hint="Сформировать производственный календарь" OnClick="кнПроизвКалендарь_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Component Name="Вид" Class="Com.Ctrl.IEdit" Caption="@Вид" CellFormat="EnumFormat" Field="EdtRec.Вид" HasCaption="True" Hint="@ПродолжРабВремени:Вид=Вид продолжительности рабочего времени"/>
+        </Inherited>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="ЧасыВНеделю" Class="Com.Ctrl.IEdit" Caption="@Часов в неделю" Field="EdtRec.ЧасыВНеделю" HasCaption="True" Hint="@ПродолжРабВремени:ЧасыВНеделю=Количество часов в неделю" MaxWidth="30"/>
+          <Component Name="НормаВДень" Class="Com.Ctrl.IEdit" Caption="@Норма в день" Enabled="False" Field="EdtRec.НормаВДень" HasCaption="True" Hint="@ПродолжРабВремени:НормаВДень=Норма часов в день для производственного календаря" MaxWidth="30"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.BasObject">
+  <Inherited>
+    <Inherited Name="Current" Class="TrackingPlan.Rec.Refs.ProjectPlan" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonSelectItem" Printed="False" Visible="False"/>
+        <Inherited Name="ButtonSaveItem" Printed="False" Visible="False"/>
+        <Inherited Name="ButtonFilters" Printed="False" Visible="False"/>
+        <Inherited Name="ButtonCloneItem" Excluded="True" Printed="False" Visible="False"/>
+        <Inherited Name="ButtonDeleteAsync" Printed="False" Visible="False"/>
+        <Inherited Name="ButtonAddFolder" Excluded="True" Printed="False" Visible="False"/>
+        <Inherited Name="ButtonFolderElement" Excluded="True" Printed="False" Visible="False"/>
+        <Inherited Name="ButtonRefresh" Enabled="True" Visible="True"/>
+        <Inherited Name="ButtonExport" Excluded="True" Printed="False" Visible="False"/>
+        <Inherited Name="ButtonImport" Excluded="True" Printed="False" Visible="False"/>
+      </Inherited>
+      <Inherited Name="NavigatorFrame">
+        <Inherited Name="NavigatorGroup">
+          <Inherited Name="ButtonTree" Visible="False"/>
+          <Inherited Name="ButtonBack" Visible="False"/>
+          <Inherited Name="ButtonForward" Visible="False"/>
+          <Inherited Name="PathEdit" Visible="False"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True" Enabled="False" Visible="False">
+          <Inherited Name="CardTree" Visible="False"/>
+        </Inherited>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="CardFile" OnOpenBlank="CardFileOnOpenBlank"/>
+          <Inherited Name="Code" Visible="False"/>
+          <Component Name="BegDate" Class="Com.Ctrl.IEdit" Field="Current.BegDate" ValueType="VarDate" Visible="True" Width="30"/>
+          <Component Name="EndDate" Class="Com.Ctrl.IEdit" Field="Current.EndDate" ValueType="VarDate" Visible="True" Width="30"/>
+          <Component Name="Description" Class="Com.Ctrl.IEdit" Field="Current.Description" ValueType="VarString" Visible="True" Width="80"/>
+          <Component Name="ProjectStatus" Class="Com.Ctrl.IEdit" Field="Current.ProjectStatus" LookupField="Name" ValueType="VarString" Visible="True" Width="40"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

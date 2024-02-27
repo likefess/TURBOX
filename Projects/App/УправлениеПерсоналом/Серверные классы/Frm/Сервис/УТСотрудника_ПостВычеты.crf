@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Основные данные.Изменение вычета">
+    <Inherited Name="EdtRec" Class="HRBase.Rec.Data.EmployeePlace" IsLibrary="1"/>
+    <Component Name="ПостВычеты" Class="УправлениеПерсоналом.Rec.Данные.УсловияТрудаСотрудника_ПостВычеты" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonAnalytics" Excluded="True"/>
+        <Inherited Name="ButtonClone" Excluded="True"/>
+        <Inherited Name="ButtonDelete" Excluded="True"/>
+        <Inherited Name="ButtonRefresh" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="грСотрудник" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Сотрудник" Class="Com.Ctrl.IEdit" Caption="Сотрудник" Enabled="False" Field="EdtRec.Person" HasCaption="True" LookupField="Name"/>
+          <Component Name="ТабНомер" Class="Com.Ctrl.IEdit" Caption="Таб. номер " Enabled="False" Field="EdtRec.EmplNumber" HasCaption="True" LookupField="ТабНомер" Width="25"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="Постоянные вычеты">
+          <Component Name="тблПостВычеты" Class="Com.Ctrl.ITable" Numbering="False" Subtable="EdtRec.ПостВычеты">
+            <Component Name="грПостВычПериод" Class="Com.Ctrl.IColumnsGroup" Caption="@Период действия" HasCaption="True">
+              <Component Name="ПостВычДатаНачала" Class="Com.Ctrl.IEdit" Caption="@с" Field="ПостВычеты.ДатаНачала" HasCaption="True" OnChange="ПостВычДатаНачала_OnChange" OnVerify="ПостВычДатаНачала_OnVerify" Width="30"/>
+              <Component Name="ПостВычДатаОкончания" Class="Com.Ctrl.IEdit" Caption="@по" Field="ПостВычеты.ДатаОкончания" HasCaption="True" OnChange="ПостВычДатаОкончания_OnChange" OnVerify="ПостВычДатаОкончания_OnVerify" Width="30"/>
+            </Component>
+            <Component Name="грПостВычВид" Class="Com.Ctrl.IColumnsGroup" Caption="Вид вычета" HasCaption="True">
+              <Component Name="ПостВычНаименование" Class="Com.Ctrl.IEdit" Caption="@наименование" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыВычетов" Field="ПостВычеты.Наименование" HasCaption="True" LookupField="Name" Multiline="True" OnChange="ПостВычНаименование_OnChange" Width="80" Wrap="True"/>
+              <Component Name="ПостВычКод" Class="Com.Ctrl.IEdit" Caption="код" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыВычетов" Field="ПостВычеты.Наименование" HasCaption="True" LookupField="КодУчета" OnChange="ПостВычКод_OnChange" Width="20"/>
+              <Component Name="кнПостВычНаименование" Class="Com.Ctrl.IJumpButton" Field="ПостВычеты.Наименование" JumpForm="УправлениеПерсоналом.Frm.Классификаторы.ВидыВычетов"/>
+            </Component>
+            <Component Name="грПостВычЗначения" Class="Com.Ctrl.IColumnsGroup" Caption="@Значения" HasCaption="True">
+              <Component Name="ПостВычСтандСумма" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@станд." CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыВычетов" Enabled="False" Field="ПостВычеты.Наименование" FieldFormat=",##0.00;;-" HasCaption="True" LookupField="Сумма" Width="30"/>
+              <Component Name="ПостВычСумма" Class="Com.Ctrl.IEdit" Caption="@соц. или имущ." Field="ПостВычеты.Сумма" FieldFormat=",##0.00;;-" HasCaption="True" OnChange="ПостВычСумма_OnChange" Width="30"/>
+            </Component>
+            <Component Name="ПостВычКол" Class="Com.Ctrl.IEdit" Caption="Количество" Field="ПостВычеты.Количество" FieldFormat=",##0;;-" HasCaption="True" OnChange="ПостВычКол_OnChange" Width="25"/>
+            <Component Name="ПостВычUpdateDate" Class="Com.Ctrl.IEdit" Caption="Дата изменения" Enabled="False" Field="ПостВычеты.UpdateDate" HasCaption="True" Hint="Дата изменения вычетов" MaxWidth="25" Width="25"/>
+            <Component Name="ПостВычUpdateUser" Class="Com.Ctrl.IEdit" Caption="Изменил" Enabled="False" Field="ПостВычеты.UpdateUser" HasCaption="True" Hint="Кем изменен вычет" MaxWidth="25" Width="25"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm" Caption="@TrackingCore:AddBond=Добавить связь" FormIcon="Control.Transition_" ModalHeight="80" ModalWidth="140" WindowStyle="BlockedWindow">
+    <Component Name="EdtRec" Class="Control.Rec.Data.Task" IsLibrary="1"/>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="VarBondType" Class="Com.Fld.IVar" RecordClass="TrackingCore.Rec.Ref.BondType" ValueType="VarObject"/>
+      <Component Name="VarTask" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" Visible="False"/>
+      <Component Name="FieldsFrame" Class="Com.Ctrl.IFrame" Margins="2">
+        <Component Name="TabsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="WithTabs" ShowTabs="True">
+          <Component Name="NewTask" Class="Com.Ctrl.IFrame" Caption="@Frm:NewTask=Новая задача">
+            <Component Name="NewTaskContentGroup" Class="Com.Ctrl.IFrame" Orientation="Vertical">
+              <Component Name="BondTypeGroup" Class="Com.Ctrl.IFrame" Orientation="Horizontal">
+                <Component Name="BondTypeGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                  <Component Name="BondTypeCaption" Class="Com.Ctrl.IStatic" Excluded="True" Caption="Зависимость" FixSize="True" FontColor="0x003B1B15" Width="30"/>
+                  <Component Name="NewBondTypeEdit" Class="Com.Ctrl.IEdit" Caption="@TrackingCore:BondTypeEdit=Зависимость" Field="VarBondType" HasCaption="False" HasInnerCaption="True" OnChange="BondTypeEditOnChange" OnGetLookupFilter="BondTypeEditOnGetLookupFilter" ShortList="True"/>
+                </Component>
+              </Component>
+              <Component Name="TaskGroup" Class="Com.Ctrl.IFrame" Orientation="Horizontal">
+                <Component Name="Task" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                  <Component Name="TaskCaption" Class="Com.Ctrl.IStatic" Excluded="True" Caption="Название задачи" FontColor="0x003B1B15"/>
+                  <Component Name="NewTaskEdit" Class="Com.Ctrl.IEdit" Caption="@TrackingCore:TaskEdit=Название задачи" CellFormat="StringFormat" HasCaption="False" HasInnerCaption="True" ValueType="VarString"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="ExistTask" Class="Com.Ctrl.IFrame" Caption="@Frm:ExistTask=Существующая" Visible="True">
+            <Component Name="ExistTaskContentGroup" Class="Com.Ctrl.IFrame" Orientation="Vertical" Visible="True">
+              <Component Name="BondTypeGroup1" Class="Com.Ctrl.IFrame" Orientation="Horizontal">
+                <Component Name="ExistBondTypeGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                  <Component Name="BondTypeCaption1" Class="Com.Ctrl.IStatic" Excluded="True" Caption="Зависимость" FixSize="True" FontColor="0x003B1B15" Width="30"/>
+                  <Component Name="ExistBondTypeEdit" Class="Com.Ctrl.IEdit" Caption="@TrackingCore:BondTypeEdit=Зависимость" CardFileClass="TrackingCore.Tab.Ref.BondType" Field="VarBondType" HasCaption="False" HasInnerCaption="True" OnChange="BondTypeEditOnChange" OnGetLookupFilter="BondTypeEditOnGetLookupFilter" ShortList="True"/>
+                </Component>
+              </Component>
+              <Component Name="TaskGroup1" Class="Com.Ctrl.IFrame" Orientation="Horizontal">
+                <Component Name="TaskGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                  <Component Name="TaskCaption1" Class="Com.Ctrl.IStatic" Excluded="True" Caption="Задача" FontColor="0x003B1B15"/>
+                  <Component Name="ExistTaskEdit" Class="Com.Ctrl.IEdit" Caption="@TrackingCore:TaskEdit=Задача" CellFormat="StringFormat" Field="VarTask" HasInnerCaption="True" ShortList="True" ValueType="VarString"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="ButtonFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="StartGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="100">
+            <Component Name="AdditionalStatic1" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="False" MinWidth="40"/>
+            <Component Name="CloseButton" Class="Com.Ctrl.IButton" Caption="Отмена" OnClick="ButtonClose_OnClick"/>
+            <Component Name="AddButton" Class="Com.Ctrl.IButton" Caption="@TrackingCore:AddBond=Добавить" OnClick="AddButtonOnClick"/>
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IEditor">
+    <Component Name="EdtRec" Class="TaskApprovement.Rec.Ref.ApprovalTemplate" IsLibrary="1"/>
+    <Component Name="EdtStruct" Class="TaskApprovement.Rec.Ref.ApprovalTemplate_Stages" IsLibrary="1"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="StageBox" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@TaskApprovement:ApprovalStage=Этап" HasCaption="True">
+        <Component Name="Frame1" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Vertical">
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50" HasCaption="True" MaxWidth="300" MinWidth="100">
+            <Component Name="Group6" Class="Com.Ctrl.IGroup" Adaptive="True" HasCaption="True" MaxWidth="300" MinWidth="100">
+              <Component Name="StageNameEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtStruct.StageName" HasInnerCaption="True" Required="True"/>
+              <Component Name="DelStage" Class="Com.Ctrl.IButton" Caption="Удалить" OnClick="DelStageOnClick" Width="25"/>
+            </Component>
+            <Component Name="ApprovalTypeEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtStruct.ApprovalType" HasInnerCaption="True" ListAsString="Последовательно|0;&#xD;&#xA;Параллельно|1" OnChange="ApprovalTypeEditOnChange"/>
+            <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" HasCaption="True" MaxWidth="300" MinWidth="150">
+              <Component Name="CriteriaEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtStruct.Criteria" HasInnerCaption="True" ListAsString="Единогласно|0;&#xD;&#xA;Хотя бы один|1;&#xD;&#xA;Большинство|2;&#xD;&#xA;Квалифицированное большинство|3;&#xD;&#xA;Более заданного %-та голосов|4;&#xD;&#xA;Более заданного %-та квалифицированных голосов|5" OnChange="CriteriaEditOnChange"/>
+              <Component Name="LimitEdit" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CaptionWidth="15" CellFormat="NumericFormat" Enabled="False" Field="EdtStruct.Limit" FieldFormat="#%" FixSize="True" HasInnerCaption="True" Hint="@TaskApprovalTemplate:LimitEdit.Task=Процент голосов(квалифицированных голосов) при преодолении которого решение считается принятым.&#xD;&#xA;Указанное значение должно быть в пределах от 1 до 100 (включительно)." OnVerify="LimitEditOnVerify" Visible="True" Width="25"/>
+            </Component>
+            <Component Name="Group5" Class="Com.Ctrl.IGroup" Adaptive="True" HasCaption="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ReinitEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtStruct.ReinitFrom" HasInnerCaption="True" ListAsString="Запускать с начала|0;&#xD;&#xA;Запускать с этапа|1;&#xD;&#xA;Запускать с этапа, не прошедшего согласование|2" OnChange="ReinitEditOnChange"/>
+              <Component Name="ReinitStageEdit" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CaptionWidth="15" CellFormat="NumericFormat" Enabled="False" Field="EdtStruct.ReinitFromStage" FixSize="True" HasInnerCaption="True" OnVerify="ReinitStageEditOnVerify" Visible="True" Width="25"/>
+            </Component>
+          </Component>
+          <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" HasCaption="True" MaxWidth="300" MinWidth="150">
+            <Component Name="AutoApproveCheck" Class="Com.Ctrl.ICheckBox" Field="EdtStruct.AutoApprove" OnChange="AutoApproveCheckOnChange"/>
+            <Component Name="AutoApproveStatusEdit" Class="Com.Ctrl.IEdit" CaptionWidth="60" CellFormat="ReferenceFormat" Enabled="False" Field="EdtStruct.AutoApproveStatus" FixSize="True" HasInnerCaption="True" LookupField="Name" Width="80"/>
+          </Component>
+          <Component Name="Group4" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+            <Component Name="BlockChangesCheck" Class="Com.Ctrl.ICheckBox" Field="EdtStruct.CloseChanges"/>
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption=" "/>
+            <Component Name="StageDurationEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Длительность этапа" CaptionWidth="60" CellFormat="NumericFormat" Enabled="False" Field="EdtStruct.StageDuration" FixSize="True" HasCaption="True" HasInnerCaption="True" OnOutputEx="StageDurationEditOnOutputEx" OnVerify="StageDurationEditOnVerify" Width="80"/>
+            <Component Name="StageDurationUnitEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UnitsOfMeasure" CellFormat="ReferenceFormat" Enabled="False" Field="EdtStruct.StageDurationUnit" FixSize="True" HasCaption="False" HasInnerCaption="True" LookupField="Code" LookupFilter="UnitKind = 3 and not Closed" ShortList="True" Visible="False" Width="25"/>
+          </Component>
+        </Component>
+        <Component Name="StaffTableFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@TaskApprovement:ApprovalTemplate_Stages_AllocatedStaffPos=Участники согласования" Enabled="True" Margins="1" Orientation="Vertical">
+          <Component Name="StaffTableFrameInner" Class="Com.Ctrl.IFrame" FixSize="True" Size="300">
+            <Component Name="StaffTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="True" CanInsert="True" CanMove="True" Caption="@TaskApprovement:ApprovalTemplate_AllocatedStaffPos=Участники согласования" Enabled="True" ManualControl="True" OnDelete="StaffTableOnDelete" OnInsert="StaffTableOnInsert" Subtable="EdtRec.AllocatedStaffPos" Visible="True">
+              <Component Name="EdtStaffStruct" Class="TaskApprovement.Rec.Ref.ApprovalTemplate_AllocatedStaffPos" IsLibrary="1"/>
+              <Component Name="ColumnsGroup1" Class="Com.Ctrl.IColumnsGroup" Caption="@TaskApprovement:ApprovalTemplate_AllocatedStaffPos=Участники согласования" Enabled="True" HasCaption="True" Visible="True">
+                <Component Name="StaffTypeEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtStaffStruct.StaffType" FixSize="True" HasCaption="True" ListAsString="Сотрудник|0;&#xD;&#xA;Роль|2;&#xD;&#xA;Текущий ответственный|3" OnChange="StaffTypeEditOnChange" Width="50"/>
+                <Component Name="StaffEdit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="EdtStaffStruct.Staff" HasCaption="True" LookupField="Name" MinWidth="40" OnChange="StaffEditOnChange" OnEnter="StaffEditOnEnter" SetRecordParams="StaffEditSetRecordParams"/>
+                <Component Name="StaffCountEdit" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Субъекты" CellFormat="EnumFormat" Field="EdtStaffStruct.StaffCount" FixSize="True" HasCaption="True" ListAsString="Любой|0;&#xD;&#xA;Все|1" OnEnter="StaffCountEditOnEnter" Visible="True" Width="28"/>
+                <Component Name="RelevanceEdit" Class="Com.Ctrl.IEdit" Field="EdtStaffStruct.Relevance" FixSize="True" OnVerify="RelevanceEditOnVerify" Width="15"/>
+                <Component Name="DurationGroup" Class="Com.Ctrl.IColumnsGroup" Caption="Срок" Enabled="True" HasCaption="True" Width="50">
+                  <Component Name="DurationEdit" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Field="EdtStaffStruct.Duration" FixSize="True" HasCaption="False" OnChange="DurationEditOnChange" Width="27"/>
+                  <Component Name="DurationUnitEdit" Class="Com.Ctrl.IEdit" Caption="Срок" CardFileClass="Biz.Tab.Ref.UnitsOfMeasure" CellFormat="ReferenceFormat" Field="EdtStaffStruct.DurationUnit" FixSize="True" HasCaption="False" LookupField="Code" LookupFilter="UnitKind = 3 and not Closed" OnChange="DurationEditOnChange" ShortList="True" Width="23"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Frm.Документы.Имущество.ИмуществоБазовыйДокумент">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Имущество.Rec.Документы.Имущество.КВ.ИмуществоБазовыйДокументКВ" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Шапка_Фрейм">
+          <Inherited Name="Шапка_Гр">
+            <Inherited Name="Шапка_ПервичныйДокумент">
+              <Inherited Name="ПервичныйДокумент" Hint="Наименование документа, на основании которого осуществляется операция с объектом КВ"/>
+            </Inherited>
+            <Component Name="КВ_Гр" Class="Com.Ctrl.IGroup" After="Шапка_ПервичныйДокумент">
+              <Component Name="КВ" Class="Com.Ctrl.IEdit" Caption="Код КВ" CardFileClass="ИмуществоБазовый.Tab.Справочники.КапВложения" CellFormat="ReferenceFormat" Field="EdtRec.КВ" HasCaption="True" LookupField="КодИмущества" MaxWidth="40" OnChange="КВ_OnChange" OnGetLookupFilter="КВ_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуКВ" Required="True" Width="40"/>
+              <Component Name="КВ_ПолнИмя" Class="Com.Ctrl.IEdit" Caption="Наименование" CardFileClass="ИмуществоБазовый.Tab.Справочники.КапВложения" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.КВ" HasCaption="False" Hint=" Полное наименование объекта капитального вложения" LookupField="ПолнИмя"/>
+              <Component Name="КВ_Карточка" Class="Com.Ctrl.IJumpButton" Field="EdtRec.КВ" Hint="Переход на карточку капитального вложения" JumpForm="ИмуществоБазовый.Frm.Справочники.КапВложения"/>
+              <Component Name="btnStatic8" Class="Com.Ctrl.IStatic" FixSize="True" Printed="False" Width="25"/>
+            </Component>
+            <Inherited Name="Корректировка_Гр" After="КВ_Гр">
+              <Inherited Name="КорректируемыйДокумент" CardFileClass="Имущество.Tab.Документы.Имущество.КВ.ИмуществоБазовыйДокументКВ"/>
+              <Inherited Name="кнКорректируемыйДокумент" JumpForm="Имущество.Frm.Документы.Имущество.КВ.ИмуществоБазовыйДокументКВ"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="ОбщиеДанные">
+            <Inherited Name="Подр_Гр">
+              <Inherited Name="Подразделение" Hint="Наименование подразделения, за которым закреплен данный объект КВ, по состоянию на текущую дату"/>
+            </Inherited>
+            <Inherited Name="МОЛ_Гр">
+              <Inherited Name="МОЛ" Hint="ФИО материально-ответственного лица, за которым закреплен данный объект КВ, по состоянию на текущую дату"/>
+            </Inherited>
+            <Inherited Name="Стоимость_Гр">
+              <Inherited Name="Стоимость" Excluded="True"/>
+              <Component Name="СтоимостьКВ" Class="Com.Ctrl.IEdit" Field="EdtRec.Стоимость" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Стоимость объекта (без учета НДС)" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify" Required="True"/>
+              <Component Name="Количество" Class="Com.Ctrl.IEdit" Field="EdtRec.Количество" HasCaption="True" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify" Required="True"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

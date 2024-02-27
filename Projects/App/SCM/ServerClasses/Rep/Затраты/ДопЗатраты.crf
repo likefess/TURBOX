@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" AccountFilter="счетПроцесс" AccountPlan="ПланСчетовПроцесс" BegDate="01.05.2023" BegSaldoFormat="sfNone" Caption="Доп. затраты" CIndicator="1" EndDate="02.05.2023" HidePeriod="True" HystoKind="hkSide" Legend="lpkAtRight" Palette="cpDefault" ParameterFilter="Ресурс.ТипРесурса >= 0 и Ресурс.ТипРесурса &lt; 200 и Статус = Факт и ПозицияРазнесена = 2" Period="-1" ShowBeyondLimits="False" ShowDebCreRow="False" ShowSumKindRow="False" TurnFormat="sfNone">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorСуммаУчетная" Class="Com.Rep.IIndMain" Caption="Сумма" Contents="СуммаУчетная"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam9B76B82E" Class="Com.Rep.ISplitByParam" CorrParam="True" SplitParam="@Ресурс"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContent10B9711F" Class="Com.Rep.ISplitContent" Caption="Услуга" Contents="@Ресурс.Описание"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain">
+      <Component Name="Explain36353BD4" Class="Com.Rep.IExplain" Caption="Документы" ReportName="SCM.Rep.Затраты.Документы"/>
+    </Component>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls"/>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

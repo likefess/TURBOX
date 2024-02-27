@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited HelpContext="RealEstate.Управление имуществом.Справочники.Имущество.Виды объектов имущества">
+    <Inherited Name="EdtRec" Class="RealEstate.Rec.Ref.RealEstateObjKind" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" MaxWidth="230">
+          <Inherited Name="Code" Caption="Код" Visible="True"/>
+          <Inherited Name="Name" Caption="Наименование" Visible="True"/>
+        </Inherited>
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+          <Component Name="Comment" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Описание" Field="EdtRec.Comment" HasCaption="True"/>
+        </Component>
+        <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230">
+          <Component Name="ClassCodeObjKind" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Код в кадастре" Field="EdtRec.ClassCodeObjKind" FixSize="True" HasCaption="True" Width="60"/>
+          <Component Name="RealEstateObjType" Class="Com.Ctrl.IEdit" CardFileClass="RealEstate.Tab.Ref.RealEstateObjType" CellFormat="ReferenceFormat" Field="EdtRec.RealEstateObjType" FixSize="True" HasCaption="True" LookupField="Name" Required="True" Width="60"/>
+          <Component Name="CardFormType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.CardFormType" FixSize="True" HasCaption="True" Width="60"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

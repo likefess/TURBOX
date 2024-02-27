@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CashFlow.Frm.Doc.BankMoveBase">
+  <Inherited>
+    <Inherited Name="FRecord" Class="CashFlow.Rec.Doc.FIDocument" IsLibrary="1"/>
+    <Component Name="FIDoc_Positions" Class="CashFlow.Rec.Doc.FIDocument_Positions" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="TableMenu" After="FIDoc_Positions"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False" Visible="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="FieldsGroup">
+          <Component Name="DocumentTypeGroup" Class="Com.Ctrl.IGroup" After="PrintedNumberEditGroup" ByColumn="False">
+            <Component Name="DocumentType" Class="Com.Ctrl.IEdit" Caption="Тип" CaptionWidth="25" CellFormat="EnumFormat" Enabled="False" Field="FRecord.DocumentType" HasCaption="True" Hint="Тип документа" ListAsString="Выпуск ценных бумаг|0;Передача векселя в счет оплаты задолженности|1;Погашение собственного финансового инструмента|2;Поступление финансовых инструментов|3;Погашение финансового инструмента|4;Начисление процентов финансовые вложения|5;Начисление процентов финансовые активы|6;Реклассификация задолженности|7;Переоценка|8;Выкуп собственных акций|9"/>
+            <Component Name="Closed" Class="Com.Ctrl.ICheckBox" Caption="@FIDocument:Closed=Завершен" Field="FRecord.Closed" FixSize="True" HasCaption="True" Width="25"/>
+          </Component>
+          <Inherited Name="DescriptionGroup" After="DocumentTypeGroup">
+            <Inherited Name="Closed" Excluded="True"/>
+            <Component Name="btnAccounted1" Class="Com.Ctrl.IButton" Caption="Проводить" FixSize="True" HasCaption="True" Width="25"/>
+          </Inherited>
+          <Inherited Name="OtherGroup" Excluded="True"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab" Caption="@FIDocument:MainTab=Документ">
+          <Inherited Name="GeneralBox" Excluded="False">
+            <Component Name="Group9" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="NameEdit" Class="Com.Ctrl.IEdit" Caption="@FIDocument:NameEdit=Наименование" CellFormat="StringFormat" Field="FRecord.Name" Wrap="True"/>
+              <Component Name="BtnStatic20" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="Group9Left" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="EntityEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="EntityEdit" Class="Com.Ctrl.IEdit" Caption="@FIDocument:EntityEdit=Предприятие" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="FRecord.Entity" LookupField="Name" OnChange="EntityEdit_OnChage" ShortList="True"/>
+                  <Component Name="BtnStatic21" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+              <Component Name="Group9Right" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="EntityStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              </Component>
+            </Component>
+          </Inherited>
+          <Inherited Name="OurCompanyBox" Excluded="True"/>
+          <Inherited Name="ContrapartyBox" Excluded="True"/>
+          <Inherited Name="SumBox">
+            <Inherited Name="Group19" Excluded="True"/>
+            <Inherited Name="Group13">
+              <Inherited Name="Sum" Caption="@FIDocument:Sum=Сумма" Enabled="False" Field="FRecord.TotalAmount"/>
+              <Inherited Name="Currency" Caption="Валюта" Enabled="False" ShortList="True"/>
+            </Inherited>
+            <Inherited Name="Group14" Excluded="True"/>
+            <Inherited Name="Group15" Excluded="True"/>
+          </Inherited>
+          <Component Name="PositionsBox" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@FIDocument:PositionsBox=Позиции">
+            <Component Name="PositionsTable" Class="Com.Ctrl.ITable" Adaptive="False" Freezed="True" Subtable="FRecord.Positions">
+              <Component Name="FinInst" Class="Com.Ctrl.IEdit" Caption="@FIDocument:FinInst=Финансовый инструмент" CardFileClass="CashFlow.Tab.Data.FinancialInstrument" CellFormat="ReferenceFormat" Field="FIDoc_Positions.FinInstrument" LookupField="Code" Multiline="True" Width="30" Wrap="True"/>
+              <Component Name="AssetLiability" Class="Com.Ctrl.IEdit" Caption="@FIDocument:AssetLiability=Вид актива/пассива" CardFileClass="CashFlow.Tab.Data.FinancialInstrument" CellFormat="EnumFormat" Enabled="False" Field="FIDoc_Positions.AssetLiability" ListAsString="Кредит/займ|0;Депозит|1;Вексель простой|2;Вексель финансовый|3;Акция|4;Облигация прочая|5;Облигация муниципальная|6;Облигация государственная|7;Акция собственная|8" Multiline="True" Width="40" Wrap="True"/>
+            </Component>
+            <Component Name="PositionsFrame" Class="Com.Ctrl.IFrame" Excluded="True" AutoSize="False"/>
+          </Component>
+          <Component Name="BlockFrame" Class="Com.Ctrl.IFrame" Excluded="True" Caption="@FIDocument:BlockFrame=Надпись" Size="10">
+            <Component Name="Group11" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="BlockStatic" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="@FIDocument:BlockStatic=Позиции доступны для редактирования только если указано Предприятие." MaxWidth="300" MinWidth="150"/>
+            </Component>
+          </Component>
+          <Component Name="CreateUpdBox" Class="Com.Ctrl.IBox" Caption="@FIDocument:CreateUpdBox=Создал, изменил" Collapsed="True">
+            <Component Name="Group10" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="CreateUser" Class="Com.Ctrl.IEdit" Enabled="False" Field="FRecord.CreateUser" HasCaption="True"/>
+              <Component Name="BtnStatic241" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="CreateDate" Class="Com.Ctrl.IEdit" Caption="@FIDocument:CreateDate=Дата" Enabled="False" Field="FRecord.CreateDate" HasCaption="True"/>
+              <Component Name="BtnStatic251" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="NewLine4" Class="Com.Ctrl.INewLine"/>
+              <Component Name="UpdateUser" Class="Com.Ctrl.IEdit" Enabled="False" Field="FRecord.UpdateUser" HasCaption="True"/>
+              <Component Name="BtnStatic261" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="UpdateDate" Class="Com.Ctrl.IEdit" Caption="@FIDocument:UpdateDate=Дата" Enabled="False" Field="FRecord.UpdateDate" HasCaption="True"/>
+              <Component Name="BtnStatic271" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="TransTab" Class="Com.Ctrl.IFrame" Caption="@FIDocument:TransTab=Проводки" Margins="5"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

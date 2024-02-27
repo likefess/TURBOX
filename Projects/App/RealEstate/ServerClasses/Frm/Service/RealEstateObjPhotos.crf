@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="RealEstate.Frm.Service.Base.BaseService">
+  <Inherited Caption="Галерея изображений" HelpContext="RealEstate.RealEstate.Основные данные.Галерея изображений">
+    <Component Name="Libraries" Class="Com.ILibContainer" After="#0">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    </Component>
+    <Component Name="vDefPos" Class="RealEstate.Rec.Service.RealEstateObjPhotosLines" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Inherited Name="Subt" StructClass="RealEstate.Rec.Service.RealEstateObjPhotosLines"/>
+      <Component Name="vREO" Class="Com.Fld.IVar" RecordClass="RealEstateBase.Rec.Data.RealEstateObject" ValueType="VarObject"/>
+      <Component Name="PicBlob" Class="Com.Fld.IBlob" FieldName="PicBlob"/>
+    </Inherited>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" After="Variables">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" Caption="Галерея изображений" HasCaption="True">
+        <Component Name="ButtonOK" Class="Com.Ctrl.IButton" Hint="@Сохранить изменения" ImageName="Com.PostClose" OnClick="ButtonOK_OnClick"/>
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Command="Commands.CloseForm" Hint="@Закрыть" ImageName="Com.Close"/>
+        <Component Name="ButtonRefresh" Class="Com.Ctrl.IButton" Command="Commands.RefreshForm" Hint="@Обновить" ImageName="Com.Refresh" OnClick="ButtonRefresh_OnClick" Visible="False"/>
+      </Component>
+      <Component Name="MainFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="PhotoFrame" Class="Com.Ctrl.IFrame" CanResizeBySplit="True" MinSize="20" Size="100" SplitterAtRight="True" UseSplitter="True">
+          <Component Name="Photo" Class="Com.Ctrl.IPicture" Center="True" Field="PicBlob" ScaleByWheel="True" Shrink="True" Stretch="True"/>
+        </Component>
+        <Component Name="DataFrame" Class="Com.Ctrl.IFrame">
+          <Component Name="ButtonsFrameParent" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="5">
+            <Component Name="ButtonsFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="ButtonsGr" Class="Com.Ctrl.IGroup" Adaptive="True">
+                <Component Name="Static1" Class="Com.Ctrl.IStatic"/>
+                <Component Name="btnAdd" Class="Com.Ctrl.IButton" Hint="@Добавить" ImageName="RealEstate.plus" OnClick="btnAddOnClick"/>
+                <Component Name="btnDel" Class="Com.Ctrl.IButton" Hint="@Удалить" ImageName="RealEstate.minus" OnClick="btnDelOnClick"/>
+                <Component Name="btnUp" Class="Com.Ctrl.IButton" Hint="@Переместить вверх" ImageName="RealEstate.caret-up" OnClick="btnUpOnClick"/>
+                <Component Name="btnDown" Class="Com.Ctrl.IButton" Hint="@Переместить вниз" ImageName="RealEstate.caret-down" OnClick="btnDownOnClick"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="LinesFrameParent" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="5">
+            <Component Name="LinesTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="True" CanInsert="True" CanMove="True" Freezed="True" Numbering="True" OnInsert="PhotoLines_OnInsert" Subtable="Subt">
+              <Component Name="Name" Class="Com.Ctrl.IEdit" Caption="@Наименование" CellFormat="StringFormat" Field="vDefPos.Name" HasCaption="True" OnEnter="Name_OnEnter" ValueType="VarString"/>
+              <Component Name="UploadDate" Class="Com.Ctrl.IEdit" Caption="@Дата загрузки" CellFormat="DateFormat" Enabled="False" Field="vDefPos.UploadDate" FixSize="True" FormatOfDate="DateAndTime" HasCaption="True" ValueType="VarDate" Width="40"/>
+              <Component Name="Size" Class="Com.Ctrl.IEdit" Caption="@Размер" CellFormat="NumericFormat" Enabled="False" Field="vDefPos.Size" FieldFormat="#,##0.00" FixSize="True" HasCaption="True" OnOutput="Size_OnOutput" ValueType="VarNumeric" Width="25"/>
+              <Component Name="ViewPhotoBtn" Class="Com.Ctrl.IButton" FixSize="True" Hint="@Показать фотографию" ImageName="Com.play" OnClick="btnViewPhotoClick" Width="7.2"/>
+              <Component Name="SavePhotoBtn" Class="Com.Ctrl.IButton" FixSize="True" Hint="@Скачать изображение" ImageName="RealEstate.arrow-alt-to-bottom" OnClick="SavePhotoBtn_OnClick" Width="7.2"/>
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+  </Inherited>
+</Resource>

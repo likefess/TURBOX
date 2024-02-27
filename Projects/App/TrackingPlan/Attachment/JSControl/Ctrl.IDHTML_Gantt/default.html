@@ -1,0 +1,400 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="http-equiv" content="Content-type: text/html; charset=UTF-8">
+ <script charset="UTF-8" src="dist/sources/dhtmlxgantt.js" ></script>
+ <link rel="stylesheet" href="dist/sources/dhtmlxgantt.css" type="text/css">
+ <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="default.css" type="text/css">
+ <script charset="UTF-8" src="default.js" ></script>
+ <script charset="UTF-8" src="base.js" ></script>
+
+</head>
+<body>
+      <div>
+	<ul>
+	  <li>
+	    <input id="r1" type="radio" name="scale" value="day">
+	    <label for="r1">День</label>
+	    <input id="r2" type="radio" name="scale" value="week" checked>
+	    <label for="r2">Неделя</label>
+	    <input id="r3" type="radio" name="scale" value="month">
+	    <label for="r3">Месяц</label>
+	    <input id="r4" type="radio" name="scale" value="quarter">
+	    <label for="r4">Квартал</label>
+	    <input id="r5" type="radio" name="scale" value="year">
+	    <label for="r5">Год</label>
+	    <div id="checkboxs_div" style = "display: inline">
+	      <label class = "vertical"></label>
+	      <input id="c1" type="checkbox" style="margin-left: 15px"/>
+	      <label for="c1">Критические задачи</label>
+	      <input id="c2" type="checkbox" style="margin-left: 10px"/>
+	      <label for="c2">Загрузка ресурсов</label>
+	      <input id="c3" type="checkbox" style="margin-left: 10px"/>
+	      <label for="c3">Показывать фактическое время</label>
+	    </div>
+	  </li>
+	</ul>
+      </div>
+      <div id="gantt_here" style="min-height:90vh; margin-top: 16px"></div>
+      <script type="text/javascript">
+      gantt.plugins({
+	   marker: true,
+	   auto_scheduling: true,
+	   critical_path: true,
+	   undo: true
+      });
+      var dateToStr = gantt.date.date_to_str(gantt.config.task_date);
+
+      gantt.config.auto_scheduling_strict = true;
+      gantt.config.auto_scheduling_compatibility = true;
+
+      gantt.templates.resource_cell_class = function(start_date, end_date, resource, tasks){
+		var css = [];
+		css.push("resource_marker");
+		var result = 0;
+		for(var i = 0; i < tasks.length; i++)
+		{
+		   var hour = 0;
+		   for (var j = 0; j < tasks[i].plan_res.length; j++)
+		   {
+		     if (tasks[i].plan_res[j][0] == resource.id)
+		     {
+			hour = tasks[i].plan_res[j][1];
+		     }
+		   }
+		   result += hour/tasks[i].duration;
+		}
+		if (result <= (resource.busyness/5)) {
+			css.push("workday_ok");
+		} else {
+			css.push("workday_over");
+		}
+		return css.join(" ");
+	};
+      gantt.templates.resource_cell_value = function(start_date, end_date, resource, tasks){
+		var result = 0;
+		for(var i = 0; i < tasks.length; i++)
+		{
+		   var hour = 0;
+		   for (var j = 0; j < tasks[i].plan_res.length; j++)
+		   {
+		     if (tasks[i].plan_res[j][0] == resource.id)
+		     {
+			hour = tasks[i].plan_res[j][1];
+		     }
+		   }
+
+		   var amount = 0;
+		   var cell_duration = gantt.calculateDuration({ start_date: start_date, end_date: end_date });
+		   if (+tasks[i].start_date <= +start_date && +tasks[i].end_date >= +end_date) {
+			   amount += cell_duration;
+		   }
+		   //the task is in the left part
+		   else if (+tasks[i].start_date <= +start_date && +tasks[i].end_date >= +start_date && +tasks[i].end_date < +end_date) {
+			   var left_duration = gantt.calculateDuration({ start_date: start_date, end_date: tasks[i].end_date });
+			   amount += left_duration;
+		   }
+		   //the task is in the right part
+		   else if (+tasks[i].end_date >= +end_date && +tasks[i].start_date >= +start_date && +tasks[i].start_date < +end_date) {
+			   var right_duration = gantt.calculateDuration({ start_date: tasks[i].start_date, end_date: end_date });
+			   amount += right_duration;
+		   }
+		   //the task is inside cell
+		   else if (+tasks[i].start_date >= +start_date && +tasks[i].end_date <= +end_date) {
+			   var task_duration = gantt.calculateDuration({ start_date: tasks[i].start_date, end_date: tasks[i].end_date });
+			   amount += task_duration;
+		   }
+
+		   result += amount*hour/tasks[i].duration;
+		}
+		return "<div>" + Number(result.toFixed(1)) + "</div>";
+      };
+
+      gantt.config.resource_store = "users";
+      gantt.config.resource_property = "user_id";
+
+      var resourceConfig = {
+	columns: [
+	   {
+	     name: "name", align:"center", label: "Имя", template: function (resource) {
+		     return resource.text;
+	     }
+	   },
+	   {
+	     name: "workload", label: "Загрузка", align:"center", template: function (resource) {
+		     var tasks;
+		     var store = gantt.getDatastore(gantt.config.resource_store),
+			     field = gantt.config.resource_property;
+
+		     tasks = gantt.getTaskBy(field, resource.id);
+		     var totalDuration = 0;
+		     var result = 0;
+		     for (var i = 0; i < tasks.length; i++) {
+			     for (var j = 0; j < tasks[i].plan_res.length; j++)
+			     {
+				if (tasks[i].plan_res[j][0] == resource.id)
+				{
+					result += tasks[i].plan_res[j][1];
+				}
+			     }
+		     }
+
+		    return result.toFixed(1) + " ч";
+	     }
+	   }
+	]
+	};
+
+
+var withResources = {
+    css: "gantt_container",
+    cols: [
+	{
+	    width: 400,
+	    rows: [
+		{
+		    group: "gantt",
+		    cols: [
+			{
+			    rows: [
+				{ view: 'grid', scrollX: 'gridScrollX', scrollable: true, scrollY: 'scrollVer' },
+				{ view: 'scrollbar', id: 'gridScrollX' }
+			    ]
+			},
+			{   width: 50,
+			    rows: [
+				{ view: 'grid', bind: 'task', scrollY: 'scrollVer', config: fixedColumn}
+			    ]
+			},
+		    ], gravity:2
+		},
+		{ resizer: true, width: 1 },
+		{   config: resourceConfig,
+		    group: "resources",
+		    cols: [
+			{
+			    rows: [
+				{ view: "resourceGrid", scrollY: "gridScrollY2", scrollX: "gridScrollX2", scrollable: true }
+				, { view: "scrollbar", id: "gridScrollX2" }
+			    ]
+			},
+			{ view: 'scrollbar', id: 'gridScrollY2' }
+		    ], gravity:1
+		}
+
+	    ],
+	},
+	{ resizer: true, width: 1 },
+	{
+	    rows: [
+		{
+		    group: "gantt",
+		    cols: [
+			{
+			    rows: [
+				{ view: "timeline", scrollX: "scrollHor", scrollY: "scrollVer" },
+				{ view: "scrollbar", id: "scrollHor" }
+			    ]
+			},
+			{ view: 'scrollbar', id: 'scrollVer' }
+		    ], gravity:2
+		},
+		{ resizer: true, width: 1 },
+		{
+		    config: resourceConfig,
+		    group: "resources",
+		    cols: [
+			{
+			    rows: [
+				{ view: "resourceTimeline", scrollX: "scrollHor2", scrollY: "scrollVer2" },
+				{ view: "scrollbar", id: "scrollHor2" }
+			    ]
+			},
+			{ view: 'scrollbar', id: 'scrollVer2' }
+		    ], gravity:1
+		}
+	    ]
+	}
+    ]
+}
+var withoutResources = {
+    css: 'gantt_container',
+    cols: [
+	{
+	    width: 400,
+	    min_width: 300,
+	    rows: [
+		{
+		    group: 'gantt',
+		    cols: [
+			{
+			    rows: [
+				{ view: 'grid', bind: 'task', scrollX: 'gridScrollX', scrollable: true, scrollY: 'scrollVer' },
+			    ]
+			},
+			{   width: 50,
+			    rows: [
+				{ view: 'grid', bind: 'task', scrollY: 'scrollVer', config: fixedColumn}
+			    ]
+			},
+		    ]
+		},
+		{ view: 'scrollbar', id: 'gridScrollX' }
+	    ]
+	},
+	{ resizer: true, width: 1 },
+	{
+	    rows: [
+		{
+		    group: 'gantt',
+		    cols: [
+			{
+			    rows: [
+				{ view: 'timeline', scrollX: 'scrollHor', scrollY: 'scrollVer' },
+				{ view: 'scrollbar', id: 'scrollHor' }
+			    ]
+			},
+			{ view: 'scrollbar', id: 'scrollVer' }
+		    ]
+		}
+	    ]
+	}
+    ]
+}
+var withResourcesForLightbox = {
+    css: "gantt_container",
+    cols: [
+	{
+	    width: 400,
+	    rows: [
+		{
+		    group: "gantt",
+		    cols: [
+			{
+			    rows: [
+				{ view: 'grid', scrollX: 'gridScrollX', scrollable: true, scrollY: 'scrollVer' },
+				{ view: 'scrollbar', id: 'gridScrollX' }
+			    ]
+			},
+			{   width: 50,
+			    rows: [
+				{ view: 'grid', bind: 'task', scrollY: 'scrollVer', config: fixedColumnForLightbox}
+			    ]
+			},
+		    ], gravity:2
+		},
+		{ resizer: true, width: 1 },
+		{   config: resourceConfig,
+		    group: "resources",
+		    cols: [
+			{
+			    rows: [
+				{ view: "resourceGrid", scrollY: "gridScrollY2", scrollX: "gridScrollX2", scrollable: true }
+				, { view: "scrollbar", id: "gridScrollX2" }
+			    ]
+			},
+			{ view: 'scrollbar', id: 'gridScrollY2' }
+		    ], gravity:1
+		}
+
+	    ],
+	},
+	{ resizer: true, width: 1 },
+	{
+	    rows: [
+		{
+		    group: "gantt",
+		    cols: [
+			{
+			    rows: [
+				{ view: "timeline", scrollX: "scrollHor", scrollY: "scrollVer" },
+				{ view: "scrollbar", id: "scrollHor" }
+			    ]
+			},
+			{ view: 'scrollbar', id: 'scrollVer' }
+		    ], gravity:2
+		},
+		{ resizer: true, width: 1 },
+		{
+		    config: resourceConfig,
+		    group: "resources",
+		    cols: [
+			{
+			    rows: [
+				{ view: "resourceTimeline", scrollX: "scrollHor2", scrollY: "scrollVer2" },
+				{ view: "scrollbar", id: "scrollHor2" }
+			    ]
+			},
+			{ view: 'scrollbar', id: 'scrollVer2' }
+		    ], gravity:1
+		}
+	    ]
+	}
+    ]
+}
+var withoutResourcesForLightbox = {
+    css: 'gantt_container',
+    cols: [
+	{
+	    width: 400,
+	    min_width: 300,
+	    rows: [
+		{
+		    group: 'gantt',
+		    cols: [
+			{
+			    rows: [
+				{ view: 'grid', bind: 'task', scrollX: 'gridScrollX', scrollable: true, scrollY: 'scrollVer' },
+			    ]
+			},
+			{   width: 50,
+			    rows: [
+				{ view: 'grid', bind: 'task', scrollY: 'scrollVer', config: fixedColumnForLightbox}
+			    ]
+			},
+		    ]
+		},
+		{ view: 'scrollbar', id: 'gridScrollX' }
+	    ]
+	},
+	{ resizer: true, width: 1 },
+	{
+	    rows: [
+		{
+		    group: 'gantt',
+		    cols: [
+			{
+			    rows: [
+				{ view: 'timeline', scrollX: 'scrollHor', scrollY: 'scrollVer' },
+				{ view: 'scrollbar', id: 'scrollHor' }
+			    ]
+			},
+			{ view: 'scrollbar', id: 'scrollVer' }
+		    ]
+		}
+	    ]
+	}
+    ]
+}
+
+
+gantt.config.layout = withoutResources;
+
+      var resourcesStore = gantt.createDatastore({
+	  name: gantt.config.resource_store
+      });
+
+
+
+
+       gantt.i18n.setLocale("ru");
+       gantt.config.xml_date = "%Y-%m-%d %H:%i";
+       gantt.config.date_grid = "%d.%m.%Y";
+       gantt.init("gantt_here");
+
+ </script>
+
+
+</body>
+</html>

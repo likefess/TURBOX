@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="ИмуществоБазовый.Frm.Справочники.ИмуществоБазовый">
+  <Inherited HelpContext="ИмуществоБазовый.Имущество.Справочник групповые ОС">
+    <Inherited Name="EdtRec" Class="ИмуществоБазовый.Rec.Справочники.ГрупповыеОС" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame" Printed="False">
+        <Inherited Name="Group1">
+          <Inherited Name="КодИмущества" Caption="Код группового ОС" Hint="@Код группового основного средства"/>
+          <Inherited Name="Code" Hint="@Уникальный код группового основного средства"/>
+          <Inherited Name="Name" Hint="@Краткое наименование группового основного средства"/>
+          <Inherited Name="Завершен" OnVerify="ЗавершенГрупп_OnVerify"/>
+        </Inherited>
+        <Inherited Name="НашеПредприятие_Гр">
+          <Inherited Name="GroupDoc" CardFileClass="ИмуществоБазовый.Tab.Справочники.ГрупповыеОС"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Component Name="Основное" Class="Com.Ctrl.IBox" After="#0" Caption="Основное">
+            <Component Name="КлассификацияОС_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="КлассификацияОС" Class="Com.Ctrl.IEdit" Caption="ОКОФ" Field="EdtRec.КлассификацияОС" HasCaption="True" Hint="@Классификация группового основного средства" Required="True"/>
+              <Component Name="КлассификацияОСКод" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Enabled="False" Field="EdtRec.КлассификацияОС" HasCaption="False" Hint="@Классификация группового основного средства" LookupField="КодОКОФ" Width="25"/>
+            </Component>
+            <Component Name="НазначениеОС_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="НазначениеОС" Class="Com.Ctrl.IEdit" Field="EdtRec.НазначениеОС" HasCaption="True" Hint="@Назначение группового основного средства"/>
+              <Component Name="НазначениеОСКод" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.НазначениеОС" HasCaption="False" Hint="@Назначение группового основного средства" LookupField="Код" Width="25"/>
+            </Component>
+            <Component Name="ПервоначальнаяСтоимость_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="ПервоначальнаяСтоимостьГрупповогоОС" Class="Com.Ctrl.IEdit" Caption="Стоимость" Enabled="False" Field="EdtRec.ПервоначальнаяСтоимостьГрупповогоОС" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Hint="@Первоначальная стоимость группового ОС" Width="50"/>
+              <Component Name="ПересчетСтоимости" Class="Com.Ctrl.IButton" Hint="Обновить" ImageName="Com.Refresh" OnClick="ПересчетСтоимости_OnClick"/>
+            </Component>
+            <Component Name="Примечание" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="Примечания" Class="Com.Ctrl.IEdit" Field="EdtRec.Примечания" HasCaption="True" Hint="Дополнительные данные " Multiline="True" Wrap="True"/>
+            </Component>
+          </Component>
+          <Component Name="Состав" Class="Com.Ctrl.IBox" Caption="Состав группового ОС" FixSize="True" Size="70">
+            <Component Name="СоставОС" Class="Com.Ctrl.ITable" Sortable="True" Subtable="EdtRec.СоставОС">
+              <Component Name="стрСоставОС" Class="ИмуществоБазовый.Rec.Справочники.ГрупповыеОС_СоставОС" IsLibrary="1"/>
+              <Component Name="ИнвентарныйНомер" Class="Com.Ctrl.IEdit" Caption="Инвентарный номер" CardFileClass="ИмуществоБазовый.Tab.Справочники.ОснСредства" CellFormat="ReferenceFormat" Field="стрСоставОС.ОС" Hint="Инвентарный номер объекта индивидуального инвентарного учета" LookupField="КодИмущества" OnGetLookupFilter="ОС_OnGetLookupFilter" OnOpenCardForm="ОС_OnOpenCardForm" OnVerify="ОС_OnVerify" Width="40"/>
+              <Component Name="НаименованиеОС" Class="Com.Ctrl.IEdit" Caption="Наименование ОС" CardFileClass="ИмуществоБазовый.Tab.Справочники.ОснСредства" CellFormat="ReferenceFormat" Field="стрСоставОС.ОС" Hint="Полное наименование объекта ОС (объекта индивидуального инвентарного учета)" LookupField="ПолнИмя" Multiline="True" OnGetLookupFilter="ОС_OnGetLookupFilter" OnOpenCardForm="ОС_OnOpenCardForm" OnVerify="ОС_OnVerify" Width="109" Wrap="True"/>
+              <Component Name="ПервоначальнаяСтоимость" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Первоначальная стоимость" Enabled="False" Field="стрСоставОС.ОС" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Первоначальная стоимость объекта ОС" LookupField="ПервоначальнаяСтоимость" OnVerify="ПроверитьЧислоНаЗнак_OnVerify" Width="50"/>
+              <Component Name="ДатаВключения" Class="Com.Ctrl.IEdit" Caption="Дата включения" Field="стрСоставОС.ДатаВключения" Hint="Дата включения Объекта ОС в состав Группового ОС" OnVerify="ДатаВключения_OnVerify" Width="32"/>
+              <Component Name="ДатаИсключения" Class="Com.Ctrl.IEdit" Caption="Дата удаления" Field="стрСоставОС.ДатаИсключения" Hint="Дата исключения Объекта ОС из состава Группового ОС" OnVerify="ДатаИсключения_OnVerify" Width="30"/>
+              <Component Name="Завершен_" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Завершен" CellFormat="LogicalFormat" Enabled="False" Field="стрСоставОС.ОС" Hint="Флаг Завершен устанавливается, если документ закрыт по бухгалтерскому и налоговому учету" LookupField="Closed" Width="21"/>
+              <Component Name="JumpButton1" Class="Com.Ctrl.IJumpButton" Field="стрСоставОС.ОС" Hint="Возможность перехода на карточку ОС, просмотра и редактирования доступных полей" JumpForm="ИмуществоБазовый.Frm.Справочники.ОснСредства"/>
+            </Component>
+          </Component>
+          <Inherited Name="СистемныеПоля" After="Состав"/>
+        </Inherited>
+        <Component Name="ПечФормаГрОС" Class="Com.Ctrl.IFrame" Caption="@Frm:MainTab=Печатная форма карточки " Margins="5">
+          <Component Name="ИзВложений" Class="Bas.Rec.BasObject_Attachments" IsLibrary="1"/>
+          <Component Name="Имя_Предприятие" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="255">
+            <Component Name="Static13" Class="Com.Ctrl.IStatic" Excluded="True" Caption="Карточка Группового основного средства" Width="70"/>
+            <Component Name="Name_П" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Краткое название" Enabled="False" Field="EdtRec.Name" HasCaption="False" Visible="True" Wrap="True"/>
+            <Component Name="ПолнИмяП" Class="Com.Ctrl.IEdit" Caption="Полное название " Enabled="False" Field="EdtRec.ПолнИмя" HasCaption="True" Hint="@Полное наименование основного средства" Visible="True" Wrap="True"/>
+          </Component>
+          <Component Name="ПолнИмя_Код" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="255">
+            <Component Name="Static14" Class="Com.Ctrl.IStatic" Excluded="True" Caption="Наименование группового ОС" FixSize="True" Width="65"/>
+            <Component Name="Code_П" Class="Com.Ctrl.IEdit" Caption="Системный номер" Enabled="False" Field="EdtRec.КодИмущества" FixSize="True" HasCaption="True" Hint="@Инвентарный номер объекта индивидуального инвентарного учета" Visible="True" Width="50"/>
+            <Component Name="НашеПредприятиеП" Class="Com.Ctrl.IEdit" Caption="Организация" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.НашеПредприятие" HasCaption="True" Hint="@Наименование Нашего предприятия" LookupField="Name" ShortList="True" Wrap="True"/>
+          </Component>
+          <Component Name="Строка_3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="255">
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" Caption="Основные данные группового ОС:" FontItalic="True" Width="100"/>
+          </Component>
+          <Component Name="Группа_Классификация" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="255">
+            <Component Name="ГруппаОС_П" Class="Com.Ctrl.IEdit" Caption="Группа ОС" Enabled="False" Field="EdtRec.GroupDoc" Width="30"/>
+            <Component Name="КлассификацияОС_П" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.КлассификацияОС" HasCaption="True" Hint="@Классификация ОС (ОКОФ)"/>
+          </Component>
+          <Component Name="Назначение_Стоимость" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="255">
+            <Component Name="НазначениеОС_П" Class="Com.Ctrl.IEdit" Caption="Назначение ОС" Enabled="False" Field="EdtRec.НазначениеОС" HasCaption="True" Hint="@Назначение группового основного средства"/>
+            <Component Name="СтоимостьГрОС_П" Class="Com.Ctrl.IEdit" Caption="Стоимость группового ОС" CaptionWidth="50" Enabled="False" Field="EdtRec.ПервоначальнаяСтоимостьГрупповогоОС" HasCaption="True" Hint="@Общая текущая стоимость группового основного средства (на дату открытия карточки)"/>
+          </Component>
+          <Component Name="Строка_6" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="255">
+            <Component Name="Static3" Class="Com.Ctrl.IStatic" Caption="Основные средства, входящие в состав группового основного средства" FontItalic="True" Hint="170"/>
+          </Component>
+          <Component Name="СоставОС_П" Class="Com.Ctrl.ITable" Sortable="True" Subtable="EdtRec.СоставОС">
+            <Component Name="ИнвентарныйНомерП" Class="Com.Ctrl.IEdit" Caption="Инвентарный номер" CardFileClass="ИмуществоБазовый.Tab.Справочники.ОснСредства" CellFormat="ReferenceFormat" Enabled="False" Field="стрСоставОС.ОС" Hint="Инвентарный номер объекта индивидуального инвентарного учета" LookupField="КодИмущества" OnOpenCardForm="ОС_OnOpenCardForm" Width="40"/>
+            <Component Name="НаименованиеОС_П" Class="Com.Ctrl.IEdit" Caption="Наименование ОС" CardFileClass="ИмуществоБазовый.Tab.Справочники.ОснСредства" CellFormat="ReferenceFormat" Enabled="False" Field="стрСоставОС.ОС" Hint="Полное наименование объекта ОС (объекта индивидуального инвентарного учета)" LookupField="ПолнИмя" OnOpenCardForm="ОС_OnOpenCardForm" Width="93"/>
+            <Component Name="ДатаВключенияП" Class="Com.Ctrl.IEdit" Caption="Дата включения" Enabled="False" Field="стрСоставОС.ДатаВключения" Hint="Дата включения Объекта ОС в состав Группового ОС" Width="35"/>
+            <Component Name="ДатаИсключенияП" Class="Com.Ctrl.IEdit" Caption="Дата удаления" Enabled="False" Field="стрСоставОС.ДатаИсключения" Hint="Дата исключения Объекта ОС из состава Группового ОС" Width="35"/>
+          </Component>
+          <Component Name="Строка_7" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="255">
+            <Component Name="Static4" Class="Com.Ctrl.IStatic" Caption="Перечень сопроводительных документов, прикрепленных к карточке группового основного средства" FontItalic="True" Hint="250"/>
+          </Component>
+          <Component Name="ВложенияТабл" Class="Com.Ctrl.ITable" Sortable="True" Subtable="EdtRec.ВложенияТабл">
+            <Component Name="ВложенияБиблиотека" Class="Bas.Rec.BasObject_Attachments" IsLibrary="1"/>
+            <Component Name="НазваниеВложенияП" Class="Com.Ctrl.IEdit" Caption="Название вложения" CardFileClass="Com.Tab.Archive.Attachment" Enabled="False" Field="ВложенияБиблиотека.FilesName" HasCaption="True" Width="245"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" AccountFilter="ClaimProcess" AccountPlan="ContractManagement" Autobuild="False" BegDate="01.01.1900" Caption="Отчет по Претензионно-исковой работе (расширенный)" CIndicator="1" EndDate="01.01.2100" HidePeriod="True" HystoKind="hkSide" Legend="lpkAtRight" OpenPeriod="opAll" Palette="cpDefault" Period="-1" ShowSumKindRow="False">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorUnitForShowLine_1" Class="Com.Rep.IIndMain" Caption="IndicatorUnitForShowLine" Contents="UnitForShowLine" ShowUnit="False" Visible="False"/>
+      <Component Name="IndicatorГруппа_2" Class="Com.Rep.IIndGroup" Caption="Досудебное урегулирование"/>
+      <Component Name="IndicatorPreTrialDocVariety_3" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="Вид документа" Contents="PreTrialDocVariety" EndSaldoFormat="msfNone" Format="0" Group="IndicatorГруппа_2" ShowUnit="False" Visible="False"/>
+      <Component Name="IndicatorПоказатель_4" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" CalcTime="ctAfterSorting" Caption="Вид документа" EndSaldoFormat="msfNone" Formula="if(UnitValue(Отчет.IndicatorValue[3,Report.skTurn,Report.roll]) &lt;> 0,'Заявление в государственный орган','Претензия')" Group="IndicatorГруппа_2" ShowUnit="False" ValueType="VarString"/>
+      <Component Name="IndicatorПоказатель_5" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="Номер документа" EndSaldoFormat="msfNone" Formula="SplitValueByName(Report.rdRow, 'PreTrialDocNumber')" Group="IndicatorГруппа_2" ShowUnit="False" ValueType="VarString"/>
+      <Component Name="IndicatorПоказатель_6" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="Дата документа" EndSaldoFormat="msfNone" Formula="SplitValueByName(Report.rdRow, 'PreTrialDocDate')" Group="IndicatorГруппа_2" ShowUnit="False" ValueType="VarDate"/>
+      <Component Name="IndicatorПоказатель_7" Class="Com.Rep.IIndCustom" Aggregate="agrNone" BegSaldoFormat="msfNone" Caption="Обязанное лицо" EndSaldoFormat="msfNone" Formula="SplitValueByName(Report.rdRow, 'PreTrialObligee')?.Name" Group="IndicatorГруппа_2" ShowUnit="False" ValueType="VarString"/>
+      <Component Name="IndicatorPreTrialMainAmount_8" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="Основной долг" Contents="PreTrialMainAmount" EndSaldoFormat="msfNone" Format=",##0.00;;-" Group="IndicatorГруппа_2" ShowUnit="False"/>
+      <Component Name="IndicatorPreTrialForfeitAmount_9" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="Неустойка" Contents="PreTrialForfeitAmount" EndSaldoFormat="msfNone" Format=",##0.00;;-" Group="IndicatorГруппа_2" ShowUnit="False"/>
+      <Component Name="IndicatorPreTrialPercentsAmount_10" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="Проценты" Contents="PreTrialPercentsAmount" EndSaldoFormat="msfNone" Format=",##0.00;;-" Group="IndicatorГруппа_2" ShowUnit="False"/>
+      <Component Name="IndicatorPreTrialOtherExpAmount_11" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="Прочие расходы" Contents="PreTrialOtherExpAmount" EndSaldoFormat="msfNone" Group="IndicatorГруппа_2" ShowUnit="False"/>
+      <Component Name="IndicatorПоказатель_12" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Всего" EndSaldoFormat="msfNone" Formula="Rec.Data.ClaimProcess.OpenRecord(SplitValueByName(Report.rdRow, 'ClaimProcess')).GetPreTrialClaimAmount" Group="IndicatorГруппа_2" ShowUnit="False" ValueType="VarNumeric"/>
+      <Component Name="IndicatorPreTrialActPaymentAmount_13" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="Сумма оплаты (погашения)" Contents="PreTrialActPaymentAmount" EndSaldoFormat="msfNone" Format=",##0.00;;-" Group="IndicatorГруппа_2" ShowUnit="False"/>
+      <Component Name="IndicatorПоказатель_14" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Сумма оставшейся задолженности" EndSaldoFormat="msfNone" Format=",##0.00;;-" Formula="Отчет.IndicatorValue[12,Report.skTurn,Report.roll] - UnitValue(Отчет.IndicatorValue[13,Report.skTurn,Report.roll])" Group="IndicatorГруппа_2" ShowUnit="False" ValueType="VarNumeric"/>
+      <Component Name="IndicatorPreTrialClaimResult_15" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="PreTrialClaimResult" Contents="PreTrialClaimResult" EndSaldoFormat="msfNone" ShowUnit="False" Visible="False"/>
+      <Component Name="IndicatorПоказатель_16" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Результат" EndSaldoFormat="msfNone" Formula="if(UnitValue(Отчет.IndicatorValue[15,Report.skTurn,Report.roll])&lt;>0,PreTrialClaimResults[int(UnitValue(Отчет.IndicatorValue[15,Report.skTurn,Report.roll]))],'')" Group="IndicatorГруппа_2" ShowUnit="False" ValueType="VarString"/>
+      <Component Name="IndicatorГруппа_17" Class="Com.Rep.IIndGroup" Caption="Судебное производство"/>
+      <Component Name="IndicatorПоказатель_18" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Вид производства" EndSaldoFormat="msfNone" Formula="SplitValueByName(Report.rdRow, 'TrialProcessVariety')?.Name" Group="IndicatorГруппа_17" ShowUnit="False" ValueType="VarString"/>
+      <Component Name="IndicatorПоказатель_19" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Номер дела" EndSaldoFormat="msfNone" Formula="SplitValueByName(Report.rdRow, 'TrialDocNumber')" Group="IndicatorГруппа_17" ShowUnit="False" ValueType="VarString"/>
+      <Component Name="IndicatorПоказатель_20" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Дата иска" EndSaldoFormat="msfNone" Formula="SplitValueByName(Report.rdRow, 'TrialDocDate')" Group="IndicatorГруппа_17" ShowUnit="False" ValueType="VarDate"/>
+      <Component Name="IndicatorПоказатель_21" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Ответчик" EndSaldoFormat="msfNone" Formula="SplitValueByName(Report.rdRow, 'TrialObligee')?.Name" Group="IndicatorГруппа_17" ShowUnit="False" ValueType="VarString"/>
+      <Component Name="IndicatorTrialMainAmount_22" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="Основной долг" Contents="TrialMainAmount" EndSaldoFormat="msfNone" Format=",##0.00;;-" Group="IndicatorГруппа_17" ShowUnit="False"/>
+      <Component Name="IndicatorTrialForfeitAmount_23" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="Неустойка" Contents="TrialForfeitAmount" EndSaldoFormat="msfNone" Format=",##0.00;;-" Group="IndicatorГруппа_17" ShowUnit="False"/>
+      <Component Name="IndicatorTrialPercentsAmount_24" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="Проценты" Contents="TrialPercentsAmount" EndSaldoFormat="msfNone" Format=",##0.00;;-" Group="IndicatorГруппа_17" ShowUnit="False"/>
+      <Component Name="IndicatorTrialOtherExpAmount_25" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="Прочие расходы" Contents="TrialOtherExpAmount" EndSaldoFormat="msfNone" Format=",##0.00;;-" Group="IndicatorГруппа_17" ShowUnit="False"/>
+      <Component Name="IndicatorПоказатель_26" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Всего" EndSaldoFormat="msfNone" Format=",##0.00;;-" Formula="Rec.Data.ClaimProcess.OpenRecord(SplitValueByName(Report.rdRow, 'ClaimProcess')).GetTrialClaimAmount" Group="IndicatorГруппа_17" ShowUnit="False" ValueType="VarNumeric"/>
+      <Component Name="IndicatorTrialStateDutyAmount_27" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="Сумма госпошлины" Contents="TrialStateDutyAmount" EndSaldoFormat="msfNone" Format=",##0.00;;-" Group="IndicatorГруппа_17" ShowUnit="False"/>
+      <Component Name="IndicatorПоказатель_28" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Сумма оплаты (погашения)" EndSaldoFormat="msfNone" Format=",##0.00;;-" Formula="ReturnTrialPaymentAmount(SplitValueByName(Report.rdRow, 'ClaimProcess'))" Group="IndicatorГруппа_17" ShowUnit="False" ValueType="VarNumeric"/>
+      <Component Name="IndicatorПоказатель_29" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Сумма оставшейся задолженности" EndSaldoFormat="msfNone" Format=",##0.00;;-" Formula="Отчет.IndicatorValue[26,Report.skTurn,Report.roll]+UnitValue(Отчет.IndicatorValue[27,Report.skTurn,Report.roll])-Отчет.IndicatorValue[28,Report.skTurn,Report.roll]" Group="IndicatorГруппа_17" ShowUnit="False" ValueType="VarNumeric"/>
+      <Component Name="IndicatorПоказатель_30" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Результат" EndSaldoFormat="msfNone" Formula="ReturnTrialLastSessionResult(SplitValueByName(Report.rdRow, 'ClaimProcess'))" Group="IndicatorГруппа_17" ShowUnit="False" ValueType="VarString"/>
+      <Component Name="IndicatorГруппа_31" Class="Com.Rep.IIndGroup" Caption="Исполнительное производство"/>
+      <Component Name="IndicatorПоказатель_32" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Номер исполнительного листа" EndSaldoFormat="msfNone" Formula="SplitValueByName(Report.rdRow, 'ExecDocNumber')" Group="IndicatorГруппа_31" ShowUnit="False" ValueType="VarString"/>
+      <Component Name="IndicatorПоказатель_33" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Дата исполнительного листа" EndSaldoFormat="msfNone" Formula="SplitValueByName(Report.rdRow, 'ExecDocDate')" Group="IndicatorГруппа_31" ShowUnit="False" ValueType="VarDate"/>
+      <Component Name="IndicatorПоказатель_34" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Должник" EndSaldoFormat="msfNone" Formula="SplitValueByName(Report.rdRow, 'ExecObligee')?.Name" Group="IndicatorГруппа_31" ShowUnit="False" ValueType="VarString"/>
+      <Component Name="IndicatorExecMainAmount_35" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="Основной долг" Contents="ExecMainAmount" EndSaldoFormat="msfNone" Format=",##0.00;;-" Group="IndicatorГруппа_31" ShowUnit="False"/>
+      <Component Name="IndicatorExecForfeitAmount_36" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="Неустойка" Contents="ExecForfeitAmount" EndSaldoFormat="msfNone" Format=",##0.00;;-" Group="IndicatorГруппа_31" ShowUnit="False"/>
+      <Component Name="IndicatorExecPercentsAmount_37" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="Проценты" Contents="ExecPercentsAmount" EndSaldoFormat="msfNone" Format=",##0.00;;-" Group="IndicatorГруппа_31" ShowUnit="False"/>
+      <Component Name="IndicatorExecOtherExpAmount_38" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="Прочие расходы" Contents="ExecOtherExpAmount" EndSaldoFormat="msfNone" Format=",##0.00;;-" Group="IndicatorГруппа_31" ShowUnit="False"/>
+      <Component Name="IndicatorПоказатель_39" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Всего " EndSaldoFormat="msfNone" Format=",##0.00;;-" Formula="Rec.Data.ClaimProcess.OpenRecord(SplitValueByName(Report.rdRow, 'ClaimProcess')).GetExecClaimAmount" Group="IndicatorГруппа_31" ShowUnit="False" ValueType="VarNumeric"/>
+      <Component Name="IndicatorExecStateDutyAmount_40" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="Сумма госпошлины" Contents="ExecStateDutyAmount" EndSaldoFormat="msfNone" Format=",##0.00;;-" Group="IndicatorГруппа_31" ShowUnit="False"/>
+      <Component Name="IndicatorПоказатель_41" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Сумма оплаты (погашения)" EndSaldoFormat="msfNone" Formula="ReturnExecPaymentAmount(SplitValueByName(Report.rdRow, 'ClaimProcess'))" Group="IndicatorГруппа_31" ShowUnit="False" ValueType="VarNumeric"/>
+      <Component Name="IndicatorПоказатель_42" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Сумма оставшейся задолженности" EndSaldoFormat="msfNone" Formula="Отчет.IndicatorValue[39,Report.skTurn,Report.roll]+UnitValue(Отчет.IndicatorValue[40,Report.skTurn,Report.roll])-Отчет.IndicatorValue[41,Report.skTurn,Report.roll]" Group="IndicatorГруппа_31" ShowUnit="False" ValueType="VarNumeric"/>
+      <Component Name="IndicatorПоказатель_43" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Результат" EndSaldoFormat="msfNone" Formula="ReturnExecLastMoveDescription(SplitValueByName(Report.rdRow, 'ClaimProcess'))" Group="IndicatorГруппа_31" ShowUnit="False" ValueType="VarString"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam3F614999" Class="Com.Rep.ISplitByParam" SplitParam="Contract"/>
+        <Component Name="SplitParamD2473222" Class="Com.Rep.ISplitByParam" SplitParam="ClaimProcess"/>
+        <Component Name="SplitParam84F80701" Class="Com.Rep.ISplitByParam" SplitParam="CreateDate"/>
+        <Component Name="SplitParam28C75721" Class="Com.Rep.ISplitByParam" SplitParam="ClaimType"/>
+        <Component Name="SplitParam14A2839F" Class="Com.Rep.ISplitByParam" SplitParam="ClaimVariety"/>
+        <Component Name="SplitParam3052A473" Class="Com.Rep.ISplitByParam" SplitParam="ShortDescription"/>
+        <Component Name="SplitParamDCB03A94" Class="Com.Rep.ISplitByParam" SplitParam="Responsible"/>
+        <Component Name="SplitParam72B7B538" Class="Com.Rep.ISplitByParam" SplitParam="PreTrialDocNumber"/>
+        <Component Name="SplitParamF13C528E" Class="Com.Rep.ISplitByParam" SplitParam="PreTrialDocDate"/>
+        <Component Name="SplitParam7193C0E6" Class="Com.Rep.ISplitByParam" SplitParam="PreTrialObligee"/>
+        <Component Name="SplitParam1C4EA390" Class="Com.Rep.ISplitByParam" SplitParam="TrialProcessVariety"/>
+        <Component Name="SplitParam217030EA" Class="Com.Rep.ISplitByParam" SplitParam="TrialDocNumber"/>
+        <Component Name="SplitParamC98F71B5" Class="Com.Rep.ISplitByParam" SplitParam="TrialDocDate"/>
+        <Component Name="SplitParam5CBBCEF3" Class="Com.Rep.ISplitByParam" SplitParam="TrialObligee"/>
+        <Component Name="SplitParam01E7D6B9" Class="Com.Rep.ISplitByParam" SplitParam="ExecDocNumber"/>
+        <Component Name="SplitParam2D4687E3" Class="Com.Rep.ISplitByParam" SplitParam="ExecDocDate"/>
+        <Component Name="SplitParam09DE1CA2" Class="Com.Rep.ISplitByParam" SplitParam="ExecObligee"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContentDEF484CB" Class="Com.Rep.ISplitContent" Caption="Субъект ПИР/Контрагент" Contents="Contract.Партнер.Наименование"/>
+        <Component Name="SplitContentADFB9F74" Class="Com.Rep.ISplitContent" Caption="Номер договора" Contents="Contract.Наименование"/>
+        <Component Name="Rep_ISplitContent31" Class="Com.Rep.ISplitContent" Caption="Номер карточки ПИР" Contents="ClaimProcess.Code"/>
+        <Component Name="SplitContentE148700E" Class="Com.Rep.ISplitContent" Caption="Дата создания" Contents="CreateDate"/>
+        <Component Name="SplitContent64581822" Class="Com.Rep.ISplitContent" Caption="Тип спора" Contents="ClaimType.Наименование"/>
+        <Component Name="Rep_ISplitContent45" Class="Com.Rep.ISplitContent" Caption="Вид спора" Contents="ClaimVariety.Наименование"/>
+        <Component Name="SplitContent5EC34A04" Class="Com.Rep.ISplitContent" Caption="Предмет спора" Contents="ShortDescription"/>
+        <Component Name="SplitContentD3F5D9BE" Class="Com.Rep.ISplitContent" Caption="Куратор ПИР/ответственный" Contents="Responsible.Наименование"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_CreateDate" Class="Com.Rep.IRepControl" Caption="По состоянию на" CaptionWidth="35" DefaultFunc="ToDay()" DefaultStr="Date(nil)" Operator="&lt;=" Parameter="CreateDate" Plan="ContractManagement" SkipNil="True" ValueType="VarDate" Width="100"/>
+      <Component Name="RC_Classification" Class="Com.Rep.IRepControl" Caption="Классификация" CaptionWidth="35" CardFileClass="Biz.Tab.Ref.ContractClassification" DefaultStr="Object(nil)" LookupField="Name" MultiSelect="True" ValueType="VarObject" Width="100"/>
+      <Component Name="RC_Company" Class="Com.Rep.IRepControl" Caption="Предприятие" CaptionWidth="35" CardFileClass="Bas.Tab.Data.OurCompanies" DefaultStr="Object(nil)" LookupField="Name" NewLine="True" Operator="=" Parameter="Company" Plan="ContractManagement" ShortList="False" ValueType="VarObject" Width="100"/>
+      <Component Name="Static" Class="Com.Rep.IRepControl" Caption="⠀" CaptionWidth="35" DefaultStr="String(&quot;&quot;)" Enabled="False" NewLine="True" Operator="=" Plan="БизнесСчета" ValueType="VarString" Visible="True" Width="0"/>
+      <Component Name="RC_Intragroup" Class="Com.Rep.IRepControl" Caption="Внутригрупповые договоры" CaptionWidth="35" CellFormat="LogicalFormat" DefaultStr="Object(nil)" Operator="=" Parameter="Contract.Intragroup" Plan="ContractManagement" SkipNil="True" ValueType="VarLogical" Width="100"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

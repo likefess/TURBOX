@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.IStruct">
+    <Component Name="Event" Class="Com.Fld.IVar" Caption="@TMS:Task_Events.Event=Событие" RecordClass="TMS.Rec.Data.DayEvent" ValueType="VarObject"/>
+    <Component Name="EventDate" Class="Com.Fld.ILink" Caption="@TMS:Task_SubEvents.EventDate=Дата" Field="Event" FieldName="EventTime" OnChange="Event_OnChange" OnVerify="Event_OnVerify" ValueType="VarDate"/>
+    <Component Name="Company" Class="Com.Fld.ILink" Caption="@TMS:Task_SubEvents.Company=Предприятие" Field="Event" FieldName="Company" OnChange="Event_OnChange" OnVerify="Event_OnVerify" ValueType="VarObject"/>
+    <Component Name="Entity" Class="Com.Fld.ILink" Caption="@TMS:Task_SubEvents.Entity=Сотрудник" Field="Event" FieldName="Entity" OnChange="Event_OnChange" OnVerify="Event_OnVerify" ValueType="VarObject"/>
+    <Component Name="Role" Class="Com.Fld.ILink" Caption="@TMS:Task_SubEvents.EntityRole=Роль" Field="Event" FieldName="Role" OnChange="Event_OnChange" OnVerify="Event_OnVerify" ValueType="VarObject"/>
+    <Component Name="Hours" Class="Com.Fld.ILink" Caption="@TMS:Task_SubEvents.Hours=Часы" Field="Event" FieldName="FactHours" OnChange="Event_OnChange" OnVerify="Event_OnVerify" ValueType="VarNumeric"/>
+    <Component Name="Comment" Class="Com.Fld.ILink" Caption="@TMS:Task_SubEvents.Comment=Комментарий" Field="Event" FieldName="Comment" OnChange="Event_OnChange" OnVerify="Event_OnVerify" ValueType="VarString"/>
+    <Component Name="Confirm" Class="Com.Fld.ILink" Excluded="True" Caption="@TMS:Task_SubEvents.Confirm:Утвержден" Field="Event" FieldName="Confirm" OnChange="Event_OnChange" OnVerify="Event_OnVerify" ValueType="VarLogical"/>
+  </Component>
+</Resource>

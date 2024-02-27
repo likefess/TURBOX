@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rep.IReportTurns">
+  <Inherited AccountFilter="РВ" AccountPlan="ПланСУРВ" BegSaldoFormat="sfNone" Caption="Табель учета рабочего времени" CIndicator="1" EndSaldoFormat="sfNone" LinkTables="False" OpenPeriod="opAll" Palette="cpDefault" ParameterFilter="Status = Fact and BaseEvent &lt;> nil" Period="3" ShowDebCreRow="False" ShowSumKindRow="False" TabHeaderFirst="True" TurnFormat="sfFull">
+    <Inherited Name="Grouping">
+      <Inherited Name="SplitByRows">
+        <Component Name="SplitByParamTask" Class="Com.Rep.ISplitByParam" GroupTotals="True" GroupTotalsInHeader="True" Hierarchy="True" LiveHierarchy="True" Sort="True" SortOrder="Description" SplitParam="Task" SplitType="byParam"/>
+      </Inherited>
+      <Inherited Name="SplitByCols">
+        <Component Name="SplitByDate" Class="Com.Rep.ISplitByDate" Period="byDay" PeriodStep="1" ShowTotals="True" ShowTotalsFirst="True"/>
+      </Inherited>
+      <Inherited Name="SplitByTabs">
+        <Component Name="SplitByParamProject" Class="Com.Rep.ISplitByParam" GroupTotals="True" GroupTotalsInHeader="True" ShowTotals="False" ShowTotalsFirst="True" Sort="True" SortOrder="Description" SplitParam="Project" SplitType="byParam"/>
+      </Inherited>
+      <Inherited Name="ContentByRows">
+        <Component Name="SplitContentTaskDescription" Class="Com.Rep.ISplitContent" Caption="Задача" Contents="Task.Description" MaxWidth="80" MinWidth="80"/>
+        <Component Name="SplitContentTaskName" Class="Com.Rep.ISplitContent" Caption="Код" Contents="Task.Name" MaxWidth="30" MinWidth="30"/>
+        <Component Name="SplitContentTaskStatus" Class="Com.Rep.ISplitContent" Caption="Состояние" Contents="Task.TaskStatus" MaxWidth="45" MinWidth="45"/>
+      </Inherited>
+      <Inherited Name="ContentByTabs">
+        <Component Name="SplitContentProject" Class="Com.Rep.ISplitContent" Alignment="LeftAlign" Caption="Проект" Contents="Project.Description"/>
+      </Inherited>
+    </Inherited>
+    <Inherited Name="Parameters">
+      <Component Name="RC_Entity" Class="Com.Rep.IRepControl" Caption="Сотрудник" CardFileClass="TrackingCore.Tab.Data.People" DefaultStr="Object(nil)" Operator="=" Parameter="Entity" Plan="ПланСУРВ" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Project" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Проект" CardFileClass="Bas.Tab.Ref.Project" DefaultStr="Object(nil)" MultiSelect="True" Operator="=" Parameter="Project" Plan="ПланСУРВ" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Task" Class="Com.Rep.IRepControl" Caption="Задача" CardFileClass="TrackingCore.Tab.Data.Tasks" DefaultStr="Object(nil)" Operator="is" Parameter="Task" Plan="ПланСУРВ" SkipNil="True" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="Indicators">
+      <Component Name="IndicatorHours" Class="Com.Rep.IIndMain" BegSaldoFormat="msfNone" Caption="Часы" Contents="Hours" EndSaldoFormat="msfNone" ShowUnit="False" TurnFormat="msfDeb"/>
+    </Inherited>
+  </Inherited>
+</Resource>

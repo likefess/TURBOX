@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Tab.Базовая.БазовыйДокументИерархия">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Расчет Зарплаты.Расчет начислений.Расчет прочего СЗ">
+    <Inherited Name="Current" Class="УправлениеПерсоналом.Rec.Документы.СреднийЗаработок.Прочий" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="Учитывать" Class="Com.Ctrl.IEdit" After="ExtId" Caption="Учитывать" Field="Current.Проводить" HasCaption="True" Width="15"/>
+          <Component Name="Период" Class="Com.Ctrl.IEdit" After="Дата" Caption="Период" CardFileClass="Biz.Tab.Ref.Period" Field="Current.Период" HasCaption="True" LookupField="Name" Width="30"/>
+          <Component Name="Сотрудник" Class="Com.Ctrl.IEdit" Caption="Сотрудник" Field="Current.УсловияТрудаСотр" HasCaption="True" LookupField="Person.Name" Width="45"/>
+          <Component Name="ТабНомер" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Таб. номер" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Field="Current.УсловияТрудаСотр" HasCaption="True" Hint="Табельный номер сотрудника" LookupField="ТабНомер" Width="20"/>
+          <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Caption="Дата начала" Field="Current.ДатаНачала" HasCaption="True" Hint="Дата начала" Width="25"/>
+          <Component Name="ДатаОкончания" Class="Com.Ctrl.IEdit" Caption="Дата окончания" Field="Current.ДатаОкончания" HasCaption="True" Hint="Дата окончания" Width="25"/>
+          <Component Name="ВидСреднего" Class="Com.Ctrl.IEdit" Caption="Вид среднего" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыСреднего" Field="Current.ВидСреднего" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="Скорректирован" Class="Com.Ctrl.IEdit" Caption="Скорректирован" Field="Current.Скорректирован" HasCaption="True" Width="15"/>
+          <Component Name="Корректировка" Class="Com.Ctrl.IEdit" Caption="Корректировка" Field="Current.Корректировка" HasCaption="True" Width="15"/>
+          <Component Name="Перерасчет" Class="Com.Ctrl.IEdit" Caption="Перерасчет" Field="Current.Перерасчет" HasCaption="True" Hint="Перерасчет" LookupField="Номер" Width="15"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

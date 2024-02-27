@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited HelpContext="RealEstate.Управление имуществом.Справочники.Классификаторы.Категории земель">
+    <Inherited Name="EdtRec" Class="RealEstate.Rec.Ref.LandCategory" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonClone" Enabled="False" Visible="False"/>
+        <Inherited Name="ButtonDelete" Enabled="False" Visible="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" MaxWidth="230">
+          <Inherited Name="Code" Caption="Код" Enabled="False" Visible="True"/>
+          <Inherited Name="Name" Caption="Наименование" Enabled="False" Multiline="True" Visible="True" Wrap="True"/>
+        </Inherited>
+        <Component Name="Group3" Class="Com.Ctrl.IGroup" Excluded="True">
+          <Component Name="ClassCodeLandCategory" Class="Com.Ctrl.IEdit" Caption="Код в кадастре" Field="EdtRec.ClassCodeLandCategory" FixSize="True" HasCaption="True" Width="40"/>
+        </Component>
+        <Component Name="Group4" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="ObjKindCode" Class="Com.Ctrl.IEdit" Caption="Присуще для" CardFileClass="RealEstateBase.Tab.Data.RealEstateObject" Field="EdtRec.ObjKindCode" LookupField="Name" Width="40"/>
+          <Component Name="btnObjKindCode" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ObjKindCode" HasCaption="False" JumpForm="RealEstateBase.Frm.Data.RealEstateObject" Width="7"/>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" Width="35"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

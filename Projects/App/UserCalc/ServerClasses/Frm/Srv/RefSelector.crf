@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited Caption="Выбор данных из картотеки" HelpContext="UserCalc.Пользовательские расчеты.Выбор данных из картотеки">
+    <Inherited Name="Variables">
+      <Component Name="vClass" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="4">
+        <Component Name="ButtonCopy" Class="Com.Ctrl.IButton" After="#0" Caption="@Копировать" Enabled="False" ImageName="Com.clipboard-list" OnClick="ButtonCopyOnClick"/>
+        <Component Name="ButtonGetAll" Class="Com.Ctrl.IButton" Caption="@Перенести все" Enabled="False" ImageName="Com.FirstItem" OnClick="ButtonGetAllOnClick"/>
+        <Inherited Name="ButtonOK" Enabled="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="EdClass" Class="Com.Ctrl.IEdit" Caption="Тип записи" CellFormat="EnumFormat" Field="vClass" HasCaption="True" OnChange="EdClassOnChange" ValueType="VarInteger"/>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Component Name="CardTab" Class="Com.Ctrl.IFrame" After="#0" AutoSize="True" Caption="Картотека">
+          <Component Name="CardFrame" Class="Com.Ctrl.IFrame"/>
+        </Component>
+        <Component Name="FldTab" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Дополнительные поля"/>
+        <Inherited Name="MainTab" Visible="False"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

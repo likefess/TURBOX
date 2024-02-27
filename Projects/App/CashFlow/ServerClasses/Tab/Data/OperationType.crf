@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.CodeName">
+  <Inherited Caption="Типы операций">
+    <Inherited Name="Current" Class="CashFlow.Rec.Data.OperationType" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Caption="Типы операций" HasCaption="True">
+        <Inherited Name="ButtonAddItem" Visible="False"/>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Code" Excluded="True" After="ExtId" Visible="False"/>
+          <Inherited Name="Name" After="Code"/>
+          <Component Name="OperationDescription" Class="Com.Ctrl.IEdit" Field="Current.OperationDescription" HasCaption="True" Width="60"/>
+          <Component Name="MovementType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Current.MovementType" HasCaption="True" ListAsString="Поступление, Покупка, Выпуск|0;Возврат, Продажа, Погашение|1;Процент, Дисконт, Дивиденд|2;Реклассификация основного долга|3;Реклассификация процентов|4;Переоценка|5" Width="60"/>
+          <Component Name="Payment" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Current.Payment" HasCaption="True" ListAsString="Начисление|0;Оплата|1" Width="60"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

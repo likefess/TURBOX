@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Component Name="DataStruct" Class="Treasury.Rec.Reports.RepPaymentOrderList_DataStruct" IsLibrary="1" After="#0"/>
+    <Inherited Name="TableMenu" After="DataStruct"/>
+    <Inherited Name="Variables">
+      <Component Name="DataSubtable" Class="Com.ISubtable"/>
+      <Component Name="DateTo" Class="Com.Fld.IVar" Caption="@PaymentOrderList:DateFrom=По" ValueType="VarDate"/>
+      <Component Name="DateFrom" Class="Com.Fld.IVar" Caption="@PaymentOrderList:DateFrom=Срок оплаты с" ValueType="VarDate"/>
+      <Component Name="Company" Class="Com.Fld.IVar" Caption="@PaymentOrderList:Company=Предприятие" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="BankDetails" Class="Com.Fld.IVar" Caption="@PaymentOrderList:BankDetails=Банковский счет" RecordClass="Biz.Rec.Data.BankDetails" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonRefresh" After="#0" Hint="@RepPaymentOrderList:ButtonRefresh=Обновить"/>
+        <Inherited Name="ButtonClose" After="ButtonRefresh" Printed="False"/>
+        <Inherited Name="ButtonHelp" After="ButtonClose"/>
+        <Inherited Name="ButtonOK" Excluded="True" After="ButtonHelp"/>
+        <Inherited Name="HeaderSeparator" After="ButtonOK"/>
+        <Inherited Name="ButtonExport" Excluded="False" After="HeaderSeparator"/>
+        <Inherited Name="ButtonPrint" Excluded="False" After="ButtonExport"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+          <Component Name="PeriodStartEdit" Class="Com.Ctrl.IEdit" Field="DateFrom" FormatOfDate="DateOnly" HasCaption="True"/>
+          <Component Name="PeriodEndEdit" Class="Com.Ctrl.IEdit" Field="DateTo" FormatOfDate="DateOnly" HasCaption="True"/>
+          <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          <Component Name="CompanyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="Company" HasCaption="True" LookupField="Name" Required="True" ShortList="True" Width="68" Wrap="True"/>
+          <Component Name="BankDetailsEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.BankDetails" CellFormat="ReferenceFormat" Field="BankDetails" HasCaption="True" LookupField="Name" Width="68" Wrap="True"/>
+        </Component>
+      </Inherited>
+      <Component Name="DataFrame" Class="Com.Ctrl.IFrame" Subtable="DataSubtable">
+        <Component Name="BankDetailsCol" Class="Com.Ctrl.IEdit" Caption="@PaymentOrderList:BankDetails=Банковский счет" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Order" HasCaption="True" LookupField="BankDetails.Name" Multiline="True" OnDrawEx="Col_OnDrawEx" OnOutputEx="BankDetailsCol_OnOutputEx" Width="50" Wrap="True"/>
+        <Component Name="EventTimeCol" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@PaymentOrderList:EventTime=Дата" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Order" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" LookupField="EventTime" Multiline="True" ValueType="VarDate" Width="30" Wrap="True"/>
+        <Component Name="PrintedNumberCol" Class="Com.Ctrl.IEdit" Caption="@PaymentOrderList:PrintedNumber=Номер" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Order" HasCaption="True" LookupField="PrintedNumber" Multiline="True" Width="40" Wrap="True"/>
+        <Component Name="JumpButton1" Class="Com.Ctrl.IJumpButton" Field="DataStruct.Order" JumpForm="CashFlow.Frm.Doc.PaymentOrder" Printed="False"/>
+        <Component Name="ContrapartyCol" Class="Com.Ctrl.IEdit" Caption="@PaymentOrderList:Contraparty=Получатель платежа" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Order" HasCaption="True" LookupField="Contraparty.Name" Multiline="True" Width="50" Wrap="True"/>
+        <Component Name="PurposeCol" Class="Com.Ctrl.IEdit" Caption="@PaymentOrderList:Purpose=Назначение платежа" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Order" HasCaption="True" LookupField="Purpose" Multiline="True" Width="60" Wrap="True"/>
+        <Component Name="FinalSumCol" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@PaymentOrderList:FinalSum=Сумма" CellFormat="NumericFormat" Enabled="False" Field="DataStruct.FinalSum" FieldFormat=",##0.00;;-" HasCaption="True" Multiline="True" OnDrawEx="Col_OnDrawEx" OnOutputEx="FinalSumCol_OnOutputEx" Width="40" Wrap="True"/>
+        <Component Name="CurrencyCol" Class="Com.Ctrl.IEdit" Caption="@PaymentOrderList:Currency=Валюта" CellFormat="ReferenceFormat" Enabled="False" Field="DataStruct.Order" HasCaption="True" LookupField="Currency.Code" Multiline="True" OnDrawEx="Col_OnDrawEx" OnOutputEx="CurrencyCol_OnOutputEx" Width="20" Wrap="True"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

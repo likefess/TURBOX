@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm" ModalHeight="120" ModalWidth="200">
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="StatusSelect" Class="Com.Fld.IVar" OnChange="StatusSelectOnChange" OnVerify="StatusOnVerify" ValueType="VarString"/>
+      <Component Name="Status" Class="Com.Fld.IVar" OnChange="StatusOnChange" OnVerify="StatusOnVerify" ValueType="VarObject"/>
+      <Component Name="ConnectsFromAll" Class="Com.Fld.IVar" Caption="Разрешить переход из любого статуса" ValueType="VarLogical"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" HasCaption="False">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" HasCaption="False" MaxButton="2">
+        <Component Name="ButtonAdd" Class="Com.Ctrl.IButton" Hint="Создать новый статус" ImageName="Com.AddItem" OnClick="ButtonAddOnClick"/>
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Excluded="True" Hint="Закрыть" ImageName="Com.Close" OnClick="ButtonCloseOnClick"/>
+        <Component Name="ButtonDelete" Class="Com.Ctrl.IButton" Caption="Удалить" ImageName="Biz.trash" OnClick="ButtonDeleteOnClick"/>
+      </Component>
+      <Component Name="FieldsFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <BuiltIn Name="SideMargins" Bottom="0" Left="32" Right="32" Top="24"/>
+        <Component Name="FieldsGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+          <Component Name="FieldsLGr" Class="Com.Ctrl.IGroup" ByColumn="True">
+            <Component Name="StatusSelectEdit" Class="Com.Ctrl.IEdit" Caption="Статус" CellFormat="StringFormat" Field="StatusSelect" HasCaption="True" HasInnerCaption="True" Multiline="True" OnEnter="StatusSelectEditOnEnter" OnVerify="StatusSelectEditOnVerify" ShortList="True" ValueType="VarString" Wrap="True"/>
+            <Component Name="StatusEdit" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Статус" CardFileClass="Control.Tab.Ref.TaskStatus" CellFormat="ReferenceFormat" Field="Status" HasCaption="True" HasInnerCaption="True" LookupField="Name" Multiline="True" ShortList="True" Visible="False" Wrap="True"/>
+          </Component>
+          <Component Name="FieldsRGr" Class="Com.Ctrl.IGroup" ByColumn="True">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption=" "/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="ConnectsHeaderFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Переходы" HasCaption="False" Margins="0">
+        <BuiltIn Name="SideMargins" Bottom="0" Left="32" Right="32" Top="16"/>
+        <Component Name="ConnectGr" Class="Com.Ctrl.IGroup" Adaptive="True">
+          <Component Name="ConnectStatic" Class="Com.Ctrl.IStatic" Caption="Переходы" FixSize="True" FontSize="14" Width="30"/>
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" Caption=" " FixSize="False" Width="200"/>
+          <Component Name="ConnectsFromAllCB" Class="Com.Ctrl.ICheckBox" Field="ConnectsFromAll" HasCaption="True" MaxWidth="75" MinWidth="75" Multiline="False" OnChange="ConnectsFromAllCBOnChange" Width="78" Wrap="True"/>
+        </Component>
+      </Component>
+      <Component Name="ConnectsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+        <BuiltIn Name="SideMargins" Bottom="24" Left="32" Right="32" Top="16"/>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

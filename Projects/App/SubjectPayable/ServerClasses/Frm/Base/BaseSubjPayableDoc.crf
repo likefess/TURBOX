@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="SubjectPayable.Rec.Base.BaseSubjPayableDoc" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="DateNumberGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250">
+          <Component Name="edNumberDoc" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Number=Номер" Field="EdtRec.NumberDoc" FixSize="True" HasCaption="True" Hint="@SubjectPayable:Number.Hint=Системный номер документа" Required="True" Width="40" Wrap="False"/>
+          <Component Name="edDateDoc" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:EventTime=от" CaptionWidth="7" Field="EdtRec.DateDoc" FixSize="True" FormatOfDate="DateOnly" HasCaption="True" Hint="@SubjectPayable:DateDoc.Hint=Дата документа. Дата ввода данных в систему" Required="True" Width="40"/>
+          <Component Name="DNStatic3" Class="Com.Ctrl.IStatic" Width="50"/>
+          <Component Name="DNStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+          <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Locked" FixSize="True" Hint="В установленном виде означает, что документ закрыт на редактирование" Width="25"/>
+        </Component>
+        <Component Name="CompanyGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250">
+          <Component Name="edCompany" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="EdtRec.Company" HasCaption="True" Hint="@SubjectPayable:Company.Hint=Наименование Нашего предприятия" LookupField="Name" OnChange="edCompany_OnChange" ShortList="True" Wrap="False"/>
+          <Component Name="jbCompany" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Company" JumpForm="Bas.Frm.Data.Entity"/>
+          <Component Name="Closed" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Closed" FixSize="True" Width="25"/>
+        </Component>
+        <Component Name="NameGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250">
+          <Component Name="edName" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" HasCaption="True" Wrap="True"/>
+          <Component Name="NameGroupStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+          <Component Name="chAccounted" Class="Com.Ctrl.ICheckBox" Excluded="True" Field="EdtRec.Accounted" FixSize="True" HasCaption="True" Hint="В установленном виде означает, что документ принят к учету и по нему сформированы оперативные проводки" OnChange="chAccounted_OnChange" OnVerify="chAccounted_OnVerify" Width="25"/>
+          <Component Name="btAccounted" Class="Com.Ctrl.IButton" Caption="@SubjectPayable:btAccounted=Проводить" FixSize="True" HasCaption="True" Hint="@SubjectPayable:btAccounted.Hint=Документ будет принят к учету, сформированы оперативные проводки" OnClick="btAccounted_OnClick" Width="25"/>
+          <Component Name="btNoAccounted" Class="Com.Ctrl.IButton" Caption="@SubjectPayable:btNoAccounted=Отменить" FixSize="True" HasCaption="True" Hint="@SubjectPayable:btNoAccounted.Hint=Документ будет отменен, сформированные оперативные проводки удалены" OnClick="btNoAccounted_OnClick" Width="25"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="@SubjectPayable.Frm:MainTab=Документ" HasCaption="True">
+          <Component Name="frMain" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="grContraparty" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250">
+              <Component Name="edContraparty" Class="Com.Ctrl.IEdit" CaptionWidth="45" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Contraparty" HasCaption="True" Hint="@SubjectPayable:Contraparty.Hint=Наименование контрагента (юридического или физического лица)" LookupField="Name" OnChange="edContraparty_OnChange" OnGetLookupFilter="edContraparty_OnGetLookupFilter" Required="True" Wrap="False"/>
+              <Component Name="jbContraparty" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Contraparty" FixSize="True" JumpForm="Bas.Frm.Data.Entity" Width="7"/>
+            </Component>
+            <Component Name="grContract" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250">
+              <Component Name="edContract" Class="Com.Ctrl.IEdit" CaptionWidth="45" CardFileClass="Biz.Tab.Data.Contract" Field="EdtRec.Contract" HasCaption="True" Hint="@SubjectPayable:Contract.Hint=Договор, согласно которого возникла задолженность" LookupField="Code" OnChange="edContract_OnChange" OnGetLookupFilter="edContract_OnGetLookupFilter" OnOpenCardForm="edContract_OnOpenCardForm" OnOutputEx="edContract_OnOutputEx" Wrap="True"/>
+              <Component Name="edContractIncome" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Contract" Enabled="False" Field="EdtRec.Contract" OnOutputEx="edContractIncome_OnOutputEx" Width="20"/>
+              <Component Name="jbContract" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Contract" FixSize="True" JumpForm="Biz.Frm.Data.Contract" Width="7"/>
+            </Component>
+            <Component Name="grSource" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250">
+              <Component Name="edSourceDoc" Class="Com.Ctrl.IEdit" CaptionWidth="45" Field="EdtRec.SourceDoc" HasCaption="True" Wrap="True"/>
+              <Component Name="SourceDocStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Component Name="grComment" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250">
+              <Component Name="edComment" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Comment.Hint=Примечание" CaptionWidth="45" Field="EdtRec.Comment" HasCaption="True" Wrap="True"/>
+              <Component Name="CommentStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Component Name="grSumDoc" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250">
+              <Component Name="edSumDoc" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:SumDoc=Сумма по документу" CaptionWidth="45" Field="EdtRec.SumDoc" FieldFormat=",0.00;;-" HasCaption="True" Hint="@SubjectPayable:SumDoc.Hint=Сумма с учетом НДС (при наличии) первичного документа, являющегося основанием для задолженности" MaxWidth="45" Required="True"/>
+              <Component Name="edCurrency" Class="Com.Ctrl.IEdit" Caption="-" CaptionWidth="8" CardFileClass="Biz.Tab.Ref.UCurrencies" Field="EdtRec.Currency" HasCaption="False" LookupField="Code" MaxWidth="20" OnChange="edCurrency_OnChange" Required="True" ShortList="True"/>
+              <Component Name="jbCurrency" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Currency" JumpForm="Biz.Frm.Ref.UnitOrCurrency"/>
+              <Component Name="SumStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Component Name="grSumBase" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250">
+              <Component Name="edSumBase" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:SumBase1=Сумма в опер. валюте" CaptionWidth="45" Field="EdtRec.SumBase" FieldFormat=",0.00;;-" HasCaption="True" Hint="@SubjectPayable:SumBase1.Hint=Сумма первичного документа в операционной валюте (в базовой валюте)" MaxWidth="45"/>
+              <Component Name="edCurrencyBase" Class="Com.Ctrl.IEdit" Caption="-" CaptionWidth="8" CardFileClass="Biz.Tab.Ref.UCurrencies" Enabled="False" Field="EdtRec.CurrencyBase" HasCaption="False" LookupField="Code" MaxWidth="20"/>
+              <Component Name="SumBaseStatic2" Class="Com.Ctrl.IStatic" FixSize="True" Width="35"/>
+              <Component Name="SumBaseStatic1" Class="Com.Ctrl.IStatic" MaxWidth="30" Width="30"/>
+              <Component Name="SumBaseStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Component Name="grVAT" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250" Visible="False">
+              <Component Name="edVATRate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@SubjectPayable:WithVATRate=в т.ч. НДС" CaptionWidth="25" CardFileClass="Biz.Tab.Ref.VAT" Field="EdtRec.VATRate" FixSize="True" HasCaption="True" Hint="@SubjectPayable:VATRate=Ставка НДС" LookupField="ShortName" LookupFilter="ВидНДС&lt;>3" MaxWidth="20" ShortList="True" Width="20"/>
+              <Component Name="edVATSum" Class="Com.Ctrl.IEdit" Caption="-" CaptionWidth="3" Field="EdtRec.VATSum" FieldFormat=",0.00;;-" HasCaption="False" Hint="@SubjectPayable:VATSum.Hint=Сумма НДС первичного документа, являющегося основанием для задолженности" MaxWidth="45"/>
+              <Component Name="stVATRate3" Class="Com.Ctrl.IStatic" FixSize="True" Width="49"/>
+              <Component Name="stVATRate4" Class="Com.Ctrl.IStatic" FixSize="False" Width="30"/>
+              <Component Name="stVATRate2" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+          </Component>
+          <Component Name="bxMain" Class="Com.Ctrl.IBox" Excluded="True" Caption="@SubjectPayable:MainBox=Основное" HasCaption="True" MaxSize="250"/>
+          <Component Name="bxSum" Class="Com.Ctrl.IBox" Excluded="True" Caption="@SubjectPayable:bxSum=Суммы" HasCaption="True"/>
+          <Component Name="bxCreateUpdate" Class="Com.Ctrl.IBox" Caption="@SubjectPayable:CreateUpdate=Создал, изменил" Collapsed="True" HasCaption="True">
+            <Component Name="grCreate" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250">
+              <Component Name="edCreateUser" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.CreateUser" HasCaption="True" Width="50" Wrap="False"/>
+              <Component Name="edCreateDate" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.CreateDate" FormatOfDate="DateAndTime" HasCaption="True" Width="50" Wrap="False"/>
+              <Component Name="CreateStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Component Name="grUpdate" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250">
+              <Component Name="edUpdateUser" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.UpdateUser" HasCaption="True" Width="50" Wrap="False"/>
+              <Component Name="edUpdateDate" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.UpdateDate" FormatOfDate="DateAndTime" HasCaption="True" Width="50" Wrap="False"/>
+              <Component Name="UpdateStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="RepMoveTab" Class="Com.Ctrl.IFrame" Caption="@Проводки" HasCaption="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

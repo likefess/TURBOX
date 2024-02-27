@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="AddCond" Class="Com.Fld.IVar" OnChange="AddCondOnChange" ValueType="VarInteger"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" HasCaption="False">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" HasCaption="False">
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Hint="Закрыть" ImageName="Com.Close" OnClick="ButtonClose_Onclick"/>
+      </Component>
+      <Component Name="FieldsFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <BuiltIn Name="SideMargins" Bottom="0" Left="32" Right="32" Top="24"/>
+        <Component Name="AddCondHintFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+          <BuiltIn Name="SideMargins" Bottom="24" Left="0" Right="0" Top="0"/>
+          <Component Name="AddCondHintGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="100">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption="Настройте автоматические действия, которые должны происходить при переходе" FixSize="False" FontSize="10" Multiline="True" Width="100"/>
+          </Component>
+        </Component>
+        <Component Name="AddCondFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="AddCondGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="100">
+            <Component Name="AddCondEdit" Class="Com.Ctrl.IEdit" Caption="Добавить условие" CaptionWidth="50" CellFormat="EnumFormat" Field="AddCond" HasCaption="False" OnEnter="AddCondEditOnEnter" OnVerify="AddCondEditOnVerify"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="PF" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0" Visible="True">
+        <BuiltIn Name="SideMargins" Bottom="24" Left="12" Right="32" Top="24"/>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

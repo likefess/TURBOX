@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm" Caption="@RealEstate:ReRepairExpenseReport=Затраты по объектам имущества">
+    <Component Name="VarContainer" Class="Com.ILibContainer">
+      <Component Name="Params" Class="RealEstate.Service.Rep.ReRepairExpenseReport.Data.Params" IsLibrary="1"/>
+      <Component Name="Items" Class="Com.ISubtable" StructClass="RealEstate.Service.Rep.ReRepairExpenseReport.Data.DataItem"/>
+      <Component Name="Item" Class="RealEstate.Service.Rep.ReRepairExpenseReport.Data.DataItem" IsLibrary="1"/>
+      <Component Name="Totals" Class="RealEstate.Service.Rep.ReRepairExpenseReport.Data.Totals" IsLibrary="1"/>
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" ScrollerStyle="ScrollerNone">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader">
+        <Component Name="ButtonUpdate" Class="Com.Ctrl.IButton" Caption="@Cmd:Update=Обновить" HasCaption="False" ImageName="Com.Refresh" OnClick="ButtonUpdateOnClick"/>
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Caption="@Cmd:Close=Закрыть" Command="Commands.CloseForm" HasCaption="False" ImageName="Close"/>
+      </Component>
+      <Component Name="FiltersFrame" Class="Com.Ctrl.IFrame" AutoSize="True" HasCaption="False" Margins="5">
+        <Component Name="PeriodBox" Class="Com.Ctrl.IBox" AutoSize="True" Caption="Период" HasCaption="True" Margins="5"/>
+        <Component Name="FiltersFieldsBox" Class="Com.Ctrl.IBox" AutoSize="True" Caption="Параметры" HasCaption="True" Margins="5">
+          <Component Name="eCompanyFilterGr" Class="Com.Ctrl.IGroup" HasCaption="False">
+            <Component Name="eCompanyFilterCaption" Class="Com.Ctrl.IStatic" Caption="Компания" FixSize="True" Width="60"/>
+            <Component Name="eCompanyFilter" Class="Com.Ctrl.IEdit" AutoLookup="True" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="Params.Company" HasButton="True" HasCaption="False" LookupField="Name" Width="60"/>
+            <Component Name="eCompanyFilterJB" Class="Com.Ctrl.IJumpButton" Enabled="True" Field="Params.Company" FixSize="True" HasCaption="False" JumpForm="Bas.Frm.Data.Entity" Width="7.2"/>
+          </Component>
+          <Component Name="eExcludeEmptyExpensesGr" Class="Com.Ctrl.IGroup">
+            <Component Name="eExcludeEmptyExpensesCaption" Class="Com.Ctrl.IStatic" Caption="Исключить нулевые затраты" FixSize="True" Width="60"/>
+            <Component Name="eExcludeEmptyExpenses" Class="Com.Ctrl.ICheckBox" Caption=" " Field="Params.ExcludeEmptyExpenses" HasCaption="False"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="DataItemsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Данные" HasCaption="True" Margins="5">
+        <Component Name="TotalsBox" Class="Com.Ctrl.IBox" Caption="Итоги" FixSize="True" HasCaption="True" ScrollerStyle="ScrollerNone">
+          <Component Name="TotalsGroup" Class="Com.Ctrl.IGroup" ByColumn="False">
+            <Component Name="TotalsGroup1" Class="Com.Ctrl.IGroup" ByColumn="True">
+              <Component Name="TotalsContractAmountGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="TotalsContractAmountCptn" Class="Com.Ctrl.IStatic" Caption="Затраты по договорам" FixSize="True" Width="50"/>
+                <Component Name="TotalsContractAmount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="Totals.ContractAmount" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="False" Width="40"/>
+              </Component>
+              <Component Name="TotalsAcceptedAmountGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="TotalsAcceptedAmountCptn" Class="Com.Ctrl.IStatic" Caption="Фактические затраты" FixSize="True" Width="50"/>
+                <Component Name="TotalsAcceptedAmount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="Totals.AcceptedAmount" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="False" Width="40"/>
+              </Component>
+              <Component Name="TotalsOrderedAmountGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="TotalsOrderedAmountCptn" Class="Com.Ctrl.IStatic" Caption="Затраты по заказам" FixSize="True" Width="50"/>
+                <Component Name="TotalsOrderedAmount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="Totals.OrderedAmount" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="False" Width="40"/>
+              </Component>
+            </Component>
+            <Component Name="TotalsGroup2" Class="Com.Ctrl.IGroup" ByColumn="True">
+              <Component Name="TotalsPlannedAmountGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="TotalsPlannedAmountCptn" Class="Com.Ctrl.IStatic" Caption="Затраты по ППР" FixSize="True" Width="35"/>
+                <Component Name="TotalsPlannedAmount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="Totals.PlannedAmount" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="False" Width="40"/>
+              </Component>
+              <Component Name="TotalTotalAmountGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="TotalTotalAmountCptn" Class="Com.Ctrl.IStatic" Caption="Итого затраты" FixSize="True" Width="35"/>
+                <Component Name="TotalTotalAmount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="Totals.TotalAmount" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="False" Width="40"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="DataItemsBox" Class="Com.Ctrl.IBox" Caption="Данные" FixSize="False" HasCaption="True" ScrollerStyle="ScrollerBoth">
+          <Component Name="DataItemsTable" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Freezed="True" HasCaption="True" Numbering="True" Sortable="True" Subtable="Items">
+            <Component Name="ReObjectColGr" Class="Com.Ctrl.IColumnsGroup" Caption="Объект недвижимости" HasCaption="True">
+              <Component Name="ReObjectCode" Class="Com.Ctrl.IEdit" Caption="Код" CardFileClass="RealEstateBase.Tab.Data.RealEstateObject" CellFormat="ReferenceFormat" Enabled="False" Field="Item.ReObject" FixSize="True" HasButton="True" HasCaption="True" LookupField="Code" Width="50"/>
+              <Component Name="ReObjectName" Class="Com.Ctrl.IEdit" Caption="Наименование" CardFileClass="RealEstateBase.Tab.Data.RealEstateObject" CellFormat="ReferenceFormat" Enabled="False" Field="Item.ReObject" FixSize="True" HasButton="True" HasCaption="True" LookupField="Name" Width="70"/>
+              <Component Name="ReObjectJB" Class="Com.Ctrl.IJumpButton" Field="Item.ReObject" FixSize="True" HasCaption="True" JumpForm="RealEstateBase.Frm.Data.RealEstateObject" Width="7.2"/>
+            </Component>
+            <Component Name="Area" Class="Com.Ctrl.IEdit" Caption="Площадь" CellFormat="NumericFormat" Enabled="False" Field="Item.Area" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" Width="30"/>
+            <Component Name="Month" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Месяц" CellFormat="StringFormat" Enabled="False" Field="Item.MonthStr" FixSize="True" HasCaption="True" Width="30"/>
+            <Component Name="ContractAmount" Class="Com.Ctrl.IEdit" Caption="Затраты по договорам" CellFormat="NumericFormat" Enabled="False" Field="Item.ContractAmount" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" Width="30"/>
+            <Component Name="AcceptedAmount" Class="Com.Ctrl.IEdit" Caption="Фактические затраты" CellFormat="NumericFormat" Enabled="False" Field="Item.AcceptedAmount" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" Width="30"/>
+            <Component Name="OrderedAmount" Class="Com.Ctrl.IEdit" Caption="Затраты по заказам" CellFormat="NumericFormat" Enabled="False" Field="Item.OrderedAmount" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" Width="30"/>
+            <Component Name="PlannedAmount" Class="Com.Ctrl.IEdit" Caption="Затраты по ППР" CellFormat="NumericFormat" Enabled="False" Field="Item.PlannedAmount" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" Width="30"/>
+            <Component Name="TotalAmount" Class="Com.Ctrl.IEdit" Caption="Итого затраты" CellFormat="NumericFormat" Enabled="False" Field="Item.TotalAmount" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" Width="30"/>
+            <Component Name="TotalAmountPerArea" Class="Com.Ctrl.IEdit" Caption="Затраты на кв.м" CellFormat="NumericFormat" Enabled="False" Field="Item.TotalAmountPerArea" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" Width="30"/>
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

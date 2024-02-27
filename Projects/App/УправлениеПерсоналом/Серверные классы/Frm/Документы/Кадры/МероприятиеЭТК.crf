@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.БазовыйДокумент2">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Кадровые документы.Общие кадровые документы.Электронные трудовые книжки">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Документы.Кадры.МероприятиеЭТК" IsLibrary="1"/>
+    <Component Name="МероприятиеОснование" Class="УправлениеПерсоналом.Rec.Документы.Кадры.МероприятиеЭТК_Основание" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Caption="Мероприятие электронной трудовой книжки" HasCaption="True">
+        <Inherited Name="ButtonServices" Excluded="False">
+          <Component Name="кнОтменитьМероприятие" Class="Com.Ctrl.IButton" Caption="Отменить мероприятие" HasCaption="True" OnClick="ОтменитьМероприятиеПриНажатии"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Enabled="True">
+        <Inherited Name="MainTab">
+          <Inherited Name="xFieldsFrame" CanHideBySplit="False" CanResizeBySplit="False" SplitterAtRight="False" UseSplitter="False">
+            <Inherited Name="grMain">
+              <Inherited Name="Замок" Width="20"/>
+            </Inherited>
+            <Inherited Name="грТипДокумента" Excluded="True"/>
+            <Inherited Name="grNumberDate">
+              <Inherited Name="ДатаДокумента" Caption="Дата мероприятия" CaptionWidth="40"/>
+              <Component Name="НомерСтроки" Class="Com.Ctrl.IEdit" After="ДатаДокумента" Caption="Номер строки" Field="EdtRec.НомерСтроки" Hint="Номер записи в электронной трудовой книжке" Width="15"/>
+              <Inherited Name="stEmpty" FixSize="True" Width="27"/>
+            </Inherited>
+            <Component Name="грСотрудник" Class="Com.Ctrl.IGroup" After="grNumberDate" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Сотрудник" Class="Com.Ctrl.IEdit" Caption="@Сотрудник" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Enabled="True" Field="EdtRec.УсловияТрудаСотр" HasCaption="True" LookupField="Person.Name" OnOpenCardForm="НастроитьКартотекуУслТрудаСотрудников" OnOutput="Сотрудник_OnOutput" Visible="True"/>
+              <Component Name="ТабНомер" Class="Com.Ctrl.IEdit" Caption="-" CaptionWidth="10" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Enabled="False" Field="EdtRec.УсловияТрудаСотр" HasCaption="True" LookupField="ТабНомер" MaxWidth="30" Visible="True" Width="30"/>
+              <Component Name="кнСотрудник" Class="Com.Ctrl.IJumpButton" Field="EdtRec.УсловияТрудаСотр" JumpForm="УправлениеПерсоналом.Frm.Данные.УсловияТрудаСотрудника"/>
+              <Component Name="stEmpty1" Class="Com.Ctrl.IStatic" FixSize="True" Width="20"/>
+            </Component>
+            <Component Name="грНазначение" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Назначение" Class="Com.Ctrl.IEdit" Caption="Назначение" Enabled="False" Field="EdtRec.УсловияТрудаСотр" HasCaption="True" Hint="Назначение " Multiline="True" OnOutputEx="Назначение_OnOutputEx" Wrap="True"/>
+              <Component Name="Static5" Class="Com.Ctrl.IStatic" FixSize="True" Width="27"/>
+            </Component>
+            <Component Name="грВидЭТК" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Вид" Class="Com.Ctrl.IEdit" Caption="Вид" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидМероприятияЭТК" Field="EdtRec.Вид" HasCaption="True" Hint="Вид кадрового мероприятия" OnChange="Вид_OnChange"/>
+              <Component Name="Static7" Class="Com.Ctrl.IStatic" FixSize="True" Width="27"/>
+            </Component>
+            <Component Name="грОтмена" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="стОтменено" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="Отменено" FixSize="True" Width="40"/>
+              <Component Name="Отменено" Class="Com.Ctrl.ICheckBox" Caption=" " Enabled="False" Field="EdtRec.Отменен" HasCaption="False" MaxWidth="5" OnChange="Отменено_OnChange" Width="5"/>
+              <Component Name="ДатаОтмены" Class="Com.Ctrl.IEdit" Caption="Дата отмены" Field="EdtRec.ДатаОтмены" HasCaption="True" MaxWidth="35" Width="35"/>
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="27"/>
+            </Component>
+            <Component Name="грОтменяемое" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Отменяемое" Class="Com.Ctrl.IEdit" Caption="Отменяемое" CardFileClass="УправлениеПерсоналом.Tab.Документы.Кадры.МероприятияЭТК" Field="EdtRec.МероприятиеОтмененное" HasCaption="True" Hint="Отменяемое мероприятие" OnGetLookupFilter="Отменяемое_OnGetLookupFilter" OnOutputEx="Отменяемое_OnOutputEx"/>
+              <Component Name="кнОтменяемое" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Отменяемое" JumpForm="УправлениеПерсоналом.Frm.Документы.Кадры.МероприятиеЭТК"/>
+              <Component Name="Static9" Class="Com.Ctrl.IStatic" FixSize="True" Width="20"/>
+            </Component>
+            <Component Name="грМероприятиеОтменяемое" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Вместо" Class="Com.Ctrl.IEdit" Caption="Вместо" CardFileClass="УправлениеПерсоналом.Tab.Документы.Кадры.МероприятияЭТК" Field="EdtRec.МероприятиеОтмененное" HasCaption="True" Hint="Связанное отмененное мероприятие" OnGetLookupFilter="Вместо_OnGetLookupFilter" OnOutputEx="Вместо_OnOutputEx"/>
+              <Component Name="кнВместо" Class="Com.Ctrl.IJumpButton" Field="EdtRec.МероприятиеОтмененное" JumpForm="УправлениеПерсоналом.Frm.Документы.Кадры.МероприятиеЭТК"/>
+              <Component Name="Static8" Class="Com.Ctrl.IStatic" FixSize="True" Width="20"/>
+            </Component>
+            <Inherited Name="грОписание" Excluded="True"/>
+            <Inherited Name="грПримечание" Excluded="True"/>
+            <Component Name="грОКЗ" Class="Com.Ctrl.IGroup" After="грПримечание" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150" Visible="True">
+              <Component Name="ОКЗ" Class="Com.Ctrl.IEdit" Caption="ОКЗ" Field="EdtRec.ОКЗ" HasCaption="True" Hint="Запись по Общероссийскому Классификатору Занятий. Обязательно к заполнению с 01.07.2021" Multiline="True" OnVerify="ОКЗ_OnVerify" Wrap="True"/>
+              <Component Name="кнОКЗ" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ОКЗ" JumpForm="УправлениеПерсоналом.Frm.Классификаторы.ОКЗ" Width="7"/>
+              <Component Name="Static10" Class="Com.Ctrl.IStatic" FixSize="True" Width="20"/>
+            </Component>
+            <Component Name="грКод" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="210" MinWidth="150">
+              <Component Name="КодОКЗ" Class="Com.Ctrl.IEdit" Caption="Код вып. функции" Enabled="False" Field="EdtRec.КодОКЗ" HasCaption="True" Hint="Код выполняемой функции" MaxWidth="35" Width="35"/>
+              <Component Name="ВидПР" Class="Com.Ctrl.IEdit" Caption="Вид  работы" Field="EdtRec.ВидПР" HasCaption="True" Hint="Вид поручаемой работы для СЗВ-ТД" Multiline="True" Width="150" Wrap="True"/>
+            </Component>
+            <Component Name="грУвольнениеДокумент" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="210" MinWidth="150" Visible="True">
+              <Component Name="Причина" Class="Com.Ctrl.IEdit" Caption="Причина" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ПричиныУвольненияРаботников" Field="EdtRec.Причина" Hint="Причина увольнения" LookupField="Name" OnChange="Причина_OnChange" Width="60"/>
+              <Component Name="ОснованиеУвТип" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Тип основания" CellFormat="EnumFormat" Field="EdtRec.ОснованиеУвТип" Hint="Тип документа, в соответствии с которым проведено расторжение трудового договора" OnChange="ОснованиеУвольнения_OnChange" Width="35"/>
+              <Component Name="ОснованиеУвНормДокумент" Class="Com.Ctrl.IEdit" Caption="Норм. документ" Field="EdtRec.ОснованиеУвНормДокумент" Hint="Нормативный документ" OnChange="ОснованиеУвольнения_OnChange"/>
+            </Component>
+            <Component Name="грУвольнениеСтатья" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="210" MinWidth="150">
+              <Component Name="ОснованиеСтатья" Class="Com.Ctrl.IEdit" Caption="Статья" Field="EdtRec.ОснованиеУвСтатья" Hint="Номер статьи нормативного правого акта Российской Федерации, в соответствии с которым проведено расторжение трудового договора" OnChange="ОснованиеУвольнения_OnChange" Width="40"/>
+              <Component Name="ОснованиеЧасть" Class="Com.Ctrl.IEdit" Caption="ч." CaptionWidth="20" Field="EdtRec.ОснованиеУвЧасть" Hint="Часть статьи нормативного правого акта Российской Федерации, в соответствии с которым проведено расторжение трудового договора" OnChange="ОснованиеУвольнения_OnChange" Width="20"/>
+              <Component Name="ОснованиеПункт" Class="Com.Ctrl.IEdit" Caption="п." CaptionWidth="20" Field="EdtRec.ОснованиеУвПункт" Hint="Пункт статьи нормативного правого акта Российской Федерации, в соответствии с которым проведено расторжение трудового договора" OnChange="ОснованиеУвольнения_OnChange" Width="40"/>
+              <Component Name="ОснованиеПодПункт" Class="Com.Ctrl.IEdit" Caption="пп." CaptionWidth="20" Field="EdtRec.ОснованиеУвПодПункт" Hint="Подпункт  статьи нормативного правого акта Российской Федерации, в соответствии с которым проведено расторжение трудового договора" OnChange="ОснованиеУвольнения_OnChange" Width="40"/>
+              <Component Name="ОснованиеАбзац" Class="Com.Ctrl.IEdit" Caption="абз." CaptionWidth="20" Field="EdtRec.ОснованиеУвАбзац" Hint="Абзац  статьи нормативного правого акта Российской Федерации, в соответствии с которым проведено расторжение трудового договора" OnChange="ОснованиеУвольнения_OnChange" Width="40"/>
+            </Component>
+            <Component Name="грОснованиеСведения" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="210" MinWidth="150" Visible="True">
+              <Component Name="ОснованиеУвольнения" Class="Com.Ctrl.IEdit" Caption="Основание ув." Field="EdtRec.ОснованиеУвольнения" Hint="Основание увольнения" Multiline="True" OnChange="ОснованиеУвольнения_OnChange" Width="60" Wrap="True"/>
+              <Component Name="Сведения" Class="Com.Ctrl.IEdit" Caption="Сведения" Field="EdtRec.Сведения" HasCaption="True" Hint="Иные сведения о мероприятии" MaxWidth="230" MinWidth="150" Multiline="True" Wrap="True"/>
+            </Component>
+            <Component Name="грДатыОграничений" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="210" MinWidth="150" Visible="False">
+              <Component Name="ДатаС" Class="Com.Ctrl.IEdit" Caption="Ограничение с" Field="EdtRec.ДатаС" HasCaption="True" Hint="Дата начала ограничений" MaxWidth="35" OnVerify="ДатаС_OnVerify" Width="35"/>
+              <Component Name="ДатаПо" Class="Com.Ctrl.IEdit" Caption="по" Field="EdtRec.ДатаПо" HasCaption="True" Hint="Дата окончания ограничений" MaxWidth="35" OnVerify="ДатаПо_OnVerify" Width="35"/>
+            </Component>
+            <Component Name="тблДокументОснование" Class="Com.Ctrl.ITable" Enabled="True" Subtable="EdtRec.ДокументОснование" Visible="True">
+              <Component Name="ДокОснование_Приказ" Class="Com.Ctrl.IEdit" Caption="Документ-основание" CardFileClass="УправлениеПерсоналом.Tab.Документы.Кадры.Приказы" Field="МероприятиеОснование.Приказ" HasCaption="True" Multiline="True" OnGetLookupFilter="ДокОснование_OnGetLookupFilter" OnOpenCardForm="ДокОснование_OnOpenCardForm" OnOutputEx="ДокОснование_OnOutputEx" ValueType="VarObject" Width="95" Wrap="True"/>
+              <Component Name="ДокОснование_Наименование" Class="Com.Ctrl.IEdit" Caption="Наименование" Field="МероприятиеОснование.Наименование" HasCaption="True" Multiline="True" Visible="False" Width="40" Wrap="True"/>
+              <Component Name="ДокОснование_Дата" Class="Com.Ctrl.IEdit" Caption="Дата" Enabled="False" Field="МероприятиеОснование.Дата" HasCaption="True" MaxWidth="35" Width="35"/>
+              <Component Name="ДокОснование_Номер" Class="Com.Ctrl.IEdit" Caption="Номер" Enabled="False" Field="МероприятиеОснование.Номер" HasCaption="True" MaxWidth="35" Width="35"/>
+              <Component Name="ДокОснование_серия" Class="Com.Ctrl.IEdit" Caption="Серия" Enabled="False" Field="МероприятиеОснование.Серия" HasCaption="True" MaxWidth="35" Width="35"/>
+            </Component>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="фрПодписи" Excluded="True" Caption="Прочее">
+          <Inherited Name="фрПодписиОбщ" Excluded="True"/>
+          <Inherited Name="фрСистПоля" Excluded="True"/>
+        </Inherited>
+        <Component Name="фрСлужебноеОбщ" Class="Com.Ctrl.IFrame" Caption="Служебное" HasCaption="True">
+          <Component Name="фрСлужебное" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="UUID" Class="Com.Ctrl.IEdit" Caption="UUID" Field="EdtRec.UUID" HasCaption="True" Hint="UUID мероприятия (UUID отмененного мероприятия). Автоматически заполняется при выгрузке отмены в СЗВ_ТД"/>
+          </Component>
+          <Component Name="фрСистПоля1" Class="Com.Ctrl.IBox" Caption="Системные поля" HasCaption="True">
+            <Component Name="грСоздал1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="ВремяСоздания1" Class="Com.Ctrl.IEdit" Caption="Время создания" Enabled="False" Field="EdtRec.CreateDate" FormatOfDate="DateAndTime" HasCaption="True" MaxWidth="50" Width="50"/>
+              <Component Name="Создал1" Class="Com.Ctrl.IEdit" Caption="Создал" Enabled="False" Field="EdtRec.CreateUser" MaxWidth="40" Width="40"/>
+            </Component>
+            <Component Name="грИзменил1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="ВремяИзменения1" Class="Com.Ctrl.IEdit" Caption="Время изменения" Enabled="False" Field="EdtRec.UpdateDate" FormatOfDate="DateAndTime" MaxWidth="50" Width="50"/>
+              <Component Name="Изменил1" Class="Com.Ctrl.IEdit" Caption="Изменил" Enabled="False" Field="EdtRec.UpdateUser" MaxWidth="40" Width="40"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

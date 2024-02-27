@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="RealEstate.Tab.Base.BaseMDocOrder">
+  <Inherited HelpContext="RealEstate.Управление имуществом.Данные.Документы.Документы">
+    <Inherited Name="Variables">
+      <Inherited Name="FObjKind" RecordClass="RealEstateBase.Rec.Ref.RealEstateObjKind"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="colDate" FormatOfDate="DateAndTime"/>
+          <Component Name="RightKind" Class="Com.Ctrl.IEdit" After="OrderType" Caption="Документ" CardFileClass="RealEstate.Tab.Ref.RightKind" Field="Current.RightKind" LookupField="Name"/>
+          <Component Name="Balanser" Class="Com.Ctrl.IEdit" CanSort="False" Caption="Балансодержатель" CardFileClass="Bas.Tab.Data.Entity" Field="Current.BalanserVar" LookupField="Name"/>
+          <Component Name="PropertyUser" Class="Com.Ctrl.IEdit" CanSort="False" Caption="Пользователь" CardFileClass="Bas.Tab.Data.Entity" Field="Current.PropertyUserVar" LookupField="Name"/>
+          <Component Name="AreaObject" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Площадь по документам" Field="Current.AreaObject" HasCaption="True"/>
+          <Inherited Name="colDecription" CanSort="False"/>
+        </Inherited>
+        <Inherited Name="FilterFrame">
+          <Inherited Name="FilterBodyFrame">
+            <Inherited Name="FGeneralBox">
+              <Inherited Name="FGeneralGroup">
+                <Inherited Name="FObjKindEdt" CardFileClass="RealEstateBase.Tab.Ref.RealEstateObjKind"/>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

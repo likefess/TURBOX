@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CashFlow.Tab.Doc.BankMoveBase">
+  <Inherited HelpContext="CashFlow.Движение денежных средств.Операции.Документы.Движения по расчетным счетам" Hierarchical="False">
+    <Inherited Name="Current" Class="CashFlow.Rec.Doc.BankMove" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Component Name="FilterFrame" Class="Com.Ctrl.IFrame" After="NavigatorFrame" AutoSize="True" Margins="3">
+        <Component Name="FilterGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+          <Component Name="BankDetailsFilterEdit" Class="Com.Ctrl.IEdit" Caption="Р/с" CaptionWidth="10" CardFileClass="Biz.Tab.Data.BankDetails" CellFormat="ReferenceFormat" LookupField="Name" MaxWidth="150" OnChange="SetUserFilter" ValueType="VarObject" Width="50"/>
+          <Component Name="FromDateFilterEdit" Class="Com.Ctrl.IEdit" Caption="Дата с" CaptionWidth="17" CellFormat="DateFormat" FixSize="True" FormatOfDate="DateOnly" OnChange="SetUserFilter" ValueType="VarDate" Width="30"/>
+          <Component Name="ToDateFilterEdit" Class="Com.Ctrl.IEdit" Caption="по" CaptionWidth="8" CellFormat="DateFormat" FixSize="True" FormatOfDate="DateOnly" OnChange="SetUserFilter" ValueType="VarDate" Width="30"/>
+        </Component>
+      </Component>
+      <Inherited Name="MainFrame" After="FilterFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Code" Excluded="True"/>
+          <Inherited Name="CreateDate" Excluded="True"/>
+          <Inherited Name="CreateUser" Excluded="True"/>
+          <Inherited Name="UpdateDate" Excluded="True"/>
+          <Inherited Name="UpdateUser" Excluded="True"/>
+          <Component Name="IsAccounted" Class="Com.Ctrl.IEdit" After="Resource" CellFormat="LogicalFormat" Field="Current.IsAccounted" HasCaption="True" Width="20"/>
+          <Inherited Name="EventTime" After="IsAccounted" Width="20"/>
+          <Inherited Name="Entity" After="EventTime" Width="40"/>
+          <Inherited Name="Contraparty" Width="40"/>
+          <Inherited Name="Sum" After="Contraparty" Width="30"/>
+          <Inherited Name="Currency" Caption="Валюта"/>
+          <Inherited Name="BankDetailsEdit" Caption="Р/c" Width="30"/>
+          <Inherited Name="PurposeEdit" Width="40"/>
+          <Inherited Name="PrintedNumberEdit" After="PurposeEdit"/>
+          <Component Name="Income" Class="Com.Ctrl.IEdit" After="PrintedNumberEdit" Caption="Вид платежа" Field="Current.vIncome" Hint="Входящий платеж" Width="25"/>
+          <Component Name="BankDetailsEdit1" Class="Com.Ctrl.IEdit" Caption="П/п" Field="Current.PaymentOrder" LookupField="PrintedNumber" Width="30"/>
+          <Component Name="CFREdit" Class="Com.Ctrl.IEdit" Field="Current.CFR" LookupField="Name" Width="30"/>
+          <Component Name="BGIEdit" Class="Com.Ctrl.IEdit" Field="Current.BGI" LookupField="Name" Width="30"/>
+          <Component Name="ProjectEdit" Class="Com.Ctrl.IEdit" Field="Current.Project" LookupField="Name" Width="30"/>
+          <Component Name="SourceEdit" Class="Com.Ctrl.IEdit" Field="Current.Source" LookupField="Name" Width="30"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

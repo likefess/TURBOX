@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.Event">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="TMS.Rec.Data.DayEvent" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" CaptionWidth="40" HasCaption="True" MaxWidth="200" MinWidth="140">
+          <Component Name="EventTimeEdit" Class="Com.Ctrl.IEdit" Caption="@Event:EventDate=Дата" CellFormat="DateFormat" Field="EdtRec.EventTime" FixSize="False" FormatOfDate="DateOnly" HasInnerCaption="True" Width="40"/>
+          <Component Name="StatusEdit" Class="Com.Ctrl.IEdit" CardFileClass="TMS.Tab.Ref.TMSStatus" Field="EdtRec.Status" HasInnerCaption="True" LookupField="Name" OnChange="StatusEditOnChange" ShortList="True" Visible="True"/>
+          <Component Name="EntityEdit" Class="Com.Ctrl.IEdit" CardFileClass="TrackingCore.Tab.Data.People" Field="EdtRec.Entity" HasInnerCaption="True" LookupField="Name" LookupFilter="not Closed and IsGroup = 0" OnChange="EntityEditOnChange" ShortList="True" Visible="False"/>
+          <Component Name="TaskGroup" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="40" HasCaption="True" MaxWidth="207" MinWidth="147">
+            <Component Name="TaskEdit" Class="Com.Ctrl.IEdit" AutocompleteLimit="150" AutocompleteMode="acmFromRec" CardFileClass="TrackingCore.Tab.Data.Tasks" CellFormat="ReferenceFormat" Field="EdtRec.Task" HasInnerCaption="True" LookupField="Name" OnChange="TaskEditOnChange" OnEnter="TaskEditOnEnter"/>
+            <Component Name="JumpTaskButton" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Task"/>
+          </Component>
+          <Component Name="ProjectEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.Project" Enabled="False" Field="EdtRec.Project" HasInnerCaption="True" LookupField="Name" ShortList="True"/>
+          <Component Name="RoleEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.EntityRoles" Field="EdtRec.Role" HasInnerCaption="True" LookupField="Name" LookupFilter="SystemRole in [7, 8]" OnAutocomplete="RoleEditOnAutocomplete" ShortList="True"/>
+          <Component Name="CompanyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="EdtRec.Company" HasInnerCaption="True" LookupField="Name" ShortList="True" Visible="False"/>
+        </Inherited>
+        <Component Name="HoursGroup" Class="Com.Ctrl.IGroup" Adaptive="True" HasCaption="True" MaxWidth="200" MinWidth="147">
+          <Component Name="PlanEdit" Class="Com.Ctrl.IEdit" Excluded="True" CellFormat="NumericFormat" Field="EdtRec.PlanHours"/>
+          <Component Name="HoursEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.Hours" HasInnerCaption="True"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

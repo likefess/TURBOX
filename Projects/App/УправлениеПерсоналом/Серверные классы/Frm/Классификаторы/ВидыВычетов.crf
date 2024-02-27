@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.Классификатор">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Справочники.Виды вычетов">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Классификаторы.ВидыВычетов" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="GroupCode">
+            <Inherited Name="Locked" Visible="True"/>
+          </Inherited>
+          <Inherited Name="GroupName">
+            <Inherited Name="Closed" Visible="True"/>
+          </Inherited>
+          <Component Name="грНастройки" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+            <Component Name="грТипВычета" Class="Com.Ctrl.IGroup" ByColumn="False">
+              <Component Name="ТипВычета" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.ТипВычета" HasCaption="True"/>
+              <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+            </Component>
+            <Component Name="грОписание" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="Описание" Class="Com.Ctrl.IEdit" Field="EdtRec.Описание" HasCaption="True" Multiline="True" Wrap="True"/>
+              <Component Name="Static4" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+            </Component>
+            <Component Name="грСумма" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="Сумма" Class="Com.Ctrl.IEdit" Field="EdtRec.Сумма" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Width="45"/>
+              <Component Name="кнИсторияСумма" Class="Com.Ctrl.IButton" Hint="История" ImageName="Com.bars" OnClick="ИсторияСумма_OnClick"/>
+              <Component Name="Предел" Class="Com.Ctrl.IEdit" CaptionWidth="55" Field="EdtRec.Предел" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Hint="Предельная сумма дохода для предоставления вычета" Width="30"/>
+              <Component Name="кнИсторияПредел" Class="Com.Ctrl.IButton" Hint="История" ImageName="Com.bars" OnClick="ИсторияПредел_OnClick"/>
+            </Component>
+            <Component Name="грПредел" Class="Com.Ctrl.IGroup" Excluded="True" ByColumn="False"/>
+            <Component Name="грРасчетВзносов" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" Width="-40"/>
+              <Component Name="РасчетВзносов" Class="Com.Ctrl.ICheckBox" Field="EdtRec.РасчетВзносов" HasCaption="True"/>
+            </Component>
+            <Component Name="грРасчетТравмы" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" Width="-40"/>
+              <Component Name="РасчетТравмы" Class="Com.Ctrl.ICheckBox" Field="EdtRec.РасчетТравмы"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

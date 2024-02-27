@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="ИмуществоБазовый.Frm.Справочники.ИмуществоБазовый">
+  <Inherited HelpContext="ИмуществоБазовый.Имущество.Справочник НМА">
+    <Inherited Name="EdtRec" Class="ИмуществоБазовый.Rec.Справочники.НМА" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Component Name="ОбщиеДанные" Class="Com.Ctrl.IBox" After="#0" Caption="Общие данные">
+            <Component Name="Классификация_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="40" MaxWidth="300" MinWidth="150">
+              <Component Name="ОКОФ" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="ОКОФ" Field="EdtRec.ОКОФ" HasCaption="True" Hint="Классификация НМА" LookupFilter="not НеИспользуется" OnOpenCardForm="НастроитьКартотекуОКОФ" Required="True"/>
+              <Component Name="НазначениеНМА" Class="Com.Ctrl.IEdit" Field="EdtRec.НазначениеНМА" HasCaption="True" Hint="Назначение НМА"/>
+            </Component>
+            <Component Name="ПервоначальнаяСтоимость_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="Static3" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="Стоимость:" FixSize="True" Width="40"/>
+              <Component Name="ПервоначальнаяСтоимость" Class="Com.Ctrl.IEdit" Caption="Первоначальная" Field="EdtRec.ПервоначальнаяСтоимость" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Первоначальная стоимость объекта ОС" MaxWidth="50" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify"/>
+            </Component>
+            <Component Name="ЛиквидационнаяСтоимость_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="40" MaxWidth="300" MinWidth="150">
+              <Component Name="Static16" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              <Component Name="ЛиквидационнаяСтоимость" Class="Com.Ctrl.IEdit" Caption="Ликвидационная" Field="EdtRec.ЛиквидационнаяСтоимость" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Ликвидационная стоимость объекта ОС" MaxWidth="50" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify"/>
+              <Component Name="ЛиквСтИстория" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="История" FixSize="True" OnClick="ПоказатьИсториюЛиквидационнаяСтоимость" StaticStyle="StaticHyperlink" Width="20"/>
+            </Component>
+            <Component Name="ТекущееПодразделение_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ТекущееПодразделение" Class="Com.Ctrl.IEdit" Caption="Подразделение" CardFileClass="Bas.Tab.Data.Divisions" Enabled="False" Field="EdtRec.ТекущееПодразделение" HasCaption="True" Hint="Наименование подразделения, за которым закреплен данный объект НМА, по состоянию на текущую дату" Required="False"/>
+              <Component Name="ТекущееМОЛ" Class="Com.Ctrl.IEdit" Caption="МОЛ" Enabled="False" Field="EdtRec.ТекущееМОЛ" HasCaption="True" Hint="ФИО материально-ответственного лица, за которым закреплен данный объект НМА, по состоянию на текущую дату"/>
+            </Component>
+            <Component Name="Даты_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="40" MaxWidth="300" MinWidth="150">
+              <Component Name="ДатаПринятияКУчету" Class="Com.Ctrl.IEdit" Caption="Дата принятия" Field="EdtRec.ДатаПринятияКУчету" HasCaption="True" Hint="Дата принятия к учету объекта НМА"/>
+              <Component Name="ДатаСписания" Class="Com.Ctrl.IEdit" Caption="Дата списания" Field="EdtRec.ДатаСписания" HasCaption="True" Hint="Дата списания с учета объекта НМА"/>
+            </Component>
+            <Component Name="СпособПриобретения_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="40" MaxWidth="300" MinWidth="150">
+              <Component Name="СпособПриобретения" Class="Com.Ctrl.IEdit" Caption="Способ получения" CardFileClass="ИмуществоБазовый.Tab.Справочники.СпособПриобретения" CellFormat="ReferenceFormat" Field="EdtRec.СпособПриобретения" HasCaption="True" Hint="Способ приобретения объекта НМА" LookupField="Name"/>
+            </Component>
+            <Component Name="ДокументОРегистрации_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ДокументОРегистрации" Class="Com.Ctrl.IEdit" Caption="Регистрация" Field="EdtRec.ДокументОРегистрации" HasCaption="True" Hint="Документ о регистрации объекта НМА" Multiline="True" Wrap="True"/>
+            </Component>
+            <Component Name="Комментарии_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="Комментарии" Class="Com.Ctrl.IEdit" Caption="Комментарий" Field="EdtRec.Комментарии" HasCaption="True" Hint="Краткая характеристика объекта НМА" Multiline="True" Wrap="True"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="фрАмортизация" Class="Com.Ctrl.IFrame" Caption="Амортизация">
+          <Component Name="фрАмортизацияНачалоОкончание" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="АмортизацияНачалоОкончание_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" CaptionWidth="70" MaxWidth="300" MinWidth="150">
+              <Component Name="ДатаНачалаАмортизации" Class="Com.Ctrl.IEdit" Field="EdtRec.ДатаНачалаАмортизации" HasCaption="True" Hint="Дата начала амортизации НМА по опреативному/бухгалтерскому учету"/>
+              <Component Name="ДатаПрекращенияАмортизации" Class="Com.Ctrl.IEdit" Field="EdtRec.ДатаПрекращенияАмортизации" HasCaption="True" Hint="Дата прекращения амортизации НМА по опреативному/бухгалтерскому учету"/>
+            </Component>
+          </Component>
+          <Component Name="ЭлементыАмортизации_Box" Class="Com.Ctrl.IBox" Caption="Элементы амортизации" HasCaption="True">
+            <BuiltIn Name="Title" Hint="История элементов амортизации"/>
+            <Component Name="ЭлементыАмортизацииТабл" Class="Com.Ctrl.ITable" CanMove="False" Sortable="True" Subtable="EdtRec.ЭлементыАмортизации">
+              <Component Name="ЭлементыАмортизации" Class="ИмуществоБазовый.Rec.Справочники.НМА_ЭлементыАмортизации" IsLibrary="1"/>
+              <Component Name="ДатаНачалаАморт" Class="Com.Ctrl.IEdit" Field="ЭлементыАмортизации.ДатаНачала" HasCaption="True" Hint="Дата начала амортизации ОС по бухгалтерскому учету" OnChange="ДатаНачалаАморт_OnChange" Width="26"/>
+              <Component Name="МетодАмортизации" Class="Com.Ctrl.IEdit" CardFileClass="ИмуществоБазовый.Tab.Справочники.МетодыАмортизации" Field="ЭлементыАмортизации.МетодАмортизации" FixSize="True" HasCaption="True" Hint="Способ (метод) начисления амортизации " LookupField="ИмяМетода" OnChange="МетодАмортизации_OnChange" OnGetLookupFilter="МетодАмортизации_OnGetLookupFilter" OnOpenCardForm="МетодАмортизации_OnOpenCardForm" Width="35"/>
+              <Component Name="СрокПолезногоИспользования" Class="Com.Ctrl.IEdit" Field="ЭлементыАмортизации.СрокПолезногоИспользования" FixSize="True" HasCaption="True" Hint="Срок полезного использования, установленный для данного ОС" OnVerify="СрокПолезногоИспользования_OnVerify" Width="30"/>
+              <Component Name="НормаВыработки" Class="Com.Ctrl.IEdit" Field="ЭлементыАмортизации.НормаВыработки" FixSize="True" HasCaption="True" Hint="При выборе способа начисления амортизации = Пропорционально количеству продукции (объему работ), в поле указывается количество продукции (объем работ) в натуральном выражении, которое организация ожидает от использования объекта ОС" Width="22"/>
+              <Component Name="КоэффициентУскоренияАмортизации" Class="Com.Ctrl.IEdit" Excluded="True" Field="ЭлементыАмортизации.КоэффициентУскоренияАмортизации" FixSize="True" HasCaption="True" Hint="Коэффициент ускорения амортизации при методе амортизации Способ уменьшаемого остатка" OnVerify="КоэффициентУскоренияАмортизации_OnVerify" Width="30"/>
+              <Component Name="ПользовательЭлАм" Class="Com.Ctrl.IEdit" Enabled="False" Field="ЭлементыАмортизации.Пользователь" FixSize="True" HasCaption="True" Width="40"/>
+              <Component Name="ВремяИзмененияЭлАм" Class="Com.Ctrl.IEdit" Enabled="False" Field="ЭлементыАмортизации.ВремяИзменения" FixSize="True" FormatOfDate="DateAndTime" HasCaption="True" Width="40"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

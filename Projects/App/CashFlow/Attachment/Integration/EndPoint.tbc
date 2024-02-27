@@ -1,0 +1,226 @@
+﻿TBCFile VER="3.4" [Created '04.02.2022 9:17:39' by 'Администратор']
+
+DESCRIPTION[
+Count=1
+CountByRef=2
+Integration.EndPoint
+(
+  Count=1
+  CountByRef=0
+)
+Integration.EndPointType
+(
+  Count=0
+  CountByRef=1
+)
+Integration.ObjectStruct
+(
+  Count=0
+  CountByRef=1
+)
+]
+
+METADATA[
+
+  [Integration.EndPoint
+  (
+    Deleted :Boolean
+    GroupDoc :Integration.EndPoint
+    isGroup :Integer
+    CreateDate :Date
+    CreateUser :String(40)
+    UpdateDate :Date
+    UpdateUser :String(40)
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    OperDoc :Inherited Bas.Base.Event
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    TypeFlow :Integration.EndPointType
+    Blocked :Boolean
+    MWGuid :String(36)
+    ObjectStruct :Integration.ObjectStruct
+    ExecOnServer :Boolean
+    ParameterList :Struct array Integer
+    (
+      PosName :String
+      PosType :Integer
+      AsNumeric :Real
+      AsString :Memo
+      AsInteger :Integer
+      AsDate :Date
+      AsLogical :Boolean
+      CardFile :String
+      AsRecord :Inherited IDRecord
+    )
+  )
+  ForeignKey Code
+  ]
+
+  [Integration.EndPointType
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    OperDoc :Inherited Bas.Base.Event
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    TypeFlow :String
+    TypeFormat :String
+    GettingMiddleWare :Boolean
+    ProcClass :String
+    EPVersion :Integer
+    ParameterList :Struct array Integer
+    (
+      ParamName :String
+      ParamType :Integer
+      Required :Boolean
+      ParmDescription :String(850)
+      DefaultValue :String
+      CardFile :String
+    )
+  )
+  ForeignKey Code
+  ]
+
+  [Integration.ObjectStruct
+  (
+    Deleted :Boolean
+    GroupDoc :Integration.ObjectStruct
+    isGroup :Integer
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    OperDoc :Inherited Bas.Base.Event
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    EndPointType :Integration.EndPointType
+    StoredDocID :String
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Integration.EndPoint
+  
+  {Integration.EndPoint:"BankMoveEndPoint"}
+  (
+    CreateDate = 01.02.2022 15:39:04
+    CreateUser = "Администратор"
+    UpdateDate = 01.02.2022 16:10:20
+    UpdateUser = "Администратор"
+    Name = "Движения по расчетным счетам"
+    TypeFlow = {Integration.EndPointType:_7IU3P11OT860FA}
+    ObjectStruct = {Integration.ObjectStruct:_7IU3P1216EHFBQ}
+    ParameterList = (
+      0:(
+        PosName = "TransSize"
+        PosType = 2
+        AsInteger = 1000
+      )
+      1:(
+        PosName = "Filter"
+        PosType = 1
+      )
+      2:(
+        PosName = "Project"
+        PosType = 1
+        AsString = "CashFlow"
+      )
+      3:(
+        PosName = "CardForm"
+        PosType = 1
+        AsString = "CashFlow.Tab.Doc.BankMove"
+      )
+      4:(
+        PosName = "DocumentForm"
+        PosType = 1
+        AsString = "Frm.Doc.BankMove"
+      )
+      5:(
+        PosName = "ReCount"
+        PosType = 1
+        AsString = "False"
+      )
+    )
+  )
+]
+
+[Integration.EndPointType
+  
+  {Integration.EndPointType:"_7IU3P11OT860FA"}
+  (
+    Name = "TB форма"
+    TypeFlow = "TB форма"
+    TypeFormat = "TB форма"
+    ProcClass = "Integration.Data.UniTBFrm"
+    EPVersion = 2
+    ParameterList = (
+      0:(
+        ParamName = "TransSize"
+        ParamType = 2
+        ParmDescription = "Размер транзакции"
+        DefaultValue = "1000"
+      )
+      1:(
+        ParamName = "Filter"
+        ParamType = 1
+        ParmDescription = "Record filter"
+      )
+      2:(
+        ParamName = "Project"
+        ParamType = 1
+        Required = True
+        ParmDescription = "Selected project in Turbo"
+      )
+      3:(
+        ParamName = "CardForm"
+        ParamType = 1
+        ParmDescription = "CardForm from Record"
+      )
+      4:(
+        ParamName = "DocumentForm"
+        ParamType = 1
+        Required = True
+        ParmDescription = "Selected form in Turbo"
+      )
+      5:(
+        ParamName = "ReCount"
+        ParamType = 1
+        ParmDescription = "Recount fields on form"
+        DefaultValue = "False"
+      )
+    )
+  )
+]
+
+[Integration.ObjectStruct
+  
+  {Integration.ObjectStruct:"_7IU3P1216EHFBQ"}
+  (
+    Name = "Движения по расчетным счетам"
+    EndPointType = {Integration.EndPointType:_7IU3P11OT860FA}
+    StoredDocID = "{Integration.ObjectStruct:26}"
+  )
+]
+
+]

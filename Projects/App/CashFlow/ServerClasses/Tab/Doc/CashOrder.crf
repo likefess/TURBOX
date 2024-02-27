@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CashFlow.Tab.Doc.BankMoveBase">
+  <Inherited Hierarchical="False">
+    <Inherited Name="Current" Class="CashFlow.Rec.Doc.CashOrder" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Code" Excluded="True"/>
+          <Inherited Name="Entity" Excluded="True"/>
+          <Inherited Name="Contraparty" Excluded="True"/>
+          <Inherited Name="PrintedNumberEdit" Excluded="True"/>
+          <Inherited Name="EventTime" Excluded="True"/>
+          <Inherited Name="Sum" Excluded="True"/>
+          <Inherited Name="Currency" Excluded="True"/>
+          <Inherited Name="BankDetailsEdit" Excluded="True"/>
+          <Inherited Name="PurposeEdit" Excluded="True"/>
+          <Component Name="Accounted" Class="Com.Ctrl.ICheckBox" Caption="Проведен" Field="Current.Accounted" HasCaption="True" Width="20"/>
+          <Component Name="PrintedNumberEdit1" Class="Com.Ctrl.IEdit" Caption="Номер" Field="Current.PrintedNumber" HasCaption="True" Width="30"/>
+          <Component Name="EventTime1" Class="Com.Ctrl.IEdit" Caption="Дата" Field="Current.EventTime" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" Width="20"/>
+          <Component Name="Entity1" Class="Com.Ctrl.IEdit" Caption="Наше предприятие" Field="Current.Entity" Width="50"/>
+          <Component Name="CashRegister" Class="Com.Ctrl.IEdit" Field="Current.CashRegister" HasCaption="True" Width="50"/>
+          <Component Name="Contraparty1" Class="Com.Ctrl.IEdit" Field="Current.Contraparty" HasCaption="True" Width="50"/>
+          <Component Name="SubjectText" Class="Com.Ctrl.IEdit" Field="Current.SubjectText" HasCaption="True" Width="50"/>
+          <Component Name="Sum1" Class="Com.Ctrl.IEdit" Caption="Сумма с НДС" CellFormat="NumericFormat" Field="Current.FinalSum" FieldFormat=",##0.00;;-" HasCaption="True" Width="25"/>
+          <Component Name="Currency1" Class="Com.Ctrl.IEdit" Caption="Валюта" Field="Current.Currency" HasCaption="True" LookupField="Code" Width="18"/>
+          <Component Name="PurposeEdit1" Class="Com.Ctrl.IEdit" Caption="Основание" Field="Current.Purpose" HasCaption="True" Width="100"/>
+          <Component Name="CFR" Class="Com.Ctrl.IEdit" Field="Current.CFR" HasCaption="True" Width="50"/>
+          <Component Name="BGI" Class="Com.Ctrl.IEdit" Field="Current.BGI" HasCaption="True" Width="50"/>
+          <Component Name="Project" Class="Com.Ctrl.IEdit" Field="Current.Project" HasCaption="True" Width="50"/>
+          <Component Name="Source" Class="Com.Ctrl.IEdit" Field="Current.Source" HasCaption="True" Width="50"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

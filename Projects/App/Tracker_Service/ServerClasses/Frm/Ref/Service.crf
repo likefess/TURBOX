@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Tracker_Service.Rec.Ref.Service" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Code" HasInnerCaption="True" Visible="True"/>
+          <Inherited Name="Name" HasInnerCaption="True" Visible="True"/>
+          <Component Name="Description" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.Description" HasCaption="True" Hint="Для изменения описания используйте редактор внизу" Multiline="True" Visible="False" Wrap="True"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Component Name="DescriptionFrame" Class="Com.Ctrl.IFrame" After="#0" Caption="@TrackerService:DescriptionFrame=Описание" HasCaption="True" Margins="5">
+          <Component Name="DescriptionQuillJS" Class="Com.Ctrl.IQuillJS" OnTextChange="ChangeDescription"/>
+        </Component>
+        <Inherited Name="MainTab" Visible="False"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

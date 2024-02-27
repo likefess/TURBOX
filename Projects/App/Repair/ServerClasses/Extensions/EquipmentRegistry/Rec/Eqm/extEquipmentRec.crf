@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Rec.Eqm.EquipmentRec">
+  <Inherited>
+    <Inherited Name="JournalDate" OnChange="JournalDateOnChange"/>
+    <Component Name="FixedAsset" Class="Com.Fld.IField" Caption="@Equipment:FixedAsset=Основное средство" FieldName="FixedAsset" OnVerify="FixedAsset_OnVerify"/>
+    <Component Name="PlanGroup" Class="Com.Fld.IField" Caption="@Equipment:PlanGroup=Гр. планирования" FieldName="PlanGroup" OnVerify="PlanGroup_OnVerify"/>
+    <Component Name="SampleDoc" Class="Com.Fld.IField" FieldName="SampleDoc"/>
+    <Component Name="DupNum" Class="Com.Fld.IField" FieldName="DupNum"/>
+    <Component Name="sbtNormative" Class="Com.ISubtable" StructClass="Repair.Rec.Eqm.EquipmentNorm" SubtableName="Normatives"/>
+    <Component Name="LsoID" Class="Com.Fld.IField" Caption="Линейный ссылочный образец" FieldName="LsoID" OnVerify="LsoID_OnVerify"/>
+    <Component Name="Mark_Beg" Class="Com.Fld.IField" Caption="Метка начальная" FieldName="Mark_Beg" OnVerify="Mark_Beg_OnVerify"/>
+    <Component Name="Mark_End" Class="Com.Fld.IField" Caption="Метка конечная" FieldName="Mark_End" OnVerify="Mark_End_OnVerify"/>
+    <Component Name="PointBeg" Class="Com.Fld.IField" Caption="начальная Точка" FieldName="PointBeg"/>
+    <Component Name="PointEnd" Class="Com.Fld.IField" Caption="конечная Точка" FieldName="PointEnd"/>
+    <Component Name="UM" Class="Com.Fld.IField" Caption="Ед.Изм." FieldName="UM"/>
+    <Component Name="NetObLen" Class="Com.Fld.IVar" OnCalc="NetObLen_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="OfsPointBeg" Class="Com.Fld.IVar" OnCalc="OfsPointBeg_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="OfsPointEnd" Class="Com.Fld.IVar" OnCalc="OfsPointEnd_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="interval" Class="Com.Fld.IVar" OnCalc="interval_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="CurMileage" Class="Com.Fld.IField" FieldName="CurMileage"/>
+    <Component Name="Флаг" Class="Com.Fld.IField" FieldName="Флаг"/>
+  </Inherited>
+</Resource>

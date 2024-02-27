@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Frm.Data.Task">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="SubheaderFrame">
+        <Inherited Name="InnerFrame">
+          <Inherited Name="ButtonGroup">
+            <Component Name="TemplateJumpButton" Class="Com.Ctrl.IJumpButton" After="MoreButton" Caption="Маршрут" Field="EdtRec.ApprovalTemplate" JumpForm="TaskApprovement.Frm.Ref.ApprovalTemplate" Visible="False" Width="30"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TaskContentFrame">
+        <Inherited Name="ContentBodyFrame">
+          <Inherited Name="AdditionalBox">
+            <Inherited Name="TabsFrameFox">
+              <Inherited Name="StaffTab">
+                <Inherited Name="StaffHeaderFrame">
+                  <Component Name="ApprovalGroup" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True" CaptionWidth="30">
+                    <Component Name="ApprovedEdit" Class="Com.Ctrl.IEdit" Caption="@TaskApprovement:ApprovedCount=Одобрено" Enabled="False" Field="EdtRec.ApprovedCount" FixSize="True" Width="25"/>
+                    <Component Name="RejectEdit" Class="Com.Ctrl.IEdit" Caption="@TaskApprovement:RejectCount=Отказано" Enabled="False" Field="EdtRec.RejectCount" FixSize="True" Width="25"/>
+                  </Component>
+                </Inherited>
+                <Inherited Name="StaffTableFrame">
+                  <Inherited Name="StaffTable">
+                    <Component Name="ApprovalStageEdit" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="Task_Staff.ApprovalStage" FixSize="True" ValueType="VarInteger" Width="30"/>
+                    <Component Name="RelevanceEdit" Class="Com.Ctrl.IEdit" Field="Task_Staff.Relevance" FixSize="True" Width="15"/>
+                    <Component Name="ApprovalCriteriaEdit" Class="Com.Ctrl.IEdit" Caption="@TaskApprovement:ApprovalStages.Criteria=Критерий согласования" CellFormat="EnumFormat" Enabled="False" FixSize="True" ListAsString="Единогласно|0;&#xD;&#xA;Хотя бы один|1;&#xD;&#xA;Большинство|2;&#xD;&#xA;Квалифицированное большинство|3;&#xD;&#xA;Более заданного %-та голосов|4;&#xD;&#xA;Более заданного %-та квалифицированных голосов|5" OnOutput="ApprovalCriteriaEditOnOutput" ShortList="True" Width="62"/>
+                    <Component Name="ApprovalLimitEdit" Class="Com.Ctrl.IEdit" Caption="@TaskApprovement:ApprovalStages.Limit=Порог" CellFormat="NumericFormat" Enabled="False" FixSize="True" OnOutput="ApprovalLimitEditOnOutput" Width="20"/>
+                  </Inherited>
+                </Inherited>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

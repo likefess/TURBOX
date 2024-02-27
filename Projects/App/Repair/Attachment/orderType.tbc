@@ -1,0 +1,54 @@
+﻿TBCFile VER="3.4" [Created '18.11.2019 13:58:33' by 'Администратор']
+
+DESCRIPTION[
+Count=3
+CountByRef=0
+Repair.OrderTypes
+(
+  Count=3
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Repair.OrderTypes
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    MetaLock :Boolean
+    SubsysCode :Integer
+    ModuleCode :String
+    PartisCode :Integer
+    Code :String(80)
+    Name :String(255)
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Repair.OrderTypes
+  
+  {Repair.OrderTypes:"Плановый"}
+  (
+    Name = "Плановые работы"
+  )
+  
+  {Repair.OrderTypes:"Внеплановый"}
+  (
+    Name = "Внеплановые работы"
+  )
+  
+  {Repair.OrderTypes:"Аварийный"}
+  (
+    Name = "Аварийные работы"
+  )
+]
+
+]

@@ -1,0 +1,57 @@
+﻿TBCFile VER="3.4" [Created '24.10.2019 17:02:07' by 'Администратор']
+
+DESCRIPTION[
+Count=3
+CountByRef=0
+Repair.baseStatus
+(
+  Count=3
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Repair.baseStatus
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    MetaLock :Boolean
+    SubsysCode :Integer
+    ModuleCode :String
+    PartisCode :Integer
+    Code :String(80)
+    Name :String(850)
+    TakeAccount :Boolean
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Repair.baseStatus
+  
+  {Repair.baseStatus:"Открыт"}
+  (
+    Name = "Открыт"
+  )
+  
+  {Repair.baseStatus:"Разнесен"}
+  (
+    Name = "Разнесен"
+    TakeAccount = True
+  )
+  
+  {Repair.baseStatus:"Сторнирован"}
+  (
+    Name = "Сторнирован"
+    TakeAccount = True
+  )
+]
+
+]

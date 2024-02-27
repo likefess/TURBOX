@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Frm.Data.Contract">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Component Name="CreateRequests" Class="Com.Ctrl.IButton" Caption="Создать заявки" OnClick="CreateRequests_OnClick" Width="10"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="CurrencyGroup1" Class="Com.Ctrl.IGroup" After="GroupFF5" Adaptive="True" ByColumn="False" CaptionWidth="50" MaxWidth="300" MinWidth="150" Visible="True">
+          <Component Name="Currency1" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UCurrencies" Field="EdtRec.Currency" HasCaption="True" LookupField="Code" OnChange="Currency1_OnChange" Required="True" ShortList="True"/>
+          <Component Name="CurrencyBtnStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+          <Component Name="CurrencyRate1" Class="Com.Ctrl.IEdit" Field="EdtRec.CurrencyRate" FieldFormat=",##0.00;;-" HasCaption="True"/>
+          <Component Name="CurrencyRateBtnStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+        </Component>
+        <Inherited Name="CheckBoxGroup" After="CurrencyGroup1">
+          <Component Name="CentralyzedPayment" Class="Com.Ctrl.ICheckBox" Field="EdtRec.CentralyzedPayment" FixSize="True" HasCaption="True" Width="54"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="GeneralBox">
+            <Inherited Name="MainTabGroup">
+              <Inherited Name="CurrencyGroup" Visible="False"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="FinanceTab">
+          <Inherited Name="FinanceGeneralBox">
+            <Inherited Name="FinanceGeneralGroup">
+              <Component Name="OurBankDetailsGroup" Class="Com.Ctrl.IGroup" After="DimensionsGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="OurBankDetailsEdit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="EdtRec.OurBankDetails" HasCaption="True" LookupField="Name" OnOutputEx="BankDetailsFull_OnOutputEx"/>
+                <Component Name="jbOurBankDetailsEdit" Class="Com.Ctrl.IJumpButton" Field="EdtRec.OurBankDetails" JumpForm="Biz.Frm.Data.BankDetails"/>
+              </Component>
+              <Inherited Name="AdvancePaymentTypeStatic" After="OurBankDetailsGroup"/>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="PaymentTimelineBox">
+            <Inherited Name="PaymentTimelineVert">
+              <Inherited Name="PaymentTimelineHorz">
+                <Inherited Name="PaymentTimelineSubtableFrame">
+                  <Inherited Name="PaymentDateEdit" OnEnter="PaymentTimelimeEdit_OnEnter"/>
+                  <Component Name="ForecastPaymentDateEdit" Class="Com.Ctrl.IEdit" After="PaymentDateEdit" Field="Contract_PaymentTimeline.ForecastPaymentDate" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True" OnEnter="PaymentTimelimeEdit_OnEnter" Width="42"/>
+                  <Inherited Name="PaymentAmountWithoutVATEdit" After="ForecastPaymentDateEdit" OnEnter="PaymentTimelimeEdit_OnEnter"/>
+                  <Inherited Name="PaymentRateVATEdit" OnEnter="PaymentTimelimeEdit_OnEnter"/>
+                  <Inherited Name="PaymentAmountEdit" OnEnter="PaymentTimelimeEdit_OnEnter"/>
+                  <Component Name="edOurBankDetails" Class="Com.Ctrl.IEdit" After="PaymentAmountEdit" CardFileClass="Biz.Tab.Data.BankDetails" CellFormat="ReferenceFormat" Field="Contract_PaymentTimeline.OurBankDetails" HasCaption="True" LookupField="Name" Multiline="True" OnOutputEx="BankDetails_OnOutputEx" Width="60" Wrap="True"/>
+                  <Inherited Name="PaymentCFREdit" After="edOurBankDetails" OnEnter="PaymentTimelimeEdit_OnEnter"/>
+                  <Inherited Name="PaymentBGIEdit" OnEnter="PaymentTimelimeEdit_OnEnter"/>
+                  <Inherited Name="PaymentProjectEdit" OnEnter="PaymentTimelimeEdit_OnEnter"/>
+                  <Inherited Name="PaymentSourceEdit" OnEnter="PaymentTimelimeEdit_OnEnter"/>
+                  <Inherited Name="PaymentIsAdvPostpaymCheckBox" OnVerify="PaymentTimelimeCheckBox_OnVerify"/>
+                  <Inherited Name="PaymentBySuppAgrCheckBox" OnVerify="PaymentTimelimeCheckBox_OnVerify"/>
+                  <Component Name="PaymentRequest" Class="Com.Ctrl.IEdit" After="PaymentSuppAgrNumEdit" CardFileClass="Treasury.Tab.Data.PaymentRequest" CellFormat="ReferenceFormat" Enabled="False" Field="Contract_PaymentTimeline.PaymentRequest" HasCaption="True" LookupField="PrintedNumber" Width="50"/>
+                  <Component Name="jbPaymentRequest" Class="Com.Ctrl.IJumpButton" Field="Contract_PaymentTimeline.PaymentRequest" JumpForm="Treasury.Frm.Data.PaymentRequest"/>
+                  <Component Name="CreateRequest" Class="Com.Ctrl.ICheckBox" Caption="Создать заявку" Field="Contract_PaymentTimeline.CreateRequest" OnVerify="CreateRequest_OnVerify" Width="20"/>
+                  <Inherited Name="PaymentStatus" After="CreateRequest"/>
+                  <Inherited Name="PaymentFactDocument" Visible="False"/>
+                  <Component Name="PaymentPaymentOrder" Class="Com.Ctrl.IEdit" After="PaymentFactDocument" CardFileClass="CashFlow.Tab.Doc.PaymentOrder" CellFormat="ReferenceFormat" Field="Contract_PaymentTimeline.PaymentOrder" HasCaption="True" LookupField="PrintedNumber" OnEnter="PaymentFactDocument_OnEnter" Width="42"/>
+                </Inherited>
+                <Inherited Name="PaymentTimelineTotalsFrame">
+                  <Component Name="ForecastTotalPaymentDate" Class="Com.Ctrl.IEdit" After="PaymentTotalCaption" Enabled="False" HasCaption="False" Width="42"/>
+                  <Inherited Name="PaymentTotalAmountWithoutVAT" After="ForecastTotalPaymentDate"/>
+                  <Component Name="edOurBankDetailsTotal" Class="Com.Ctrl.IEdit" After="PaymentTotalAmount" Enabled="False" HasCaption="True" Width="60"/>
+                  <Inherited Name="PaymentTotalCFR" After="edOurBankDetailsTotal"/>
+                  <Component Name="PaymentTotalRequest" Class="Com.Ctrl.IEdit" After="PaymentTotalSuppAgrNum" Enabled="False" HasCaption="False" Width="50"/>
+                  <Component Name="TotalJumpButton" Class="Com.Ctrl.IJumpButton" Enabled="False" HasCaption="False"/>
+                  <Component Name="TotalCreateRequest" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="20"/>
+                  <Inherited Name="PaymentTotalStatus" After="TotalCreateRequest"/>
+                  <Inherited Name="PaymentTotalFactDocument" Visible="False"/>
+                  <Component Name="PaymentTotalPaymentOrder" Class="Com.Ctrl.IEdit" After="PaymentTotalFactDocument" Enabled="False" HasCaption="False" Width="42"/>
+                </Inherited>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="SetupVisibleBox">
+            <Inherited Name="SetupVisibleShippingTimeGroup">
+              <Inherited Name="SetupVisibleShippingTimeHorz">
+                <Inherited Name="grSetupVisibleShippingBiz">
+                  <Inherited Name="chSVShippingCFR" Enabled="False"/>
+                </Inherited>
+              </Inherited>
+            </Inherited>
+            <Inherited Name="SetupVisiblePaymentTimeGroup">
+              <Inherited Name="SetupVisiblePaymentTimeHorz">
+                <Inherited Name="grSetupVisiblePaymentTimeBiz">
+                  <Inherited Name="chSVPaymentCFR" Enabled="False"/>
+                  <Inherited Name="chSVPaymentFactDocument" Visible="False"/>
+                  <Component Name="chSVPaymentPaymentOrder" Class="Com.Ctrl.ICheckBox" Caption="Документ факт. платежа/поступления" Field="EdtRec.svPaymentPaymentOrder" HasCaption="True" Hint="Скрыть поле «Документ факт. платежа/поступления»" MaxWidth="65" OnChange="chSetupVisible_OnChange" OnVerify="chSVPaymentPaymentOrder_OnVerify" Width="65"/>
+                </Inherited>
+                <Component Name="grSetupVisiblePaymentTimeTreasury" Class="Com.Ctrl.IGroup" Excluded="True" ByColumn="False">
+                  <Component Name="stSetupVisiblePaymentTime2" Class="Com.Ctrl.IStatic" Alignment="RightAlign" MaxWidth="40" Width="40"/>
+                  <Component Name="chSVPaymentOurBankDetails" Class="Com.Ctrl.ICheckBox" Caption="Р/счет для оплаты" Field="EdtRec.svPaymentOurBankDetails" HasCaption="True" MaxWidth="55" OnChange="chSetupVisible_OnChange" Width="55"/>
+                </Component>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

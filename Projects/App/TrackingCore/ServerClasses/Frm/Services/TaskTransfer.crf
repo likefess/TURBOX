@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm" ModalHeight="62" ModalWidth="130" WindowStyle="BlockedWindow">
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    </Component>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="ProjectFromVar" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Ref.Project" ValueType="VarObject"/>
+      <Component Name="ProjectToVar" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Ref.Project" ValueType="VarObject"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" Visible="False">
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Caption="@TrackingCore:ButtonClose=Закрыть" ImageName="Close" OnClick="ButtonClose_OnClick"/>
+      </Component>
+      <Component Name="FieldsFrame" Class="Com.Ctrl.IFrame">
+        <BuiltIn Name="SideMargins" Bottom="32" Left="32" Right="32" Top="32"/>
+        <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+          <Component Name="FieldsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="30" MaxWidth="200" MinWidth="100">
+            <Component Name="ProjectFromEdit" Class="Com.Ctrl.IEdit" ButtonStyle="ComboButton" Caption="Откуда перенести" Field="ProjectFromVar" HasCaption="True" HasInnerCaption="True" ShortList="True"/>
+            <Component Name="ProjectToCaption" Class="Com.Ctrl.IStatic"/>
+            <Component Name="ProjectToEdit" Class="Com.Ctrl.IEdit" ButtonStyle="ComboButton" Caption="Куда перенести" Field="ProjectToVar" HasCaption="True" HasInnerCaption="True" ShortList="True"/>
+            <Component Name="ProjectFromCaption" Class="Com.Ctrl.IStatic"/>
+            <Component Name="AdditionalGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="100">
+              <Component Name="TransferClosedCB" Class="Com.Ctrl.ICheckBox" Caption="@TrackingCore:TransferClosedCB=Переносить закрытые"/>
+              <Component Name="AdditionalButton" Class="Com.Ctrl.IButton" Excluded="True" Caption="@TrackingCore:AdditionalButton=Дополнительно" FixSize="True" OnClick="AdditionalButtonOnClick" Width="40"/>
+            </Component>
+            <Component Name="AdditionalStatic" Class="Com.Ctrl.IStatic"/>
+            <Component Name="AdditionalStatic2" Class="Com.Ctrl.IStatic"/>
+            <Component Name="StartGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="100">
+              <Component Name="AdditionalStatic1" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="False" MinWidth="40"/>
+              <Component Name="CloseButton" Class="Com.Ctrl.IButton" Caption="Отменить" Fashion="Fashions.SecondaryButton" OnClick="ButtonClose_OnClick"/>
+              <Component Name="StartButton" Class="Com.Ctrl.IButton" Caption="@TrackingCore:StartButton=Перенести" Fashion="Fashions.PrimaryButton" OnClick="StartButtonOnClick"/>
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Logging.EventLog">
+  <Inherited>
+    <Inherited Name="EventsTemplates">
+      <Component Name="ReportEvent" Class="Bas.Logging.EventTemplate" After="#0" EventLevel="llUser" EventType="logInfo" MeasureDuration="False" MessageTemplate="@Logging:CustomMessage=Отчёт" Params="название, запись, процессор, обработано записей, добавлено/изменено записей, время начала, время выполнения">
+        <Component Name="GoToSettings" Class="Bas.Logging.ILogEventHandler" Caption="@Logging:GoToForm=Перейти к форме" Handler="GoToSettingsHandler" ParamIndex="0"/>
+      </Component>
+      <Component Name="InformationEvent" Class="Bas.Logging.EventTemplate" EventLevel="llUser" EventType="logInfo" MeasureDuration="True" MessageTemplate="%s"/>
+      <Component Name="DocEvent" Class="Bas.Logging.EventTemplate" EventLevel="llUser" EventType="logInfo" MessageTemplate="@Logging:Document=%s" Params="название, время"/>
+      <Component Name="ErrorEvent" Class="Bas.Logging.EventTemplate" EventLevel="llUser" EventType="logError" MessageTemplate="@Logging:IntegrationError=%s" Params="название, запись, № записи с ошибкой, название записи с ошибкой, ключевые поля">
+        <Component Name="GoToFormHandler" Class="Bas.Logging.ILogEventHandler" Caption="@Logging:GoToForm=Перейти к форме" Handler="OnOpenRecordHandler" ParamIndex="0"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

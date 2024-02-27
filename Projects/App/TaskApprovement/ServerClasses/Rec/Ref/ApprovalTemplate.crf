@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rec.CodeName">
+  <Inherited>
+    <Component Name="TaskObjType" Class="Com.Fld.IField" FieldName="TaskObjType"/>
+    <Component Name="Project" Class="Com.Fld.IField" Caption="@Task:Project=Проект" FieldName="Project"/>
+    <Component Name="Priority" Class="Com.Fld.IField" Caption="@Task:Priority=Приоритет" FieldName="Priority"/>
+    <Component Name="Shared" Class="Com.Fld.IField" FieldName="Shared" ValueType="VarLogical"/>
+    <Component Name="IsTemplate" Class="Com.Fld.IField" FieldName="IsTemplate" ValueType="VarLogical"/>
+    <Component Name="LinkedDocClass" Class="Com.Fld.IField" Caption="@TaskApprovement:LinkedDocClass=Тип объекта согласования" FieldName="LinkedDocClass" ValueType="VarString"/>
+    <Component Name="Stages" Class="Com.ISubtable" StructClass="TaskApprovement.Rec.Ref.ApprovalTemplate_Stages" SubtableName="Stages"/>
+    <Component Name="AllocatedStaffPos" Class="Com.ISubtable" StructClass="TaskApprovement.Rec.Ref.ApprovalTemplate_AllocatedStaffPos" SubtableName="AllocatedStaffPos"/>
+  </Inherited>
+</Resource>

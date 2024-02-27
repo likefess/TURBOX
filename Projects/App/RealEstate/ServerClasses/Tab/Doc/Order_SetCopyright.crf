@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="RealEstate.Tab.Base.BaseMDocOrder">
+  <Inherited HelpContext="RealEstate.Управление имуществом.Данные.Документы.Документы">
+    <Inherited Name="Variables">
+      <Inherited Name="FObjKind" RecordClass="RealEstateBase.Rec.Ref.RealEstateObjKind"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="colDate" FormatOfDate="DateAndTime"/>
+          <Inherited Name="colCode" Visible="False"/>
+          <Inherited Name="colDecription" Field="Current.OrderDescription"/>
+          <Component Name="RightKind" Class="Com.Ctrl.IEdit" Caption="Вид права" CardFileClass="RealEstate.Tab.Ref.RightKind" Field="Current.RightKind" LookupField="Name"/>
+          <Component Name="CopyrightHolder" Class="Com.Ctrl.IEdit" CanSort="False" Caption="Правообладатель" CellFormat="StringFormat" Field="Current.CopyrightHoldersVar" HasCaption="True" ValueType="VarString"/>
+          <Component Name="AreaObject" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Объем права" HasCaption="True"/>
+          <Component Name="ObjCode" Class="Com.Ctrl.IEdit" Excluded="True" CardFileClass="RealEstateBase.Tab.Data.RealEstateObject" CellFormat="ReferenceFormat" Field="Current.ObjCode" HasCaption="True" LookupField="Code" Visible="False" Width="40"/>
+          <Component Name="RightKindStatus" Class="Com.Ctrl.IEdit" Excluded="True" CellFormat="EnumFormat" Field="Current.RightKindStatus" HasCaption="True" Visible="False" Width="40"/>
+        </Inherited>
+        <Inherited Name="FilterFrame">
+          <Inherited Name="FilterBodyFrame">
+            <Inherited Name="FGeneralBox">
+              <Inherited Name="FGeneralGroup">
+                <Inherited Name="FObjKindEdt" CardFileClass="RealEstateBase.Tab.Ref.RealEstateObjKind"/>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

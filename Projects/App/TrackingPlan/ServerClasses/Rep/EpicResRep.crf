@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" AccountPlan="Workflow" BegDate="01.01.1900" BegSaldoFormat="sfNone" Caption="Эпики и результаты" CIndicator="1" EndDate="01.01.2100" HystoKind="hkSide" Legend="lpkAtRight" Palette="cpDefault" ParameterFilter="Task.Категория = 'Epic'" Period="6" ShowBeyondLimits="False" ShowDebCreRow="False" ShowSumKindRow="False" TurnFormat="sfNone">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorПоказатель" Class="Com.Rep.IIndCalc" Caption="Статус " Contents="Count(Task)" CorrValue="True" Visible="False"/>
+      <Component Name="Indicator1" Class="Com.Rep.IIndCustom" Caption="Статус1" Formula="if(RowSplit(2).Value = nil, 0, if(RowSplit(3).Value &lt;> nil, RowSplit(3).Value - RowSplit(2).Value, if(Today - Rowsplit(2).Value > 0, 1, 0))) " ShowUnit="False" ValueType="VarNumeric" Visible="False"/>
+      <Component Name="IndicatorПоказатель_2" Class="Com.Rep.IIndCustom" Caption="Статус" ColorEqual="6579455" ColorFormula="'Отклонение'" ColorLess="16495775" ColorMode="cmRows" ColorMore="7600505" Formula="If(Пок('1') > 0, 'Отклонение', (If(Пок('1')=0,'План', 'Опережение')))" ShowUnit="False" ValueType="VarString"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam211F00B0" Class="Com.Rep.ISplitByParam" ShowTotals="False" SplitParam="Task"/>
+        <Component Name="SplitParam7ECE093B" Class="Com.Rep.ISplitByParam" SplitParam="Task.СрокЗавершения"/>
+        <Component Name="SplitParamDE8B5408" Class="Com.Rep.ISplitByParam" SplitParam="Task.FinDate"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContentNumber" Class="Com.Rep.ISplitContent" Caption="Номер" Contents="Task.Код"/>
+        <Component Name="SplitContentName" Class="Com.Rep.ISplitContent" Caption="Эпик" Contents="Task.Описание"/>
+        <Component Name="SplitContentEndDate" Class="Com.Rep.ISplitContent" Caption="План. Дата окончания" Contents="Task.СрокЗавершения" Format="dd.mm.yyyy" Lettering="True"/>
+        <Component Name="SplitContentFinDate" Class="Com.Rep.ISplitContent" Caption="Факт. Дата окончания" Contents="Task.FinDate" Format="dd.mm.yyyy" Lettering="True"/>
+        <Component Name="SplitContentCategory" Class="Com.Rep.ISplitContent" Contents="Task.Категория" Visible="True"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_Project" Class="Com.Rep.IRepControl" Caption="Проект" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" DefaultStr="Object(nil)" FieldFormat="По умолчанию" LookupField="Name" Operator=" is " Parameter="Task.Проект" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

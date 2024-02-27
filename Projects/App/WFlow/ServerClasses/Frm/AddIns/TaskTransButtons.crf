@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IEditor">
+    <Component Name="EdtRec" Class="Control.Rec.Data.Task" IsLibrary="1"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="ButtonGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+        <Component Name="Static2" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" FixSize="True" MaxWidth="12" MinWidth="12" Width="12"/>
+        <Component Name="MoreButton" Class="Com.Ctrl.IListButton" Caption="Ещё" ImageName="Com.angle-down" Width="20">
+          <Component Name="ShowBusinessProcessButton" Class="Com.Ctrl.IButton" Caption="@wflow:ButtonShowBusinessProcess=Показать бизнес-процесс" ImageName="Com.sketch" OnClick="ShowBusinessProcessButtonOnClick" Width="60"/>
+          <Component Name="SubscribeOnTask" Class="Com.Ctrl.IButton" Caption="@wflow:SubscribeOnTask=Подписаться" OnClick="SubscribeOnTaskOnClick"/>
+          <Component Name="UnsubscribeFromTask" Class="Com.Ctrl.IButton" Caption="@wflow:UnsubscribeFromTask=Отписаться" OnClick="UnsubscribeFromTaskOnClick"/>
+          <Component Name="CreateSubtaskButton" Class="Com.Ctrl.IButton" Caption="@wflow:CreateSubtask=Создать подзадачу" OnClick="CreateSubTaskButtonOnClick" Visible="True"/>
+          <Component Name="CreateTaskButton" Class="Com.Ctrl.IButton" Caption="@wflow:CreateTask=Создать задачу" OnClick="CreateSubTaskButtonOnClick" Visible="True"/>
+          <Component Name="DuplicateTaskButton" Class="Com.Ctrl.IButton" Caption="@wflow:DuplicateTask=Дублировать" OnClick="DuplicateTaskButtonOnClick"/>
+          <Component Name="ChangeProjectButton" Class="Com.Ctrl.IButton" Caption="@wflow:ChangeProject=Сменить проект" Enabled="False" Visible="False"/>
+        </Component>
+        <Component Name="TransitionGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+          <Component Name="Button4" Class="Com.Ctrl.IButton" Caption="Переход 1"/>
+          <Component Name="Button5" Class="Com.Ctrl.IButton" Caption="Переход 2"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

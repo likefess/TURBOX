@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Frm.AddIns.BaseTask">
+  <Inherited Caption="@Task:AllocatedStaffBox1=Участники">
+    <Inherited Name="RootFrame" AutoSize="True" CanResizeBySplit="True" Color="0x00FAF6F5" Margins="4" MinSize="50" Size="50">
+      <Component Name="StaffHeaderFrame" Class="Com.Ctrl.IFrame" Excluded="True" AutoSize="True" Margins="4">
+        <Component Name="PeopleGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+          <Component Name="PeopleLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="32">
+            <Component Name="AnalystEdit" Class="Com.Ctrl.IEdit" CardFileClass="TrackingCore.Tab.Data.People" Field="EdtRec.Analyst" HasCaption="True" Visible="False"/>
+          </Component>
+          <Component Name="PeopleRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="32">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Visible="False"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="StaffTableFrame" Class="Com.Ctrl.IFrame" AutoSize="True" CanResizeBySplit="True" Color="0x00FAF6F5" Margins="1">
+        <Component Name="StaffTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="True" CanInsert="True" CanMove="True" ManualControl="True" OnInsert="StaffTableOnInsert" Subtable="EdtRec.AllocatedStaff">
+          <Component Name="Task_Staff" Class="Control.Rec.Data.Task_AllocatedStaff" IsLibrary="1"/>
+          <Component Name="RoleEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.EntityRoles" Field="Task_Staff.Role" FixSize="True" LookupField="Name" ShortList="True" Width="40"/>
+          <Component Name="StaffEdit" Class="Com.Ctrl.IEdit" CardFileClass="TrackingCore.Tab.Data.People" Field="Task_Staff.Staff" FixSize="False" LookupField="Name" LookupFilter="not Closed" OnGetLookupFilter="StaffEdit_OnGetLookupFilter"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

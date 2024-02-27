@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    </Component>
+    <Component Name="PosRec" Class="Purchase.Rec.Report.RepExecutionPurchaseAgreement_Struct" IsLibrary="1"/>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="Subt" Class="Com.ISubtable" StructClass="Purchase.Rec.Report.RepExecutionPurchaseAgreement_Struct"/>
+      <Component Name="varCompany" Class="Com.Fld.IVar" Caption="Предприятие" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="varCounterparty" Class="Com.Fld.IVar" Caption="Контрагент" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="varContract" Class="Com.Fld.IVar" Caption="Карточка договора" RecordClass="Biz.Rec.Data.Contract" ValueType="VarObject"/>
+      <Component Name="varProcces" Class="Com.Fld.IVar" Caption="Договор покупки" RecordClass="SCM.Rec.Документы.Покупки.ДоговорПокупки" ValueType="VarObject"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" Visible="True">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" MaxButton="4">
+        <Component Name="ButtonRefresh" Class="Com.Ctrl.IButton" Hint="@ContractShipping_SelectNomenclature:ButtonRefresh=Обновить" ImageName="Com.Refresh" OnClick="ButtonRefresh_OnClick"/>
+        <Component Name="ButtonHelp" Class="Com.Ctrl.IButton" Caption="@Cmd:Help=Помощь" Command="Commands.Help" ImageName="Help"/>
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Caption="@Cmd:Close=Закрыть" Command="Commands.CloseForm" ImageName="Close"/>
+      </Component>
+      <Component Name="RowsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Visible="True">
+        <Component Name="DateFrame" Class="Com.Ctrl.IFrame" Caption="@Frm:DateFrame=DateFrame" Margins="0">
+          <Component Name="CreateDateFrame" Class="Com.Ctrl.IFrame" Caption="@Frm:CreateDateFrame=CreateDateFrame"/>
+        </Component>
+        <Component Name="ParamBox" Class="Com.Ctrl.IBox" Caption="Параметры отчета" HasCaption="True">
+          <Component Name="ParamGroupCompany" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="False" MaxWidth="150">
+            <Component Name="CompanyEdit" Class="Com.Ctrl.IEdit" CaptionWidth="44" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="varCompany" HasCaption="True" LookupField="Name" ShortList="True" Width="88"/>
+          </Component>
+          <Component Name="ParamGroupCounterparty" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="False" MaxWidth="150">
+            <Component Name="CounterpartyEdit" Class="Com.Ctrl.IListEdit" CaptionWidth="44" CardFileClass="SCM.Tab.Ref.Suppliers" Field="varCounterparty" HasCaption="True" LookupField="Name" Width="88"/>
+          </Component>
+          <Component Name="ParamGroupContract" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="False" MaxWidth="150">
+            <Component Name="ContractEdit" Class="Com.Ctrl.IListEdit" CaptionWidth="44" CardFileClass="Biz.Tab.Data.Contract" Field="varContract" HasCaption="True" LookupField="Code" Width="88"/>
+          </Component>
+          <Component Name="ParamGroupProcces" Class="Com.Ctrl.IGroup" Adaptive="False" ByColumn="False" MaxWidth="150">
+            <Component Name="ProccesEdit" Class="Com.Ctrl.IListEdit" CaptionWidth="44" CardFileClass="SCM.Tab.Документы.Покупки.ДоговорПокупки" Field="varProcces" HasCaption="True" LookupField="Code" Width="88"/>
+          </Component>
+        </Component>
+        <Component Name="RepFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Frm:RepFrame=Позиции" Margins="0">
+          <Component Name="RepTab" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" Freezed="True" Numbering="True" Subtable="Subt" Visible="True">
+            <Component Name="edContract" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.Contract" FixSize="True" HasCaption="True" LookupField="Code" Width="35" Wrap="True"/>
+            <Component Name="jbContract" Class="Com.Ctrl.IJumpButton" Field="PosRec.Contract" JumpForm="Biz.Frm.Data.Contract"/>
+            <Component Name="edPartner" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.Partner" FixSize="True" HasCaption="True" LookupField="Name" Width="40" Wrap="True"/>
+            <Component Name="edCompany" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.Company" FixSize="True" HasCaption="True" LookupField="Name" Width="40" Wrap="True"/>
+            <Component Name="grPeriod" Class="Com.Ctrl.IColumnsGroup" Caption="Период действия" HasCaption="True">
+              <Component Name="edStartDate" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.StartDate" FixSize="True" FormatOfDate="DateOnly" HasCaption="True" Width="25" Wrap="True"/>
+              <Component Name="edExpirationDate" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.ExpirationDate" FixSize="True" FormatOfDate="DateOnly" HasCaption="True" Width="25" Wrap="True"/>
+            </Component>
+            <Component Name="grContractSum" Class="Com.Ctrl.IColumnsGroup" Caption="Сумма договора" HasCaption="True">
+              <Component Name="TAmountWithoutVATSuppAgr" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.TAmountWithoutVATSuppAgr" FieldFormat="##0.00;##0.00; " FixSize="True" HasCaption="True" ValueType="VarNumeric" Width="35" Wrap="True"/>
+              <Component Name="TVATAmountSuppAgr" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.TVATAmountSuppAgr" FieldFormat="##0.00;##0.00; " FixSize="True" HasCaption="True" ValueType="VarNumeric" Width="35" Wrap="True"/>
+              <Component Name="TAmountInclVATSuppAgr" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.TAmountInclVATSuppAgr" FieldFormat="##0.00;##0.00; " FixSize="True" HasCaption="True" ValueType="VarNumeric" Width="35" Wrap="True"/>
+              <Component Name="Currency" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.Currency" FixSize="True" HasCaption="True" LookupField="Code" Width="35" Wrap="True"/>
+            </Component>
+            <Component Name="PrintedNumbers" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.PrintedNumbers" FixSize="True" HasCaption="True" OnClick="PrintedNumbers_OnClick" Width="50" Wrap="True"/>
+            <Component Name="ProccesNames" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.ProccesNames" FixSize="True" HasCaption="True" OnClick="ProccesNames_OnClick" Width="50" Wrap="True"/>
+            <Component Name="grProccesSum" Class="Com.Ctrl.IColumnsGroup" Caption="Сумма/Приход от поставщика" HasCaption="True">
+              <Component Name="ProccesAmountWithoutVAT" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.ProccesAmountWithoutVAT" FieldFormat="##0.00;##0.00; " FixSize="True" HasCaption="True" ValueType="VarNumeric" Width="35" Wrap="True"/>
+              <Component Name="ProccesVATAmount" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.ProccesVATAmount" FieldFormat="##0.00;##0.00; " FixSize="True" HasCaption="True" ValueType="VarNumeric" Width="35" Wrap="True"/>
+              <Component Name="ProccesAmountInclVAT" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.ProccesAmountInclVAT" FieldFormat="##0.00;##0.00; " FixSize="True" HasCaption="True" ValueType="VarNumeric" Width="35" Wrap="True"/>
+              <Component Name="ProccesCurrency" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.ProccesCurrency" FixSize="True" HasCaption="True" LookupField="Code" Width="35" Wrap="True"/>
+            </Component>
+            <Component Name="PaymentOrderNames" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.PaymentOrderNames" FixSize="True" HasCaption="True" OnClick="PaymentOrderNames_OnClick" Width="50" Wrap="True"/>
+            <Component Name="grPaymentOrderSum" Class="Com.Ctrl.IColumnsGroup" Caption="Сумма платежей" HasCaption="True">
+              <Component Name="PaymentAmountWithoutVAT" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.PaymentAmountWithoutVAT" FieldFormat="##0.00;##0.00; " FixSize="True" HasCaption="True" ValueType="VarNumeric" Width="35" Wrap="True"/>
+              <Component Name="PaymentVATAmount" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.PaymentVATAmount" FieldFormat="##0.00;##0.00; " FixSize="True" HasCaption="True" ValueType="VarNumeric" Width="35" Wrap="True"/>
+              <Component Name="PaymentAmountInclVAT" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.PaymentAmountInclVAT" FieldFormat="##0.00;##0.00; " FixSize="True" HasCaption="True" ValueType="VarNumeric" Width="35" Wrap="True"/>
+              <Component Name="PaymentCurrency" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.PaymentCurrency" FixSize="True" HasCaption="True" LookupField="Code" Width="35" Wrap="True"/>
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

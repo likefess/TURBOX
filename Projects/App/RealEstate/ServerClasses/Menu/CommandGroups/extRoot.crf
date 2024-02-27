@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Menu.CommandGroups.Root">
+  <Inherited>
+    <Inherited Name="ТОРО">
+      <Inherited Name="MnR_Menu_Cmd_AttChrType" Caption="@MnR.Menu.Cmd:AttChrType=Характеристики"/>
+    </Inherited>
+    <Inherited Name="RealEstate">
+      <Inherited Name="Data">
+        <Component Name="Data_RealEstateObjectAuto" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RealEstateObjectAuto:=Автотранспорт" FormClassName="RealEstate.Tab.Data.RealEstateObjectAuto" IconName="Автотранспорт.motorTransport"/>
+        <Component Name="Data_RealEstateObjectComp" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RealEstateObjectComp:=Имущественные комплексы" FormClassName="RealEstate.Tab.Data.RealEstateObjectComp" IconName="Control.object-group"/>
+        <Component Name="RE_ContractAll" Class="Com.ComManaging.OpenIForm" Caption="@Все договоры" FormClassName="Biz.Tab.Data.Contract" IconName="Biz.file-contract"/>
+        <Component Name="RE_ContractIncome" Class="Com.ComManaging.OpenIForm" Caption="@Доходные договоры" FormClassName="RealEstate.Tab.Data.ContractIncome" IconName="Biz.file-contract"/>
+        <Component Name="RE_ContractOutcome" Class="Com.ComManaging.OpenIForm" Caption="@Расходные договоры" FormClassName="RealEstate.Tab.Data.ContractOutcome" IconName="Biz.file-contract"/>
+        <Component Name="RE_ContractFinance" Class="Com.ComManaging.OpenIForm" Caption="@Финансовые сделки" FormClassName="RealEstate.Tab.Data.ContractFinance" IconName="Biz.file-contract"/>
+        <Component Name="RE_ContractOther" Class="Com.ComManaging.OpenIForm" Caption="@Прочие договоры" FormClassName="RealEstate.Tab.Data.ContractOther" IconName="Biz.file-contract"/>
+      </Inherited>
+      <Inherited Name="Ref">
+        <Inherited Name="RE_RegionStatus" Caption="@RealEstate:RegionStatuses:=Административные единицы" FormClassName="RealEstate.Tab.Ref.RegionStatus"/>
+        <Component Name="RE_LandCategory" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RE_LandCategory:=Категории земель" FormClassName="RealEstate.Tab.Ref.LandCategory" IconName="Com.Cardfile"/>
+        <Component Name="RE_LandCategoryTarget" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RE_LandCategoryTarget:=Виды собственности" FormClassName="RealEstate.Tab.Ref.LandCategoryTarget" IconName="Com.Cardfile"/>
+        <Component Name="RE_PermitUseType" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RE_PermitUseType:=Виды разрешенного использования" FormClassName="RealEstate.Tab.Ref.PermitUseType" IconName="Com.Cardfile"/>
+        <Component Name="RE_RealEstateObjFunc" Class="Com.ComManaging.OpenIForm" Caption="@Функциональные назначения объектов" FormClassName="RealEstate.Tab.Ref.RealEstateObjFunc" IconName="Com.Cardfile"/>
+        <Component Name="RE_RightKind" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RE_RightKinds:=Виды прав/документов" FormClassName="RealEstate.Tab.Ref.RightKind" IconName="Com.Cardfile"/>
+        <Component Name="RE_Target" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RE_Target:=Назначения объектов недвижимости" FormClassName="RealEstate.Tab.Ref.Target" IconName="Com.Cardfile"/>
+        <Component Name="RE_Encumbrance" Class="Com.ComManaging.OpenIForm" Caption="@Обременения (органичения) прав" FormClassName="RealEstate.Tab.Ref.Encumbrance" IconName="Com.Cardfile"/>
+        <Component Name="RE_EconomyUsedType" Class="Com.ComManaging.OpenIForm" Caption="@Хозяйственные назначения объектов" FormClassName="RealEstate.Tab.Ref.EconomyUsedType" IconName="Com.Cardfile"/>
+        <Component Name="RE_Readiness" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RE_Readiness:=Степени готовности" FormClassName="RealEstate.Tab.Ref.Readiness" IconName="Com.Cardfile"/>
+        <Component Name="RE_OrderType" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RE_OrderType:=Типы документов к объекту имущества" FormClassName="RealEstate.Tab.Ref.OrderType" IconName="Com.Cardfile"/>
+        <Component Name="RE_StateStatus" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RE_StateStatus:=Статусы состояний" FormClassName="RealEstate.Tab.Ref.StateStatus" IconName="Com.Cardfile"/>
+        <Component Name="RE_Material" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RE_Material:=Материалы" FormClassName="RealEstate.Tab.Ref.Material" IconName="Com.Cardfile"/>
+        <Component Name="RE_InsuranceType" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RE_InsuranceType:=Причины страхования" FormClassName="RealEstate.Tab.Ref.InsuranceType" IconName="Com.Cardfile"/>
+        <Component Name="RE_LegalBasisDocType" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RE_LegalBasisDocType:=Правоустанавливающие и правоудостоверяющие документы" FormClassName="RealEstate.Tab.Ref.LegalBasisDocType" IconName="Com.Cardfile"/>
+        <Component Name="RE_RoomResKind" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RE_RoomResKind:=Виды жилых помещений" FormClassName="RealEstate.Tab.Ref.RoomResKind" IconName="Com.Cardfile"/>
+        <Component Name="RE_RoomResSpecKind" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RE_RoomResSpecKind:=Виды специализированных жилых помещений" FormClassName="RealEstate.Tab.Ref.RoomResSpecKind" IconName="Com.Cardfile"/>
+      </Inherited>
+      <Inherited Name="Rep">
+        <Inherited Name="RE_Reestr" ReportCode="RealEstate.Rep.Service.РеестрОИ"/>
+        <Component Name="RE_Contract_Insurance" Class="Com.ComManaging.OpenReport" Caption="Анализ сроков страхования" IconName="Com.Report" ReportCode="RealEstate.Rep.Contract_Insurance"/>
+        <Component Name="RE_RealEstateObjList" Class="Com.ComManaging.OpenIForm" Caption="@RealEstateObjList=Реестр объектов имущества" FormClassName="RealEstate.Frm.Rep.RealEstateObjList" IconName="Com.Report"/>
+        <Component Name="RE_RealEstateObjBlank" Class="Com.ComManaging.OpenIForm" Caption="@Печатная форма" FormClassName="RealEstate.Frm.Rep.RealEstateObjBlank" IconName="Com.Blanks"/>
+        <Component Name="RE_RepairExpenses" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:ReRepairExpenseReport=Затраты по объектам имущества" FormClassName="RealEstate.Frm.Rep.ReRepairExpenseReport" IconName="Com.Report"/>
+      </Inherited>
+      <Component Name="Doc" Class="Com.Cmd2.ICommandGroup">
+        <Component Name="Re_Orders" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="@Orders=Приказы" FormClassName="RealEstate.Tab.Doc.Order" IconName="Com.Blank"/>
+        <Component Name="Re_Orders_Set" Class="Com.ComManaging.OpenIForm" Caption="@Orders=Правоустанавливающие документы" FormClassName="RealEstate.Tab.Doc.Order_SetCopyright" IconName="Com.Blank"/>
+        <Component Name="Re_Orders_Inner" Class="Com.ComManaging.OpenIForm" Caption="@Orders=Внутренние документы" FormClassName="RealEstate.Tab.Doc.Order_InnerMove" IconName="Com.Blank"/>
+        <Component Name="RE_PropertyReturnAct" Class="Com.ComManaging.OpenIForm" Caption="Акты возврата имущества" FormClassName="RealEstate.Tab.Doc.PropertyReturnAct" IconName="Com.Blank"/>
+        <Component Name="RE_EliminationOrder" Class="Com.ComManaging.OpenIForm" Caption="Предписания об устранении нарушений" FormClassName="RealEstate.Tab.Doc.EliminationOrder" IconName="Com.Blank"/>
+      </Component>
+      <Component Name="Service" Class="Com.Cmd2.ICommandGroup">
+        <Component Name="RE_RealEstateObjExport" Class="Com.ComManaging.OpenIForm" Caption="@RealEstate:RE_RealEstateObjExport=Объекты имущества" FormClassName="RealEstate.Frm.Service.RealEstateObjExport" IconName="Biz.download"/>
+      </Component>
+      <Component Name="Import" Class="Com.Cmd2.ICommandGroup">
+        <Component Name="PopImport" Class="Com.ComManaging.OpenIForm" Caption="@Загрузки численности объектов имущества" FormClassName="RealEstate.Tab.Doc.MDoc.PopImport" IconName="Com.Cardfile"/>
+        <Component Name="CostImport" Class="Com.ComManaging.OpenIForm" Caption="@Загрузки стоимости объектов имущества" FormClassName="RealEstate.Tab.Doc.MDoc.CostImport" IconName="Com.Cardfile"/>
+        <Component Name="ЗагрузкаНалогов" Class="Com.ComManaging.OpenIForm" Caption="@Загрузки налогов" FormClassName="RealEstate.Tab.Doc.MDoc.TaxImport" IconName="Com.Cardfile"/>
+        <Component Name="ЗагрузкаДокументовЛимитаБюджета" Class="Com.ComManaging.OpenIForm" Caption="@Загрузки документов лимита бюджета&#xD;&#xA;&#xD;&#xA;" FormClassName="RealEstate.Tab.Doc.MDoc.LimitImport" IconName="Com.Cardfile"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

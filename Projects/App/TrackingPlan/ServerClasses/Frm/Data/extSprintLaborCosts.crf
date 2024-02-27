@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingDev.Frm.Data.SprintLaborCosts">
+  <Inherited Caption="Емкость команды">
+    <Inherited Name="Variables">
+      <Component Name="LaborCostsSubtable" Class="Com.ISubtable" StructClass="TrackingPlan.Frm.Refs.SprintLaborCosts"/>
+      <Component Name="VarLaborCosts" Class="Com.ISubtable" StructClass="TrackingPlan.Frm.Refs.SprintLaborCosts"/>
+      <Component Name="TotalTextVar" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="VarTeamCapacity" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+      <Component Name="VarSprintCapacity" Class="Com.Fld.IVar"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Caption="Емкость команды"/>
+      <Inherited Name="FieldsFrame">
+        <Component Name="SprintLaborsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="@Labors=Трудозатраты" HasCaption="True">
+          <Component Name="SprintLaborTab" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False" Subtable="VarLaborCosts">
+            <Component Name="SprintLaborCosts" Class="TrackingPlan.Frm.Refs.SprintLaborCosts" IsLibrary="1"/>
+            <Component Name="edtMember" Class="Com.Ctrl.IEdit" Caption="Сотрудник" Enabled="False" Field="SprintLaborCosts.VMember" LookupField="Name" Width="40"/>
+            <Component Name="edtMemberRole" Class="Com.Ctrl.IEdit" Caption="Роль сотрудника" Enabled="False" Field="SprintLaborCosts.VMemberRole" LookupField="Name" Width="40"/>
+            <Component Name="edtMemberCapacity" Class="Com.Ctrl.IEdit" Caption="Плановая емкость" Field="SprintLaborCosts.VMemberCapacity" OnChange="MemberCapacityOnChange" Width="40"/>
+            <Component Name="edtTaskCapacity" Class="Com.Ctrl.IEdit" Caption="План по задачам" Enabled="False" Field="SprintLaborCosts.VTaskCapacity" Width="40"/>
+          </Component>
+          <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="TotalEdit" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Enabled="False" Field="TotalTextVar" Width="80"/>
+            <Component Name="SumMemberEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="VarTeamCapacity" Width="40"/>
+            <Component Name="SumTaskEdit" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Enabled="False" Field="VarSprintCapacity" Width="40"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

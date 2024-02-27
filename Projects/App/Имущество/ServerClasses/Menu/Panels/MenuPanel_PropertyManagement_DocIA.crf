@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IMenu">
+  <Inherited Caption="@Menu.Panel:PropertyManagement_DocIA=Документы движения и учета НМА" FormIcon="Com.CloneItem">
+    <Inherited Name="MainGroup">
+      <Component Name="PropertyManagement_DocIA_Acceptance" Class="Com.Cmd2.IGroup" Caption="@PropertyManagement_DocFA_Acceptance=Принятие к учету НМА">
+        <Component Name="Cmd_ВводОстатковНМА" Class="Com.Cmd2.IItem" Command="Commands.Cmd_ВводОстатковНМА"/>
+        <Component Name="Cmd_ВводВЭксплуатациюНМА" Class="Com.Cmd2.IItem" Command="Commands.Cmd_ВводВЭксплуатациюНМА"/>
+      </Component>
+      <Component Name="PropertyManagement_DocIA_Movement" Class="Com.Cmd2.IGroup" Caption="@PropertyManagement_DocIA_Movement=Перемещение НМА">
+        <Component Name="Cmd_ВнутреннееПеремещениеНМА" Class="Com.Cmd2.IItem" Command="Commands.Cmd_ВнутреннееПеремещениеНМА"/>
+      </Component>
+      <Component Name="PropertyManagement_DocIA_Leaving" Class="Com.Cmd2.IGroup" Caption="@PropertyManagement_DocIA_Leaving=Выбытие НМА">
+        <Component Name="Cmd_СписаниеНМА" Class="Com.Cmd2.IItem" Command="Commands.Cmd_СписаниеНМА"/>
+        <Component Name="Cmd_ПродажаНМА" Class="Com.Cmd2.IItem" Command="Commands.Cmd_ПродажаНМА"/>
+        <Component Name="Cmd_ЧастичнаяЛиквидацияСписаниеНМА" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.Cmd_ЧастичнаяЛиквидацияСписаниеОС"/>
+        <Component Name="Cmd_ЧастичнаяЛиквидацияПродажаНМА" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.Cmd_ЧастичнаяЛиквидацияПродажаОС"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

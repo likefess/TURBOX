@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.CodeName">
+  <Inherited>
+    <Inherited Name="Current" Class="RealEstate.Rec.Service.StoredFieldsTable" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonFilters" Visible="False"/>
+        <Component Name="ButtonImportDoc" Class="Com.Ctrl.IButton" After="ButtonImport" Caption="@Документ импорта" ImageName="Com.Form" OnClick="ButtonImportDoc_OnClick"/>
+      </Inherited>
+      <Inherited Name="NavigatorFrame" Visible="False"/>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="CardFile" CanCopy="False" CanDelete="False" CanEdit="False" CanInsert="False" CanMove="False" CanOpen="False" Hierarchical="False" SortOrder="ChangeDate-"/>
+          <Inherited Name="Name" Visible="False"/>
+          <Inherited Name="Code" Visible="False"/>
+          <Component Name="RealEstateObject" Class="Com.Ctrl.IEdit" CardFileClass="RealEstateBase.Tab.Data.RealEstateObject" Field="Current.RealEstateObject" HasButton="True" LookupField="Code" Visible="False"/>
+          <Component Name="Meter" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.Meter" LookupField="Name"/>
+          <Component Name="NumField" Class="Com.Ctrl.IEdit" Caption="@Значение" CellFormat="NumericFormat" Field="Current.NumField" HasCaption="True" Width="30"/>
+          <Component Name="IntField" Class="Com.Ctrl.IEdit" Caption="@Значение" CellFormat="NumericFormat" Field="Current.IntField" HasCaption="True" Width="30"/>
+          <Component Name="StrField" Class="Com.Ctrl.IEdit" Caption="@Значение" CellFormat="StringFormat" Field="Current.StrField" HasCaption="True" Width="50"/>
+          <Component Name="DatField" Class="Com.Ctrl.IEdit" Caption="@Значение" CellFormat="DateFormat" Field="Current.DatField" HasCaption="True" Width="35"/>
+          <Component Name="RefField" Class="Com.Ctrl.IEdit" Caption="@Значение" CellFormat="ReferenceFormat" Field="Current.RefField" HasCaption="True" LookupField="Name" Width="50"/>
+          <Component Name="LogField" Class="Com.Ctrl.ICheckBox" Caption="@Значение" Field="Current.LogField" HasCaption="True" Width="15"/>
+          <Component Name="ChangeDate" Class="Com.Ctrl.IEdit" Caption="@Дата изменения" Field="Current.ChangeDate" HasCaption="True" Width="35"/>
+          <Component Name="Login" Class="Com.Ctrl.IEdit" Caption="@Пользователь" Field="Current.Login" HasCaption="True" Width="30"/>
+          <Component Name="Проводить" Class="Com.Ctrl.IEdit" Field="Current.Проводить" Visible="False"/>
+          <Component Name="ImportDoc" Class="Com.Ctrl.IEdit" Field="Current.ImportDoc" HasButton="True" HasCaption="True" LookupField="Code" Visible="False"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

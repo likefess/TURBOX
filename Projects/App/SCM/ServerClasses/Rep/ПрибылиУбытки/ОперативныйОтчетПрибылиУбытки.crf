@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" AccountFilter="счетПроцесс" AccountPlan="ПланСчетовПроцесс" Autobuild="False" BegSaldoFormat="sfNone" Caption="Оперативный отчет о прибылях и убытках" CIndicator="1" EndSaldoFormat="sfNone" FreezeHeader="True" HystoKind="hkSide" Legend="lpkAtRight" Palette="cpDefault" ParameterFilter="((Ресурс.ТипРесурса >= 100 and Ресурс.ТипРесурса &lt; 300 and Статус = Факт)) / Процесс.Функция = ОтгрузкаТМЦПокупателю_ТиС" Period="6" ShowBeyondLimits="False" ShowDebCreRow="False" ShowSumKindRow="False">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorСуммаУчетная_Доход" Class="Com.Rep.IIndMain" Caption="Доход" Contents="СуммаУчетная" CorrValue="True" InvertValue="True"/>
+      <Component Name="IndicatorСуммаУчетная" Class="Com.Rep.IIndMain" Caption="Прямые (материальные) затраты" Contents="СуммаУчетная" InvertValue="True" MaxWidth="40"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam34CD37E0" Class="Com.Rep.ISplitByParam" SplitParam="Ресурс.ТипРесурса"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContent26A01CC0" Class="Com.Rep.ISplitContent" Caption="Тип" Contents="Ресурс.ТипРесурса" OutputEnum="Товар|120&#xD;&#xA;Материал|130&#xD;&#xA;Полуфабрикат|140&#xD;&#xA;Изделие|150&#xD;&#xA;Услуга|200&#xD;&#xA;ИТОГО|nil" OutputType="otEnum"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="Предприятие" Class="Com.Rep.IRepControl" Caption="Предприятие" CardFileClass="Bas.Tab.Data.OurCompanies" DefaultStr="Object(nil)" Operator="=" Parameter="Процесс.Company" Plan="ПланСчетовПроцесс" SkipNil="True" ValueType="VarObject" Width="142"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CashFlow.Frm.Doc.BankMoveBase">
+  <Inherited>
+    <Inherited Name="FRecord" Class="CashFlow.Rec.Doc.PaymentOrder" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="ExportType" Class="Com.Fld.IVar" Caption="@PaymentOrder:ExportType=Формат" ValueType="VarInteger"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="FieldsGroup">
+          <Inherited Name="PrintedNumberEditGroup">
+            <Inherited Name="PrintedNumberEdit" Required="True"/>
+            <Inherited Name="EventTimeEdit" Required="True"/>
+          </Inherited>
+          <Inherited Name="OtherGroup">
+            <Inherited Name="stOther1" Excluded="True"/>
+            <Inherited Name="chWriteOff" Excluded="True"/>
+            <Inherited Name="btnAccounted" Excluded="True"/>
+            <Component Name="ExportTypeEdit" Class="Com.Ctrl.IEdit" CaptionWidth="25" CellFormat="EnumFormat" Field="ExportType" HasCaption="True"/>
+            <Component Name="StatusEdit" Class="Com.Ctrl.IEdit" Caption="@Frm:PaymentOrderStatus=Статус п/п" CaptionWidth="25" CardFileClass="CashFlow.Tab.Ref.PaymentOrderStatus" CellFormat="ReferenceFormat" Field="FRecord.Status" HasCaption="True" LookupField="Name" ShortList="True"/>
+            <Component Name="stOther2" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="OurCompanyBox">
+            <Inherited Name="OurCompanyBoxGroup">
+              <Inherited Name="OurCompanyLeftGroup">
+                <Inherited Name="OurCompanyGroup">
+                  <Inherited Name="OurCompany" Multiline="True" Required="True" Wrap="True"/>
+                </Inherited>
+              </Inherited>
+              <Inherited Name="OurCompanyRightGroup">
+                <Inherited Name="BankDetailsGroup">
+                  <Inherited Name="BankDetails" Multiline="True" Required="True" Wrap="True"/>
+                </Inherited>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="ContrapartyBox">
+            <Inherited Name="ContrapartyBoxGroup">
+              <Inherited Name="ContrapartyLeftGroup">
+                <Inherited Name="ContrapartyGroup">
+                  <Inherited Name="Contraparty" Multiline="True" Required="True" Wrap="True"/>
+                </Inherited>
+                <Inherited Name="ContractGroup">
+                  <Inherited Name="Contract" OnLookup="Contract_OnLookup"/>
+                </Inherited>
+              </Inherited>
+              <Inherited Name="ContrapartyRightGroup">
+                <Inherited Name="ContrapartyBankDetailsGroup">
+                  <Inherited Name="ContrapartyBankDetails" Multiline="True" Required="True" Wrap="True"/>
+                </Inherited>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="SumBox">
+            <Inherited Name="Group19">
+              <Component Name="PurposeTemplateEditLeft" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="PurposeTemplateEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="PurposeTemplateEdit" Class="Com.Ctrl.IEdit" CardFileClass="CashFlow.Tab.Ref.PurposeTemplate" CellFormat="ReferenceFormat" Field="FRecord.PurposeTemplate" HasCaption="True" Hint="Шаблон назначения платежа" LookupField="Name" VertAlignment="LeftAlign" Wrap="True"/>
+                  <Component Name="BtnStatic17" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+              <Component Name="PurposeTemplateEditRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="PurposeTemplateStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              </Component>
+              <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+              <Inherited Name="PurposeEdit" After="NewLine1"/>
+            </Inherited>
+            <Component Name="Group20" Class="Com.Ctrl.IGroup" After="Group19" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              <Component Name="IsTaxPaymentCheckBox" Class="Com.Ctrl.ICheckBox" Caption="Налоговый платеж" Field="FRecord.IsTaxPayment" HasCaption="True" OnChange="IsTaxPaymentCheckBox_OnChange"/>
+              <Component Name="BtnStatic18" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Inherited Name="Group13" After="Group20"/>
+            <Inherited Name="Group15">
+              <Inherited Name="Group15Left">
+                <Inherited Name="FinalSumGroup">
+                  <Inherited Name="FinalSum" Required="True"/>
+                </Inherited>
+              </Inherited>
+              <Inherited Name="Group15Right">
+                <Inherited Name="FinalSumStatic" Excluded="True"/>
+                <Component Name="PurposeCodeGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="PurposeCode" Class="Com.Ctrl.IEdit" Caption="@PaymentOrder:PurposeCode=Код назначения" CellFormat="EnumFormat" HasCaption="True" Hint="@PaymentOrder:PurposeCodeHint=Назначение платежа кодовое" ListAsString=" |0;1;2;3" OnChange="PurposeCode_OnChange" OnOutputEx="PurposeCode_OnOutputEx"/>
+                  <Component Name="BtnStatic19" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Inherited>
+            </Inherited>
+            <Component Name="Group18" Class="Com.Ctrl.IGroup" After="Group15" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="PriorityLeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="TaxPaymentPriorityEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="TaxPaymentPriorityEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Очередность" CellFormat="EnumFormat" Field="FRecord.TaxPaymentPriority" HasCaption="True" Hint="Очередность платежа" ListAsString="1|1;2|2;3|3;4|4;5|5"/>
+                  <Component Name="BtnStatic20" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+              <Component Name="PriorityRightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="PriorityRightGroupStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              </Component>
+            </Component>
+          </Inherited>
+          <Component Name="TaxPaymentBox" Class="Com.Ctrl.IBox" Caption="Налоговые реквизиты" Visible="False">
+            <Component Name="TaxPaymentBoxGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="TaxPaymentBoxLeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="TaxDivisionCPPEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="TaxDivisionCPPEdit" Class="Com.Ctrl.IEdit" Field="FRecord.TaxDivisionCPP" HasCaption="True"/>
+                  <Component Name="BtnStatic21" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="TaxPaymentStatusEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="TaxPaymentStatusEdit" Class="Com.Ctrl.IEdit" Caption="Статус" CardFileClass="BizRus.Tab.Классификаторы.СтатусНалогоплательщика" CellFormat="ReferenceFormat" Field="FRecord.TaxPaymentStatus" HasCaption="True" Hint="Статус налогоплательщика" LookupField="Code"/>
+                  <Component Name="BtnStatic23" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="TaxPaymentBaseEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="TaxPaymentBaseEdit" Class="Com.Ctrl.IEdit" CardFileClass="BizRus.Tab.Классификаторы.ОснованиеНалоговогоПлатежа" CellFormat="ReferenceFormat" Field="FRecord.TaxPaymentBase" HasCaption="True" LookupField="Code"/>
+                  <Component Name="BtnStatic25" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="TaxUINEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="TaxUINEdit" Class="Com.Ctrl.IEdit" Field="FRecord.TaxUIN" HasCaption="True"/>
+                  <Component Name="BtnStatic27" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="TaxBaseDocNumberEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="TaxBaseDocNumberEdit" Class="Com.Ctrl.IEdit" Caption="Номер основания" Field="FRecord.TaxBaseDocNumber" HasCaption="True" Hint="Номер документа основания"/>
+                  <Component Name="BtnStatic28" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="TaxPeriodCodeEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="TaxPeriodCodeEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="FRecord.TaxPeriodCode" HasCaption="True" ListAsString="МС;КВ;ПЛ;ГД" OnChange="TaxPeriodCodeEdit_OnChange" OnVerify="TaxPeriodCodeEdit_OnVerify" ShortList="True"/>
+                  <Component Name="BtnStatic37" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="TaxPeriodYearEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="TaxPeriodYearEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="FRecord.TaxPeriodYear" HasCaption="True" ShortList="True"/>
+                  <Component Name="BtnStatic38" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+              <Component Name="TaxPaymentBoxRightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="TaxOKTMOEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="TaxOKTMOEdit" Class="Com.Ctrl.IEdit" Caption="ОКТМО" CardFileClass="BizRus.Tab.Классификаторы.ОКТМО" CellFormat="ReferenceFormat" Field="FRecord.TaxOKTMO" HasCaption="True" LookupField="Code"/>
+                  <Component Name="BtnStatic22" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="TaxCBCEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="TaxCBCEdit" Class="Com.Ctrl.IEdit" CardFileClass="BizRus.Tab.Классификаторы.КБК" CellFormat="ReferenceFormat" Field="FRecord.TaxCBC" HasCaption="True" LookupField="Code"/>
+                  <Component Name="BtnStatic24" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="TaxPaymentTypeEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="TaxPaymentTypeEdit" Class="Com.Ctrl.IEdit" CardFileClass="BizRus.Tab.Классификаторы.ТипНалоговогоПлатежа" CellFormat="ReferenceFormat" Field="FRecord.TaxPaymentType" HasCaption="True" LookupField="Code"/>
+                  <Component Name="BtnStatic26" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="TaxUINEditStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                <Component Name="TaxBaseDocDateEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="TaxBaseDocDateEdit" Class="Com.Ctrl.IEdit" Caption="Дата основания" CellFormat="DateFormat" Field="FRecord.TaxBaseDocDate" FormatOfDate="DateOnly" HasCaption="True" Hint="Дата документа основания"/>
+                  <Component Name="BtnStatic29" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="TaxPeriodNumberEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="TaxPeriodNumberEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="FRecord.TaxPeriodNumber" HasCaption="True" ShortList="True"/>
+                  <Component Name="BtnStatic39" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="TaxPeriodYearEdit1Group" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="TaxPeriodDateEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="FRecord.TaxPeriodDate" HasCaption="True" OnChange="TaxPeriodDateEdit_OnChange"/>
+                  <Component Name="BtnStatic40" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="PaymentReqsTab" Class="Com.Ctrl.IFrame" Caption="@Frm:PaymentReqsTab=Реквизиты платежа">
+          <Component Name="PayerBox" Class="Com.Ctrl.IBox" Caption="@Payer:Title=Плательщик">
+            <Component Name="PayerBoxGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="PayerBoxLeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="PayerEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="PayerEdit" Class="Com.Ctrl.IEdit" Caption="Наименование" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="FRecord.Entity" HasCaption="True" LookupField="Name" OnChange="OurCompany_OnChange" OnOutputEx="PayerEdit_OnOutputEx"/>
+                  <Component Name="BtnStatic41" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="PayerINNEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="PayerINNEdit" Class="Com.Ctrl.IEdit" Caption="ИНН" CellFormat="ReferenceFormat" Enabled="False" Field="FRecord.Entity" HasCaption="True" LookupField="ИНН"/>
+                  <Component Name="BtnStatic42" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+              <Component Name="PayerBoxRightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="PayerBankDetailsAccNoEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="PayerBankDetailsAccNoEdit" Class="Com.Ctrl.IEdit" Caption="Расчетный счет" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Enabled="False" Field="FRecord.BankDetails" HasCaption="True" LookupField="AccountNum" Multiline="True" Wrap="True"/>
+                  <Component Name="BtnStatic43" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="PayerCPPEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="PayerCPPEdit" Class="Com.Ctrl.IEdit" Caption="КПП" CellFormat="ReferenceFormat" Enabled="False" Field="FRecord.Entity" HasCaption="True" LookupField="КодПричины"/>
+                  <Component Name="BtnStatic44" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="PayerBankBox" Class="Com.Ctrl.IBox" Caption="@PayerBank:Title=Банк плательщика">
+            <Component Name="PayerBankBoxGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="PayerBankBoxLeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="PayerBankDetailsBankEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="PayerBankDetailsBankEdit" Class="Com.Ctrl.IEdit" Caption="Название" CardFileClass="Biz.Tab.Data.BankDetails" CellFormat="ReferenceFormat" Enabled="False" Field="FRecord.BankDetails" HasCaption="True" LookupField="Bank.Name" Multiline="True" Wrap="True"/>
+                  <Component Name="BtnStatic45" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="PayerBankDetailsBankBICEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="PayerBankDetailsBankBICEdit" Class="Com.Ctrl.IEdit" Caption="БИК" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Enabled="False" Field="FRecord.BankDetails" HasCaption="True" LookupField="Bank.БИК"/>
+                  <Component Name="BtnStatic46" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+              <Component Name="PayerBankBoxRightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="PayerBankCorrAccountEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="PayerBankCorrAccountEdit" Class="Com.Ctrl.IEdit" Caption="Корр. счет" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Enabled="False" Field="FRecord.BankDetails" HasCaption="True" LookupField="Bank.КСчет"/>
+                  <Component Name="BtnStatic47" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+              <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+              <Component Name="PayerBankAddressEdit" Class="Com.Ctrl.IEdit" Caption="Адрес" CellFormat="ReferenceFormat" Enabled="False" Field="FRecord.BankDetails" HasCaption="True" LookupField="Bank.City" Multiline="True" OnOutputEx="BankAddressEdit_OnOutputEx" Wrap="True"/>
+              <Component Name="BtnStatic48" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+          </Component>
+          <Component Name="ReceiverBox" Class="Com.Ctrl.IBox" Caption="@Receiver:Title=Получатель">
+            <Component Name="ReceiverBoxGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="ReceiverBoxLeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="ReceiverEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="ReceiverEdit" Class="Com.Ctrl.IEdit" Caption="Наименование" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Field="FRecord.Contraparty" HasCaption="True" LookupField="Name" Multiline="True" OnOutputEx="ReceiverEdit_OnOutputEx" Wrap="True"/>
+                  <Component Name="BtnStatic49" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="ReceiverINNEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="ReceiverINNEdit" Class="Com.Ctrl.IEdit" Caption="ИНН" CellFormat="ReferenceFormat" Enabled="False" Field="FRecord.Contraparty" HasCaption="True" LookupField="ИНН"/>
+                  <Component Name="BtnStatic50" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+              <Component Name="ReceiverBoxRightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="ReceiverBankDetailsAccNoEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="ReceiverBankDetailsAccNoEdit" Class="Com.Ctrl.IEdit" Caption="Расчетный счет" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Enabled="False" Field="FRecord.ContrapartyBankDetails" HasCaption="True" LookupField="AccountNum" Multiline="True" Wrap="True"/>
+                  <Component Name="BtnStatic51" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="ReceiverCPPEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="ReceiverCPPEdit" Class="Com.Ctrl.IEdit" Caption="КПП" CellFormat="ReferenceFormat" Enabled="False" Field="FRecord.Contraparty" HasCaption="True" LookupField="КодПричины"/>
+                  <Component Name="BtnStatic52" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="ReceiverBankBox" Class="Com.Ctrl.IBox" Caption="@ReceiverBank:Title=Банк получателя">
+            <Component Name="ReceiverBankBoxGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="ReceiverBankBoxLeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="ReceiverBankDetailsBankEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="ReceiverBankDetailsBankEdit" Class="Com.Ctrl.IEdit" Caption="Название" CardFileClass="Biz.Tab.Data.BankDetails" CellFormat="ReferenceFormat" Enabled="False" Field="FRecord.ContrapartyBankDetails" HasCaption="True" LookupField="Bank.Name" Multiline="True" Wrap="True"/>
+                  <Component Name="BtnStatic53" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="ReceiverBankDetailsBankBICEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="ReceiverBankDetailsBankBICEdit" Class="Com.Ctrl.IEdit" Caption="БИК" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Enabled="False" Field="FRecord.ContrapartyBankDetails" HasCaption="True" LookupField="Bank.БИК"/>
+                  <Component Name="BtnStatic54" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+              <Component Name="ReceiverBankBoxRightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="ReceiverBankCorrAccountEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="ReceiverBankCorrAccountEdit" Class="Com.Ctrl.IEdit" Caption="Корр. счет" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Enabled="False" Field="FRecord.ContrapartyBankDetails" HasCaption="True" LookupField="Bank.КСчет"/>
+                  <Component Name="BtnStatic55" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+              <Component Name="NewLine3" Class="Com.Ctrl.INewLine"/>
+              <Component Name="ReceiverBankAddressEdit" Class="Com.Ctrl.IEdit" Caption="Адрес" CellFormat="ReferenceFormat" Enabled="False" Field="FRecord.ContrapartyBankDetails" HasCaption="True" LookupField="Bank.City" Multiline="True" OnOutputEx="BankAddressEdit_OnOutputEx" Wrap="True"/>
+              <Component Name="BtnStatic56" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+          </Component>
+          <Component Name="AdditionalBox" Class="Com.Ctrl.IBox" Caption="Платеж" HasCaption="True">
+            <Component Name="AdditionalBoxGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="PurposeEdit1" Class="Com.Ctrl.IEdit" Field="FRecord.Purpose" HasCaption="True" Multiline="True" Wrap="True"/>
+              <Component Name="BtnStatic57" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="StatusTab" Class="Com.Ctrl.IFrame" Caption="@Frm:StatusTab=Статус" Margins="5">
+          <Component Name="StatusGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+            <Component Name="StatusLeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+              <Component Name="UnloadFilePathEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                <Component Name="UnloadFilePathEdit" Class="Com.Ctrl.IEdit" Caption="@Frm:UnloadFilePath=Файл выгрузки" CellFormat="StringFormat" Enabled="False" Field="FRecord.UnloadFilePath" HasCaption="True" Hint="@Frm:UnloadFilePathHint=Путь к файлу выгрузки" LookupField="Name"/>
+                <Component Name="BtnStatic59" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+            </Component>
+            <Component Name="StatusRightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+              <Component Name="StatusStatic" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="40"/>
+              <Component Name="UnloadDateEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                <Component Name="UnloadDateEdit" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Enabled="False" Field="FRecord.UnloadDate" HasCaption="True"/>
+                <Component Name="BtnStatic60" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

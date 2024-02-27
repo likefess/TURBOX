@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Tab.Base.CodeNameRecordTab">
+  <Inherited Hierarchical="False" PrintSettings="RealEstate.Album.cfg">
+    <Inherited Name="Current" Class="RealEstateBase.Rec.Data.RealEstateObject" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="CardFile" CanInsert="False"/>
+          <Component Name="Cont" Class="Com.Ctrl.ICheckBox" Excluded="True" After="CardFile" Caption="Р" Field="Current.Cont" FixSize="True" HasCaption="True" Width="5"/>
+          <Inherited Name="Code" After="ExtId" HasCaption="True" Visible="True"/>
+          <Inherited Name="Name" After="Code"/>
+          <Component Name="Region" Class="Com.Ctrl.IEdit" After="Name" CellFormat="ReferenceFormat" Field="Current.Region" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="FederalDistrict" Class="Com.Ctrl.IEdit" Caption="@Федеральный округ" CellFormat="ReferenceFormat" Field="Current.Region" HasCaption="True" LookupField="FederalDistrictCode.Name" Width="40"/>
+          <Component Name="Address" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.Address" HasCaption="True" LookupField="StringAddress" Width="40"/>
+          <Component Name="KadastrNumber" Class="Com.Ctrl.IEdit" Field="Current.KadastrNumber" HasCaption="True" Width="30"/>
+          <Component Name="RealEstateObjKind" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.RealEstateObjKind" HasCaption="True" LookupField="Name" Width="50"/>
+          <Component Name="RealEstateObjType" Class="Com.Ctrl.IEdit" Caption="Тип" CellFormat="ReferenceFormat" Field="Current.RealEstateObjKind" HasCaption="True" LookupField="RealEstateObjType.Name" Width="50"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Bas.Rec.BasObject" Locked="Замок">
+    <Component Name="БезРасчета" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    <Component Name="Code" Class="Com.Fld.IField" Caption="Код" FieldName="Code"/>
+    <Component Name="Name" Class="Com.Fld.IField" Caption="Название" FieldName="Name"/>
+    <Component Name="Примечание" Class="Com.Fld.IField" FieldName="Примечание"/>
+    <Component Name="Кадровик_ФИО" Class="Com.Fld.IVar" OnCalc="Кадровик_ФИО_OnCalc" ValueType="VarString"/>
+    <Component Name="ГлавБух_ФИО" Class="Com.Fld.IVar" OnCalc="ГлавБух_ФИО_OnCalc" ValueType="VarString"/>
+    <Component Name="Ответственный_ФИО" Class="Com.Fld.IVar" OnCalc="Ответственный_ФИО_OnCalc" ValueType="VarString"/>
+    <Component Name="Описание" Class="Com.Fld.IField" FieldName="Описание"/>
+    <Component Name="Замок" Class="Com.Fld.IField" FieldName="Locked"/>
+    <Component Name="Дата" Class="Com.Fld.IField" FieldName="Дата" OnChange="Дата_OnChange"/>
+    <Component Name="Номер" Class="Com.Fld.IField" FieldName="Номер"/>
+    <Component Name="Предприятие" Class="Com.Fld.IField" FieldName="Предприятие" OnChange="Предприятие_OnChange"/>
+    <Component Name="вдаПодразделение" Class="Com.Fld.IField" FieldName="вдаПодразделение"/>
+    <Component Name="вдаДоговор" Class="Com.Fld.IField" FieldName="вдаДоговор"/>
+    <Component Name="вдаПроект" Class="Com.Fld.IField" FieldName="вдаПроект"/>
+    <Component Name="вдаПродукт" Class="Com.Fld.IField" FieldName="вдаПродукт"/>
+    <Component Name="вдаЗаказ" Class="Com.Fld.IField" FieldName="вдаЗаказ"/>
+    <Component Name="вдаЦФО" Class="Com.Fld.IField" FieldName="вдаЦФО"/>
+    <Component Name="ДопАналитика" Class="Com.ISubtable" OnAfterDelete="ДопАналитика_OnAfterDelete" StructClass="УправлениеПерсоналом.Rec.Базовая.БазовыйДокумент_ДопАналитика" SubtableName="ДопАналитика"/>
+    <Component Name="ДопАналитикаИтоги" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Базовая.БазовыйДокумент_ДопАналитикаИтоги"/>
+    <Component Name="ППРСумма" Class="Com.Fld.IField" FieldName="ППРСумма"/>
+    <Component Name="РучнКорр" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Базовая.БазовыйДокумент_Корректировки" SubtableName="Корректировки"/>
+    <Component Name="мРасчетЗП" Class="Com.Fld.IField" FieldName="мРасчетЗП"/>
+  </Component>
+</Resource>

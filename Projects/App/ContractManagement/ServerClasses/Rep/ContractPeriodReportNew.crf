@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" AccountFilter="ContractPerAcc" AccountPlan="БизнесСчета" Autobuild="False" BegDate="01.01.1900" BegSaldoFormat="sfNone" Caption="Отчет по срокам договоров" CIndicator="1" EndDate="01.01.2100" HidePeriod="True" HystoKind="hkSide" Legend="lpkAtRight" Palette="cpDefault" Period="-1" ShowSumKindRow="False" TurnFormat="sfNone">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorВнутригрупповой" Class="Com.Rep.IIndCustom" Caption="Внутригрупповой" Formula="SplitValueByName(Report.rdRow, 'Внутригрупповой')" ShowUnit="False" ValueType="VarLogical"/>
+      <Component Name="IndicatorНазначениедоговора" Class="Com.Rep.IIndCustom" Caption="Назначение договора" Formula="SplitValueByName(Report.rdRow, 'ПредметДоговора')?.Name" ShowUnit="False" ValueType="VarString"/>
+      <Component Name="IndicatorПредметдоговора" Class="Com.Rep.IIndCustom" Caption="Предмет договора" Formula="RowSplit(2).Value?.GeneralComment" ShowUnit="False" ValueType="VarString"/>
+      <Component Name="IndicatorГруппаДат" Class="Com.Rep.IIndGroup" Caption="Срок действия договора"/>
+      <Component Name="IndicatorДатаначала" Class="Com.Rep.IIndCustom" Caption="Дата начала" Formula="SplitValueByName(Report.rdRow, 'НачалоПериода')" Group="IndicatorГруппаДат" ShowUnit="False" ValueType="VarDate"/>
+      <Component Name="IndicatorДатаокончания" Class="Com.Rep.IIndCustom" Caption="Дата окончания" Formula="SplitValueByName(Report.rdRow, 'ОкончаниеПериода')" Group="IndicatorГруппаДат" ShowUnit="False" ValueType="VarDate"/>
+      <Component Name="IndicatorMonthCount" Class="Com.Rep.IIndMain" Caption="Месяцев" Contents="MonthCount" Format="0" Group="IndicatorГруппаДат" ShowUnit="False"/>
+      <Component Name="IndicatorProlongationMonth" Class="Com.Rep.IIndMain" Caption="Срок пролонгации договора" Contents="ProlongationMonth" Group="IndicatorГруппаДат" ShowUnit="False"/>
+      <Component Name="IndicatorЕстьДопСоглашения" Class="Com.Rep.IIndCustom" Caption="Наличие доп. соглашений" Formula="com.Recs.QueryRecord(Biz.Data.ContractSuppAgreement,'Contract=' + str(SplitValueByName(Report.rdRow, 'Договор')))&lt;> nil" ShowUnit="False" ValueType="VarLogical"/>
+      <Component Name="IndicatorЕстьСпец" Class="Com.Rep.IIndCustom" Caption="Наличие спецификаций" Formula="com.Recs.QueryRecord(Biz.Data.ContractSpecification,'Contract=' + str(SplitValueByName(Report.rdRow, 'Договор')))&lt;> nil" ShowUnit="False" ValueType="VarLogical"/>
+      <Component Name="IndicatorГруппаСумДоговор" Class="Com.Rep.IIndGroup" Caption="Сумма по договору"/>
+      <Component Name="IndicatorСуммаБезНДС_1" Class="Com.Rep.IIndMain" Caption="Сумма без НДС" Contents="СуммаБезНДС" Group="IndicatorГруппаСумДоговор" ShowUnit="False"/>
+      <Component Name="IndicatorСуммаНДС_1" Class="Com.Rep.IIndMain" Caption="СуммаНДС" Contents="СуммаНДС" Group="IndicatorГруппаСумДоговор" ShowUnit="False"/>
+      <Component Name="IndicatorСуммаОбщая" Class="Com.Rep.IIndMain" Caption="Сумма с НДС" Contents="СуммаОбщая" Group="IndicatorГруппаСумДоговор" ShowUnit="False"/>
+      <Component Name="IndicatorГруппаСумДогДоп" Class="Com.Rep.IIndGroup" Caption="Сумма по договору с учетом доп. соглашений"/>
+      <Component Name="IndicatorСуммаДонДог" Class="Com.Rep.IIndMain" Caption="Сумма без НДС" Contents="СуммаДонДог" Group="IndicatorГруппаСумДогДоп" ShowUnit="False"/>
+      <Component Name="IndicatorVATAmountWithSA" Class="Com.Rep.IIndMain" Caption="Сумма НДС" Contents="VATAmountWithSA" Group="IndicatorГруппаСумДогДоп" ShowUnit="False"/>
+      <Component Name="IndicatorAmountIncVATWithSA" Class="Com.Rep.IIndMain" Caption="Сумма с НДС" Contents="AmountIncVATWithSA" Group="IndicatorГруппаСумДогДоп" ShowUnit="False"/>
+      <Component Name="IndHasClaims" Class="Com.Rep.IIndCustom" Caption="Наличие ПИР" Formula="com.Recs.QueryRecord(Data.ClaimProcess,'Contract=' + str(SplitValueByName(Report.rdRow, 'Договор')))&lt;> nil" ShowUnit="False" ValueType="VarLogical"/>
+      <Component Name="Indicatorстатус" Class="Com.Rep.IIndCustom" Caption="Статус" Formula="SplitValueByName(Report.rdRow, 'Status')?.Name" ShowUnit="False" ValueType="VarString"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam97A18813" Class="Com.Rep.ISplitByParam" ShowTotals="False" SplitParam="Партнер"/>
+        <Component Name="SplitParam39370CC3" Class="Com.Rep.ISplitByParam" SplitParam="Договор"/>
+        <Component Name="SplitParamF9118432" Class="Com.Rep.ISplitByParam" SplitParam="PrintNumber"/>
+        <Component Name="SplitParamEBC629F4" Class="Com.Rep.ISplitByParam" SplitParam="ДатаРегистрации"/>
+        <Component Name="SplitParamD9F6D22E" Class="Com.Rep.ISplitByParam" SplitParam="ПредметДоговора"/>
+        <Component Name="SplitParam05B3D19F" Class="Com.Rep.ISplitByParam" SplitParam="НачалоПериода"/>
+        <Component Name="SplitParam3894151E" Class="Com.Rep.ISplitByParam" SplitParam="ОкончаниеПериода"/>
+        <Component Name="SplitParamE7C3611C" Class="Com.Rep.ISplitByParam" SplitParam="Status"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContent6DF2BCCE" Class="Com.Rep.ISplitContent" Caption="Контрагент" Contents="Партнер.Наименование"/>
+        <Component Name="SplitContent5781438C" Class="Com.Rep.ISplitContent" Caption="Номер" Contents="Договор.Код"/>
+        <Component Name="SplitContent69921444" Class="Com.Rep.ISplitContent" Caption="Номер регистрации договора" Contents="PrintNumber"/>
+        <Component Name="SplitContent6701B4EE" Class="Com.Rep.ISplitContent" Caption="Дата регистрации договора" Contents="ДатаРегистрации"/>
+        <Component Name="SplitContentB583812B" Class="Com.Rep.ISplitContent" Contents="ПредметДоговора.Описание" Enabled="False"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_ДатаНачалаС" Class="Com.Rep.IRepControl" Caption="За период с " CaptionWidth="50" ValueType="VarDate" Width="100"/>
+      <Component Name="RC_ДатаНачалаПо" Class="Com.Rep.IRepControl" Caption="По" CaptionWidth="50" ValueType="VarDate" Width="100"/>
+      <Component Name="RC_MonthCount" Class="Com.Rep.IRepControl" Caption="Срок действия" CaptionWidth="50" CellFormat="NumericFormat" DefaultStr="Numeric(0)" FieldFormat="0" NewLine="True" Operator="=" Parameter="MonthCount" Plan="БизнесСчета" SkipNil="True" ValueType="VarNumeric" Width="250"/>
+      <Component Name="RC_ДатаРегистрацииС" Class="Com.Rep.IRepControl" Caption="Период заключения с:" CaptionWidth="50" DefaultStr="Date(nil)" NewLine="True" Operator=">=" Parameter="ДатаРегистрации" Plan="БизнесСчета" SkipNil="True" ValueType="VarDate" Width="100"/>
+      <Component Name="RC_ДатаРегистрацииПо" Class="Com.Rep.IRepControl" Caption="По" CaptionWidth="50" DefaultStr="Date(nil)" Operator="&lt;=" Parameter="ДатаРегистрации" Plan="БизнесСчета" SkipNil="True" ValueType="VarDate" Width="100"/>
+      <Component Name="RC_Организация" Class="Com.Rep.IRepControl" Caption="Предприятие" CaptionWidth="50" CardFileClass="Bas.Tab.Data.OurCompanies" DefaultStr="Object(nil)" LookupField="Name" NewLine="True" Operator="=" Parameter="НашеПредприятие" Plan="БизнесСчета" ShortList="False" ValueType="VarObject" Width="100"/>
+      <Component Name="RC_Классификация" Class="Com.Rep.IRepControl" Caption="Классификация" CaptionWidth="50" CardFileClass="Biz.Tab.Ref.ContractClassification" DefaultStr="Object(nil)" Operator="=" Parameter="ПредметДоговора" Plan="БизнесСчета" SkipNil="True" ValueType="VarObject" Width="100"/>
+      <Component Name="Static" Class="Com.Rep.IRepControl" Caption="⠀" CaptionWidth="50" DefaultStr="String(&quot;&quot;)" NewLine="True" Operator="=" Plan="БизнесСчета" ValueType="VarString" Width="0"/>
+      <Component Name="RC_Внутригрупповой" Class="Com.Rep.IRepControl" Caption="Внутригрупповые договоры" CaptionWidth="50" DefaultStr="Logical(False)" Operator="=" Parameter="Внутригрупповой" Plan="БизнесСчета" SkipNil="True" ValueType="VarLogical" Width="100"/>
+      <Component Name="RC_Статус" Class="Com.Rep.IRepControl" Caption="Статус" CaptionWidth="50" CardFileClass="Biz.Tab.Ref.ContractStatus" DefaultStr="Object(nil)" NewLine="True" Operator="=" Parameter="Status" Plan="БизнесСчета" SkipNil="True" ValueType="VarObject" Width="100"/>
+      <Component Name="RC_ПараметрыФильтрации" Class="Com.Rep.IRepControl" Caption="Параметры фильтрации" CaptionWidth="50" CellFormat="EnumFormat" ListAsString="Действующие договоры|0;Договоры, заключенные в выбранный период|1;Договоры, срок действия которых заканчивается в выбранный период|2;Договоры, подлежащие пролонгации в выбранный период|3" ValueType="VarInteger" Width="100"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

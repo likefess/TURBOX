@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Menu.Panels.MnRMenuPanel_Executing">
+  <Inherited>
+    <Inherited Name="MainGroup">
+      <Component Name="MnRMenuGroup_BalanceUse" Class="Com.Cmd2.IGroup" After="#0" Caption="@MnR.Menu.Group:Orders=Балансировка ресурсов" Columns="2" Rows="2">
+        <Component Name="MenuItem_RM_BalancePositionUse" Class="Com.Cmd2.IItem" Command="Commands.RM_BalancePositionUse"/>
+        <Component Name="MenuItem_RM_BalanceBrigadeUse" Class="Com.Cmd2.IItem" Command="Commands.RM_BalanceBrigadeUse"/>
+        <Component Name="MenuItem_RM_BalanceSPAUse" Class="Com.Cmd2.IItem" Command="Commands.RM_BalanceSPAUse"/>
+      </Component>
+      <Inherited Name="MnRMenuGroup_Orders">
+        <Component Name="MenuItem_InfobaseMnRMenuCmdRouteSheet" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_RouteSheet"/>
+      </Inherited>
+      <Component Name="MnRMenuGroup_Brigades" Class="Com.Cmd2.IGroup" After="MnRMenuGroup_Demand" Caption="@MnR.Menu.Group:Brigades=Бригады" Columns="2" Rows="2">
+        <Component Name="MenuItem_InfobaseMnRMenuCmdBrigades" Class="Com.Cmd2.IItem" Command="Commands.MnR_Menu_Cmd_Brigades"/>
+        <Component Name="MenuItem_InfobaseMnRMenuCmdBrigadesWorkCost" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_BrigadeWorkCost"/>
+        <Component Name="MenuItem_InfobaseMnRMenuCmdBrigadesWorkLoad" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_BrigadeWorkLoad"/>
+      </Component>
+      <Component Name="MnRMenuGroup_ExeReports" Class="Com.Cmd2.IGroup" Caption="@MnR.Menu.Group:ExeReports=Отчеты" Columns="2" Rows="2">
+        <Component Name="MenuItem_InfobaseMnRMenuCmdWorkCostsSpareParts" Class="Com.ComManaging.OpenIForm" Caption="Материальные затраты" FormClassName="Rep.Journals.WorkCostsSpareParts" IconName="Com.Report"/>
+        <Component Name="MenuItem_InfobaseMnRMenuCmdWorkCostsWorks" Class="Com.ComManaging.OpenIForm" Caption="Трудовые затраты" FormClassName="Rep.Journals.WorkCostsWorks" IconName="Com.Report"/>
+        <Component Name="MenuItem_InfobaseMnRMenuCmdWorkCostsFinances" Class="Com.ComManaging.OpenIForm" Caption="Финансовые затраты" FormClassName="Rep.Journals.WorkCostsFinances" IconName="Com.Report"/>
+        <Component Name="MenuItem_InfobaseMnRReportsWorkCostSPA" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_WorkCostSPA"/>
+        <Component Name="MenuItem_InfobaseMnRReportsWorkCostExpenses" Class="Com.Cmd2.IItem" Command="Commands.MnR_Reports_WorkCostExpenses"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

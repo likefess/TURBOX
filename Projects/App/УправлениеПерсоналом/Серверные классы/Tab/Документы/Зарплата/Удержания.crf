@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Tab.Базовая.БазовыйДокументИерархия">
+  <Inherited>
+    <Inherited Name="Current" Class="УправлениеПерсоналом.Rec.Документы.Зарплата.Удержания" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="Учитывать" Class="Com.Ctrl.IEdit" After="ExtId" Caption="Учитывать" Field="Current.Проводить" HasCaption="True" Width="15"/>
+          <Component Name="ТипДокумента" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Тип документа" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ТипыДокументов" Field="Current.ТипДокумента" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="Скорректирован" Class="Com.Ctrl.IEdit" Caption="Скорректирован" Field="Current.Скорректирован" HasCaption="True" Width="15"/>
+          <Component Name="Сотрудник" Class="Com.Ctrl.IEdit" After="Дата" Caption="Сотрудник" Field="Current.УсловияТрудаСотр" HasCaption="True" LookupField="Person.Name" Width="45"/>
+          <Component Name="ТабНомер" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Таб. номер" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Field="Current.УсловияТрудаСотр" HasCaption="True" Hint="Табельный номер сотрудника" LookupField="ТабНомер" Width="20"/>
+          <Component Name="НомерДок" Class="Com.Ctrl.IEdit" Caption="Номер и/л" CellFormat="StringFormat" Field="Current.НомерДок" HasCaption="True" Width="20"/>
+          <Component Name="ДатаДок" Class="Com.Ctrl.IEdit" Caption="Дата и/л" CellFormat="DateFormat" Field="Current.ДатаДок" HasCaption="True" ValueType="VarDate" Width="25"/>
+          <Component Name="Очередность" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="Current.Очередность" HasCaption="True" Width="20"/>
+          <Component Name="Взыскатель" Class="Com.Ctrl.IEdit" Caption="Взыскатель" CellFormat="StringFormat" Field="Current.сВзыскатель" ValueType="VarString" Width="40"/>
+          <Component Name="Корректировка" Class="Com.Ctrl.IEdit" Caption="Корректировка" Field="Current.Корректировка" HasCaption="True" Width="15"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

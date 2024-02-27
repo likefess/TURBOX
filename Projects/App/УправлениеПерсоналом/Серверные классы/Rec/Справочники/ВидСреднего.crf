@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Rec.Базовая.Справочник">
+  <Inherited>
+    <Component Name="Описание" Class="Com.Fld.IField" After="#0" FieldName="Описание"/>
+    <Component Name="ВидНачисления" Class="Com.Fld.IField" FieldName="ВидНачисления" OnChange="ВидНачисления_OnChange"/>
+    <Component Name="РасчетБезДокумента" Class="Com.Fld.IField" FieldName="РасчетБезДокумента"/>
+    <Component Name="РасчетДнейПособия" Class="Com.Fld.IField" Caption="Расчет дней/часов пособия" FieldName="РасчетДнейПособия"/>
+    <Component Name="НеУчитыватьПремии" Class="Com.Fld.IField" Caption="Не учитывать премии" FieldName="НеУчитыватьПремии"/>
+    <Component Name="ДоляОплатыЗн" Class="Com.Fld.IField" FieldName="ДоляОплатыЗн"/>
+    <Component Name="ДоляОплатыЧис" Class="Com.Fld.IField" FieldName="ДоляОплатыЧис"/>
+    <Component Name="ТипДолиОплаты" Class="Com.Fld.IField" FieldName="ТипДолиОплаты" OnChange="ТипДолиОплаты_OnChange"/>
+    <Component Name="КоэффОплаты" Class="Com.Fld.IField" FieldName="КоэффОплаты"/>
+    <Component Name="ТипСреднего" Class="Com.Fld.IField" FieldName="ТипСреднего"/>
+    <Component Name="ОгрДеньМРОТКаленд" Class="Com.Fld.IField" FieldName="ОгрДеньМРОТКаленд"/>
+    <Component Name="ОгрЗаработокМакс" Class="Com.Fld.IField" FieldName="ОгрЗаработокМакс"/>
+    <Component Name="БазаРасчета" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Справочники.ВидСреднего_БазаРасчета"/>
+    <Component Name="ИсклДни" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Справочники.ВидСреднего_ИсклДни" SubtableFilter="ТипЭлемента=40" SubtableName="Позиции"/>
+    <Component Name="КодыУО" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Справочники.ВидСреднего_КодыУО" SubtableFilter="ТипЭлемента=41" SubtableName="Позиции"/>
+    <Component Name="РасчетБезПособия" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Справочники.ВидСреднего_БезПособия" SubtableFilter="ТипЭлемента=50" SubtableName="Позиции"/>
+    <Component Name="Позиции" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Справочники.ВидСреднего_Позиции" SubtableName="Позиции"/>
+    <Component Name="ФиксПериод" Class="Com.Fld.IField" FieldName="ФиксПериод" OnChange="ФиксПериод_OnChange"/>
+    <Component Name="РасчетнаяБаза" Class="Com.Fld.IField" FieldName="РасчетнаяБаза" OnChange="РасчетнаяБаза_OnChange"/>
+    <Component Name="КоличМесяцевЗаработка" Class="Com.Fld.IField" FieldName="КоличМесяцевЗаработка"/>
+    <Component Name="Коэффициент" Class="Com.Fld.IField" Caption="Коэффициент" FieldName="Коэффициент"/>
+    <Component Name="СсылкаНаКласс" Class="Com.Fld.IVar" Excluded="True" OnCalc="СсылкаНаКласс_OnCalc" ValueType="VarClass"/>
+    <Component Name="КлассРеализации" Class="Com.Fld.IField" Caption="Класс реализации" FieldName="КлассРеализации"/>
+    <Component Name="Проводить" Class="Com.Fld.IField" FieldName="Проводить"/>
+    <Component Name="ДатаНачала" Class="Com.Fld.IField" FieldName="ДатаНачала" OnVerify="ДатаНачала_OnVerify"/>
+    <Component Name="ДатаОкончания" Class="Com.Fld.IField" FieldName="ДатаОкончания" OnVerify="ДатаОкончания_OnVerify"/>
+  </Inherited>
+</Resource>

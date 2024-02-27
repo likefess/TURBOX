@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Tab.Data.Contract">
+  <Inherited Caption="@Договоры">
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Caption="@Договоры" HasCaption="True"/>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="CardFile" OnOpenBlank="CardFileOnOpenBlank_Re"/>
+          <Component Name="EventTime" Class="Com.Ctrl.IEdit" After="Code" CellFormat="DateFormat" Field="Current.EventTime" FormatOfDate="DateOnly" HasCaption="True" Visible="False" Width="20"/>
+          <Component Name="ExpirationDate" Class="Com.Ctrl.IEdit" After="StartDate" Field="Current.ExpirationDate" HasCaption="True" Visible="False"/>
+          <Component Name="TAmountInclVATSuppAgr" Class="Com.Ctrl.IEdit" After="Status" CellFormat="NumericFormat" Field="Current.TAmountInclVATSuppAgr" FieldFormat=",##0.00;;-" Width="45"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

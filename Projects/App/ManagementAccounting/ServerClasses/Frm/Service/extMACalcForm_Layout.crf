@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="UserCalc.Frm.Srv.CalcForm">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="vStatisticalIndicator" Class="Com.Fld.IVar" After="#0" RecordClass="ManagementAccounting.Rec.Data.MAStatisticalIndicator" ValueType="VarObject"/>
+      <Component Name="vProportionWay" Class="Com.Fld.IVar" OnChange="vProportionWayOnChange" ValueType="VarInteger"/>
+      <Component Name="vMAItemSchemaLayuot" Class="Com.Fld.IVar" After="vCalcType" Caption="Схема замещения статей" RecordClass="ManagementAccounting.Rec.Ref.MAItemSchema" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="ParametersBox">
+          <Component Name="DateFrame" Class="Com.Ctrl.IFrame" After="#0" Margins="10"/>
+          <Inherited Name="GroupsFrame" AutoSize="True">
+            <Component Name="GrLayout" Class="Com.Ctrl.IGroup" After="#0" ByColumn="True">
+              <Component Name="ParametrsGroupLayout" Class="Com.Ctrl.IGroup" ByColumn="True">
+                <Component Name="EdProportionWayLayout" Class="Com.Ctrl.IEdit" Caption="Способ пропорции" CellFormat="EnumFormat" Enabled="False" Field="vProportionWay" HasCaption="True" ValueType="VarInteger" Visible="False"/>
+                <Component Name="EdStatisticalIndicatorLayout" Class="Com.Ctrl.IEdit" Caption="Статистический показатель" CardFileClass="ManagementAccounting.Tab.Data.MAStatisticalIndicator" CellFormat="ReferenceFormat" Field="vStatisticalIndicator" HasCaption="True" LookupField="Code" ValueType="VarObject"/>
+                <Component Name="EdMAUnitLayout" Class="Com.Ctrl.IEdit" Caption="Единица учета" CardFileClass="Biz.Tab.Data.MAUnit" CellFormat="ReferenceFormat" Field="vMAUnit" HasCaption="True" LookupField="Code" ValueType="VarObject"/>
+                <Component Name="EdMAItemSchemaLayout" Class="Com.Ctrl.IEdit" Caption="Схема замещения статей" CardFileClass="ManagementAccounting.Tab.Ref.MAItemSchema" CellFormat="ReferenceFormat" Field="vMAItemSchemaLayuot" LookupField="Code" ValueType="VarObject"/>
+              </Component>
+              <Component Name="InputOutputGroupLayout" Class="Com.Ctrl.IGroup">
+                <Component Name="InputDataGroupLayout" Class="Com.Ctrl.IGroup" ByColumn="True" Printed="True" Visible="True">
+                  <Component Name="InputDataLayout" Class="Com.Ctrl.IStatic" Caption="Данные до раскладки" FontBold="True" Width="100"/>
+                  <Component Name="EdInpCFRLayuot" Class="Com.Ctrl.IEdit" Caption="ЦФО" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="vInpCFR" LookupField="Code" ValueType="VarObject"/>
+                  <Component Name="EdInpDivisionLayuot" Class="Com.Ctrl.IEdit" Caption="Подразделение" CardFileClass="Bas.Tab.Data.Divisions" CellFormat="ReferenceFormat" Field="vInpDivision" LookupField="Code" ValueType="VarObject"/>
+                  <Component Name="EdInpOrderLayuot" Class="Com.Ctrl.IEdit" Caption="Заказ" CellFormat="ReferenceFormat" Field="vInpOrder" ValueType="VarObject"/>
+                  <Component Name="EdInpProjectLayuot" Class="Com.Ctrl.IEdit" Caption="Проект" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Field="vInpProject" LookupField="Code" ValueType="VarObject"/>
+                  <Component Name="EdInpContractLayuot" Class="Com.Ctrl.IEdit" Caption="Договор" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Field="vInpContract" LookupField="Code" ValueType="VarObject"/>
+                  <Component Name="EdInpProductLayuot" Class="Com.Ctrl.IEdit" Caption="Продукт" CellFormat="ReferenceFormat" Field="vInpProduct" ValueType="VarObject"/>
+                </Component>
+                <Component Name="OutputDataGroupLayout" Class="Com.Ctrl.IGroup" ByColumn="True">
+                  <Component Name="OutputDataLayout" Class="Com.Ctrl.IStatic" Caption="Разложенные данные" FontBold="True" Width="100"/>
+                  <Component Name="EdOutputCFRLayuot" Class="Com.Ctrl.IEdit" Caption="ЦФО" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="vOutpCFR" LookupField="Code" ValueType="VarObject"/>
+                  <Component Name="EdOutputDivisionLayuot" Class="Com.Ctrl.IEdit" Caption="Подразделение" CardFileClass="Bas.Tab.Data.Divisions" CellFormat="ReferenceFormat" Field="vOutpDivision" LookupField="Code" ValueType="VarObject"/>
+                  <Component Name="EdOutputOrderLayuot" Class="Com.Ctrl.IEdit" Caption="Заказ" CellFormat="ReferenceFormat" Field="vOutpOrder" ValueType="VarObject"/>
+                  <Component Name="EdOutputProjectLayuot" Class="Com.Ctrl.IEdit" Caption="Проект" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Field="vOutpProject" LookupField="Code" ValueType="VarObject"/>
+                  <Component Name="EdOutputContractLayuot" Class="Com.Ctrl.IEdit" Caption="Договор" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Field="vOutpContract" LookupField="Code" ValueType="VarObject"/>
+                  <Component Name="EdOutputProductLayuot" Class="Com.Ctrl.IEdit" Caption="Продукт" CellFormat="ReferenceFormat" Field="vOutpProduct" ValueType="VarObject"/>
+                </Component>
+              </Component>
+            </Component>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

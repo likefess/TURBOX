@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Frm.Ref.CountryOrRegion">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Group2">
+            <Inherited Name="IsCountry" OnChange="IsCountry_OnChange"/>
+            <Inherited Name="IsRegion" OnChange="IsRegion_OnChange"/>
+          </Inherited>
+          <Component Name="RegionStatusCode" Class="Com.Ctrl.IEdit" Caption="Админ. единица" CardFileClass="RealEstateBase.Tab.Ref.RegionStatus" CellFormat="ReferenceFormat" Field="EdtRec.RegionStatusCode" HasCaption="True" Hint="Административная единица" LookupField="Name"/>
+          <Component Name="FederalDistrictGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="FederalDistrictCode" Class="Com.Ctrl.IEdit" Caption="Федеральный округ" CardFileClass="RealEstateBase.Tab.Ref.FederalDistrict" Field="EdtRec.FederalDistrictCode" LookupField="Name"/>
+            <Component Name="btnFederalDistrictCode" Class="Com.Ctrl.IJumpButton" Field="EdtRec.FederalDistrictCode" HasCaption="False" JumpForm="RealEstateBase.Frm.Ref.FederalDistrict" Width="7"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

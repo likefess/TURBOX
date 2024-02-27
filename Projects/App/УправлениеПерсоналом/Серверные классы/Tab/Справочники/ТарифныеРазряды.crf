@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Tab.Базовая.Справочник">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Справочники.Тарифные разряды">
+    <Inherited Name="Current" Class="УправлениеПерсоналом.Rec.Справочники.ТарифныйРазряд" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Code" After="ExtId" Caption="Код разряда"/>
+          <Inherited Name="Name" After="Code"/>
+          <Component Name="Коэффициент" Class="Com.Ctrl.IEdit" Caption="Коэффициент" Field="Current.Коэффициент" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Тарифный коэффициент" Width="30"/>
+          <Component Name="Описание" Class="Com.Ctrl.IEdit" Field="Current.Описание" HasCaption="True" Width="60"/>
+          <Component Name="Предприятие" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="Current.Предприятие" HasCaption="True" LookupField="Name" Width="60"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

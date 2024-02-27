@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited HelpContext="CashFlow.Движение денежных средств.Финансовые инструменты.Основные данные.Финансовые инструменты">
+    <Inherited Name="EdtRec" Class="CashFlow.Rec.Data.FinancialInstrument" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False">
+          <Component Name="InvestCalcPercentBtn" Class="Com.Ctrl.IButton" Caption="@FI:InvestCalcPercentBtn=Расчет плановых процентов" ImageName="Com.Calculation" OnClick="InvestCalcPercentBtn_OnClick"/>
+          <Component Name="UpdateAmountsBtn" Class="Com.Ctrl.IButton" Caption="@FI:UpdateAmountsBtn=Обновление суммы" ImageName="Com.Calculation" OnClick="UpdateAmountsBtn_OnClick"/>
+          <Component Name="ContractPaymentTimelineButton" Class="Com.Ctrl.IButton" Caption="@FI:ContractPaymentTimelineButton=Создать плановые платежи из договора" ImageName="Com.AddItem" OnClick="ContractPaymentTimelineButton_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" ByColumn="False">
+          <Inherited Name="Code" Visible="True"/>
+          <Component Name="BtnStatic1" Class="Com.Ctrl.IStatic" After="Code" FixSize="True" Width="7.5"/>
+          <Inherited Name="Name" FontBold="False" Visible="True"/>
+          <Component Name="BtnStatic2" Class="Com.Ctrl.IStatic" After="Name" FixSize="True" Width="7.5"/>
+          <Component Name="GroupDocGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+            <Component Name="GroupDocLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+              <Component Name="GroupDoc" Class="Com.Ctrl.IEditEx" Caption="@Entity:GroupElement=Элемент группы" Field="EdtRec.GroupDoc" HasCaption="True" LookupField="Name">
+                <Component Name="GroupDocJumpBtn" Class="Com.Ctrl.IJumpButton" Field="EdtRec.GroupDoc" FixSize="True" Width="7.5"/>
+              </Component>
+            </Component>
+            <Component Name="GroupDocRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+              <Component Name="GroupDocStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Margins="0">
+          <Component Name="MainBox" Class="Com.Ctrl.IBox" Caption="@FI:MainBox=Общее">
+            <Component Name="MainBoxGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="Company" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="EdtRec.Company" HasCaption="True" LookupField="Name" Required="True" ShortList="True"/>
+              <Component Name="BtnStatic3" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="FIGroup" Class="Com.Ctrl.IEdit" Caption="@FI:FIGroup=Группа" CardFileClass="CashFlow.Tab.Data.FinancialInstrumentGroup" Field="EdtRec.FIGroup" HasCaption="True" Hint="@FI:FIGroup.Hint=Группа финансовых инструметов" LookupField="Name" OnChange="FIGroup_OnChange" Required="True"/>
+              <Component Name="BtnStatic4" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="StatusNeedRecalcGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="StatusNeedRecalcGroupLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="StatusGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                    <Component Name="Status" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.Status" HasCaption="True" OnVerify="Status_OnVerify"/>
+                    <Component Name="BtnStatic5" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                  </Component>
+                </Component>
+                <Component Name="StatusNeedRecalcGroupRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="NeedRecalcGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                    <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                    <Component Name="NeedRecalc" Class="Com.Ctrl.ICheckBox" Enabled="False" Field="EdtRec.NeedRecalc" HasCaption="True"/>
+                    <Component Name="BtnStatic6" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                  </Component>
+                </Component>
+              </Component>
+              <Component Name="NewLine5" Class="Com.Ctrl.INewLine"/>
+              <Component Name="Amount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.Amount" FieldFormat=",##0.00;;-" HasCaption="True"/>
+              <Component Name="BtnStatic7" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="PlacementForm" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.PlacementForm" HasCaption="True"/>
+              <Component Name="BtnStatic8" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="NewLine4" Class="Com.Ctrl.INewLine"/>
+              <Component Name="DtStart" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="EdtRec.DtStart" HasCaption="True"/>
+              <Component Name="BtnStatic9" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="DtEnd" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="EdtRec.DtEnd" HasCaption="True"/>
+              <Component Name="BtnStatic10" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="NewLine17" Class="Com.Ctrl.INewLine"/>
+              <Component Name="Maturity" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Enabled="False" Field="EdtRec.Maturity" HasCaption="True" ListAsString="Краткосрочный|0;Долгосрочный|1"/>
+              <Component Name="BtnStatic11" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="InvestmentTerm" Class="Com.Ctrl.IEdit" Caption="@FI:InvestmentTerm=Срок инвестиции" Enabled="False" Field="EdtRec.InvestmentTerm" HasCaption="True"/>
+              <Component Name="BtnStatic12" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="NewLine6" Class="Com.Ctrl.INewLine"/>
+              <Component Name="Contraparty" Class="Com.Ctrl.IEdit" CardFileClass="CashFlow.Tab.Data.ContrapartyOrCompany" Field="EdtRec.Contraparty" HasCaption="True" LookupField="Name"/>
+              <Component Name="BtnStatic13" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="Contract" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Field="EdtRec.Contract" HasCaption="True" LookupField="Code" OnChange="Contract_OnChange"/>
+              <Component Name="BtnStatic14" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="NewLine8" Class="Com.Ctrl.INewLine"/>
+              <Component Name="AccountEdit" Class="Com.Ctrl.IEditEx" Field="EdtRec.Account" HasCaption="True">
+                <Component Name="OpenAccountBtn" Class="Com.Ctrl.IButton" FixSize="True" Hint="@FinancialInstrument:OpenAccountBtn=Выбор счета" ImageName="Biz.id-card-light" OnClick="OpenAccountBtn_OnClick" Width="7.5"/>
+              </Component>
+              <Component Name="OffBalanceAccountEdit" Class="Com.Ctrl.IEditEx" Field="EdtRec.OffBalanceAccount" HasCaption="True">
+                <Component Name="OpenOffBalanceAccountBtn" Class="Com.Ctrl.IButton" FixSize="True" Hint="@FinancialInstrument:OpenOffBalanceAccountBtn=Выбор счета" ImageName="Biz.id-card-light" OnClick="OpenOffBalanceAccountBtn_OnClick" Width="7.5"/>
+              </Component>
+              <Component Name="PercentGroupWithRate" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="PercentGroupLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="AccountPercentEdit" Class="Com.Ctrl.IEditEx" Caption="@FI:AccountPercent=Счет процентов" Field="EdtRec.AccountPercent" HasCaption="True" Hint="@FI:AccountPercent.Hint=Счет начисления процентов">
+                    <Component Name="OpenAccountPercentBtn" Class="Com.Ctrl.IButton" FixSize="True" Hint="@FinancialInstrument:OpenAccountPercentBtn=Выбор счета" ImageName="Biz.id-card-light" OnClick="OpenAccountPercentBtn_OnClick" Width="7.5"/>
+                  </Component>
+                </Component>
+                <Component Name="PercentGroupRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="InterestRate" Class="Com.Ctrl.IEditEx" Caption="@Entity:InterestRate=Ставка процентов" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.InterestRate" HasCaption="True">
+                    <Component Name="InterestRateHistoryBtn" Class="Com.Ctrl.IButton" Hint="@FI:InterestRateHistoryBtn=История процентов" ImageName="Biz.list" OnClick="InterestRateHistoryBtn_OnClick"/>
+                  </Component>
+                </Component>
+              </Component>
+              <Component Name="PercentGroupWithoutRate" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="PercentGroupWithoutRateLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="AccountPercentEdit1" Class="Com.Ctrl.IEditEx" Caption="@FI:AccountPercent=Счет процентов" Field="EdtRec.AccountPercent" HasCaption="True" Hint="@FI:AccountPercent.Hint=Счет начисления процентов">
+                    <Component Name="OpenAccountPercentBtn1" Class="Com.Ctrl.IButton" FixSize="True" Hint="@FinancialInstrument:OpenAccountPercentBtn=Выбор счета" ImageName="Biz.id-card-light" OnClick="OpenAccountPercentBtn_OnClick" Width="7.5"/>
+                  </Component>
+                </Component>
+                <Component Name="PercentGroupWithoutRateRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="InterestRateStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="LoanBox" Class="Com.Ctrl.IBox" Caption="@FI:LoanBox=Кредиты и займы">
+            <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="AccrualPeriod" Class="Com.Ctrl.IEdit" CardFileClass="CashFlow.Tab.Data.InterestCalcPeriod" Field="EdtRec.AccrualPeriod" HasCaption="True" LookupField="Name"/>
+              <Component Name="BtnStatic15" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="FirstPercentDate" Class="Com.Ctrl.IEdit" Caption="@FI:FirstPercentDate=Дата начисления" Field="EdtRec.ChargePercentDate" HasCaption="True" Hint="@FI:FirstPercentDate.Hint=Дата первого начисления процентов"/>
+              <Component Name="BtnStatic16" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="NewLine19" Class="Com.Ctrl.INewLine" Excluded="True"/>
+              <Component Name="PaymentPeriod" Class="Com.Ctrl.IEdit" Excluded="True" CardFileClass="CashFlow.Tab.Data.InterestCalcPeriod" Field="EdtRec.PaymentPeriod" HasCaption="True" LookupField="Name" Visible="False"/>
+              <Component Name="BtnStatic17" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="7.5"/>
+              <Component Name="FirstPaymentDate" Class="Com.Ctrl.IEdit" Excluded="True" Field="EdtRec.PaymPercentDate" HasCaption="True" Visible="False"/>
+              <Component Name="BtnStatic18" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="7.5"/>
+              <Component Name="PercentTypeGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="PercentTypeGroupLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="PercentTypeGroup1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                    <Component Name="PercentType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.PercentType" HasCaption="True" ListAsString="Простой|0;Капитализируемый|1"/>
+                    <Component Name="BtnStatic19" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                  </Component>
+                </Component>
+                <Component Name="PercentTypeGroupRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="BillBox" Class="Com.Ctrl.IBox" Caption="@FI:BillBox=Вексель">
+            <Component Name="Group4" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="BillSeries" Class="Com.Ctrl.IEdit" Field="EdtRec.BillSeries" HasCaption="True"/>
+              <Component Name="BtnStatic32" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="BillNumber" Class="Com.Ctrl.IEdit" Field="EdtRec.BillNumber" HasCaption="True"/>
+              <Component Name="BtnStatic33" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="NewLine13" Class="Com.Ctrl.INewLine"/>
+              <Component Name="BillPurchaseDate" Class="Com.Ctrl.IEdit" Caption="Дата выпуска" Field="EdtRec.BillPurchaseDate" HasCaption="True" Hint="Дата выпуска/приобретения "/>
+              <Component Name="BtnStatic34" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="BillNominal" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.BillNominal" FieldFormat=",##0.00;;-" HasCaption="True"/>
+              <Component Name="BtnStatic35" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="NewLine14" Class="Com.Ctrl.INewLine"/>
+              <Component Name="BillGroup" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.BillGroup" HasCaption="True" ListAsString="Дисконтный|0;Процентный|1" OnChange="BillGroup_OnChange"/>
+              <Component Name="BtnStatic36" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="BillType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.BillType" HasCaption="True" ListAsString="Собственный простой|0;Собственный финансовый|1;Сторонних эмитентов простой|2;Сторонних эмитентов финансовый|3"/>
+              <Component Name="BtnStatic37" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="NewLine16" Class="Com.Ctrl.INewLine"/>
+              <Component Name="BillDiscountAmount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.BillDiscountAmount" FieldFormat=",##0.00;;-" HasCaption="True"/>
+              <Component Name="BtnStatic38" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="BillAccrualMethod" Class="Com.Ctrl.IEdit" Caption="Способ начисления" CellFormat="EnumFormat" Field="EdtRec.BillAccrualMethod" HasCaption="True" Hint="Способ начисления процентов (дисконта)" ListAsString="Единовременно при предъявлении в начале|0;Единовременно при предъявлении в конце|1;На протяжении всего срока|2;Расходы будущих периодов|3" OnChange="BillAccrualMethod_OnChange"/>
+              <Component Name="BtnStatic39" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="NewLine20" Class="Com.Ctrl.INewLine"/>
+              <Component Name="BillChargePercentDate" Class="Com.Ctrl.IEdit" Caption="Дата начисления" Field="EdtRec.BillChargePercentDate" HasCaption="True" Hint="Дата первого начисления процентов"/>
+              <Component Name="BtnStatic40" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="BillAccrualPeriod" Class="Com.Ctrl.IEdit" CardFileClass="CashFlow.Tab.Data.InterestCalcPeriod" Field="EdtRec.BillAccrualPeriod" HasCaption="True" LookupField="Name"/>
+              <Component Name="BtnStatic41" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="NewLine22" Class="Com.Ctrl.INewLine" Excluded="True"/>
+              <Component Name="BillDeferrals" Class="Com.Ctrl.IEdit" Excluded="True" CellFormat="ReferenceFormat" Field="EdtRec.BillDeferrals" HasCaption="True" LookupField="Code"/>
+            </Component>
+          </Component>
+          <Component Name="ShareBox" Class="Com.Ctrl.IBox" Caption="@FI:ShareBox=Ценные бумаги">
+            <Component Name="Group5" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="ShareSeries" Class="Com.Ctrl.IEdit" Field="EdtRec.ShareSeries" HasCaption="True"/>
+              <Component Name="BtnStatic23" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="ShareNumber" Class="Com.Ctrl.IEdit" Field="EdtRec.ShareNumber" HasCaption="True"/>
+              <Component Name="BtnStatic24" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="NewLine21" Class="Com.Ctrl.INewLine"/>
+              <Component Name="SharePurchaseDate" Class="Com.Ctrl.IEdit" Caption="Дата выпуска" Field="EdtRec.SharePurchaseDate" HasCaption="True" Hint="Дата выпуска/приобретения "/>
+              <Component Name="BtnStatic25" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="ShareNominal" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.ShareNominal" FieldFormat=",##0.00;;-" HasCaption="True"/>
+              <Component Name="BtnStatic26" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="NewLine23" Class="Com.Ctrl.INewLine"/>
+              <Component Name="NotShareOwnGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="ShareGroup" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.ShareGroup" HasCaption="True" ListAsString="Дисконтный|0;Процентный|1" OnChange="ShareGroup_OnChange"/>
+                <Component Name="BtnStatic27" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                <Component Name="ShareAccrualMethod" Class="Com.Ctrl.IEdit" Caption="Способ начисления" CellFormat="EnumFormat" Field="EdtRec.ShareAccrualMethod" HasCaption="True" Hint="Способ начисления процентов (дисконта)" ListAsString="Единовременно при предъявлении в начале|0;Единовременно при предъявлении в конце|1;На протяжении всего срока|2;Расходы будущих периодов|3" OnChange="ShareAccrualMethod_OnChange"/>
+                <Component Name="BtnStatic28" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                <Component Name="NewLine24" Class="Com.Ctrl.INewLine"/>
+                <Component Name="ShareDiscountAmount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.ShareDiscountAmount" FieldFormat=",##0.00;;-" HasCaption="True"/>
+                <Component Name="BtnStatic29" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                <Component Name="ShareAccrualPeriod" Class="Com.Ctrl.IEdit" CardFileClass="CashFlow.Tab.Data.InterestCalcPeriod" Field="EdtRec.ShareAccrualPeriod" HasCaption="True" LookupField="Name"/>
+                <Component Name="BtnStatic30" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                <Component Name="ShareChargePercentDateGroupLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="ShareChargePercentDateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                    <Component Name="ShareChargePercentDate" Class="Com.Ctrl.IEdit" Caption="Дата начисления" Field="EdtRec.ShareChargePercentDate" HasCaption="True" Hint="Дата первого начисления процентов"/>
+                    <Component Name="BtnStatic31" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                  </Component>
+                </Component>
+                <Component Name="ShareChargePercentDateGroupRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="ShareChargePercentDateStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                </Component>
+              </Component>
+              <Component Name="ShareDeferrals" Class="Com.Ctrl.IEdit" Excluded="True" CellFormat="ReferenceFormat" Field="EdtRec.ShareDeferrals" HasCaption="True" LookupField="Code"/>
+            </Component>
+          </Component>
+          <Component Name="AnalyticsBox" Class="Com.Ctrl.IBox" Caption="@FI:AnalyticsBox=Аналитические признаки">
+            <Component Name="Group18" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="CFR" Class="Com.Ctrl.IEdit" Caption="@FI:CFR=ЦФО" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Enabled="True" Field="EdtRec.CFR" LookupField="Name"/>
+              <Component Name="BtnStatic20" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="BGI" Class="Com.Ctrl.IEdit" Caption="@FI:BGI=Статья бюджета" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="EdtRec.BGI" LookupField="Name" LookupFilter="Not Closed"/>
+              <Component Name="BtnStatic21" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="NewLine26" Class="Com.Ctrl.INewLine"/>
+              <Component Name="Project1" Class="Com.Ctrl.IEditEx" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Field="EdtRec.Project" FontBold="True" HasCaption="True" LookupField="Name" Wrap="False">
+                <Component Name="JumpButton3" Class="Com.Ctrl.IJumpButton"/>
+              </Component>
+              <Component Name="Source" Class="Com.Ctrl.IEdit" Caption="@FI:Source=Источник" CardFileClass="Biz.Tab.Ref.FundSource" CellFormat="ReferenceFormat" Field="EdtRec.Source" LookupField="Name"/>
+              <Component Name="BtnStatic22" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="ContractTab" Class="Com.Ctrl.IFrame" AutoSize="False" Caption="@Frm:ContractTab=Договоры">
+          <Component Name="ContractFrame" Class="Com.Ctrl.IFrame" AutoSize="False" Subtable="EdtRec.ContractList">
+            <Component Name="FI_ContractList" Class="CashFlow.Rec.Data.FI_ContractList" IsLibrary="1"/>
+            <Component Name="DLContract" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Contract" Field="FI_ContractList.DLContract" HasCaption="True" LookupField="Code" OnOpenCardForm="DLContract_OnOpenCardForm" Width="60"/>
+            <Component Name="DLDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="FI_ContractList.DLDate" HasCaption="True" Width="30"/>
+            <Component Name="DLAmount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FI_ContractList.DLAmount" FieldFormat=",##0.00;;-" HasCaption="True" OnVerify="DLAmount_OnVerify" Width="40"/>
+          </Component>
+        </Component>
+        <Component Name="PriceHistoryTab" Class="Com.Ctrl.IFrame" AutoSize="False" Caption="@Frm:PriceHistoryTab=История цен" Visible="False">
+          <Component Name="PriceHistoryFrame" Class="Com.Ctrl.IFrame" AutoSize="False" Enabled="False" Subtable="EdtRec.PriceHistory">
+            <Component Name="FI_PriceHistory" Class="CashFlow.Rec.Data.FI_PriceHistory" IsLibrary="1"/>
+            <Component Name="PHUpdateDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Enabled="False" Field="FI_PriceHistory.UpdateDate" HasCaption="True" Width="30"/>
+            <Component Name="PHAmount" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="FI_PriceHistory.Amount" FieldFormat=",##0.00;;-" HasCaption="True" Width="40"/>
+          </Component>
+        </Component>
+        <Component Name="MarketValueTab" Class="Com.Ctrl.IFrame" AutoSize="False" Caption="@Frm:MarketValueTab=Рыночная стоимость">
+          <Component Name="MarketValueFrame" Class="Com.Ctrl.IFrame" AutoSize="False" Subtable="EdtRec.MarketValue">
+            <Component Name="FI_MarketValue" Class="CashFlow.Rec.Data.FI_MarketValue" IsLibrary="1"/>
+            <Component Name="MVDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="FI_MarketValue.MVDate" HasCaption="True" Width="30"/>
+            <Component Name="MVCount" Class="Com.Ctrl.IEdit" Field="FI_MarketValue.MVCount" HasCaption="True" Width="30"/>
+            <Component Name="MVCost" Class="Com.Ctrl.IEdit" Caption="@FinancialInstrument:MVCost=Стоимость единицы" CellFormat="NumericFormat" Field="FI_MarketValue.Cost" FieldFormat=",##0.00;;-" HasCaption="True" Width="40"/>
+          </Component>
+        </Component>
+        <Component Name="EstimatedValueTab" Class="Com.Ctrl.IFrame" AutoSize="False" Caption="@Frm:EstimatedValueTab=Расчетная (номинальная) стоимость">
+          <Component Name="EstimatedValueFrame" Class="Com.Ctrl.IFrame" AutoSize="False" Subtable="EdtRec.EstimatedValue">
+            <Component Name="FI_EstimatedValue" Class="CashFlow.Rec.Data.FI_EstimatedValue" IsLibrary="1"/>
+            <Component Name="EVDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="FI_EstimatedValue.EVDate" HasCaption="True" Width="30"/>
+            <Component Name="EVQty" Class="Com.Ctrl.IEdit" Field="FI_EstimatedValue.EVQty" HasCaption="True" Width="30"/>
+            <Component Name="EVUnitValue" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FI_EstimatedValue.EVUnitValue" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+            <Component Name="EVPackageValue" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="FI_EstimatedValue.EVPackageValue" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+          </Component>
+        </Component>
+        <Component Name="ChargeTab" Class="Com.Ctrl.IFrame" AutoSize="False" Caption="@Frm:ChargeTab=Начисления">
+          <Component Name="ChargePlanFrame" Class="Com.Ctrl.IFrame" AutoSize="False" Caption="@FI:ChargePlanFrame=План"/>
+          <Component Name="ChargeFactFrame" Class="Com.Ctrl.IFrame" AutoSize="False" Caption="@FI:ChargeFactFrame=Факт"/>
+        </Component>
+        <Component Name="PaymentTab" Class="Com.Ctrl.IFrame" AutoSize="False" Caption="@Frm:PaymentTab=Платежи">
+          <Component Name="PaymentPlanFrame" Class="Com.Ctrl.IFrame" AutoSize="False" Caption="@FI:PaymentPlanFrame=План"/>
+          <Component Name="PaymentFactFrame" Class="Com.Ctrl.IFrame" AutoSize="False" Caption="@FI:PaymentFactFrame=Факт"/>
+        </Component>
+        <Component Name="ReclassificationHistoryTab" Class="Com.Ctrl.IFrame" AutoSize="False" Caption="@Frm:ReclassificationHistoryTab=История реклассификации">
+          <Component Name="ReclassificationHistoryFrame" Class="Com.Ctrl.IFrame" AutoSize="False" Subtable="EdtRec.ReclassificationHistory">
+            <Component Name="FI_ReclassificationHistory" Class="CashFlow.Rec.Data.FI_ReclassificationHistory" IsLibrary="1"/>
+            <Component Name="ReclassificatonDate" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Enabled="False" Field="FI_ReclassificationHistory.ReclassificatonDate" HasCaption="True" Width="30"/>
+            <Component Name="ReclassificationAccount" Class="Com.Ctrl.IEdit" Enabled="False" Field="FI_ReclassificationHistory.Account" HasCaption="True" Width="30"/>
+            <Component Name="ReclassificationMaturity" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Enabled="False" Field="FI_ReclassificationHistory.Maturity" HasCaption="True" ListAsString="Краткосрочный|0;Долгосрочный|1" Width="30" Wrap="True"/>
+          </Component>
+        </Component>
+        <Component Name="TransTab" Class="Com.Ctrl.IFrame" Caption="@Frm:TransTab=Отчет по проводкам"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

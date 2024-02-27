@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="ReserveSubtable" Class="Com.ISubtable" StructClass="BudgetControl.Rec.Service.BCManualSettlement_Line"/>
+      <Component Name="FactSubtable" Class="Com.ISubtable" StructClass="BudgetControl.Rec.Service.BCManualSettlement_Line"/>
+      <Component Name="MatchedSubtable" Class="Com.ISubtable" StructClass="BudgetControl.Rec.Service.BCManualSettlement_MLine"/>
+      <Component Name="StartDate" Class="Com.Fld.IVar" Caption="@BCManualSettlement:StartDate=Период с" ValueType="VarDate"/>
+      <Component Name="EndDate" Class="Com.Fld.IVar" Caption="@BCManualSettlement:EndDate=по" ValueType="VarDate"/>
+      <Component Name="Company" Class="Com.Fld.IVar" Caption="@BCManualSettlement:Company=Предприятие" OnChange="Company_OnChange" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="BudgetType" Class="Com.Fld.IVar" Caption="@BCManualSettlement:BudgetType=Вид бюджета" ValueType="VarInteger"/>
+      <Component Name="Sum" Class="Com.Fld.IVar" Caption="@BCManualSettlement:Sum=Сумма" OnVerify="Sum_OnVerify" ValueType="VarNumeric"/>
+      <Component Name="Qty" Class="Com.Fld.IVar" Caption="@BCManualSettlement:Qty=Количество" OnVerify="Qty_OnVerify" ValueType="VarNumeric"/>
+      <Component Name="Currency" Class="Com.Fld.IVar" Caption="@BCManualSettlement:Currency=Валюта" RecordClass="Biz.Rec.Ref.UCurrency" ValueType="VarObject"/>
+      <Component Name="Contraparty" Class="Com.Fld.IVar" Caption="@BCManualSettlement:Contraparty=Контрагент" OnChange="Contraparty_OnChange" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="Contract" Class="Com.Fld.IVar" Caption="@BCManualSettlement:Contract=Договор" OnChange="Contract_OnChange" RecordClass="Biz.Rec.Data.Contract" ValueType="VarObject"/>
+      <Component Name="CFR" Class="Com.Fld.IVar" Caption="@BCManualSettlement:CFR=ЦФО" RecordClass="Biz.Rec.Ref.CFR" ValueType="VarObject"/>
+      <Component Name="BGI" Class="Com.Fld.IVar" Caption="@BCManualSettlement:BGI=СБК" RecordClass="Biz.Rec.Ref.BGI" ValueType="VarObject"/>
+      <Component Name="Project" Class="Com.Fld.IVar" Caption="@BCManualSettlement:Project=Проект" RecordClass="Bas.Rec.Ref.Project" ValueType="VarObject"/>
+      <Component Name="Source" Class="Com.Fld.IVar" Caption="@BCManualSettlement:Source=Источник" RecordClass="Biz.Rec.Ref.FundSource" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="3">
+        <Inherited Name="ButtonOK" Excluded="True"/>
+        <Component Name="RefreshAllButton" Class="Com.Ctrl.IButton" After="ButtonOK" Hint="@BCManualSettlement:RefreshAllButton=Обновить все" ImageName="Com.Refresh" OnClick="RefreshAllButton_OnClick"/>
+      </Inherited>
+      <Component Name="ParamsBox" Class="Com.Ctrl.IBox" After="HeaderFrame" Caption="@BCManualSettlement:ParamsBox=Параметры" HasCaption="True">
+        <Component Name="QueryParamsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+          <Component Name="StartDateEdit" Class="Com.Ctrl.IEdit" Field="StartDate" HasCaption="True"/>
+          <Component Name="EndDateEdit" Class="Com.Ctrl.IEdit" Field="EndDate" HasCaption="True"/>
+          <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          <Component Name="CompanyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="Company" HasCaption="True" LookupField="Name" Required="True" ShortList="True"/>
+          <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+          <Component Name="BudgetTypeEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="BudgetType" HasCaption="True" ListAsString="БДДС|0;БДР|1;Бюджет закупок|2"/>
+          <Component Name="CurrencyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Field="Currency" HasCaption="True" LookupField="Code" ShortList="True"/>
+          <Component Name="NewLine3" Class="Com.Ctrl.INewLine"/>
+          <Component Name="ContrapartyEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Field="Contraparty" HasCaption="True" LookupField="Name"/>
+          <Component Name="ContractEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Field="Contract" HasCaption="True" LookupField="Code"/>
+          <Component Name="NewLine4" Class="Com.Ctrl.INewLine"/>
+          <Component Name="CFREdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="CFR" HasCaption="True" LookupField="Name"/>
+          <Component Name="BGIEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="BGI" HasCaption="True" LookupField="Name"/>
+          <Component Name="NewLine5" Class="Com.Ctrl.INewLine"/>
+          <Component Name="SourceEdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.FundSource" CellFormat="ReferenceFormat" Field="Source" HasCaption="True" LookupField="Name"/>
+          <Component Name="ProjectEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Field="Project" HasCaption="True" LookupField="Name"/>
+        </Component>
+      </Component>
+      <Component Name="SettlementFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="SettlementGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+          <Component Name="QtyEdit" Class="Com.Ctrl.IEdit" CaptionWidth="25" CellFormat="NumericFormat" Enabled="False" Field="Qty" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Width="35"/>
+          <Component Name="SumEdit" Class="Com.Ctrl.IEdit" CaptionWidth="16" CellFormat="NumericFormat" Enabled="False" Field="Sum" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Width="35"/>
+          <Component Name="MaxButton" Class="Com.Ctrl.IButton" Caption="@BCManualSettlement:MaxButton=макс." Enabled="False" FixSize="True" HasCaption="True" OnClick="MaxButton_OnClick" Width="15"/>
+          <Component Name="MatchButton" Class="Com.Ctrl.IButton" Caption="@BCManualSettlement:ButtonMatch=Сопоставить" Enabled="False" FixSize="True" HasCaption="True" OnClick="MatchButton_OnClick" Width="30"/>
+        </Component>
+      </Component>
+      <Component Name="ReserveFrame" Class="Com.Ctrl.IFrame" CanHideBySplit="True" CanResizeBySplit="True" SplitterAtRight="True" UseSplitter="True">
+        <Component Name="ReserveHeaderFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="ReserveHeaderGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="ReserveStatic" Class="Com.Ctrl.IStatic" Caption="@BCManualSettlement:ReserveStatic=Резерв" FontBold="True" FontItalic="True"/>
+            <Component Name="ReserveRefreshButton" Class="Com.Ctrl.IButton" FixSize="True" Hint="@BCManualSettlement:ReserveRefreshButton=Обновить" ImageName="Com.Refresh" OnClick="ReserveRefreshButton_OnClick" Width="8"/>
+          </Component>
+        </Component>
+        <Component Name="ReserveLinesFrame" Class="Com.Ctrl.IFrame" Subtable="ReserveSubtable">
+          <Component Name="RLine" Class="BudgetControl.Rec.Service.BCManualSettlement_Line" IsLibrary="1"/>
+          <Component Name="RSelect" Class="Com.Ctrl.ICheckBox" Caption="@BCManualSettlement:RSelect=Выбор" Field="RLine.Select" HasCaption="True" OnChange="RSelect_OnChange" Width="20"/>
+          <Component Name="RDate" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:TransDate=Дата" CellFormat="DateFormat" Enabled="False" Field="RLine.TransDate" FormatOfDate="DateOnly" HasCaption="True" Width="25"/>
+          <Component Name="RGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@BCManualSettlement:RGroup=Код, описание" HasCaption="True">
+            <Component Name="RCode" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="FLine.Trans" HasCaption="False" LookupField="Code" Width="40"/>
+            <Component Name="RName" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="RLine.Trans" HasCaption="False" LookupField="Name" Width="60"/>
+            <Component Name="RLineFilterButton" Class="Com.Ctrl.IButton" HasCaption="False" Hint="@LineFilterButton:Hint=Заполнить параметры из строки" ImageName="Com.chevron-up" OnClick="RLineFilterButton_OnClick"/>
+            <Component Name="RJumpButton" Class="Com.Ctrl.IJumpButton" Field="RLine.Trans" HasCaption="False" JumpForm="BudgetControl.Frm.Data.BCTrans"/>
+          </Component>
+          <Component Name="RCompany" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:Company=Предприятие" CellFormat="ReferenceFormat" Enabled="False" Field="RLine.Trans" HasCaption="True" LookupField="Company.Name" Width="40"/>
+          <Component Name="RBudgetType" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:BudgetType=Вид бюджета" CellFormat="EnumFormat" Enabled="False" Field="RLine.BudgetType" HasCaption="True" ListAsString="БДДС|0;БДР|1;Бюджет закупок|2" Width="30"/>
+          <Component Name="RNomenclature" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:Nomenclature=Номенклатура" CellFormat="ReferenceFormat" Enabled="False" Field="FLine.Trans" HasCaption="True" LookupField="Nomenclature.Name" Width="35"/>
+          <Component Name="RQty" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:Qty=Количество" CellFormat="NumericFormat" Enabled="False" Field="RLine.Qty" FieldFormat=",##0.00;;-" HasCaption="True" Width="25"/>
+          <Component Name="RUnit" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:Unit=Ед. изм." Enabled="False" Field="RLine.Trans" HasCaption="True" LookupField="UnitOfMeasure.Code" Width="25"/>
+          <Component Name="RSum" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:Sum=Сумма" CellFormat="NumericFormat" Enabled="False" Field="RLine.Sum" FieldFormat=",##0.00;;-" HasCaption="True" Width="35"/>
+          <Component Name="RCurrency" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:Currency=Валюта" Enabled="False" Field="RLine.Trans" HasCaption="True" LookupField="Currency.Code" Width="25"/>
+          <Component Name="RContraparty" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:Contraparty=Контрагент" CellFormat="ReferenceFormat" Enabled="False" Field="RLine.Trans" HasCaption="True" LookupField="Contraparty.Name" Width="40"/>
+          <Component Name="RContract" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:Contract=Договор" CellFormat="ReferenceFormat" Enabled="False" Field="RLine.Trans" HasCaption="True" LookupField="Contract.Code" Width="35"/>
+          <Component Name="RCFR" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:CFR=ЦФО" Enabled="False" Field="RLine.Trans" HasCaption="True" LookupField="CFR.Name" Width="45"/>
+          <Component Name="RBGI" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:BGI=СБК" Enabled="False" Field="RLine.Trans" HasCaption="True" LookupField="BGI.Name" Width="45"/>
+          <Component Name="RSource" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:RSource=Источник" Enabled="False" Field="RLine.Trans" HasCaption="True" LookupField="Source.Name" Width="45"/>
+          <Component Name="RProject" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:Project=Проект" Enabled="False" Field="RLine.Trans" HasCaption="True" LookupField="Project.Name" Width="45"/>
+        </Component>
+      </Component>
+      <Component Name="FactFrame" Class="Com.Ctrl.IFrame" CanHideBySplit="True" CanResizeBySplit="True" SplitterAtRight="True" UseSplitter="True">
+        <Component Name="FactHeaderFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="FactHeaderGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="FactStatic" Class="Com.Ctrl.IStatic" Caption="@BCManualSettlement:FactStatic=Факт" FontBold="True" FontItalic="True"/>
+            <Component Name="FactRefreshButton" Class="Com.Ctrl.IButton" Hint="@BCManualSettlement:FactRefreshButton=Обновить" ImageName="Com.Refresh" OnClick="FactRefreshButton_OnClick"/>
+          </Component>
+        </Component>
+        <Component Name="FactLinesFrame" Class="Com.Ctrl.IFrame" Subtable="FactSubtable">
+          <Component Name="FLine" Class="BudgetControl.Rec.Service.BCManualSettlement_Line" IsLibrary="1"/>
+          <Component Name="FSelect" Class="Com.Ctrl.ICheckBox" Caption="@BCManualSettlement:FSelect=Выбор" Field="FLine.Select" HasCaption="True" OnChange="FSelect_OnChange" Width="20"/>
+          <Component Name="FDate" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:TransDate=Дата" CellFormat="DateFormat" Enabled="False" Field="FLine.TransDate" FormatOfDate="DateOnly" HasCaption="True" Width="25"/>
+          <Component Name="FGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@BCManualSettlement:FGroup=Код, описание" HasCaption="True">
+            <Component Name="FCode" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="FLine.Trans" HasCaption="False" LookupField="Code" Width="40"/>
+            <Component Name="FName" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="FLine.Trans" HasCaption="False" LookupField="Name" Width="60"/>
+            <Component Name="FLineFilterButton" Class="Com.Ctrl.IButton" HasCaption="False" Hint="@LineFilterButton:Hint=Заполнить параметры из строки" ImageName="Com.chevron-up" OnClick="FLineFilterButton_OnClick"/>
+            <Component Name="FJumpButton" Class="Com.Ctrl.IJumpButton" Field="FLine.Trans" HasCaption="False" JumpForm="BudgetControl.Frm.Data.BCTrans"/>
+          </Component>
+          <Component Name="FCompany" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:Company=Предприятие" CellFormat="ReferenceFormat" Enabled="False" Field="FLine.Trans" HasCaption="True" LookupField="Company.Name" Width="40"/>
+          <Component Name="FBudgetType" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:BudgetType=Вид бюджета" CellFormat="EnumFormat" Enabled="False" Field="FLine.BudgetType" HasCaption="True" ListAsString="БДДС|0;БДР|1;Бюджет закупок|2" Width="30"/>
+          <Component Name="FNomenclature" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:Nomenclature=Номенклатура" CellFormat="ReferenceFormat" Enabled="False" Field="RLine.Trans" HasCaption="True" LookupField="Nomenclature.Name" Width="35"/>
+          <Component Name="FQty" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:Qty=Количество" CellFormat="NumericFormat" Enabled="False" Field="FLine.Qty" FieldFormat=",##0.00;;-" HasCaption="True" Width="25"/>
+          <Component Name="FUnit" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:Unit=Ед. изм." Enabled="False" Field="FLine.Trans" HasCaption="True" LookupField="UnitOfMeasure.Code" Width="25"/>
+          <Component Name="FSum" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:Sum=Сумма" CellFormat="NumericFormat" Enabled="False" Field="FLine.Sum" FieldFormat=",##0.00;;-" HasCaption="True" Width="35"/>
+          <Component Name="FCurrency" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:Currency=Валюта" Enabled="False" Field="FLine.Trans" HasCaption="True" LookupField="Currency.Code" Width="25"/>
+          <Component Name="FContraparty" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:Contraparty=Контрагент" CellFormat="ReferenceFormat" Enabled="False" Field="FLine.Trans" HasCaption="True" LookupField="Contraparty.Name" Width="40"/>
+          <Component Name="FContract" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:Contract=Договор" CellFormat="ReferenceFormat" Enabled="False" Field="FLine.Trans" HasCaption="True" LookupField="Contract.Code" Width="35"/>
+          <Component Name="FCFR" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:CFR=ЦФО" Enabled="False" Field="FLine.Trans" HasCaption="True" LookupField="CFR.Name" Width="45"/>
+          <Component Name="FBGI" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:BGI=СБК" Enabled="False" Field="FLine.Trans" HasCaption="True" LookupField="BGI.Name" Width="45"/>
+          <Component Name="FSource" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:Source=Источник" Enabled="False" Field="FLine.Trans" HasCaption="True" LookupField="Source.Name" Width="45"/>
+          <Component Name="FProject" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:Project=Проект" Enabled="False" Field="FLine.Trans" HasCaption="True" LookupField="Project.Name" Width="45"/>
+        </Component>
+      </Component>
+      <Component Name="MatchedFrame" Class="Com.Ctrl.IFrame">
+        <Component Name="MatchedHeaderFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="MatchedHeaderGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="MatchedStatic" Class="Com.Ctrl.IStatic" Caption="@BCManualSettlement:MatchedStatic=Сопоставлено" FontBold="True" FontItalic="True"/>
+            <Component Name="ButtonSplit" Class="Com.Ctrl.IButton" Caption="@BCManualSettlement:ButtonSplit=Отменить сопоставление" FixSize="True" HasCaption="True" OnClick="ButtonSplit_OnClick" Width="50"/>
+            <Component Name="MatchedRefreshButton" Class="Com.Ctrl.IButton" FixSize="True" Hint="@BCManualSettlement:MatchedRefreshButton=Обновить" ImageName="Com.Refresh" OnClick="MatchedRefreshButton_OnClick" Width="8"/>
+          </Component>
+        </Component>
+        <Component Name="MatchedLinesFrame" Class="Com.Ctrl.IFrame" Subtable="MatchedSubtable">
+          <Component Name="MLine" Class="BudgetControl.Rec.Service.BCManualSettlement_MLine" IsLibrary="1"/>
+          <Component Name="MSelect" Class="Com.Ctrl.ICheckBox" Caption="@BCManualSettlement:MSelect=Выбор" Field="MLine.Select" HasCaption="True" Width="20"/>
+          <Component Name="MReserveGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@BCManualSettlement:MReserveGroup=Резерв" HasCaption="True">
+            <Component Name="MRCode" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="MLine.Reserve" HasCaption="False" LookupField="Code" Width="40"/>
+            <Component Name="MRName" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="MLine.Reserve" HasCaption="False" LookupField="Name" Width="60"/>
+            <Component Name="MRJumpButton" Class="Com.Ctrl.IJumpButton" Field="MLine.Reserve" HasCaption="False" JumpForm="BudgetControl.Frm.Data.BCTrans"/>
+          </Component>
+          <Component Name="MFactGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@BCManualSettlement:MFactGroup=Факт" HasCaption="True">
+            <Component Name="MFCode" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="MLine.Fact" HasCaption="False" LookupField="Code" Width="40"/>
+            <Component Name="MFName" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="MLine.Fact" HasCaption="False" LookupField="Name" Width="60"/>
+            <Component Name="MFJumpButton" Class="Com.Ctrl.IJumpButton" Field="MLine.Fact" HasCaption="False" JumpForm="BudgetControl.Frm.Data.BCTrans"/>
+          </Component>
+          <Component Name="MQty" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:MQty=Количество" CellFormat="NumericFormat" Enabled="False" Field="MLine.Qty" FieldFormat=",##0.00;;-" HasCaption="True" Width="25"/>
+          <Component Name="MSum" Class="Com.Ctrl.IEdit" Caption="@BudgetControlTrans:Sum=Сумма" CellFormat="NumericFormat" Enabled="False" Field="MLine.Sum" FieldFormat=",##0.00;;-" HasCaption="True" Width="35"/>
+        </Component>
+      </Component>
+      <Inherited Name="FieldsFrame" Excluded="True"/>
+      <Inherited Name="TabsFrame" Excluded="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

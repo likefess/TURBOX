@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="WFlow.Frm.AddIns.BaseTask">
+  <Inherited Caption="@Task:StatusHistory=История состояний">
+    <Inherited Name="RootFrame" AutoSize="True" MinSize="50" Size="50">
+      <Component Name="TableFrame" Class="Com.Ctrl.IFrame" Enabled="False">
+        <Component Name="HistoryOfStatusTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" Enabled="False" ManualControl="False" Numbering="False" Subtable="EdtRec.HistoryOfStatus">
+          <Component Name="Task_History" Class="Control.Rec.Data.Task_HistoryOfTransitions" IsLibrary="1"/>
+          <Component Name="HistoryTimeEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Task_History.TimeOfTransition" FixSize="True" HasCaption="True" Width="38"/>
+          <Component Name="HistoryPersonEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Task_History.Person" HasCaption="True"/>
+          <Component Name="HistoryStatusEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Task_History.NewStatus" FixSize="True" HasCaption="True" Width="30"/>
+          <Component Name="HistoryAssigneeEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Task_History.NewResponsible" HasCaption="True"/>
+          <Component Name="HistoryCommentEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Task_History.Comment" HasCaption="True"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

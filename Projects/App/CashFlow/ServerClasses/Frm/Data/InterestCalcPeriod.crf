@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited HelpContext="CashFlow.Движение денежных средств.Финансовые инструменты.Периоды начисления процентов">
+    <Inherited Name="EdtRec" Class="CashFlow.Rec.Data.InterestCalcPeriod" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" ByColumn="False">
+          <Inherited Name="Code" Visible="True"/>
+          <Inherited Name="Name" FontBold="False" Visible="True"/>
+          <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          <Component Name="Periodicity" Class="Com.Ctrl.IEdit" Field="EdtRec.Periodicity" HasCaption="True"/>
+          <Component Name="PeriodType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.PeriodType" HasCaption="True" ListAsString="День|0;Неделя|1;Месяц|2;Квартал|3;Год|4"/>
+          <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+          <Component Name="InvestDayShift" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.InvestDayShift" HasCaption="True" ListAsString="Нет|0;В конец периода|1;В конец всего срока|2"/>
+          <Component Name="InvestDayOffShift" Class="Com.Ctrl.IEdit" Caption="Перенос выходного" CellFormat="EnumFormat" Field="EdtRec.InvestDayOffShift" HasCaption="True" Hint="Перенос выходного дня" ListAsString="Нет|0;На более позднюю дату|1;На более раннюю|2" OnChange="InvestDayOffShift_OnChange"/>
+          <Component Name="CalendarGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+            <Component Name="CalendarGroupLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+              <Component Name="Calendar" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.Calendar" CellFormat="ReferenceFormat" Field="EdtRec.Calendar" HasCaption="True" LookupField="Code"/>
+            </Component>
+            <Component Name="CalendarGroupRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150"/>
+            <Component Name="Static1" Class="Com.Ctrl.IStatic"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

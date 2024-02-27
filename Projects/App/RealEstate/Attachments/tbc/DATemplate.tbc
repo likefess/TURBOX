@@ -1,0 +1,232 @@
+﻿TBCFile VER="3.4" [Created '16.08.2022 2:10:51' by 'Администратор']
+
+DESCRIPTION[
+Count=1
+CountByRef=0
+Bas.Ref.EntityRole
+(
+  Count=0
+  CountByRef=0
+)
+Biz.Ref.ContractStatus
+(
+  Count=0
+  CountByRef=0
+)
+DocApprovement.Data.DATask
+(
+  Count=0
+  CountByRef=0
+)
+DocApprovement.Ref.Doc.DADoc
+(
+  Count=0
+  CountByRef=0
+)
+DocApprovement.Ref.Doc.DAField
+(
+  Count=0
+  CountByRef=0
+)
+DocApprovement.Ref.Tmpl.DATemplate
+(
+  Count=1
+  CountByRef=0
+)
+DocApprovement.Ref.Trans.DATaskStatus
+(
+  Count=0
+  CountByRef=0
+)
+DocApprovement.Ref.Trans.DATransRuleGroup
+(
+  Count=0
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Bas.Ref.EntityRole
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+  [Biz.Ref.ContractStatus
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+  [DocApprovement.Data.DATask
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+  [DocApprovement.Ref.Doc.DADoc
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+  [DocApprovement.Ref.Doc.DAField
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+  [DocApprovement.Ref.Tmpl.DATemplate
+  (
+    Deleted :Boolean
+    Code :String(80)
+    Name :String(255)
+    Level :Integer
+    Description :String
+    ReinitFromRebuild :Boolean
+    ReadyFromChilds :Boolean
+    ApproveFromChilds :Boolean
+    RejectFromChilds :Boolean
+    ReinitFromRevoke :Boolean
+    TasksFolder :DocApprovement.Data.DATask
+    TransRuleGroupPos :Struct array Integer
+    (
+      Idx :Integer
+      TransRuleGroup :DocApprovement.Ref.Trans.DATransRuleGroup
+      IsDefault :Boolean
+    )
+    AllocatedStaffPos :Struct array Integer
+    (
+      Idx :Integer
+      Staff :Inherited Com.Base.CodeName
+      StaffType :Integer
+      Role :Bas.Ref.EntityRole
+      IsDefault :Boolean
+    )
+    TimeCombinationPos :Struct array Integer
+    (
+      Idx :Integer
+      TimeCombination :DocApprovement.Ref.Tmpl.DATimeCombination
+      IsDefault :Boolean
+    )
+    StatusSyncPos :Struct array Integer
+    (
+      DATaskStatus :DocApprovement.Ref.Trans.DATaskStatus
+      Doc :DocApprovement.Ref.Doc.DADoc
+      DocStatusField :DocApprovement.Ref.Doc.DAField
+      DocStatusValueRec :Inherited Com.Base.CodeName
+    )
+  )
+  ForeignKey Code
+  ]
+
+  [DocApprovement.Ref.Trans.DATaskStatus
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+  [DocApprovement.Ref.Trans.DATransRuleGroup
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[DocApprovement.Ref.Tmpl.DATemplate
+  
+  {DocApprovement.Ref.Tmpl.DATemplate:"Согласование договоров"}
+  (
+    Name = "Согласование договоров"
+    Description = "Согласование договоров"
+    ReinitFromRebuild = True
+    ReinitFromRevoke = True
+    TasksFolder = {DocApprovement.Data.DATask:"Согласование договоров"}
+    TransRuleGroupPos = (
+      0:(
+        Idx = 1
+        TransRuleGroup = {DocApprovement.Ref.Trans.DATransRuleGroup:"Согласование договоров"}
+        IsDefault = True
+      )
+    )
+    AllocatedStaffPos = (
+      0:(
+        Idx = 1
+        Staff = {Bas.Ref.EntityRole:Инициатор}
+        StaffType = 2
+        Role = {Bas.Ref.EntityRole:Инициатор}
+        IsDefault = True
+      )
+      1:(
+        Idx = 2
+        Staff = {Bas.Ref.EntityRole:Согласующий}
+        StaffType = 2
+        Role = {Bas.Ref.EntityRole:Согласующий}
+        IsDefault = True
+      )
+      2:(
+        Idx = 3
+        Staff = {Bas.Ref.EntityRole:"Подписывающий (руководитель)"}
+        StaffType = 2
+        Role = {Bas.Ref.EntityRole:"Подписывающий (руководитель)"}
+        IsDefault = True
+      )
+    )
+    StatusSyncPos = (
+      0:(
+        DATaskStatus = {DocApprovement.Ref.Trans.DATaskStatus:"Новый договор"}
+        Doc = {DocApprovement.Ref.Doc.DADoc:Договор}
+        DocStatusField = {DocApprovement.Ref.Doc.DAField:_OOE8917BQ0CP6A}
+        DocStatusValueRec = {Biz.Ref.ContractStatus:"ContractStatus.01"}
+      )
+      1:(
+        DATaskStatus = {DocApprovement.Ref.Trans.DATaskStatus:"Договор на согласовании"}
+        Doc = {DocApprovement.Ref.Doc.DADoc:Договор}
+        DocStatusField = {DocApprovement.Ref.Doc.DAField:_OOE8917BQ0CP6A}
+        DocStatusValueRec = {Biz.Ref.ContractStatus:"ContractStatus.02"}
+      )
+      2:(
+        DATaskStatus = {DocApprovement.Ref.Trans.DATaskStatus:"Договор согласован"}
+        Doc = {DocApprovement.Ref.Doc.DADoc:Договор}
+        DocStatusField = {DocApprovement.Ref.Doc.DAField:_OOE8917BQ0CP6A}
+        DocStatusValueRec = {Biz.Ref.ContractStatus:"ContractStatus.02"}
+      )
+      3:(
+        DATaskStatus = {DocApprovement.Ref.Trans.DATaskStatus:"Договор на подписи"}
+        Doc = {DocApprovement.Ref.Doc.DADoc:Договор}
+        DocStatusField = {DocApprovement.Ref.Doc.DAField:_OOE8917BQ0CP6A}
+        DocStatusValueRec = {Biz.Ref.ContractStatus:"ContractStatus.02"}
+      )
+      4:(
+        DATaskStatus = {DocApprovement.Ref.Trans.DATaskStatus:"Договор подписан"}
+        Doc = {DocApprovement.Ref.Doc.DADoc:Договор}
+        DocStatusField = {DocApprovement.Ref.Doc.DAField:_OOE8917BQ0CP6A}
+        DocStatusValueRec = {Biz.Ref.ContractStatus:"ContractStatus.03"}
+      )
+      5:(
+        DATaskStatus = {DocApprovement.Ref.Trans.DATaskStatus:"Договор не подписан"}
+        Doc = {DocApprovement.Ref.Doc.DADoc:Договор}
+        DocStatusField = {DocApprovement.Ref.Doc.DAField:_OOE8917BQ0CP6A}
+        DocStatusValueRec = {Biz.Ref.ContractStatus:"ContractStatus.01"}
+      )
+      6:(
+        DATaskStatus = {DocApprovement.Ref.Trans.DATaskStatus:"Договор не согласован"}
+        Doc = {DocApprovement.Ref.Doc.DADoc:Договор}
+        DocStatusField = {DocApprovement.Ref.Doc.DAField:_OOE8917BQ0CP6A}
+        DocStatusValueRec = {Biz.Ref.ContractStatus:"ContractStatus.01"}
+      )
+    )
+  )
+]
+
+]

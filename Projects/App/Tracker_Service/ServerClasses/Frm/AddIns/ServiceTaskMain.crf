@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Frm.AddIns.BaseTask">
+  <Inherited Caption="@TrackerService:MainTab=Основное">
+    <Inherited Name="EdtRec" Class="Tracker_Service.Rec.Data.ServiceTask" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Component Name="MainFrame" Class="Com.Ctrl.IFrame" Caption="@TrackerService:MainTab=Основное" Margins="5">
+        <Component Name="Group3" Class="Com.Ctrl.IFrame">
+          <Component Name="Group11" Class="Com.Ctrl.IGroup" ByColumn="True" CaptionWidth="50">
+            <Component Name="Group6" Class="Com.Ctrl.IGroup" ByColumn="False">
+              <Component Name="ReactionDateEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.ReactionDate" FormatOfDate="DateAndTime" HasCaption="True"/>
+              <Component Name="DecisionDateEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.DecisionDate" FormatOfDate="DateAndTime" HasCaption="True"/>
+            </Component>
+            <Component Name="StatusEdit" Class="Com.Ctrl.IEdit" Caption="@TrackerService:StatusEdit=Статус обращения" Field="EdtRec.Status" LookupField="Name" OnVerify="StatusEditOnVerify" ShortList="True"/>
+            <Component Name="Static4" Class="Com.Ctrl.IStatic" Width="15"/>
+            <Component Name="ClosingCode" Class="Com.Ctrl.IEdit" Caption="Код закрытия" Enabled="False" Field="EdtRec.ClosingCode" HasCaption="True" LookupField="Name" ShortList="True" Visible="True"/>
+            <Component Name="Static5" Class="Com.Ctrl.IStatic" Visible="False" Width="15"/>
+          </Component>
+        </Component>
+        <Component Name="ResolutionCommentBox" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@TrackerService:ResolutionCommentBox=Решение" Visible="False">
+          <Component Name="ResolutionCommentQuillJS" Class="Com.Ctrl.IQuillJS" OnTextChange="ChangeResolutionComment" Visible="False"/>
+          <Component Name="ResolutionCommentBrowser" Class="Com.Ctrl.IBrowser" Visible="False"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

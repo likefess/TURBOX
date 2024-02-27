@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.SysFields">
+  <Inherited>
+    <Inherited Name="Current" Class="УправлениеПерсоналом.Rec.Данные.Назначения" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonAddItem" Visible="False"/>
+        <Inherited Name="ButtonEditItem" Visible="False"/>
+        <Inherited Name="ButtonSaveItem" Visible="False"/>
+        <Inherited Name="ButtonCancel" Visible="False"/>
+        <Inherited Name="ButtonCloneItem" Visible="False"/>
+        <Inherited Name="ButtonDeleteItem" Visible="False"/>
+        <Inherited Name="ButtonAddFolder" Visible="False"/>
+        <Inherited Name="ButtonFolderElement" Visible="False"/>
+        <Inherited Name="ButtonRefresh" Visible="False"/>
+        <Inherited Name="ButtonImport" Visible="False"/>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree">
+          <Inherited Name="CardTree" CanCopy="False" CanDelete="False" CanInsert="False" CanMove="False" ShowRecords="True" TreeRoot="@Предприятие"/>
+        </Inherited>
+        <Inherited Name="FrameCardFile">
+          <Component Name="Сотр" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Data.EmployeePlace" CellFormat="ReferenceFormat" Field="Current.УсловияТрудаСотрудника" HasCaption="True" LookupField="Person.Name" Width="50"/>
+          <Component Name="ДатаНазначения" Class="Com.Ctrl.IEdit" Field="Current.ДатаНазначения" FormatOfDate="DateOnly" HasCaption="True" Width="35"/>
+          <Component Name="ДатаОкончания" Class="Com.Ctrl.IEdit" Field="Current.ДатаОкончания" FormatOfDate="DateOnly" HasCaption="True" Width="35"/>
+          <Component Name="Подразделение" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" Field="Current.Подразделение" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="Должность" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Ref.PositionsHR" Field="Current.Должность" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="Разряд" Class="Com.Ctrl.IEdit" Caption="Разряд" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ТарифныеРазряды" Field="Current.Разряд" HasCaption="True" LookupField="Name" Width="40"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

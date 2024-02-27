@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="WFlow.Frm.AddIns.BaseProject">
+  <Inherited Caption="@WFlow:ProjectAccess=Права доступа">
+    <Component Name="Variables" Class="Com.IVarContainer" After="EdtRec">
+      <Component Name="PrjAccessSubtable" Class="Com.ISubtable" StructClass="WFlow.Rec.Access.Project_Access"/>
+    </Component>
+    <Component Name="TabMenu" Class="Com.Ctrl.IPopupMenu" AddDefaultItems="False">
+      <Component Name="cmdInsertRow" Class="Com.ComManaging.ExecProcedure" Caption="Добавить" CommandProc="InsertRow_CommandProc" IconName="Com.InsertObj"/>
+      <Component Name="cmdDeleteRow" Class="Com.ComManaging.ExecProcedure" Caption="Удалить" CommandProc="DeleteRow_CommandProc" IconName="Com.DeleteObj"/>
+    </Component>
+    <Inherited Name="RootFrame" FixSize="True" Margins="5" MinSize="120" Size="120">
+      <Component Name="AccessButtons" Class="Com.Ctrl.IFrame" AutoSize="False" FixSize="True" Size="8">
+        <Component Name="GroupButtons" Class="Com.Ctrl.IGroup">
+          <Component Name="AddButton" Class="Com.Ctrl.IButton" Caption="Добавить" OnClick="AddButtonOnClick"/>
+        </Component>
+      </Component>
+      <Component Name="AcessFrame" Class="Com.Ctrl.IFrame" MinSize="120">
+        <Component Name="PrjAccessTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="True" CanInsert="True" CanMove="False" Freezed="False" ManualControl="True" Numbering="False" PopupMenu="TabMenu" Subtable="PrjAccessSubtable">
+          <Component Name="Proj_Access" Class="WFlow.Rec.Access.Project_Access" IsLibrary="1"/>
+          <Component Name="PrjBizAccessEdit" Class="Com.Ctrl.IEdit" Caption="@WFlow:BiizAccessEdit=Настройка доступа" Field="Proj_Access.BizObjAccess" FixSize="True" LookupField="Name" ShortList="True" Visible="False" Width="70"/>
+          <Component Name="PrUserEdit" Class="Com.Ctrl.IEdit" Caption="@WFlow:UserEdit=Пользователь" CardFileClass="Bas.Tab.Access.Users" Field="Proj_Access.User" FixSize="True" LookupField="Name" Width="70"/>
+          <Component Name="PrjBizRoleEdit" Class="Com.Ctrl.IEdit" Caption="@WFlow:BizRoleEdit=Роль" CardFileClass="WFlow.Tab.Access.BizRole" Field="Proj_Access.BizRole" FixSize="True" LookupField="Name" Width="70"/>
+          <Component Name="PrjCompanyEdit" Class="Com.Ctrl.IEdit" Caption="@WFlow:CompanyEdit=Организация" CardFileClass="Bas.Tab.Data.OurCompanies" Field="Proj_Access.Company" FixSize="True" LookupField="Name" ShortList="True" Width="70"/>
+          <Component Name="DelButton" Class="Com.Ctrl.IButton" FixSize="True" ImageName="Com.DeleteObj" OnClick="DelButtonOnClick" Width="7"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

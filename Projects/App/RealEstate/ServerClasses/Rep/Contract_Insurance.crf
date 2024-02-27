@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Name="Rep.IReportTurns" Class="Com.Rep.IReportTurns" AccountFilter="RealEstateContractAccount" AccountPlan="RealEstateAccounts" BegSaldoFormat="sfNone" Caption="Анализ сроков страхования" CIndicator="1" GeoSplit="1" HelpContext="RealEstate.Управление имуществом.Отчеты.Отчеты.Анализ сроков страхования" HystoKind="hkSide" Legend="lpkAtRight" LinkTables="True" OpenPeriod="opCurrent" Palette="cpDefault" ParameterFilter="Contract.ПредметДоговора.Группа.Описание = &quot;*Договор страхования*&quot;" Period="1" ShowReportTotalRow="False" TurnFormat="sfNone">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorCounter" Class="Com.Rep.IIndMain" Caption="IndicatorCounter" Contents="Counter" Visible="False"/>
+      <Component Name="IndicatorОбъектИмущества" Class="Com.Rep.IIndCustom" Caption="Объект" Formula="RowSplit(1).Value?.RealEstateObject.Name" ShowUnit="False" ValueType="VarString" Visible="False"/>
+      <Component Name="IndicatorStartDate" Class="Com.Rep.IIndCustom" Caption="Дата начала" Formula="RowSplit(1).Value?.StartDate" ShowUnit="False" ValueType="VarDate"/>
+      <Component Name="IndicatorExpirationDate" Class="Com.Rep.IIndCustom" Caption="Дата окончания" ColorMode="cmAll" Formula="RowSplit(1).Value?.ExpirationDate" ShowUnit="False" ValueType="VarDate"/>
+      <Component Name="IndicatorПоказатель" Class="Com.Rep.IIndCustom" Aggregate="agrNone" Caption="Дней до окончания" ColorFormula="0" ColorMode="cmRows" ColorMore="255" Formula="EndDate - Пок('ExpirationDate')" InvertValue="True" ShowUnit="False" ValueType="VarNumeric"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParamAFEE9410" Class="Com.Rep.ISplitByParam" ShowTotals="False" SortOrder="Contract.ПредметДоговора.Группа.Описание" SplitParam="Contract"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab">
+        <Component Name="SplitParamA257029E" Class="Com.Rep.ISplitByParam" SplitParam="Contract.ОбъектИмущества"/>
+      </Component>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContentAABAB7D0" Class="Com.Rep.ISplitContent" Contents="Contract.Описание"/>
+        <Component Name="SplitContent0E3A3271" Class="Com.Rep.ISplitContent" Caption="Предмет договора" Contents="Contract.ПредметДоговора.Описание" MaxWidth="100" MinWidth="100"/>
+        <Component Name="SplitContent53CDA257" Class="Com.Rep.ISplitContent" Contents="Contract.#StartDate" Enabled="False"/>
+        <Component Name="SplitContent37D72EB1" Class="Com.Rep.ISplitContent" Contents="Contract.#ExpirationDate" Enabled="False"/>
+        <Component Name="SplitContent7CB38DD8" Class="Com.Rep.ISplitContent" Caption="Тип договора" Contents="Contract.ПредметДоговора.Группа.Описание"/>
+        <Component Name="SplitContent41FE3644" Class="Com.Rep.ISplitContent" AfterIndicators="True" Caption="Общая сумма " Contents="Contract.#TAmountInclVATSuppAgr"/>
+        <Component Name="SplitContent5055E623" Class="Com.Rep.ISplitContent" Caption="Причина страхования" Contents="Contract.ОбъектИмущества.Insurance.Описание"/>
+        <Component Name="SplitContent854F9685" Class="Com.Rep.ISplitContent" Contents="Contract.Статус.Описание" Enabled="False"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol">
+        <Component Name="SplitContentBB9EE090" Class="Com.Rep.ISplitContent" Contents="Contract.ОбъектИмущества.Описание"/>
+      </Component>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab">
+        <Component Name="SplitContentD2D396BB" Class="Com.Rep.ISplitContent"/>
+      </Component>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_Contract_Статус" Class="Com.Rep.IRepControl" Caption="Статус" CardFileClass="Biz.Tab.Ref.ContractStatus" DefaultStr="Object(nil)" LookupField="Name" MultiSelect="True" Operator=" is " Parameter="Contract.Статус" Plan="RealEstateAccounts" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Contract_Организация" Class="Com.Rep.IRepControl" Caption="Организация" CardFileClass="Bas.Tab.Data.OurCompanies" DefaultStr="Object(nil)" NewLine="True" Operator="=" Parameter="Contract.Организация" Plan="RealEstateAccounts" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Contract_ПредметДоговора" Class="Com.Rep.IRepControl" Caption="Вид договора" CardFileClass="Biz.Tab.Ref.ContractClassification" DefaultStr="Object(nil)" LookupField="Name" LookupFilter="GroupDoc.Code = &quot;7IU3OVCCE1UTV4&quot;" NewLine="True" Operator="=" Parameter="Contract.ПредметДоговора" Plan="RealEstateAccounts" ShowHierarchy="False" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_LogField" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Включать завершенные договоры за все время" DefaultStr="Logical(False)" NewLine="True" Operator="=" Plan="RealEstateAccounts" PrepareFunc="result = if(aParam.Value = nil,'(Contract.Статус.Описание in [&quot;Завершен&quot;, &quot;Расторгнут&quot;] and Contract.ДатаЗавершения > ' + str(EndDate - 365) + ') or (Contract.Статус.Описание &lt;> &quot;Завершен&quot; and Contract.Статус.Описание &lt;> &quot;Расторгнут&quot;)', '')" SkipNil="True" ValueType="VarLogical"/>
+      <Component Name="RC_Contract_ОбъектИмущества_Insurance" Class="Com.Rep.IRepControl" Caption="Причина страхования" CardFileClass="RealEstate.Tab.Ref.InsuranceType" DefaultStr="Object(nil)" NewLine="True" Operator="=" Parameter="Contract.ОбъектИмущества.Insurance" Plan="RealEstateAccounts" SkipNil="True" ValueType="VarObject"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

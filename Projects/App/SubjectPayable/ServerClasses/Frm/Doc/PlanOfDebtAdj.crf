@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="SubjectPayable.Frm.Base.BaseSubjPayableDoc">
+  <Inherited HelpContext="SubjectPayable.Расчеты с субъектами.Документы.Плановые документы.Корректировка (списание) плановой задолженности">
+    <Inherited Name="EdtRec" Class="SubjectPayable.Rec.Doc.PlanOfDebtAdj" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="DateNumberGroup">
+          <Inherited Name="edDateDoc" Hint="@PlanOfDebtAdj:DateDoc.Hint=Дата проведения корректировки, списания плановой задолженности."/>
+        </Inherited>
+        <Inherited Name="CompanyGroup">
+          <Inherited Name="edCompany" Enabled="False"/>
+        </Inherited>
+        <Component Name="grPlanOfDebt" Class="Com.Ctrl.IGroup" After="CompanyGroup" Adaptive="True" MaxWidth="250">
+          <Component Name="edPlanOfDebt" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:PlanOfDebt2=План. задолж." CardFileClass="SubjectPayable.Tab.Doc.PlanOfDebt" Enabled="False" Field="EdtRec.PlanOfDebt" HasCaption="True" Hint="@SubjectPayable:PlanOfDebt=Задолженность План" LookupField="Name" Wrap="True"/>
+          <Component Name="jbPlanOfDebt" Class="Com.Ctrl.IJumpButton" Field="EdtRec.PlanOfDebt" JumpForm="SubjectPayable.Frm.Doc.PlanOfDebt"/>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="25"/>
+          <Component Name="btAccounted1" Class="Com.Ctrl.IButton" Caption="@SubjectPayable:btAccounted=Проводить" FixSize="True" HasCaption="True" Hint="@SubjectPayable:btAccounted.Hint=Документ будет принят к учету, сформированы оперативные проводки" OnClick="btAccounted_OnClick" Width="25"/>
+          <Component Name="btNoAccounted1" Class="Com.Ctrl.IButton" Caption="@SubjectPayable:btNoAccounted=Отменить" FixSize="True" HasCaption="True" Hint="@SubjectPayable:btNoAccounted.Hint=Документ будет отменен, сформированные оперативные проводки удалены" OnClick="btNoAccounted_OnClick" Width="25"/>
+        </Component>
+        <Inherited Name="NameGroup" After="grPlanOfDebt">
+          <Inherited Name="btAccounted" Excluded="True"/>
+          <Inherited Name="btNoAccounted" Excluded="True"/>
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="frMain">
+            <Inherited Name="grContraparty" Excluded="True"/>
+            <Inherited Name="grContract" Excluded="True"/>
+            <Inherited Name="grSource" Excluded="True"/>
+            <Inherited Name="grComment">
+              <Inherited Name="edComment" CaptionWidth="40"/>
+              <Inherited Name="CommentStatic" Width="32"/>
+            </Inherited>
+            <Component Name="grPlanSaldo" Class="Com.Ctrl.IGroup" After="grComment" Adaptive="True" MaxWidth="250">
+              <Component Name="edPlanSaldoDoc" Class="Com.Ctrl.IEdit" Caption="@PlanOfDebtAdj:PlanSaldoDoc=Остаток задолж." Enabled="False" Field="EdtRec.PlanSaldoDoc" FieldFormat=",0.00;;-" HasCaption="True" Hint="@PlanOfDebtAdj:PlanSaldo.Hint=Остаток суммы плановой задолженности, доступный к списанию." MaxWidth="45"/>
+              <Component Name="edcurSaldoDoc" Class="Com.Ctrl.IEdit" Caption="@PlanOfDebtAdj:PlanSaldoDoc=Остаток задолж." Enabled="False" Field="EdtRec.curPlanSaldoDoc" FieldFormat=",0.00;;-" HasCaption="True" Hint="@PlanOfDebtAdj:PlanSaldo.Hint=Остаток суммы плановой задолженности, доступный к списанию." MaxWidth="45"/>
+              <Component Name="edCurrency1" Class="Com.Ctrl.IEdit" Caption="-" CaptionWidth="8" CardFileClass="Biz.Tab.Ref.UCurrencies" Enabled="False" Field="EdtRec.Currency" HasCaption="False" LookupField="Code" MaxWidth="20" Required="True" ShortList="True"/>
+              <Component Name="edPlanSaldoBase" Class="Com.Ctrl.IEdit" Caption="в опер. валюте" CaptionWidth="35" Enabled="False" Field="EdtRec.PlanSaldoBase" FieldFormat=",0.00;;-" HasCaption="True" Hint="@PlanOfDebtAdj:PlanSaldoBase.Hint=Остаток суммы плановой задолженности в оперативной валюте, доступный к списанию." MaxWidth="45"/>
+              <Component Name="edcurSaldoBase" Class="Com.Ctrl.IEdit" Caption="в опер. валюте" CaptionWidth="35" Enabled="False" Field="EdtRec.curPlanSaldoBase" FieldFormat=",0.00;;-" HasCaption="True" Hint="@PlanOfDebtAdj:PlanSaldoBase.Hint=Остаток суммы плановой задолженности в оперативной валюте, доступный к списанию." MaxWidth="45"/>
+              <Component Name="edCurrencyBase1" Class="Com.Ctrl.IEdit" Caption="-" CaptionWidth="8" CardFileClass="Biz.Tab.Ref.UCurrencies" Enabled="False" Field="EdtRec.CurrencyBase" HasCaption="False" LookupField="Code" MaxWidth="20"/>
+              <Component Name="btPlanSaldo" Class="Com.Ctrl.IButton" FixSize="True" Hint="@SubjectPayable:btPlanSaldo=Обновить остаток задолженности&#xD;&#xA;" ImageName="Com.Refresh" OnClick="btPlanSaldo_OnClick" Width="7"/>
+              <Component Name="SumStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Inherited Name="grSumDoc" After="grPlanSaldo">
+              <Inherited Name="edSumDoc" Caption="@PlanOfDebtAdj:SumDoc=Сумма списания" CaptionWidth="40" Hint="@PlanOfDebtAdj:SumDoc.Hint=Сумма списываемой плановой задолженности" OnVerify="edSumDoc_OnVerify" Required="False"/>
+              <Inherited Name="edCurrency" Enabled="False"/>
+              <Component Name="edExchRate" Class="Com.Ctrl.IEdit" After="jbCurrency" Caption="@SubjectPayable:ExchRate2=Курс" CaptionWidth="28" Field="EdtRec.ExchRate" FieldFormat=",0.0000;;-" HasCaption="True" Hint="@SubjectPayable:ExchRate.Hint=Значение курса валюты, используемого при переводе суммы в валюте документа в сумму в операционной валюте" MaxWidth="30" OnDrawEx="edExchRate_OnDrawEx" Required="True" Width="30"/>
+              <Component Name="btExchRate" Class="Com.Ctrl.IButton" FixSize="True" Hint="@SubjectPayable:ExchRateUpd=Обновить курс валюты" ImageName="Com.Refresh" OnClick="btExchRate_OnClick" Width="7"/>
+              <Inherited Name="SumStatic" After="btExchRate"/>
+            </Inherited>
+            <Inherited Name="grSumBase">
+              <Inherited Name="edSumBase" Caption="в опер. валюте" CaptionWidth="40" OnVerify="edSumBase_OnVerify"/>
+              <Inherited Name="SumBaseStatic" Width="14"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

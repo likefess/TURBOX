@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Frm.Doc.Move">
+  <Inherited>
+    <Inherited Name="FRecord" Class="CashFlow.Rec.Doc.BankMoveBase" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonReports" After="ButtonServices"/>
+        <Inherited Name="ButtonClose" After="ButtonReports"/>
+        <Inherited Name="ButtonAnalytics" After="ButtonClose"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="FieldsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="250" MinWidth="150">
+          <Component Name="PrintedNumberEditGroup" Class="Com.Ctrl.IGroup" ByColumn="False">
+            <Component Name="PrintedNumberEdit" Class="Com.Ctrl.IEdit" Caption="Номер" CaptionWidth="25" CellFormat="StringFormat" Field="FRecord.PrintedNumber" Wrap="False"/>
+            <Component Name="BtnStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            <Component Name="EventTimeEdit" Class="Com.Ctrl.IEdit" Caption="Дата" CaptionWidth="25" CellFormat="DateFormat" Field="FRecord.EventTime" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly"/>
+            <Component Name="Locked1" Class="Com.Ctrl.ICheckBox" Caption="@Process.Locked:Title=Замок" Field="FRecord.Locked" FixSize="True" Printed="False" Width="25"/>
+          </Component>
+          <Component Name="DescriptionGroup" Class="Com.Ctrl.IGroup" ByColumn="False">
+            <Component Name="Description" Class="Com.Ctrl.IEdit" Caption="@FiDocument:Description=Описание" CaptionWidth="25" Field="FRecord.Description" HasCaption="True" Wrap="True"/>
+            <Component Name="Closed" Class="Com.Ctrl.ICheckBox" Caption="@FIDocument:Closed=Завершен" Field="FRecord.Closed" FixSize="True" HasCaption="True" Printed="False" Width="25"/>
+          </Component>
+          <Component Name="OtherGroup" Class="Com.Ctrl.IGroup" ByColumn="False">
+            <Component Name="stOther1" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+            <Component Name="chWriteOff" Class="Com.Ctrl.ICheckBox" Caption="Расходный документ" Field="FRecord.WriteOff"/>
+            <Component Name="btnAccounted" Class="Com.Ctrl.IButton" Caption="Проводить" FixSize="True" HasCaption="True" Printed="False" Width="25"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab" Margins="0">
+          <Inherited Name="GeneralBox" Excluded="True">
+            <Inherited Name="Group6" Excluded="True"/>
+            <Inherited Name="Group2" Excluded="True"/>
+          </Inherited>
+          <Inherited Name="ValueBox" Excluded="True"/>
+          <Inherited Name="CategoryBox" Excluded="True"/>
+          <Component Name="OurCompanyBox" Class="Com.Ctrl.IBox" Caption="Наше предприятие">
+            <Component Name="OurCompanyBoxGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="OurCompanyLeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="OurCompanyGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="OurCompany" Class="Com.Ctrl.IEditEx" Caption="Компания" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="FRecord.Entity" HasCaption="True" LookupField="Name" OnChange="OurCompany_OnChange"/>
+                  <Component Name="BtnStatic4" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+              <Component Name="OurCompanyRightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="BankDetailsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="BankDetails" Class="Com.Ctrl.IEdit" Caption="Расчетный счет" CellFormat="CommonFormat" Enabled="False" Field="FRecord.BankDetails" LookupField="Name" OnOutputEx="BankDetails_OnOutputEx"/>
+                  <Component Name="BtnStatic5" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="ContrapartyBox" Class="Com.Ctrl.IBox" Caption="Контрагент">
+            <Component Name="ContrapartyBoxGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="ContrapartyLeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="ContrapartyGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="Contraparty" Class="Com.Ctrl.IEdit" Caption="Контрагент" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Field="FRecord.Contraparty" HasCaption="True" LookupField="Name" OnChange="Contraparty_OnChange"/>
+                  <Component Name="BtnStatic6" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="ContractGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="Contract" Class="Com.Ctrl.IEdit" Caption="Договор" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Field="FRecord.Contract" HasCaption="True" LookupField="Code"/>
+                  <Component Name="BtnStatic8" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+              <Component Name="ContrapartyRightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="ContrapartyBankDetailsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="ContrapartyBankDetails" Class="Com.Ctrl.IEdit" Caption="Расчетный счет" CellFormat="CommonFormat" Field="FRecord.ContrapartyBankDetails" HasCaption="True" LookupField="Name" OnOutputEx="BankDetails_OnOutputEx"/>
+                  <Component Name="BtnStatic7" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="ContractDateEditGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="ContractDateEdit" Class="Com.Ctrl.IEdit" Caption="Дата договора" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Enabled="False" Field="FRecord.Contract" HasCaption="True" LookupField="EventTime"/>
+                  <Component Name="BtnStatic1_" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="SumBox" Class="Com.Ctrl.IBox" Caption="Данные платежа">
+            <Component Name="Group19" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="PurposeEdit" Class="Com.Ctrl.IEdit" Field="FRecord.Purpose" HasCaption="True" Hint="Шаблон назначения" Wrap="True"/>
+              <Component Name="BtnStatic9" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Component Name="Group13" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="Sum" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Сумма без НДС" CellFormat="NumericFormat" Field="FRecord.Sum" FieldFormat=",##0.00;;-" HasCaption="True" ValueType="VarNumeric"/>
+              <Component Name="BtnStatic10" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="Currency" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Field="FRecord.Currency" HasCaption="True" LookupField="Code"/>
+              <Component Name="BtnStatic11" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Component Name="Group14" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="RateVAT" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="ReferenceFormat" Field="FRecord.RateVAT" HasCaption="True" LookupField="Name" ShortList="True"/>
+              <Component Name="BtnStatic12" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="SumVAT" Class="Com.Ctrl.IEdit" Caption="Сумма НДС" CellFormat="NumericFormat" Enabled="False" Field="FRecord.SumVAT" FieldFormat=",##0.00;;-" VertAlignment="RightAlign"/>
+              <Component Name="BtnStatic13" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+            <Component Name="Group15" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="Group15Left" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="FinalSumGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="FinalSum" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Сумма с НДС" CellFormat="NumericFormat" Field="FRecord.FinalSum" FieldFormat=",##0.00;;-"/>
+                  <Component Name="BtnStatic14" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+              <Component Name="Group15Right" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="FinalSumStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

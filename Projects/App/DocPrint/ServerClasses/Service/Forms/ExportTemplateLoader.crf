@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited HelpContext="DocPrint.DocPrint.Загрузить данные">
+    <Inherited Name="Variables">
+      <Component Name="FileNamesArray" Class="Com.Fld.IArray" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="ButtonGenerateDocs" Class="Com.Ctrl.IButton" After="#0" Caption="@DocPrint.ExportTemplateLoader.ButtonGenerateDocs:Caption=Сформировать документы" ImageName="Com.AddItem_1" OnClick="ButtonGenerateDocsOnClick"/>
+        <Inherited Name="ButtonOK" After="ButtonGenerateDocs" Visible="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" Visible="False"/>
+      <Component Name="CardFormsBox" Class="Com.Ctrl.IBox" After="FieldsFrame" Caption="@DocPrint.ExportTemplateLoader.CardFormsBox:Caption=Настройки картотек" Collapsed="True" HasCaption="True">
+        <Component Name="CardFormsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="30" MaxWidth="300" MinWidth="150"/>
+      </Component>
+      <Inherited Name="TabsFrame" After="CardFormsBox" Visible="True">
+        <Inherited Name="MainTab" Caption="@DocPrint.ExportTemplateLoader.ObjectsFrame:Caption=Передаваемые значения">
+          <Component Name="ObjectsTable" Class="Com.Ctrl.ITable">
+            <Component Name="FileNamesEdit" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Caption="@DocPrint.ExportTemplateLoader.FileNamesEdit:Caption=Имя файла" CellFormat="StringFormat" Field="FileNamesArray" HasButton="True" HasCaption="True" OnLookup="FileNamesEditOnLookup" ValueType="VarString" Width="50"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

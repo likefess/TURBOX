@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rep.Viewer">
+  <Inherited>
+    <Inherited Name="Libraries">
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1" After="#0"/>
+      <Inherited Name="Commands" IsLibrary="1" After="Fashions"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="SettingsFrame" Margins="0">
+        <BuiltIn Name="SideMargins" Bottom="12" Left="0" Right="0" Top="0"/>
+        <Component Name="ButtonFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Visible="False">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+          <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Alignment="RightAlign"/>
+            <Component Name="ButtonRefresh1" Class="Com.Ctrl.IButton" Alignment="RightAlign" Command="Commands.RefreshForm" Fashion="Fashions.TertiaryButton" ImageName="Refresh" OnClick="ButtonRefresh1OnClick" Printed="False"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+        <Inherited Name="ReportFrame">
+          <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

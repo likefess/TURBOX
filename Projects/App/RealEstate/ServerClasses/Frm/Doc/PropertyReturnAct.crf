@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.Event">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="RealEstate.Rec.Doc.PropertyReturnAct" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" Excluded="True"/>
+        <Component Name="ColumnsGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+          <Component Name="LColGr" Class="Com.Ctrl.IGroup" ByColumn="True">
+            <Component Name="PrintedNumberGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+              <Component Name="PrintedNumber" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.PrintedNumber" HasCaption="True" Required="True"/>
+              <Component Name="JBStatic6" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+          </Component>
+          <Component Name="RColGr" Class="Com.Ctrl.IGroup" ByColumn="True" CaptionWidth="42">
+            <Component Name="EventTimeGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+              <Component Name="EventTime" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="EdtRec.EventTime" HasCaption="True" Required="True"/>
+              <Component Name="JBStatic9" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="CBGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+          <Component Name="CBStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+          <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Locked" FixSize="True" Width="17"/>
+          <Component Name="HasDefects" Class="Com.Ctrl.ICheckBox" Enabled="False" Field="EdtRec.HasDefects" FixSize="True" Width="40"/>
+          <Component Name="NoClaims" Class="Com.Ctrl.ICheckBox" Enabled="False" Field="EdtRec.NoClaims" FixSize="True" Width="47"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="ContractBox" Class="Com.Ctrl.IBox" Caption="Связанный договор" Margins="0">
+            <Component Name="ContractGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="45" MaxWidth="300" MinWidth="150">
+              <Component Name="Contract" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Contract" HasCaption="True" LookupField="Code" Required="True"/>
+              <Component Name="ContractJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Contract" JumpForm="Biz.Frm.Data.Contract"/>
+            </Component>
+            <Component Name="Columns1Gr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="45" MaxWidth="300" MinWidth="150">
+              <Component Name="Columns1LGr" Class="Com.Ctrl.IGroup" ByColumn="True">
+                <Component Name="CRegNumGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="CRegNum" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.CRegNum" HasCaption="True"/>
+                  <Component Name="JBStatic7" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="CStartDateGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="CStartDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CellFormat="DateFormat" Enabled="False" Field="EdtRec.CStartDate" HasCaption="True"/>
+                  <Component Name="JBStatic8" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+              </Component>
+              <Component Name="Columns1RGr" Class="Com.Ctrl.IGroup" ByColumn="True" CaptionWidth="42">
+                <Component Name="CRegDateGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="CRegDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CellFormat="DateFormat" Enabled="False" Field="EdtRec.CRegDate" HasCaption="True"/>
+                  <Component Name="JBStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="CExpDateGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="CExpDate" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CellFormat="DateFormat" Enabled="False" Field="EdtRec.CExpDate" HasCaption="True"/>
+                  <Component Name="JBStatic2" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="CCompanyGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="45" MaxWidth="300" MinWidth="150">
+              <Component Name="CCompany" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.CCompany" HasCaption="True" LookupField="Name"/>
+              <Component Name="CCompanyJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.CCompany" JumpForm="Bas.Frm.Data.Entity"/>
+            </Component>
+            <Component Name="CDepartmentGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="45" MaxWidth="300" MinWidth="150">
+              <Component Name="CDepartment" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.CDepartment" HasCaption="True" LookupField="Name"/>
+              <Component Name="CDepartmentJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.CDepartment" JumpForm="Bas.Frm.Data.Entity"/>
+            </Component>
+            <Component Name="CUserEmployeeGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="45" MaxWidth="300" MinWidth="150">
+              <Component Name="CUserEmployee" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.CUserEmployee" HasCaption="True" LookupField="Name"/>
+              <Component Name="CUserEmployeeJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.CUserEmployee" JumpForm="Bas.Frm.Data.Entity"/>
+            </Component>
+            <Component Name="Columns2Gr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="45" MaxWidth="300" MinWidth="150">
+              <Component Name="Columns2LGr" Class="Com.Ctrl.IGroup" ByColumn="True">
+                <Component Name="CPartnerGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="CPartner" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.CPartner" HasCaption="True" LookupField="Name"/>
+                  <Component Name="CPartnerJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.CPartner" JumpForm="Bas.Frm.Data.Entity"/>
+                </Component>
+              </Component>
+              <Component Name="Columns2RGr" Class="Com.Ctrl.IGroup" ByColumn="True" CaptionWidth="42">
+                <Component Name="CPartnerUserGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="CPartnerUser" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="EdtRec.CPartnerUser" HasCaption="True"/>
+                  <Component Name="JBStatic3" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="CSubjectGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="45" MaxWidth="300" MinWidth="150">
+              <Component Name="CSubject" Class="Com.Ctrl.IEdit" Caption="Назначение договора" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.CSubject" HasCaption="True" LookupField="Name"/>
+              <Component Name="JBStatic4" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+            <Component Name="CObjGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="45" MaxWidth="300" MinWidth="150">
+              <Component Name="Obj" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.CObj" HasCaption="True" LookupField="Name"/>
+              <Component Name="ObjJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.CObj" JumpForm="RealEstateBase.Frm.Data.RealEstateObject"/>
+            </Component>
+            <Component Name="DescriptionGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="45" MaxWidth="300" MinWidth="150">
+              <Component Name="Description" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.Description" HasCaption="True"/>
+              <Component Name="JBStatic5" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="DefectsTab" Class="Com.Ctrl.IFrame" Caption="Дефекты" Margins="5">
+          <Component Name="DefectsTable" Class="Com.Ctrl.ITable" Adaptive="False" Freezed="False" Sortable="True" Subtable="EdtRec.Defects">
+            <Component Name="DefectsStruct" Class="RealEstate.Rec.Doc.PropertyReturnAct_Defects" IsLibrary="1"/>
+            <Component Name="Nom" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Resources" CellFormat="ReferenceFormat" Field="DefectsStruct.Nom" FixSize="True" HasButton="True" HasCaption="True" LookupField="Name" Multiline="True" Width="60" Wrap="True"/>
+            <Component Name="NomUnit" Class="Com.Ctrl.IEdit" Excluded="True" CardFileClass="Biz.Tab.Ref.UnitsOrCurrencies" CellFormat="ReferenceFormat" Field="DefectsStruct.NomUnit" FixSize="True" HasButton="True" HasCaption="True" LookupField="Code" Width="30"/>
+            <Component Name="Qty" Class="Com.Ctrl.IEdit" Excluded="True" CellFormat="NumericFormat" Field="DefectsStruct.Qty" FixSize="True" HasCaption="True" Width="25"/>
+            <Component Name="State" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="DefectsStruct.State" FixSize="True" HasCaption="True" Width="50"/>
+            <Component Name="Desc" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="DefectsStruct.Desc" FixSize="True" HasCaption="True" Multiline="True" Width="60" Wrap="True"/>
+          </Component>
+          <Component Name="DefectsTotal" Class="Com.Ctrl.ITable" Excluded="True" Adaptive="False" CanDelete="False" CanInsert="False" CanMove="False" Freezed="False" HasCaption="False" Numbering="False" Subtable="EdtRec.DefectsTotal">
+            <Component Name="DefectsTotStruct" Class="RealEstate.Rec.Doc.PropertyReturnAct_DefectsTot" IsLibrary="1"/>
+            <Component Name="PosNum" Class="Com.Ctrl.IEdit" Enabled="False" FixSize="True" HasCaption="False" Width="10"/>
+            <Component Name="TotalCaption" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="DefectsTotStruct.TotalCaption" FixSize="True" FontBold="True" HasCaption="False" Width="60"/>
+            <Component Name="TNomUnit" Class="Com.Ctrl.IEdit" Enabled="False" FixSize="True" HasCaption="False" Width="30"/>
+            <Component Name="TQty" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="DefectsTotStruct.Qty" FixSize="True" FontBold="True" HasCaption="False" Width="25"/>
+            <Component Name="TState" Class="Com.Ctrl.IEdit" Enabled="False" FixSize="True" HasCaption="False" Width="50"/>
+            <Component Name="TDesc" Class="Com.Ctrl.IEdit" Enabled="False" FixSize="True" HasCaption="False" Width="60"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

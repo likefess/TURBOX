@@ -1,0 +1,49 @@
+﻿TBCFile VER="3.4" [Created '17.10.2022 9:58:57' by 'Администратор']
+
+DESCRIPTION[
+Count=2
+CountByRef=0
+NumExt.Service.TypesOfRecordClasses
+(
+  Count=2
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [NumExt.Service.TypesOfRecordClasses
+  (
+    Deleted :Boolean
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    isOnDA :Boolean
+    DAApprovalTask :DocApprovement.Data.DATask
+    ClassOfRecord :String(255)
+    HaveAccUnit :Boolean
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[NumExt.Service.TypesOfRecordClasses
+  
+  {NumExt.Service.TypesOfRecordClasses:"Doc.Order"}
+  (
+    Name = "Doc.Order"
+    ClassOfRecord = "RealEstate.Doc.Order"
+  )
+  
+  {NumExt.Service.TypesOfRecordClasses:"Data.RealEstateObject"}
+  (
+    Name = "Data.RealEstateObject"
+    ClassOfRecord = "RealEstate.Data.RealEstateObject"
+    HaveAccUnit = True
+  )
+]
+
+]

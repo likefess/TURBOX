@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.CodeName">
+  <Inherited>
+    <Inherited Name="Current" Class="Treasury.Rec.Data.BudgetLimit" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Code" After="ExtId" Visible="False"/>
+          <Inherited Name="Name" After="Code"/>
+          <Component Name="Company" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="Current.Company" LookupField="Name"/>
+          <Component Name="CFR" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="Current.CFR" HasCaption="True" LookupField="Name"/>
+          <Component Name="PeriodStart" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="Current.PeriodStart"/>
+          <Component Name="PeriodEnd" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="Current.PeriodEnd"/>
+          <Component Name="Currency" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Field="Current.Currency" HasCaption="True" LookupField="Code"/>
+          <Component Name="IsActive" Class="Com.Ctrl.IEdit" CellFormat="LogicalFormat" Field="Current.Active" HasCaption="True"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

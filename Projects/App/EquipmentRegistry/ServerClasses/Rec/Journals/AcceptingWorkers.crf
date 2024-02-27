@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.IStruct">
+    <Component Name="BaseNumber" Class="Com.Fld.IField" FieldName="BaseNumber" ValueType="VarInteger"/>
+    <Component Name="CreatedNum" Class="Com.Fld.IField" FieldName="CreatedNum" ValueType="VarInteger"/>
+    <Component Name="WorkCode" Class="Com.Fld.IField" FieldName="WorkCode" OnChange="WorkCodeOnChange" ValueType="VarObject"/>
+    <Component Name="WorkQualify" Class="Com.Fld.IField" FieldName="WorkQualify" ValueType="VarString"/>
+    <Component Name="Division" Class="Com.Fld.IField" FieldName="Division" OnChange="DivisionOnChange" ValueType="VarObject"/>
+    <Component Name="Executor" Class="Com.Fld.IField" FieldName="Executor" OnChange="ExecutorOnChange" ValueType="VarObject"/>
+    <Component Name="FactWorkTime" Class="Com.Fld.IField" FieldName="FactWorkTime" OnChange="CalculateFactCost" OnVerify="FactWorkTimeOnVerify" ValueType="VarNumeric"/>
+    <Component Name="FactWorkPrice" Class="Com.Fld.IField" FieldName="FactWorkPrice" OnChange="CalculateFactCost" OnVerify="FactWorkTimeOnVerify" ValueType="VarNumeric"/>
+    <Component Name="FactWorkCost" Class="Com.Fld.IField" FieldName="FactWorkCost" OnChange="FactWorkCostOnChange" ValueType="VarNumeric"/>
+    <Component Name="UnitCode" Class="Com.Fld.IField" FieldName="UnitCode" OnChange="UnitCodeOnChange" ValueType="VarObject"/>
+    <Component Name="OperCode" Class="Com.Fld.IField" FieldName="OperCode" ValueType="VarObject"/>
+    <Component Name="OperNum" Class="Com.Fld.IField" FieldName="OperNum" ValueType="VarInteger"/>
+    <Component Name="NormNum" Class="Com.Fld.IField" FieldName="NormNum" ValueType="VarInteger"/>
+    <Component Name="PlanWorkTime" Class="Com.Fld.IVar" OnChange="CalculatePlanCost" ValueType="VarNumeric"/>
+    <Component Name="PlanWorkPrice" Class="Com.Fld.IVar" OnChange="CalculatePlanCost" ValueType="VarNumeric"/>
+    <Component Name="PlanWorkCost" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+    <Component Name="JobCode" Class="Com.Fld.IVar" OnCalc="JobCodeOnCalc" ValueType="VarInteger"/>
+  </Component>
+</Resource>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="AddAuto" Class="Com.Fld.IVar" OnChange="AddAutoOnChange" ValueType="VarInteger"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame" HasCaption="False">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" HasCaption="False" MaxButton="1">
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Hint="Закрыть" ImageName="Com.Close" OnClick="ButtonClose_Onclick"/>
+      </Component>
+      <Component Name="FieldsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+        <BuiltIn Name="SideMargins" Bottom="0" Left="32" Right="32" Top="24"/>
+        <Component Name="AddAutoHintFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+          <BuiltIn Name="SideMargins" Bottom="24" Left="0" Right="0" Top="0"/>
+          <Component Name="AddAutoHintGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="100">
+            <Component Name="AddAutoHint" Class="Com.Ctrl.IStatic" Caption="Настройте автоматические действия, которые должны происходить при переходе" FixSize="False" FontSize="10" Multiline="True" Width="100"/>
+          </Component>
+        </Component>
+        <Component Name="AddAutoFr" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0">
+          <BuiltIn Name="SideMargins" Bottom="24" Left="0" Right="0" Top="0"/>
+          <Component Name="AddAutoGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="100">
+            <Component Name="AddAutoEdit" Class="Com.Ctrl.IEdit" Caption="Добавить автоматизацию" CaptionWidth="50" CellFormat="EnumFormat" Field="AddAuto" HasCaption="False" OnEnter="AddAutoEditOnEnter" OnVerify="AddAutoEditOnVerify"/>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="ParamsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="0" Visible="True">
+        <BuiltIn Name="SideMargins" Bottom="24" Left="32" Right="32" Top="0"/>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

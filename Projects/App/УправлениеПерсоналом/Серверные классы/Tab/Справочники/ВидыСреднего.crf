@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Tab.Базовая.Справочник">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Справочники.Вид среднего заработка">
+    <Inherited Name="Current" Class="УправлениеПерсоналом.Rec.Справочники.ВидСреднего" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="Утверждено" Class="Com.Ctrl.IEdit" After="ExtId" Field="Current.Проводить" HasCaption="True" Width="15"/>
+          <Inherited Name="Code" Visible="True" Width="15"/>
+          <Inherited Name="Name" Visible="True" Width="50"/>
+          <Component Name="ТипСреднего" Class="Com.Ctrl.IEdit" After="Name" Caption="Тип среднего" CellFormat="EnumFormat" Field="Current.ТипСреднего" HasCaption="True" Width="40"/>
+          <Component Name="ВидНачисления" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Field="Current.ВидНачисления" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Caption="Дата начала" Field="Current.ДатаНачала" FormatOfDate="DateOnly" HasCaption="True" Width="25"/>
+          <Component Name="ДатаОкончания" Class="Com.Ctrl.IEdit" Caption="Дата окончания" Field="Current.ДатаОкончания" FormatOfDate="DateOnly" HasCaption="True" Width="25"/>
+          <Component Name="Locked" Class="Com.Ctrl.IEdit" Field="Current.Locked" HasCaption="True" Width="15"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

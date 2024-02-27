@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited Caption="Настройка прогресса">
+    <Inherited Name="Variables">
+      <Component Name="VarUpdateMethod" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="VarProgressType" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="VarScoreMethod" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="VarStartScore" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="VarCurrentHandleScore" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="VarGoalScore" Class="Com.Fld.IVar"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Excluded="True"/>
+      <Inherited Name="FieldsFrame" Margins="0">
+        <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+        <Component Name="MainFrame" Class="Com.Ctrl.IFrame" Caption="Настройка прогресса">
+          <BuiltIn Name="SideMargins" Bottom="32" Left="32" Right="32" Top="32"/>
+          <Component Name="MethodGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="UpdateMethodEdit" Class="Com.Ctrl.IEdit" Caption="Способ обновления" CellFormat="EnumFormat" Field="VarUpdateMethod" HasInnerCaption="True" OnChange="UpdateMethodEditOnChange" Required="True" ShortList="True"/>
+          </Component>
+          <Component Name="ScoreGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="ProgressTypeEdit" Class="Com.Ctrl.IEdit" Caption="Учитывать прогресс" CellFormat="EnumFormat" Field="VarProgressType" HasInnerCaption="True" OnChange="ProgressTypeEditOnChange" Required="True" ShortList="True"/>
+            <Component Name="ScoreMethodEdit" Class="Com.Ctrl.IEdit" Caption="Оценка" CellFormat="EnumFormat" Field="VarScoreMethod" HasInnerCaption="True" Required="True" ShortList="True" Visible="False"/>
+          </Component>
+          <Component Name="HandScoreGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" Visible="False">
+            <Component Name="HandScoreGroup1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="CurrentHandleScoreEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Текущее значение" Field="VarCurrentHandleScore" HasInnerCaption="True" Required="True"/>
+            </Component>
+            <Component Name="HandScoreGroup2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="StartScore" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Исходное значение" Field="VarStartScore" HasInnerCaption="True" ValueType="VarInteger"/>
+              <Component Name="GoalScoreEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Целевое значение" Field="VarGoalScore" HasInnerCaption="True" ValueType="VarInteger"/>
+            </Component>
+          </Component>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic"/>
+          <Component Name="GroupButtons" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="Static2" Class="Com.Ctrl.IStatic"/>
+            <Component Name="CloseButton" Class="Com.Ctrl.IButton" Alignment="RightAlign" Caption="Отменить" Fashion="Fashions.SecondaryButton" OnClick="CloseButtonOnClick"/>
+            <Component Name="SaveButton" Class="Com.Ctrl.IButton" Alignment="RightAlign" Caption="Сохранить" Fashion="Fashions.PrimaryButton" OnClick="SaveButtonOnClick"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Excluded="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

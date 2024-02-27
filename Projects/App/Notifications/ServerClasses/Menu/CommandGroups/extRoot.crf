@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Menu.CommandGroups.Root">
+  <Inherited>
+    <Component Name="РолевыеЦентры" Class="Com.Cmd2.ICommandGroup" After="#0">
+      <Component Name="DocApp_Workplace_Approval" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="РМ согласующего" IconName="Biz.RC"/>
+      <Component Name="DocApp_Workplace_Admin" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="РМ администратора" IconName="Biz.RC"/>
+    </Component>
+    <Component Name="DocApp_AlertSchedulerSettings" Class="Com.ComManaging.OpenIForm" Caption="@DocApp.Menu.Cmd:DAAlertSchedulerSettings=Настройка планировщика" FormClassName="Notifications.Frm.Ref.DAAlertSchedulerSettings" IconName="Com.Settings"/>
+    <Component Name="DocApp_AlertBuilder" Class="Com.ComManaging.OpenIForm" Caption="@DocApp.Menu.Cmd:DAAlertBuilder=Отправка уведомлений" FormClassName="Notifications.Frm.Service.DAAlertBuilder" IconName="Com.arrow-alt-right"/>
+    <Component Name="DocApp_DAAlert" Class="Com.ComManaging.OpenIForm" Caption="@DocApp.Menu.Cmd:DAAlert=Все уведомления" FormClassName="Notifications.Tab.Data.DAAlert" IconName="Com.calendar-star"/>
+    <Component Name="DocApp_DAAlertCurrent" Class="Com.ComManaging.ExecProcedure" Caption="@DocApp.Menu.Cmd:DAAlertCurrent=Текущие уведомления" CommandProc="GetCurrentAllerts" IconName="Control.exclamation"/>
+    <Component Name="DocApp_AlertRule" Class="Com.ComManaging.OpenIForm" Caption="@DocApp.Menu.Cmd:AlertRule=Правила генерации уведомлений" FormClassName="Notifications.Tab.Ref.DAAlertRule" IconName="Com.Table"/>
+    <Component Name="DocApp_TextMessageTemplate" Class="Com.ComManaging.OpenIForm" Caption="@DocApp.Menu.Cmd:TextMessageTemplate=Шаблоны текстов уведомлений" FormClassName="Notifications.Tab.Ref.DATextMessageTemplate" IconName="Com.Form"/>
+    <Inherited Name="CommandCenter" After="DocApp_TextMessageTemplate"/>
+  </Inherited>
+</Resource>

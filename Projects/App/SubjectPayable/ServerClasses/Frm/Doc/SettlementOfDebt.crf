@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="SubjectPayable.Frm.Base.BaseSubjPayableDoc">
+  <Inherited HelpContext="SubjectPayable.Расчеты с субъектами.Документы.Документы.Взаимозачет задолженности">
+    <Inherited Name="EdtRec" Class="SubjectPayable.Rec.Doc.SettlementOfDebt" IsLibrary="1"/>
+    <Component Name="defRefDocs" Class="SubjectPayable.Rec.Service.RefDocs" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="TableMenu" After="defRefDocs"/>
+    <Inherited Name="Variables">
+      <Component Name="tbRefDocs" Class="Com.ISubtable" StructClass="SubjectPayable.Rec.Service.RefDocs"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="OtherGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250">
+          <Component Name="stOtherGroup" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+          <Component Name="chDiffContraparty" Class="Com.Ctrl.ICheckBox" Field="EdtRec.DiffContraparty" FixSize="True" HasCaption="True" OnChange="chDiffContraparty_OnChange" Width="60"/>
+          <Component Name="stOtherGroup1" Class="Com.Ctrl.IStatic" Width="50"/>
+          <Component Name="stOtherGroup2" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+          <Component Name="stOtherGroup3" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="frMain">
+            <Inherited Name="grContraparty">
+              <Inherited Name="edContraparty" CaptionWidth="48" Hint="@SettlementOfDebt:Contraparty.Hint=Указывается сторона взаимозачета"/>
+            </Inherited>
+            <Inherited Name="grContract" Excluded="True"/>
+            <Component Name="grSettlement" Class="Com.Ctrl.IGroup" After="grContract" Adaptive="True" ByColumn="True" MaxWidth="250">
+              <Component Name="grDebAccrualOfDebt" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250">
+                <Component Name="edDebAccrualOfDebt" Class="Com.Ctrl.IEdit" Caption="Списание деб. задолж." CaptionWidth="48" CardFileClass="SubjectPayable.Tab.Doc.AccrualOfDebt" Field="EdtRec.DebAccrualOfDebt" HasCaption="True" Hint="@SettlementOfDebt:DebAccrualOfDebt.Hint=Указываются данные по списанию сумм дебиторской задолженности &#xD;&#xA;нашего предприятия в рамках проводимого взаимозачета (документ «Начисление задолженности», &#xD;&#xA;согласно которого в программе была оформлена возникшая по нашему предприятию дебиторская задолженность)" LookupField="Name" OnChange="edDebAccrualOfDebt_OnChange" OnGetLookupFilter="edDebAccrualOfDebt_OnGetLookupFilter" Required="True"/>
+                <Component Name="jbDebAccrualOfDebt" Class="Com.Ctrl.IJumpButton" Field="EdtRec.DebAccrualOfDebt" JumpForm="SubjectPayable.Frm.Doc.AccrualOfDebt"/>
+              </Component>
+              <Component Name="grCreAccrualOfDebt" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250">
+                <Component Name="edCreAccrualOfDebt" Class="Com.Ctrl.IEdit" Caption="Списание кред. задолж." CaptionWidth="48" CardFileClass="SubjectPayable.Tab.Doc.AccrualOfDebt" Field="EdtRec.CreAccrualOfDebt" HasCaption="True" Hint="@SettlementOfDebt:CreAccrualOfDebt.Hint=Указываются данные по списанию сумм кредиторской &#xD;&#xA;задолженности нашего предприятия в рамках проводимого взаимозачета (документ «Начисление задолженности», &#xD;&#xA;согласно которого в программе была оформлена возникшая по нашему предприятию кредиторская задолженность)" LookupField="Name" OnChange="edCreAccrualOfDebt_OnChange" OnGetLookupFilter="edCreAccrualOfDebt_OnGetLookupFilter" Required="True"/>
+                <Component Name="jbCreAccrualOfDebt" Class="Com.Ctrl.IJumpButton" Field="EdtRec.CreAccrualOfDebt" JumpForm="SubjectPayable.Frm.Doc.AccrualOfDebt"/>
+              </Component>
+              <Component Name="grAccDate" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250">
+                <Component Name="edAccDate" Class="Com.Ctrl.IEdit" Caption="@SettlementOfDebt:AccDate1=Дата взаимозачета" CaptionWidth="48" Field="EdtRec.AccDate" FormatOfDate="DateOnly" HasCaption="True" Hint="@SettlementOfDebt:AccDate=Дата проведения взаимозачета" MaxWidth="35" Required="True"/>
+                <Component Name="edCurrencyDoc" Class="Com.Ctrl.IEdit" Caption="Валюта взаимозачета" CaptionWidth="48" CardFileClass="Biz.Tab.Ref.UCurrencies" Field="EdtRec.Currency" HasCaption="True" LookupField="Code" MaxWidth="30" OnChange="edCurrencyDoc_OnChange" OnGetLookupFilter="edCurrencyDoc_OnGetLookupFilter" Required="True" ShortList="True"/>
+                <Component Name="Static5" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+              </Component>
+            </Component>
+            <Inherited Name="grSource" After="grSettlement">
+              <Inherited Name="edSourceDoc" Caption="@SettlementOfDebt:SourceDoc.1=Документ" CaptionWidth="48" Hint="@SettlementOfDebt:SourceDoc.Hint=Документ, согласно которого проводится взаимозачет"/>
+            </Inherited>
+            <Inherited Name="grComment">
+              <Inherited Name="edComment" CaptionWidth="48"/>
+            </Inherited>
+            <Component Name="grSumDebCre" Class="Com.Ctrl.IGroup" After="grComment" Adaptive="True" ByColumn="False" MaxWidth="250">
+              <Component Name="grSumCaption" Class="Com.Ctrl.IGroup" ByColumn="True" MaxWidth="45" MinWidth="45">
+                <Component Name="Static1" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="True" Width="45"/>
+                <Component Name="Static2" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@SubjectPayable:SumDocCur=Сумма в вал. док." FixSize="True" Width="45"/>
+                <Component Name="Static3" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@SubjectPayable:ExchRate2=Курс" FixSize="True" Width="45"/>
+                <Component Name="Static4" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@SubjectPayable:SumBase1=Сумма в опер. валюте" FixSize="True" Width="45"/>
+                <Component Name="grStVAT" Class="Com.Ctrl.IGroup" Visible="False">
+                  <Component Name="edVATRateDeb" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@SubjectPayable:WithVATRate=в т.ч. НДС" CaptionWidth="30" CardFileClass="Biz.Tab.Ref.VAT" Enabled="False" Field="EdtRec.VATRateDeb" FixSize="True" HasCaption="True" Hint="@SubjectPayable:VATRate=Ставка НДС" LookupField="ShortName" LookupFilter="ВидНДС&lt;>3" MaxWidth="15" ShortList="True" Width="15"/>
+                </Component>
+              </Component>
+              <Component Name="grSumDeb" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" HasCaption="True" MaxWidth="65">
+                <Component Name="stSumDeb" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="ДТ задолженность" MaxWidth="65" Width="65"/>
+                <Component Name="grSum" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="edSumDocDeb" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:SumDocCur=Сумма в вал. док." Field="EdtRec.SumDeb" FieldFormat=",0.00;;-" HasCaption="False" Hint="@SubjectPayable:SumDeb.Hint=Сумма списанной ДТ задолженности в валюте документа Списание дебиторской задолженности" MaxWidth="45" OnChange="edSumDocDeb_OnChange" Required="True"/>
+                  <Component Name="edCurrencyDeb" Class="Com.Ctrl.IEdit" Caption="-" CardFileClass="Biz.Tab.Ref.UCurrencies" Enabled="False" Field="EdtRec.CurrencyDeb" HasCaption="False" LookupField="Code" MaxWidth="20" Required="True"/>
+                  <Component Name="jbCurrencyDeb" Class="Com.Ctrl.IJumpButton" Field="EdtRec.CurrencyDeb" JumpForm="Biz.Frm.Ref.UnitOrCurrency"/>
+                </Component>
+                <Component Name="grExchRateDeb" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="edExchRateDeb" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:ExchRate1=Курс валюты" Field="EdtRec.ExchRateDeb" FieldFormat=",0.0000;;-" HasCaption="False" Hint="@SubjectPayable:ExchRateDeb.Hint=Курс валюты, установленный для списываемой дебиторской задолженности. По умолчанию указывается курс из карточки «Валюта» по состоянию на дату проведения взаимозачета" MaxWidth="45" OnDrawEx="edExchRateDeb_OnDrawEx" Required="True"/>
+                  <Component Name="btExchRateDeb" Class="Com.Ctrl.IButton" FixSize="True" Hint="@SubjectPayable:ExchRateUpd=Обновить курс валюты" ImageName="Com.Refresh" OnClick="btExchRateDeb_OnClick" Width="7"/>
+                  <Component Name="Static7" Class="Com.Ctrl.IStatic" FixSize="True" MaxWidth="20" Width="20"/>
+                  <Component Name="stExchRateDeb" Class="Com.Ctrl.IStatic" FixSize="True" Width="21"/>
+                </Component>
+                <Component Name="grSumBaseDeb" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250">
+                  <Component Name="edSumBaseDeb" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:SumBase1=Сумма в опер. валюте" Field="EdtRec.SumBaseDeb" FieldFormat=",0.00;;-" HasCaption="False" Hint="@SubjectPayable:SumBase1.Hint=Сумма первичного документа в операционной валюте (в базовой валюте)" MaxWidth="45"/>
+                  <Component Name="SumBaseStatic3" Class="Com.Ctrl.IStatic" FixSize="True" Width="20"/>
+                  <Component Name="SumBaseStatic5" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+                </Component>
+                <Component Name="grVATDeb" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250" Visible="False">
+                  <Component Name="edVATSumDeb" Class="Com.Ctrl.IEdit" Caption="-" Field="EdtRec.VATSumDeb" FieldFormat=",0.00;;-" HasCaption="False" Hint="@SubjectPayable:VATSum.Hint=Сумма НДС первичного документа, являющегося основанием для задолженности" MaxWidth="45"/>
+                  <Component Name="stVATRate5" Class="Com.Ctrl.IStatic" FixSize="True" Width="20"/>
+                  <Component Name="stVATRate7" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+                </Component>
+              </Component>
+              <Component Name="grSumCaptionCre" Class="Com.Ctrl.IGroup" ByColumn="True" MaxWidth="15" MinWidth="15">
+                <Component Name="Static6" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="True" Width="15"/>
+                <Component Name="Static9" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="True" Width="15"/>
+                <Component Name="Static10" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="True" Width="15"/>
+                <Component Name="Static11" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="True" Width="15"/>
+                <Component Name="grStVAT1" Class="Com.Ctrl.IGroup" Visible="False">
+                  <Component Name="edVATRateCre" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@SubjectPayable:WithVATRate=в т.ч. НДС" CardFileClass="Biz.Tab.Ref.VAT" Enabled="False" Field="EdtRec.VATRateCre" FixSize="True" HasCaption="False" Hint="@SubjectPayable:VATRate=Ставка НДС" LookupField="ShortName" LookupFilter="ВидНДС&lt;>3" MaxWidth="15" ShortList="True" Width="15"/>
+                </Component>
+              </Component>
+              <Component Name="grSumCre" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" HasCaption="True" MaxWidth="65">
+                <Component Name="stSumCre" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="КТ задолженность" FixSize="True" MaxWidth="65" Width="65"/>
+                <Component Name="grSum1" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="edSumCre" Class="Com.Ctrl.IEdit" CaptionWidth="45" Field="EdtRec.SumCre" FieldFormat=",0.00;;-" HasCaption="False" Hint="@SubjectPayable:SumCre.Hint=Сумма списанной КТ задолженности в валюте документа Списание кредиторской задолженности" MaxWidth="45" OnChange="edSumCre_OnChange" Required="True"/>
+                  <Component Name="edCurrencyCre" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UCurrencies" Enabled="False" Field="EdtRec.CurrencyCre" HasCaption="False" LookupField="Code" MaxWidth="20" Required="True"/>
+                  <Component Name="jbCurrencyCre" Class="Com.Ctrl.IJumpButton" Field="EdtRec.CurrencyCre" JumpForm="Biz.Frm.Ref.UnitOrCurrency"/>
+                </Component>
+                <Component Name="grExchRateCre" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="edExchRateCre" Class="Com.Ctrl.IEdit" Field="EdtRec.ExchRateCre" FieldFormat=",0.0000;;-" HasCaption="False" Hint="@SubjectPayable:ExchRateCre.Hint=Курс валюты, установленный для списываемой кредиторской задолженности. По умолчанию указывается курс из карточки «Валюта» по состоянию на дату проведения взаимозачета" MaxWidth="45" OnDrawEx="edExchRateCre_OnDrawEx" Required="True"/>
+                  <Component Name="btExchRateCre" Class="Com.Ctrl.IButton" FixSize="True" Hint="@SubjectPayable:ExchRateUpd=Обновить курс валюты" ImageName="Com.Refresh" OnClick="btExchRateCre_OnClick" Width="7"/>
+                  <Component Name="Static8" Class="Com.Ctrl.IStatic" FixSize="True" MaxWidth="20" Width="20"/>
+                  <Component Name="stExchRateCre" Class="Com.Ctrl.IStatic" FixSize="True" Width="21"/>
+                </Component>
+                <Component Name="grSumBaseCre" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250">
+                  <Component Name="edSumBaseCre" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:SumBase1=Сумма в опер. валюте" Field="EdtRec.SumBaseCre" FieldFormat=",0.00;;-" HasCaption="False" Hint="@SubjectPayable:SumBase1.Hint=Сумма первичного документа в операционной валюте (в базовой валюте)" MaxWidth="45"/>
+                  <Component Name="SumBaseStatic6" Class="Com.Ctrl.IStatic" FixSize="True" Width="20"/>
+                  <Component Name="SumBaseStatic8" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+                </Component>
+                <Component Name="grVATCre" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250" Visible="False">
+                  <Component Name="edVATSumCre" Class="Com.Ctrl.IEdit" Caption="-" CaptionWidth="3" Field="EdtRec.VATSumCre" FieldFormat=",0.00;;-" HasCaption="False" Hint="@SubjectPayable:VATSum.Hint=Сумма НДС первичного документа, являющегося основанием для задолженности" MaxWidth="45"/>
+                  <Component Name="stVATRate8" Class="Com.Ctrl.IStatic" FixSize="True" Width="20"/>
+                  <Component Name="stVATRate10" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+                </Component>
+              </Component>
+            </Component>
+            <Inherited Name="grSumDoc" Excluded="True" After="grSumDebCre"/>
+            <Inherited Name="grSumBase" Excluded="True"/>
+            <Inherited Name="grVAT" Excluded="True"/>
+          </Inherited>
+        </Inherited>
+        <Component Name="MainTab1" Class="Com.Ctrl.IFrame" After="MainTab" Caption="@SubjectPayable.Frm:MainTab=Документ" HasCaption="True" Margins="5">
+          <Component Name="frMain1" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="grAccDate1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250">
+              <Component Name="edAccDate1" Class="Com.Ctrl.IEdit" Caption="@SettlementOfDebt:AccDate1=Дата взаимозачета" CaptionWidth="48" Field="EdtRec.AccDate" FormatOfDate="DateOnly" HasCaption="True" Hint="@SettlementOfDebt:AccDate=Дата проведения взаимозачета" MaxWidth="35" Required="True"/>
+              <Component Name="edCurrencyDoc1" Class="Com.Ctrl.IEdit" Caption="Валюта взаимозачета" CaptionWidth="48" CardFileClass="Biz.Tab.Ref.UCurrencies" Field="EdtRec.Currency" HasCaption="True" LookupField="Code" MaxWidth="30" OnChange="edCurrencyDoc_OnChange" Required="True" ShortList="True"/>
+              <Component Name="Static13" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Component Name="grSource1" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250">
+              <Component Name="edSourceDoc1" Class="Com.Ctrl.IEdit" Caption="@SettlementOfDebt:SourceDoc.1=Документ" CaptionWidth="48" Field="EdtRec.SourceDoc" HasCaption="True" Hint="@SettlementOfDebt:SourceDoc.Hint=Документ, согласно которого проводится взаимозачет" Wrap="True"/>
+              <Component Name="SourceDocStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Component Name="grComment1" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250">
+              <Component Name="edComment1" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Comment.Hint=Примечание" CaptionWidth="48" Field="EdtRec.Comment" HasCaption="True" Wrap="True"/>
+              <Component Name="CommentStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Component Name="grSumDebCre1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250">
+              <Component Name="grSumCaption1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="45" MinWidth="45">
+                <Component Name="Static14" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="True" Width="45"/>
+                <Component Name="Static24" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@SubjectPayable:Contraparty=Контрагент" FixSize="True" Width="45"/>
+                <Component Name="Static25" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@SubjectPayable:DebAccrualOfDebt1=Документ задолж." FixSize="True" Width="45"/>
+                <Component Name="Static28" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@SubjectPayable:DebAccrualOfDebt1=Вариант зачета" FixSize="True" Width="45"/>
+                <Component Name="Static15" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@SubjectPayable:SumDocCur=Сумма в вал. док." FixSize="True" Width="45"/>
+                <Component Name="Static16" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@SubjectPayable:ExchRate2=Курс" FixSize="True" Width="45"/>
+                <Component Name="Static17" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@SubjectPayable:SumBase1=Сумма в опер. валюте" FixSize="True" Width="45"/>
+                <Component Name="edVATRateDeb1" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@SubjectPayable:WithVATRate=в т.ч. НДС" CaptionWidth="30" CardFileClass="Biz.Tab.Ref.VAT" Enabled="False" Field="EdtRec.VATRateDeb" FixSize="True" HasCaption="True" Hint="@SubjectPayable:VATRate=Ставка НДС" LookupField="ShortName" LookupFilter="ВидНДС&lt;>3" MaxWidth="15" ShortList="True" Visible="False" Width="15"/>
+              </Component>
+              <Component Name="grSumDeb1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" HasCaption="True" MaxWidth="125">
+                <Component Name="stSumDeb1" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Задолженность 1" MaxWidth="125" Width="125"/>
+                <Component Name="grContraparty1" Class="Com.Ctrl.IGroup" MaxWidth="125">
+                  <Component Name="edContraparty1" Class="Com.Ctrl.IEdit" CaptionWidth="48" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Contraparty" HasCaption="False" Hint="@SettlementOfDebt:Contraparty.Hint=Указывается сторона взаимозачета" LookupField="Name" OnChange="edContraparty_OnChange" OnGetLookupFilter="edContraparty1_OnGetLookupFilter" Required="True" Wrap="False"/>
+                  <Component Name="jbContraparty1" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Contraparty" FixSize="True" JumpForm="Bas.Frm.Data.Entity" Width="7"/>
+                </Component>
+                <Component Name="grDebAccrualOfDebt1" Class="Com.Ctrl.IGroup" ByColumn="False" MaxWidth="125">
+                  <Component Name="edDebAccrualOfDebt1" Class="Com.Ctrl.IEdit" CaptionWidth="48" CardFileClass="SubjectPayable.Tab.Doc.AccrualOfDebt" Field="EdtRec.DebAccrualOfDebt" HasCaption="False" Hint="@SettlementOfDebt:DebAccrualOfDebt1.Hint=Документ «Начисление задолженности», который будет участвовать во взаимозачете в качестве Задолженности 1.&#xD;&#xA;" LookupField="Name" OnChange="edDebAccrualOfDebt_OnChange" OnGetLookupFilter="edDebAccrualOfDebt_OnGetLookupFilter" Required="True"/>
+                  <Component Name="jbDebAccrualOfDebt1" Class="Com.Ctrl.IJumpButton" Field="EdtRec.DebAccrualOfDebt" JumpForm="SubjectPayable.Frm.Doc.AccrualOfDebt"/>
+                </Component>
+                <Component Name="grTypeSettl" Class="Com.Ctrl.IGroup" ByColumn="False" MaxWidth="125">
+                  <Component Name="edTypeSettl1" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.TypeSettl1" HasCaption="False" Hint="@SubjectPayable:TypeSettl.Hint=Данный параметр показывает будет производиться уменьшение или увеличение задолженности" MaxWidth="45"/>
+                  <Component Name="stTypeSettl1" Class="Com.Ctrl.IStatic" Width="20"/>
+                  <Component Name="stTypeSettl2" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+                </Component>
+                <Component Name="grSum2" Class="Com.Ctrl.IGroup" ByColumn="False" MaxWidth="125">
+                  <Component Name="edSumDocDeb1" Class="Com.Ctrl.IEdit" Field="EdtRec.SumDeb" FieldFormat=",0.00;;-" HasCaption="False" Hint="@SubjectPayable:SumDeb1.Hint=Указывается сумма задолженности 1 (в валюте задолженности) и наименование валюты задолженности." MaxWidth="45" OnChange="edSumDocDeb_OnChange" Required="True"/>
+                  <Component Name="edCurrencyDeb1" Class="Com.Ctrl.IEdit" Caption="-" CardFileClass="Biz.Tab.Ref.UCurrencies" Enabled="False" Field="EdtRec.CurrencyDeb" HasCaption="False" LookupField="Code" MaxWidth="20" Required="True"/>
+                  <Component Name="jbCurrencyDeb1" Class="Com.Ctrl.IJumpButton" Field="EdtRec.CurrencyDeb" JumpForm="Biz.Frm.Ref.UnitOrCurrency"/>
+                  <Component Name="stVATRate13" Class="Com.Ctrl.IStatic" FixSize="False" Width="5"/>
+                  <Component Name="stVATRate14" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+                </Component>
+                <Component Name="grExchRateDeb1" Class="Com.Ctrl.IGroup" ByColumn="False" MaxWidth="125">
+                  <Component Name="edExchRateDeb1" Class="Com.Ctrl.IEdit" Field="EdtRec.ExchRateDeb" FieldFormat=",0.0000;;-" HasCaption="False" Hint="@SubjectPayable:ExchRateDeb1.Hint=Указывается курс валюты, установленный для задолженности 1." MaxWidth="45" OnDrawEx="edExchRateDeb_OnDrawEx" Required="True"/>
+                  <Component Name="btExchRateDeb1" Class="Com.Ctrl.IButton" FixSize="True" Hint="@SubjectPayable:ExchRateUpd=Обновить курс валюты" ImageName="Com.Refresh" OnClick="btExchRateDeb_OnClick" Width="7"/>
+                  <Component Name="Static18" Class="Com.Ctrl.IStatic" FixSize="False" Width="20"/>
+                  <Component Name="stExchRateDeb1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+                </Component>
+                <Component Name="grSumBaseDeb1" Class="Com.Ctrl.IGroup" MaxWidth="125">
+                  <Component Name="edSumBaseDeb1" Class="Com.Ctrl.IEdit" Field="EdtRec.SumBaseDeb" FieldFormat=",0.00;;-" HasCaption="False" Hint="@SubjectPayable:SumBase11.Hint=Сумма задолженности 1 в операционной валюте" MaxWidth="45"/>
+                  <Component Name="SumBaseStatic4" Class="Com.Ctrl.IStatic" Width="20"/>
+                  <Component Name="SumBaseStatic7" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+                </Component>
+                <Component Name="grVATDeb1" Class="Com.Ctrl.IGroup" MaxWidth="125" Visible="False">
+                  <Component Name="edVATSumDeb1" Class="Com.Ctrl.IEdit" Caption="-" Field="EdtRec.VATSumDeb" FieldFormat=",0.00;;-" HasCaption="False" Hint="@SubjectPayable:VATSum.Hint=Сумма НДС первичного документа, являющегося основанием для задолженности" MaxWidth="45"/>
+                  <Component Name="stVATRate6" Class="Com.Ctrl.IStatic" FixSize="False" Width="20"/>
+                  <Component Name="stVATRate9" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+                </Component>
+              </Component>
+              <Component Name="grSumCaptionCre1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="15" MinWidth="15">
+                <Component Name="Static19" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="True" Width="15"/>
+                <Component Name="Static26" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="True" Width="15"/>
+                <Component Name="Static20" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="True" Width="15"/>
+                <Component Name="Static29" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="True" Width="15"/>
+                <Component Name="Static21" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="True" Width="15"/>
+                <Component Name="Static22" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="True" Width="15"/>
+                <Component Name="Static27" Class="Com.Ctrl.IStatic" Alignment="RightAlign" FixSize="True" Width="15"/>
+                <Component Name="edVATRateCre1" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@SubjectPayable:WithVATRate=в т.ч. НДС" CardFileClass="Biz.Tab.Ref.VAT" Enabled="False" Field="EdtRec.VATRateCre" FixSize="True" HasCaption="False" Hint="@SubjectPayable:VATRate=Ставка НДС" LookupField="ShortName" LookupFilter="ВидНДС&lt;>3" MaxWidth="15" ShortList="True" Visible="False" Width="15"/>
+              </Component>
+              <Component Name="grSumCre1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" HasCaption="True" MaxWidth="125">
+                <Component Name="stSumCre1" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="Задолженность 2" FixSize="True" MaxWidth="125" Width="125"/>
+                <Component Name="grContraparty2" Class="Com.Ctrl.IGroup" MaxWidth="125">
+                  <Component Name="edContraparty2" Class="Com.Ctrl.IEdit" CaptionWidth="48" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Contraparty2" HasCaption="False" Hint="@SettlementOfDebt:Contraparty.Hint=Указывается сторона взаимозачета" LookupField="Name" OnChange="edContraparty2_OnChange" OnGetLookupFilter="edContraparty2_OnGetLookupFilter" Required="True" Wrap="False"/>
+                  <Component Name="jbContraparty2" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Contraparty" FixSize="True" JumpForm="Bas.Frm.Data.Entity" Width="7"/>
+                </Component>
+                <Component Name="grCreAccrualOfDebt1" Class="Com.Ctrl.IGroup" ByColumn="False" MaxWidth="125">
+                  <Component Name="edCreAccrualOfDebt1" Class="Com.Ctrl.IEdit" CaptionWidth="48" CardFileClass="SubjectPayable.Tab.Doc.AccrualOfDebt" Field="EdtRec.CreAccrualOfDebt" HasCaption="False" Hint="@SettlementOfDebt:CreAccrualOfDebt1.Hint=Указывается номер, дата, тип задолженности и валюта задолженности документа «Начисление задолженности», который будет участвовать во взаимозачете в качестве Задолженности 2" LookupField="Name" OnChange="edCreAccrualOfDebt_OnChange" OnGetLookupFilter="edCreAccrualOfDebt2_OnGetLookupFilter" Required="True"/>
+                  <Component Name="jbCreAccrualOfDebt1" Class="Com.Ctrl.IJumpButton" Field="EdtRec.CreAccrualOfDebt" JumpForm="SubjectPayable.Frm.Doc.AccrualOfDebt"/>
+                </Component>
+                <Component Name="grTypeSettl2" Class="Com.Ctrl.IGroup" ByColumn="False" MaxWidth="125">
+                  <Component Name="edTypeSettl2" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.TypeSettl2" HasCaption="False" Hint="@SubjectPayable:TypeSettl.Hint=Данный параметр показывает будет производиться уменьшение или увеличение задолженности" MaxWidth="45"/>
+                  <Component Name="stTypeSettl3" Class="Com.Ctrl.IStatic" Width="20"/>
+                  <Component Name="stTypeSettl4" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+                </Component>
+                <Component Name="grSum3" Class="Com.Ctrl.IGroup" ByColumn="False" MaxWidth="125">
+                  <Component Name="edSumCre1" Class="Com.Ctrl.IEdit" Field="EdtRec.SumCre" FieldFormat=",0.00;;-" HasCaption="False" Hint="@SubjectPayable:SumCre2.Hint=Указывается сумма задолженности 2 (в валюте задолженности) и наименование валюты задолженности" MaxWidth="45" OnChange="edSumCre_OnChange" Required="True"/>
+                  <Component Name="edCurrencyCre1" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UCurrencies" Enabled="False" Field="EdtRec.CurrencyCre" HasCaption="False" LookupField="Code" MaxWidth="20" Required="True"/>
+                  <Component Name="jbCurrencyCre1" Class="Com.Ctrl.IJumpButton" Field="EdtRec.CurrencyCre" JumpForm="Biz.Frm.Ref.UnitOrCurrency"/>
+                </Component>
+                <Component Name="grExchRateCre1" Class="Com.Ctrl.IGroup" ByColumn="False" MaxWidth="125">
+                  <Component Name="edExchRateCre1" Class="Com.Ctrl.IEdit" Field="EdtRec.ExchRateCre" FieldFormat=",0.0000;;-" HasCaption="False" Hint="@SubjectPayable:ExchRateCre2.Hint=Указывается курс валюты, установленный для задолженности 2" MaxWidth="45" OnDrawEx="edExchRateCre_OnDrawEx" Required="True"/>
+                  <Component Name="btExchRateCre1" Class="Com.Ctrl.IButton" FixSize="True" Hint="@SubjectPayable:ExchRateUpd=Обновить курс валюты" ImageName="Com.Refresh" OnClick="btExchRateCre_OnClick" Width="7"/>
+                  <Component Name="Static23" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" MaxWidth="20" Width="20"/>
+                  <Component Name="stExchRateCre1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+                </Component>
+                <Component Name="grSumBaseCre1" Class="Com.Ctrl.IGroup" MaxWidth="125">
+                  <Component Name="edSumBaseCre1" Class="Com.Ctrl.IEdit" Field="EdtRec.SumBaseCre" FieldFormat=",0.00;;-" HasCaption="False" Hint="@SubjectPayable:SumBase12.Hint=Сумма задолженности 2 в операционной валюте" MaxWidth="45"/>
+                  <Component Name="SumBaseStatic9" Class="Com.Ctrl.IStatic" FixSize="False" Width="20"/>
+                  <Component Name="SumBaseStatic10" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+                </Component>
+                <Component Name="grVATCre1" Class="Com.Ctrl.IGroup" Visible="False">
+                  <Component Name="edVATSumCre1" Class="Com.Ctrl.IEdit" Caption="-" CaptionWidth="3" Field="EdtRec.VATSumCre" FieldFormat=",0.00;;-" HasCaption="False" Hint="@SubjectPayable:VATSum.Hint=Сумма НДС первичного документа, являющегося основанием для задолженности" MaxWidth="45"/>
+                  <Component Name="stVATRate11" Class="Com.Ctrl.IStatic" FixSize="False" Width="20"/>
+                  <Component Name="stVATRate12" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="bxCreateUpdate1" Class="Com.Ctrl.IBox" Caption="@SubjectPayable:CreateUpdate=Создал, изменил" Collapsed="True" HasCaption="True">
+            <Component Name="grCreate1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250">
+              <Component Name="edCreateUser1" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.CreateUser" HasCaption="True" Width="50" Wrap="False"/>
+              <Component Name="edCreateDate1" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.CreateDate" FormatOfDate="DateAndTime" HasCaption="True" Width="50" Wrap="False"/>
+              <Component Name="CreateStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Component Name="grUpdate1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250">
+              <Component Name="edUpdateUser1" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.UpdateUser" HasCaption="True" Width="50" Wrap="False"/>
+              <Component Name="edUpdateDate1" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.UpdateDate" FormatOfDate="DateAndTime" HasCaption="True" Width="50" Wrap="False"/>
+              <Component Name="UpdateStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+          </Component>
+        </Component>
+        <Inherited Name="RepMoveTab" After="MainTab1"/>
+        <Component Name="RefDocsTab" Class="Com.Ctrl.IFrame" After="RepMoveTab" Caption="@SubjectPayable:RefDocTab=Связанные документы" HasCaption="True">
+          <Component Name="grRefDocs" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250">
+            <Component Name="Static12" Class="Com.Ctrl.IStatic" Width="170"/>
+            <Component Name="btRefDocRefresh" Class="Com.Ctrl.IButton" FixSize="True" HasCaption="False" Hint="Обновить список документов" ImageName="Com.Refresh" OnClick="btRefDocRefresh_OnClick" Width="8"/>
+          </Component>
+          <Component Name="tbsRefDocs" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Sortable="True" Subtable="tbRefDocs">
+            <Component Name="edRefAccounted" Class="Com.Ctrl.IEdit" Enabled="False" Field="defRefDocs.Accounted" HasCaption="True" Width="10"/>
+            <Component Name="edRefRecordType" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:RefRecordType=Документ" Enabled="False" Field="defRefDocs.TypeAcc" HasCaption="True" Width="55"/>
+            <Component Name="edRefNumberDoc" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Number=Номер" Enabled="False" Field="defRefDocs.NumberDoc" HasCaption="True" Width="30"/>
+            <Component Name="edRefDateDoc" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:DateDoc=Дата документа" Enabled="False" Field="defRefDocs.DateDoc" FormatOfDate="DateOnly" HasCaption="True" Width="25"/>
+            <Component Name="edRefAccDate" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:RefDocs.AccDate=Дата проведения(оплаты, переоценки, взаимозачета)" Enabled="False" Field="EdtRec.AccDate" FormatOfDate="DateOnly" HasCaption="True" Width="30"/>
+            <Component Name="edRefSumDoc" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:SumDocCur1=Сумма в валюте документа" Enabled="False" Field="defRefDocs.SumDoc" FieldFormat=",0.00;;-" HasCaption="True" Width="30"/>
+            <Component Name="edRefCurrency" Class="Com.Ctrl.IEditEx" Alignment="RightAlign" Caption="Валюта" CardFileClass="Biz.Tab.Ref.UCurrencies" Enabled="False" Field="defRefDocs.Currency" HasCaption="True" LookupField="Code" Width="20"/>
+            <Component Name="edRefSumBase" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:SumBase1=Сумма в операционной валюте" Enabled="False" Field="defRefDocs.SumBase" FieldFormat=",0.00;;-" HasCaption="True" Width="30"/>
+            <Component Name="btRefRecord" Class="Com.Ctrl.IButton" FixSize="True" Hint="Открыть документ" ImageName="Com.arrow-circle-right" OnClick="btRefRecord_OnClick" Width="8"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

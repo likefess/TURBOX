@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Bas.Rec.Data.Entity" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False" Visible="True">
+          <Component Name="btnChangeFIO" Class="Com.Ctrl.IButton" Caption="@Изменить ФИО" HasCaption="True" ImageName="Biz.list" OnClick="btnChangeFIO_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" Visible="False"/>
+        <Component Name="grNaturalPerson" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="110">
+          <Component Name="NaturalPersonName" Class="Com.Ctrl.IEdit" Caption="@ФИО" Enabled="False" Field="EdtRec.Name" HasCaption="True" TabStop="True"/>
+          <Component Name="NaturalPersonCode" Class="Com.Ctrl.IEdit" Caption="@Код" CaptionWidth="25" Enabled="False" Field="EdtRec.Code" HasCaption="True" MaxWidth="30" TabStop="True"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" AutoSize="False">
+          <Component Name="bxMain" Class="Com.Ctrl.IBox" Caption="@Entity:NaturalDetails=Реквизиты физ. лица" Collapsed="False" HasCaption="True">
+            <Component Name="grMain" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="110" Visible="True">
+              <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="190" MinWidth="90">
+                <Component Name="FamilyName" Class="Com.Ctrl.IEdit" Field="EdtRec.FamilyName" HasCaption="True" OnChange="FamilyName_OnChange" Required="True"/>
+                <Component Name="GivenName" Class="Com.Ctrl.IEdit" Field="EdtRec.GivenName" HasCaption="True" OnChange="GivenName_OnChange"/>
+                <Component Name="Patronym" Class="Com.Ctrl.IEdit" Field="EdtRec.Patronym" HasCaption="True" OnChange="Patronym_OnChange"/>
+                <Component Name="BirthDate" Class="Com.Ctrl.IEdit" Field="EdtRec.BirthDate" HasCaption="True" MaxWidth="40"/>
+              </Component>
+              <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="60" MinWidth="30">
+                <Component Name="Initials" Class="Com.Ctrl.IEdit" CaptionWidth="25" Enabled="False" Field="EdtRec.Initials" HasCaption="True" TabStop="True"/>
+                <Component Name="Gender" Class="Com.Ctrl.IEdit" CaptionWidth="25" CellFormat="EnumFormat" Field="EdtRec.Gender" HasCaption="True" Required="True"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="bxContacts" Class="Com.Ctrl.IBox" Caption="@Entity:Contacts=Контакты" Collapsed="False" HasCaption="True">
+            <Component Name="grContacts" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="110">
+              <Component Name="CountryRegion" Class="Com.Ctrl.IEdit" Field="EdtRec.CountryRegion" HasCaption="True"/>
+              <Component Name="MainAddress" Class="Com.Ctrl.IEdit" Caption="@Адрес" Field="EdtRec.MainAddress" HasButton="True" HasCaption="True" Multiline="True" OnLookup="MainAddress_OnLookup" Wrap="True"/>
+              <Component Name="Phone" Class="Com.Ctrl.IEdit" Caption="@Личный телефон" Field="EdtRec.Phone" HasCaption="True"/>
+              <Component Name="Phone2" Class="Com.Ctrl.IEdit" Caption="@Рабочий телефон" Field="EdtRec.Phone2" HasCaption="True"/>
+              <Component Name="MobilePhone" Class="Com.Ctrl.IEdit" Field="EdtRec.MobilePhone" HasCaption="True"/>
+              <Component Name="EMail" Class="Com.Ctrl.IEdit" Field="EdtRec.E_Mail" HasCaption="True"/>
+              <Component Name="ExtraContact" Class="Com.Ctrl.IEdit" Field="EdtRec.ExtraContact" HasCaption="True"/>
+              <Component Name="grMainBankDetails" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="110">
+                <Component Name="MainBankDetails" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.BankDetails" Field="EdtRec.MainBankDetails" HasCaption="True" LookupField="Name" Multiline="True" Wrap="True"/>
+                <Component Name="btnMainBankDetails" Class="Com.Ctrl.IJumpButton" Field="EdtRec.MainBankDetails" JumpForm="Biz.Frm.Data.BankDetails"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="bxServiceBox" Class="Com.Ctrl.IBox" Caption="Прочее" Collapsed="True" HasCaption="True">
+            <Component Name="frServiceBox" Class="Com.Ctrl.IFrame"/>
+          </Component>
+        </Inherited>
+        <Component Name="PersonalDataTab" Class="Com.Ctrl.IFrame" Caption="@Персональные данные" HasCaption="True"/>
+        <Component Name="AddressTab" Class="Com.Ctrl.IFrame" AutoSize="False" Caption="@Entity:AddressDetails=Адреса" HasCaption="True"/>
+        <Component Name="EmployeePlaceTab" Class="Com.Ctrl.IFrame" AutoSize="False" Caption="@Трудоустройство" HasCaption="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

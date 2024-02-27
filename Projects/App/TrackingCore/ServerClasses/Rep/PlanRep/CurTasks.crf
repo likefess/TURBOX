@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" AccountPlan="Workflow" BegDate="01.01.1900" Caption="Текущие задачи по проекту" CIndicator="1" EndDate="01.01.2100" FreezeHeader="True" HidePeriod="False" HystoKind="hkSide" Legend="lpkAtRight" Palette="cpDefault" ParameterFilter="Task.Категория &lt;> Epic" Period="6" TabHeaderFirst="True">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorTaskUnit" Class="Com.Rep.IIndMain" Caption="IndicatorTaskUnit" Contents="TaskUnit" Visible="False"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam0A1866A9" Class="Com.Rep.ISplitByParam" ShowTotals="False" SplitParam="Task.Код"/>
+        <Component Name="SplitParam8225BB68" Class="Com.Rep.ISplitByParam" SplitParam="Task.Описание"/>
+        <Component Name="SplitParam1E5C51FD" Class="Com.Rep.ISplitByParam" SplitParam="Task.ДатаНачала"/>
+        <Component Name="SplitParam64002D6B" Class="Com.Rep.ISplitByParam" SplitParam="Task.СрокЗавершения"/>
+        <Component Name="SplitParam150F25AD" Class="Com.Rep.ISplitByParam" SplitParam="Task.Состояние"/>
+        <Component Name="SplitParam865DD7AE" Class="Com.Rep.ISplitByParam" SplitParam="Task.Проект"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContentNumber" Class="Com.Rep.ISplitContent" Caption="Номер" Contents="Task.Код"/>
+        <Component Name="SplitContentTask" Class="Com.Rep.ISplitContent" Caption="Задача" Contents="Task.Описание"/>
+        <Component Name="SplitContentBegDate" Class="Com.Rep.ISplitContent" Caption="Дата начала выполнения" Contents="Task.ДатаНачала" Format="dd.mm.yyyy" OutputType="otValue"/>
+        <Component Name="SplitContentEndDate" Class="Com.Rep.ISplitContent" Caption="Дата окончания" Contents="Task.СрокЗавершения" Format="dd.mm.yyyy"/>
+        <Component Name="SplitContentStatus" Class="Com.Rep.ISplitContent" AfterIndicators="True" Caption="Состояние" Contents="Task.Состояние"/>
+        <Component Name="CompletionSplitContent" Class="Com.Rep.ISplitContent" Caption="% выполнения" Contents="Task.#Progress" Format="0.00%" Visible="True"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_Project" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Проект" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" DefaultStr="Object(nil)" FieldFormat="По умолчанию" LookupField="Name" Operator=" is " Parameter="Task.Проект" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

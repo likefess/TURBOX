@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IEditor">
+    <Component Name="EdtRec" Class="Bas.Rec.Ref.EntityRole" IsLibrary="1"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="TermsBox" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@TaskApprovement:ApprovalTerms=Сроки согласования" HasCaption="True">
+        <Component Name="TermsTableFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Enabled="True" Margins="1">
+          <Component Name="TermsTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="True" CanInsert="True" CanMove="True" Caption="@TaskApprovement:ApprovalTerms=Сроки согласования" Enabled="True" HasCaption="True" ManualControl="True" Subtable="EdtRec.ApprovalTerms" Visible="True" Width="260">
+            <Component Name="EdtTermStruct" Class="TaskApprovement.Rec.Ref.EntityRole_ApprovalTerms" IsLibrary="1"/>
+            <Component Name="ProcTypeEdit" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Config.ProcType" CellFormat="ReferenceFormat" Field="EdtTermStruct.ProcType" HasCaption="True" LookupField="Name" MaxWidth="160" MinWidth="70" Width="70"/>
+            <Component Name="RelevanceEdit" Class="Com.Ctrl.IEdit" Field="EdtTermStruct.Relevance" FixSize="True" Width="20"/>
+            <Component Name="DurationGroup" Class="Com.Ctrl.IColumnsGroup" Caption="Срок" Enabled="True" HasCaption="True" Width="50">
+              <Component Name="DurationEdit" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Field="EdtTermStruct.Duration" FixSize="True" HasCaption="False" Width="27"/>
+              <Component Name="DurationUnitEdit" Class="Com.Ctrl.IEdit" Caption="Срок" CardFileClass="Biz.Tab.Ref.UnitsOfMeasure" CellFormat="ReferenceFormat" Field="EdtTermStruct.DurationUnit" FixSize="True" HasCaption="False" LookupField="Code" LookupFilter="UnitKind = 3" ShortList="True" Width="23"/>
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

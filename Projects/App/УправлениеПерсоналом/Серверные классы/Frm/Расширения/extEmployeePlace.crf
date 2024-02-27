@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="HRBase.Frm.Data.EmployeePlace">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonClone" Enabled="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Code" Enabled="False"/>
+          <Inherited Name="Name" Enabled="False"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="FieldsFrameMain">
+            <Inherited Name="Group2">
+              <Inherited Name="EmplNumber" Enabled="False"/>
+              <Inherited Name="Person" Enabled="False"/>
+            </Inherited>
+            <Inherited Name="grMain">
+              <Inherited Name="grCompany">
+                <Inherited Name="Company" Enabled="False"/>
+              </Inherited>
+              <Inherited Name="grDivision">
+                <Inherited Name="Division" Enabled="False"/>
+              </Inherited>
+              <Inherited Name="grPosition">
+                <Inherited Name="Position" Enabled="False"/>
+              </Inherited>
+              <Component Name="грРазряд" Class="Com.Ctrl.IGroup" After="grPosition" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Разряд" Class="Com.Ctrl.IEdit" Caption="Разряд" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ТарифныеРазряды" Enabled="False" Field="EdtRec.Разряд" HasCaption="True" Hint="Тарифный (квалификационный) разряд" LookupField="Name" OnOpenCardForm="НастроитьКартотекуРазряд"/>
+                <Component Name="кнРазряд" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Разряд" JumpForm="УправлениеПерсоналом.Frm.Справочники.ТарифныйРазряд"/>
+              </Component>
+              <Inherited Name="grDates">
+                <Inherited Name="HireDate" Enabled="False"/>
+                <Inherited Name="FireDate" Enabled="False"/>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

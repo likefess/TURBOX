@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Menu.Panel_TaskManagement_Project_Manager">
+  <Inherited>
+    <Inherited Name="MainGroup">
+      <Inherited Name="GroupMemberAdmin">
+        <Inherited Name="Project" FormClassName="Frm.ActiveAndArchievedProjects"/>
+        <Component Name="Teams" Class="Com.ComManaging.OpenIForm" Caption="@TrackingPlan:Teams=Список команд" FormClassName="TrackingPlan.Tab.Data.Team" IconName="TrackingCore.user-fill"/>
+      </Inherited>
+      <Component Name="GroupReports" Class="Com.Cmd2.IGroup" After="GroupMemberAdmin" Caption="Отчёты" IconName="TrackingCore.pie-chart-2-fill">
+        <Component Name="TeamVelocityChart" Class="Com.ComManaging.OpenIForm" Caption="@Trackinglan:TeamVelocityChart=Скорость команды" FormClassName="Rep.TeamVelocityViewer" IconName="TrackingCore.checkbox-blank-circle-mini-fill"/>
+        <Component Name="BurnDownChart" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:BurnDownChart=Диаграмма сгорания задач" FormClassName="TrackingCore.Rep.BurnDownDiagram.BurnDownChart" IconName="TrackingCore.checkbox-blank-circle-mini-fill"/>
+        <Component Name="ProjectReport" Class="Com.ComManaging.OpenIForm" Caption="Отчет о ходе проекта" CardFilter="Match(Name, &quot;*Отчет о ходе проекта*&quot;)" FormClassName="Rep.ProjectRep" IconName="TrackingCore.checkbox-blank-circle-mini-fill"/>
+        <Component Name="StatusChart" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:StatusChart=Диаграмма статусов" FormClassName="TrackingCore.Frm.StatusChart" IconName="TrackingCore.checkbox-blank-circle-mini-fill"/>
+        <Component Name="RepTMSPlanFactByRole" Class="Com.ComManaging.OpenIForm" Caption="@TMS:PlanFactByRole=План-факт по ролям" FormClassName="TMS.Rep.PlanFact_Viewer" IconName="TrackingCore.checkbox-blank-circle-mini-fill"/>
+        <Component Name="RepTMSCostsPlanFact" Class="Com.ComManaging.OpenReport" Caption="@TMS:CostsPlanFact=Контроль бюджета" IconName="TrackingCore.checkbox-blank-circle-mini-fill" ReportCode="TMSCosts.Rep.CostsPlanFact"/>
+      </Component>
+      <Inherited Name="GroupSettings" After="GroupReports"/>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,473 @@
+﻿TBCFile VER="3.4" [Created '15.11.2018 17:53:08' by 'Yurij']
+
+DESCRIPTION[
+Count=44
+CountByRef=0
+Bas.Config.ParticipantSettings
+(
+  Count=44
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Bas.Config.ParticipantSettings
+  (
+    Deleted :Boolean
+    GroupDoc :Bas.Config.ParticipantSettings
+    isGroup :Integer
+    Branch :String(80)
+    Confid :Integer
+    IsMeta :Boolean
+    ЗамокЭлементаСБ :Boolean
+    КодПодсистемы :Integer
+    КодМодуля :String
+    КодУчастника :Integer
+    Code :String(80)
+    Name :String(850)
+    Тип :Integer
+    ТипЗначения :Integer
+    Картотека :String
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Bas.Config.ParticipantSettings
+  
+  {Bas.Config.ParticipantSettings:"ТиС"}
+  (
+    isGroup = -1
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "ТиС"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РолиСубъектов"}
+  (
+    isGroup = -1
+    IsMeta = True
+    КодМодуля = "ТиС,БЖТ"
+    Name = "РолиСубъектов"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РольСубъекта_Поставщик"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:РолиСубъектов}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "РольСубъекта ""Поставщик"""
+    ТипЗначения = 6
+    Картотека = "Bas.Tab.Ref.EntityRoles"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РольСубъекта_Покупатель"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:РолиСубъектов}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "РольСубъекта ""Покупатель"""
+    ТипЗначения = 6
+    Картотека = "Bas.Tab.Ref.EntityRoles"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РольСубъекта_Склад"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:РолиСубъектов}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "РольСубъекта ""Склад"""
+    ТипЗначения = 6
+    Картотека = "Bas.Tab.Ref.EntityRoles"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РольСубъекта_МОЛ"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:РолиСубъектов}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "РольСубъекта ""МОЛ"""
+    ТипЗначения = 6
+    Картотека = "Bas.Tab.Ref.EntityRoles"
+  )
+  
+  {Bas.Config.ParticipantSettings:"Ресурсы_ТиС"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:ТиС}
+    isGroup = -1
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Ресурсы_ТиС"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РесурсРасчетыСПост"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:Ресурсы_Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Ресурс ""РасчетыСПоставщиками"""
+    ТипЗначения = 6
+    Картотека = "Biz.Tab.Data.Resources"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РесурсДС"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:Ресурсы_Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Ресурс ""Денежные средства"""
+    ТипЗначения = 6
+    Картотека = "Biz.Tab.Data.Resources"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РольСубъекта_Касса"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:РолиСубъектов}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "РольСубъекта ""Касса"""
+    ТипЗначения = 6
+    Картотека = "Bas.Tab.Ref.EntityRoles"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РольСубъекта_Кассир"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:РолиСубъектов}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "РольСубъекта ""Кассир"""
+    ТипЗначения = 6
+    Картотека = "Bas.Tab.Ref.EntityRoles"
+  )
+  
+  {Bas.Config.ParticipantSettings:"ВалютаПоУмолчанию"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Валюта по умолчанию (для прайс-листов)"
+    ТипЗначения = 6
+    Картотека = "Biz.Tab.Ref.UCurrencies"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РесурсПрошлаяДеятельность"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:Ресурсы_Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Ресурс ""Прошлая деятельность"""
+    ТипЗначения = 6
+    Картотека = "Biz.Tab.Data.Resources"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РесурсВсеТМЦ"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:Ресурсы_Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Ресурс ""ТМЦ (группа)"" (для разнесения затрат)"
+    ТипЗначения = 6
+    Картотека = "Biz.Tab.Data.Resources"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РольСубъекта_Подразделение"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:РолиСубъектов}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "РольСубъекта ""Подразделение"""
+    ТипЗначения = 6
+    Картотека = "Bas.Tab.Ref.EntityRoles"
+  )
+  
+  {Bas.Config.ParticipantSettings:"ГруппаСБКдляЗатрат"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Группа СБК для затрат"
+    ТипЗначения = 6
+    Картотека = "Biz.Tab.Ref.BGI"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РесурсЗатраты"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:Ресурсы_Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Ресурс ""Затраты"""
+    ТипЗначения = 6
+    Картотека = "Biz.Tab.Data.Resources"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РесурсПрибылиУбытки"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:Ресурсы_Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Ресурс ""Прибыли/Убытки"""
+    ТипЗначения = 6
+    Картотека = "Biz.Tab.Data.Resources"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РесурсПростоеПроизводство"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:Ресурсы_Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Ресурс ""Производство"""
+    ТипЗначения = 6
+    Картотека = "Biz.Tab.Data.Resources"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РесурсРасчетыСПок"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:Ресурсы_Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Ресурс ""РасчетыСПокупателями"""
+    ТипЗначения = 6
+    Картотека = "Biz.Tab.Data.Resources"
+  )
+  
+  {Bas.Config.ParticipantSettings:"ЕдИзмПроцент"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Единица измерения ""Процент"" (%)"
+    ТипЗначения = 6
+    Картотека = "Biz.Tab.Ref.UnitsOfMeasure"
+  )
+  
+  {Bas.Config.ParticipantSettings:"ТипЦеныПродажиПоУмолчанию"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:ТиС}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "ТипЦеныПродажиПоУмолчанию"
+    ТипЗначения = 6
+    Картотека = "SCM.Tab.Справочники.ТипыЦен"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РольСубъекта_Контрагент"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:РолиСубъектов}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "РольСубъекта ""Контрагент"""
+    ТипЗначения = 6
+    Картотека = "Bas.Tab.Ref.EntityRoles"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РесурсКомплектация"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:Ресурсы_Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Ресурс ""Комплектация"""
+    ТипЗначения = 6
+    Картотека = "Biz.Tab.Data.Resources"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РольСубъекта_Посредник"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:РолиСубъектов}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "РольСубъекта ""Посредник"""
+    ТипЗначения = 6
+    Картотека = "Bas.Tab.Ref.EntityRoles"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РесурсПрибылиУбыткиКол"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:Ресурсы_Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Ресурс ""Прибыли/Убытки кол."""
+    ТипЗначения = 6
+    Картотека = "Biz.Tab.Data.Resources"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РольСубъекта_Физлицо"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:РолиСубъектов}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "РольСубъекта ""Физлицо"""
+    ТипЗначения = 6
+    Картотека = "Bas.Tab.Ref.EntityRoles"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РольСубъекта_Юрлицо"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:РолиСубъектов}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "РольСубъекта ""Юрлицо"""
+    ТипЗначения = 6
+    Картотека = "Bas.Tab.Ref.EntityRoles"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РольСубъекта_Учредитель"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:РолиСубъектов}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "РольСубъекта ""Учредитель"""
+    ТипЗначения = 6
+    Картотека = "Bas.Tab.Ref.EntityRoles"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РольСубъекта_ДебиторКредитор"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:РолиСубъектов}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "РольСубъекта ""Дебитор/Кредитор"""
+    ТипЗначения = 6
+    Картотека = "Bas.Tab.Ref.EntityRoles"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РольСубъекта_РСчет"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:РолиСубъектов}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "РольСубъекта ""Расч.счет"""
+    ТипЗначения = 6
+    Картотека = "Bas.Tab.Ref.EntityRoles"
+  )
+  
+  {Bas.Config.ParticipantSettings:"Торговля"}
+  (
+    isGroup = -1
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Торговля"
+  )
+  
+  {Bas.Config.ParticipantSettings:"Ресурсы_Торговля"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:Торговля}
+    isGroup = -1
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "Ресурсы для автоматического заполнения в документах"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РольСубъекта_НашеПредпрТорг"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:РолиСубъектов}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "РольСубъекта ""Наше предприятие"""
+    ТипЗначения = 6
+    Картотека = "Bas.Tab.Ref.EntityRoles"
+  )
+  
+  {Bas.Config.ParticipantSettings:"РольСубъекта_СотрудникТорг"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:РолиСубъектов}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "РольСубъекта ""Сотрудник"""
+    ТипЗначения = 6
+    Картотека = "Bas.Tab.Ref.EntityRoles"
+  )
+  
+  {Bas.Config.ParticipantSettings:"СБК_Выручка"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:СБК_Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "СБК для выручки"
+    ТипЗначения = 6
+    Картотека = "Biz.Tab.Ref.BGI"
+  )
+  
+  {Bas.Config.ParticipantSettings:"СБК_Инвентаризация"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:СБК_Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "СБК для инвентаризации"
+    ТипЗначения = 6
+    Картотека = "Biz.Tab.Ref.BGI"
+  )
+  
+  {Bas.Config.ParticipantSettings:"СБК_Продажа"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:СБК_Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "СБК для продаж"
+    ТипЗначения = 6
+    Картотека = "Biz.Tab.Ref.BGI"
+  )
+  
+  {Bas.Config.ParticipantSettings:"СБК_НачОст"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:СБК_Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "СБК для нач.остатков"
+    ТипЗначения = 6
+    Картотека = "Biz.Tab.Ref.BGI"
+  )
+  
+  {Bas.Config.ParticipantSettings:"СБК_ВозврДенегОтПост"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:СБК_Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "СБК для возврата денег от поставщика"
+    ТипЗначения = 6
+    Картотека = "Biz.Tab.Ref.BGI"
+  )
+  
+  {Bas.Config.ParticipantSettings:"СБК_ОплПост"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:СБК_Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "СБК для оплат поставщикам"
+    ТипЗначения = 6
+    Картотека = "Biz.Tab.Ref.BGI"
+  )
+  
+  {Bas.Config.ParticipantSettings:"СБК_ВозврОплПок"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:СБК_Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "СБК для возвратов оплат покупателям"
+    ТипЗначения = 6
+    Картотека = "Biz.Tab.Ref.BGI"
+  )
+  
+  {Bas.Config.ParticipantSettings:"СБК_КурсРазн"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:СБК_Торговля}
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "СБК для курсовых разниц (переоценки)"
+    ТипЗначения = 6
+    Картотека = "Biz.Tab.Ref.BGI"
+  )
+  
+  {Bas.Config.ParticipantSettings:"СБК_Торговля"}
+  (
+    GroupDoc = {Bas.Config.ParticipantSettings:Торговля}
+    isGroup = -1
+    IsMeta = True
+    КодМодуля = "ТиС"
+    Name = "СБК для автоматического заполнения в документах"
+  )
+]
+
+]

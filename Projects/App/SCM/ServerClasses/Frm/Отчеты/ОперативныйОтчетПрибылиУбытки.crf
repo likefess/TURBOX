@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited HelpContext="Имущество.Имущество.Задания.Расчет амортизации ОС">
+    <Inherited Name="Variables">
+      <Component Name="перПредприятие" Class="Com.Fld.IVar" Caption="Предприятие" OnCalc="перПредприятие_OnCalc" OnChange="перПредприятие_OnChange" ValueType="VarObject"/>
+      <Component Name="перНП" Class="Com.Fld.IVar" Caption="Уч.политикпа предприятия" OnCalc="перНП_OnCalc" ValueType="VarObject"/>
+      <Component Name="перДатаНачала" Class="Com.Fld.IVar" Caption="Итого" OnCalc="перДатаНачала_OnCalc" OnChange="перДатаНачала_OnChange" ValueType="VarDate"/>
+      <Component Name="перДатаОкончания" Class="Com.Fld.IVar" Caption="Итого" OnCalc="перДатаОкончания_OnCalc" OnChange="перДатаОкончания_OnChange" ValueType="VarDate"/>
+      <Component Name="перДоходыУслуги" Class="Com.Fld.IVar" Caption="Услуги" ValueType="VarNumeric"/>
+      <Component Name="перДоходыТовары" Class="Com.Fld.IVar" Caption="Товары" ValueType="VarNumeric"/>
+      <Component Name="перДоходыМатериалы" Class="Com.Fld.IVar" Caption="Материалы" ValueType="VarNumeric"/>
+      <Component Name="перДоходыИзделия" Class="Com.Fld.IVar" Caption="Изделия" ValueType="VarNumeric"/>
+      <Component Name="перДоходыПрочее" Class="Com.Fld.IVar" Caption="Прочее" ValueType="VarNumeric"/>
+      <Component Name="перДоходыИтого" Class="Com.Fld.IVar" Caption="Итого" ValueType="VarNumeric"/>
+      <Component Name="перПрямыеЗатратыТовары" Class="Com.Fld.IVar" Caption="Товары" ValueType="VarNumeric"/>
+      <Component Name="перПрямыеЗатратыМатериалы" Class="Com.Fld.IVar" Caption="Материалы" ValueType="VarNumeric"/>
+      <Component Name="перПрямыеЗатратыИзделия" Class="Com.Fld.IVar" Caption="Изделия" ValueType="VarNumeric"/>
+      <Component Name="перПрямыеЗатратыПрочее" Class="Com.Fld.IVar" Caption="Прочее" ValueType="VarNumeric"/>
+      <Component Name="перПрямыеЗатратыИтого" Class="Com.Fld.IVar" Caption="Итого" ValueType="VarNumeric"/>
+      <Component Name="перМаржинальнаяПрибыль" Class="Com.Fld.IVar" Caption="Итого" ValueType="VarNumeric"/>
+      <Component Name="перЗатратыУслуги" Class="Com.Fld.IVar" Caption="Услуги" ValueType="VarNumeric"/>
+      <Component Name="перЗатратыЗарплата" Class="Com.Fld.IVar" Caption="Зарплата" ValueType="VarNumeric"/>
+      <Component Name="перЗатратыИтого" Class="Com.Fld.IVar" Caption="Итого" ValueType="VarNumeric"/>
+      <Component Name="перПрибыль" Class="Com.Fld.IVar" Caption="Прибыль" ValueType="VarNumeric"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="4">
+        <Inherited Name="ButtonOK" Visible="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="фрПараметры" Class="Com.Ctrl.IFrame" Caption="Параметры">
+          <Component Name="грПараметры" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150" MinWidth="150" Visible="True">
+            <Component Name="грПериод" Class="Com.Ctrl.IGroup">
+              <Component Name="редДатаНачала" Class="Com.Ctrl.IEdit" Caption="Период с" Field="перДатаНачала" HasCaption="True"/>
+              <Component Name="редДатаОкончания" Class="Com.Ctrl.IEdit" Caption="по" CaptionWidth="8" Field="перДатаОкончания" HasCaption="True"/>
+            </Component>
+            <Component Name="редПредприятие" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="перПредприятие" HasCaption="True" LookupField="Name" MaxWidth="300" MinWidth="50" OnChange="редПредприятие_OnChange" OnVerify="редПредприятие_OnVerify" Required="True"/>
+          </Component>
+        </Component>
+        <Component Name="фрОтчет" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="фрОтчет">
+          <Component Name="грДоходы" Class="Com.Ctrl.IGroup" ByColumn="True">
+            <Component Name="стДоходыЗаголовок" Class="Com.Ctrl.IStatic" Caption="Доходы" FontBold="True" Visible="True" Width="50"/>
+            <Component Name="редДоходыУслуги" Class="Com.Ctrl.IEdit" Caption="Услуги" Enabled="False" Field="перДоходыУслуги" FieldFormat=",##0.00;;-" FixSize="True" OnClick="редДоходыУслуги_OnClick" Width="40"/>
+            <Component Name="редДоходыТовары" Class="Com.Ctrl.IEdit" Caption="Товары" Enabled="False" Field="перДоходыТовары" FieldFormat=",##0.00;;-" FixSize="True" OnClick="редДоходыТовары_OnClick" Width="40"/>
+            <Component Name="редДоходыМатериалы" Class="Com.Ctrl.IEdit" Caption="Материалы" Enabled="False" Field="перДоходыМатериалы" FieldFormat=",##0.00;;-" FixSize="True" OnClick="редДоходыМатериалы_OnClick" Width="40"/>
+            <Component Name="редДоходыИзделия" Class="Com.Ctrl.IEdit" Caption="Изделия" Enabled="False" Field="перДоходыИзделия" FieldFormat=",##0.00;;-" FixSize="True" Hint="Изделия и полуфабрикаты" OnClick="редДоходыИзделия_OnClick" Width="40"/>
+            <Component Name="редДоходыПрочее" Class="Com.Ctrl.IEdit" Caption="Прочее" Enabled="False" Field="перДоходыПрочее" FieldFormat=",##0.00;;-" FixSize="True" OnClick="редДоходыПрочее_OnClick" Width="40"/>
+            <Component Name="грДоходыИтого" Class="Com.Ctrl.IGroup">
+              <Component Name="стДоходыИтого" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="Итого" FontBold="True" Width="40"/>
+              <Component Name="редДоходыИтого" Class="Com.Ctrl.IEdit" Enabled="False" Field="перДоходыИтого" FieldFormat=",##0.00;;-" FixSize="True" FontBold="True" HasCaption="False" OnClick="редДоходыИтого_OnClick" Width="40"/>
+            </Component>
+          </Component>
+          <Component Name="грРазделитель" Class="Com.Ctrl.IGroup" HasCaption="True">
+            <Component Name="стРазделитель" Class="Com.Ctrl.IStatic" Visible="True"/>
+          </Component>
+          <Component Name="грПрямыеЗатраты" Class="Com.Ctrl.IGroup" ByColumn="True">
+            <Component Name="стПрямыеЗатратыЗаголовок" Class="Com.Ctrl.IStatic" Caption="Прямые (материальные) затраты" FontBold="True" Visible="True" Width="100"/>
+            <Component Name="редПрямыеЗатратыТовары" Class="Com.Ctrl.IEdit" Caption="Товары" Enabled="False" Field="перПрямыеЗатратыТовары" FieldFormat=",##0.00;;-" FixSize="True" OnClick="редПрямыеЗатратыТовары_OnClick" Width="40"/>
+            <Component Name="редПрямыеЗатратыМатериалы" Class="Com.Ctrl.IEdit" Caption="Материалы" Enabled="False" Field="перПрямыеЗатратыМатериалы" FieldFormat=",##0.00;;-" FixSize="True" OnClick="редПрямыеЗатратыМатериалы_OnClick" Width="40"/>
+            <Component Name="редПрямыеЗатратыИзделия" Class="Com.Ctrl.IEdit" Caption="Изделия" Enabled="False" Field="перПрямыеЗатратыИзделия" FieldFormat=",##0.00;;-" FixSize="True" Hint="Изделия и полуфабрикаты" OnClick="редПрямыеЗатратыИзделия_OnClick" Width="40"/>
+            <Component Name="редПрямыеЗатратыПрочее" Class="Com.Ctrl.IEdit" Caption="Прочее" Enabled="False" Field="перПрямыеЗатратыПрочее" FieldFormat=",##0.00;;-" FixSize="True" OnClick="редПрямыеЗатратыПрочее_OnClick" Width="40"/>
+            <Component Name="грПрямыеЗатратыИтого" Class="Com.Ctrl.IGroup">
+              <Component Name="стПрямыеЗатратыИтого" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="Итого" FontBold="True" Width="40"/>
+              <Component Name="редПрямыеЗатратыИтого" Class="Com.Ctrl.IEdit" Caption="Итого" Enabled="False" Field="перПрямыеЗатратыИтого" FieldFormat=",##0.00;;-" FixSize="True" FontBold="True" HasCaption="False" OnClick="редПрямыеЗатратыИтого_OnClick" Width="40"/>
+            </Component>
+          </Component>
+          <Component Name="грРазделитель1" Class="Com.Ctrl.IGroup" HasCaption="True">
+            <Component Name="стРазделитель1" Class="Com.Ctrl.IStatic" Visible="True"/>
+          </Component>
+          <Component Name="грМаржинальнаяПрибыль" Class="Com.Ctrl.IGroup" ByColumn="True" HasCaption="True">
+            <Component Name="стМаржинальнаяПрибыль" Class="Com.Ctrl.IStatic" Caption="Маржинальная прибыль" FontBold="True" Visible="True" Width="100"/>
+            <Component Name="редМаржинальнаяПрибыль" Class="Com.Ctrl.IEdit" Caption=" " Enabled="False" Field="перМаржинальнаяПрибыль" FieldFormat=",##0.00;;-" FixSize="True" FontBold="True" Width="40"/>
+          </Component>
+          <Component Name="грРазделитель2" Class="Com.Ctrl.IGroup" HasCaption="True">
+            <Component Name="стРазделитель2" Class="Com.Ctrl.IStatic" Visible="True"/>
+          </Component>
+          <Component Name="грЗатраты" Class="Com.Ctrl.IGroup" ByColumn="True">
+            <Component Name="стЗатратыЗаголовок" Class="Com.Ctrl.IStatic" Caption="Затраты" FontBold="True" Visible="True" Width="100"/>
+            <Component Name="редЗатратыУслуги" Class="Com.Ctrl.IEdit" Caption="Услуги" Enabled="False" Field="перЗатратыУслуги" FieldFormat=",##0.00;;-" FixSize="True" Hint="Из ТОРО - финансовые затраты" OnClick="редЗатратыУслуги_OnClick" Width="40"/>
+            <Component Name="редЗатратыЗарплата" Class="Com.Ctrl.IEdit" Caption="Зарплата" Enabled="False" Field="перЗатратыЗарплата" FieldFormat=",##0.00;;-" FixSize="True" Hint="Из расчета зарплаты" OnClick="редЗатратыЗарплата_OnClick" Width="40"/>
+            <Component Name="грЗатратыИтого" Class="Com.Ctrl.IGroup">
+              <Component Name="стЗатратыИтого" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="Итого" FontBold="True" Width="40"/>
+              <Component Name="редЗатратыИтого" Class="Com.Ctrl.IEdit" Caption="Итого" Enabled="False" Field="перЗатратыИтого" FieldFormat=",##0.00;;-" FixSize="True" FontBold="True" HasCaption="False" Width="40"/>
+            </Component>
+          </Component>
+          <Component Name="грРазделитель3" Class="Com.Ctrl.IGroup" HasCaption="True">
+            <Component Name="стРазделитель3" Class="Com.Ctrl.IStatic" Visible="True"/>
+          </Component>
+          <Component Name="грПрибыль" Class="Com.Ctrl.IGroup" ByColumn="True" HasCaption="True">
+            <Component Name="стПрибыль" Class="Com.Ctrl.IStatic" Caption="Прибыль" FontBold="True" Visible="True" Width="100"/>
+            <Component Name="редПрибыль" Class="Com.Ctrl.IEdit" Caption=" " Enabled="False" Field="перПрибыль" FieldFormat=",##0.00;;-" FixSize="True" FontBold="True" Width="40"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

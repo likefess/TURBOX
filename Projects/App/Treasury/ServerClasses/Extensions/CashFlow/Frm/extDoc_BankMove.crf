@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CashFlow.Frm.Doc.BankMove">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Component Name="btDocLinksLoad" Class="Com.Ctrl.IButton" Caption="@Сmd:DocLinksLoad=Разнести данные" HasCaption="True" Hint="@Сmd:DocLinksLoad.Hint=Формирование документов в прочих модулях" ImageName="Com.inbox-out" OnClick="btDocLinksLoad_OnClick"/>
+          <Component Name="btDocLinksUnLoad" Class="Com.Ctrl.IButton" Caption="@Сmd:DocLinksUnLoad=Удалить разнесенные данные" HasCaption="True" Hint="@Сmd:DocLinksUnLoad.Hint=Автоматическое удаление не проведенных документов, ранее сформированных в прочих модулях на основании данного документа" ImageName="Com.trash-alt" OnClick="btDocLinksUnLoad_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="FieldsGroup">
+          <Inherited Name="PrintedNumberEditGroup">
+            <Inherited Name="Locked1" OnVerify="Locked1_OnVerify"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="OurCompanyBox">
+            <Inherited Name="OurCompanyBoxGroup">
+              <Inherited Name="OurCompanyLeftGroup">
+                <Component Name="PaymentCompanyGroup" Class="Com.Ctrl.IGroup" After="OurCompanyGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="PaymentCompany" Class="Com.Ctrl.IEdit" Caption="Компания платежа" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="FRecord.PaymentCompany" HasCaption="True" LookupField="Name"/>
+                  <Component Name="BtnStatic17" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Inherited Name="BankAccountGroup" After="PaymentCompanyGroup"/>
+              </Inherited>
+              <Inherited Name="OurCompanyRightGroup">
+                <Component Name="OtherCompanyPaymentGroup" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="OtherCompanyPaymentStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                  <Component Name="OtherCompanyPayment" Class="Com.Ctrl.ICheckBox" Field="FRecord.OtherCompanyPayment" HasCaption="True" OnChange="OtherCompanyPayment_OnChange"/>
+                  <Component Name="BtnStatic16" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Inherited Name="BankDetailsGroup" After="OtherCompanyPaymentGroup"/>
+                <Component Name="BankAccountGroupStatic" Class="Com.Ctrl.IStatic" After="BankDetailsGroup" FixSize="True" Width="40"/>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="SumBox">
+            <Inherited Name="Group15">
+              <Inherited Name="Group15Right">
+                <Inherited Name="FinalSumStatic" Excluded="True"/>
+                <Component Name="IsAdvanceGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="IsAdvanceStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                  <Component Name="IsAdvance" Class="Com.Ctrl.ICheckBox" Field="FRecord.IsAdvance" Width="50"/>
+                  <Component Name="BtnStatic19" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Component Name="CentrPaymentTab" Class="Com.Ctrl.IFrame" Caption="Централизованный платеж" HasCaption="True" Margins="5" Visible="False">
+          <Component Name="PaymentAnalyticsBox" Class="Com.Ctrl.IBox" Caption="Аналитические признаки компании платежа">
+            <Component Name="Group20" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="PaymentCFR" Class="Com.Ctrl.IEdit" Caption="ЦФО" CardFileClass="Biz.Tab.Ref.CFR" Enabled="True" Field="FRecord.PaymentCFR" Width="50"/>
+              <Component Name="PaymentBGI" Class="Com.Ctrl.IEdit" Caption="Статья бюджета" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="FRecord.PaymentBGI" LookupField="Name"/>
+              <Component Name="PaymentProject" Class="Com.Ctrl.IEditEx" CardFileClass="Bas.Tab.Ref.Project" Field="FRecord.PaymentProject" FontBold="True" HasCaption="True" LookupField="Name" Wrap="False">
+                <Component Name="JumpButton4" Class="Com.Ctrl.IJumpButton"/>
+              </Component>
+              <Component Name="PaymentSource" Class="Com.Ctrl.IEdit" Caption="Источник" CardFileClass="Biz.Tab.Ref.FundSource" CellFormat="ReferenceFormat" Field="FRecord.PaymentSource" LookupField="Name"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="DocLinksTab" Class="Com.Ctrl.IFrame" Caption="@AppBase:DocLinksTable=Интеграция документов" HasCaption="True">
+          <Component Name="bxDLSubjectPayablePaymentOfDebt" Class="Com.Ctrl.IBox" Caption="@DocLinksFieldsTab:SubjectPayablePaymentOfDebt=Расчеты с субъектами - Оплата задолженности" HasCaption="True">
+            <Component Name="grDLSubjectPayablePaymentOfDebt" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="150">
+              <Component Name="edDLPaymentOfDebtTypeOfAcc" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:TypeOfAcc=Тип начисления" CaptionWidth="45" CellFormat="EnumFormat" Field="FRecord.DLPaymentOfDebtTypeOfAcc" HasCaption="True" OnChange="edDLPaymentOfDebtTypeOfAcc_OnChange" Width="100"/>
+              <Component Name="edDLPaymentOfDebtExchRate" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:ExchRate2=Курс" CaptionWidth="25" Field="FRecord.DLPaymentOfDebtExchRate" HasCaption="True" Hint="@SubjectPayable:ExchRate.Hint=Значение курса валюты, используемого при переводе суммы в валюте документа в сумму в операционной валюте"/>
+              <Component Name="btDLPaymentOfDebtExchRate" Class="Com.Ctrl.IButton" FixSize="True" Hint="@SubjectPayable:ExchRateUpd=Обновить курс валюты" ImageName="Com.Refresh" OnClick="btDLPaymentOfDebtExchRate_OnClick" Width="7"/>
+            </Component>
+            <Component Name="grDLSubjectPayablePaymentOfDebt2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="250" MinWidth="150">
+              <Component Name="edDLPaymentOfDebtDocAccrualOfDebt" Class="Com.Ctrl.IEdit" Caption="Документ обязат-ва" CaptionWidth="45" Field="FRecord.DLPaymentOfDebtDocAccrualOfDebt" HasCaption="True" LookupField="Name" OnGetLookupFilter="edDLPaymentOfDebtDocAccrualOfDebt_OnGetLookupFilter" Width="150"/>
+            </Component>
+            <Component Name="grDLPaymentOfDebtTaxCBC" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="150">
+              <Component Name="edDLPaymentOfDebtTaxCBC" Class="Com.Ctrl.IEdit" CaptionWidth="45" CardFileClass="BizRus.Tab.Классификаторы.КБК" CellFormat="ReferenceFormat" Field="FRecord.DLPaymentOfDebtTaxCBC" HasCaption="True" LookupField="Code" Width="150"/>
+            </Component>
+          </Component>
+          <Component Name="bxDLDocLinksTable" Class="Com.Ctrl.IBox" Caption="Сформированные документы" HasCaption="True">
+            <Component Name="DocLinksTableTab" Class="Com.Ctrl.IFrame" AutoSize="True" HasCaption="False"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

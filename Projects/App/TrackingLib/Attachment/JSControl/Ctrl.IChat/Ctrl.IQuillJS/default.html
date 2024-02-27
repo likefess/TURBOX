@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="dist/quill.snow.css"/>
+  <link rel="stylesheet" href="dist/quill.mention.min.css" />
+  <link rel="stylesheet" href="dist/quill-modules/quill-custom.min.css" />
+  <link rel="stylesheet" href="custom.css"/>
+</head>
+<body>
+  <!-- Create the editor container -->
+  <div id="editor"></div>
+  
+  <script src="dist/quill.js"></script>
+  <script src="dist/quill-modules/quill-custom.min.js"></script>
+  <script src="dist/image-resize.min.js"></script>
+  <script src="dist/video-resize.min.js"></script>
+  <script src="dist/quill.mention.min.js"></script>
+  <script src="base.js"></script>
+  <script src="localstorage.js"></script>
+  <script src="default.js"></script>
+  
+  <script>
+    window.addEventListener('message', (event) => {
+      if (event.data.sender !== 'Chat') {
+        return
+      }
+
+      let vHTML = document.getElementsByClassName("ql-editor")[0].innerHTML
+      if (event.data.command === 'AddComment') {
+        window.parent.postMessage({ sender :"Quill", command :"AddComment", HTML :vHTML }, '*')
+      } else if (event.data.command === 'EditComment') {
+        window.parent.postMessage({ sender :"Quill", command :"EditComment", CommentID :event.data.CommentID, HTML :vHTML }, '*')
+      } else if(event.data.command === 'SetHTML') {
+        document.getElementsByClassName("ql-editor")[0].innerHTML = event.data.HTML
+      }
+    }, false)
+  </script>
+</body>
+</html>

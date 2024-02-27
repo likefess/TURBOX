@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Tab.Базовая.БазовыйДокументИерархия">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Кадровые документы.Общие кадровые документы.Электронные трудовые книжки">
+    <Inherited Name="Current" Class="УправлениеПерсоналом.Rec.Документы.Кадры.МероприятиеЭТК" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="ФизЛицо" Class="Com.Ctrl.IEdit" After="Дата" Caption="Сотрудник" CardFileClass="HRBase.Tab.Data.StaffersHR" Field="Current.ФизЛицо" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="ТабНомер" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Таб. номер" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Field="Current.УсловияТрудаСотр" HasCaption="True" Hint="Табельный номер сотрудника" LookupField="ТабНомер" Width="20"/>
+          <Component Name="ВидМероприятияЭТК" Class="Com.Ctrl.IEdit" Caption="Вид мероприятия" Field="Current.Вид" HasCaption="True" Width="25"/>
+          <Component Name="Подразделение" Class="Com.Ctrl.IEdit" Caption="Подразделение" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Field="Current.УсловияТрудаСотр" HasCaption="True" Hint="Подразделение" LookupField="Division.Name" Width="30"/>
+          <Component Name="Отменен" Class="Com.Ctrl.IEdit" Field="Current.Отменен" Width="15"/>
+          <Component Name="НомерСтроки" Class="Com.Ctrl.IEdit" Caption="Номер строки" Field="Current.НомерСтроки" HasCaption="True" Width="15"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

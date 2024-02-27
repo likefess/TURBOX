@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.Ref.Project">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="TrackingPlan.Rec.Refs.ProjectPlan" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="EndProject" Excluded="True"/>
+        <Inherited Name="ButtonAddToFavorites" Excluded="True"/>
+      </Inherited>
+      <Component Name="SubheaderFrame" Class="Com.Ctrl.IFrame" After="HeaderFrame" AutoSize="True" Margins="12">
+        <Component Name="Group8" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="40" MaxWidth="300" MinWidth="116">
+          <Component Name="Name2" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" FontBold="True" HasCaption="True" Visible="True" Width="60"/>
+          <Component Name="Comment2" Class="Com.Ctrl.IEdit" Field="EdtRec.Description" HasCaption="True"/>
+        </Component>
+      </Component>
+      <Inherited Name="FieldsFrame" After="SubheaderFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Group2">
+            <Inherited Name="Code1" Excluded="True"/>
+          </Inherited>
+        </Inherited>
+        <Component Name="MainBox" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@Main=Основное" MaxSize="300" MinSize="120">
+          <Component Name="Group11" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="120">
+            <Component Name="Group9" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="BegDate1" Class="Com.Ctrl.IEdit" Field="EdtRec.BegDate" HasCaption="True" OnVerify="BegDate_OnVerify"/>
+            </Component>
+            <Component Name="Group10" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="EndDate1" Class="Com.Ctrl.IEdit" Field="EdtRec.EndDate" HasCaption="True" OnVerify="EndDate_OnVerify"/>
+            </Component>
+          </Component>
+          <Component Name="Group12" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="120">
+            <Component Name="WorkingGroup" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Команда" CardFileClass="Tracker_Service.Tab.Data.WorkingGroup" Field="EdtRec.WorkingGroup" LookupField="Name"/>
+          </Component>
+          <Component Name="Group7" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="120">
+            <Component Name="Group5" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="Methodology" Class="Com.Ctrl.IEdit" Caption="Методология" CardFileClass="TrackingPlan.Tab.Refs.Methodology" Field="EdtRec.Methodology" LookupField="Name" OnChange="MethodologyOnChange" ShortList="True"/>
+              <Component Name="NumberPrefix" Class="Com.Ctrl.IEdit" Caption="@Project:NumberPrexif.Caption=Префикс номера" Field="EdtRec.NumberPrefix" FixSize="True" Width="40"/>
+            </Component>
+            <Component Name="Group6" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="ProjectStatus" Class="Com.Ctrl.IEdit" Caption="Состояние" CellFormat="ReferenceFormat" Enabled="True" Field="EdtRec.ProjectStatus" HasCaption="True" LookupField="Name" OnGetLookupFilter="StatusEditOnGetLookUpFilter" ValueType="VarObject"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab" Excluded="True">
+          <Inherited Name="Group3">
+            <Inherited Name="RuleGroup" Excluded="True"/>
+            <Inherited Name="InitialStatus" Excluded="True">
+              <Inherited Name="JB_InitialStatus" Excluded="True"/>
+            </Inherited>
+            <Inherited Name="TasksFolder" Excluded="True"/>
+            <Inherited Name="TasksTemplate" Excluded="True"/>
+            <Inherited Name="EMailServer" Excluded="True"/>
+            <Inherited Name="NumberPrexif" Excluded="True"/>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="WBSTab" Excluded="True"/>
+        <Inherited Name="TasksTab" Excluded="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

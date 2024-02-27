@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Frm.AddIns.BaseTask">
+  <Inherited Caption="Веб-ссылки">
+    <Component Name="WebLinkRec" Class="TrackingDev.Rec.Data.WebLink" IsLibrary="1" After="#0"/>
+    <Inherited Name="EdtRec" IsLibrary="1" After="WebLinkRec"/>
+    <Inherited Name="RootFrame" Color="0x00FFFFFF" Margins="0">
+      <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+      <Component Name="WebLinkCardFile" Class="Com.Ctrl.ICardFile" CanEdit="True" CanOpen="False" Color="0x00FFFFFF" OnDrawRow="WebLinkCardFileOnDrawRow" Visible="True"/>
+      <Component Name="LinkType" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CanSelect="False" Caption="Тип" Enabled="False" Field="WebLinkRec.LinkType" FixSize="True" OnOutputCard="LinkTypeOnOutputCard" ValueType="VarString" Width="30"/>
+      <Component Name="Name" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Название" Enabled="False" Field="WebLinkRec.Name" FixSize="True" ValueType="VarString" Width="60"/>
+      <Component Name="Author" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Автор" Enabled="False" Field="WebLinkRec.Author" FixSize="False" ValueType="VarString" Width="60"/>
+      <Component Name="Date" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Дата" Enabled="False" Field="WebLinkRec.Date" FixSize="True" FormatOfDate="DateAndTime" ValueType="VarDate" Width="40"/>
+      <Component Name="Link" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" ButtonStyle="NoButton" CanSelect="True" Caption="Ссылка" Enabled="True" Field="WebLinkRec.Link" FixSize="True" HasButton="False" OnEnter="LinkOnEnter" UseMacro="False" ValueType="VarString" Width="60"/>
+    </Inherited>
+  </Inherited>
+</Resource>

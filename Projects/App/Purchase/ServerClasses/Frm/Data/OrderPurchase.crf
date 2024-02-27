@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Purchase.Frm.Data.BaseDocFrm">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Purchase.Rec.Data.OrderPurchase" IsLibrary="1"/>
+    <Component Name="EdtRec1" Class="Purchase.Rec.Data.OrderPurchase_PositionsLinks" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Component Name="btnGroupEnter" Class="Com.Ctrl.IButton" Caption="Групповой ввод" HasCaption="True" Hint="Групповой выбор сотрудников" ImageName="Com.Blank" OnClick="btnGroupEnter_OnClick" Visible="True"/>
+        </Inherited>
+        <Inherited Name="ButtonReports">
+          <Component Name="ButtonPurchaseReqReport" Class="Com.Ctrl.IButton" Caption="@OrderPurchase.ButtonPurchaseReqReport=Отчет по заявкам на закупку" HasCaption="True" ImageName="Com.Report" OnClick="ButtonPurchaseReqReportOnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="BasicFrame">
+        <Inherited Name="PeriodFrame" Visible="False">
+          <Inherited Name="Group2" Visible="False"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="MainBox">
+            <Component Name="grApplicationType" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="180">
+              <Component Name="edApplicationType" Class="Com.Ctrl.IEdit" Caption="Вид заявки" CaptionWidth="55" CellFormat="EnumFormat" Field="EdtRec.ApplicationType" HasCaption="True" OnChange="edApplicationTypeOnChange" OnVerify="ApplicationType_OnVerify" Required="True"/>
+              <Component Name="NameStaticType" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+            <Component Name="grAuthor" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="180">
+              <Component Name="edAuthor" Class="Com.Ctrl.IEdit" Caption="Автор" CaptionWidth="55" CardFileClass="Bas.Tab.Data.Employees" Field="EdtRec.Author" HasCaption="True" OnOpenCardForm="DivisionAuthor_OnOpenCardForm" Required="True"/>
+              <Component Name="NameStaticAut" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+            <Component Name="grDivision" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="180">
+              <Component Name="edDivision" Class="Com.Ctrl.IEdit" Caption="Подразделение" CaptionWidth="55" CardFileClass="Bas.Tab.Data.Divisions" Field="EdtRec.Division" HasCaption="True" OnOpenCardForm="DivisionAuthor_OnOpenCardForm" Required="True"/>
+              <Component Name="NameStaticDiv" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+            <Component Name="grDescription" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="180">
+              <Component Name="edDescription" Class="Com.Ctrl.IEdit" CaptionWidth="55" Field="EdtRec.Description" HasCaption="True" Visible="True"/>
+              <Component Name="NameStaticDesc" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+          </Inherited>
+          <Inherited Name="LineBox" Caption="Системные поля">
+            <Inherited Name="LineFrm">
+              <Component Name="grCreate" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="180">
+                <Component Name="TimeCreate" Class="Com.Ctrl.IEdit" Caption="Время создания" CaptionWidth="55" Enabled="False" Field="EdtRec.CreateDate" FormatOfDate="DateAndTime" HasCaption="True" MaxWidth="50" Width="50"/>
+                <Component Name="Creator" Class="Com.Ctrl.IEdit" Caption="Создал" CaptionWidth="55" Enabled="False" Field="EdtRec.CreateUser" VertAlignment="RightAlign"/>
+                <Component Name="NameStaticCreate" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+              </Component>
+              <Component Name="grChange" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="180">
+                <Component Name="TimeChange" Class="Com.Ctrl.IEdit" Caption="Время изменения" CaptionWidth="55" Enabled="False" Field="EdtRec.UpdateDate" FormatOfDate="DateAndTime" MaxWidth="50" Width="50"/>
+                <Component Name="Changer" Class="Com.Ctrl.IEdit" Caption="Изменил" CaptionWidth="55" Enabled="False" Field="EdtRec.UpdateUser"/>
+                <Component Name="NameStaticChanger" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+              </Component>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="PosTab">
+          <Inherited Name="tbPos">
+            <Inherited Name="Ed_ТМЦ_услуги_Name" OnOpenCardForm="Ed_ТМЦ_услуги_OnOpenCardForm"/>
+            <Inherited Name="Ed_ТМЦ_услуги_Code" OnOpenCardForm="Ed_ТМЦ_услуги_OnOpenCardForm"/>
+            <Component Name="btn_Аналог" Class="Com.Ctrl.IButton" After="Jb_ТМЦ_услуги" ImageName="SCM.Letter_A" OnClick="btn_Аналог_OnClick"/>
+            <Inherited Name="ClmnsGr_КолвоУпак" Visible="False"/>
+            <Component Name="edPriceWithoutVAT" Class="Com.Ctrl.IEdit" After="ClmnsGr_КолвоУпак" Caption="Цена без НДС" Enabled="False" Field="PosRec.PriceWithoutVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="25" Wrap="True"/>
+            <Component Name="edPriceWithVAT" Class="Com.Ctrl.IEdit" Caption="Цена с НДС" Field="PosRec.PriceWithVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="25" Wrap="True"/>
+            <Component Name="СlmnsGr_SumWithoutVAT" Class="Com.Ctrl.IColumnsGroup" Caption="Сумма без НДС" HasCaption="True">
+              <Component Name="edSumWithoutVAT" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.SumWithoutVAT" FieldFormat="#0.00" HasCaption="False" Width="25"/>
+              <Component Name="edSumUnit1" Class="Com.Ctrl.IEdit" Enabled="False" Field="PosRec.SumUnit" HasCaption="False" LookupField="code" Width="10"/>
+            </Component>
+            <Component Name="edPurchaseGroupPos" Class="Com.Ctrl.IEdit" After="Ed_ТМЦ_услуги_Lot" Caption="Группа закупок" Field="PosRec.PurchaseGroupPos" HasCaption="True" Width="25"/>
+            <Component Name="edCFRPos" Class="Com.Ctrl.IEdit" Caption="ЦФО" Field="PosRec.CFRPos" HasCaption="True" OnOpenCardForm="CFR_OnOpenCardForm" Width="25"/>
+            <Component Name="edCostElementPos" Class="Com.Ctrl.IEdit" Caption="СБК" Field="PosRec.CostElementPos" HasCaption="True" LookupFilter="Closed = false" Width="25"/>
+            <Component Name="edStockPos" Class="Com.Ctrl.IEdit" Caption="Склад" CardFileClass="SCM.Tab.Данные.Склады" Field="PosRec.StockPos" HasCaption="True" OnOpenCardForm="Stock_OnOpenCardForm" Width="25"/>
+            <Component Name="edRequirementDatePos" Class="Com.Ctrl.IEdit" Caption="Дата потребности" Field="PosRec.RequirementDatePos" HasCaption="True" Width="25"/>
+            <Component Name="ProductionTime" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Плановый срок поставки,дн" Enabled="False" Field="PosRec.ТМЦ_услуги" FieldFormat=",##0.00;;-" HasCaption="True" LookupField="ProductionTime" Width="35"/>
+            <Component Name="edPurchaseStartTime" Class="Com.Ctrl.IEdit" Caption="Дата начала закупки" Enabled="False" Field="PosRec.PurchaseStartTime" HasCaption="True" Width="20"/>
+            <Component Name="edCounterparty" Class="Com.Ctrl.IEdit" Caption="Контрагент" Field="PosRec.Counterparty" HasCaption="True" Width="25"/>
+            <Component Name="grWeight" Class="Com.Ctrl.IColumnsGroup" Caption="Вес" HasCaption="True" Visible="False">
+              <Component Name="edWeightNet" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="нетто" Enabled="False" Field="PosRec.ТМЦ_услуги" FixSize="True" HasCaption="True" LookupField="NetWeight" OnOutput="edWeightNetOnOutput" Visible="False" Width="15"/>
+              <Component Name="edWeightNetType" Class="Com.Ctrl.IEdit" Caption="ЕИ" Enabled="False" Field="PosRec.ТМЦ_услуги" FixSize="True" LookupField="NetWeightUnit.code" Visible="False" Width="8"/>
+              <Component Name="edWeightBrut" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="брутто" Enabled="False" Field="PosRec.ТМЦ_услуги" FixSize="True" HasCaption="True" LookupField="GrossWeight" OnOutput="edWeightBrutOnOutput" Visible="False" Width="15"/>
+              <Component Name="edWeightBrutType" Class="Com.Ctrl.IEdit" Caption="ЕИ" Enabled="False" Field="PosRec.ТМЦ_услуги" FixSize="True" LookupField="GrossWeightUnit.code" Visible="False" Width="8"/>
+            </Component>
+            <Component Name="grCapasity" Class="Com.Ctrl.IColumnsGroup" Caption="Объём" HasCaption="True" Visible="False">
+              <Component Name="edCapasityNet" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="нетто" Enabled="False" Field="PosRec.ТМЦ_услуги" FixSize="True" HasCaption="True" LookupField="NetVolume" OnOutput="edCapasityNetOnOutput" Visible="False" Width="15"/>
+              <Component Name="edCapasityNetType" Class="Com.Ctrl.IEdit" Caption="ЕИ" Enabled="False" Field="PosRec.ТМЦ_услуги" FixSize="True" LookupField="NetVolumeUnit.code" Visible="False" Width="8"/>
+              <Component Name="edCapasityBrut" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="брутто" Enabled="False" Field="PosRec.ТМЦ_услуги" FixSize="True" HasCaption="True" LookupField="GrossVolume" OnOutput="edCapasityBrutOnOutput" Visible="False" Width="15"/>
+              <Component Name="edCapasityBrutType" Class="Com.Ctrl.IEdit" Caption="ЕИ" Enabled="False" Field="PosRec.ТМЦ_услуги" FixSize="True" LookupField="GrossVolumeUnit.code" Visible="False" Width="8"/>
+            </Component>
+            <Component Name="IdEdit" Class="Com.Ctrl.IEdit" Caption="ID" Field="PosRec.Id" Width="25"/>
+            <Inherited Name="Ed_DocObject" Caption="План закупок/Запрос" CardFileClass="Purchase.Tab.Data.PurchasePlan" Enabled="False"/>
+            <Component Name="EdDocOfferRequest" Class="Com.Ctrl.IEdit" Excluded="True" After="Ed_DocObject" Caption="Запрос предложений" Enabled="False" Field="PosRec.DocOfferRequest"/>
+            <Inherited Name="Ed_Coefficient_Analog" Visible="False"/>
+            <Component Name="Jb_Order_Plan" Class="Com.Ctrl.IJumpButton" After="Ed_Coefficient_Analog" Field="PosRec.DocObject"/>
+          </Inherited>
+          <Component Name="Table1" Class="Com.Ctrl.ITable" Subtable="EdtRec.PositionsLinks" Visible="False">
+            <Component Name="Edit1" Class="Com.Ctrl.IEdit" Field="EdtRec1.PositionLineNumber"/>
+            <Component Name="Edit2" Class="Com.Ctrl.IEdit" Field="EdtRec1.PurchasePlan"/>
+          </Component>
+        </Inherited>
+        <Component Name="FramePositions" Class="Com.Ctrl.IFrame" Caption="Позиции" HasCaption="True">
+          <Component Name="PositionBasicBox" Class="Com.Ctrl.IBox" Caption="Основное" HasCaption="True">
+            <Component Name="grStockPurchaseGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="180">
+              <Component Name="edStock" Class="Com.Ctrl.IEdit" Caption="Склад" CaptionWidth="55" CardFileClass="SCM.Tab.Данные.Склады" Field="EdtRec.Stock" HasCaption="True" OnOpenCardForm="Stock_OnOpenCardForm"/>
+              <Component Name="edPurchaseGroup" Class="Com.Ctrl.IEdit" Caption="Группа закупок" CaptionWidth="55" Field="EdtRec.PurchaseGroup" HasCaption="True"/>
+              <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+            <Component Name="grCostElementCFR" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="180">
+              <Component Name="edCFR" Class="Com.Ctrl.IEdit" Caption="ЦФО" CaptionWidth="55" Field="EdtRec.CFR" HasCaption="True" OnOpenCardForm="CFR_OnOpenCardForm"/>
+              <Component Name="edCostElement" Class="Com.Ctrl.IEdit" Caption="СБК" CaptionWidth="55" Field="EdtRec.CostElement" HasCaption="True" LookupFilter="Closed = false"/>
+              <Component Name="Static5" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+            <Component Name="grRequirementDatePurchProcTime" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="180">
+              <Component Name="edRequirementDate" Class="Com.Ctrl.IEdit" Caption="Дата потребности" CaptionWidth="55" Field="EdtRec.RequirementDate" HasCaption="True"/>
+              <Component Name="edPurchaseProcTime" Class="Com.Ctrl.IEdit" Caption="Время ОЗ" CaptionWidth="55" Enabled="False" Field="EdtRec.PurchaseProcTime" FieldFormat="#0" HasCaption="True" Hint="Время обработки закупки"/>
+              <Component Name="Static6" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+          </Component>
+          <Component Name="SumBox" Class="Com.Ctrl.IBox" Caption="Цены, суммы" HasCaption="True" Visible="True">
+            <Component Name="grCheckBox" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250" MinWidth="180">
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="55"/>
+              <Component Name="cbNotVAT" Class="Com.Ctrl.ICheckBox" Caption="нет НДС" Enabled="False" Field="EdtRec.IsNotVAT" FixSize="True" HasCaption="True" Width="30"/>
+              <Component Name="cbPriceVAT" Class="Com.Ctrl.ICheckBox" Caption="Цены с НДС" Enabled="False" Field="EdtRec.IsPriceWithVAT" FixSize="True" HasCaption="True" Width="30"/>
+            </Component>
+            <Component Name="grSumCurInclNDS" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="180">
+              <Component Name="FinalSumNotVAT" Class="Com.Ctrl.IEdit" Caption="Сумма без НДС" CaptionWidth="55" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.FinalSumNotVAT" FieldFormat=",##0.00;;-" HasCaption="True" MaxWidth="55" MinWidth="30"/>
+              <Component Name="FinalSumVAT" Class="Com.Ctrl.IEdit" Caption="Сумма с НДС" CaptionWidth="20" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.TotalAmount" FieldFormat=",##0.00;;-" HasCaption="True" MaxWidth="55" MinWidth="30"/>
+              <Component Name="edIncludingVAT" Class="Com.Ctrl.IEdit" Caption="Сумма НДС" CaptionWidth="20" Enabled="False" Field="EdtRec.AmountVAT" FieldFormat=",##0.00;;-" HasCaption="True" MaxWidth="55" MinWidth="30"/>
+              <Component Name="edCurrency" Class="Com.Ctrl.IEdit" Caption="Валюта" CaptionWidth="20" CardFileClass="Biz.Tab.Ref.UnitsOrCurrencies" Field="EdtRec.TotalUnit" HasCaption="True" LookupField="Code" LookupFilter="IsCurrency = 1" MaxWidth="55" MinWidth="30" OnChange="edCurrencyOnChange" ShortList="True"/>
+              <Component Name="Static7" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+            </Component>
+          </Component>
+          <Component Name="SubtableBox" Class="Com.Ctrl.IBox" AutoSize="True" Caption="Позиции" HasCaption="True" Visible="True">
+            <Component Name="FrBlock" Class="Com.Ctrl.IFrame" Visible="False">
+              <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="200" MinWidth="120">
+                <Component Name="Static4" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="@Табличная часть документа доступна для редактирования, только если указана валюта и вид заявки." MaxWidth="320" MinWidth="120" Multiline="True" Width="200" Wrap="True"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="FrameNotVisible" Class="Com.Ctrl.IFrame" Visible="False">
+          <Component Name="Frame1" Class="Com.Ctrl.IFrame"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

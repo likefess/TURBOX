@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Frm.AddIns.BasePattern">
+  <Inherited>
+    <Component Name="Variables" Class="Com.IVarContainer" After="EdtRec">
+      <Component Name="PatternLaborCostsSubtable" Class="Com.ISubtable" StructClass="TMS.Rec.Data.Task_LaborCostsItem"/>
+    </Component>
+    <Component Name="TabMenu" Class="Com.Ctrl.IPopupMenu" AddDefaultItems="False">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="cmdInsertRow" Class="Com.Cmd2.IItem" Command="Commands.InsertRow"/>
+      <Component Name="cmdDeleteRow" Class="Com.Cmd2.IItem" Command="Commands.DeleteRow"/>
+    </Component>
+    <Inherited Name="RootFrame" After="TabMenu" Margins="0">
+      <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+      <Component Name="LaborCostsFrame" Class="Com.Ctrl.IFrame" Color="0x00FFFFFF" Margins="0">
+        <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+        <Component Name="PatternLaborCostsTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="True" CanInsert="True" CanMove="False" Freezed="False" ManualControl="True" Numbering="False" PopupMenu="TabMenu" Subtable="PatternLaborCostsSubtable">
+          <Component Name="Pattern_LaborCosts" Class="TMS.Rec.Data.Task_LaborCostsItem" IsLibrary="1"/>
+          <Component Name="PatternRoleEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:RoleEdit=Роль" CardFileClass="Bas.Tab.Ref.EntityRoles" Field="Pattern_LaborCosts.Role" FixSize="True" LookupField="Name" LookupFilter="SystemRole in [7, 8]" ShortList="True" Visible="True" Width="70"/>
+          <Component Name="EntityEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:EntityEdit=Исполнитель" CardFileClass="TrackingCore.Tab.Data.People" Enabled="True" Field="Pattern_LaborCosts.Entity" LookupField="Name" MinWidth="20" ShortList="True" Width="30"/>
+          <Component Name="PatternPlanHoursEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:PlanHoursEdit=План, ч." Field="Pattern_LaborCosts.Hours" FieldFormat=",##0.00;;-" FixSize="True" Width="20"/>
+          <Component Name="PatternFactSubtaskHoursEdit" Class="Com.Ctrl.IEdit" Caption="@TMS:FactHoursEdit=Факт, ч." Enabled="False" Field="Pattern_LaborCosts.FactSubtaskHours" FieldFormat=",##0.00;;-" FixSize="True" Visible="True" Width="20"/>
+          <Component Name="DelButton" Class="Com.Ctrl.IButton" FixSize="True" ImageName="Com.DeleteObj" OnClick="DelButtonOnClick" Width="7"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

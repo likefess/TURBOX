@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rec.CodeName">
+  <Inherited>
+    <Component Name="Links" Class="Com.ISubtable" After="#0" StructClass="DocPrint.Rec.Data.ExportTemplate_Links" SubtableName="Links"/>
+    <Component Name="InputFileLoc" Class="Com.Fld.IField" FieldName="InputFileLoc" OnChange="InputFileLocOnChange" ValueType="VarInteger"/>
+    <Component Name="OutputFolderLoc" Class="Com.Fld.IField" FieldName="OutputFolderLoc" OnChange="OutputFolderLocOnChange" ValueType="VarInteger"/>
+    <Component Name="InputFile" Class="Com.Fld.IField" FieldName="InputFile" OnChange="InputFileOnChange" ValueType="VarString"/>
+    <Component Name="OutputFolder" Class="Com.Fld.IField" FieldName="OutputFolder" ValueType="VarString"/>
+    <Component Name="InputFileArchive" Class="Com.Fld.IField" FieldName="InputFileArchive" OnChange="InputFileArchiveOnChange" ValueType="VarObject"/>
+    <Component Name="OutputFolderArchive" Class="Com.Fld.IField" FieldName="OutputFolderArchive" ValueType="VarObject"/>
+    <Component Name="ExecutionLoc" Class="Com.Fld.IField" FieldName="ExecutionLoc" OnChange="ExecutionLocOnChange" ValueType="VarInteger"/>
+    <Component Name="DocProcessorClass" Class="Com.Fld.IField" FieldName="DocProcessorClass" OnChange="DocProcessorClassOnChange" ValueType="VarString"/>
+    <Component Name="OutputFileName" Class="Com.Fld.IField" FieldName="OutputFileName" OnVerify="OutputFileNameOnVerify" ValueType="VarString"/>
+    <Component Name="DoNotSave" Class="Com.Fld.IField" FieldName="DoNotSave" OnChange="DoNotSaveOnChange" ValueType="VarLogical"/>
+    <Component Name="DoNotDelete" Class="Com.Fld.IField" FieldName="DoNotDelete" ValueType="VarLogical"/>
+    <Component Name="CalcDynamic" Class="Com.Fld.IField" FieldName="CalcDynamic" OnChange="CalcDynamicOnChange" ValueType="VarLogical"/>
+    <Component Name="ForceRefresh" Class="Com.Fld.IField" FieldName="ForceRefresh" ValueType="VarLogical"/>
+    <Component Name="WaitAsync" Class="Com.Fld.IField" FieldName="WaitAsync" ValueType="VarLogical"/>
+    <Component Name="Comment" Class="Com.Fld.IField" FieldName="Comment" ValueType="VarString"/>
+    <Component Name="DocProcessor" Class="Com.Fld.IVar" OnCalc="DocProcessorOnCalc" ValueType="VarClass"/>
+    <Component Name="SharedData" Class="Com.Fld.IVar" ValueType="VarObject"/>
+    <Component Name="CardFileInput" Class="Com.Fld.IVar" Caption="@DocPrint.ExportTemplate.CardFileInput:Caption=Входной файл" OnCalc="CardFileInputOnCalc" ValueType="VarString"/>
+    <Component Name="CardFileOutput" Class="Com.Fld.IVar" Caption="@DocPrint.ExportTemplate.CardFileOutput:Caption=Выходной каталог" OnCalc="CardFileOutputOnCalc" ValueType="VarString"/>
+    <Inherited Name="Code" After="CardFileOutput"/>
+  </Inherited>
+</Resource>

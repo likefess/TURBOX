@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited HelpContext="CashFlow.Движение денежных средств.Справочники.Шаблоны назначений платежей">
+    <Inherited Name="EdtRec" Class="CashFlow.Rec.Ref.PurposeTemplate" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="GeneralBox" Class="Com.Ctrl.IBox" After="#0" Caption="@PurposeTemplate:GeneralBox=Основное" HasCaption="True">
+          <Component Name="GeneralGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+            <Component Name="Code1" Class="Com.Ctrl.IEdit" Field="EdtRec.Code" HasCaption="True" Required="True" Visible="True"/>
+            <Component Name="Name1" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" FontBold="True" HasCaption="True" Required="True" Visible="True"/>
+            <Component Name="Template" Class="Com.Ctrl.IEdit" Field="EdtRec.Template" HasCaption="True" Multiline="True" Visible="True" Wrap="True"/>
+            <Component Name="RecProject" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.RecProject" HasCaption="True" OnChange="RecProject_OnChange"/>
+            <Component Name="RecClassExt" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.RecClassExt" HasCaption="True" OnChange="RecClassExt_OnChange"/>
+            <Component Name="FieldMarker" Class="Com.Ctrl.IEdit" Field="EdtRec.FieldMarker" HasCaption="True" Required="True"/>
+          </Component>
+        </Component>
+        <Component Name="AddFieldBox" Class="Com.Ctrl.IBox" Caption="@PurposeTemplate:AddFieldBox=Добавление полей">
+          <Component Name="AddFieldGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+            <Component Name="AddFieldRecPrj" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.AddFieldRecPrj" HasCaption="True" OnChange="AddFieldRecPrj_OnChange"/>
+            <Component Name="AddFieldRecClassExt" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.AddFieldRecClassExt" HasCaption="True" OnChange="AddFieldRecClassExt_OnChange"/>
+            <Component Name="AddFieldRecField" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Enabled="False" Field="EdtRec.AddFieldRecField" HasCaption="True"/>
+            <Component Name="Group5" Class="Com.Ctrl.IGroup">
+              <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              <Component Name="AddFieldBtn" Class="Com.Ctrl.IButton" Caption="@PurposeTemplate:AddFieldBtn=Добавить" FixSize="True" HasCaption="True" OnClick="AddFieldBtn_OnClick" Width="30"/>
+              <Component Name="RestoreBtn" Class="Com.Ctrl.IButton" Caption="@PurposeTemplate:RestoreBtn=Сбросить" FixSize="True" HasCaption="True" OnClick="RestoreBtn_OnClick" Width="30"/>
+            </Component>
+          </Component>
+        </Component>
+        <Inherited Name="Group1" Excluded="True" After="AddFieldBox"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TMS.Frm.AddIns.TaskLaborCosts">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="LaborCostsFrame">
+        <Inherited Name="TableFrame">
+          <Inherited Name="LaborCostsTable">
+            <Inherited Name="EntityEdit" OnChange="EntityEdit_OnChange" OnGetLookupFilter="EntityEdit_OnGetLookupFilter"/>
+            <Component Name="ListButton1" Class="Com.Ctrl.IListButton" After="CommentEdit" ImageName="Com.ellipsis-v">
+              <Component Name="DelLine" Class="Com.Ctrl.IButton" Caption="Удалить строку" FixSize="True" ImageName="Com.DeleteObj" OnClick="DelButtonOnClick" Width="10"/>
+              <Component Name="DelFact" Class="Com.Ctrl.IButton" Caption="Удалить затраченное время" FixSize="True" ImageName="Com.DeleteObj" OnClick="DelFactOnClick" Width="10"/>
+            </Component>
+            <Inherited Name="DelButton" Excluded="True"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

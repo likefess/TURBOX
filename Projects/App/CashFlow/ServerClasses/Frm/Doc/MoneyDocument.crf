@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="CashFlow.Frm.Doc.BankMoveBase">
+  <Inherited>
+    <Inherited Name="FRecord" Class="CashFlow.Rec.Doc.MoneyDocument" IsLibrary="1"/>
+    <Component Name="vDefPos" Class="CashFlow.Rec.Doc.MoneyDocument_Positions" IsLibrary="1" After="FRecord"/>
+    <Inherited Name="EdtRec" IsLibrary="1" After="vDefPos"/>
+    <Inherited Name="Variables">
+      <Component Name="CashierLR" Class="Com.Fld.IVar" Caption="@MoneyDoc:CashierLR=Кассир" OnCalc="CashierLR_OnCalc" RecordClass="Biz.Rec.Data.LabourRelations" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False" Caption="@MoneyDocument:ButtonServices=Сервисы" ImageName="Com.Service" Visible="False">
+          <Component Name="ButtonFillByOnHand" Class="Com.Ctrl.IButton" Caption="@MoneyDocument:ButtonFillByOnHand=Остатки в кассе" Hint="@MoneyDocument:ButtonFillByOnHand.Hint=Добавить позиции ДД из отчета по текущим остаткам в кассе (только те, для которых в колонке &quot;Выбрать&quot; указано значение больше 0)." ImageName="Com.Report" OnClick="ButtonFillByOnHand_OnClick"/>
+        </Inherited>
+        <Inherited Name="ButtonClose" After="ButtonServices"/>
+        <Inherited Name="ButtonReports" After="ButtonClose"/>
+        <Inherited Name="ButtonAnalytics" After="ButtonReports"/>
+        <Inherited Name="ButtonDelete" Visible="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="FieldsGroup">
+          <Inherited Name="PrintedNumberEditGroup">
+            <Inherited Name="PrintedNumberEdit" CaptionWidth="30"/>
+            <Inherited Name="EventTimeEdit" OnChange="EventTimeEdit1_OnChange" OnVerify="EventTimeEdit1_OnVerify"/>
+            <Inherited Name="Locked1" OnVerify="Locked2_OnVerify"/>
+          </Inherited>
+          <Inherited Name="DescriptionGroup">
+            <Inherited Name="Description" Caption="@MoneyDocument:Description=Наименование" CaptionWidth="30"/>
+          </Inherited>
+          <Inherited Name="OtherGroup">
+            <Inherited Name="stOther1" Excluded="True" Width="30"/>
+            <Inherited Name="chWriteOff" Excluded="True"/>
+            <Component Name="ExtComment" Class="Com.Ctrl.IEdit" After="chWriteOff" Caption="@MoneyDocument:ExtComment=Комментарий" CaptionWidth="30" Field="FRecord.ExtComment" HasCaption="True" Hint="@MoneyDocument:ExtComment.Hint=Произвольный текст"/>
+            <Inherited Name="btnAccounted" After="ExtComment"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab" AutoSize="False" Caption="@MoneyDocument:MainTab=Документ">
+          <Inherited Name="GeneralBox" Excluded="False" Caption="@Process:GeneralBox.Title=Основное">
+            <Component Name="GeneralGroup" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="Description" Class="Com.Ctrl.IEdit" Excluded="True" Caption="@MoneyDocument:Description=Наименование" Field="FRecord.Description" Wrap="False"/>
+              <Component Name="BtnStatic18" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="7.5"/>
+              <Component Name="GeneralGroupLeft" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="Entity1Group" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="Entity1" Class="Com.Ctrl.IEdit" Caption="@MoneyDocument:Entity1=Предприятие" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="FRecord.Entity" HasCaption="True" LookupField="Name" OnChange="OurCompany_OnChange" Required="True" ShortList="True" Wrap="False"/>
+                  <Component Name="BtnStatic19" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="CashRegisterGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="CashRegister" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.CashRegisters" CellFormat="ReferenceFormat" Field="FRecord.CashRegister" HasCaption="True" LookupField="Name" OnChange="CashRegister_OnChange" OnGetLookupFilter="CashRegister_OnGetLookupFilter" Required="True" Wrap="False"/>
+                  <Component Name="BtnStatic21" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+              <Component Name="GeneralGroupRight" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                <Component Name="DivisionGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="Division" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" CellFormat="ReferenceFormat" Field="FRecord.Division" HasCaption="True" LookupField="Name" OnChange="Division_OnChange" OnGetLookupFilter="Division_OnGetLookupFilter" Required="True" Wrap="False"/>
+                  <Component Name="BtnStatic20" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+                <Component Name="CashierGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+                  <Component Name="CashierLREdit" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.LabourRelations" Field="CashierLR" HasCaption="True" LookupField="Person.Name" OnChange="CashierLREdit_OnChange" OnGetLookupFilter="CashierLREdit_OnGetLookupFilter" OnOutputEx="CashierLREdit_OnOutputEx"/>
+                  <Component Name="BtnStatic22" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="Cashier" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.NaturalEntities" CellFormat="ReferenceFormat" Field="FRecord.Cashier" HasCaption="True" LookupField="Name" Required="True" Visible="False" Wrap="False"/>
+            <Inherited Name="Group6" After="Cashier"/>
+          </Inherited>
+          <Component Name="ExtraBox" Class="Com.Ctrl.IBox" After="GeneralBox" Caption="@MoneyDocument:ExtraBox=Дополнительно" Visible="False">
+            <Component Name="ExtraGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="BtnStatic23" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="7.5"/>
+            </Component>
+          </Component>
+          <Inherited Name="ValueBox" After="ExtraBox"/>
+          <Inherited Name="OurCompanyBox" Excluded="True"/>
+          <Inherited Name="ContrapartyBox" Excluded="True"/>
+          <Inherited Name="SumBox" Caption="@MoneyDocument:SumBox=Цены, суммы">
+            <Component Name="SumBoxGroup" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="AmountHeader" Class="Com.Ctrl.IEdit" Caption="@MoneyDocument:AmountHeader=Сумма" CellFormat="NumericFormat" Enabled="False" Field="FRecord.FinalSum" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@MoneyDocument:AmountHeader.Hint=Сумма в валюте документа"/>
+              <Component Name="QtyHeader" Class="Com.Ctrl.IEdit" Caption="@MoneyDocument:QtyHeader=Количество" CellFormat="NumericFormat" Enabled="False" Field="FRecord.Quantity" FieldFormat=",##0.00;;-" HasCaption="True"/>
+            </Component>
+            <Inherited Name="Group19" Excluded="True" After="SumBoxGroup"/>
+            <Inherited Name="Group13" Excluded="True"/>
+            <Inherited Name="Group14" Excluded="True"/>
+            <Inherited Name="Group15" Excluded="True"/>
+          </Inherited>
+          <Component Name="PositionsBox" Class="Com.Ctrl.IBox" After="SumBox" Caption="@MoneyDocument:PositionsBox=Позиции">
+            <Component Name="PositionsTable" Class="Com.Ctrl.ITable" Freezed="True" Subtable="FRecord.Positions">
+              <Component Name="MoneyDocNum" Class="Com.Ctrl.IEdit" Caption="@MoneyDocument:MoneyDocNum=Номер ДД" CardFileClass="CashFlow.Tab.Ref.MoneyDocNumber" CellFormat="ReferenceFormat" Field="vDefPos.MoneyDocNumber" HasCaption="True" LookupField="MoneyDocNumber" Width="50"/>
+              <Component Name="MoneyDoc_Code" Class="Com.Ctrl.IEdit" Caption="@MoneyDocument:MoneyDoc_Code=Код ДД" CardFileClass="CashFlow.Tab.Data.MoneyDocument" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPos.MoneyDocument" HasCaption="True" LookupField="Code" Width="30"/>
+              <Component Name="MoneyDoc_Name" Class="Com.Ctrl.IEdit" Caption="@MoneyDocument:MoneyDoc_Name=Наименование ДД" CardFileClass="CashFlow.Tab.Data.MoneyDocument" CellFormat="ReferenceFormat" Field="vDefPos.MoneyDocument" HasCaption="True" LookupField="Name" Width="50"/>
+              <Component Name="MoneyDoc_Art" Class="Com.Ctrl.IEdit" Excluded="True" Caption="@MoneyDocument:MoneyDoc_Art=Артикул" CardFileClass="CashFlow.Tab.Data.MoneyDocument" CellFormat="ReferenceFormat" Field="vDefPos.MoneyDocument" HasCaption="True" LookupField="SKU" Width="30"/>
+              <Component Name="QtyGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@MoneyDocument:QtyGroup=Количество" HasCaption="True" StaticStyle="StaticHyperlink">
+                <Component Name="Qty" Class="Com.Ctrl.IEdit" Enabled="False" Field="vDefPos.Qty" HasCaption="False" OnOutputEx="FieldFormatUnitOfMeasure_OnOutputEx" Width="20"/>
+                <Component Name="UnitOfMeasure" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UnitsOfMeasure" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPos.UnitOfMeasure" HasCaption="False" LookupField="Code" Width="15"/>
+              </Component>
+              <Component Name="FictGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@MoneyDocument:FictGroup=Остаток" HasCaption="True" Hint="@MoneyDocument:FictGroup.Hint=Обновить остатки" OnClick="FictGroup_OnClick" Visible="False">
+                <Component Name="OnHand" Class="Com.Ctrl.IEdit" Caption="@MoneyDocument:OnHand=Остаток" Enabled="False" Field="vDefPos.OnHand" HasCaption="False" OnClick="OnHand_OnClick" OnOutputEx="FieldFormatUnitOfMeasure_OnOutputEx" Visible="False" Width="30"/>
+              </Component>
+              <Component Name="Price" Class="Com.Ctrl.IEdit" Caption="@MoneyDocument:Price=Цена" CellFormat="NumericFormat" Enabled="False" Field="vDefPos.Price" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@MoneyDocument:Price.Hint=Окончательная цена с налогами и скидками" Width="30"/>
+              <Component Name="Amount" Class="Com.Ctrl.IEdit" Caption="@MoneyDocument:Amount=Сумма" CellFormat="NumericFormat" Field="vDefPos.Amount" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@MoneyDocument:Amount.Hint=Сумма в валюте документа" Width="30"/>
+              <Component Name="ResAccountGroup" Class="Com.Ctrl.IColumnsGroup" Caption="@MoneyDoc_WriteOff:ResAccountGroup=Счет учета" HasCaption="True">
+                <Component Name="ResAccount" Class="Com.Ctrl.IEditEx" Field="vDefPos.ResAccount" HasCaption="False" Width="30">
+                  <Component Name="ResAccountBtn" Class="Com.Ctrl.IButton" HasCaption="False" Hint="@MoneyDocument:ResAccountBtn=Выбор счета" ImageName="Biz.id-card-light" OnClick="ResAccountBtn_OnClick"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="PositionsFrame" Class="Com.Ctrl.IFrame" Excluded="True" AutoSize="False" Subtable="FRecord.Positions"/>
+            <Component Name="BlockFrame" Class="Com.Ctrl.IFrame" Excluded="True">
+              <Component Name="Group8" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+                <Component Name="StatusMsg" Class="Com.Ctrl.IStatic" Alignment="CenterAlign" Caption="@MoneyDocument:StatusMsg=Табличная часть документа доступна для редактирования, только если указан договор."/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="CreateUpdateBox" Class="Com.Ctrl.IBox" Caption="@MoneyDocument:CreateUpdateBox=Создал, изменил">
+            <Component Name="CreateUpdateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="CreateUser" Class="Com.Ctrl.IEdit" Enabled="False" Field="FRecord.CreateUser" HasCaption="True"/>
+              <Component Name="BtnStatic241" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="CreateDate" Class="Com.Ctrl.IEdit" Caption="@MoneyDocument:CreateDate=Дата" Enabled="False" Field="FRecord.CreateDate" HasCaption="True"/>
+              <Component Name="BtnStatic242" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+              <Component Name="UpdateUser" Class="Com.Ctrl.IEdit" Enabled="False" Field="FRecord.UpdateUser" HasCaption="True"/>
+              <Component Name="BtnStatic243" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+              <Component Name="UpdateDate" Class="Com.Ctrl.IEdit" Caption="@MoneyDocument:UpdateDate=Дата" Enabled="False" Field="FRecord.UpdateDate" HasCaption="True"/>
+              <Component Name="BtnStatic244" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="TransTab" Class="Com.Ctrl.IFrame" Caption="@FIDocument:TransTab=Проводки" Margins="5"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

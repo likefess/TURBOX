@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Purchase.Tab.Data.BaseDocTab">
+  <Inherited>
+    <Inherited Name="Current" Class="Purchase.Rec.Data.OfferRequest" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="edDivision" Visible="False"/>
+          <Component Name="edMethodSelectionSupplier" Class="Com.Ctrl.IEdit" Field="Current.MethodSelectionSupplier"/>
+          <Component Name="ed_Заказчик" Class="Com.Ctrl.IEdit" Field="Current.Заказчик" Width="40"/>
+          <Component Name="ed_Организатор" Class="Com.Ctrl.IEdit" Field="Current.Организатор" Width="40"/>
+          <Component Name="ed_СостояниеЗП" Class="Com.Ctrl.IEdit" Field="Current.СостояниеЗП" Width="30"/>
+          <Component Name="ed_Ответственный" Class="Com.Ctrl.IEdit" Field="Current.Ответственный" Width="35"/>
+          <Component Name="ed_TotalAmount" Class="Com.Ctrl.IEdit" Caption="Сумма" Field="Current.TotalAmount" FieldFormat="#0.00" OnOutputCard="ed_TotalAmountOnOutputCard" Width="30"/>
+          <Component Name="ed_AmountVAT" Class="Com.Ctrl.IEdit" Caption="НДС" Field="Current.AmountVAT" FieldFormat="#0.00" OnOutputCard="ed_AmountVATOnOutputCard" Width="30"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

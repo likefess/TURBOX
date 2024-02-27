@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Component Name="DataStruct" Class="CashFlow.Rec.Service.FI_ContractPaymentTimeline" IsLibrary="1" After="#0"/>
+    <Inherited Name="TableMenu" After="DataStruct"/>
+    <Inherited Name="Variables">
+      <Component Name="SelectAll" Class="Com.Fld.IVar" OnChange="SelectAll_OnChange" ValueType="VarLogical"/>
+      <Component Name="OperationType" Class="Com.Fld.IVar" RecordClass="CashFlow.Rec.Data.OperationType" ValueType="VarObject"/>
+      <Component Name="DataSubtable" Class="Com.ISubtable"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="3">
+        <Component Name="ButtonCreateInventTrans" Class="Com.Ctrl.IButton" After="#0" Hint="@ContractPaymentTimelines:ButtonCreateInventTrans=Создать платежи" ImageName="Com.AddItem" OnClick="ButtonCreateInventTrans_OnClick"/>
+        <Inherited Name="ButtonOK" Excluded="True" After="ButtonCreateInventTrans"/>
+        <Inherited Name="ButtonRefresh" Excluded="True"/>
+        <Inherited Name="ButtonHelp" Excluded="True"/>
+        <Component Name="ButtonServices" Class="Com.Ctrl.IListButton" Excluded="True" After="ButtonHelp" ImageName="Com.Services"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+          <Component Name="FinInstEdit" Class="Com.Ctrl.IEdit" Caption="@FI_ContractPaymentTimeline:FinInstEdit=Финансовый инструмент" Enabled="False" HasCaption="True" OnOutputEx="FinInstEdit_OnOutputEx"/>
+          <Component Name="ContrapartyEdit" Class="Com.Ctrl.IEdit" Caption="@FI_ContractPaymentTimeline:ContrapartyEdit=Контрагент" Enabled="False" HasCaption="True" OnOutputEx="ContrapartyEdit_OnOutputEx"/>
+          <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          <Component Name="OperationTypeEdit" Class="Com.Ctrl.IEdit" Caption="@FI_ContractPaymentTimeline:OperationTypeEdit=Тип операции" CardFileClass="CashFlow.Tab.Data.OperationType" CellFormat="ReferenceFormat" Field="OperationType" HasCaption="True" Hint="@FI_ContractPaymentTimeline:OperationTypeEditHint=Для выбранных строк" LookupField="Name" OnGetLookupFilter="OperationTypeEdit_OnGetLookupFilter"/>
+          <Component Name="ContractEdit" Class="Com.Ctrl.IEdit" Caption="@FI_ContractPaymentTimeline:ContractEdit=Договор" Enabled="False" HasCaption="True" OnOutputEx="ContractEdit_OnOutputEx"/>
+          <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+          <Component Name="SelectAllCheckBox" Class="Com.Ctrl.ICheckBox" Caption="@FI_ContractPaymentTimeline:SelectAllCheckBox=Выбрать все" Field="SelectAll" FixSize="True" HasCaption="True" Width="30"/>
+        </Component>
+      </Inherited>
+      <Component Name="DataFrame" Class="Com.Ctrl.IFrame" Sortable="True" Subtable="DataSubtable">
+        <Component Name="SelectCol" Class="Com.Ctrl.ICheckBox" Caption="@FI_ContractPaymentTimeline:SelectCol=Выбрать" Field="DataStruct.Select" HasCaption="True" OnChange="SelectCol_OnChange" Width="20"/>
+        <Component Name="OperationTypeCol" Class="Com.Ctrl.IEdit" CardFileClass="CashFlow.Tab.Data.OperationType" CellFormat="ReferenceFormat" Field="DataStruct.OperationType" HasCaption="True" LookupField="Name" Multiline="True" OnGetLookupFilter="OperationTypeCol_OnGetLookupFilter" Required="True" Width="40" Wrap="True"/>
+        <Component Name="PaymentDateCol" Class="Com.Ctrl.IEdit" Enabled="False" Field="DataStruct.PaymentDate" HasCaption="True" Width="45"/>
+        <Component Name="SumCol" Class="Com.Ctrl.IEdit" Enabled="False" Field="DataStruct.Sum" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+        <Component Name="CFRCol" Class="Com.Ctrl.IEdit" Enabled="False" Field="DataStruct.CFR" HasCaption="True" LookupField="Name" Multiline="True" Width="40" Wrap="True"/>
+        <Component Name="BGICol" Class="Com.Ctrl.IEdit" Enabled="False" Field="DataStruct.BGI" HasCaption="True" LookupField="Name" Multiline="True" Width="40" Wrap="True"/>
+        <Component Name="ProjectCol" Class="Com.Ctrl.IEdit" Enabled="False" Field="DataStruct.Project" HasCaption="True" LookupField="Name" Multiline="True" Width="40" Wrap="True"/>
+        <Component Name="SourceCol" Class="Com.Ctrl.IEdit" Enabled="False" Field="DataStruct.Source" HasCaption="True" LookupField="Name" Multiline="True" Width="40" Wrap="True"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

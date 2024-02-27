@@ -1,0 +1,133 @@
+﻿TBCFile VER="3.4" [Created '16.08.2022 1:49:31' by 'Администратор']
+
+DESCRIPTION[
+Count=8
+CountByRef=0
+DocApprovement.Ref.Trans.DATaskStatus
+(
+  Count=0
+  CountByRef=0
+)
+DocApprovement.Ref.Trans.DATransRule
+(
+  Count=8
+  CountByRef=0
+)
+DocApprovement.Ref.Trans.DATransRuleGroup
+(
+  Count=0
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [DocApprovement.Ref.Trans.DATaskStatus
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+  [DocApprovement.Ref.Trans.DATransRule
+  (
+    Deleted :Boolean
+    Code :String(80)
+    Name :String(255)
+    Description :String
+    StatusSrc :DocApprovement.Ref.Trans.DATaskStatus
+    StatusDst :DocApprovement.Ref.Trans.DATaskStatus
+    PersistResp :Boolean
+    TransRuleGroup :DocApprovement.Ref.Trans.DATransRuleGroup
+    RejectReason :Integer
+    StatusChange :Integer
+    CreateNotifctnOnChange :Boolean
+    TextMsgTemplate :Notifications.Ref.DATextMessageTemplate
+    EmailRoles :Struct array Integer
+    (
+      Role :Bas.Ref.EntityRole
+    )
+  )
+  ForeignKey Code
+  ]
+
+  [DocApprovement.Ref.Trans.DATransRuleGroup
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[DocApprovement.Ref.Trans.DATransRule
+  
+  {DocApprovement.Ref.Trans.DATransRule:"Отправить на согласование"}
+  (
+    Name = "Отправить на согласование"
+    StatusSrc = {DocApprovement.Ref.Trans.DATaskStatus:"Новый договор"}
+    StatusDst = {DocApprovement.Ref.Trans.DATaskStatus:"Договор на согласовании"}
+    TransRuleGroup = {DocApprovement.Ref.Trans.DATransRuleGroup:"Согласование договоров"}
+    CreateNotifctnOnChange = True
+  )
+  
+  {DocApprovement.Ref.Trans.DATransRule:"Согласовать"}
+  (
+    Name = "Согласовать"
+    StatusSrc = {DocApprovement.Ref.Trans.DATaskStatus:"Договор на согласовании"}
+    StatusDst = {DocApprovement.Ref.Trans.DATaskStatus:"Договор согласован"}
+    TransRuleGroup = {DocApprovement.Ref.Trans.DATransRuleGroup:"Согласование договоров"}
+  )
+  
+  {DocApprovement.Ref.Trans.DATransRule:"Отправить на подпись"}
+  (
+    Name = "Отправить на подпись"
+    StatusSrc = {DocApprovement.Ref.Trans.DATaskStatus:"Договор согласован"}
+    StatusDst = {DocApprovement.Ref.Trans.DATaskStatus:"Договор на подписи"}
+    TransRuleGroup = {DocApprovement.Ref.Trans.DATransRuleGroup:"Согласование договоров"}
+  )
+  
+  {DocApprovement.Ref.Trans.DATransRule:"Подписать"}
+  (
+    Name = "Подписать"
+    StatusSrc = {DocApprovement.Ref.Trans.DATaskStatus:"Договор на подписи"}
+    StatusDst = {DocApprovement.Ref.Trans.DATaskStatus:"Договор подписан"}
+    TransRuleGroup = {DocApprovement.Ref.Trans.DATransRuleGroup:"Согласование договоров"}
+  )
+  
+  {DocApprovement.Ref.Trans.DATransRule:"Новый переход состояний"}
+  (
+    Name = "Вернуть на доработку"
+    StatusSrc = {DocApprovement.Ref.Trans.DATaskStatus:"Договор на подписи"}
+    StatusDst = {DocApprovement.Ref.Trans.DATaskStatus:"Договор не подписан"}
+    TransRuleGroup = {DocApprovement.Ref.Trans.DATransRuleGroup:"Согласование договоров"}
+  )
+  
+  {DocApprovement.Ref.Trans.DATransRule:"Вернуть"}
+  (
+    Name = "Вернуть"
+    StatusSrc = {DocApprovement.Ref.Trans.DATaskStatus:"Договор на согласовании"}
+    StatusDst = {DocApprovement.Ref.Trans.DATaskStatus:"Договор не согласован"}
+    TransRuleGroup = {DocApprovement.Ref.Trans.DATransRuleGroup:"Согласование договоров"}
+    RejectReason = 2
+  )
+  
+  {DocApprovement.Ref.Trans.DATransRule:"ОтправитьИзНеСогласован"}
+  (
+    Name = "Отправить на согласование"
+    StatusSrc = {DocApprovement.Ref.Trans.DATaskStatus:"Договор не согласован"}
+    StatusDst = {DocApprovement.Ref.Trans.DATaskStatus:"Договор на согласовании"}
+    TransRuleGroup = {DocApprovement.Ref.Trans.DATransRuleGroup:"Согласование договоров"}
+  )
+  
+  {DocApprovement.Ref.Trans.DATransRule:"ОтправитьИзНеПодписан"}
+  (
+    Name = "Отправить на согласование"
+    StatusSrc = {DocApprovement.Ref.Trans.DATaskStatus:"Договор не подписан"}
+    StatusDst = {DocApprovement.Ref.Trans.DATaskStatus:"Договор на согласовании"}
+    TransRuleGroup = {DocApprovement.Ref.Trans.DATransRuleGroup:"Согласование договоров"}
+  )
+]
+
+]

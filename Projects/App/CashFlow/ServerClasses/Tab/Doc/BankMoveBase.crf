@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Tab.Doc.Move">
+  <Inherited>
+    <Inherited Name="Current" Class="CashFlow.Rec.Doc.BankMoveBase" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" Excluded="True"/>
+          <Inherited Name="Quantity" Excluded="True"/>
+          <Inherited Name="CurrentUnit" Excluded="True"/>
+          <Inherited Name="Account" Excluded="True"/>
+          <Inherited Name="Resource" Excluded="True"/>
+          <Inherited Name="Entity" Caption="Наше предприятие" Width="50"/>
+          <Component Name="Contraparty" Class="Com.Ctrl.IEdit" Field="Current.Contraparty" HasCaption="True" Width="50"/>
+          <Component Name="PrintedNumberEdit" Class="Com.Ctrl.IEdit" Caption="Номер" Field="Current.PrintedNumber" HasCaption="True" Width="30"/>
+          <Component Name="EventTime" Class="Com.Ctrl.IEdit" Caption="Дата" Field="Current.EventTime" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly" HasCaption="True"/>
+          <Component Name="Sum" Class="Com.Ctrl.IEdit" Caption="Сумма с НДС" CellFormat="NumericFormat" Field="Current.FinalSum" FieldFormat=",##0.00;;-" HasCaption="True" Width="25"/>
+          <Component Name="Currency" Class="Com.Ctrl.IEdit" Field="Current.Currency" LookupField="Code" Width="15"/>
+          <Component Name="BankDetailsEdit" Class="Com.Ctrl.IEdit" Caption="Расчетный счет" Field="Current.BankDetails" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="PurposeEdit" Class="Com.Ctrl.IEdit" Caption="Назначение платежа" Field="Current.Purpose" HasCaption="True" Width="100"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

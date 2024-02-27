@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Frm.Data.Contract">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame" CanHideBySplit="True" CanResizeBySplit="True" SplitterAtRight="True" UseSplitter="True"/>
+      <Inherited Name="TabsFrame" OnSwitch="TabsFrame_OnSwitch">
+        <Inherited Name="FinanceTab">
+          <Inherited Name="ShippingTimelineBox">
+            <Inherited Name="ShippingTimelineVert">
+              <Inherited Name="ShippingTimelineHorz">
+                <Inherited Name="ShippingTimelineSubtableFrame">
+                  <Inherited Name="ShippingCFREdit" Multiline="True" Wrap="True"/>
+                  <Inherited Name="ShippingBGIEdit" Multiline="True" Wrap="True"/>
+                  <Inherited Name="ShippingProjectEdit" Multiline="True" Wrap="True"/>
+                  <Inherited Name="ShippingSourceEdit" Multiline="True" Wrap="True"/>
+                  <Inherited Name="ShippingSuppAgrNumEdit" Multiline="True" Wrap="True"/>
+                  <Inherited Name="ShippingSpecNumEdit" Multiline="True" Wrap="True"/>
+                  <Inherited Name="ShippingShipping" Multiline="True" Wrap="True"/>
+                </Inherited>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="PaymentTimelineBox">
+            <Inherited Name="PaymentTimelineVert">
+              <Inherited Name="PaymentTimelineHorz">
+                <Inherited Name="PaymentTimelineSubtableFrame">
+                  <Inherited Name="PaymentCFREdit" Multiline="True" Wrap="True"/>
+                  <Inherited Name="PaymentBGIEdit" Multiline="True" Wrap="True"/>
+                  <Inherited Name="PaymentProjectEdit" Multiline="True" Wrap="True"/>
+                  <Inherited Name="PaymentSourceEdit" Multiline="True" Wrap="True"/>
+                  <Inherited Name="PaymentSuppAgrNumEdit" Multiline="True" Wrap="True"/>
+                  <Inherited Name="PaymentFactDocument" Multiline="True" Wrap="True"/>
+                </Inherited>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Component Name="SetupVisibleBox" Class="Com.Ctrl.IBox" Caption="@Contract:SetupVisibleBox=Настройка полей Графиков">
+            <Component Name="SetupVisibleShippingTimeGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="stSetupVisibleShippingTime" Class="Com.Ctrl.IStatic" Caption="@Contract:ShippingTimeline=График поставок/отгрузок товаров/услуг"/>
+              <Component Name="SetupVisibleShippingTimeHorz" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+                <Component Name="grSetupVisibleShippingBiz" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="stSetupVisibleShippingTime1" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@Contract:SetupVisible=Не показывать" MaxWidth="40" Width="40"/>
+                  <Component Name="chSVShippingCFR" Class="Com.Ctrl.ICheckBox" Caption="ЦФО" Field="EdtRec.svShippingCFR" HasCaption="True" Hint="Скрыть поле «ЦФО»" MaxWidth="20" OnChange="chSetupVisible_OnChange" OnVerify="chSVShippingCFR_OnVerify" Width="20"/>
+                  <Component Name="chSVShippingBGI" Class="Com.Ctrl.ICheckBox" Caption="СТЗ" Field="EdtRec.svShippingBGI" HasCaption="True" Hint="Скрыть поле «СТЗ»" MaxWidth="35" OnChange="chSetupVisible_OnChange" OnVerify="chSVShippingBGI_OnVerify" Width="35"/>
+                  <Component Name="chSVShippingProject" Class="Com.Ctrl.ICheckBox" Caption="Проект" Field="EdtRec.svShippingProject" HasCaption="True" Hint="Скрыть поле «Проект»" MaxWidth="25" OnChange="chSetupVisible_OnChange" OnVerify="chSVShippingProject_OnVerify" Width="25"/>
+                  <Component Name="chSVShippingSource" Class="Com.Ctrl.ICheckBox" Caption="Источник" Field="EdtRec.svShippingSource" HasCaption="True" Hint="Скрыть поле «Источник»" MaxWidth="25" OnChange="chSetupVisible_OnChange" OnVerify="chSVShippingSource_OnVerify" Width="25"/>
+                  <Component Name="chSVShippingSuppAgr" Class="Com.Ctrl.ICheckBox" Caption="Поставка/отгрузка согласно ДС" Field="EdtRec.svShippingSuppAgr" HasCaption="True" Hint="Скрыть поле «Поставка/отгрузка согласно ДС»" MaxWidth="60" OnChange="chSetupVisible_OnChange" OnVerify="chSVShippingSuppAgr_OnVerify" Width="60"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="SetupVisiblePaymentTimeGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="stSetupVisiblePaymentTime" Class="Com.Ctrl.IStatic" Caption="@Contract:PaymentTimelineBox=График платежей/поступлений"/>
+              <Component Name="SetupVisiblePaymentTimeHorz" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+                <Component Name="grSetupVisiblePaymentTimeBiz" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="stSetupVisiblePaymentTime1" Class="Com.Ctrl.IStatic" Alignment="RightAlign" Caption="@Contract:SetupVisible=Не показывать" MaxWidth="40" Width="40"/>
+                  <Component Name="chSVPaymentCFR" Class="Com.Ctrl.ICheckBox" Caption="ЦФО" Field="EdtRec.svPaymentCFR" HasCaption="True" Hint="Скрыть поле «ЦФО»" MaxWidth="20" OnChange="chSetupVisible_OnChange" OnVerify="chSVPaymentCFR_OnVerify" Width="20"/>
+                  <Component Name="chSVPaymentBGI" Class="Com.Ctrl.ICheckBox" Caption="Статья бюджета" Field="EdtRec.svPaymentBGI" HasCaption="True" Hint="Скрыть поле «Статья бюджета»" MaxWidth="35" OnChange="chSetupVisible_OnChange" OnVerify="chSVPaymentBGI_OnVerify" Width="35"/>
+                  <Component Name="chSVPaymentProject" Class="Com.Ctrl.ICheckBox" Caption="Проект" Field="EdtRec.svPaymentProject" HasCaption="True" Hint="Скрыть поле «Проект»" MaxWidth="25" OnChange="chSetupVisible_OnChange" OnVerify="chSVPaymentProject_OnVerify" Width="25"/>
+                  <Component Name="chSVPaymentSource" Class="Com.Ctrl.ICheckBox" Caption="Источник" Field="EdtRec.svPaymentSource" HasCaption="True" Hint="Скрыть поле «Источник»" MaxWidth="25" OnChange="chSetupVisible_OnChange" OnVerify="chSVPaymentSource_OnVerify" Width="25"/>
+                  <Component Name="chSVPaymentSuppAgr" Class="Com.Ctrl.ICheckBox" Caption="Поставка/отгрузка согласно ДС" Field="EdtRec.svPaymentSuppAgr" HasCaption="True" Hint="Скрыть поле «Поставка/отгрузка согласно ДС»" MaxWidth="60" OnChange="chSetupVisible_OnChange" OnVerify="chSVPaymentSuppAgr_OnVerify" Width="60"/>
+                  <Component Name="chSVPaymentFactDocument" Class="Com.Ctrl.ICheckBox" Caption="Документ факт. платежа/поступления" Field="EdtRec.svPaymentFactDocument" HasCaption="True" Hint="Скрыть поле «Документ факт. платежа/поступления»" MaxWidth="65" OnChange="chSetupVisible_OnChange" OnVerify="chSVPaymentFactDocument_OnVerify" Width="65"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Frm.Data.Contract">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="DocumentsSCMSubtable" Class="Com.ISubtable"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Component Name="btnCreateContractPurchaseSCM" Class="Com.Ctrl.IButton" After="UpdateContractSumsWithSuppAgrButton" Caption="Создать договор покупки УЦП" HasCaption="True" OnClick="btnCreateContractPurchaseSCM_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="FinanceTab">
+          <Inherited Name="ShippingTimelineBox">
+            <Inherited Name="ShippingTimelineVert">
+              <Inherited Name="ShippingTimelineHorz">
+                <Inherited Name="ShippingTimelineSubtableFrame">
+                  <Component Name="ShippingPurchFactDoc" Class="Com.Ctrl.IEdit" Field="Contract_ShippingTimeline.PurchFactDoc" HasCaption="True" LookupField="Code" OnEnter="ShippingPurchFactDoc_OnEnter" OnLookup="ShippingPurchFactDoc_OnLookup" OnOpenCardForm="ShippingPurchFactDocOnOpenCardForm" Width="35"/>
+                  <Component Name="ShippingPurchFactDocJumpButton" Class="Com.Ctrl.IJumpButton" Field="Contract_ShippingTimeline.PurchFactDoc" JumpForm="BudgetControl.Frm.Data.BCPurchFact"/>
+                </Inherited>
+                <Inherited Name="ShippingTimelineTotalsFrame">
+                  <Component Name="ShippingTotalPurchFactDoc" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="35"/>
+                  <Component Name="ShippingTotalPurchFactDocJumpButton" Class="Com.Ctrl.IJumpButton" Enabled="False" HasCaption="False"/>
+                </Inherited>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="RelatedDocsTab">
+          <Component Name="DocumentsSCMBox" Class="Com.Ctrl.IBox" After="FinDocumentsBox" Caption="Документы УЦП">
+            <Component Name="DocumentsSCM" Class="Purchase.Extension.Biz.Rec.DocumentsSCM" IsLibrary="1"/>
+            <Component Name="DocumentsSCMFrame" Class="Com.Ctrl.IFrame" Sortable="True" Subtable="DocumentsSCMSubtable">
+              <Component Name="ObjTypeDocumentSCM" Class="Com.Ctrl.IEdit" Caption="Наименование документа" CellFormat="ReferenceFormat" Enabled="False" Field="DocumentsSCM.ObjType" HasCaption="True" LookupField="Name" Width="63"/>
+              <Component Name="DocSCMRecordGroup" Class="Com.Ctrl.IColumnsGroup" Caption="Номер документа" HasCaption="True">
+                <Component Name="NumberDocumentCSM" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="DocumentsSCM.DocumentSCM" HasCaption="False" LookupField="PrintedNumber" Width="50" Wrap="True"/>
+                <Component Name="DocSCMRecordJumpBtn" Class="Com.Ctrl.IJumpButton" Field="DocumentsSCM.DocumentSCM" HasCaption="False" Printed="False"/>
+              </Component>
+              <Component Name="EventTimeDocumentSCM" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Дата документа" CellFormat="DateFormat" Enabled="False" Field="DocumentsSCM.EventTime" HasCaption="True" Width="23" Wrap="True"/>
+              <Component Name="AmountVATDocumentSCM" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Сумма НДС" CellFormat="NumericFormat" Enabled="False" Field="DocumentsSCM.AmountVAT" FieldFormat=",##0.00;;-" HasCaption="True" Width="35" Wrap="True"/>
+              <Component Name="AmountSumDocumentSCM" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Сумма" CellFormat="NumericFormat" Enabled="False" Field="DocumentsSCM.AmountSum" FieldFormat=",##0.00;;-" HasCaption="True" Width="35" Wrap="True"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

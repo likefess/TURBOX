@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Frm.Journals.WorkCosts">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonReports">
+          <Component Name="btnReportSPA" Class="Com.Ctrl.IButton" After="btnReportFinances" Caption="@Отчет по ВПС ресурсам" HasCaption="True" Hint="@Получить отчет по ВПС ресурсам" ImageName="Com.Report" OnClick="btnReportSPAClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Component Name="SPAFrame" Class="Com.Ctrl.IFrame" HasCaption="True" Margins="5">
+          <Component Name="SPATable" Class="Com.Ctrl.ITable" CanInsert="False" CanMove="False" Freezed="True" Numbering="True" Subtable="EdtRec.sbtSPA">
+            <Component Name="vDefPosSPA" Class="Repair.Rec.Journals.WorkCostSPALines" IsLibrary="1"/>
+            <Component Name="sbtSPAUnitCodeGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtSPAUnitCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Eqm.EquipmentTab" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosSPA.UnitCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+              <Component Name="sbtSPAUnitCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosSPA.UnitCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtSPACodeGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtSPACode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Eqm.EquipmentTab" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosSPA.SPACode" FixSize="True" HasCaption="False" LookupField="Name" Width="60"/>
+              <Component Name="sbtSPACodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosSPA.SPACode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtSPAModelCodeGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtSPAModelCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Equipment.ClassesTab" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosSPA.ModelCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+              <Component Name="sbtSPAModelCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosSPA.ModelCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtSPAHoursGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True" OnClick="sbtSPAHoursGr_OnClick" StaticStyle="StaticHyperlink">
+              <Component Name="sbtSPAAcceptingHours" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosSPA.AcceptingHours" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" Width="30"/>
+              <Component Name="sbtSPAPrevHours" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosSPA.PrevHours" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" Width="30"/>
+              <Component Name="sbtSPAFactHoursGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True" OnClick="sbtSPAFactHoursGr_OnClick" StaticStyle="StaticHyperlink">
+                <Component Name="sbtSPAHours" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="vDefPosSPA.FactHours" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="False" Width="30"/>
+              </Component>
+            </Component>
+            <Component Name="sbtSPAFactPriceGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True" Hint="@Update summ=Обновить сумму" OnClick="sbtSPAFactPriceGr_OnClick" StaticStyle="StaticHyperlink">
+              <Component Name="sbtSPAPrice" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="vDefPosSPA.FactPrice" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="False" Width="30"/>
+            </Component>
+            <Component Name="sbtSPAFactCost" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosSPA.FactCost" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" Width="30"/>
+            <Component Name="sbtSPAOperCodeGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtSPAOperCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.FlowCharts.Operations" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosSPA.OperCode" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+              <Component Name="sbtSPAOperCodeJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosSPA.OperCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtSPAAcceptingGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtSPAAccepting" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosSPA.Accepting" FixSize="True" HasCaption="False" LookupField="Code" Width="40"/>
+              <Component Name="sbtSPAAcceptingJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosSPA.Accepting" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

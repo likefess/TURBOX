@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" AccountFilter="ContractConcludedCanceledAcc" AccountPlan="БизнесСчета" Autobuild="False" BegDate="01.01.1900" CIndicator="1" EndDate="01.01.2100" HidePeriod="True" HystoKind="hkSide" Legend="lpkAtRight" LinkTables="False" NilCaption="⠀" Palette="cpDefault" Period="-1" ShowSumKindRow="False" TabHeaderFirst="True">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndMain1" Class="Com.Rep.IIndMain" Contents="UnitForStart" Visible="False"/>
+      <Component Name="IndicatorCalculateCount" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Количество" EndSaldoFormat="msfNone" Format="0;0; " Formula="SetCalculateCount" ShowUnit="False" ValueType="VarNumeric"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam572A273E" Class="Com.Rep.ISplitByParam" SplitParam="ResultString"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab">
+        <Component Name="SplitContract_UserEmployee" Class="Com.Rep.ISplitByParam" SplitParam="UserEmployee"/>
+        <Component Name="SplitContract_Партнер" Class="Com.Rep.ISplitByParam" SplitParam="Partner"/>
+      </Component>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContentD275BD0A" Class="Com.Rep.ISplitContent" Caption=" " Contents="ResultString"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_StartDate" Class="Com.Rep.IRepControl" Caption="За период с" CaptionWidth="50" DefaultStr="Date(nil)" Operator="=" Plan="БизнесСчета" ValueType="VarDate" Width="100"/>
+      <Component Name="RC_EndDate1" Class="Com.Rep.IRepControl" Caption="По" CaptionWidth="50" DefaultStr="Date(nil)" Operator="=" Plan="БизнесСчета" ValueType="VarDate" Width="100"/>
+      <Component Name="RC_Company" Class="Com.Rep.IRepControl" Caption="Предприятие" CaptionWidth="50" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" DefaultStr="Object(nil)" LookupField="Name" NewLine="True" Operator="=" Plan="БизнесСчета" ShortList="False" SkipNil="True" ValueType="VarObject" Width="100"/>
+      <Component Name="RC_Classification" Class="Com.Rep.IRepControl" Caption="Классификация" CaptionWidth="50" CardFileClass="Biz.Tab.Ref.ContractClassification" CellFormat="ReferenceFormat" DefaultStr="Object(nil)" LookupField="Name" MultiSelect="True" Operator="=" Plan="БизнесСчета" ValueType="VarObject" Width="100"/>
+      <Component Name="Static" Class="Com.Rep.IRepControl" Caption="⠀" CaptionWidth="50" DefaultStr="String(&quot;&quot;)" NewLine="True" Operator="=" Plan="БизнесСчета" ValueType="VarString" Width="0"/>
+      <Component Name="RC_Intragroup" Class="Com.Rep.IRepControl" Caption="Внутригрупповые договоры" CaptionWidth="0" DefaultStr="Logical(False)" Operator="=" Plan="БизнесСчета" ValueType="VarLogical" Width="100"/>
+      <Component Name="RC_StatusContract" Class="Com.Rep.IRepControl" Caption="Статус договора" CaptionWidth="50" CardFileClass="Biz.Tab.Ref.ContractStatus" CellFormat="ReferenceFormat" DefaultStr="Object(nil)" LookupField="Name" MultiSelect="True" NewLine="True" Operator="=" Plan="БизнесСчета" SkipNil="True" ValueType="VarObject" Width="100"/>
+      <Component Name="RC_StatusSuppAgr" Class="Com.Rep.IRepControl" Caption="Статус доп. соглашения" CaptionWidth="50" CardFileClass="Biz.Tab.Ref.ContractStatus" CellFormat="ReferenceFormat" DefaultStr="Object(nil)" LookupField="Name" MultiSelect="True" Operator="=" Plan="БизнесСчета" ShowHierarchy="False" ValueType="VarObject" Width="100"/>
+      <Component Name="RC_Grouping" Class="Com.Rep.IRepControl" Caption="Группировка" CaptionWidth="50" CellFormat="EnumFormat" DefaultStr="Integer(0)" ListAsString="нет|0;по контрагентам|1;по кураторам|2" NewLine="True" Operator="=" Plan="БизнесСчета" ValueType="VarInteger" Width="250"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

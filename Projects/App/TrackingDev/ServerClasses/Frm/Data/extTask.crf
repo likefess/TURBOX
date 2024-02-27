@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Frm.Data.Task">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="VoteButton" Class="Com.Ctrl.IButton" After="ButtonPattern" HasCaption="True" ImageSize="16" OnClick="VoteButtonOnClick" OnHint="VoteButtonOnHint" VertAlignment="CenterAlign" Width="20"/>
+        <Inherited Name="ButtonOK" After="VoteButton"/>
+      </Inherited>
+      <Inherited Name="SubheaderFrame">
+        <Inherited Name="InnerFrame">
+          <Inherited Name="grpTaskHeader" Excluded="True">
+            <Inherited Name="NameEdit" Excluded="True" OnChange="NameEditOnChange"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="ContentFrame">
+        <Inherited Name="LeftSideFrame">
+          <Inherited Name="Frame1">
+            <Component Name="BoxDataLink" Class="Com.Ctrl.IBox" After="BoxBondFrame" Caption="Ссылки на базу знаний" Color="0xFF000005" Margins="0">
+              <BuiltIn Name="SideMargins" Bottom="24" Left="0" Right="0" Top="0"/>
+              <BuiltIn Name="Title" Color="0x00FFFFFF" FontBold="True" FontColor="0x001C1817" FontSize="12"/>
+              <Component Name="IntegrationFrame" Class="Com.Ctrl.IFrame" AutoSize="True" CanResizeBySplit="True" Color="0xFF000005" Margins="0">
+                <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+              </Component>
+            </Component>
+            <Inherited Name="AdditionalTabsFrame" After="BoxDataLink">
+              <Inherited Name="IntegrFrame">
+                <Component Name="Frame2" Class="Com.Ctrl.IFrame" Color="0x00FFFFFF" Margins="0">
+                  <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                  <Component Name="GitJenkinsBox" Class="Com.Ctrl.IBox" Caption="Интеграции" Color="0x00FFFFFF" Margins="0">
+                    <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                    <BuiltIn Name="Title" Color="0x00FFFFFF" FontBold="True" FontColor="0x001C1817" FontSize="12"/>
+                    <Component Name="TaskLinksFrame" Class="Com.Ctrl.IFrame" AutoSize="True" CanResizeBySplit="True" Color="0x00FFFFFF" Margins="0">
+                      <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                    </Component>
+                  </Component>
+                  <Component Name="BoxAllure" Class="Com.Ctrl.IBox" Caption="Контроль качества" Color="0x00FFFFFF" Margins="0">
+                    <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                    <BuiltIn Name="Title" Color="0x00FFFFFF" FontBold="True" FontColor="0x001C1817" FontSize="12"/>
+                    <Component Name="AllureFrame" Class="Com.Ctrl.IFrame" AutoSize="True" CanResizeBySplit="True" Color="0x00FFFFFF" Margins="0">
+                      <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+                    </Component>
+                  </Component>
+                </Component>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="RightSideFrame">
+          <Inherited Name="FrameRightAll">
+            <Inherited Name="AgileBox">
+              <Inherited Name="TaskAgileFrame">
+                <Inherited Name="SprintsStoryPointsGroup">
+                  <Component Name="SprintsMultiSelect" Class="Com.Ctrl.IListEdit" Excluded="True" Caption="Спринт" CellFormat="CommonFormat" Field="EdtRec.Sprints" HasCaption="False" HasInnerCaption="True" Multiline="False" ShortList="False" Visible="True"/>
+                  <Component Name="Sprint" Class="Com.Ctrl.IEdit" Caption="Спринт" CellFormat="CommonFormat" Field="EdtRec.Sprint" HasCaption="False" HasInnerCaption="True" Multiline="False" ShortList="False" Visible="True"/>
+                </Inherited>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

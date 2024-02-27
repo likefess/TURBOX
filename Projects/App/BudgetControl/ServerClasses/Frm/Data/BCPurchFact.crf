@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="BudgetControl.Rec.Data.BCPurchFact" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" ByColumn="False">
+          <Component Name="LeftGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+            <Component Name="CodeGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="Code1" Class="Com.Ctrl.IEdit" Field="EdtRec.Code" HasCaption="True" Required="True"/>
+            </Component>
+            <Component Name="TransDateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="TransDate" Class="Com.Ctrl.IEdit" Field="EdtRec.TransDate" HasCaption="True" Required="True"/>
+            </Component>
+            <Component Name="CompanyGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="Company" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="EdtRec.Company" HasCaption="True" LookupField="Name" Required="True" ShortList="True"/>
+            </Component>
+          </Component>
+          <Component Name="RightGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+            <Component Name="NameGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="Name1" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" HasCaption="True" Visible="True"/>
+            </Component>
+            <Component Name="LockedGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="LockedStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+              <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Locked" HasCaption="True"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="GeneralGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+            <Component Name="Contraparty" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Field="EdtRec.Contraparty" HasCaption="True" LookupField="Name"/>
+            <Component Name="Contract" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Contract" CellFormat="ReferenceFormat" Field="EdtRec.Contract" HasCaption="True" LookupField="Code"/>
+          </Component>
+        </Inherited>
+        <Component Name="LinesTab" Class="Com.Ctrl.IFrame" Caption="@BCPurchFact:LinesTab=Строки" Margins="5">
+          <Component Name="LinesFrame" Class="Com.Ctrl.IFrame" Subtable="EdtRec.Lines">
+            <Component Name="BCPurchFact_Line" Class="BudgetControl.Rec.Data.BCPurchFact_Line" IsLibrary="1"/>
+            <Component Name="Nomenclature" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Resources" CellFormat="ReferenceFormat" Field="BCPurchFact_Line.Nomenclature" HasCaption="True" LookupField="Name" Width="40"/>
+            <Component Name="UnitOfMeasure" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UnitsOfMeasure" CellFormat="ReferenceFormat" Field="BCPurchFact_Line.UnitOfMeasure" HasCaption="True" LookupField="Code" Width="25"/>
+            <Component Name="Quantity" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="BCPurchFact_Line.Quantity" HasCaption="True" Width="25"/>
+            <Component Name="Price" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="BCPurchFact_Line.Price" FieldFormat=",##0.00;;-" HasCaption="True" Width="35"/>
+            <Component Name="Sum" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Field="BCPurchFact_Line.Sum" FieldFormat=",##0.00;" HasCaption="True" Width="35"/>
+            <Component Name="Currency" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Field="BCPurchFact_Line.Currency" HasCaption="True" LookupField="Code" Required="True" ShortList="True" Width="15"/>
+            <Component Name="CFR" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="BCPurchFact_Line.CFR" HasCaption="True" LookupField="Name" Width="50"/>
+            <Component Name="BGI" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="BCPurchFact_Line.BGI" HasCaption="True" LookupField="Name" LookupFilter="Not Closed" Width="50"/>
+            <Component Name="Project" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Field="BCPurchFact_Line.Project" HasCaption="True" LookupField="Name" Width="50"/>
+            <Component Name="Source" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.FundSource" CellFormat="ReferenceFormat" Field="BCPurchFact_Line.Source" HasCaption="True" LookupField="Name" Width="50"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

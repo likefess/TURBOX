@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.IStruct">
+    <Component Name="ДатаОкончанияИсх" Class="Com.Fld.IVar" ValueType="VarDate"/>
+    <Component Name="Отменить" Class="Com.Fld.IVar" Caption="Отменить" ValueType="VarLogical"/>
+    <Component Name="Основное" Class="Com.Fld.IVar" Caption="Основное" ValueType="VarLogical"/>
+    <Component Name="Приказ" Class="Com.Fld.IVar" Caption="Приказ" RecordClass="УправлениеПерсоналом.Rec.Документы.Кадры.Приказ" ValueType="VarObject"/>
+    <Component Name="ПриказОтмены" Class="Com.Fld.IVar" Caption="Приказ об отмене начисления" RecordClass="УправлениеПерсоналом.Rec.Документы.Кадры.Приказ" ValueType="VarObject"/>
+    <Component Name="Выбор" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    <Component Name="ДолжностьВнСовм" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Ref.Positions" ValueType="VarObject"/>
+    <Component Name="ШтЭлементВнСовм" Class="Com.Fld.IVar" RecordClass="HRBase.Rec.Data.StaffingUnit" ValueType="VarObject"/>
+    <Component Name="ВнутрСовмещение" Class="Com.Fld.IVar" OnChange="ВнутрСовмещение_OnChange" ValueType="VarLogical"/>
+    <Component Name="ДатаОкончания" Class="Com.Fld.IVar" OnVerify="ДатаОкончания_OnVerify" ValueType="VarDate"/>
+    <Component Name="ДатаНачала" Class="Com.Fld.IVar" OnVerify="ДатаНачала_OnVerify" ValueType="VarDate"/>
+    <Component Name="УсловиеРасчета" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+    <Component Name="Периодичность" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+    <Component Name="Сумма" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+    <Component Name="Ставка" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+    <Component Name="ВидНачислений" Class="Com.Fld.IVar" RecordClass="УправлениеПерсоналом.Rec.Справочники.ВидНачислений" ValueType="VarObject"/>
+    <Component Name="Назначение" Class="Com.Fld.IVar" RecordClass="УправлениеПерсоналом.Rec.Данные.Назначения" ValueType="VarObject"/>
+    <Component Name="СтавкаВнСовм" Class="Com.Fld.IVar" OnChange="СтавкаВнСовм_OnChange" ValueType="VarNumeric"/>
+    <Component Name="НачислениеВнСовм" Class="Com.Fld.IVar" RecordClass="УправлениеПерсоналом.Rec.Справочники.ВидНачислений" ValueType="VarObject"/>
+  </Component>
+</Resource>

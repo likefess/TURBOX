@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Frm.Base.HierarchicalRecordFrm">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="EquipmentRegistry.Rec.FlowCharts.Operations" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab" HasCaption="True">
+          <Component Name="MainGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+            <Component Name="eTotalCost" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.TotalCost" FieldFormat="0.00" HasCaption="True"/>
+            <Component Name="eSpareCost" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.SpareCost" FieldFormat="0.00" HasCaption="True"/>
+            <Component Name="eWorkCost" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.WorkCost" FieldFormat="0.00" HasCaption="True"/>
+            <Component Name="eOtherCost" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="EdtRec.OtherCost" FieldFormat="0.00" HasCaption="True"/>
+            <Component Name="eDuration" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="EdtRec.Duration" FieldFormat="0.00" HasCaption="True" OnVerify="eDuration_OnVerify"/>
+            <Component Name="UnitOfMeasure" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UnitsOfMeasure" CellFormat="ReferenceFormat" Field="EdtRec.UnitOfMeasure" HasCaption="True" LookupField="Name" OnVerify="UnitOfMeasure_OnVerify"/>
+            <Component Name="Description" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.Description" HasCaption="True"/>
+          </Component>
+        </Inherited>
+        <Component Name="SparePartsFrame" Class="Com.Ctrl.IFrame" HasCaption="True" Margins="5">
+          <Component Name="SparePartsTable" Class="Com.Ctrl.ITable" Freezed="False" Numbering="False" Subtable="EdtRec.sbtSpareParts">
+            <Component Name="vDefPosR" Class="EquipmentRegistry.Rec.FlowCharts.OperationsSpareParts" IsLibrary="1"/>
+            <Component Name="sbtRResourceCode" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Equipment.Resource_PartTab" CellFormat="ReferenceFormat" Field="vDefPosR.Resource" FixSize="True" HasCaption="True" LookupField="Code" Required="True" Width="40"/>
+            <Component Name="sbtRResourceNameGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtRResourceName" Class="Com.Ctrl.IEdit" CardFileClass="EquipmentRegistry.Tab.Ref.Equipment.Resource_PartTab" CellFormat="ReferenceFormat" Field="vDefPosR.Resource" FixSize="True" HasCaption="False" LookupField="Name" Required="True" Width="60"/>
+              <Component Name="sbtRResourceNameJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosR.Resource" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtRResourceUnit" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="vDefPosR.Resource" FixSize="True" HasCaption="True" LookupField="MainUnit.Code" Width="30"/>
+            <Component Name="sbtRQuantity" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="vDefPosR.Quantity" FieldFormat="0.00" FixSize="True" HasCaption="True" OnEnter="sbtROnEnter" Width="30"/>
+            <Component Name="sbtRPrice" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="vDefPosR.Price" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" OnEnter="sbtROnEnter" Width="30"/>
+            <Component Name="sbtRCost" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosR.Cost" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" Width="30"/>
+          </Component>
+        </Component>
+        <Component Name="WorkersFrame" Class="Com.Ctrl.IFrame">
+          <Component Name="ExecutorBox" Class="Com.Ctrl.IBox" HasCaption="True" Margins="5">
+            <Component Name="ExecutorTable" Class="Com.Ctrl.ITable" Freezed="False" Numbering="True" Subtable="EdtRec.sbtWorkersE">
+              <Component Name="vDefPosWE" Class="EquipmentRegistry.Rec.FlowCharts.OperationsWorkers" IsLibrary="1"/>
+              <Component Name="sbtWCode" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.Positions" CellFormat="ReferenceFormat" Field="vDefPosWE.WorkCode" FixSize="True" HasCaption="True" LookupField="Code" Required="True" Width="40"/>
+              <Component Name="sbtWNameGr" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+                <Component Name="sbtWName" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.Positions" CellFormat="ReferenceFormat" Field="vDefPosWE.WorkCode" FixSize="True" HasCaption="False" LookupField="Name" Required="True" Width="60"/>
+                <Component Name="sbtWNameJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosWE.WorkCode" FixSize="True" HasCaption="False" Width="7.2"/>
+              </Component>
+              <Component Name="sbtWTime" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="vDefPosWE.WorkTime" FieldFormat="0.00" FixSize="True" HasCaption="True" OnEnter="sbtWEOnEnter" Width="30"/>
+              <Component Name="sbtWPrice" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="vDefPosWE.Price" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" OnEnter="sbtWEOnEnter" Width="30"/>
+              <Component Name="sbtWCost" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="vDefPosWE.Cost" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" Width="30"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="CostsFrame" Class="Com.Ctrl.IFrame" HasCaption="True" Margins="5">
+          <Component Name="CostsTable" Class="Com.Ctrl.ITable" Freezed="False" Numbering="False" Subtable="EdtRec.sbtOtherCosts">
+            <Component Name="vDefPosC" Class="EquipmentRegistry.Rec.FlowCharts.OperationsCosts" IsLibrary="1"/>
+            <Component Name="sbtCCode" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="vDefPosC.CostCode" FixSize="True" HasCaption="True" LookupField="Code" Required="True" Width="40"/>
+            <Component Name="sbtCNameG" Class="Com.Ctrl.IColumnsGroup" HasCaption="True">
+              <Component Name="sbtCName" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="vDefPosC.CostCode" FixSize="True" HasCaption="False" LookupField="Name" Required="True" Width="60"/>
+              <Component Name="sbtCNameJB" Class="Com.Ctrl.IJumpButton" Field="vDefPosC.CostCode" FixSize="True" HasCaption="False" Width="7.2"/>
+            </Component>
+            <Component Name="sbtCPrice" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="vDefPosC.Cost" FieldFormat=",##0.00;,##0.00;-" FixSize="True" HasCaption="True" OnEnter="sbtCPrice_OnEnter" Width="30"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

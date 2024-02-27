@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" AccountPlan="Workflow" BegSaldoFormat="sfNone" Caption="@TrackingCore:TaskListRep=Список задач" CIndicator="1" EmptyReportCaption="'Задачи отсутствуют'" EndSaldoFormat="sfNone" FreezeHeader="True" HidePeriod="True" HystoKind="hkSide" Legend="lpkAtRight" LinkTables="False" OpenPeriod="opAll" Palette="cpDefault" ShowReportTotalRow="False" ShowSumKindRow="False" TabHeaderFirst="False">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorTaskUnit" Class="Com.Rep.IIndMain" Aggregate="agrSum" BegSaldoFormat="msfDebCre" Caption="IndicatorTaskUnit" Contents="TaskUnit" EndSaldoFormat="msfDebCre" MaxWidth="33" ShowFmt="mshAll" TurnFormat="msfDebCre" Visible="False"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="TaskSplitParam" Class="Com.Rep.ISplitByParam" ShowTotals="False" SortOrder="-Task.Prio.PriorityValue,-Task.#UpdateDate" SplitParam="Task"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="CategorySplitContent" Class="Com.Rep.ISplitContent" Caption="Тип" Contents="Task.Category.Description" MaxWidth="15" MinWidth="15"/>
+        <Component Name="CodeSplitContent" Class="Com.Rep.ISplitContent" Caption="ID" Contents="Task.Code" MaxWidth="35" MinWidth="35"/>
+        <Component Name="DescriptionSplitContent" Class="Com.Rep.ISplitContent" Caption="Название" Contents="Task.Description" MaxWidth="130" MinWidth="130"/>
+        <Component Name="DoerSplitContent" Class="Com.Rep.ISplitContent" Caption="Исполнитель" Contents="Task.Doer.Description" MaxWidth="40" MinWidth="40"/>
+        <Component Name="TaskStatusSplitContent" Class="Com.Rep.ISplitContent" Caption="Статус" Contents="Task.TaskStatus.Description" MaxWidth="30" MinWidth="30" UseMacro="True"/>
+        <Component Name="PriorityValueSplitContent" Class="Com.Rep.ISplitContent" Alignment="LeftAlign" Caption="Приоритет" Contents="Task.Prio.PriorityValue" MaxWidth="25" MinWidth="25" OnUpdateCell="PriorityValueSplitContentOnUpdateCell"/>
+        <Component Name="SeriousnessSplitContent" Class="Com.Rep.ISplitContent" Caption="Серьезность" Contents="Task.Seriousness"/>
+        <Component Name="UpdateDateSplitContent" Class="Com.Rep.ISplitContent" Caption="Обновлено" Contents="Task.#UpdateDate" Format="dd.mm.yyyy hh:mm:ss" OnUpdateCell="UpdateDateSplitContentOnUpdateCell"/>
+        <Component Name="InitiatorSplitContent" Class="Com.Rep.ISplitContent" Caption="Автор" Contents="Task.Initiator.Description" MaxWidth="40" MinWidth="40"/>
+        <Component Name="ResponsibleSplitContent" Class="Com.Rep.ISplitContent" Caption="Ответственный" Contents="Task.Responsible.Description" MaxWidth="40" MinWidth="40"/>
+        <Component Name="ProjectSplitContent" Class="Com.Rep.ISplitContent" Caption="Проект" Contents="Task.Project.Description" MaxWidth="40" MinWidth="40"/>
+        <Component Name="ComponentsSplitContent" Class="Com.Rep.ISplitContent" Caption="Компонент" Contents="Task.Project.Code" MaxWidth="30" MinWidth="30" OnUpdateCell="ComponentsSplitContentOnUpdateCell"/>
+        <Component Name="LabelsSplitContent" Class="Com.Rep.ISplitContent" Caption="Метки" Contents="Task.TaskStatus.Code" MaxWidth="30" MinWidth="30" OnUpdateCell="LabelsSplitContentOnUpdateCell"/>
+        <Component Name="TaskDescriptionSplitContent" Class="Com.Rep.ISplitContent" Excluded="True" Caption="Описание" Contents="Task.TaskDescription" Enabled="False" MaxWidth="100" MinWidth="100"/>
+        <Component Name="AffVersionsSplitContent" Class="Com.Rep.ISplitContent" Caption="Версия" Contents="Task.Project.Name" MaxWidth="25" MinWidth="25" OnUpdateCell="AffVersionsSplitContentOnUpdateCell"/>
+        <Component Name="SprintsSplitContent_" Class="Com.Rep.ISplitContent" Excluded="True" Caption="Спринты" Contents="Task.TaskStatus.Name" MaxWidth="30" MinWidth="30" OnUpdateCell="SprintsSplitContent_OnUpdateCell"/>
+        <Component Name="DateCreationSplitContent" Class="Com.Rep.ISplitContent" Caption="Создана" Contents="Task.#CreateDate" Format="dd.mm.yyyy hh:mm:ss"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_PrintedNumber" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@Number=Номер" CaptionWidth="40" CellFormat="StringFormat" OnVerify="RC_ValidationOnVerify" Operator="like" Parameter="Task.PrintedNumber" Plan="Workflow" SkipNil="True" ValueType="VarString"/>
+      <Component Name="RC_Project" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@Control:Project=Проект" CaptionWidth="40" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" MultiSelect="True" Operator=" is " Parameter="Project" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Category" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@Control:Task.Categoty=Тип задачи" CaptionWidth="40" CardFileClass="TrackingCore.Tab.Ref.TaskCategory" CellFormat="ReferenceFormat" MultiSelect="True" Operator=" is " Parameter="Task.Category" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Label" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@TrackingCore:Label=Метка" CaptionWidth="40" CardFileClass="TrackingCore.Tab.Ref.Label" CellFormat="ReferenceFormat" MultiSelect="True" Operator=" is " Parameter="Label" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Description" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@Name=Название" CaptionWidth="40" CellFormat="StringFormat" OnVerify="RC_ValidationOnVerify" Operator="like" Parameter="Task.Description" Plan="Workflow" SkipNil="True" ValueType="VarString"/>
+      <Component Name="RC_TaskStatus" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@Control:Task.Status=Статус" CaptionWidth="40" CardFileClass="Control.Tab.Ref.TaskStatus" CellFormat="ReferenceFormat" MultiSelect="True" Operator=" is " Parameter="Task.TaskStatus" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Responsible" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@Control:Task.Responsible=Ответственный" CaptionWidth="40" CardFileClass="Control.Tab.Data.Staff" CellFormat="ReferenceFormat" MultiSelect="True" Operator=" is " Parameter="Task.Responsible" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Component" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@TrackingCore:Component=Компонент" CaptionWidth="40" CardFileClass="TrackingCore.Tab.Ref.PrjComponent" CellFormat="ReferenceFormat" MultiSelect="True" Operator=" is " Parameter="Component" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_TaskDescription" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@Description=Описание" CaptionWidth="40" CellFormat="StringFormat" OnVerify="RC_ValidationOnVerify" Operator="like" Parameter="Task.TaskDescription" Plan="Workflow" SkipNil="True" ValueType="VarString"/>
+      <Component Name="RC_Priority" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@Control:Task.Priority=Приоритет" CaptionWidth="40" CardFileClass="Control.Tab.Ref.TaskPriority" CellFormat="ReferenceFormat" MultiSelect="True" Operator=" is " Parameter="Task.Prio" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Seriousness" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@Control:Task.Seriousness=Серьезность" CaptionWidth="40" CardFileClass="Tab.Ref.Seriousness" CellFormat="ReferenceFormat" MultiSelect="True" Operator="is" Parameter="Task.Seriousness" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Initiator" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@Control:Task.Initiator=Инициатор" CaptionWidth="40" CardFileClass="Control.Tab.Data.Staff" CellFormat="ReferenceFormat" MultiSelect="True" Operator=" is " Parameter="Task.Initiator" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Doer" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Исполнитель" CaptionWidth="40" CardFileClass="Control.Tab.Data.Staff" CellFormat="ReferenceFormat" MultiSelect="True" Operator=" is " Parameter="Task.Doer" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Version" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@TrackingCore:Version=Версия" CaptionWidth="40" CardFileClass="TrackingCore.Tab.Ref.Version" CellFormat="ReferenceFormat" MultiSelect="True" Operator=" is " Parameter="AffVersion" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Watcher" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@TrackingCore:Task.Watcher=Наблюдатель" CaptionWidth="40" CardFileClass="Control.Tab.Data.Staff" CellFormat="ReferenceFormat" MultiSelect="True" Operator=" is " Parameter="Task.WatchersArr" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_WatcherRole" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@TrackingCore:Task.WatcherRole=Роль" CaptionWidth="40" CardFileClass="Control.Tab.Ref.EntityRoles" CellFormat="ReferenceFormat" MultiSelect="True" Operator=" is " Parameter="WatcherRole" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Doer" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@TrackingCore:Task.Doer=Исполнитель" CaptionWidth="40" CardFileClass="Control.Tab.Data.Staff" CellFormat="ReferenceFormat" MultiSelect="True" Operator=" is " Parameter="Task.Doer" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

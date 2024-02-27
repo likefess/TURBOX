@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Frm.Документы.Имущество.ОС.ИмуществоБазовыйДокументОС">
+  <Inherited HelpContext="Имущество.Имущество.Документы движения и учета ОС.Ввод остатков ОС">
+    <Inherited Name="EdtRec" Class="Имущество.Rec.Документы.Имущество.ОС.МодернизацияОС" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Inherited Name="кнУдалитьПозиции" Excluded="True"/>
+          <Component Name="кнУдалитьПозицииКВ" Class="Com.Ctrl.IButton" Caption="@Имущество:Удалить=Удалить" Hint="@Имущество:УдалитьПозиции=Удалить позиции КВ" ImageName="Com.DelPositions" OnClick="кнУдалитьКВ_OnClick" Visible="True"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Шапка_Фрейм">
+          <Inherited Name="Шапка_Гр" CaptionWidth="45">
+            <Inherited Name="ДатыПроведенияПоУчетам">
+              <Inherited Name="Static_ДВЭ1" Width="45"/>
+            </Inherited>
+            <Component Name="ОС_Гр" Class="Com.Ctrl.IGroup" After="Шапка_ПервичныйДокумент">
+              <Component Name="ОС" Class="Com.Ctrl.IEdit" Caption="Код ОС" CellFormat="ReferenceFormat" Field="EdtRec.ОС" FixSize="True" HasCaption="True" LookupField="КодИмущества" OnChange="ОС_OnChange" OnGetLookupFilter="ОС_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуОС" Required="True" Width="30"/>
+              <Component Name="ОС_Имя" Class="Com.Ctrl.IEdit" Caption="Наименование ОС" CellFormat="ReferenceFormat" Field="EdtRec.ОС" HasCaption="False" Hint=" Краткое наименование объекта ОС" LookupField="Имя" OnChange="ОС_OnChange" OnGetLookupFilter="ОС_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуОС" Required="True"/>
+              <Component Name="ОС_Карточка" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ОС" Hint="Перехода на карточку ОС" JumpForm="ИмуществоБазовый.Frm.Справочники.ОснСредства"/>
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+            </Component>
+            <Component Name="ОС_ПолнИмя_Гр" Class="Com.Ctrl.IGroup">
+              <Component Name="ОС_ПолнИмя" Class="Com.Ctrl.IEdit" Caption=" Полное наименование" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ОС" HasCaption="True" Hint=" Полное наименование объекта ОС" LookupField="ПолнИмя"/>
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Multiline="True" Width="32" Wrap="True"/>
+            </Component>
+            <Inherited Name="Корректировка_Гр" After="ОС_ПолнИмя_Гр">
+              <Inherited Name="стКорректировка" Width="45"/>
+              <Inherited Name="КорректируемыйДокумент" CardFileClass="Имущество.Tab.Документы.Имущество.ОС.ВводОстатковОС"/>
+              <Inherited Name="кнКорректируемыйДокумент" JumpForm="Имущество.Frm.Документы.Имущество.ОС.МодернизацияОС"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="Имя_Код_Бокс" Visible="False"/>
+          <Inherited Name="ОбщиеДанные" Excluded="True">
+            <Inherited Name="Подр_МОЛ_Гр" Excluded="True"/>
+          </Inherited>
+          <Component Name="Позиции_Box" Class="Com.Ctrl.IBox" After="ОбщиеДанные" Caption="Объект КВ, которым модернизируется ОС">
+            <Component Name="СтоимостьВывод_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="СтоимостьВывод" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.Стоимость" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Стоимость объекта (без учета НДС)" MaxWidth="40" MinWidth="30" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify"/>
+            </Component>
+            <Component Name="ПозицииКВ_Табл" Class="Com.Ctrl.ITable" Sortable="True" Subtable="EdtRec.ПозицииКВ">
+              <Component Name="МодернизацияОС_ПозицииКВ" Class="Имущество.Rec.Документы.Имущество.ОС.МодернизацияОС_ПозицииКВ" IsLibrary="1"/>
+              <Component Name="Имя_Табл" Class="Com.Ctrl.IEdit" Caption="Наименование КВ" CellFormat="ReferenceFormat" Field="МодернизацияОС_ПозицииКВ.КВ" Hint="Краткое наименование КВ" LookupField="Name" Multiline="True" OnChange="КВ_Табл_OnChange" OnGetLookupFilter="КВ_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуКВ" OnVerify="КВ_Табл_OnVerify" Required="True" Width="70" Wrap="True"/>
+              <Component Name="ИнвентарныйНомер_Табл" Class="Com.Ctrl.IEdit" Caption="Инвентарный номер" CellFormat="ReferenceFormat" Field="МодернизацияОС_ПозицииКВ.КВ" Hint="Инвентарный номер КВ" LookupField="КодИмущества" OnChange="КВ_Табл_OnChange" OnGetLookupFilter="КВ_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуКВ" OnVerify="КВ_Табл_OnVerify" Required="True" Width="30"/>
+              <Component Name="ОС_JumpButton" Class="Com.Ctrl.IJumpButton" Field="МодернизацияОС_ПозицииКВ.КВ" Hint="Возможность перехода на карточку КВ, просмотра и редактирования доступных полей" JumpForm="ИмуществоБазовый.Frm.Справочники.КапВложения"/>
+              <Component Name="кн_ОбновитьДанныеПоПозицииКВ" Class="Com.Ctrl.IButton" FixSize="True" Hint="Обновить данные по текущей позиции ОС" ImageName="Control.Refresh" OnClick="кн_ОбновитьДанныеПоПозицииКВ_OnClick" Width="6"/>
+              <Component Name="КоличествоСписания_Табл" Class="Com.Ctrl.IEdit" Field="МодернизацияОС_ПозицииКВ.КоличествоСписанияКВ" FieldFormat=",##0.00;;-" Hint="Количество объектов КВ, списываемое на модернизацию объекта ОС" OnVerify="КоличествоСписания_Табл_OnVerify" Required="True" Width="30"/>
+              <Component Name="СтоимостьСписания_Табл" Class="Com.Ctrl.IEdit" Field="МодернизацияОС_ПозицииКВ.СтоимостьСписанияКВ" FieldFormat=",##0.00;;-" Hint="Стоимость объектов КВ, списываемая на модернизацию объекта ОС" OnVerify="СтоимостьСписания_Табл_OnVerify" Required="True" Width="30"/>
+              <Component Name="Подразделение_Табл" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" Enabled="False" Field="МодернизацияОС_ПозицииКВ.Подразделение" Hint="Подразделение, в котором числится объект КВ" Multiline="True" OnHint="Подразделение_Табл_OnHint" Required="True" Width="40" Wrap="True"/>
+              <Component Name="ТрудовыеОтношения_Выбор_Табл" Class="Com.Ctrl.IEdit" Excluded="True" Caption="МОЛ " CardFileClass="Biz.Tab.Data.LabourRelations" Field="МодернизацияОС_ПозицииКВ.перТрудовыеОтношения_Выбор" FixSize="True" HasCaption="True" Hint="ФИО материально-ответственного лица, за которым закреплен данный объект имущества, по состоянию на текущую дату" LookupField="Person.Name" OnChange="ТрудовыеОтношения_Выбор_Табл_OnChange" OnGetLookupFilter="ТрудовыеОтношения_Выбор_Табл_OnGetLookupFilter" OnOutput="ТрудовыеОтношения_Выбор_Табл_OnOutput" Required="True" Width="50"/>
+              <Component Name="МОЛ_Табл" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" Enabled="False" Field="МодернизацияОС_ПозицииКВ.МОЛ" FieldFormat=",##0.00;;-" Hint="Материально-ответственное лицо, ответственное за данный объект КВ" Multiline="True" OnChange="МОЛ_Табл_OnChange" OnGetLookupFilter="МОЛ_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуМОЛ" Required="True" Width="40" Wrap="True"/>
+              <Component Name="перКоличествоСписанияКВ_Табл" Class="Com.Ctrl.IEdit" Caption="Текущее количество " Enabled="False" Field="МодернизацияОС_ПозицииКВ.перКоличествоСписанияКВ" Hint="Текущее количество объекта КВ, доступное для списания на модернизацию ОС" VertAlignment="RightAlign" Width="30"/>
+              <Component Name="перСтоимостьСписанияКВ_Табл" Class="Com.Ctrl.IEdit" Caption="Текущая стоимость " Enabled="False" Field="МодернизацияОС_ПозицииКВ.перСтоимостьСписанияКВ" FieldFormat=",##0.00;;-" Hint="Текущая стоимость объекта КВ, доступная для списания на модернизацию ОС" VertAlignment="RightAlign" Width="30"/>
+            </Component>
+          </Component>
+          <Component Name="МодернизируемоеОС_Box" Class="Com.Ctrl.IBox" Caption="Модернизируемое ОС">
+            <Component Name="МодернизируемоеОС_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="100" MaxWidth="300" MinWidth="150">
+              <Component Name="ПервоначальнаяСтоимость" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.ПервоначальнаяСтоимость" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Первоначальная стоимость модернизируемого объекта ОС" MaxWidth="40" MinWidth="30" Required="True"/>
+              <Component Name="СуммаАмортизации" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.СуммаАмортизации" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Сумма амортизации, начисленная по данному объекту ОС на дату модернизации" MaxWidth="40" MinWidth="30"/>
+              <Component Name="СуммаМодернизации" Class="Com.Ctrl.IEdit" Caption="Сумма модернизации" Enabled="False" Field="EdtRec.Стоимость" FieldFormat=",##0.00;;-" Hint="Сумма модернизации, увеличивающая стоимость объекта ОС" MaxWidth="40" MinWidth="30" Required="True"/>
+              <Component Name="СтоимостьПослеМодернизации" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.СтоимостьПослеМодернизации" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Стоимость объекта ОС после модернизации (с учетом амортизации)" MaxWidth="40" MinWidth="30" Required="True"/>
+              <Component Name="ЛиквидационнаяСтоимостьПослеМодернизации" Class="Com.Ctrl.IEdit" Field="EdtRec.ЛиквидационнаяСтоимостьПослеМодернизации" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Ликвидационная стоимость модернизируемого объекта ОС после модернизации" MaxWidth="40" MinWidth="30" OnVerify="ЛиквидационнаяСтоимостьПослеМодернизации_OnVerify"/>
+              <Component Name="СрокПолезногоИспользованияПослеМодернизации" Class="Com.Ctrl.IEdit" Field="EdtRec.СрокПолезногоИспользованияПослеМодернизации" HasCaption="True" Hint="Срок полезного использования объекта ОС, установленный для данного объекта после проведения модернизации (в месяцах)" MaxWidth="40" MinWidth="30" OnVerify="СрокПолезногоИспользованияПослеМодернизации_OnVerify" Required="True"/>
+              <Component Name="Подразделение_ОС" Class="Com.Ctrl.IEdit" Caption="Подразделение" CardFileClass="Bas.Tab.Data.Divisions" Enabled="False" Field="EdtRec.Подразделение" HasCaption="True" Hint="Подразделение, в котором числится объект ОС" Multiline="True" Required="True" Wrap="True"/>
+              <Component Name="МОЛ_ОС" Class="Com.Ctrl.IEdit" Caption="МОЛ" CardFileClass="Bas.Tab.Data.Entity" Enabled="False" Field="EdtRec.МОЛ" HasCaption="True" Hint="ФИО материально-ответственного лица, за которым закреплен данный объект ОС, по состоянию на текущую дату" Required="True"/>
+              <Component Name="ДатаВнесенияИзменений" Class="Com.Ctrl.IEdit" Field="EdtRec.ДатаВнесенияИзменений" FixSize="True" HasCaption="True" Hint="Указывается дата, с которой расчет амортизации будет производится по измененной стоимости ОС и СПИ" Multiline="True" Required="True" Width="30" Wrap="True"/>
+            </Component>
+          </Component>
+          <Inherited Name="Комментарии_Box" After="МодернизируемоеОС_Box"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

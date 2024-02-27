@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Tracker_Service.Rec.Data.WorkingGroup" IsLibrary="1"/>
+    <Component Name="WorkingGroup_CurMember" Class="Tracker_Service.Rec.Data.WorkingGroup_Member" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Code" FixSize="True" HasInnerCaption="True" MinWidth="200" Visible="True" Width="200"/>
+          <Inherited Name="Name" FixSize="True" HasInnerCaption="True" MinWidth="200" Visible="True" Width="200"/>
+        </Inherited>
+      </Inherited>
+      <Component Name="MembersBox" Class="Com.Ctrl.IBox" After="FieldsFrame" Caption="Состав рабочей группы">
+        <Component Name="MembersTab" Class="Com.Ctrl.ITable" Subtable="EdtRec.Members">
+          <Component Name="edtWorker" Class="Com.Ctrl.IEdit" Field="WorkingGroup_CurMember.Member" HasButton="True" LookupFilter="UseControl" Width="160"/>
+          <Component Name="edtWorkerRole" Class="Com.Ctrl.IEdit" ButtonStyle="ComboButton" CardFileClass="Control.Tab.Ref.EntityRoles" Field="WorkingGroup_CurMember.MemberRole" FixSize="True" HasButton="True" ShortList="True" Width="70"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

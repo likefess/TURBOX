@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.Справочник">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Справочники.Виды удержаний">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Справочники.ВидУдержаний" IsLibrary="1"/>
+    <Component Name="Зависимости" Class="УправлениеПерсоналом.Rec.Справочники.ВидУдержаний_Зависимости" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="грОсновное1" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="GroupDoc1" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.GroupDoc" HasCaption="True" LookupField="Name"/>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+        </Component>
+        <Inherited Name="Group1">
+          <Inherited Name="GroupCode">
+            <Inherited Name="Locked" Visible="True" Width="30"/>
+          </Inherited>
+          <Inherited Name="GroupName">
+            <Inherited Name="Closed" Visible="True" Width="30"/>
+          </Inherited>
+        </Inherited>
+        <Component Name="грПериод" Class="Com.Ctrl.IGroup" After="Group1" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Caption="@Период действия" Field="EdtRec.ДатаНачала" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="30"/>
+          <Component Name="ДатаОкончания" Class="Com.Ctrl.IEdit" Caption="-  " CaptionWidth="10" Field="EdtRec.ДатаОкончания" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="30"/>
+          <Component Name="Static10" Class="Com.Ctrl.IStatic" Width="50"/>
+          <Component Name="Проводить" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Проводить" FixSize="True" HasCaption="True" Width="30"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="@Frm:MainTab=Общие данные" HasCaption="True">
+          <Component Name="бксОсновное" Class="Com.Ctrl.IBox" Caption="Основное" HasCaption="True">
+            <Component Name="грНастройки" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="грТипРасчета" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="ТипРасчета" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ТипыРасчетов" Field="EdtRec.ТипРасчета" HasCaption="True" LookupField="Name" Multiline="True" Wrap="True"/>
+                <Component Name="ТипРасчетаКод" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ТипыРасчетов" Enabled="False" Field="EdtRec.ТипРасчета" FixSize="True" HasCaption="False" LookupField="Код" Width="30"/>
+                <Component Name="кнТипРасчета" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ТипРасчета" JumpForm="УправлениеПерсоналом.Frm.Классификаторы.ТипРасчета"/>
+              </Component>
+              <Component Name="грВалюта" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="Очередность" Class="Com.Ctrl.IEdit" Caption="Очередность" CellFormat="EnumFormat" Field="EdtRec.Очередность" HasCaption="True" Hint="Очередность в соответствии с ч.1 ст.111 229-ФЗ" Width="30"/>
+                <Component Name="Валюта" Class="Com.Ctrl.IEdit" Caption="Валюта расчета" CardFileClass="Biz.Tab.Ref.UCurrencies" Field="EdtRec.Валюта" HasCaption="True" Hint="@Валюта, в которой будет вестись расчет" LookupField="Код" Required="True" Width="25"/>
+                <Component Name="кнВалюта" Class="Com.Ctrl.IJumpButton" Excluded="True" Field="EdtRec.Валюта" JumpForm="Biz.Frm.Ref.UnitOrCurrency"/>
+                <Component Name="СтавкаНДФЛ" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Справочники.СтавкиНДФЛ" Field="EdtRec.Ставка_НДФЛ" FixSize="True" HasCaption="True" Hint="Только для расчета удержания НДФЛ" LookupField="Код" Width="30"/>
+                <Component Name="кнСтавкаНДФЛ" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Ставка_НДФЛ" JumpForm="УправлениеПерсоналом.Frm.Справочники.СтавкиНДФЛ"/>
+              </Component>
+              <Component Name="грВидПлатежа" Class="Com.Ctrl.IGroup" ByColumn="False">
+                <Component Name="ВидПлатежа" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыПлатежа" Field="EdtRec.ВидПлатежа" HasCaption="True" LookupField="Name"/>
+                <Component Name="ВидПлатежаКод" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыПлатежа" Enabled="False" Field="EdtRec.ВидПлатежа" FixSize="True" HasCaption="False" LookupField="Код" Width="30"/>
+                <Component Name="кнВидПлатежа" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ВидПлатежа" JumpForm="УправлениеПерсоналом.Frm.Справочники.ВидПлатежа"/>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="ParamsTab" Class="Com.Ctrl.IFrame" Caption="@Frm:ParamsTab=Параметры расчета" HasCaption="True" Margins="5">
+          <Component Name="грАлгоритм" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Алгоритм" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Справочники.АлгоритмыРасчета" Field="EdtRec.Алгоритм" HasCaption="True" LookupField="Name"/>
+            <Component Name="кнАлгоритм" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Алгоритм" JumpForm="УправлениеПерсоналом.Frm.Справочники.АлгоритмРасчета"/>
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+          </Component>
+          <Component Name="грКнопки" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Static3" Class="Com.Ctrl.IStatic" Width="60"/>
+            <Component Name="кнВыбратьБазу" Class="Com.Ctrl.IButton" Caption="Выбрать" HasCaption="True" Hint="Заполнить расчетную базу" OnClick="кнВыбратьБазу_OnClick"/>
+            <Component Name="Static4" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+          </Component>
+          <Component Name="тблЗависимые" Class="Com.Ctrl.ITable" Sortable="True" Subtable="EdtRec.БазаРасчета">
+            <Component Name="ColumnsGroup1" Class="Com.Ctrl.IColumnsGroup" Caption="Расчетная база для удержания" FontBold="True" HasCaption="True">
+              <Component Name="ЗавВидНачисленийИмя" Class="Com.Ctrl.IEdit" Caption="Наименование" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Field="Зависимости.ВидРасчета" HasCaption="True" LookupField="Name" LookupFilter="Проводить" Multiline="True" Width="150" Wrap="True"/>
+              <Component Name="ЗавВидНачисленийКод" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Код" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Enabled="False" Field="Зависимости.ВидРасчета" HasCaption="True" LookupField="Код" Width="25"/>
+              <Component Name="кнЗавВидНачислений" Class="Com.Ctrl.IJumpButton" Field="Зависимости.ВидРасчета" JumpForm="УправлениеПерсоналом.Frm.Справочники.ВидНачислений"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTrans" AccountPlan="Оперативный" BegDate="01.12.2021" Caption="Отчет по проводкам объекта НМА" CIndicator="1" EndDate="01.01.2022" FreezeHeader="True" HystoKind="hkSide" Legend="lpkAtRight" OpenPeriod="opAll" Palette="cpDefault" Period="3" Tran_ConsolidateAnalyt="True" Tran_Consolidated="True" Tran_ConsolidateDate="True" Tran_ConsolidateDoc="True">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="Сумма" Class="Com.Rep.IIndTrans" Caption="Сумма" Contents="Сумма" ShowColTotal="False" ShowTwoLines="False" SplitFmt="spNone"/>
+      <Component Name="Количество" Class="Com.Rep.IIndTrans" Caption="Количество" Contents="Количество" ShowColTotal="False"/>
+      <Component Name="НМА" Class="Com.Rep.IIndTrans" Caption="НМА" Contents="НМА.КодИмущества" Visible="False"/>
+      <Component Name="Предприятие" Class="Com.Rep.IIndTrans" Caption="Предприятие" Contents="НашеПредприятие.Description" ShowColTotal="False" Visible="False"/>
+      <Component Name="Подразделение" Class="Com.Rep.IIndTrans" Caption="Подразделение" Contents="Подразделение.Description" ShowColTotal="False"/>
+      <Component Name="МОЛ" Class="Com.Rep.IIndTrans" Caption="МОЛ" Contents="МОЛ.Description" ShowColTotal="False"/>
+      <Component Name="Журнал" Class="Com.Rep.IIndTrans" Caption="Журнал" Contents="ИмяЖурнала" ShowColTotal="False"/>
+      <Component Name="Документ" Class="Com.Rep.IIndTrans" Caption="Документ" Contents="#Имя"/>
+      <Component Name="Комментарий" Class="Com.Rep.IIndTrans" Caption="Комментарий" Contents="Комментарий" ShowColTotal="False"/>
+      <Component Name="КВ" Class="Com.Rep.IIndTrans" Caption="КВ" Contents="КВ.КодИмущества"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow"/>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow"/>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol">
+        <Component Name="SplitContent993576D2" Class="Com.Rep.ISplitContent" Contents="Счет.Имя"/>
+      </Component>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="Показывать" Class="Com.Rep.IRepControl" Caption="Показывать:" CaptionWidth="26" CellFormat="StringFormat" DefaultStr="String(&quot;&quot;)" Operator="=" Plan="ОперУчет" ValueType="VarString" Width="1"/>
+      <Component Name="RC_Количество" Class="Com.Rep.IRepControl" Caption="Количество" DefaultStr="Logical(False)" Operator="=" Plan="Оперативный" ValueType="VarLogical" Width="30"/>
+      <Component Name="RC_Сумма" Class="Com.Rep.IRepControl" Caption="Сумма" DefaultStr="Logical(False)" Operator="=" Plan="Оперативный" ValueType="VarLogical" Width="20"/>
+      <Component Name="RC_НП_Выбор" Class="Com.Rep.IRepControl" Caption="Предприятие" CardFileClass="Bas.Tab.Data.OurCompanies" DefaultStr="Object(nil)" LookupField="Code" Operator="=" Parameter="НашеПредприятие" Plan="Оперативный" SkipNil="True" ValueType="VarObject" Visible="False"/>
+      <Component Name="RC_Подразделение" Class="Com.Rep.IRepControl" Caption="Подразделение" CaptionWidth="11" DefaultStr="Logical(False)" Operator="=" Plan="ОперУчет" ValueType="VarLogical" Width="35"/>
+      <Component Name="RC_МОЛ" Class="Com.Rep.IRepControl" Caption="МОЛ" CaptionWidth="20" DefaultStr="Logical(False)" Operator="=" Plan="ОперУчет" ValueType="VarLogical" Width="18"/>
+      <Component Name="RC_Журнал" Class="Com.Rep.IRepControl" Caption="Журнал" CaptionWidth="25" DefaultStr="Logical(False)" Operator="=" Plan="Оперативный" ValueType="VarLogical" Width="25"/>
+      <Component Name="RC_Комментарий" Class="Com.Rep.IRepControl" Caption="Комментарий" DefaultStr="Logical(False)" Operator="=" Plan="Оперативный" ValueType="VarLogical" Width="30"/>
+      <Component Name="RC_Документ" Class="Com.Rep.IRepControl" Caption="Документ" DefaultStr="Logical(False)" Operator="=" Plan="Оперативный" ValueType="VarLogical" Width="30"/>
+      <Component Name="RC_КВ" Class="Com.Rep.IRepControl" Caption="КВ" CaptionWidth="15" DefaultStr="Logical(False)" Operator="=" Plan="ОперУчет" ValueRequired="True" ValueType="VarLogical" Width="15"/>
+      <Component Name="RC_КВ_Выбор" Class="Com.Rep.IRepControl" Caption="КВ" CaptionWidth="15" CardFileClass="ИмуществоБазовый.Tab.Справочники.КапВложения" DefaultStr="Object(nil)" LookupField="КодИмущества" Operator="=" Parameter="КВ" Plan="Оперативный" SkipNil="True" ValueType="VarObject" Visible="False" Width="30"/>
+      <Component Name="RC_Журнал_Выбор" Class="Com.Rep.IRepControl" Caption="Журнал" CaptionWidth="26" DefaultStr="String(&quot;&quot;)" NewLine="True" Operator="=" Parameter="ИмяЖурнала" Plan="Оперативный" SkipNil="True" ValueType="VarString" Width="100"/>
+      <Component Name="RC_ЖурналИскл" Class="Com.Rep.IRepControl" Caption=", исключая" CaptionWidth="24" CardFileClass="Имущество.Tab.Документы.Имущество.ИмуществоВсеДокументыБезИерархии" CorrParam="True" DefaultStr="String(&quot;&quot;)" LookupField="Name" Operator="&lt;>" Parameter="ИмяЖурнала" Plan="Оперативный" ShowHierarchy="False" SkipNil="True" ValueType="VarString" Width="100"/>
+      <Component Name="RC_НМА_Выбор" Class="Com.Rep.IRepControl" Caption="НМА" CardFileClass="ИмуществоБазовый.Tab.Справочники.НМА" DefaultStr="Object(nil)" LookupField="КодИмущества" Operator="=" Parameter="НМА" Plan="Оперативный" SkipNil="True" ValueType="VarObject" Visible="False"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

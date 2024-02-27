@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Menu.CommandGroups.Root">
+  <Inherited>
+    <Inherited Name="РолевыеЦентры">
+      <Component Name="Cmd_WC" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Спецодежда.Frm.Справочники.СО" Caption="@Cmd:WC=Спецодежда/Спецоснастка" FormClassName="Спецодежда.Tab.Справочники.СО" IconName="Com.Cardfile"/>
+    </Inherited>
+    <Inherited Name="Services">
+      <Inherited Name="МашРекв_АвтоматическийРасчет" IconName="Upr.Blank"/>
+      <Component Name="Cmd_СО_ВыданнаяСО" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:СО_ВыданнаяСО=Выданная Спецодежда" FormClassName="Спецодежда.Frm.Сервис.ВыданнаяСО" IconName="Com.Form"/>
+    </Inherited>
+    <Inherited Name="Справочники">
+      <Component Name="спрСпецодежда" Class="Com.Cmd2.ICommandGroup" After="#0" Caption="Спецодежда">
+        <Component Name="Cmd_WC_NormTypes" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Спецодежда.Frm.Справочники.СОТипНормы" Caption="@Cmd:WC_NormTypes=Типы норм" FormClassName="Спецодежда.Tab.Справочники.СОТипНормы" IconName="Com.Cardfile"/>
+        <Component Name="Cmd_WC_NormIssRec" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Спецодежда.Frm.Справочники.СОНормаВыдачи" Caption="@Cmd:WC_NormIssRec=Нормы выдачи/использования" FormClassName="Спецодежда.Tab.Справочники.СОНормаВыдачи" IconName="Com.Cardfile"/>
+        <Component Name="Cmd_WC_NormElements" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Спецодежда.Frm.Справочники.СОНормаШтЭлмнт" Caption="@Cmd:WC_NormElements=Нормы для штатного элемента" FormClassName="Спецодежда.Tab.Справочники.СОНормаШтЭлмнт" IconName="Com.Cardfile"/>
+        <Component Name="Cmd_WC_Heigh" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Спецодежда.Frm.Справочники.Рост" Caption="@Cmd:WC_Heigh=Рост" FormClassName="Спецодежда.Tab.Справочники.Рост" IconName="Com.Cardfile"/>
+        <Component Name="Cmd_WC_SizeGroup" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Спецодежда.Frm.Справочники.ГруппаРазмеров" Caption="@Cmd:WC_SizeGroup=Группы размеров" FormClassName="Спецодежда.Tab.Справочники.ГруппаРазмеров" IconName="Com.Cardfile"/>
+        <Component Name="Cmd_WC_SizeMatch" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Спецодежда.Frm.Справочники.СОСоотвРазмеров" Caption="@Cmd:WC_SizeMatch=Соответствие размеров" FormClassName="Спецодежда.Tab.Справочники.СОСоотвРазмеров" IconName="Com.Cardfile"/>
+        <Component Name="Cmd_WC_PostingProfile" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Спецодежда.Frm.Справочники.СОПрофильРазноски" Caption="@Cmd:WC_PostingProfile=Профиль разноски СО и СОсн" FormClassName="Спецодежда.Tab.Справочники.СОПрофильРазноски" IconName="Com.Cardfile"/>
+        <Component Name="Cmd_СО_ВидыРазмеров" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Спецодежда.Frm.Справочники.ВидыРазмеров" Caption="@Cmd:СО_ВидыРазмеров=Виды размеров" FormClassName="Спецодежда.Tab.Справочники.ВидыРазмеров" IconName="Com.Cardfile"/>
+      </Component>
+      <Inherited Name="НалогУчет_команды" After="спрСпецодежда"/>
+    </Inherited>
+    <Inherited Name="Отчеты">
+      <Component Name="поСпецодежде" Class="Com.Cmd2.ICommandGroup" Caption="Спецодежда">
+        <Component Name="Cmd_СО_СпецодеждаВНаличии" Class="Com.ComManaging.OpenIForm" Caption="@Cmd:СО_СпецодеждаВНаличии=Спецодежда В Наличии" FormClassName="Спецодежда.Rep.Спецодежда.СпецодеждаВНаличии" IconName="Com.Report"/>
+      </Component>
+    </Inherited>
+    <Component Name="Документы" Class="Com.Cmd2.ICommandGroup" Caption="Документы">
+      <Component Name="Спецодежда" Class="Com.Cmd2.ICommandGroup" Caption="Спецодежда">
+        <Component Name="Cmd_WC_DocsIssue" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Спецодежда.Frm.Документы.Спецодежда.СОВыдача" Caption="@Cmd:WC_DocsIssue=Выдача СО" FormClassName="Спецодежда.Tab.Документы.Спецодежда.СОВыдача" IconName="Com.Cardfile"/>
+        <Component Name="Cmd_WC_DocsAcquisition" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Спецодежда.Frm.Документы.Спецодежда.СОВводВЭкспл" Caption="@Cmd:WC_DocsAcquisition=Ввод в эксплуатацию  СО" FormClassName="Спецодежда.Tab.Документы.Спецодежда.СОВводВЭкспл" IconName="Com.Cardfile"/>
+        <Component Name="Cmd_WC_DocsWriteOff" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Спецодежда.Frm.Документы.Спецодежда.СОСписание" Caption="@Cmd:WC_DocsWriteOff=Списание  СО" FormClassName="Спецодежда.Tab.Документы.Спецодежда.СОСписание" IconName="Com.Cardfile"/>
+        <Component Name="Cmd_WC_DocsDepreciation" Class="Com.ComManaging.OpenIForm" AdvRTIForm="Спецодежда.Frm.Документы.Спецодежда.СОАмортизация" Caption="@Cmd:WC_DocsDepreciation=Амортизация СО" FormClassName="Спецодежда.Tab.Документы.Спецодежда.СОАмортизация" IconName="Com.Cardfile"/>
+        <Component Name="Cmd_СО_ДокументыОС1" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="@Cmd:СО_ДокументыОС1=ОС-1" FormClassName="Спецодежда.Tab.Документы.Спецодежда.ПервичкаСО.ОС1" IconName="Com.Cardfile"/>
+        <Component Name="Cmd_СО_ДокументыОС4" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="@Cmd:СО_ДокументыОС4=ОС-4" FormClassName="Спецодежда.Tab.Документы.Спецодежда.ПервичкаСО.ОС4" IconName="Com.Cardfile"/>
+        <Component Name="Cmd_СО_ДокументыМБ7" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="@Cmd:СО_ДокументыМБ7=МБ-7" FormClassName="Спецодежда.Tab.Документы.Спецодежда.ПервичкаСО.МБ7" IconName="Com.Cardfile"/>
+        <Component Name="Налоговый_учет_Амортизация_СО" Class="Rin.КомандыУправления.ОткрытьКартБланк" Excluded="True" Caption="Амортизация СО" IconName="BizRus.calculations" ИмяКлассаБланка="Документы.Спецодежда.редАмортизацияНлг" ИмяКлассаКартотеки="Спецодежда.Документы.Спецодежда.картАмортизацияНлг"/>
+      </Component>
+    </Component>
+  </Inherited>
+</Resource>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IEditor">
+    <Component Name="EdtRec" Class="RealEstate.Rec.Data.RealEstateObject" IsLibrary="1"/>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader">
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" ImageName="Com.Close" OnClick="ButtonClose_OnClick"/>
+      </Component>
+      <Component Name="SbtFrame" Class="Com.Ctrl.IFrame" Margins="5">
+        <Component Name="SbtTable" Class="Com.Ctrl.ITable" Adaptive="True" CanMove="False" Freezed="False" Numbering="False" Sortable="False" Subtable="EdtRec.ReadinessDocs">
+          <Component Name="ReadinessDocs" Class="RealEstate.Rec.Data.RealEstateObject_ReadinessDocs" IsLibrary="1"/>
+          <Component Name="Readiness" Class="Com.Ctrl.IEdit" CardFileClass="RealEstate.Tab.Ref.Readiness" CellFormat="ReferenceFormat" Field="ReadinessDocs.Readiness" HasCaption="True" LookupField="Name" Width="50"/>
+          <Component Name="Date" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="ReadinessDocs.Date" HasCaption="True" Width="30"/>
+          <Component Name="Doc" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="ReadinessDocs.Doc" HasCaption="True" Width="70"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

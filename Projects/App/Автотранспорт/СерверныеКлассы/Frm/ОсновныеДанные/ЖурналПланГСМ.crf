@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Frm.Base.BaseJournalFrm">
+  <Inherited HelpContext="Автотранспорт.Автотранспорт.Основные данные.Журнал учета ГСМ">
+    <Inherited Name="EdtRec" Class="Автотранспорт.Rec.ОсновныеДанные.ЖурналПланГСМ" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="vDataCompany" Class="Автотранспорт.Rec.ОсновныеДанные.ЖурналПланГСМ_DataCompany" IsLibrary="1"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="BasicFrame">
+        <Inherited Name="CodeFrame">
+          <Inherited Name="CodeGr">
+            <Component Name="Code1" Class="Com.Ctrl.IEdit" After="JournalDate" Field="EdtRec.Code" HasCaption="False" Visible="True"/>
+            <Inherited Name="CodeEdit" Excluded="True"/>
+            <Component Name="Name1" Class="Com.Ctrl.IEdit" After="NewLine1" Field="EdtRec.Name" FontBold="True" HasCaption="True" Visible="True"/>
+            <Inherited Name="NameEdit" Excluded="True"/>
+            <Inherited Name="Company" ShortList="False"/>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="MainFrm" AutoSize="True" Size="120"/>
+        <Component Name="Frame1" Class="Com.Ctrl.IFrame" Orientation="WithTabs" ShowTabs="True" Size="25">
+          <Component Name="Ed_ГодПланирования" Class="Com.Ctrl.IEdit" Field="EdtRec.ГодПлан" HasCaption="True" LookupFilter="КолДней > 200" OnOpenCardForm="Ed_ГодПланирования_OnOpenCardForm"/>
+          <Component Name="NewLine4" Class="Com.Ctrl.INewLine"/>
+          <Component Name="Ed_ОбщийОбъемПлан" Class="Com.Ctrl.IEdit" Field="EdtRec.ОбщийОбъемПлан" HasCaption="True"/>
+          <Component Name="NewLine5" Class="Com.Ctrl.INewLine"/>
+          <Component Name="Ed_ОбщийОбъемФакт" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.ОбщийОбъемФакт" HasCaption="True"/>
+        </Component>
+        <Component Name="Frame2" Class="Com.Ctrl.IFrame" AutoSize="True" Size="120"/>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="False">
+        <Inherited Name="MainTab" Visible="False"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

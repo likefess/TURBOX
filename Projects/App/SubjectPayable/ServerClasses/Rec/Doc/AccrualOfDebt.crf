@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="SubjectPayable.Rec.Base.BaseSubjPayableDoc">
+  <Inherited>
+    <Component Name="Positions" Class="Com.ISubtable" After="#0" StructClass="SubjectPayable.Rec.Doc.AccrualOfDebt_Positions" SubtableName="Positions"/>
+    <Component Name="TypeOfAcc" Class="Com.Fld.IField" Caption="@SubjectPayable:TypeOfAcc=Тип начисления" FieldName="TypeOfAcc" OnChange="TypeOfAcc_OnChange"/>
+    <Inherited Name="DateDoc" After="TypeOfAcc"/>
+    <Inherited Name="Name" OnCalc="Name_OnCalc"/>
+    <Inherited Name="Currency" OnChange="Currency_OnChange"/>
+    <Inherited Name="SumDoc" OnChange="SumDoc_OnChange"/>
+    <Inherited Name="SumBase" OnChange="SumBase_OnChange"/>
+    <Inherited Name="AccDate" Caption="@AccrualOfDebt:AccDate=Дата возникновения обязательства" OnChange="AccDate_OnChange"/>
+    <Component Name="EndDate" Class="Com.Fld.IField" After="SourceDoc" Caption="@AccrualOfDebt:EndDate=Дата погашения обязательства" FieldName="EndDate"/>
+    <Component Name="ExchRatePrev" Class="Com.Fld.IVar" Excluded="True" Caption="@ExchRatePrev.ExchRatePrev=Курс валюты последнего пересчета" ValueType="VarNumeric"/>
+    <Component Name="usePlan" Class="Com.Fld.IVar" OnCalc="usePlan_OnCalc" ValueType="VarLogical"/>
+    <Inherited Name="CompanyBankDetails" After="usePlan" Caption="@AccrualOfDebt:CompanyBankDetails=Р\счет предприятия"/>
+    <Component Name="DLUseDocLinks" Class="Com.Fld.IVar" After="CompanyBankDetails" OnCalc="DLUseDocLinks_OnCalc" ValueType="VarLogical"/>
+    <Component Name="DLUseTreasuryPaymentRequest" Class="Com.Fld.IVar" OnCalc="DLUseTreasuryPaymentRequest_OnCalc" ValueType="VarLogical"/>
+    <Component Name="CFR" Class="Com.Fld.IField" Caption="@AccrualOfDebt:CFR=ЦФО" Extra="True" FieldName="rCFR" ValueType="VarObject"/>
+    <Component Name="BankDetails" Class="Com.Fld.IField" Caption="@AccrualOfDebt:BankDetails=Р\счет контрагента" Extra="True" FieldName="rBankDetails" ValueType="VarObject"/>
+    <Component Name="PaymentDate" Class="Com.Fld.IField" Caption="@AccrualOfDebt:PaymentDate=Срок оплаты" Extra="True" FieldName="dPaymentDate" ValueType="VarDate"/>
+    <Component Name="DLTaxCBC" Class="Com.Fld.IField" Caption="@SubjectPayable:TaxCBC=КБК" FieldName="DLTaxCBC"/>
+  </Inherited>
+</Resource>

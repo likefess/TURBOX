@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Спецодежда.Frm.Документы.Спецодежда.СОДок">
+  <Inherited>
+    <Inherited Name="FRecord" Class="Спецодежда.Rec.Документы.СОВыдача" IsLibrary="1"/>
+    <Inherited Name="EdtRec" Class="Спецодежда.Rec.Документы.СОВыдача" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="MainPositionSubtable" Class="Com.ISubtable" StructClass="Спецодежда.Rec.Документы.СОВыдача_Позиции"/>
+      <Component Name="CombPositionSubtable" Class="Com.ISubtable" StructClass="Спецодежда.Rec.Документы.СОВыдача_Позиции"/>
+      <Component Name="JournalLinesSubtable" Class="Com.ISubtable" StructClass="Спецодежда.Rec.Документы.СОВыдача_Строки"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Visible="False"/>
+      <Inherited Name="FieldsFrame" Visible="False"/>
+      <Inherited Name="UserHeaderFrame" Excluded="True"/>
+      <Inherited Name="TabsFrame" Excluded="True" Caption="Выдача Спецодежды" Visible="False">
+        <Inherited Name="MainTab">
+          <Inherited Name="MainBox">
+            <Inherited Name="CompanyGr">
+              <Inherited Name="EntityEdit" OnOpenCardForm="Entity_OnOpenCardForm"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Component Name="HeaderLocFrame" Class="Com.Ctrl.IHeader" Caption="Выдача спецодежды" HasCaption="True" MaxButton="3">
+        <Component Name="RefreshBtn" Class="Com.Ctrl.IButton" Hint="Обновить" ImageName="Com.Refresh" OnClick="RefreshBtn_OnClick"/>
+        <Component Name="OKBtn" Class="Com.Ctrl.IButton" Hint="Выдать" ImageName="Com.CheckActive" OnClick="OKBtn_OnClick"/>
+        <Component Name="CloseBtn" Class="Com.Ctrl.IButton" ImageName="Com.Close" OnClick="CloseBtn_OnClick"/>
+      </Component>
+      <Component Name="MainFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="ParamFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+          <Component Name="ParamGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="210">
+            <Component Name="ColGr1" Class="Com.Ctrl.IGroup" ByColumn="False">
+              <Component Name="ParamLGr" Class="Com.Ctrl.IGroup" ByColumn="True">
+                <Component Name="EntityGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="EntityEdit" Class="Com.Ctrl.IEdit" Caption="@Наше предприятие" CardFileClass="Bas.Tab.Data.OurCompanies" Field="FRecord.Entity" HasCaption="True" LookupField="Name" OnChange="EntityEdit_OnChange" OnOpenCardForm="Entity_OnOpenCardForm" ShortList="True"/>
+                  <Component Name="EntityEditJB" Class="Com.Ctrl.IJumpButton" Field="FRecord.Entity" JumpForm="Bas.Frm.Data.Entity"/>
+                </Component>
+              </Component>
+              <Component Name="ParamRGr" Class="Com.Ctrl.IGroup" ByColumn="True" CaptionWidth="25">
+                <Component Name="EventTimeGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="EventTimeEdit" Class="Com.Ctrl.IEdit" Caption="Дата" CellFormat="DateFormat" Field="FRecord.EventTime" FormatOfDate="DateOnly" HasCaption="True" OnChange="EventTimeEdit_OnChange"/>
+                  <Component Name="BtnStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="DivisionGr" Class="Com.Ctrl.IGroup" ByColumn="False" Visible="True">
+              <Component Name="Division" Class="Com.Ctrl.IEdit" Caption="@Склад" CardFileClass="Bas.Tab.Data.Divisions" CellFormat="ReferenceFormat" Field="FRecord.Division" HasCaption="True" LookupField="Name" OnGetLookupFilter="Division_OnGetLookupFilter"/>
+              <Component Name="DivisionJB" Class="Com.Ctrl.IJumpButton" Field="FRecord.Division" JumpForm="Bas.Frm.Data.Entity"/>
+            </Component>
+            <Component Name="StoreGr" Class="Com.Ctrl.IGroup" ByColumn="False" Visible="True">
+              <Component Name="Store" Class="Com.Ctrl.IEdit" Caption="@Склад" CardFileClass="SCM.Tab.Данные.Склады" CellFormat="ReferenceFormat" Field="FRecord.Store" HasCaption="True" LookupField="Name" OnChange="Store_OnChange" OnOpenCardForm="Store_OnOpenCardForm"/>
+              <Component Name="StoreJB" Class="Com.Ctrl.IJumpButton" Field="FRecord.Store" JumpForm="SCM.Frm.Данные.Склад"/>
+            </Component>
+            <Component Name="CurrencyGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+              <Component Name="Currency" Class="Com.Ctrl.IEdit" Caption="@Валюта" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Enabled="False" Field="FRecord.ЕдИзм" HasCaption="True" LookupField="Code"/>
+              <Component Name="CurrencyJB" Class="Com.Ctrl.IJumpButton" Field="FRecord.ЕдИзм" JumpForm="Biz.Frm.Ref.UnitOrCurrency"/>
+            </Component>
+            <Component Name="ColGr2" Class="Com.Ctrl.IGroup" ByColumn="False">
+              <Component Name="ParamLGr1" Class="Com.Ctrl.IGroup" ByColumn="True">
+                <Component Name="MOLLRGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="MOLLREdit" Class="Com.Ctrl.IEdit" Caption="@Сотрудник" CardFileClass="Biz.Tab.Data.LabourRelations" CellFormat="ReferenceFormat" Field="MOLLR" HasCaption="True" LookupField="Person.Name" OnChange="MOLLREdit_OnChange" OnGetLookupFilter="MOLLREdit_OnGetLookupFilter" OnOutputEx="MOLLREdit_OnOutputEx"/>
+                  <Component Name="MOLLREditJB" Class="Com.Ctrl.IJumpButton" Field="MOLLR" JumpForm="Biz.Frm.Data.LabourRelations"/>
+                </Component>
+                <Component Name="UseBUGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="CaptionStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                  <Component Name="UseBUCB" Class="Com.Ctrl.ICheckBox" Field="FRecord.UseBU"/>
+                  <Component Name="BtnStatic3" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="UseExtraNormGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="CaptionStatic3" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                  <Component Name="UseExtraNormCB" Class="Com.Ctrl.ICheckBox" Field="FRecord.UseExtraNorm"/>
+                  <Component Name="BtnStatic5" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+              </Component>
+              <Component Name="ParamRGr1" Class="Com.Ctrl.IGroup" ByColumn="True" CaptionWidth="25">
+                <Component Name="MOLCodeGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="MOLCode" Class="Com.Ctrl.IEdit" Caption="Таб. номер" CardFileClass="Biz.Tab.Data.LabourRelations" CellFormat="ReferenceFormat" Enabled="False" Field="MOLLR" HasCaption="True" LookupField="Person.Code"/>
+                  <Component Name="BtnStatic2" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="UseCombGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="CaptionStatic2" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+                  <Component Name="UseCombCB" Class="Com.Ctrl.ICheckBox" Field="FRecord.UseComb" OnChange="UseCombCB_OnChange"/>
+                  <Component Name="BtnStatic4" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+                <Component Name="UseEqvSizeGr" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="CaptionStatic4" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+                  <Component Name="UseEqvSizeCB" Class="Com.Ctrl.ICheckBox" Field="EdtRec.UseEqvSize"/>
+                  <Component Name="BtnStatic6" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+      </Component>
+      <Component Name="MainPosBox" Class="Com.Ctrl.IBox" Caption="Основное" Collapsed="False" Margins="5">
+        <Component Name="MainPositionTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" Freezed="False" Subtable="MainPositionSubtable">
+          <Component Name="MainPositionStruct" Class="Спецодежда.Rec.Документы.СОВыдача_Позиции" IsLibrary="1"/>
+          <Component Name="MPDivisionGr" Class="Com.Ctrl.IColumnsGroup" Caption="Подразделение" HasCaption="True">
+            <Component Name="MPList_Division" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="MainPositionStruct.List_Division" HasCaption="False" LookupField="Name"/>
+            <Component Name="MPList_DivisionJB" Class="Com.Ctrl.IJumpButton" Field="MainPositionStruct.List_Division" HasCaption="False" JumpForm="Bas.Frm.Data.Entity"/>
+          </Component>
+          <Component Name="MPList_PositionGr" Class="Com.Ctrl.IColumnsGroup" Caption="Должность" HasCaption="True">
+            <Component Name="MPList_Position" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="MainPositionStruct.List_Position" HasCaption="False" LookupField="Name"/>
+            <Component Name="MPList_PositionJB" Class="Com.Ctrl.IJumpButton" Field="MainPositionStruct.List_Position" HasCaption="False" JumpForm="Bas.Frm.Ref.Position"/>
+          </Component>
+          <Component Name="MPList_Selected" Class="Com.Ctrl.ICheckBox" Caption="Выбрать" Field="MainPositionStruct.List_Selected" FixSize="True" OnChange="Selected_OnChange" Width="20"/>
+        </Component>
+      </Component>
+      <Component Name="CombPosBox" Class="Com.Ctrl.IBox" Caption="Совместительство" Collapsed="False" Margins="5">
+        <Component Name="CombPositionTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" Freezed="False" Subtable="CombPositionSubtable">
+          <Component Name="CombPositionStruct" Class="Спецодежда.Rec.Документы.СОВыдача_Позиции" IsLibrary="1"/>
+          <Component Name="CPDivisionGr" Class="Com.Ctrl.IColumnsGroup" Caption="Подразделение" HasCaption="True">
+            <Component Name="CPList_Division" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="CombPositionStruct.List_Division" HasCaption="False" LookupField="Name"/>
+            <Component Name="CPList_DivisionJB" Class="Com.Ctrl.IJumpButton" Field="CombPositionStruct.List_Division" HasCaption="False" JumpForm="Bas.Frm.Data.Entity"/>
+          </Component>
+          <Component Name="CPList_PositionGr" Class="Com.Ctrl.IColumnsGroup" Caption="Должность" HasCaption="True">
+            <Component Name="CPList_Position" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="CombPositionStruct.List_Position" HasCaption="False" LookupField="Name"/>
+            <Component Name="CPList_PositionJB" Class="Com.Ctrl.IJumpButton" Field="CombPositionStruct.List_Position" HasCaption="False" JumpForm="Bas.Frm.Ref.Position"/>
+          </Component>
+          <Component Name="CPList_Selected" Class="Com.Ctrl.ICheckBox" Caption="Выбрать" Field="CombPositionStruct.List_Selected" FixSize="True" OnChange="Selected_OnChange" Width="20"/>
+        </Component>
+      </Component>
+      <Component Name="LinesBox" Class="Com.Ctrl.IBox" Caption="@Подбор ТМЦ" Collapsed="True" Margins="5">
+        <Component Name="JournalLinesTable" Class="Com.Ctrl.ITable" Adaptive="False" CanDelete="False" CanInsert="False" Freezed="False" Subtable="JournalLinesSubtable">
+          <Component Name="JournalLinesStruct" Class="Спецодежда.Rec.Документы.СОВыдача_Строки" IsLibrary="1"/>
+          <Component Name="JLList_NormIssueUseGr" Class="Com.Ctrl.IColumnsGroup" Caption="Норма выдачи/использования" HasCaption="True">
+            <Component Name="JLList_NormIssueUse" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="JournalLinesStruct.List_NormIssueUse" HasCaption="False" LookupField="Name" Width="45"/>
+            <Component Name="JLList_NormIssueUseCB" Class="Com.Ctrl.IJumpButton" Field="JournalLinesStruct.List_NormIssueUse" HasCaption="False" JumpForm="Спецодежда.Frm.Справочники.СОНормаВыдачи"/>
+          </Component>
+          <Component Name="JLList_ItemCode" Class="Com.Ctrl.IEdit" Caption="Код" CellFormat="StringFormat" Enabled="False" Field="JournalLinesStruct.List_ItemCode" HasCaption="True" Width="30"/>
+          <Component Name="JLList_ItemGr" Class="Com.Ctrl.IColumnsGroup" Caption="Наименование" HasCaption="True">
+            <Component Name="JLList_Item" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="JournalLinesStruct.List_Item" HasCaption="False" LookupField="Name" Width="60"/>
+            <Component Name="JLList_ItemJB" Class="Com.Ctrl.IJumpButton" Field="JournalLinesStruct.List_Item" HasCaption="False" JumpForm="SCM.Frm.Справочники.ТМЦ"/>
+          </Component>
+          <Component Name="JLList_Price" Class="Com.Ctrl.IEdit" Caption="Цена" CellFormat="NumericFormat" Enabled="False" Field="JournalLinesStruct.List_Price" FieldFormat=",##0.00;;-" HasCaption="True" Width="20"/>
+          <Component Name="JLList_QtyInvent" Class="Com.Ctrl.IEdit" Caption="Остаток" CellFormat="NumericFormat" Enabled="False" Field="JournalLinesStruct.List_QtyInvent" HasCaption="True" Width="20"/>
+          <Component Name="JLList_QtyGr" Class="Com.Ctrl.IColumnsGroup" Caption="Количество" HasCaption="True">
+            <Component Name="JLList_Qty" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Enabled="False" Field="JournalLinesStruct.List_Qty" HasCaption="False" Width="15"/>
+            <Component Name="JLList_Unit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Enabled="False" Field="JournalLinesStruct.List_Unit" HasCaption="False" Width="10"/>
+          </Component>
+          <Component Name="JLList_QtyIssue" Class="Com.Ctrl.IEdit" Caption="К выдаче" CellFormat="NumericFormat" Enabled="True" Field="JournalLinesStruct.List_QtyIssue" HasCaption="True" Width="15"/>
+          <Component Name="JLList_PartyGr" Class="Com.Ctrl.IColumnsGroup" Caption="Партия" HasCaption="True">
+            <Component Name="JLList_Party" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Enabled="False" Field="JournalLinesStruct.List_Party" HasCaption="False" LookupField="Name" Width="85"/>
+            <Component Name="JLList_PartyCB" Class="Com.Ctrl.IJumpButton" Field="JournalLinesStruct.List_Party" HasCaption="False"/>
+          </Component>
+          <Component Name="JLList_Size" Class="Com.Ctrl.IEdit" Caption="Размер" CellFormat="ReferenceFormat" Enabled="False" Field="JournalLinesStruct.List_Size" HasCaption="True" LookupField="Name" Width="20"/>
+          <Component Name="JLList_Height" Class="Com.Ctrl.IEdit" Caption="Рост" CellFormat="ReferenceFormat" Enabled="False" Field="JournalLinesStruct.List_Height" HasCaption="True" LookupField="Name" Width="20"/>
+          <Component Name="JLList_UseTerm" Class="Com.Ctrl.IEdit" Caption="Срок носки" CellFormat="NumericFormat" Enabled="False" Field="JournalLinesStruct.List_UseTerm" HasCaption="True" Width="15"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

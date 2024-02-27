@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.Справочник">
+  <Inherited>
+    <Component Name="Норматив" Class="УправлениеПерсоналом.Rec.Справочники.ТарифныйРазряд_Нормативы" IsLibrary="1" After="#0"/>
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Справочники.ТарифныйРазряд" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="грПредприятие" Class="Com.Ctrl.IGroup" After="#0" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Предприятие" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="EdtRec.Предприятие" HasCaption="True" LookupField="Name"/>
+          <Component Name="кнПредприятие" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Предприятие" JumpForm="Bas.Frm.Data.Entity"/>
+        </Component>
+        <Inherited Name="Group1">
+          <Inherited Name="GroupCode">
+            <Inherited Name="Code" Hint="Код разряда"/>
+          </Inherited>
+          <Inherited Name="GroupName">
+            <Inherited Name="Name" Hint="Полное наименование тарифного (квалификационного) разряда"/>
+            <Component Name="Static4" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+          </Inherited>
+        </Inherited>
+        <Component Name="грКраткоеНаименование" Class="Com.Ctrl.IGroup" After="Group1" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="КрНаименование" Class="Com.Ctrl.IEdit" Caption="Кратко" Field="EdtRec.КрНаименование" HasCaption="True" Hint="Краткое наименование тарифного (квалификационного) разряда"/>
+          <Component Name="Коэффициент" Class="Com.Ctrl.IEdit" Caption="Коэффициент" Field="EdtRec.Коэффициент" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Размер тарифного коэффициента, соответствующего данному тарифному (квалификационному) разряду" MaxWidth="35" OnVerify="Коэффициент_OnVerify"/>
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+        </Component>
+        <Component Name="грОсновное" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+          <Component Name="грОписание" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Описание" Class="Com.Ctrl.IEdit" Caption="Примечание" Field="EdtRec.Описание" HasCaption="True" Hint="Примечание" Multiline="True" Wrap="True"/>
+            <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="@Frm:MainTab=Нормативы">
+          <Component Name="фрНормативы" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Нормативы" HasCaption="True" Margins="5" Visible="True">
+            <Component Name="тблНормативы" Class="Com.Ctrl.ITable" Subtable="EdtRec.Нормативы">
+              <Component Name="Параметр" Class="Com.Ctrl.IEdit" Field="Норматив.Параметр" HasCaption="True" Hint="Наименование параметра, который задействован в тарифно-квалификационной характеристике либо тарифно-квалификационном требовании." Multiline="True" Width="70" Wrap="True"/>
+              <Component Name="Показатель" Class="Com.Ctrl.IEdit" Field="Норматив.Показатель" HasCaption="True" Hint="Уровень либо требования, предъявляемые к определенному параметру" Multiline="True" Width="70" Wrap="True"/>
+              <Component Name="НормативОписание" Class="Com.Ctrl.IEdit" Field="Норматив.Описание" HasCaption="True" Hint="Дополнительные данные, связанные с определенным параметром" Multiline="True" Width="70" Wrap="True"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

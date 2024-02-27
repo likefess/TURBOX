@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="TrackingCore.Rec.Ref.BusinessProcess" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="JsonText" Class="Com.Fld.IVar" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" PrimaryButton="ButtonSaveNew" Visible="True">
+        <Inherited Name="ButtonClose" Excluded="True" After="#0" Caption="@Cmd:Close=Отменить" Width="28"/>
+        <Inherited Name="ButtonOK" Excluded="True" After="ButtonClose"/>
+        <Inherited Name="ButtonServices" Visible="False"/>
+        <Inherited Name="ButtonReports" Excluded="True" After="ButtonServices"/>
+        <Inherited Name="ButtonAnalytics" Excluded="True"/>
+        <Inherited Name="HeaderSeparator" Excluded="True"/>
+        <Inherited Name="ButtonPost" Excluded="True" Caption="@Cmd:Post=Сохранить" Width="30"/>
+        <Inherited Name="ButtonCancel" Excluded="True"/>
+        <Inherited Name="ButtonClone" Excluded="True"/>
+        <Inherited Name="ButtonDelete" Excluded="True"/>
+        <Inherited Name="ButtonRefresh" Excluded="True"/>
+        <Inherited Name="ButtonHelp" Excluded="True"/>
+        <Component Name="ButtonCancelNew" Class="Com.Ctrl.IButton" Caption="@Cmd:Close=Отменить" Fashion="Fashions.SecondaryButton" OnClick="ButtonClose_OnClick" Width="28"/>
+        <Component Name="ButtonSaveNew" Class="Com.Ctrl.IButton" Caption="@Cmd:Post=Сохранить" OnClick="ButtonPost_OnClick" Width="30"/>
+      </Inherited>
+      <Component Name="CreateHeader" Class="Com.Ctrl.IHeader" Excluded="True" After="HeaderFrame" Caption="Создать бизнес-процесс" PrimaryButton="ButtonSaveNew" SecondaryButton="ButtonCancelNew" SplitterAtRight="False">
+        <Component Name="CloseBtn" Class="Com.Ctrl.IButton" Excluded="True" Command="Commands.CloseForm" HasCaption="False" Hint="@Cmd:Close=Закрыть" ImageName="Close" OnClick="ButtonClose_OnClick"/>
+        <Component Name="DeleteBtn" Class="Com.Ctrl.IButton" Excluded="True" Caption="@Cmd:DeleteItem=Удалить" Command="Commands.CardDelete" ImageName="DeleteItem" OnClick="ButtonDelete_OnClick"/>
+        <Component Name="RedrawDiagramBtn" Class="Com.Ctrl.IButton" Excluded="True" Caption="Перерисовать диаграмму" ImageName="Com.Ctrl.diagram" OnClick="RedrawDiagramBtnOnClick"/>
+        <Component Name="CloseCancelBtn" Class="Com.Ctrl.IButton" Excluded="True" Caption="Отменить" HasCaption="True" OnClick="CloseCancelBtn_OnClick" Width="22"/>
+        <Component Name="PostBtn" Class="Com.Ctrl.IButton" Excluded="True" Caption="Сохранить" HasCaption="True" OnClick="ButtonPost_OnClick" Width="25"/>
+      </Component>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" Visible="True">
+          <Component Name="AutosaveWarningStatic" Class="Com.Ctrl.IStatic" After="#0" Caption="Все изменения сохраняются автоматически" FontColor="0x00FF0000" FontSize="8" ImageName="TrackingCore.pr-highest-blue" ImageSize="10"/>
+          <Component Name="EdtName" Class="Com.Ctrl.IEdit" Caption="Название" Field="EdtRec.Name" FontBold="False" HasInnerCaption="True" OnChange="EdtNameOnChange" Required="True"/>
+          <Inherited Name="Name" Excluded="True" Visible="True"/>
+          <Component Name="Description" Class="Com.Ctrl.IEdit" After="Name" Caption="Описание" Field="EdtRec.Description" HasInnerCaption="True" OnChange="DescriptionOnChange"/>
+          <Component Name="SeemToEverybodyCB" Class="Com.Ctrl.ICheckBox" Caption="Виден всем" Field="EdtRec.SeemToEverybody" FixSize="False" OnChange="SeemToEverybodyCBOnChange" Width="100"/>
+          <Component Name="StartStatusWarningStatic" Class="Com.Ctrl.IStatic" Caption="В бизнес-процессе нет начального статуса задач. Добавьте статус с типом &quot;начальный&quot; или создайте новый начальный статус" FontColor="0x000000FF" FontSize="8" ImageName="Control.pr-highest" ImageSize="10"/>
+        </Inherited>
+        <Component Name="CreateBtnGr" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" MaxWidth="300" MinWidth="150" Visible="False">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="@Frm:MainTab=Диаграмма">
+          <Component Name="DiagramBtnFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="DiagramBtnGr" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="AddStatusBtn" Class="Com.Ctrl.IButton" Caption="Добавить статус" Fashion="Fashions.GhostButton" HasCaption="True" ImageName="Com.Post" OnClick="AddStatusBtnOnClick" Width="45"/>
+              <Component Name="AddConnectBtn" Class="Com.Ctrl.IButton" Caption="Добавить переход" Fashion="Fashions.GhostButton" HasCaption="True" ImageName="TrackingCore.bp1" ImageSize="16" OnClick="AddConnectBtnOnClick" Width="50"/>
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="False"/>
+              <Component Name="ShowConnectLabelsCB" Class="Com.Ctrl.ICheckBox" Field="EdtRec.ShowConnectLabels" FixSize="False" HasCaption="True" OnChange="ShowConnectLabelsCBOnChange" Width="100"/>
+            </Component>
+          </Component>
+          <Component Name="DiagramFrame" Class="Com.Ctrl.IFrame" Size="100">
+            <Component Name="JDiagram1" Class="Com.Ctrl.IDiagramJS" IsEditorMode="True" OnClickItem="JDiagram1OnClickItem" OnCreateElement="JDiagram1OnCreateElement" OnDeleteElement="JDiagram1OnDeleteElement" OnUpdateElement="JDiagram1OnUpdateElement"/>
+          </Component>
+        </Inherited>
+        <Component Name="RulesTab" Class="Com.Ctrl.IFrame" Caption="@TransitionRule:Table=Картотека правил" HasCaption="True"/>
+        <Component Name="JsonTab" Class="Com.Ctrl.IFrame" Caption="Json" HasCaption="True" Visible="False">
+          <Component Name="JsonBtnGr" Class="Com.Ctrl.IGroup">
+            <Component Name="UpdateJSonBtn" Class="Com.Ctrl.IButton" Caption="Обновить" OnClick="UpdateJSonBtnOnClick"/>
+            <Component Name="ClearJSonBtn" Class="Com.Ctrl.IButton" Caption="Очистить" OnClick="ClearJSonBtnOnClick"/>
+          </Component>
+          <Component Name="JsonTxtGr" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="JSonTxt" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="JsonText" HasCaption="False" Multiline="True" VertAlignment="LeftAlign"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

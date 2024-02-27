@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" AccountPlan="Workflow" Autobuild="True" BegDate="01.01.2023" Caption="Диаграмма сгорания задач" CIndicator="1" EndDate="02.01.2023" FirstPage="OutputChart" HystoKind="hkSide" Legend="lpkAtBottom" LinkBy="lbSeriesSelect" OutputChart="1" OutputReport="0" Palette="cpDefault" Period="0" ShowBeyondLimits="False" ShowSumKindRow="False" TurnFormat="sfNone">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="Indicator1" Class="Com.Rep.IIndMain" AccountFilter="WF" Aggregate="agrMax" BegSaldoFormat="msfNone" Caption="Всего задач" Contents="Count(Task)" TurnFormat="msfNone"/>
+      <Component Name="Indicator2" Class="Com.Rep.IIndMain" AccountFilter="WF2" BegSaldoFormat="msfNone" Caption="Завершенно задач" Contents="Count(Task)" EndSaldoFormat="msfDebCre" TurnFormat="msfNone"/>
+      <Component Name="Indicator3" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" CalcTime="ctAfterRows" Caption="Запланированные оставшиеся трудозатраты" EndSaldoFormat="msfDebCre" Formula="If( НомСтр &lt;= 1, Пок(&quot;1&quot;,,,,0), If(Пок(&quot;5&quot;,,,,НомСтр)= 2, Пок(&quot;3&quot;,,,,НомСтр -1), (Пок(&quot;3&quot;,,,,НомСтр - 1) - (Пок(&quot;1&quot;,,,,0)/(FIntReport.RowsCount-1)))))" ShowUnit="False" TurnFormat="msfNone" ValueType="VarNumeric"/>
+      <Component Name="Indicator4" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Актуальные оставшиеся трудозатраты" EndSaldoFormat="msfDebCre" Formula="Чис(&quot;1&quot;) - Чис(&quot;2&quot;)" ShowUnit="False" TurnFormat="msfNone" ValueType="VarNumeric"/>
+      <Component Name="Indicator5" Class="Com.Rep.IIndCustom" BegSaldoFormat="msfNone" Caption="Daystatus" EndSaldoFormat="msfDebCre" Function="Result = Bas.Calendar.GetDateStatus(RowSplit(1).Value,,nil);" ShowUnit="False" TurnFormat="msfNone" ValueType="VarInteger" Visible="True"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam3DA1B9DC" Class="Com.Rep.ISplitByDate" AllPeriods="True" Period="byDay"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol">
+        <Component Name="SplitParamFF77ABB0" Class="Com.Rep.ISplitByParam" SplitParam="TaskUnit"/>
+      </Component>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow"/>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol">
+        <Component Name="SplitContent38A0CCA0" Class="Com.Rep.ISplitContent" Enabled="False"/>
+      </Component>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_Project" Class="Com.Rep.IRepControl" Caption="Проект" CaptionWidth="35" DefaultStr="Object(nil)" NewLine="True" Operator=" is " Parameter="Project" Plan="Workflow" SkipNil="True" ValueType="VarObject" Width="70"/>
+      <Component Name="RC_Sprint" Class="Com.Rep.IRepControl" Caption="Спринт" CaptionWidth="35" DefaultStr="Object(nil)" NewLine="True" Operator=" is " Parameter="Sprint" Plan="Workflow" SkipNil="True" ValueType="VarObject" Width="70"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators">
+      <Component Name="SelectedIndicatorsF06095AD" Class="InfoBoard.Rep.ISelectedIndicators" Color="14464871" HintKind="mkNone" Indicator="Indicator3" SeriesKind="skLines"/>
+      <Component Name="SelectedIndicators3C5F130E" Class="InfoBoard.Rep.ISelectedIndicators" Color="8939484" HintKind="mkYValue" Indicator="Indicator4" SeriesKind="skLines"/>
+    </Component>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

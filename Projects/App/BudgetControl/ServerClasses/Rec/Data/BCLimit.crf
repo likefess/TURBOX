@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Rec.CodeName">
+  <Inherited>
+    <Component Name="DATask" Class="Com.Fld.IField" After="#0" FieldName="DATask"/>
+    <Component Name="DATask_Status" Class="Com.Fld.ILink" Field="DATask" FieldName="DATaskStatus" ValueType="VarObject"/>
+    <Component Name="DATask_Resp" Class="Com.Fld.ILink" Field="DATask" FieldName="DAResponsible" ValueType="VarObject"/>
+    <Component Name="Active" Class="Com.Fld.IField" Caption="@BudgetControlLimit:Active=Активен" FieldName="Active" ValueType="VarLogical"/>
+    <Component Name="Lines" Class="Com.ISubtable" StructClass="BudgetControl.Rec.Data.BCLimit_Line" SubtableName="Line"/>
+    <Component Name="Company" Class="Com.Fld.IField" Caption="@BudgetControlLimit:Company=Предприятие" FieldName="Company" ValueType="VarObject"/>
+    <Component Name="BudgetType" Class="Com.Fld.IField" Caption="@BudgetControlLimit:BudgetType=Вид бюджета" FieldName="BudgetType" OnChange="BudgetType_OnChange" ValueType="VarInteger"/>
+    <Component Name="LimitType" Class="Com.Fld.IField" Caption="@BudgetControlLimit:LimitType=Тип лимита" FieldName="LimitType" ValueType="VarInteger"/>
+  </Inherited>
+</Resource>

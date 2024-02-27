@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Автотранспорт.Tab.Базовые.БазоваяИерархическаяКодИмя">
+  <Inherited HelpContext="Автотранспорт.Автотранспорт.Базовые справочники.Марки ТС">
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonAddFolder" Visible="False"/>
+        <Inherited Name="ButtonFolderElement" Visible="False"/>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree">
+          <Inherited Name="CardTree" CanMove="False" OnModify="CardTree_OnModify"/>
+        </Inherited>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="CardFile" CanMove="False" Hierarchical="True"/>
+          <Inherited Name="Code" After="ExtId"/>
+          <Inherited Name="Name" After="Code" Caption="@Модель"/>
+          <Component Name="Марка" Class="Com.Ctrl.IEdit" Caption="@Марка" Field="Current.GroupDoc" LookupField="Name"/>
+          <Component Name="МаркаИмя" Class="Com.Ctrl.IEdit" Caption="@Марка" Field="Current.Name" Visible="False" Width="50"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

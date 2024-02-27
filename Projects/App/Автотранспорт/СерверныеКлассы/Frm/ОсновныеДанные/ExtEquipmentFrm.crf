@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Frm.Eqm.EquipmentFrm">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="sbt_Паспорт" Class="Com.ISubtable"/>
+      <Component Name="sbt_СвидетРег" Class="Com.ISubtable"/>
+      <Component Name="sbt_ДанныеСтрахов" Class="Com.ISubtable"/>
+      <Component Name="sbt_ДиагностичКарта" Class="Com.ISubtable"/>
+      <Component Name="sbt_ГСМ" Class="Com.ISubtable"/>
+      <Component Name="sbt_Шины" Class="Com.ISubtable"/>
+      <Component Name="DriversStruct" Class="Автотранспорт.Rec.ОсновныеДанные.Equipment_DriversPositions" IsLibrary="1"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Component Name="Описание" Class="Com.Ctrl.IFrame" After="MainTab" Caption="@Frm:Описание=Описание" Margins="5" Visible="True">
+          <Component Name="Основное_Box" Class="Com.Ctrl.IBox" Caption="Основное" HasCaption="True">
+            <Component Name="грТипТС" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="200" MinWidth="100">
+              <Component Name="ТипТС" Class="Com.Ctrl.IEdit" CaptionWidth="60" CardFileClass="Автотранспорт.Tab.Справочники.ТипыТС" Field="EdtRec.ТипТС" FontBold="True" HasCaption="True" ShortList="True"/>
+            </Component>
+            <Component Name="грКатегорияТС" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="200" MinWidth="100">
+              <Component Name="КатегорияТС" Class="Com.Ctrl.IEdit" CaptionWidth="60" CardFileClass="Автотранспорт.Tab.Справочники.КатегорияТС" Field="EdtRec.КатегорияТС" FontBold="True" HasCaption="True" ShortList="True"/>
+            </Component>
+            <Component Name="грВидТС" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="200" MinWidth="100">
+              <Component Name="ВидТС" Class="Com.Ctrl.IEdit" CaptionWidth="60" CardFileClass="Автотранспорт.Tab.Справочники.ВидыТС" Field="EdtRec.ВидТС" FontBold="True" HasCaption="True" ShortList="True"/>
+            </Component>
+            <Component Name="грГосНомер" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="200" MinWidth="100">
+              <Component Name="ГосНомер" Class="Com.Ctrl.IEdit" CaptionWidth="60" Field="EdtRec.ГОС_НОМЕР" FontBold="True" HasCaption="True"/>
+            </Component>
+            <Component Name="грЗаводНомер" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="200" MinWidth="100">
+              <Component Name="ЗаводНомер" Class="Com.Ctrl.IEdit" CaptionWidth="60" Field="EdtRec.ЗАВОД_НОМ" FontBold="True" HasCaption="True"/>
+            </Component>
+            <Component Name="грНомерКузова" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="200" MinWidth="100">
+              <Component Name="НомерКузова" Class="Com.Ctrl.IEdit" CaptionWidth="60" Field="EdtRec.НОМ_КУЗОВА" FontBold="True" HasCaption="True"/>
+            </Component>
+            <Component Name="грНомерШасси" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="200" MinWidth="100">
+              <Component Name="НомерШасси" Class="Com.Ctrl.IEdit" CaptionWidth="60" Field="EdtRec.НОМ_ШАССИ" FontBold="True" HasCaption="True"/>
+            </Component>
+            <Component Name="грМаркаМодель" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="200" MinWidth="100">
+              <Component Name="МаркаName" Class="Com.Ctrl.IEdit" Caption="@Марка" CaptionWidth="60" CardFileClass="Автотранспорт.Tab.Справочники.МаркиТС" Enabled="False" Field="EdtRec.МаркаТС" HasCaption="True" LookupField="Name"/>
+              <Component Name="МаркаМодельName" Class="Com.Ctrl.IEdit" Caption="@Модель" CaptionWidth="60" CardFileClass="Автотранспорт.Tab.Справочники.МаркиТС" Enabled="True" Field="EdtRec.МаркаМодельТС" HasButton="True" HasCaption="True" LookupField="Name" LookupFilter="IsGroup&lt;>-1"/>
+            </Component>
+            <Component Name="грЦвет" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="200" MinWidth="100">
+              <Component Name="Цвет" Class="Com.Ctrl.IEdit" CaptionWidth="60" Field="EdtRec.ResColor" FontBold="True" HasCaption="True"/>
+            </Component>
+            <Component Name="грМассаБезН" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="200" MinWidth="100">
+              <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" FontBold="True" Width="10"/>
+              <Component Name="Static7" Class="Com.Ctrl.IStatic" Caption="Масса" FixSize="True" FontBold="True" Width="20"/>
+              <Component Name="МассаБезН" Class="Com.Ctrl.IEdit" Caption="без нагрузки" CaptionWidth="30" Field="EdtRec.NetWeight" FontBold="True" HasCaption="True"/>
+              <Component Name="ЕдИзмБезН" Class="Com.Ctrl.IEdit" Caption="ед.изм.:" CaptionWidth="20" Field="EdtRec.WeightUnit" FontBold="True" HasCaption="True"/>
+            </Component>
+            <Component Name="грМасса_с_Н" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="200" MinWidth="100">
+              <Component Name="Масса_с_Н" Class="Com.Ctrl.IEdit" Caption="с нагрузкой" CaptionWidth="60" Field="EdtRec.GrossWeight" FontBold="True" HasCaption="True"/>
+              <Component Name="Static4" Class="Com.Ctrl.IStatic" FixSize="True" Width="20"/>
+              <Component Name="Static5" Class="Com.Ctrl.IStatic" Width="60"/>
+            </Component>
+            <Component Name="грОтступ" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="200" MinWidth="100">
+              <Component Name="Static6" Class="Com.Ctrl.IStatic"/>
+            </Component>
+            <Component Name="грДатаВыпуска" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="200" MinWidth="100">
+              <Component Name="ДатаВыпуска" Class="Com.Ctrl.IEdit" CaptionWidth="140" Field="EdtRec.ДАТА_ВЫПУСКА" FontBold="True" HasCaption="True" Visible="False"/>
+              <Component Name="ГодВыпуска" Class="Com.Ctrl.IEdit" CaptionWidth="140" Field="EdtRec.ГодВыпуска" FontBold="True" HasCaption="True"/>
+            </Component>
+          </Component>
+          <Component Name="РегДанные_Box" Class="Com.Ctrl.IBox" Caption="Регистрационные данные" HasCaption="True">
+            <Component Name="грДатаРегТС" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="200" MinWidth="100">
+              <Component Name="ДатаРегТС" Class="Com.Ctrl.IEdit" CaptionWidth="140" Field="EdtRec.Дата_РегистрацииТС" FontBold="True" HasCaption="True"/>
+            </Component>
+            <Component Name="грДатаПрекращенияРегТС" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="200" MinWidth="100">
+              <Component Name="ДатаПрекращенияРегТС" Class="Com.Ctrl.IEdit" CaptionWidth="140" Field="EdtRec.Дата_ПрекращенияРегистрацииТС" FontBold="True" HasCaption="True"/>
+            </Component>
+          </Component>
+          <Component Name="МерПоЗамене" Class="Com.Ctrl.IBox" Caption="Мероприятия по замене" HasCaption="True">
+            <Component Name="грВКлВПланЗамены" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="100">
+              <Component Name="ВКлВПланЗамены" Class="Com.Ctrl.IEdit" CaptionWidth="140" Field="EdtRec.ВКлВПланЗамены" FontBold="True" HasCaption="True"/>
+            </Component>
+            <Component Name="грЗаменен" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="100">
+              <Component Name="Static111" Class="Com.Ctrl.IStatic" FixSize="True" Width="140"/>
+              <Component Name="Заменен" Class="Com.Ctrl.ICheckBox" Caption="@Исполнено" Field="EdtRec.Заменен" Width="20"/>
+            </Component>
+          </Component>
+          <Component Name="Описание_Box1" Class="Com.Ctrl.IBox" Caption="Данные об организации" HasCaption="True">
+            <Component Name="грОрганизация" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="198" MinWidth="100">
+              <Component Name="Company1" Class="Com.Ctrl.IEdit" Caption="Организация:" CaptionWidth="55" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Company" HasCaption="True" LookupField="Name" OnChange="Company_OnChange" OnGetLookupFilter="Company_OnGetLookupFilter" Required="True" ShortList="True"/>
+            </Component>
+            <Component Name="грЭксплуатируется" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="198" MinWidth="100">
+              <Component Name="ЭксплуатС" Class="Com.Ctrl.IEdit" Caption="Эксплуатируется с:" CaptionWidth="55" Field="EdtRec.ДАТА_С" FontBold="True" HasCaption="True"/>
+              <Component Name="ЭксплуатПо" Class="Com.Ctrl.IEdit" Caption="по:" CaptionWidth="15" Field="EdtRec.ДАТА_ПО" FontBold="True" HasCaption="True"/>
+            </Component>
+            <Component Name="грНомерПарковки" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="198" MinWidth="100">
+              <Component Name="НомерПарковки" Class="Com.Ctrl.IEdit" Caption="Номер парковки:" CaptionWidth="55" Field="EdtRec.НомерПарковки" FontBold="True" HasCaption="True"/>
+            </Component>
+            <Component Name="грИнвНомер" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="198" MinWidth="100">
+              <Component Name="ИнвНомер" Class="Com.Ctrl.IEdit" Caption="Инвентарный номер:" CaptionWidth="55" Field="EdtRec.ИнвентНомер" FontBold="True" HasCaption="True"/>
+            </Component>
+            <Component Name="грВодитель" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" MaxWidth="198" MinWidth="100">
+              <Component Name="Водитель" Class="Com.Ctrl.IEdit" Excluded="True" Caption="Водитель(машинист):" CaptionWidth="55" CardFileClass="Bas.Tab.Data.Entity" Field="EdtRec.Водитель" FontBold="True" HasCaption="True"/>
+            </Component>
+            <Component Name="грМОЛ" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="198" MinWidth="100">
+              <Component Name="МОЛ" Class="Com.Ctrl.IEdit" Caption="МОЛ:" CaptionWidth="55" CardFileClass="Bas.Tab.Data.Entity" Field="EdtRec.МОЛ" FontBold="True" HasCaption="True" OnGetLookupFilter="МОЛ_OnGetLookupFilter" OnOpenCardForm="МОЛ_OnOpenCardForm"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="Водители_Frame" Class="Com.Ctrl.IFrame" After="ChildUnitsTab" Caption="@Frm:Водители_Frame=Водители" Margins="5" Visible="True">
+          <Component Name="Водители_tbl" Class="Com.Ctrl.ITable" Subtable="EdtRec.sbt_Водители">
+            <Component Name="ColGr_Водитель" Class="Com.Ctrl.IColumnsGroup" Caption="@ФИО" HasCaption="True">
+              <Component Name="ed_ФИО" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" Field="DriversStruct.Driver" HasCaption="False" OnGetLookupFilter="ed_ФИО_OnGetLookupFilter" OnOpenCardForm="ed_ФИО_OnOpenCardForm"/>
+              <Component Name="jb_Водитель" Class="Com.Ctrl.IJumpButton" Field="DriversStruct.Driver" HasCaption="False"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="Компоненты" Class="Com.Ctrl.IFrame" Caption="@Frm:Компоненты=Компоненты" Margins="5">
+          <Component Name="Box2" Class="Com.Ctrl.IBox" Caption="ГСМ" HasCaption="True">
+            <Component Name="Table1" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Numbering="False" Subtable="sbt_ГСМ">
+              <Component Name="типГСМ" Class="Com.Ctrl.IEdit" Caption="Тип ГСМ" CardFileClass="Автотранспорт.Tab.Справочники.Горючее" CellFormat="ReferenceFormat" Field="EdtRec.типГСМ" HasCaption="True" LookupField="Name" ValueType="VarObject" Width="70"/>
+              <Component Name="расход" Class="Com.Ctrl.IEdit" Caption="Расход" CellFormat="NumericFormat" Field="EdtRec.Расход" HasCaption="True" ValueType="VarNumeric" Width="40"/>
+              <Component Name="текОст" Class="Com.Ctrl.IEdit" Caption="Текущий остаток" CellFormat="NumericFormat" Field="EdtRec.текОст" HasCaption="True" ValueType="VarNumeric" Width="40"/>
+            </Component>
+          </Component>
+          <Component Name="Box7" Class="Com.Ctrl.IBox" Caption="Шины" HasCaption="True">
+            <Component Name="Table4" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Numbering="False" Subtable="sbt_Шины">
+              <Component Name="ed_МаркаШин" Class="Com.Ctrl.IEdit" CardFileClass="Автотранспорт.Tab.Справочники.ТипШин" Field="EdtRec.МаркаШин" HasCaption="True" Width="70"/>
+              <Component Name="ed_ВыданоШин" Class="Com.Ctrl.IEdit" Field="EdtRec.ВыданоШин" HasCaption="True" Width="40"/>
+              <Component Name="ed_ПробегШин" Class="Com.Ctrl.IEdit" Field="EdtRec.ПробегШин" FieldFormat="#0" HasCaption="True" Width="40"/>
+              <Component Name="ed_ДатаНачШин" Class="Com.Ctrl.IEdit" Field="EdtRec.ДатаНачШин" HasCaption="True" Width="40"/>
+              <Component Name="ed_ДатаВыбытияШин" Class="Com.Ctrl.IEdit" Field="EdtRec.ДатаВыбытияШин" HasCaption="True" Width="40"/>
+              <Component Name="ed_ВыбылоШин" Class="Com.Ctrl.IEdit" Field="EdtRec.ВыбылоШин" HasCaption="True" Width="40"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="Документы" Class="Com.Ctrl.IFrame" Caption="@Frm:Документы=Документы" Margins="5">
+          <Component Name="Box3" Class="Com.Ctrl.IBox" Caption="Паспорт технического средства" HasCaption="True">
+            <Component Name="Table2" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Numbering="False" Subtable="sbt_Паспорт">
+              <Component Name="ДатаВыдачиП" Class="Com.Ctrl.IEdit" Caption="Дата выдачи" Field="EdtRec.ДатаВыдачиПаспорта" HasCaption="True" Width="70"/>
+              <Component Name="СерияП" Class="Com.Ctrl.IEdit" Caption="Серия" Field="EdtRec.СерияПаспорта" HasCaption="True" OnVerify="СерияП_OnVerify" Width="40"/>
+              <Component Name="НомерП" Class="Com.Ctrl.IEdit" Caption="Номер" Field="EdtRec.НомерПаспорта" HasCaption="True" OnVerify="НомерП_OnVerify" Width="40"/>
+            </Component>
+          </Component>
+          <Component Name="Box4" Class="Com.Ctrl.IBox" Caption="Свидетельство о регистрации транспортного средства" HasCaption="True">
+            <Component Name="Table3" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Numbering="False" Subtable="sbt_СвидетРег">
+              <Component Name="ДатаВыдачиСР" Class="Com.Ctrl.IEdit" Caption="Дата выдачи" Field="EdtRec.ДатаВыдачиСвидетРег" HasCaption="True" Width="70"/>
+              <Component Name="СерияСР" Class="Com.Ctrl.IEdit" Caption="Серия" Field="EdtRec.СерияСвидетРег" HasCaption="True" OnVerify="СерияСР_OnVerify" Width="40"/>
+              <Component Name="НомерСР" Class="Com.Ctrl.IEdit" Caption="Номер" Field="EdtRec.НомерСвидетРег" HasCaption="True" OnVerify="НомерСР_OnVerify" Width="40"/>
+            </Component>
+          </Component>
+          <Component Name="Box6" Class="Com.Ctrl.IBox" Caption="Диагностическая карта" HasCaption="True">
+            <Component Name="Table5" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Numbering="False" Subtable="sbt_ДиагностичКарта">
+              <Component Name="ОператорТО_ДК" Class="Com.Ctrl.IEdit" Caption="Оператор технического осмотра" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.ОператорТО_ДиагностичКарта" HasCaption="True" LookupField="Name" Width="70"/>
+              <Component Name="Номер_ДК" Class="Com.Ctrl.IEdit" Caption="Номер диагностической карты" Field="EdtRec.НомерДиагностичКарта" HasCaption="True" OnVerify="Номер_ДК_OnVerify" Width="40"/>
+              <Component Name="ДатаНачала_ДК" Class="Com.Ctrl.IEdit" Caption="Начало срока действия" Field="EdtRec.ДатаНачалаДиагностичКарта" HasCaption="True" Width="40"/>
+              <Component Name="ДатаОкончания_ДК" Class="Com.Ctrl.IEdit" Caption="Окончание срока действия" Field="EdtRec.ДатаОкончанияДиагностичКарта" HasCaption="True" Width="40"/>
+              <Component Name="Стоимость_ДК" Class="Com.Ctrl.IEdit" Caption="Стоимость" Field="EdtRec.СтоимостьДиагностичКарта" HasCaption="True" Width="40"/>
+            </Component>
+          </Component>
+          <Component Name="Box5" Class="Com.Ctrl.IBox" Caption="Данные о страховании" HasCaption="True">
+            <Component Name="Frame3" Class="Com.Ctrl.IFrame" MaxSize="300" MinSize="140"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

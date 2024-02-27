@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited HelpContext="Repair.Repair.Справочники.Технологические карты и нормативы.Уровни обслуживания">
+    <Inherited Name="EdtRec" Class="Repair.Rec.Ref.Sla.SlaLevels" IsLibrary="1"/>
+    <Component Name="DefDependenciesForExecuteStruct" Class="Repair.Rec.Ref.Sla.SlaLevels_DependenciesForExecute" IsLibrary="1" After="EdtRec"/>
+    <Component Name="DefDependenciesForEditStruct" Class="Repair.Rec.Ref.Sla.SlaLevels_DependenciesForEdit" IsLibrary="1"/>
+    <Component Name="DefDaysOffStruct" Class="Repair.Rec.Ref.Sla.SlaLevels_DaysOff" IsLibrary="1"/>
+    <Inherited Name="TableMenu" After="DefDaysOffStruct"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="Code" Visible="True"/>
+          <Inherited Name="Name" Required="True" Visible="True"/>
+        </Inherited>
+        <Component Name="AutoGenerateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150"/>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="TimeFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="TimeGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="ReactTimeGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                <Component Name="ReactTime" Class="Com.Ctrl.IStatic" Caption="Время реакции (ч, мин)" MaxWidth="110" Visible="True"/>
+                <Component Name="ReactTimeH" Class="Com.Ctrl.IEdit" Field="EdtRec.ReactTimeH" HasCaption="False" MaxWidth="20" Width="20"/>
+                <Component Name="ReactTimeM" Class="Com.Ctrl.IEdit" Field="EdtRec.ReactTimeM" HasCaption="False" MaxWidth="20" Width="20"/>
+              </Component>
+              <Component Name="SolutTimeGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                <Component Name="SolutTime" Class="Com.Ctrl.IStatic" Caption="Время решения (дн, ч, мин)" MaxWidth="90" Visible="True"/>
+                <Component Name="SolutTimeD" Class="Com.Ctrl.IEdit" Field="EdtRec.SolutTimeD" MaxWidth="20" Width="20"/>
+                <Component Name="SolutTimeH" Class="Com.Ctrl.IEdit" Field="EdtRec.SolutTimeH" MaxWidth="20" Width="20"/>
+                <Component Name="SolutTimeM" Class="Com.Ctrl.IEdit" Field="EdtRec.SolutTimeM" MaxWidth="20" Width="20"/>
+              </Component>
+              <Component Name="NotifReactTimeGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                <Component Name="NotifReactTime" Class="Com.Ctrl.IStatic" Caption="Уведомлять о сроке реакции за (ч, мин)" MaxWidth="110" Visible="True"/>
+                <Component Name="NotifReactTimeH" Class="Com.Ctrl.IEdit" Field="EdtRec.NotifReactTimeH" HasCaption="False" MaxWidth="20" Width="20"/>
+                <Component Name="NotifReactTimeM" Class="Com.Ctrl.IEdit" Field="EdtRec.NotifReactTimeM" HasCaption="False" MaxWidth="20" Width="20"/>
+              </Component>
+              <Component Name="NotifSolutTimeGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                <Component Name="NotifSolutTime" Class="Com.Ctrl.IStatic" Caption="Уведомлять о сроке решения (ч, мин)" MaxWidth="110" Visible="True"/>
+                <Component Name="NotifSolutTimeH" Class="Com.Ctrl.IEdit" Field="EdtRec.NotifSolutTimeH" HasCaption="False" MaxWidth="20" Width="20"/>
+                <Component Name="NotifSolutTimeM" Class="Com.Ctrl.IEdit" Field="EdtRec.NotifSolutTimeM" HasCaption="False" MaxWidth="20" Width="20"/>
+              </Component>
+              <Component Name="WorkTimeGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                <Component Name="WorkTime" Class="Com.Ctrl.IStatic" Caption="Рабочее время" MaxWidth="80"/>
+                <Component Name="WorkTimeFrom" Class="Com.Ctrl.IEdit" Caption="c" Field="EdtRec.WorkTimeFrom" FormatOfDate="TimeOnly" HasCaption="True" MaxWidth="30" Width="30"/>
+                <Component Name="WorkTimeTo" Class="Com.Ctrl.IEdit" Caption="по" Field="EdtRec.WorkTimeTo" FormatOfDate="TimeOnly" HasCaption="True" MaxWidth="30" Width="30"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="DaysOffFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="DaysOffBox" Class="Com.Ctrl.IBox" Caption="Праздники и выходные">
+              <Component Name="DaysOffTable" Class="Com.Ctrl.ITable" Subtable="EdtRec.DaysOff">
+                <Component Name="DaysOff_DayWOSLAEdit" Class="Com.Ctrl.IEdit" Caption="Дата" CellFormat="DateFormat" Field="DefDaysOffStruct.DayWOSLA" FormatOfDate="DateOnly" ValueType="VarDate"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="CloseFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="CloseGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="CloseAutomaticlyGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+                <Component Name="Static1" Class="Com.Ctrl.IStatic" MaxWidth="35" MinWidth="35" Width="35"/>
+                <Component Name="CloseAutomaticly" Class="Com.Ctrl.ICheckBox" Alignment="LeftAlign" Field="EdtRec.CloseAutomaticly" HasCaption="True" OnChange="CloseAutomaticlyOnChange" Width="60"/>
+              </Component>
+              <Component Name="ReqStatusForClose" Class="Com.Ctrl.IEdit" Field="EdtRec.ReqStatusForClose" HasCaption="True"/>
+              <Component Name="CloseAfter" Class="Com.Ctrl.IEdit" Field="EdtRec.CloseAfter" HasCaption="True"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="Relations" Class="Com.Ctrl.IFrame" Caption="Отношения">
+          <Component Name="DependenciesForEditTab" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Зависимости для редакции">
+            <Component Name="DependenciesForEditBox" Class="Com.Ctrl.IBox" Caption="Зависимости для реакции">
+              <Component Name="DependenciesForEditTable" Class="Com.Ctrl.ITable" Subtable="EdtRec.DependenciesForEdit">
+                <Component Name="DependenciesForEdit_EquipmentPriorityCodeEdit" Class="Com.Ctrl.IEdit" Caption="Код" Field="DefDependenciesForEditStruct.EquipmentPriority" FixSize="True" LookupField="Code" Width="20"/>
+                <Component Name="DependenciesForEdit_EquipmentPriorityNameEdit" Class="Com.Ctrl.IEdit" Caption="Наименование" Enabled="False" Field="DefDependenciesForEditStruct.EquipmentPriority" FixSize="True" LookupField="Name" Width="150"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="DependenciesForExecuteTab" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Зависимости для выполнения">
+            <Component Name="DependenciesForExecuteBox" Class="Com.Ctrl.IBox" Caption="Зависимости для выполнения">
+              <Component Name="DependenciesForExecuteTable" Class="Com.Ctrl.ITable" Subtable="EdtRec.DependenciesForExecute">
+                <Component Name="DependenciesForExecute_DefectTypesCodeEdit" Class="Com.Ctrl.IEdit" Caption="Код" Field="DefDependenciesForExecuteStruct.DefectTypes" FixSize="True" LookupField="Code" Width="20"/>
+                <Component Name="DependenciesForExecute_DefectTypesNameEdit" Class="Com.Ctrl.IEdit" Caption="Наименование" Enabled="False" Field="DefDependenciesForExecuteStruct.DefectTypes" FixSize="True" LookupField="Name" Width="150"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

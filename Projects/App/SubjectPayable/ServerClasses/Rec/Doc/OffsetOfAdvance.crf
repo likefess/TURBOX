@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="SubjectPayable.Rec.Base.BaseSubjPayableDoc">
+  <Inherited>
+    <Inherited Name="Name" OnCalc="Name_OnCalc"/>
+    <Component Name="ExchRateBase2" Class="Com.Fld.IVar" After="ExchRateBase" OnCalc="ExchRateBase2_OnCalc" ValueType="VarNumeric"/>
+    <Inherited Name="AccDate" Caption="@OffsetOfAdvance:AccDate=Дата зачета аванса"/>
+    <Component Name="DocPaymentOfDebt" Class="Com.Fld.IField" After="SourceDoc" Caption="@OffsetOfAdvance:DocPaymentOfDebt=Документ оплаты" FieldName="DocPaymentOfDebt" OnChange="DocPaymentOfDebt_OnChange"/>
+    <Component Name="DocAccrualOfDebt" Class="Com.Fld.IField" Caption="@SettlementOfDebt:DocAccrualOfDebt=Документ обязательства" FieldName="DocAccrualOfDebt" OnChange="DocAccrualOfDebt_OnChange"/>
+    <Component Name="CurrencyAccOfDebt" Class="Com.Fld.IField" FieldName="CurrencyAccOfDebt" OnCalc="CurrencyAccOfDebt_OnCalc"/>
+    <Component Name="SumAccOfDebt" Class="Com.Fld.IField" FieldName="SumAccOfDebt" OnCalc="SumAccOfDebt_OnCalc"/>
+    <Component Name="ExchRateAccOfDebt" Class="Com.Fld.IField" FieldName="ExchRateAccOfDebt" OnCalc="ExchRateAccOfDebt_OnCalc"/>
+  </Inherited>
+</Resource>

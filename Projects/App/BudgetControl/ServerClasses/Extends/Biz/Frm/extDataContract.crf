@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Frm.Data.Contract">
+  <Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Component Name="Create_BCRequest" Class="Com.Ctrl.IButton" Caption="@Contract:Create_BCRequest=Сформировать заявку БДР" OnClick="Create_BCRequestOnClick"/>
+          <Component Name="Create_BCFact" Class="Com.Ctrl.IButton" Caption="@Contract:Create_BCFact=Сформировать факт БДР" OnClick="Create_BCFactOnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="FinanceTab">
+          <Inherited Name="ShippingTimelineBox">
+            <Inherited Name="ShippingTimelineVert">
+              <Inherited Name="ShippingTimelineHorz">
+                <Inherited Name="ShippingTimelineSubtableFrame">
+                  <Component Name="ShippingBCRequestBDR" Class="Com.Ctrl.IEdit" CardFileClass="BudgetControl.Tab.Data.BCRequest_BDR" CellFormat="ReferenceFormat" Field="Contract_ShippingTimeline.BCRequestBDR" HasCaption="True" LookupField="Name" OnEnter="ShippingBCRequestBDR_OnEnter" Width="35"/>
+                  <Component Name="ShippingBCRequestBDRJumpButton" Class="Com.Ctrl.IJumpButton" Field="Contract_ShippingTimeline.BCRequestBDR" HasCaption="True" JumpForm="BudgetControl.Frm.Data.BCRequest_BDR"/>
+                  <Component Name="ShippingBCFactBDR" Class="Com.Ctrl.IEdit" CardFileClass="BudgetControl.Tab.Data.BCFact_BDR" CellFormat="ReferenceFormat" Field="Contract_ShippingTimeline.BCFactBDR" HasCaption="True" LookupField="Name" OnEnter="ShippingBCFactBDR_OnEnter" Width="35"/>
+                  <Component Name="ShippingBCFactBDRJumpButton" Class="Com.Ctrl.IJumpButton" Field="Contract_ShippingTimeline.BCFactBDR" HasCaption="True" JumpForm="BudgetControl.Frm.Data.BCFact_BDR"/>
+                </Inherited>
+                <Inherited Name="ShippingTimelineTotalsFrame">
+                  <Component Name="ShippingTotalBCRequestBDR" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="35"/>
+                  <Component Name="ShippingTotalBCRequestBDRJumpButton" Class="Com.Ctrl.IJumpButton" Enabled="False" HasCaption="False"/>
+                  <Component Name="ShippingTotalBCFactBDR" Class="Com.Ctrl.IEdit" Enabled="False" HasCaption="False" Width="35"/>
+                  <Component Name="ShippingTotalBCFactBDRJumpButton" Class="Com.Ctrl.IJumpButton" Enabled="False" HasCaption="False"/>
+                </Inherited>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="SetupVisibleBox">
+            <Inherited Name="SetupVisibleShippingTimeGroup">
+              <Inherited Name="SetupVisibleShippingTimeHorz">
+                <Component Name="grSetupVisibleShippingBC" Class="Com.Ctrl.IGroup" ByColumn="False">
+                  <Component Name="stSetupVisibleShippingTime2" Class="Com.Ctrl.IStatic" MaxWidth="40" Width="40"/>
+                  <Component Name="chSVShippingBCRequestBDR" Class="Com.Ctrl.ICheckBox" Caption="Документ заявка БДР" Field="EdtRec.svShippingBCRequestBDR" HasCaption="True" Hint="Скрыть поле «Документ заявка БДР»" MaxWidth="55" OnChange="chSetupVisible_OnChange" OnVerify="chSVShippingBCRequestBDR_OnVerify" Width="55"/>
+                  <Component Name="chSVShippingBCFactBDR" Class="Com.Ctrl.ICheckBox" Caption="Документ факт. БДР" Field="EdtRec.svShippingBCFactBDR" HasCaption="True" Hint="Скрыть поле «Документ факт. БДР»" MaxWidth="50" OnChange="chSetupVisible_OnChange" OnVerify="chSVShippingBCFactBDR_OnVerify" Width="50"/>
+                </Component>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

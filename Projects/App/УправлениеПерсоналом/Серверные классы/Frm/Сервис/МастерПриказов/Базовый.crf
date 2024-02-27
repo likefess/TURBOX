@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Component Name="стрМастера" Class="УправлениеПерсоналом.Frm.Сервис.МастерПриказов.Строка" IsLibrary="1" After="#0"/>
+    <Component Name="стрНачисление" Class="УправлениеПерсоналом.Rec.Сервис.ПостоянныеНачисления" IsLibrary="1"/>
+    <Component Name="стрУдержание" Class="УправлениеПерсоналом.Rec.Сервис.ПостоянныеУдержания" IsLibrary="1"/>
+    <Component Name="стрНачислениеВак" Class="УправлениеПерсоналом.Rec.Сервис.ПостоянныеНачисления" IsLibrary="1"/>
+    <Component Name="стрУдержаниеВак" Class="УправлениеПерсоналом.Rec.Сервис.ПостоянныеУдержания" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="Позиции" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Frm.Сервис.МастерПриказов.Строка"/>
+      <Component Name="ПостУдержания" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Сервис.ПостоянныеУдержания"/>
+      <Component Name="ПостНачисления" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Сервис.ПостоянныеНачисления"/>
+      <Component Name="ПостНачисленияВак" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Сервис.ПостоянныеНачисления"/>
+      <Component Name="ПостУдержанияВак" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Сервис.ПостоянныеУдержания"/>
+      <Component Name="пПредприятие" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="пПодразделениеОбщ" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="пДатаПриказа" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="пДата" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="пФормироватьПриказ" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="пПриказОНадб" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="пПриказПрочее" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="пГрупповойПриказ" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="пПриказОНадбГрупповой" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="пПриказПрочееГрупповой" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="пТипДокумента" Class="Com.Fld.IVar" RecordClass="УправлениеПерсоналом.Rec.Классификаторы.ТипДокумента" ValueType="VarObject"/>
+      <Component Name="пТипПриказНадбавки" Class="Com.Fld.IVar" RecordClass="УправлениеПерсоналом.Rec.Классификаторы.ТипДокумента" ValueType="VarObject"/>
+      <Component Name="пТипПриказПрочее" Class="Com.Fld.IVar" RecordClass="УправлениеПерсоналом.Rec.Классификаторы.ТипДокумента" ValueType="VarObject"/>
+      <Component Name="пРуковДолжность" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Ref.Positions" ValueType="VarObject"/>
+      <Component Name="пРуководитель" Class="Com.Fld.IVar" OnChange="пРуководитель_OnChange" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="пОтветствДолжность" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Ref.Positions" ValueType="VarObject"/>
+      <Component Name="пОтветственный" Class="Com.Fld.IVar" OnChange="пОтветственный_OnChange" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="ДатаОкончания" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="ЗаписьФЛ" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="УТСотрудника" Class="Com.Fld.IVar" RecordClass="HRBase.Rec.Data.EmployeePlace" ValueType="VarObject"/>
+      <Component Name="Вакансия" Class="Com.Fld.IVar" RecordClass="HRBase.Rec.Data.StaffingUnit" ValueType="VarObject"/>
+      <Component Name="Должность" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Ref.Positions" ValueType="VarObject"/>
+      <Component Name="Подразделение" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="Разряд" Class="Com.Fld.IVar" RecordClass="УправлениеПерсоналом.Rec.Справочники.ТарифныйРазряд" ValueType="VarObject"/>
+      <Component Name="НеСоздаватьМероприятиеТК" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="Дата" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="ДоляСтавки" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+      <Component Name="ВидЗанятости" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="ВидДоговора" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="ХарактерРаботы" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="ВидОснНачисления" Class="Com.Fld.IVar" RecordClass="УправлениеПерсоналом.Rec.Справочники.ВидНачислений" ValueType="VarObject"/>
+      <Component Name="Ставка" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+      <Component Name="ПродолжРабВремени" Class="Com.Fld.IVar" RecordClass="УправлениеПерсоналом.Rec.Справочники.ПродолжРабВремени" ValueType="VarObject"/>
+      <Component Name="График" Class="Com.Fld.IVar" RecordClass="HRBase.Rec.Ref.WorkSchedule" ValueType="VarObject"/>
+      <Component Name="УсловияТруда" Class="Com.Fld.IVar" RecordClass="УправлениеПерсоналом.Rec.Классификаторы.УсловияТруда" ValueType="VarObject"/>
+      <Component Name="ОсобыеУсловия" Class="Com.Fld.IVar" RecordClass="УправлениеПерсоналом.Rec.Классификаторы.ОсобыеУсловияТруда" ValueType="VarObject"/>
+      <Component Name="ОснованиеВыслуги" Class="Com.Fld.IVar" RecordClass="УправлениеПерсоналом.Rec.Классификаторы.ОснованиеВыслуги" ValueType="VarObject"/>
+      <Component Name="ИспСрок" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="ИспСрокДата" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="ВидМероприятияЭТК" Class="Com.Fld.IVar" RecordClass="УправлениеПерсоналом.Rec.Классификаторы.ВидМероприятияЭТК" ValueType="VarObject"/>
+      <Component Name="ЭТКСведения" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="ЭТКВидПР" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="ЭТКОКЗ" Class="Com.Fld.IVar" RecordClass="УправлениеПерсоналом.Rec.Классификаторы.ОКЗ" ValueType="VarObject"/>
+      <Component Name="ЭТКЯвляетсяСовм" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="БЛ100" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="АвансСумма" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+      <Component Name="АвансПроц" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+      <Component Name="Взносы_ПоАттестации" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+      <Component Name="ТипПлательщикаСВ" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="Взносы_ФТр" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="Взносы_ЕСВ" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="Взносы_ФСС" Class="Com.Fld.IVar" Excluded="True" ValueType="VarInteger"/>
+      <Component Name="Взносы_ОМС" Class="Com.Fld.IVar" Excluded="True" ValueType="VarInteger"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Component Name="кнНачатьЗаново" Class="Com.Ctrl.IButton" After="#0" Hint="Очистить все значения, начать работу заново." ImageName="Com.Cancel" OnClick="кнНачатьЗаново_ПриНажатии"/>
+        <Inherited Name="ButtonOK" Excluded="True"/>
+        <Inherited Name="ButtonRefresh" Excluded="True"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="грПредприятие" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="180" MinWidth="180">
+          <Component Name="Предприятие" Class="Com.Ctrl.IEdit" Caption="@Предприятие" CardFileClass="Bas.Tab.Data.OurCompanies" Field="пПредприятие" HasCaption="True" LookupField="Name" OnChange="Предприятие_OnChange" ShortList="True" Width="125"/>
+          <Component Name="кнПредприятие" Class="Com.Ctrl.IJumpButton" Field="пПредприятие" JumpForm="Bas.Frm.Data.Entity"/>
+        </Component>
+        <Component Name="грДаты" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="180" MinWidth="180">
+          <Component Name="ДатаПриказа" Class="Com.Ctrl.IEdit" Caption="Дата приказа" Field="пДатаПриказа" FormatOfDate="DateOnly" HasCaption="True" Hint="Дата формируемых документов" MaxWidth="35" OnChange="ДатаПриказа_OnChange" OnVerify="ДатаПриказа_OnVerify" Width="35"/>
+          <Component Name="еДата" Class="Com.Ctrl.IEdit" Caption="Дата" Field="пДата" HasCaption="True" OnChange="еДата_OnChange" OnVerify="еДата_OnVerify" Width="35"/>
+          <Component Name="dtStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

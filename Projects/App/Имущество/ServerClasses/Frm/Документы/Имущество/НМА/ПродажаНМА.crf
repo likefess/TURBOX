@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Frm.Документы.Имущество.НМА.ИмуществоБазовыйДокументНМА">
+  <Inherited HelpContext="Имущество.Имущество.Документы движения и учета НМА.Выбытие НМА.Продажа НМА">
+    <Inherited Name="EdtRec" Class="Имущество.Rec.Документы.Имущество.НМА.ПродажаНМА" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="перПоказыватьПараметрыНМА" Class="Com.Fld.IVar" After="#0" OnCalc="перПоказыватьПараметрыНМА_OnCalc"/>
+      <Inherited Name="перТрудовыеОтношения" After="перПоказыватьПараметрыНМА"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Component Name="btDocLinksLoad" Class="Com.Ctrl.IButton" Caption="@Сmd:DocLinksLoad=Разнести данные" HasCaption="True" Hint="@Сmd:DocLinksLoad.Hint=Формирование документов в прочих модулях" ImageName="Com.inbox-out" OnClick="btDocLinksLoad_OnClick"/>
+          <Component Name="btDocLinksUnLoad" Class="Com.Ctrl.IButton" Caption="@Сmd:DocLinksUnLoad=Удалить разнесенные данные" HasCaption="True" Hint="@Сmd:DocLinksUnLoad.Hint=Автоматическое удаление не проведенных документов, ранее сформированных в прочих модулях на основании данного документа" ImageName="Com.trash-alt" OnClick="btDocLinksUnLoad_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Шапка_Фрейм">
+          <Inherited Name="Шапка_Гр">
+            <Inherited Name="Шапка_Номер_Дата">
+              <Inherited Name="Номер" Hint="Номер документа по выбытию НМА"/>
+              <Inherited Name="ДатаНачала" Hint="Дата документа по продаже НМА"/>
+            </Inherited>
+            <Inherited Name="Корректировка_Гр">
+              <Inherited Name="КорректируемыйДокумент" CardFileClass="Имущество.Tab.Документы.Имущество.НМА.ПродажаНМА" Hint="Выбор корректируемого документа"/>
+              <Inherited Name="кнКорректируемыйДокумент" JumpForm="Имущество.Frm.Документы.Имущество.НМА.ПродажаНМА"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="ОбщиеДанные" Excluded="True"/>
+          <Component Name="Позиции_Box" Class="Com.Ctrl.IBox" After="ОбщиеДанные" Caption="Продажа НМА">
+            <Component Name="ГрупповоеОС_Гр" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ГрупповоеОС" Class="Com.Ctrl.IEdit" CardFileClass="ИмуществоБазовый.Tab.Справочники.ГрупповыеОС" Field="EdtRec.ГрупповоеОС" FixSize="True" HasCaption="True" Hint="Заполняется при условии ввода в эксплуатацию остатков по Групповому ОС.  Необязательно для заполнения.  При указании значения в данном поле табличная часть документа заполняется перечнем ОС, входящих в состав данного Группового ОС" LookupField="КодИмущества" OnChange="ГрупповоеОС_OnChange" OnGetLookupFilter="ГрОС_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуГрОС" OnVerify="ГрупповоеОС_OnVerify" Width="40"/>
+              <Component Name="ГрупповоеОС_Имя" Class="Com.Ctrl.IEdit" CardFileClass="ИмуществоБазовый.Tab.Справочники.ГрупповыеОС" Enabled="False" Field="EdtRec.ГрупповоеОС" Hint="Наименование группового ОС" LookupField="Name"/>
+            </Component>
+            <Component Name="УправлениеВидимостью_Табл" Class="Com.Ctrl.IGroup">
+              <Component Name="Static_ПоказыватьГрКол" Class="Com.Ctrl.IStatic" Caption="Показывать группу колонок:" FixSize="True" Visible="True" Width="55"/>
+              <Component Name="перПоказыватьПараметрыНМА_Флаг" Class="Com.Ctrl.ICheckBox" Caption="Параметры НМА" Field="перПоказыватьПараметрыНМА" FixSize="True" HasCaption="True" Hint="Показывать группу колонок &quot;Параметры НМА&quot;" OnChange="перПоказыватьПараметрыНМА_Флаг_OnChange" Width="40"/>
+              <Component Name="Static_ПарамБУ" Class="Com.Ctrl.IStatic"/>
+              <Component Name="Static_ПарамНУ" Class="Com.Ctrl.IStatic"/>
+            </Component>
+            <Component Name="СтоимостьВывод_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="СтоимостьВывод" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.Стоимость" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Стоимость продаваемых НМА (без учета НДС)" MaxWidth="40" MinWidth="30" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify"/>
+            </Component>
+            <Component Name="ПозицииНМА_Табл" Class="Com.Ctrl.ITable" Sortable="True" Subtable="EdtRec.ПозицииНМА">
+              <Component Name="ПозицииНМА" Class="Имущество.Rec.Документы.Имущество.НМА.ПродажаНМА_Позиции" IsLibrary="1"/>
+              <Component Name="Имя_Табл" Class="Com.Ctrl.IEdit" Caption="Наименование НМА" CardFileClass="ИмуществоБазовый.Tab.Справочники.НМА" CellFormat="ReferenceFormat" Field="ПозицииНМА.НМА" Hint="Краткое наименование НМА" LookupField="Name" OnChange="НМА_Табл_OnChange" OnGetLookupFilter="НМА_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуНМА" OnVerify="НМА_Табл_OnVerify" Required="True" Width="70"/>
+              <Component Name="ИнвентарныйНомер_Табл" Class="Com.Ctrl.IEdit" Caption="Инвентарный номер" CardFileClass="ИмуществоБазовый.Tab.Справочники.НМА" CellFormat="ReferenceFormat" Field="ПозицииНМА.НМА" Hint="Инвентарный номер ОС" LookupField="КодИмущества" OnChange="НМА_Табл_OnChange" OnGetLookupFilter="НМА_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуНМА" OnVerify="НМА_Табл_OnVerify" Required="True" Width="30"/>
+              <Component Name="ОС_JumpButton" Class="Com.Ctrl.IJumpButton" Field="ПозицииНМА.НМА" Hint="Возможность перехода на карточку ОС, просмотра и редактирования доступных полей" JumpForm="ИмуществоБазовый.Frm.Справочники.НМА"/>
+              <Component Name="ПараметрыНМА_Гр_Табл" Class="Com.Ctrl.IColumnsGroup" Caption="Параметры НМА" HasCaption="True">
+                <Component Name="кн_ОбновитьДанныеПоПозицииНМА" Class="Com.Ctrl.IButton" FixSize="True" Hint="Обновить данные по текущей позиции НМА" ImageName="Control.Refresh" OnClick="кн_ОбновитьДанныеПоПозицииНМА_OnClick" Width="6"/>
+                <Component Name="Стоимость_Табл" Class="Com.Ctrl.IEdit" Caption="Стоимость" Enabled="False" Field="ПозицииНМА.Стоимость" FieldFormat=",##0.00;;-" Hint="Стоимость объекта НМА по оперативному/бухгалтерскому учету на дату продажи (с учетом модернизации, переоценки)" Width="30"/>
+                <Component Name="Подразделение_Табл" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" Enabled="False" Field="ПозицииНМА.Подразделение" Hint="Подразделение, в котором числится объект НМА" OnGetLookupFilter="Подразделение_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуПодразделение" Width="40"/>
+                <Component Name="ТрудовыеОтношения_Выбор_Табл" Class="Com.Ctrl.IEdit" Caption="МОЛ " CardFileClass="Biz.Tab.Data.LabourRelations" Enabled="False" Field="ПозицииНМА.перТрудовыеОтношения_Выбор" FixSize="True" HasCaption="True" Hint="ФИО материально-ответственного лица, за которым закреплен данный объект имущества, по состоянию на текущую дату" LookupField="Person.Name" OnChange="ТрудовыеОтношения_Выбор_Табл_OnChange" OnGetLookupFilter="ТрудовыеОтношения_Выбор_Табл_OnGetLookupFilter" OnOutputEx="ТрудовыеОтношения_Выбор_Табл_OnOutputEx" Width="50"/>
+                <Component Name="МОЛ_Табл" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" Field="ПозицииНМА.МОЛ" FieldFormat=",##0.00;;-" Hint="Материально-ответственное лицо, ответственное за данный объект НМА" OnChange="МОЛ_Табл_OnChange" OnGetLookupFilter="МОЛ_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуМОЛ" Visible="False" Width="40"/>
+                <Component Name="СуммаОбесценения_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ПозицииНМА.СуммаОбесценения" FieldFormat=",##0.00;;-" Hint="Сумма обесценения, начисленная на дату списания по оперативному/бухгалтерскому учету" Width="30"/>
+                <Component Name="СуммаДооценки_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ПозицииНМА.СуммаДооценки" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Сумма дооценки, начисленная на дату продажи объекта НМА, по которому была произведена дооценка, и при условии выбора варианта списания сумм накопленной дооценки = «Единовременно, при списании переоцененного объекта НМА»" Width="30"/>
+                <Component Name="СуммаАмортизации_Табл" Class="Com.Ctrl.IEdit" Caption="Сумма амортизации" Enabled="False" Field="ПозицииНМА.СуммаАмортизации" FieldFormat=",##0.00;;-" Hint="Сумма начисленной амортизации на дату списания по оперативному/бухгалтерскому учету" Width="30"/>
+                <Component Name="СуммаАмортизацииТП_Табл" Class="Com.Ctrl.IEdit" Field="ПозицииНМА.СуммаАмортизацииТП" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Сумма амортизации, начисляемая за текущий период" Width="30"/>
+                <Component Name="ДатаПрекращенияАмортизации_Табл" Class="Com.Ctrl.IEdit" Caption="Дата прекращения амортизации" Field="ПозицииНМА.ДатаПрекращенияАмортизации" Hint="Дата прекращения амортизации НМА" Required="True" Width="30"/>
+              </Component>
+            </Component>
+          </Component>
+          <Inherited Name="Комментарии_Box" After="Позиции_Box"/>
+        </Inherited>
+        <Component Name="ДанныеПродажи" Class="Com.Ctrl.IFrame" Caption="Данные о продаже" Hint="Данные покупателя, выручка от продажи">
+          <Component Name="ДанныеРасчПок" Class="Com.Ctrl.IBox" Caption="Данные о расчетах с покупателем">
+            <Component Name="Покупатель_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="Покупатель" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Contraparties" Field="EdtRec.Покупатель" HasCaption="True" Hint="Наименование покупателя НМА" MinWidth="40" Required="True"/>
+            </Component>
+            <Component Name="Договор_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="Договор" Class="Com.Ctrl.IEdit" Caption="Договор  №" Field="EdtRec.Договор" HasCaption="True" Hint="Номер договора, по которому продано НМА" LookupField="Code" MinWidth="30" OnChange="Договор_OnChange" OnGetLookupFilter="Договор_OnGetLookupFilter"/>
+              <Component Name="Договор_Дата" Class="Com.Ctrl.IEdit" Caption="дата" CaptionWidth="20" Enabled="False" Field="EdtRec.Договор" FixSize="True" HasCaption="True" Hint="Дата договора, по которому продано НМА" LookupField="EventTime" Width="30"/>
+            </Component>
+            <Component Name="grDLSubjectPayableAccrualOfDebt" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="edDLAccrualOfDebtTypeOfAcc" Class="Com.Ctrl.IEdit" Caption="@Имущество:SubjectPayableTypeOfAcc=Тип задолженности" CellFormat="EnumFormat" Field="EdtRec.DLAccrualOfDebtTypeOfAcc" HasCaption="True"/>
+            </Component>
+          </Component>
+          <Component Name="ВыручкаОтПродажи" Class="Com.Ctrl.IBox" Caption="Выручка от продажи">
+            <Component Name="Выручка" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="СуммаВыручки" Class="Com.Ctrl.IEdit" Caption="Сумма выручки" Field="EdtRec.СуммаВыручки" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Сумма выручки по продаже НМА (с учетом НДС)" MinWidth="30" Required="True"/>
+              <Component Name="ВалютаВыручки" Class="Com.Ctrl.IEdit" CaptionWidth="20" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ВалютаДок" HasCaption="False" LookupField="Code" MaxWidth="30" MinWidth="20" Required="True" ShortList="True"/>
+              <Component Name="НДС_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+                <Component Name="СтавкаНДС" Class="Com.Ctrl.IEdit" Field="EdtRec.СтавкаНДС" HasCaption="True" MaxWidth="25" MinWidth="20" OnGetLookupFilter="СтавкаНДС_OnGetLookupFilter" OnOpenCardForm="СтавкаНДС_OnOpenCardForm"/>
+                <Component Name="СуммаНДС" Class="Com.Ctrl.IEdit" Field="EdtRec.СуммаНДС" FieldFormat=",##0.00;;-" HasCaption="True" MinWidth="25"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="DocLinksTab" Class="Com.Ctrl.IFrame" Caption="@AppBase:DocLinksTable=Интеграция документов" HasCaption="True">
+          <Component Name="bxDLDocLinksTable" Class="Com.Ctrl.IBox" Caption="Сформированные документы" HasCaption="True">
+            <Component Name="DocLinksTableTab" Class="Com.Ctrl.IFrame" AutoSize="True" HasCaption="False"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

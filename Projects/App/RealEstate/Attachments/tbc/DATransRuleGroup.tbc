@@ -1,0 +1,60 @@
+﻿TBCFile VER="3.4" [Created '16.08.2022 1:43:03' by 'Администратор']
+
+DESCRIPTION[
+Count=1
+CountByRef=0
+DocApprovement.Ref.Trans.DATaskStatus
+(
+  Count=0
+  CountByRef=0
+)
+DocApprovement.Ref.Trans.DATransRuleGroup
+(
+  Count=1
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [DocApprovement.Ref.Trans.DATaskStatus
+  (
+    Code :String(80)
+  )
+  ForeignKey Code
+  ]
+
+  [DocApprovement.Ref.Trans.DATransRuleGroup
+  (
+    Deleted :Boolean
+    Code :String(80)
+    Name :String(255)
+    Description :Memo
+    NumberPrefix :String(20)
+    TaskStatus_Init :DocApprovement.Ref.Trans.DATaskStatus
+    TaskStatus_Ready :DocApprovement.Ref.Trans.DATaskStatus
+    TaskStatus_Approve :DocApprovement.Ref.Trans.DATaskStatus
+    TaskStatus_Reject :DocApprovement.Ref.Trans.DATaskStatus
+    TaskStatus_Return :DocApprovement.Ref.Trans.DATaskStatus
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[DocApprovement.Ref.Trans.DATransRuleGroup
+  
+  {DocApprovement.Ref.Trans.DATransRuleGroup:"Согласование договоров"}
+  (
+    Name = "Согласование договоров"
+    NumberPrefix = "D."
+    TaskStatus_Init = {DocApprovement.Ref.Trans.DATaskStatus:"Новый договор"}
+    TaskStatus_Ready = {DocApprovement.Ref.Trans.DATaskStatus:"Договор на согласовании"}
+    TaskStatus_Approve = {DocApprovement.Ref.Trans.DATaskStatus:"Договор подписан"}
+    TaskStatus_Reject = {DocApprovement.Ref.Trans.DATaskStatus:"Договор не подписан"}
+    TaskStatus_Return = {DocApprovement.Ref.Trans.DATaskStatus:"Договор не согласован"}
+  )
+]
+
+]

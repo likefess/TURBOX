@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Bas.Rec.BasObject">
+    <Component Name="CompanyBankDetails" Class="Com.Fld.IField" Caption="@SubjectPayable:CompanyBankDetails1=Банк. реквизиты" FieldName="CompanyBankDetails"/>
+    <Component Name="DateDoc" Class="Com.Fld.IField" Caption="@SubjectPayable:Date=Дата" FieldName="DateDoc" OnChange="DateDoc_OnChange"/>
+    <Component Name="NumberDoc" Class="Com.Fld.IField" Caption="@SubjectPayable:Number=Номер" FieldName="NumberDoc"/>
+    <Component Name="CurrencyBase" Class="Com.Fld.IVar" OnCalc="CurrencyBase_OnCalc" RecordClass="Biz.Rec.Ref.UCurrency" ValueType="VarObject"/>
+    <Component Name="TaxCBC" Class="Com.Fld.IField" Caption="@SubjectPayable:TaxCBC=КБК" FieldName="TaxCBC"/>
+    <Component Name="Code" Class="Com.Fld.IField" Caption="@SubjectPayable:Code=Код" FieldName="Code"/>
+    <Component Name="Name" Class="Com.Fld.IField" Caption="@SubjectPayable:Name=Наименование" FieldName="Name"/>
+    <Component Name="Company" Class="Com.Fld.IField" Caption="@SubjectPayable:Company=Предприятие" FieldName="Company" OnChange="Company_OnChange"/>
+    <Component Name="Contraparty" Class="Com.Fld.IField" Caption="@SubjectPayable:Contraparty=Контрагент" FieldName="Contraparty" OnChange="Contraparty_OnChange"/>
+    <Component Name="Contract" Class="Com.Fld.IField" Caption="@SubjectPayable:Contract=Договор" FieldName="Contract" OnChange="Contract_OnChange"/>
+    <Component Name="Currency" Class="Com.Fld.IField" Caption="@SubjectPayable:Currency=Валюта" FieldName="Currency"/>
+    <Component Name="SumDoc" Class="Com.Fld.IField" Caption="@SubjectPayable:SumDoc=Сумма по документу" FieldName="SumDoc"/>
+    <Component Name="SumBase" Class="Com.Fld.IField" Caption="@SubjectPayable:SumBase=Сумма в базовой валюте" FieldName="SumBase" OnCalc="SumBase_OnCalc"/>
+    <Component Name="ExchRate" Class="Com.Fld.IField" Caption="@SubjectPayable:ExchRate=Курс пересчета" FieldName="ExchRate" OnCalc="ExchRate_OnCalc"/>
+    <Component Name="ExchRateBase" Class="Com.Fld.IVar" OnCalc="ExchRateBase_OnCalc" ValueType="VarNumeric"/>
+    <Component Name="VATRate" Class="Com.Fld.IField" Caption="@SubjectPayable:VATRate=Ставка НДС" FieldName="VATRate"/>
+    <Component Name="VATSum" Class="Com.Fld.IField" Caption="@SubjectPayable:VATSum=Сумма НДС" FieldName="VATSum" OnCalc="VATSum_OnCalc"/>
+    <Component Name="Accounted" Class="Com.Fld.IField" Caption="@SubjectPayable:Accounted=Проводить" FieldName="Accounted"/>
+    <Component Name="AccDate" Class="Com.Fld.IField" Caption="@SubjectPayable:AccDate=Дата проведения" FieldName="AccDate"/>
+    <Component Name="SourceDoc" Class="Com.Fld.IField" FieldName="SourceDoc"/>
+  </Component>
+</Resource>

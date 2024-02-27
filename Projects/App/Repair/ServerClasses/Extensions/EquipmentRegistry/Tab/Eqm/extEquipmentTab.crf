@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Tab.Eqm.EquipmentTab">
+  <Inherited HelpContext="Repair.Repair.Оборудование.Реестр оборудования">
+    <Inherited Name="RootFrame" HelpContext="Repair.Repair.Оборудование.Реестр оборудования">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonFilters">
+          <Component Name="ButtonFilter" Class="Com.Ctrl.IButton" After="ButtonShowDeleted" Caption="Панель фильтра" IsSwitch="True" OnClick="ButtonFilterOnClick"/>
+          <Inherited Name="FilterSeparator" After="ButtonFilter"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Component Name="Company" Class="Com.Ctrl.IEdit" After="Name1" CellFormat="ReferenceFormat" Field="Current.Company" HasCaption="True" LookupField="Name" Width="60"/>
+          <Component Name="TaskStatus" Class="Com.Ctrl.IEdit" Caption="Согласование" CellFormat="ReferenceFormat" Field="Current.TaskStatus" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="DAApprovalTask_Status" Class="Com.Ctrl.IEdit" Caption="Согласование" CellFormat="ReferenceFormat" Field="Current.DAApprovalTask_StatusVar" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="CurrentStatus" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.CurrentStatus" HasCaption="True" LookupField="Name" Width="60"/>
+          <Component Name="CurrentParent" Class="Com.Ctrl.IEdit" After="PlaceCode" CellFormat="ReferenceFormat" Field="Current.CurrentParent" HasCaption="True" LookupField="Name" Width="60"/>
+          <Component Name="ModelCode" Class="Com.Ctrl.IEdit" Caption="@Код модели" CellFormat="ReferenceFormat" Field="Current.ModelCode" HasCaption="True" LookupField="Code" Width="40"/>
+          <Component Name="ModelName" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.ModelCode" HasCaption="True" LookupField="Name" Width="60"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

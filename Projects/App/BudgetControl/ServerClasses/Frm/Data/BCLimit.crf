@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="BudgetControl.Rec.Data.BCLimit" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Component Name="bccErrAllLinesBtn" Class="Com.Ctrl.IButton" Caption="@BudgetControlLimit:bccErrAllLinesBtn=Установить в строках вид контроля «Запрещать»" HasCaption="True" ImageName="Com.EditItem" OnClick="bccErrAllLinesBtn_OnClick"/>
+          <Component Name="bccWarningAllLinesBtn" Class="Com.Ctrl.IButton" Caption="@BudgetControlLimit:bccWarningAllLinesBtn=Установить в строках вид контроля «Предупреждать»" HasCaption="True" ImageName="Com.EditItem" OnClick="bccWarningAllLinesBtn_OnClick"/>
+          <Component Name="bccSkipAllLinesBtn" Class="Com.Ctrl.IButton" Caption="@BudgetControlLimit:bccSkipAllLinesBtn=Установить в строках вид контроля «Пропускать»" HasCaption="True" ImageName="Com.EditItem" OnClick="bccSkipAllLinesBtn_OnClick"/>
+          <Component Name="CreateCorrectionsBtn" Class="Com.Ctrl.IButton" Caption="@BudgetControlLimit:CreateCorrectionsBtn=Создать перенос лимита" HasCaption="True" ImageName="Com.AddItem" OnClick="CreateCorrectionsBtn_OnClick"/>
+          <Component Name="ToApprovementButton" Class="Com.Ctrl.IButton" Caption="Отправить на согласование" ImageName="BudgetControl.ToApprovement" OnClick="ToApprovementButton_OnClick" Visible="False" Width="40"/>
+          <Component Name="ButtonCancelApprovement" Class="Com.Ctrl.IButton" Caption="Отменить согласование" ImageName="Com.Cancel_" OnClick="ButtonCancelApprovementOnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" ByColumn="False">
+          <Inherited Name="Code" Visible="True"/>
+          <Component Name="BtnStatic1" Class="Com.Ctrl.IStatic" After="Code" FixSize="True" Width="7.5"/>
+          <Inherited Name="Name" Visible="True"/>
+          <Component Name="BtnStatic2" Class="Com.Ctrl.IStatic" After="Name" FixSize="True" Width="7.5"/>
+          <Component Name="NewLine2" Class="Com.Ctrl.INewLine"/>
+          <Component Name="ActiveStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+          <Component Name="Active" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Active" HasCaption="True"/>
+          <Component Name="BtnStatic3" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+          <Component Name="LockedStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+          <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Locked" HasCaption="True"/>
+          <Component Name="BtnStatic4" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+          <Component Name="NewLine" Class="Com.Ctrl.INewLine"/>
+          <Component Name="Company" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" CellFormat="ReferenceFormat" Field="EdtRec.Company" HasCaption="True" LookupField="Name" OnChange="Company_OnChange" Required="True" ShortList="True"/>
+          <Component Name="BtnStatic5" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+          <Component Name="BudgetType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.BudgetType" HasCaption="True" ListAsString="БДДС|0;БДР|1;Бюджет закупок|2" OnChange="BudgetType_OnChange"/>
+          <Component Name="BtnStatic6" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+          <Component Name="NewLine1" Class="Com.Ctrl.INewLine"/>
+          <Component Name="LimitType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.LimitType" HasCaption="True" ListAsString="Исходный лимит|0;Корректировка|1" OnChange="LimitType_OnChange"/>
+          <Component Name="BtnStatic7" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+          <Component Name="DAStatus" Class="Com.Ctrl.IEdit" Caption="Статус" Enabled="False" Field="EdtRec.DATask_Status" LookupField="Name" OnOutput="DAStatus_OnOutput"/>
+          <Component Name="DAJumpButton" Class="Com.Ctrl.IJumpButton" Field="EdtRec.DATask"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="LinesFrame" Class="Com.Ctrl.IFrame" Subtable="EdtRec.Lines">
+            <Component Name="BLimit_Line" Class="BudgetControl.Rec.Data.BCLimit_Line" IsLibrary="1"/>
+            <Component Name="Period" Class="Com.Ctrl.IEdit" Excluded="True" Caption="@BudgetControl:Period=Период" HasButton="True" HasCaption="True" OnLookup="Period_OnLookup" OnOutput="Period_OnOutput" ValueType="VarString" Width="40"/>
+            <Component Name="SelectRelated" Class="Com.Ctrl.ICheckBox" Caption="@BCLimit_Line:SelectRelated=Показать связь" Field="BLimit_Line.SelectRelated" FixSize="True" HasCaption="True" Width="22"/>
+            <Component Name="PeriodType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="BLimit_Line.PeriodType" HasCaption="True" ListAsString="месяц|0;квартал|1;год|2" Width="30"/>
+            <Component Name="PeriodStart" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="BLimit_Line.PeriodStart" HasCaption="True" Width="30"/>
+            <Component Name="Nomenclature" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Resources" CellFormat="ReferenceFormat" Field="BLimit_Line.Nomenclature" HasCaption="True" LookupField="Name" Width="40"/>
+            <Component Name="UnitOfMeasure" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UnitsOfMeasure" CellFormat="ReferenceFormat" Field="BLimit_Line.UnitOfMeasure" HasCaption="True" LookupField="Code" Width="25"/>
+            <Component Name="Quantity" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="BLimit_Line.Quantity" HasCaption="True" Width="25"/>
+            <Component Name="Price" Class="Com.Ctrl.IEdit" CellFormat="NumericFormat" Field="BLimit_Line.Price" FieldFormat=",##0.00;;-" HasCaption="True" Width="35"/>
+            <Component Name="Sum" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Field="BLimit_Line.Sum" FieldFormat=",##0.00;" HasCaption="True" Width="35"/>
+            <Component Name="Currency" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.UCurrencies" CellFormat="ReferenceFormat" Field="BLimit_Line.Currency" HasCaption="True" LookupField="Code" Required="True" ShortList="True" Width="15"/>
+            <Component Name="CFR" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="BLimit_Line.CFR" HasCaption="True" LookupField="Name" Width="50"/>
+            <Component Name="BGI" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Field="BLimit_Line.BGI" HasCaption="True" LookupField="Name" LookupFilter="Not Closed" Width="50"/>
+            <Component Name="Project" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.Project" CellFormat="ReferenceFormat" Field="BLimit_Line.Project" HasCaption="True" LookupField="Name" Width="50"/>
+            <Component Name="Source" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.FundSource" CellFormat="ReferenceFormat" Field="BLimit_Line.Source" HasCaption="True" LookupField="Name" Width="50"/>
+            <Component Name="ControlType" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="BLimit_Line.ControlType" HasCaption="True" ListAsString="Запрещать|0;Предупреждать|1;Пропускать|2" Width="35"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

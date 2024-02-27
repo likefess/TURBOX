@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited>
+    <Component Name="EdtRec" Class="Bas.Rec.Ref.Project" IsLibrary="1" After="#0"/>
+    <Inherited Name="TableMenu" After="EdtRec"/>
+    <Inherited Name="Variables">
+      <Component Name="ShowExternalPrice" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Caption="Настройки" Visible="False"/>
+      <Component Name="Header1" Class="Com.Ctrl.IHeader" After="HeaderFrame" Caption="Настройки">
+        <Component Name="ButtonSave" Class="Com.Ctrl.IButton" Caption="Сохранить" Fashion="Fashions.PrimaryButton" OnClick="ButtonOK_OnClick" Width="30"/>
+      </Component>
+      <Inherited Name="FieldsFrame" After="Header1" Visible="False"/>
+      <Inherited Name="TabsFrame" Visible="True">
+        <BuiltIn Name="SideMargins" Left="17" Right="17"/>
+        <Inherited Name="MainTab" Caption="Бизнес-процесс">
+          <BuiltIn Name="SideMargins" Bottom="24" Left="15" Right="15" Top="24"/>
+          <Component Name="TableFrame" Class="Com.Ctrl.IFrame">
+            <BuiltIn Name="SideMargins" Bottom="24" Left="0" Right="0" Top="0"/>
+            <Component Name="Table1" Class="Com.Ctrl.ITable" Adaptive="True" Numbering="False"/>
+          </Component>
+          <Component Name="ButtonFrame" Class="Com.Ctrl.IFrame">
+            <BuiltIn Name="SideMargins" Left="0" Right="0" Top="0"/>
+            <Component Name="ButtonGroup" Class="Com.Ctrl.IGroup">
+              <Component Name="ButtonChangeScheme" Class="Com.Ctrl.IButton" Caption="Переключить схему" Fashion="Fashions.TertiaryButton" OnClick="ButtonChangeSchemeOnClick" Width="45"/>
+            </Component>
+          </Component>
+          <Component Name="Static3" Class="Com.Ctrl.IStatic" Excluded="True"/>
+          <Component Name="Group2" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="True">
+            <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="SchemeGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="Caption1" Class="Com.Ctrl.IStatic" Caption="Название схемы" FontBold="True"/>
+                <Component Name="Static1" Class="Com.Ctrl.IStatic" Excluded="True"/>
+                <Component Name="SchemeName" Class="Com.Ctrl.IStatic" OnClick="SchemeNameOnClick"/>
+              </Component>
+              <Component Name="BPGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+                <Component Name="Caption2" Class="Com.Ctrl.IStatic" Caption="Бизнес-процессы" FontBold="True"/>
+                <Component Name="Static2" Class="Com.Ctrl.IStatic" Excluded="True"/>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="TaskTypes" Class="Com.Ctrl.IFrame" Excluded="True" Caption="Типы задач"/>
+        <Component Name="Accesses" Class="Com.Ctrl.IFrame" Excluded="True" Caption="Доступы"/>
+        <Component Name="MoreInfoFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Дополнительно">
+          <BuiltIn Name="SideMargins" Bottom="24" Left="15" Right="15" Top="24"/>
+          <Component Name="DesignFrameHeader" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+            <Component Name="DesingHeader" Class="Com.Ctrl.IStatic" Caption="Оформление" FontBold="True" FontSize="16" Width="40"/>
+          </Component>
+          <Component Name="DesignFrame" Class="Com.Ctrl.IFrame">
+            <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="16"/>
+            <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+              <Component Name="NumberPrexif" Class="Com.Ctrl.IEdit" Caption="@Project:NumberPrexif.Caption=Префикс" Field="EdtRec.NumberPrefix" HasCaption="True" HasInnerCaption="True" Required="True"/>
+              <Component Name="ProjectColorEdit" Class="Com.Ctrl.IColorEdit" Caption="Цвет" Field="EdtRec.ProjectColor" HasCaption="True" HasInnerCaption="True"/>
+            </Component>
+          </Component>
+          <Component Name="TeamFrameHeader" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="24"/>
+            <Component Name="TeamHeader" Class="Com.Ctrl.IStatic" Caption="Команда" FontBold="True" FontSize="16" Width="50"/>
+          </Component>
+          <Component Name="TeamFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="16"/>
+            <Component Name="Group4" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150">
+              <Component Name="Static4" Class="Com.Ctrl.IStatic" Caption="Внешняя ставка сотрудника" Width="100"/>
+              <Component Name="ShowExternalPriceSwitch" Class="Com.Ctrl.ISwitch" Field="ShowExternalPrice" Width="10"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

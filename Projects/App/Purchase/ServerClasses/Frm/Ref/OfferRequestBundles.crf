@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Purchase.Rec.Ref.OfferRequestBundles" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" ByColumn="False" CaptionWidth="55" MaxWidth="250" MinWidth="180">
+          <Inherited Name="Code" Caption="Код/Название" Visible="True" Width="30"/>
+          <Inherited Name="Name" HasCaption="False" Visible="True"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="55" MaxWidth="250" MinWidth="180">
+            <Component Name="OfferRequest" Class="Com.Ctrl.IEdit" CardFileClass="Purchase.Tab.Data.OfferRequests" Field="EdtRec.OfferRequest" HasCaption="True" LookupField="Code" OnChange="OfferRequestOnChange"/>
+            <Component Name="StringIDNum" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.FillStringIDNum" Required="True"/>
+          </Component>
+          <Component Name="Group3" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="55" MaxWidth="250" MinWidth="180">
+            <Component Name="ProjectPlan" Class="Com.Ctrl.IEdit" CardFileClass="Purchase.Tab.Data.PurchasePlan" Field="EdtRec.ProjectPlan" HasCaption="True" LookupField="Code" OnChange="ProjectPlanOnChange"/>
+            <Component Name="FillProjectPlanIDNum" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.FillOrderPlanIDNum"/>
+          </Component>
+          <Component Name="Group4" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" CaptionWidth="55" MaxWidth="250" MinWidth="180">
+            <Component Name="OrderPurchase" Class="Com.Ctrl.IEdit" CardFileClass="Purchase.Tab.Data.OrderPurchase" Field="EdtRec.OrderPurchase" HasCaption="True" LookupField="Code" OnChange="OrderPurchaseOnChange"/>
+            <Component Name="FillOrderPurchaseIDNum" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="EdtRec.FillOrderPlanIDNum"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

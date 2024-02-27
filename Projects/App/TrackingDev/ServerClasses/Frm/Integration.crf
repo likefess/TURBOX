@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="TrackingDev.Rec.Integration" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Visible="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="MainGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="45" MaxWidth="300" MinWidth="150">
+          <Component Name="APIClassEdit" Class="Com.Ctrl.IEdit" Caption="@TrackingDev:APIClassEdit=Класс реализации API" Field="EdtRec.APIClass" HasCaption="True" HasInnerCaption="True" OnChange="APIClassEditOnChange" OnOutputEx="APIClassEditOnOutputEx" Required="True" ShortList="True"/>
+          <Component Name="URLEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.ServiceURL" HasCaption="True" HasInnerCaption="True" Required="True"/>
+          <Component Name="ProjectEdit" Class="Com.Ctrl.IEdit" Excluded="True" Field="EdtRec.Project" HasCaption="True"/>
+          <Component Name="ProjectsListEdit" Class="Com.Ctrl.IListEdit" Field="EdtRec.Projects" HasCaption="True" HasInnerCaption="True" Required="True"/>
+          <Component Name="RepositoryGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="RepositoryIDEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.RepositoryID" HasCaption="True" HasInnerCaption="True"/>
+          </Component>
+          <Component Name="PeriodicityGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="PeriodicityEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Periodicity" HasCaption="True" HasInnerCaption="True"/>
+            <Component Name="TimeUnitEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.TimeUnit" FixSize="True" HasInnerCaption="True" OnGetLookupFilter="TimeUnitEditOnGetLookupFilter" ShortList="True" Width="40"/>
+          </Component>
+          <Component Name="AuthorizationGroup" Class="Com.Ctrl.IGroup" Adaptive="True">
+            <Component Name="UsernameEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Username" HasCaption="True" HasInnerCaption="True"/>
+            <Component Name="PasswordEdit" Class="Com.Ctrl.IPasswordEdit" Field="EdtRec.Password" HasCaption="True" HasInnerCaption="True"/>
+          </Component>
+          <Component Name="ApiTokenEdit" Class="Com.Ctrl.IPasswordEdit" Caption="API токен" Field="EdtRec.ApiToken" HasCaption="True" HasInnerCaption="True" Visible="False"/>
+          <Component Name="ActivateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="ActivateStatic" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="45"/>
+            <Component Name="ActiveCheckBox" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Active" FixSize="False" HasCaption="True" Width="50"/>
+            <Component Name="ActiveEdit" Class="Com.Ctrl.IEdit" Excluded="True" CaptionWidth="50" Field="EdtRec.Active" FixSize="True" HasCaption="True" Width="50"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Visible="False"/>
+        <Component Name="ScriptsFrame" Class="Com.Ctrl.IFrame" Caption="@TrackingDev:ScriptsFrame=Сценарии интеграции" Margins="5">
+          <Component Name="ScriptsTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" Freezed="False" ManualControl="False" Subtable="EdtRec.Scripts">
+            <Component Name="Integration_Script" Class="TrackingDev.Rec.Integration_Script" IsLibrary="1"/>
+            <Component Name="ScriptClassEdit" Class="Com.Ctrl.IEdit" Enabled="False" Field="Integration_Script.ScriptClass" FixSize="True" OnChange="ScriptClassEditOnChange" OnLookup="ScriptClassEditOnLookup" OnOutputEx="ScriptClassEditOnOutputEx" ShortList="True" Width="120"/>
+            <Component Name="InvolvedCheckBox" Class="Com.Ctrl.ICheckBox" Field="Integration_Script.Involved" FixSize="True" HasCaption="True" Width="30"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

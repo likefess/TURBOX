@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Сервис.МастерПриказов.Базовый">
+  <Inherited Caption="Мастер приказов. Перевод" HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Кадровые документы.Мастер приказов.Перевод">
+    <Inherited Name="Variables">
+      <Inherited Name="Позиции" OnAfterDelete="Позиции_OnAfterDelete"/>
+      <Component Name="пТипПриказНадбавкиОтм" Class="Com.Fld.IVar" After="пТипПриказНадбавки" RecordClass="УправлениеПерсоналом.Rec.Классификаторы.ТипДокумента" ValueType="VarObject"/>
+      <Component Name="пПричинаПереводаОбщ" Class="Com.Fld.IVar" After="пТипПриказПрочее" ValueType="VarString"/>
+      <Component Name="ВидПеревода" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="ПричинаПеревода" Class="Com.Fld.IVar" ValueType="VarString"/>
+      <Component Name="НазначениеОткуда" Class="Com.Fld.IVar" After="Взносы_ОМС" RecordClass="УправлениеПерсоналом.Rec.Данные.Назначения" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Caption="Перевод сотрудников, формирование комплекта документов" HasCaption="True" MaxButton="4">
+        <Component Name="кнВыбратьСотрудников" Class="Com.Ctrl.IButton" After="#0" HasCaption="False" Hint="Групповой выбор сотрудников" ImageName="Com.ImportRec" OnClick="кнВыбратьСотрудниковПриНажатии"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame" CanHideBySplit="True" SplitterAtRight="True" UseSplitter="True">
+        <Inherited Name="грПредприятие">
+          <Component Name="Static12" Class="Com.Ctrl.IStatic" FixSize="True" Width="23"/>
+        </Inherited>
+        <Inherited Name="грДаты">
+          <Inherited Name="dtStatic" Width="30"/>
+        </Inherited>
+        <Component Name="грПодразделениеОбщ" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="180" MinWidth="180">
+          <Component Name="ПодразделениеОбщ" Class="Com.Ctrl.IEdit" Caption="Подразделение" CardFileClass="Bas.Tab.Data.Divisions" Field="пПодразделениеОбщ" HasCaption="True" LookupField="Name" Multiline="False" OnChange="ПодразделениеОбщ_OnChange" OnGetLookupFilter="Подразделение_ФильтрВыбора" OnOpenCardForm="НастроитьКартотекуПодразделения" Width="125" Wrap="False"/>
+          <Component Name="кнВыбратьИзПодразд" Class="Com.Ctrl.IButton" Caption="Заполнить" HasCaption="True" OnClick="кнВыбратьИзПодразд_OnClick" Width="30"/>
+        </Component>
+        <Component Name="грПричинаПереводаОбщ" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="180" MinWidth="180">
+          <Component Name="ПричинаПереводаОбщ" Class="Com.Ctrl.IEdit" Caption="Причина перевода" Field="пПричинаПереводаОбщ" HasCaption="True" Multiline="True" OnChange="ПричинаОбщ_ПриИзменении" Width="125" Wrap="True"/>
+          <Component Name="dtStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" OnSwitch="TabsFrame_OnSwitch">
+        <Inherited Name="MainTab" Caption="Сведения о переводе" Orientation="Vertical">
+          <Component Name="фреймМастерТаблица" Class="Com.Ctrl.IFrame" CanResizeBySplit="True" OnMove="фреймМастерТаблица_OnMove" Size="150" SplitterAtRight="True" UseSplitter="True">
+            <Component Name="тблМастер" Class="Com.Ctrl.ITable" CanDelete="True" CanInsert="True" CanMove="True" Numbering="True" Subtable="Позиции">
+              <Component Name="еСотрудник" Class="Com.Ctrl.IEdit" Caption="Сотрудник" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Field="стрМастера.УТСотрудника" HasCaption="True" LookupField="Person.Name" Multiline="True" OnChange="УТСотрудника_ПриВыходе" OnEnter="УТСотрудника_ПриВходе" OnGetLookupFilter="УТСотрудника_ФильтрВыбора" OnOpenCardForm="НастроитьКартотекуСотрудники" OnOutput="ФИОУТСКратко_ПриВыводе" Width="40" Wrap="True"/>
+              <Component Name="ТабНомер" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Таб.номер" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Enabled="False" Field="стрМастера.УТСотрудника" HasCaption="True" LookupField="EmplNumber" Width="20"/>
+              <Component Name="Перевод" Class="Com.Ctrl.IEdit" Caption="Перевод" Enabled="False" Field="стрМастера.НазначениеОткуда" HasCaption="True" Multiline="True" OnOutput="ПолеПеревод_ПриВыводе" Width="70" Wrap="True"/>
+              <Component Name="грТаблицаВеб" Class="Com.Ctrl.IColumnsGroup" HasCaption="False" Visible="False">
+                <Component Name="НазначениеОткудаВеб" Class="Com.Ctrl.IEdit" Caption="Откуда (подразделение, должность, разряд)" Enabled="False" Field="стрМастера.НазначениеОткуда" HasCaption="True" LookupField="Name" Multiline="True" OnOutput="НазначениеСотр_ПриВыводе" Width="80" Wrap="True"/>
+                <Component Name="ВакансияВеб" Class="Com.Ctrl.IEdit" Caption="Куда (подразделение, должность, разряд)" CardFileClass="HRBase.Tab.Data.StaffingUnit" Field="стрМастера.Вакансия" HasCaption="True" Hint="Вакансия, на которую переводится сотрудник" LookupField="Name" Multiline="True" OnChange="Вакансия_ПриВыходе" OnGetLookupFilter="Вакансия_ФильтрВыбора" OnOpenCardForm="НастроитьКартотекуВакансии" OnOutput="Вакансия_ПриВыводе" Width="80" Wrap="True"/>
+                <Component Name="грКудаВеб" Class="Com.Ctrl.IColumnsGroup" Caption="Куда (подразделение, должность, разряд)" HasCaption="True">
+                  <Component Name="ПодразделениеВеб" Class="Com.Ctrl.IEdit" Caption="Подразделение" CardFileClass="Bas.Tab.Data.Divisions" Field="стрМастера.Подразделение" HasCaption="True" Hint="Подразделение, в которое переводится сотрудник" LookupField="Name" OnChange="Подразделение_OnChange" OnGetLookupFilter="Подразделение_ФильтрВыбора" OnOpenCardForm="НастроитьКартотекуПодразделения" Width="50"/>
+                  <Component Name="ДолжностьВеб" Class="Com.Ctrl.IEdit" Caption="Должность" CardFileClass="HRBase.Tab.Ref.PositionsHR" Field="стрМастера.Должность" HasCaption="True" Hint="Должность, на которую переводится сотрудник" LookupField="Name" OnChange="Должность_OnChange" Width="50"/>
+                  <Component Name="РазрядВеб" Class="Com.Ctrl.IEdit" Caption="Разряд" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ТарифныеРазряды" Field="стрМастера.Разряд" HasCaption="True" Hint="Тарифный (квалификационный) разряд, который устанавливается для данного сотрудника" LookupField="Name" OnGetLookupFilter="Разряд_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуРазряды" Width="30"/>
+                </Component>
+                <Component Name="кнОбновитьДанные" Class="Com.Ctrl.IButton" ImageName="Com.JumpButton" OnClick="кнОбновитьДанные_OnClick"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="фреймМастерДанные" Class="Com.Ctrl.IFrame" AutoSize="False">
+            <Component Name="фреймМастерДанныеЗаг" Class="Com.Ctrl.IFrame" AutoSize="True">
+              <Component Name="кСпискуМастер" Class="Com.Ctrl.IButton" Caption="К списку" OnClick="кСпискуМастер_OnClick" Visible="False"/>
+              <Component Name="грУТСотрудника" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="150">
+                <Component Name="ФИОСотрудника" Class="Com.Ctrl.IEdit" Caption="ФИО" CaptionWidth="25" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Enabled="False" Field="УТСотрудника" HasCaption="True" LookupField="Person.Name" OnOutput="ФИОУТСотрудника_ПриВыводе" Width="100"/>
+                <Component Name="ТабНомерСотрудника" Class="Com.Ctrl.IEdit" Caption=" - " CaptionWidth="10" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Enabled="False" Field="УТСотрудника" HasCaption="True" LookupField="ТабНомер" OnOutput="ПолеДанные_OnOutput" Width="30"/>
+                <Component Name="кнЗаписьФЛ3" Class="Com.Ctrl.IJumpButton" Field="УТСотрудника" JumpForm="УправлениеПерсоналом.Frm.Данные.УсловияТрудаСотрудника"/>
+              </Component>
+              <Component Name="грНазначение" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="150">
+                <Component Name="Static2" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="20"/>
+                <Component Name="еНазначениеОткуда" Class="Com.Ctrl.IEdit" Caption="Откуда" CaptionWidth="25" CardFileClass="УправлениеПерсоналом.Tab.Данные.Назначения" Enabled="False" Field="НазначениеОткуда" HasCaption="True" Multiline="True" OnOutput="НазначениеОткудаДанные_ПриВыводе" Width="100" Wrap="True"/>
+                <Component Name="Static8" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+              </Component>
+              <Component Name="грВакансия" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="150">
+                <Component Name="ВакансияПеревод" Class="Com.Ctrl.IEdit" Caption="Вакансия (куда)" CardFileClass="HRBase.Tab.Data.StaffingUnit" Field="Вакансия" HasCaption="True" Hint="Вакансия, на которую переводится сотрудник" LookupField="Name" Multiline="True" OnChange="ВакансияДанные_ПриВыходе" OnGetLookupFilter="Вакансия_ФильтрВыбора" OnOpenCardForm="НастроитьКартотекуВакансии" OnOutput="ПолеДанные_OnOutput" Width="100" Wrap="True"/>
+                <Component Name="кнВакансия" Class="Com.Ctrl.IJumpButton" Field="Вакансия" JumpForm="HRBase.Frm.Data.StaffingUnit"/>
+              </Component>
+              <Component Name="грПодразделение" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="150">
+                <Component Name="ПодразделениеПеревод" Class="Com.Ctrl.IEdit" Caption="Подразделение (куда)" CaptionWidth="45" CardFileClass="Bas.Tab.Data.Divisions" Field="Подразделение" HasCaption="True" Hint="Подразделение, в которое переводится сотрудник" LookupField="Name" OnChange="ПодразделениеДанные_ПриИзменении" OnGetLookupFilter="Подразделение_ФильтрВыбора" OnOpenCardForm="НастроитьКартотекуПодразделения" OnOutput="ПолеДанные_OnOutput" Width="100"/>
+                <Component Name="Static9" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+              </Component>
+              <Component Name="грДолжность" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="150">
+                <Component Name="ДолжностьПеревод" Class="Com.Ctrl.IEdit" Caption="Должность (куда)" CaptionWidth="45" CardFileClass="HRBase.Tab.Ref.PositionsHR" Field="Должность" HasCaption="True" Hint="Должность, на которую переводится сотрудник" LookupField="Name" OnChange="ДолжностьДанные_ПриИзменении" OnOutput="ПолеДанные_OnOutput" Width="100"/>
+                <Component Name="Static14" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+              </Component>
+              <Component Name="грРазряд" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="150">
+                <Component Name="РазрядПеревод" Class="Com.Ctrl.IEdit" Caption="Разряд" CaptionWidth="45" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ТарифныеРазряды" Field="Разряд" HasCaption="True" Hint="Тарифный (квалификационный) разряд, который устанавливается для данного сотрудника" LookupField="Name" OnChange="ПолеДанные_OnChange" OnGetLookupFilter="Разряд_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуРазряды" OnOutput="ПолеДанные_OnOutput" Width="100"/>
+                <Component Name="Static15" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+              </Component>
+              <Component Name="грСоздЭТК" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="150">
+                <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+                <Component Name="НеСоздаватьМероприятиеТКПеревод" Class="Com.Ctrl.ICheckBox" Caption="Не создавать запись о трудовой деятельности в ЭТК" Field="НеСоздаватьМероприятиеТК" HasCaption="True" Hint="Не создавать запись о мероприятии в Электронной трудовой книжке." OnChange="НеСоздаватьМероприятиеТКПрием_OnChange" Width="100"/>
+              </Component>
+            </Component>
+            <Component Name="фреймМастерДанные1" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="WithTabs" ShowTabs="True">
+              <Component Name="фреймПереводДанныеУП" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Условия назначения" HasCaption="True">
+                <Component Name="грДатыПеревод" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="150">
+                  <Component Name="ДатаНачалаПеревод" Class="Com.Ctrl.IEdit" Caption="Дата перевода" Field="Дата" HasCaption="True" Hint="Дата перевода сотрудника" MaxWidth="35" OnChange="ДатаНачала_ПриИзменении" OnOutput="ПолеДанные_OnOutput" OnVerify="ДатаНачала_OnVerify" Width="35"/>
+                  <Component Name="ДатаОкончанияПеревод" Class="Com.Ctrl.IEdit" Caption="Дата окончания" Field="ДатаОкончания" HasCaption="True" Hint="Заполняется в случае перевода на определенный период времени" MaxWidth="35" OnChange="ДатаОкончания_ПриИзменении" OnOutput="ПолеДанные_OnOutput" Width="35"/>
+                </Component>
+                <Component Name="грСтавкиПеревод" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="150">
+                  <Component Name="ВидПереводаПеревод" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Вид перевода" CellFormat="EnumFormat" Field="ВидПеревода" HasCaption="True" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput" Width="50"/>
+                  <Component Name="ДоляСтавкиПеревод" Class="Com.Ctrl.IEdit" Caption="Доля ставки" CaptionWidth="35" Field="ДоляСтавки" FieldFormat="0.##" HasCaption="True" Hint="Доля ставки, занимаемой сотрудником. Например, полная ставка  1, полставки 0.5" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput" Width="35"/>
+                </Component>
+                <Component Name="грОснНачисленияПеревод" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="150">
+                  <Component Name="ВидОснНачисленияПеревод" Class="Com.Ctrl.IEdit" Caption="Вид осн.начисл." CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Field="ВидОснНачисления" HasCaption="True" Hint="Вид основного начисления" LookupField="Name" OnChange="ПолеДанные_OnChange" OnGetLookupFilter="ВидОснНачисления_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекиБезДерева" OnOutput="ПолеДанные_OnOutput" Width="50"/>
+                  <Component Name="СтавкаПеревод" Class="Com.Ctrl.IEdit" Caption="Оклад (тариф)" CaptionWidth="35" Field="Ставка" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Размер оклада (тарифа)" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput" Width="35"/>
+                </Component>
+                <Component Name="грДоговорПеревод" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="150">
+                  <Component Name="ВидДоговораПеревод" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Вид договора" CellFormat="EnumFormat" Field="ВидДоговора" HasCaption="True" Hint="Вид договора с сотрудником" OnChange="ВидДоговора_ПриИзменении" OnOutput="ПолеДанные_OnOutput" Width="50"/>
+                  <Component Name="ХарактерРаботыПеревод" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Характер работы" CaptionWidth="35" CellFormat="EnumFormat" Field="ХарактерРаботы" HasCaption="True" Hint="Характер работы сотрудника" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput" Width="35"/>
+                </Component>
+                <Component Name="грПрочееПеревод" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="200" MinWidth="150">
+                  <Component Name="ПродолжРабВремениПеревод" Class="Com.Ctrl.IEdit" Caption="Продолжительность" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ПродолжРабВремени" Field="ПродолжРабВремени" HasCaption="True" Hint="Продолжительность рабочего времени сотрудника" LookupField="Name" Multiline="True" OnChange="ПродолжРабВремени_ПриИзменении" OnOutput="ПолеДанные_OnOutput" Width="120" Wrap="True"/>
+                  <Component Name="ГрафикПеревод" Class="Com.Ctrl.IEdit" Caption="График" CardFileClass="HRBase.Tab.Ref.WorkSchedule" Field="График" HasCaption="True" Hint="График работы сотрудника" LookupField="Name" Multiline="True" OnChange="График_ПриИзменении" OnGetLookupFilter="График_ФильтрВыбора" OnOpenCardForm="НастроитьКартотекуГрафики" OnOutput="ПолеДанные_OnOutput" Width="120" Wrap="True"/>
+                  <Component Name="УсловияТрудаПеревод" Class="Com.Ctrl.IEdit" Caption="Условия труда" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловияТруда" Field="УсловияТруда" HasCaption="True" Hint="Условия труда сотрудника" LookupField="Name" Multiline="True" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput" Width="120" Wrap="True"/>
+                  <Component Name="ОсобыеУсловияПеревод" Class="Com.Ctrl.IEdit" Caption="Особые условия" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ОсобыеУсловияТруда" Field="ОсобыеУсловия" HasCaption="True" Hint="Особые условия труда сотрудника" LookupField="Name" Multiline="True" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput" Width="120" Wrap="True"/>
+                  <Component Name="ОснованиеВыслугиПеревод" Class="Com.Ctrl.IEdit" Caption="@Выслуга лет" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ОснованияВыслуги" Field="ОснованиеВыслуги" HasCaption="True" Hint="@Код основания для досрочного назначения пенсии" LookupField="Name" Multiline="True" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput" Width="120" Wrap="True"/>
+                  <Component Name="ПричинаПеревод" Class="Com.Ctrl.IEdit" Caption="Причина" Field="ПричинаПеревода" HasCaption="True" Hint="Причина перевода" Multiline="True" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput" Wrap="True"/>
+                </Component>
+              </Component>
+              <Component Name="фреймПереводДанныеУО" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Надбавки,удержания" HasCaption="True" Orientation="WithTabs" ShowTabs="True">
+                <Component Name="фреймНачисленияОбщ" Class="Com.Ctrl.IFrame" Caption="Начисления" HasCaption="True">
+                  <Component Name="фреймНачисленияИнфо" Class="Com.Ctrl.IFrame" AutoSize="True">
+                    <Component Name="НачисленияИнфо" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Внимание! При изменении Даты начала работы или Вакансии, внесенные вручную данные будут очищены" FontSize="8" Width="180"/>
+                  </Component>
+                  <Component Name="фреймНачисленияВак" Class="Com.Ctrl.IFrame" CanResizeBySplit="True" MinSize="30" SplitterAtRight="True" UseSplitter="True">
+                    <Component Name="тблНачисленияВак" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Numbering="False" Sortable="False" Subtable="ПостНачисленияВак">
+                      <Component Name="кнНачислениеВакПеренести" Class="Com.Ctrl.IButton" Hint="Добавить в начисления сотрудника" ImageName="Com.AddItem" OnClick="кнНачислениеВакПеренести_OnEnter"/>
+                      <Component Name="НачислениеВак" Class="Com.Ctrl.IEdit" Caption="@Вакансия - постоянные начисления" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Enabled="False" Field="стрНачислениеВак.ВидНачислений" HasCaption="True" LookupField="Name" Multiline="True" Width="140" Wrap="True"/>
+                      <Component Name="ColumnsGroup1" Class="Com.Ctrl.IColumnsGroup" Caption="Значения" HasCaption="True">
+                        <Component Name="СтавкаВак" Class="Com.Ctrl.IEdit" Caption="ставка" Enabled="False" Field="стрНачислениеВак.Ставка" FieldFormat="0.00%;;-" HasCaption="True" Width="20"/>
+                        <Component Name="СуммаВак" Class="Com.Ctrl.IEdit" Caption="@сумма (руб.)" Enabled="False" Field="стрНачислениеВак.Сумма" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+                      </Component>
+                      <Component Name="ПериодичностьВак" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Периодичность" CellFormat="EnumFormat" Enabled="False" Field="стрНачислениеВак.Периодичность" HasCaption="True" Multiline="True" Width="30" Wrap="True"/>
+                      <Component Name="УсловиеРасчетаВак" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Условие попадания в расчет" CellFormat="EnumFormat" Enabled="False" Field="стрНачислениеВак.УсловиеРасчета" HasCaption="True" Multiline="True" Width="90" Wrap="True"/>
+                    </Component>
+                  </Component>
+                  <Component Name="фреймНачисления" Class="Com.Ctrl.IFrame" AutoSize="True">
+                    <Component Name="тблНачисления" Class="Com.Ctrl.ITable" Numbering="False" Subtable="ПостНачисления">
+                      <Component Name="ОтменитьНач" Class="Com.Ctrl.ICheckBox" Caption="Отменить" Field="стрНачисление.Отменить" HasCaption="True" Hint="Отменить данную надбавку" OnChange="ОтменитьНачисл_OnChange" OnVerify="НачислениеНовФлаг_OnVerify" Width="10"/>
+                      <Component Name="НазначитьНач" Class="Com.Ctrl.ICheckBox" Caption="Назначить" Enabled="False" Field="стрНачисление.Отменить" HasCaption="True" Hint="Назначить новую надбавку" Width="10"/>
+                      <Component Name="грПостНачВид" Class="Com.Ctrl.IColumnsGroup" Caption="Вид начисления" HasCaption="True">
+                        <Component Name="ПостНачНаименование" Class="Com.Ctrl.IEdit" Caption="@наименование" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Field="стрНачисление.ВидНачислений" HasCaption="True" LookupField="Name" Multiline="True" OnChange="ВидНачисления_ПриВыходе" OnEnter="Начисление_OnEnter" OnGetLookupFilter="ВидНачисления_OnGetLookupFilter" Width="60" Wrap="True"/>
+                        <Component Name="ПостНачНаименованиеКод" Class="Com.Ctrl.IEdit" Caption="@код дохода" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Enabled="False" Field="стрНачисление.ВидНачислений" HasCaption="True" LookupField="ВидДохода.КодУчета" Width="15"/>
+                      </Component>
+                      <Component Name="грПостНачПериод" Class="Com.Ctrl.IColumnsGroup" Caption="@Период действия" HasCaption="True">
+                        <Component Name="ПостНачДатаНачала" Class="Com.Ctrl.IEdit" Caption="@с" Field="стрНачисление.ДатаНачала" FormatOfDate="DateOnly" HasCaption="True" OnEnter="Начисление_OnEnter" Width="30"/>
+                        <Component Name="ПостНачДатаОкончания" Class="Com.Ctrl.IEdit" Caption="@по" Field="стрНачисление.ДатаОкончания" FormatOfDate="DateOnly" HasCaption="True" OnEnter="Начисление_OnEnter" Width="30"/>
+                      </Component>
+                      <Component Name="грПостНачЗначения" Class="Com.Ctrl.IColumnsGroup" Caption="@Значения" HasCaption="True">
+                        <Component Name="ПостНачСтавка" Class="Com.Ctrl.IEdit" Caption="@ставка" Field="стрНачисление.Ставка" FieldFormat="0.00%;;-" HasCaption="True" OnChange="СтавкаНачисл_ПриВыходе" OnEnter="Начисление_OnEnter" Width="20"/>
+                        <Component Name="ПостНачСумма" Class="Com.Ctrl.IEdit" Caption="@сумма (руб.)" Field="стрНачисление.Сумма" FieldFormat=",##0.00;;-" HasCaption="True" OnChange="СуммаНачисл_ПриВыходе" OnEnter="Начисление_OnEnter" Width="30"/>
+                      </Component>
+                      <Component Name="ПостНачПериодичность" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Периодичность" CellFormat="EnumFormat" Field="стрНачисление.Периодичность" HasCaption="True" OnEnter="Начисление_OnEnter" Width="30"/>
+                      <Component Name="ПостНачУсловиеРасчета" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Условие попадания в расчет" CellFormat="EnumFormat" Field="стрНачисление.УсловиеРасчета" HasCaption="True" Multiline="True" OnEnter="Начисление_OnEnter" Width="55" Wrap="True"/>
+                      <Component Name="грВнСовмещение" Class="Com.Ctrl.IColumnsGroup" Caption="Внутр. совмещение" HasCaption="True">
+                        <Component Name="ПостНачВнСовмещение" Class="Com.Ctrl.IEdit" Caption="   " Field="стрНачисление.ВнутрСовмещение" HasCaption="True" Hint="Данная надбавка/доплата установлена сотруднику за внутреннее совмещение" OnEnter="Начисление_OnEnter" Width="10"/>
+                        <Component Name="ПостНачДолжностьВнСовм" Class="Com.Ctrl.IEdit" Caption="должность" CardFileClass="HRBase.Tab.Ref.PositionsHR" Field="стрНачисление.ДолжностьВнСовм" HasCaption="True" Hint="Должность, по которой сотруднику оформляется внутреннее совмещение" LookupField="Name" Multiline="True" OnEnter="ДолжностьВнСовмещение_OnEnter" Width="35" Wrap="True"/>
+                        <Component Name="ПостНачВакансияВнСовм" Class="Com.Ctrl.IEdit" Caption="должность" CardFileClass="HRBase.Tab.Data.StaffingUnit" Field="стрНачисление.ШтЭлементВнСовм" HasCaption="True" Hint="Должность, по которой сотруднику оформляется внутреннее совмещение" LookupField="Name" Multiline="True" OnChange="ПостНачВакансияВнСовм_OnChange" OnEnter="ДолжностьВнСовмещение_OnEnter" OnGetLookupFilter="Вакансия_ФильтрВыбора" OnOpenCardForm="НастроитьКартотекуВакансии" OnOutput="ПостНачВакансияВнСовм_OnOutput" Width="35" Wrap="True"/>
+                        <Component Name="грПостНачСтавкаВнСовм" Class="Com.Ctrl.IColumnsGroup" Caption="оклад /тариф" HasCaption="True">
+                          <Component Name="ПостНачНачислениеВнСовм" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" CellFormat="ReferenceFormat" Field="стрНачисление.НачислениеВнСовм" HasCaption="False" LookupField="Name" LookupFilter="(IsGroup = -1) or (Проводить and ТипНачисления = 1)" OnEnter="ПостНачСтавкаВнСовмещение_OnEnter" Width="30"/>
+                          <Component Name="ПостНачСтавкаВнСовмещение" Class="Com.Ctrl.IEdit" Caption="оклад /тариф" Field="стрНачисление.СтавкаВнСовм" FieldFormat=",##0.00;;-" HasCaption="False" Hint="Размер оклада/тарифа совмещаемой должности. Заполняется только в случае установки надбавки за совмещение в процентах от оклада по совмещаемой должности" MaxWidth="35" OnEnter="ПостНачСтавкаВнСовмещение_OnEnter" Width="30"/>
+                        </Component>
+                      </Component>
+                    </Component>
+                  </Component>
+                </Component>
+                <Component Name="фреймУдержанияОбщ" Class="Com.Ctrl.IFrame" Caption="Удержания" HasCaption="True">
+                  <Component Name="фреймУдержанияИнфо" Class="Com.Ctrl.IFrame" AutoSize="True">
+                    <Component Name="УдержанияИнфо" Class="Com.Ctrl.IStatic" Alignment="LeftAlign" Caption="Внимание! При изменении Даты начала работы или Вакансии, внесенные вручную данные будут очищены" FontSize="8" Width="180"/>
+                  </Component>
+                  <Component Name="фреймУдержанияВак" Class="Com.Ctrl.IFrame" CanResizeBySplit="True" MinSize="30" SplitterAtRight="True" UseSplitter="True">
+                    <Component Name="тблУдержанияВак" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Numbering="False" Sortable="False" Subtable="ПостУдержанияВак">
+                      <Component Name="кнУдержанияВакПеренести" Class="Com.Ctrl.IButton" Hint="Добавить в удержания сотрудника" ImageName="Com.AddItem" OnClick="кнУдержанияВакПеренести_OnEnter"/>
+                      <Component Name="УдержаниеВак" Class="Com.Ctrl.IEdit" Caption="@Вакансия - постоянные удержания" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыУдержаний" Enabled="False" Field="стрУдержаниеВак.ВидУдержаний" HasCaption="True" LookupField="Name" Multiline="True" Width="113" Wrap="True"/>
+                      <Component Name="ColumnsGroup2" Class="Com.Ctrl.IColumnsGroup" Caption="Значения" HasCaption="True">
+                        <Component Name="СтавкаВак1" Class="Com.Ctrl.IEdit" Caption="ставка" Enabled="False" Field="стрУдержаниеВак.Ставка" FieldFormat="0.00%;;-" HasCaption="True" Width="20"/>
+                        <Component Name="СуммаВак1" Class="Com.Ctrl.IEdit" Caption="@сумма (руб.)" Enabled="False" Field="стрУдержаниеВак.Сумма" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+                        <Component Name="МаксСуммаВак1" Class="Com.Ctrl.IEdit" Caption="макс.сумма" Enabled="False" Field="стрУдержаниеВак.МаксСумма" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+                      </Component>
+                      <Component Name="УдержаниеОчерВак" Class="Com.Ctrl.IEdit" Caption="Очередность" CellFormat="EnumFormat" Enabled="False" Field="стрУдержаниеВак.Очередность" HasCaption="True" Hint="Очередность в соответствии с ч.1 ст.111 229-ФЗ" Width="25"/>
+                      <Component Name="УсловиеРасчетаВакУд" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Условие попадания в расчет" CellFormat="EnumFormat" Enabled="False" Field="стрУдержаниеВак.УсловиеРасчета" HasCaption="True" Multiline="True" Width="60" Wrap="True"/>
+                    </Component>
+                  </Component>
+                  <Component Name="фреймУдержания" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Удержания" HasCaption="True">
+                    <Component Name="тблУдержания" Class="Com.Ctrl.ITable" Numbering="False" Subtable="ПостУдержания">
+                      <Component Name="ОтменитьУд" Class="Com.Ctrl.ICheckBox" Caption="Отменить" Field="стрУдержание.Отменить" HasCaption="True" Hint="Отменить данное удержание" OnChange="ОтменитьУдержание_OnChange" OnVerify="УдержаниеНовФлаг_OnVerify" Width="10"/>
+                      <Component Name="НазначитьУд" Class="Com.Ctrl.ICheckBox" Caption="Назначить" Enabled="False" Field="стрУдержание.Отменить" HasCaption="True" Hint="Назначить новое удержние" Width="10"/>
+                      <Component Name="ПостУдНаименование" Class="Com.Ctrl.IEdit" Caption="Вид удержания" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыУдержаний" Field="стрУдержание.ВидУдержаний" HasCaption="True" LookupField="Name" Multiline="True" OnChange="ВидУдержания_ПриВыходе" OnEnter="Удержание_OnEnter" OnGetLookupFilter="ВидУдержания_OnGetLookupFilter" Width="74" Wrap="True"/>
+                      <Component Name="грПостУдПериод" Class="Com.Ctrl.IColumnsGroup" Caption="@Период действия" HasCaption="True">
+                        <Component Name="ПостУдДатаНачала" Class="Com.Ctrl.IEdit" Caption="@с" Field="стрУдержание.ДатаНачала" HasCaption="True" OnEnter="Удержание_OnEnter" Width="28"/>
+                        <Component Name="ПостУдДатаОкончания" Class="Com.Ctrl.IEdit" Caption="@по" Field="стрУдержание.ДатаОкончания" HasCaption="True" OnEnter="Удержание_OnEnter" Width="28"/>
+                      </Component>
+                      <Component Name="ПостУдОчередность" Class="Com.Ctrl.IEdit" Caption="Очередность" CellFormat="EnumFormat" Field="стрУдержание.Очередность" HasCaption="True" Hint="Очередность в соответствии с ч.1 ст.111 229-ФЗ" OnEnter="Удержание_OnEnter" Width="25"/>
+                      <Component Name="грПостУдЗначения" Class="Com.Ctrl.IColumnsGroup" Caption="@Значения" HasCaption="True">
+                        <Component Name="ПостУдCтавка" Class="Com.Ctrl.IEdit" Caption="@ставка" Field="стрУдержание.Ставка" FieldFormat="0.00%;;-" HasCaption="True" OnChange="СтавкаУдерж_ПриВыходе" OnEnter="Удержание_OnEnter" Width="20"/>
+                        <Component Name="ПостУдСумма" Class="Com.Ctrl.IEdit" Caption="@сумма (руб.)" Field="стрУдержание.Сумма" FieldFormat=",##0.00;;-" HasCaption="True" OnChange="СуммаУдерж_ПриВыходе" OnEnter="Удержание_OnEnter" Width="30"/>
+                        <Component Name="ПостУдМаксСумма" Class="Com.Ctrl.IEdit" Caption="@макс. сумма" Field="стрУдержание.МаксСумма" FieldFormat=",##0.00;;-" HasCaption="True" OnEnter="Удержание_OnEnter" Width="30"/>
+                      </Component>
+                      <Component Name="ПостУдУсловиеРасчета" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Условие попадания в расчет" CellFormat="EnumFormat" Field="стрУдержание.УсловиеРасчета" HasCaption="True" Multiline="True" OnEnter="Удержание_OnEnter" Width="80" Wrap="True"/>
+                    </Component>
+                  </Component>
+                </Component>
+              </Component>
+              <Component Name="фреймПереводДанныеЭТК" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Мероприятие ЭТК" HasCaption="True">
+                <Component Name="грВидЭТК" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="150">
+                  <Component Name="ВидМероприятияЭТКПеревод" Class="Com.Ctrl.IEdit" Caption="Вид" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидМероприятияЭТК" Field="ВидМероприятияЭТК" HasCaption="True" Hint="Вид мероприятия в записи трудовой деятельности ЭТК" LookupField="Name" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput" Width="50"/>
+                  <Component Name="ЭТКЯвляетсяСовмПеревод" Class="Com.Ctrl.ICheckBox" Caption="Является совместителем" Enabled="False" Field="ЭТКЯвляетсяСовм" HasCaption="True" Width="70"/>
+                </Component>
+                <Component Name="грЭТК" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="200" MinWidth="150">
+                  <Component Name="ПодразделениеЭТКПеревод" Class="Com.Ctrl.IEdit" Caption="Подразделение" CardFileClass="Bas.Tab.Data.Divisions" Enabled="False" Field="Подразделение" HasCaption="True" Hint="Подразделение, в которое принимается сотрудник" LookupField="Name" Multiline="True" OnOutput="ПолеДанные_OnOutput" Width="120" Wrap="True"/>
+                  <Component Name="ДолжностьЭТКПеревод" Class="Com.Ctrl.IEdit" Caption="Должность, специальность, профессия, квалификация" Enabled="False" Field="ВидМероприятияЭТК" HasCaption="True" Hint="Должность, специальность, профессия, квалификация. Значение передается в форму СЗВ_ТД" Multiline="True" OnOutput="ЭТКДолжностьСтр_ПриВыводе" Width="120" Wrap="True"/>
+                  <Component Name="ЭТКОКЗПеревод" Class="Com.Ctrl.IEdit" Caption="ОКЗ" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ОКЗ" Field="ЭТКОКЗ" HasCaption="True" Hint="Запись по Общероссийскому Классификатору Занятий" LookupField="Name" Multiline="True" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput" OnVerify="ОКЗ_OnVerify" Width="120" Wrap="True"/>
+                  <Component Name="ЭТКОКЗКодПеревод" Class="Com.Ctrl.IEdit" Caption="Код вып.функ." CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ОКЗ" Enabled="False" Field="ЭТКОКЗ" HasCaption="True" Hint="Код выполняемой функции" LookupField="Код" Multiline="True" OnOutput="ПолеДанные_OnOutput" Width="120" Wrap="True"/>
+                  <Component Name="ЭТКВидПРПеревод" Class="Com.Ctrl.IEdit" Caption="Вид работы" Field="ЭТКВидПР" HasCaption="True" Hint="Конкретный вид поручаемой работы" Multiline="True" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput" Width="120" Wrap="True"/>
+                  <Component Name="ЭТКСведенияПеревод" Class="Com.Ctrl.IEdit" Caption="Сведения" Field="ЭТКСведения" HasCaption="True" Hint="Иные сведения о мероприятии" Multiline="True" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput" Width="120" Wrap="True"/>
+                </Component>
+              </Component>
+              <Component Name="фреймПереводДанныеНУ" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Прочее" HasCaption="True">
+                <Component Name="фреймРасчДанные" Class="Com.Ctrl.IBox" Caption="Расчетные данные" HasCaption="True">
+                  <Component Name="грБЛ" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="150">
+                    <Component Name="БЛ100Перевод" Class="Com.Ctrl.ICheckBox" Caption="БЛ по ставке 100%" Field="БЛ100" HasCaption="True" Hint="Расчет больничного по ставке 100%" OnChange="БЛ_OnChange" Width="100"/>
+                  </Component>
+                  <Component Name="грАванс" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="150">
+                    <Component Name="АвансСуммаПеревод" Class="Com.Ctrl.IEdit" Caption="Расчет аванса, сумма" CaptionWidth="50" Field="АвансСумма" HasCaption="True" Hint="Указывается постоянная сумма авансового платежа, установленная сотруднику в качестве авансового платежа" OnChange="АвансСумма_ПриИзменении" OnOutput="ПолеДанные_OnOutput" Width="25"/>
+                    <Component Name="АвансПроцПеревод" Class="Com.Ctrl.IEdit" Caption="% от ставки оклада" CaptionWidth="50" Field="АвансПроц" HasCaption="True" Hint="Указывается процент от оклада, установленный сотруднику в качестве авансового платежа" OnChange="АвансПроц_ПриИзменении" OnOutput="ПолеДанные_OnOutput" Width="25"/>
+                  </Component>
+                </Component>
+                <Component Name="фреймСтахВзносы" Class="Com.Ctrl.IBox" Caption="Расчет страховых взносов" HasCaption="True">
+                  <Component Name="грСтрахВзносы" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="200" MinWidth="150">
+                    <Component Name="Взносы_ОМСПеревод" Class="Com.Ctrl.IEdit" Excluded="True" Alignment="LeftAlign" Caption="ОМС" CellFormat="EnumFormat" Field="Взносы_ОМС" HasCaption="True" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput"/>
+                    <Component Name="Взносы_ФССПеревод" Class="Com.Ctrl.IEdit" Excluded="True" Alignment="LeftAlign" Caption="ФСС" CellFormat="EnumFormat" Field="Взносы_ФСС" HasCaption="True" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput"/>
+                    <Component Name="Взносы_ФТрПеревод" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Травматизм" CaptionWidth="50" CellFormat="EnumFormat" Field="Взносы_ФТр" HasCaption="True" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput"/>
+                    <Component Name="Взносы_ЕСВПеревод" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Единый страх. взнос" CaptionWidth="50" CellFormat="EnumFormat" Field="Взносы_ЕСВ" HasCaption="True" Hint="Единый страховой взнос" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput"/>
+                    <Component Name="грВзносы_ПоАттестации" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="150">
+                      <Component Name="Static11" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+                      <Component Name="Взносы_ПоАттПеревод" Class="Com.Ctrl.ICheckBox" Caption="@Применение доптарифа по результатам спецоценки" Field="Взносы_ПоАттестации" HasCaption="True" Hint="Дополнительный тариф, применяемый в зависимости от класса условий труда по результатам спецоценки" OnChange="Взносы_ПоАттестации_OnChange" Width="100"/>
+                    </Component>
+                    <Component Name="грВзносы_ПоАттестации1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="150">
+                      <Component Name="ТипПлательщикаСВПеревод" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Тип налогоплат." CaptionWidth="50" CellFormat="EnumFormat" Field="ТипПлательщикаСВ" HasCaption="True" Hint="Тип налогоплательщика" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput"/>
+                    </Component>
+                  </Component>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="фреймПодтверждениеТаблица" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Проверка" HasCaption="True" Hint="Контроль введенных данных">
+          <Component Name="тблПодтверждение" Class="Com.Ctrl.ITable" Numbering="True" Subtable="Позиции">
+            <Component Name="ColumnsGroup3" Class="Com.Ctrl.IColumnsGroup" Caption="Сотрудник" HasCaption="True">
+              <Component Name="УТСотрПтв" Class="Com.Ctrl.IEdit" Caption="ФИО" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Enabled="False" Field="стрМастера.УТСотрудника" HasCaption="True" LookupField="Person.Name" Multiline="True" Width="30" Wrap="True"/>
+              <Component Name="ТабНомерПтв" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="таб.номер" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Enabled="False" Field="стрМастера.УТСотрудника" HasCaption="True" LookupField="EmplNumber" Width="20"/>
+            </Component>
+            <Component Name="НазначениеОткуда3" Class="Com.Ctrl.IEdit" Caption="Откуда (подразделение, должность)" CardFileClass="УправлениеПерсоналом.Tab.Данные.Назначения" Enabled="False" Field="стрМастера.НазначениеОткуда" HasCaption="True" LookupField="Name" Multiline="True" OnOutput="НазначениеОткуда_ПриВыводе" Width="50" Wrap="True"/>
+            <Component Name="ДатаНачалаПтв" Class="Com.Ctrl.IEdit" Caption="Дата перевода" Enabled="False" Field="стрМастера.Дата" HasCaption="True" Hint="Дата перевода сотрудника" Width="25"/>
+            <Component Name="ДатаОкончанияПтв" Class="Com.Ctrl.IEdit" Caption="Дата окончания" Enabled="False" Field="стрМастера.ДатаОкончания" HasCaption="True" Hint="Заполняется в случае перевода на определенный период времени" Width="25"/>
+            <Component Name="ВидПереводаПтв" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Вид перевода" CellFormat="EnumFormat" Enabled="False" Field="ВидПеревода" HasCaption="True" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput" Width="50"/>
+            <Component Name="НазначениеКудаПтв" Class="Com.Ctrl.IEdit" Caption="Куда (подразделение, должность)" CardFileClass="УправлениеПерсоналом.Tab.Данные.Назначения" Enabled="False" Field="стрМастера.НазначениеОткуда" HasCaption="True" LookupField="Name" Multiline="True" OnOutput="НазначениеПодтв_OnOutput" Width="50" Wrap="True"/>
+            <Component Name="ДоляСтавкиПтв" Class="Com.Ctrl.IEdit" Caption="Доля ставки" Enabled="False" Field="стрМастера.ДоляСтавки" FieldFormat="0.##" HasCaption="True" Hint="Доля ставки, занимаемой сотрудником. Например, полная ставка  1, полставки 0.5" Width="15"/>
+            <Component Name="ВидОснНачисленияПтв" Class="Com.Ctrl.IEdit" Caption="Вид осн.начисл." CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Enabled="False" Field="стрМастера.ВидОснНачисления" HasCaption="True" Hint="Вид основного начисления" LookupField="Name" Width="25"/>
+            <Component Name="СтавкаПтв" Class="Com.Ctrl.IEdit" Caption="Оклад (тариф)" Enabled="False" Field="стрМастера.Ставка" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Размер оклада (тарифа)" Width="25"/>
+            <Component Name="ВидДоговораПтв" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Вид договора" CellFormat="EnumFormat" Enabled="False" Field="стрМастера.ВидДоговора" HasCaption="True" Hint="Вид договора с сотрудником" Width="35"/>
+            <Component Name="ХарактерРаботыПтв" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Характер работы" CellFormat="EnumFormat" Enabled="False" Field="стрМастера.ХарактерРаботы" HasCaption="True" Hint="Характер работы сотрудника" Width="25"/>
+            <Component Name="ПродолжРабВремениПтв" Class="Com.Ctrl.IEdit" Caption="Продолжительность" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ПродолжРабВремени" Enabled="False" Field="стрМастера.ПродолжРабВремени" HasCaption="True" Hint="Продолжительность рабочего времени сотрудника" LookupField="Name" Multiline="True" Width="38" Wrap="True"/>
+            <Component Name="ГрафикПтв" Class="Com.Ctrl.IEdit" Caption="График" CardFileClass="HRBase.Tab.Ref.WorkSchedule" Enabled="False" Field="стрМастера.График" HasCaption="True" Hint="График работы сотрудника" LookupField="Name" Multiline="True" Width="35" Wrap="True"/>
+            <Component Name="УсловияТрудаПтв" Class="Com.Ctrl.IEdit" Caption="Условия труда" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловияТруда" Enabled="False" Field="стрМастера.УсловияТруда" HasCaption="True" Hint="Условия труда сотрудника" LookupField="Подкласс" Multiline="True" Width="20" Wrap="True"/>
+            <Component Name="ОсобыеУсловияПтв" Class="Com.Ctrl.IEdit" Caption="Особые условия" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ОсобыеУсловияТруда" Enabled="False" Field="стрМастера.ОсобыеУсловия" HasCaption="True" Hint="Особые условия труда сотрудника" LookupField="КодУчета" Multiline="True" Width="25" Wrap="True"/>
+            <Component Name="ОснованиеВыслугиПтв" Class="Com.Ctrl.IEdit" Caption="@Выслуга лет" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ОснованияВыслуги" Enabled="False" Field="стрМастера.ОснованиеВыслуги" HasCaption="True" Hint="@Код основания для досрочного назначения пенсии" LookupField="КодУчета" Multiline="True" Width="25" Wrap="True"/>
+            <Component Name="НачисленияОтмСтр" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Отменить начисления" Enabled="False" Field="стрМастера.НачисленияОтмСтр" HasCaption="True" Multiline="True" VertAlignment="LeftAlign" Width="50" Wrap="True"/>
+            <Component Name="НачисленияСтр" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Установить начисления" Enabled="False" Field="стрМастера.НачисленияСтр" HasCaption="True" Multiline="True" VertAlignment="LeftAlign" Width="50" Wrap="True"/>
+            <Component Name="УдержанияСтр" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Постоянные удержания" Enabled="False" Field="стрМастера.УдержанияСтр" HasCaption="True" Hint="Постоянные удержания" Multiline="True" VertAlignment="LeftAlign" Width="50" Wrap="True"/>
+            <Component Name="грПрочее" Class="Com.Ctrl.IColumnsGroup" Caption="Прочее" HasCaption="True">
+              <Component Name="БЛПтв" Class="Com.Ctrl.ICheckBox" Caption="БЛ 100%" Enabled="False" Field="стрМастера.БЛ100" HasCaption="True" Hint="Расчет больничного по ставке 100%" Width="15"/>
+              <Component Name="грАвансыПтв" Class="Com.Ctrl.IColumnsGroup" Caption="Данные для расчета авансов" HasCaption="True">
+                <Component Name="АвансСуммаПтв" Class="Com.Ctrl.IEdit" Caption="сумма" Enabled="False" Field="стрМастера.АвансСумма" HasCaption="True" Hint="Указывается постоянная сумма авансового платежа, установленная сотруднику в качестве авансового платежа" Width="25"/>
+                <Component Name="АвансПроцПтв" Class="Com.Ctrl.IEdit" Caption="%" Enabled="False" Field="стрМастера.АвансПроц" HasCaption="True" Width="15"/>
+              </Component>
+              <Component Name="грСтрахВзносыПтв" Class="Com.Ctrl.IColumnsGroup" Caption="Расчет страховых взносов" HasCaption="True">
+                <Component Name="Взносы_ОМСПтв" Class="Com.Ctrl.IEdit" Excluded="True" Alignment="LeftAlign" Caption="ОМС" CellFormat="EnumFormat" Enabled="False" Field="стрМастера.Взносы_ОМС" HasCaption="True" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput" Width="25"/>
+                <Component Name="Взносы_ФССПтв" Class="Com.Ctrl.IEdit" Excluded="True" Alignment="LeftAlign" Caption="ФСС" CellFormat="EnumFormat" Enabled="False" Field="стрМастера.Взносы_ФСС" HasCaption="True" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput" Width="25"/>
+                <Component Name="Взносы_ЕСВПтв" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Единый страховой взнос" CellFormat="EnumFormat" Enabled="False" Field="стрМастера.Взносы_ЕСВ" HasCaption="True" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput" Width="25"/>
+                <Component Name="Взносы_ФТрПтв" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Травматизм" CellFormat="EnumFormat" Enabled="False" Field="стрМастера.Взносы_ФТр" HasCaption="True" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput" Width="25"/>
+                <Component Name="Взносы_ПоАттестацииПтв" Class="Com.Ctrl.ICheckBox" Caption="@Доп.тариф" Enabled="False" Field="стрМастера.Взносы_ПоАттестации" HasCaption="True" Hint="@Доп.тариф" Width="15"/>
+                <Component Name="ТипПлательщикаСВПтв" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Тип налогоплательщика" CellFormat="EnumFormat" Enabled="False" Field="стрМастера.ТипПлательщикаСВ" HasCaption="True" Multiline="True" OnChange="ПолеДанные_OnChange" OnOutput="ПолеДанные_OnOutput" Width="25" Wrap="True"/>
+              </Component>
+            </Component>
+            <Component Name="ПричинаПереводПтв" Class="Com.Ctrl.IEdit" Caption="Причина" Enabled="False" Field="стрМастера.ПричинаПеревода" HasCaption="True" Hint="Причина перевода" Multiline="True" Width="40" Wrap="True"/>
+            <Component Name="грЭТКПтв" Class="Com.Ctrl.IColumnsGroup" Caption="Мероприятие ЭТК" HasCaption="True">
+              <Component Name="ВидМероприятияЭТКПтв" Class="Com.Ctrl.IEdit" Caption="Вид" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидМероприятияЭТК" Enabled="False" Field="стрМастера.ВидМероприятияЭТК" HasCaption="True" Hint="Вид мероприятия в записи трудовой деятельности ЭТК" LookupField="Name" Width="25"/>
+              <Component Name="НеСоздаватьМероприятиеТКПтв" Class="Com.Ctrl.ICheckBox" Caption="Без записи в ЭТК" Enabled="False" Field="стрМастера.НеСоздаватьМероприятиеТК" HasCaption="True" Width="20"/>
+              <Component Name="ЭТКЯвляетсяСовмПтв" Class="Com.Ctrl.ICheckBox" Caption="Совместитель" Enabled="False" Field="стрМастера.ЭТКЯвляетсяСовм" HasCaption="True" Width="15"/>
+              <Component Name="ЭТКОКЗПтв" Class="Com.Ctrl.IEdit" Caption="ОКЗ" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ОКЗ" Enabled="False" Field="стрМастера.ЭТКОКЗ" HasCaption="True" Hint="Запись по Общероссийскому Классификатору Занятий" LookupField="Name" Multiline="True" Width="50" Wrap="True"/>
+              <Component Name="ЭТКОКЗКодПтв" Class="Com.Ctrl.IEdit" Caption="Код вып.функ." CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ОКЗ" Enabled="False" Field="стрМастера.ЭТКОКЗ" HasCaption="True" Hint="Код выполняемой функции" LookupField="Код" Multiline="True" Width="15" Wrap="True"/>
+              <Component Name="ЭТКВидПРПтв" Class="Com.Ctrl.IEdit" Caption="Вид работы" Enabled="False" Field="стрМастера.ЭТКВидПР" HasCaption="True" Hint="Конкретный вид поручаемой работы" Multiline="True" Width="30" Wrap="True"/>
+              <Component Name="ЭТКСведенияПтв" Class="Com.Ctrl.IEdit" Caption="Сведения" Enabled="False" Field="стрМастера.ЭТКСведения" HasCaption="True" Hint="Иные сведения о мероприятии" Multiline="True" Width="30" Wrap="True"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="фреймПодтверждениеПараметры" Class="Com.Ctrl.IFrame" AutoSize="True" Caption="Подтверждение" HasCaption="True">
+          <Component Name="бксДокументы" Class="Com.Ctrl.IBox" Caption="Сформировать документы" HasCaption="True">
+            <Component Name="грПриказ" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="250">
+              <Component Name="флФормПриказ" Class="Com.Ctrl.ICheckBox" Caption="Приказ о переводе" Field="пФормироватьПриказ" HasCaption="True" Hint="Если флаг установлен, то будут сформированы приказы о переводе." Width="50"/>
+              <Component Name="флПриказГрупповой" Class="Com.Ctrl.ICheckBox" Caption="Групповой" Field="пГрупповойПриказ" HasCaption="True" Hint="Если флаг установлен, то будет сформирован групповой приказ о переводе." OnChange="Групповой_ПриИзменении" Width="25"/>
+              <Component Name="еТипДокумента" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ТипыДокументов" Field="пТипДокумента" HasCaption="False" LookupField="Name" Multiline="False" OnGetLookupFilter="ТипПриказа_ФильтрВыбора" OnOpenCardForm="НастроитьКартотекиБезДерева" Width="140" Wrap="False"/>
+              <Component Name="Static3" Class="Com.Ctrl.IStatic" FixSize="True" Width="35"/>
+            </Component>
+            <Component Name="грПриказНадб" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="250">
+              <Component Name="флФормПриказОНадб" Class="Com.Ctrl.ICheckBox" Caption="Приказ о надбавках" Field="пПриказОНадб" HasCaption="True" Hint="Если флаг установлен, то будут сформированы приказы об установлении надбавок." Width="50"/>
+              <Component Name="флПриказОНадбГрупповой" Class="Com.Ctrl.ICheckBox" Caption="Групповой" Field="пПриказОНадбГрупповой" HasCaption="True" Hint="Если флаг установлен, то будет сформирован групповой приказ об установлении надбавок." OnChange="ГрупповойНадб_ПриИзменении" Width="25"/>
+              <Component Name="еТипДокумента1" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ТипыДокументов" Field="пТипПриказНадбавки" HasCaption="False" LookupField="Name" Multiline="False" OnGetLookupFilter="ТипПриказОНадб_ФильтрВыбора" OnOpenCardForm="НастроитьКартотекиБезДерева" Width="140" Wrap="False"/>
+              <Component Name="Static4" Class="Com.Ctrl.IStatic" FixSize="True" Width="35"/>
+            </Component>
+            <Component Name="грПриказНадбОтм" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="250">
+              <Component Name="Static6" Class="Com.Ctrl.IStatic" Width="50"/>
+              <Component Name="Static7" Class="Com.Ctrl.IStatic" Width="25"/>
+              <Component Name="еТипДокумента3" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ТипыДокументов" Field="пТипПриказНадбавкиОтм" HasCaption="False" LookupField="Name" Multiline="False" OnGetLookupFilter="ТипПриказОНадбОтм_ФильтрВыбора" OnOpenCardForm="НастроитьКартотекиБезДерева" Width="140" Wrap="False"/>
+              <Component Name="Static13" Class="Com.Ctrl.IStatic" FixSize="True" Width="35"/>
+            </Component>
+            <Component Name="грПриказПрочее" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="250">
+              <Component Name="флФормПриказПрочее" Class="Com.Ctrl.ICheckBox" Caption="Изменение прочих усл." Field="пПриказПрочее" HasCaption="True" Hint="Если флаг установлен, то будут сформированы документы об изменении прочих условий" Width="50"/>
+              <Component Name="флПриказПрочееГрупповой" Class="Com.Ctrl.ICheckBox" Caption="Групповой" Field="пПриказПрочееГрупповой" HasCaption="True" Hint="Если флаг установлен, то будет сформирован групповой документ об изменении прочих условий" OnChange="ГрупповойПрочее_ПриИзменении" Width="25"/>
+              <Component Name="еТипДокумента2" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ТипыДокументов" Field="пТипПриказПрочее" HasCaption="False" LookupField="Name" Multiline="False" OnGetLookupFilter="ТипПриказПрочее_ФильтрВыбора" OnOpenCardForm="НастроитьКартотекиБезДерева" Width="140" Wrap="False"/>
+              <Component Name="Static5" Class="Com.Ctrl.IStatic" FixSize="True" Width="35"/>
+            </Component>
+          </Component>
+          <Component Name="бксПодписанты" Class="Com.Ctrl.IBox" Caption="Подписанты" HasCaption="True">
+            <Component Name="грРуководитель" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Руководитель_Долж" Class="Com.Ctrl.IEdit" Caption="Руководитель организации" CaptionWidth="60" CardFileClass="Bas.Tab.Ref.Positions" Field="пРуковДолжность" HasCaption="True" LookupField="Name"/>
+              <Component Name="Руководитель" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Data.StaffersHR" Field="пРуководитель" HasCaption="False" LookupField="Name" OnOutput="ФИО_OnOutput" Width="70"/>
+            </Component>
+            <Component Name="грОтветственный" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="Ответственный_Долж" Class="Com.Ctrl.IEdit" Caption="Контроль за исполнением" CaptionWidth="60" CardFileClass="Bas.Tab.Ref.Positions" Field="пОтветствДолжность" HasCaption="True" Hint="Ответственный за осуществление контроля за выполнением настоящего приказа" LookupField="Name"/>
+              <Component Name="Ответственный" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Data.StaffersHR" Field="пОтветственный" HasCaption="False" LookupField="Name" OnOutput="ФИО_OnOutput" Width="70"/>
+            </Component>
+          </Component>
+          <Component Name="фрСформировать" Class="Com.Ctrl.IFrame">
+            <Component Name="грСформировать" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="200" MinWidth="150">
+              <Component Name="Static10" Class="Com.Ctrl.IStatic" Width="100"/>
+              <Component Name="кнСформировать" Class="Com.Ctrl.IButton" Caption="Сформировать" FixSize="True" HasCaption="True" Hint="Формирование для всех сотрудников приказов." OnClick="кнСформировать_ПриНажатии" Width="35"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="фреймДокументы" Class="Com.Ctrl.IFrame" Caption="Просмотр документов" HasCaption="True" Orientation="WithTabs" ShowTabs="True" Visible="False">
+          <Component Name="фреймПриказы" Class="Com.Ctrl.IFrame" Caption="Приказы" HasCaption="True"/>
+          <Component Name="фреймЭТК" Class="Com.Ctrl.IFrame" Caption="Записи ЭТК" HasCaption="True"/>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

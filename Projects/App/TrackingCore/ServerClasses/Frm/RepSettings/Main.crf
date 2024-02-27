@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Frm.RepSettings.RepComp">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="ProjectVar" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Ref.Project" ValueType="VarObject"/>
+      <Component Name="SprintVar" Class="Com.Fld.IVar" ValueType="VarObject"/>
+      <Component Name="EpicVar" Class="Com.Fld.IVar" RecordClass="Control.Rec.Data.Task" ValueType="VarObject"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Component Name="ReportFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="ReportCaptions" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+          <Component Name="NameStatic" Class="Com.Ctrl.IStatic" Caption="@TrackingCore:NameStatic=Название отчета"/>
+          <Component Name="ReportStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="20"/>
+          <Component Name="TypeStatic" Class="Com.Ctrl.IStatic" Caption="@TrackingCore:TypeStatic=Тип отчета"/>
+        </Component>
+        <Component Name="ReportGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+          <Component Name="NameEdit" Class="Com.RepCtrl.IEditSub" FontSize="11" LinkName="Caption" OnChange="NameEditOnChange" SubContainer="ReportContainer"/>
+          <Component Name="ReportStatic2" Class="Com.Ctrl.IStatic" FixSize="True" Width="20"/>
+          <Component Name="TypeEdit" Class="Com.Ctrl.IEdit" Enabled="False" ValueType="VarString"/>
+        </Component>
+      </Component>
+      <Component Name="CardFileFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="CardFileCaptions" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+          <Component Name="ProjectStatic" Class="Com.Ctrl.IStatic" Caption="@TrackingCore:ProjectStatic=Проект"/>
+          <Component Name="SeparatorStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="20"/>
+          <Component Name="SprintStatic" Class="Com.Ctrl.IStatic" Caption="@TrackingCore:SprintStatic=Спринт" Visible="False"/>
+          <Component Name="SeparatorStatic2" Class="Com.Ctrl.IStatic" FixSize="True" Visible="False" Width="20"/>
+          <Component Name="EpicStatic" Class="Com.Ctrl.IStatic" Caption="@TrackingCore:EpicStatic=Эпик"/>
+        </Component>
+        <Component Name="CardFileGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+          <Component Name="ProjectEdit" Class="Com.Ctrl.IEdit" Field="ProjectVar" HasButton="True"/>
+          <Component Name="SeparatorStatic3" Class="Com.Ctrl.IStatic" FixSize="True" Width="20"/>
+          <Component Name="SprintEdit" Class="Com.Ctrl.IEdit" Field="SprintVar" HasButton="True" Visible="False"/>
+          <Component Name="SeparatorStatic4" Class="Com.Ctrl.IStatic" FixSize="True" Visible="False" Width="20"/>
+          <Component Name="EpicEdit" Class="Com.Ctrl.IEdit" Field="EpicVar" HasButton="True" LookupFilter="IsGroup=-1"/>
+        </Component>
+      </Component>
+      <Component Name="PeriodCaptionFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="PeriodCaptions" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+          <Component Name="PeriodStatic" Class="Com.Ctrl.IStatic" Caption="@TrackingCore:PeriodStatic=Период"/>
+        </Component>
+      </Component>
+      <Component Name="PeriodFrame" Class="Com.Ctrl.IFrame" AutoSize="True"/>
+    </Inherited>
+  </Inherited>
+</Resource>

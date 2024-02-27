@@ -1,0 +1,60 @@
+﻿TBCFile VER="3.4" [Created '25.05.2023 18:02:34' by 'Пользователь']
+
+DESCRIPTION[
+Count=3
+CountByRef=0
+RealEstate.Ref.StateStatus
+(
+  Count=3
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [RealEstate.Ref.StateStatus
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    НеОтображаетсяВДереве :Boolean
+    MetaLock :Boolean
+    SubsysCode :Integer
+    PartisCode :Integer
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    isOnDA :Boolean
+    DAApprovalTask :DocApprovement.Data.DATask
+    RecNumerator :NumExt.Service.NumeratorDoc
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[RealEstate.Ref.StateStatus
+  
+  {RealEstate.Ref.StateStatus:"1"}
+  (
+    Name = "Используемый"
+  )
+  
+  {RealEstate.Ref.StateStatus:"2"}
+  (
+    Name = "Архивный"
+  )
+  
+  {RealEstate.Ref.StateStatus:"3"}
+  (
+    Name = "Неиспользуемый"
+  )
+]
+
+]

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="RealEstate.Frm.Base.BaseMDoc">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="RealEstate.Rec.Base.BaseMDocMeter" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Component Name="DateCodeGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+            <Component Name="Date" Class="Com.Ctrl.IEdit" Caption="@Дата/Код" CellFormat="DateFormat" Field="EdtRec.MDDate" FixSize="True" FormatOfDate="DateOnly" HasCaption="True" Required="True" Width="30"/>
+            <Component Name="CodeEdit" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="EdtRec.Code" HasCaption="False" Required="True"/>
+            <Component Name="DateCodeBtnStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+          </Component>
+          <Component Name="NameGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+            <Component Name="NameEdit" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" HasCaption="True" Required="True"/>
+            <Component Name="BtnStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+          </Component>
+          <Component Name="DescriptionGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+            <Component Name="Description" Class="Com.Ctrl.IEdit" Field="EdtRec.Description" HasCaption="True"/>
+            <Component Name="BtnStatic2" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.2"/>
+          </Component>
+          <Component Name="MBGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+            <Component Name="MDOwnerGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="MDOwner" Class="Com.Ctrl.IEdit" Caption="@Объект" CellFormat="ReferenceFormat" Field="EdtRec.MDOwnerCode" LookupField="Name" OnChange="MDOwner_OnChange"/>
+              <Component Name="MDOwnerJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.MDOwnerCode"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+      <Component Name="LinesFrame" Class="Com.Ctrl.IFrame" After="FieldsFrame" AutoSize="True" Orientation="Vertical">
+        <Component Name="LLeftFrame" Class="Com.Ctrl.IFrame" FixSize="True" Orientation="Horizontal" Size="40">
+          <Component Name="LLeftGr" Class="Com.Ctrl.IGroup">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+          </Component>
+        </Component>
+        <Component Name="LRightFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="7" Orientation="Horizontal">
+          <Component Name="LinesTable" Class="Com.Ctrl.ITable" Subtable="EdtRec.sbtLines">
+            <Component Name="vDefPos" Class="RealEstate.Rec.Base.BaseMDocMeter_Lines" IsLibrary="1"/>
+          </Component>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

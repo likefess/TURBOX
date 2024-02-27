@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Rec.Документы.Имущество.НМА.ИмуществоБазовыйДокументНМА">
+  <Inherited>
+    <Inherited Name="Подразделение" OnChange="Подразделение_OnChange"/>
+    <Inherited Name="ПозицииНМА" OnAfterDelete="ПозицииНМА_OnAfterDelete" StructClass="Имущество.Rec.Документы.Имущество.НМА.ИнвентаризацияНМА_Позиции"/>
+    <Component Name="СтоимостьФакт" Class="Com.Fld.IField" FieldName="СтоимостьФакт"/>
+    <Component Name="перОтключитьПересчеты" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    <Component Name="перЗаполнятьФакт" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    <Component Name="ДатаНачалаИнвентаризации" Class="Com.Fld.IField" FieldName="ДатаНачалаИнвентаризации"/>
+    <Component Name="ДатаОкончанияИнвентаризации" Class="Com.Fld.IField" FieldName="ДатаОкончанияИнвентаризации"/>
+    <Component Name="ДокументаОснованияТип" Class="Com.Fld.IField" FieldName="ДокументаОснованияТип"/>
+    <Component Name="ДокументаОснованияНомер" Class="Com.Fld.IField" FieldName="ДокументаОснованияНомер"/>
+    <Component Name="ДокументаОснованияДата" Class="Com.Fld.IField" FieldName="ДокументаОснованияДата"/>
+    <Component Name="НазначениеНМА" Class="Com.Fld.IField" FieldName="НазначениеНМА"/>
+    <Component Name="МестонахождениеНМА" Class="Com.Fld.IField" FieldName="МестонахождениеНМА"/>
+    <Component Name="ВариантСобственностиНМА" Class="Com.Fld.IField" Excluded="True" FieldName="ВариантСобственностиНМА"/>
+    <Component Name="Арендодатель" Class="Com.Fld.IField" Excluded="True" FieldName="Арендодатель"/>
+    <Component Name="ВариантРасчетаСтоимостиНМА" Class="Com.Fld.IField" FieldName="ВариантРасчетаСтоимостиНМА"/>
+    <Component Name="РасчетыПроверил" Class="Com.Fld.IField" FieldName="РасчетыПроверил"/>
+    <Component Name="РасчетыПроверилДолжность" Class="Com.Fld.IField" FieldName="РасчетыПроверилДолжность"/>
+    <Component Name="ПредседательКомиссии" Class="Com.Fld.IField" FieldName="ПредседательКомиссии"/>
+    <Component Name="ПредседательКомиссииДолжность" Class="Com.Fld.IField" FieldName="ПредседательКомиссииДолжность"/>
+    <Component Name="Ответственные" Class="Com.ISubtable" StructClass="Имущество.Rec.Документы.Имущество.НМА.ИнвентаризацияНМА_Ответственные" SubtableName="Ответственные"/>
+    <Component Name="Комиссия" Class="Com.ISubtable" StructClass="Имущество.Rec.Документы.Имущество.НМА.ИнвентаризацияНМА_Комиссия" SubtableName="Комиссия"/>
+  </Inherited>
+</Resource>

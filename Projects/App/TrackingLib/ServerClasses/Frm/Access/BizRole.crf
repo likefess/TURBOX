@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.CodeName">
+  <Inherited>
+    <Component Name="ComponentTree" Class="Com.Ctrl.Grid.IComponentTree" Excluded="True" After="#0" ShowRoot="False"/>
+    <Inherited Name="EdtRec" Class="TrackingLib.Rec.Access.BizRole" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1" ByColumn="False">
+          <Inherited Name="Name" After="#0" Visible="True"/>
+          <Inherited Name="Code" After="Name" Visible="True"/>
+        </Inherited>
+        <Component Name="CommentGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+          <Component Name="Comment" Class="Com.Ctrl.IEdit" Field="EdtRec.Comment" HasCaption="True" Visible="True"/>
+        </Component>
+        <Component Name="ModuleGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+          <Component Name="ModuleEdit" Class="Com.Ctrl.IEdit" Caption="@Access:Right_Module=Права на модуль" CellFormat="StringFormat" Field="EdtRec.Module" OnChange="ModuleEditOnChange" ShortList="True" ValueType="VarString"/>
+        </Component>
+        <Component Name="RightGroup" Class="Com.Ctrl.IGroup" MaxWidth="300" MinWidth="150">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption=" " Width="40"/>
+          <Component Name="Right_BizAdmin" Class="Com.Ctrl.ICheckBox" Caption="@Access:Right_BizAdmin=Администратор" Enabled="False" Field="EdtRec.Right_BizAdmin" MinWidth="100" Width="150"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Color="0x00F5F5F5">
+          <Component Name="GridRights" Class="Com.Ctrl.IGrid" Caption="Объекты доступа" Color="0xFE00000B" HasCaption="True" OnAddNode="GridRightsOnAddNode" OnChangeCellValue="GridRightsOnChangeCellValue">
+            <Component Name="RowsNodes" Class="Com.Ctrl.Grid.INode" Excluded="True" AutoAddNodes="False" DataSource="ComponentTree" IsColumn="False"/>
+            <Component Name="RightNode" Class="Com.Ctrl.Grid.INode" AutoWidth="False" Caption="Права" IsColumn="True" MinWidth="100">
+              <Component Name="OpenNode" Class="Com.Ctrl.Grid.INode" AutoSize="asnByHeader" AutoWidth="True" Caption="Просмотр" IsColumn="True" MinWidth="25"/>
+              <Component Name="EditNode" Class="Com.Ctrl.Grid.INode" AutoSize="asnByHeader" AutoWidth="True" Caption="Редактирование" IsColumn="True" MinWidth="25"/>
+              <Component Name="CreateNode" Class="Com.Ctrl.Grid.INode" AutoSize="asnByHeader" AutoWidth="True" Caption="Создание" IsColumn="True" MinWidth="25"/>
+              <Component Name="DeleteNode" Class="Com.Ctrl.Grid.INode" AutoSize="asnByHeader" AutoWidth="True" Caption="Удаление" IsColumn="True" MinWidth="25"/>
+              <Component Name="FilterNode" Class="Com.Ctrl.Grid.INode" Caption="Записи" IsColumn="True" Visible="False" Width="120"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

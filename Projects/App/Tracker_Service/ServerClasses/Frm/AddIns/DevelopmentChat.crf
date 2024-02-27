@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Frm.AddIns.BaseTask">
+  <Inherited Caption="@TrackerService:DevelopmentChat=Комментарии разработки">
+    <Inherited Name="EdtRec" Class="Tracker_Service.Rec.Data.ServiceTask" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Component Name="DevelopmentChatFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="DevelopmentChat" Class="TrackingLib.Ctrl.IChat" DataSource="DevelopmentChatSubtable" EditorStyle="esEmbeddedWindow" OnAddAttachment="ChatOnAddAttachment" UseOneSide="True">
+          <Component Name="DevelopmentChatSubtable" Class="TrackingLib.Ctrl.ChatSubtable" AddingTime="Time" Attachment="Attachment" CommentID="CommentID" CommentOwner="CommentOwner" HtmlContent="HTML" Subtable="EdtRec.Development_Chat"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

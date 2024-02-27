@@ -1,0 +1,211 @@
+﻿TBCFile VER="3.4" [Created '21.07.2022 17:03:23' by 'Администратор']
+
+DESCRIPTION[
+Count=15
+CountByRef=4
+RealEstateBase.Ref.RealEstateObjKind
+(
+  Count=0
+  CountByRef=3
+)
+RealEstateBase.Ref.RealEstateObjType
+(
+  Count=0
+  CountByRef=1
+)
+RealEstate.Ref.Target
+(
+  Count=15
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [RealEstateBase.Ref.RealEstateObjKind
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    ClassCodeObjKind :String(10)
+    Comment :String
+    RealEstateObjType :RealEstateBase.Ref.RealEstateObjType
+    CardFormType :Integer
+  )
+  ForeignKey Code
+  ]
+
+  [RealEstateBase.Ref.RealEstateObjType
+  (
+    Deleted :Boolean
+    Branch :String(80)
+    Confid :Integer
+    Locked :Boolean
+    Closed :Boolean
+    IsMeta :Boolean
+    ModuleCode :String
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    GKNCode :String(12)
+  )
+  ForeignKey Code
+  ]
+
+  [RealEstate.Ref.Target
+  (
+    Deleted :Boolean
+    Code :String(80)
+    Name :String(255)
+    ClaasCodeTarget :String(12)
+    ObjKindCode :RealEstateBase.Ref.RealEstateObjKind
+    Comment :String
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[RealEstateBase.Ref.RealEstateObjKind
+  
+  {RealEstateBase.Ref.RealEstateObjKind:"Здание"}
+  (
+    Name = "Здание"
+    ClassCodeObjKind = "2001002000"
+    RealEstateObjType = {RealEstateBase.Ref.RealEstateObjType:"Недвижимое имущество"}
+    CardFormType = 2
+  )
+  
+  {RealEstateBase.Ref.RealEstateObjKind:"Помещение"}
+  (
+    Name = "Помещение"
+    RealEstateObjType = {RealEstateBase.Ref.RealEstateObjType:"Недвижимое имущество"}
+    CardFormType = 2
+  )
+  
+  {RealEstateBase.Ref.RealEstateObjKind:"Сооружение"}
+  (
+    Name = "Сооружение"
+    RealEstateObjType = {RealEstateBase.Ref.RealEstateObjType:"Недвижимое имущество"}
+    CardFormType = 2
+  )
+]
+
+[RealEstateBase.Ref.RealEstateObjType
+  
+  {RealEstateBase.Ref.RealEstateObjType:"Недвижимое имущество"}
+  (
+    Name = "Недвижимое имущество"
+  )
+]
+
+[RealEstate.Ref.Target
+  
+  {RealEstate.Ref.Target:"1"}
+  (
+    Name = "Нежилое"
+    ClaasCodeTarget = "204001000000"
+    ObjKindCode = {RealEstateBase.Ref.RealEstateObjKind:Здание}
+  )
+  
+  {RealEstate.Ref.Target:"2"}
+  (
+    Name = "Жилое"
+    ClaasCodeTarget = "204002000000"
+    ObjKindCode = {RealEstateBase.Ref.RealEstateObjKind:Здание}
+  )
+  
+  {RealEstate.Ref.Target:"3"}
+  (
+    Name = "Многоквартирный дом"
+    ClaasCodeTarget = "204003000000"
+    ObjKindCode = {RealEstateBase.Ref.RealEstateObjKind:Здание}
+  )
+  
+  {RealEstate.Ref.Target:"4"}
+  (
+    Name = "Жилое строение"
+    ClaasCodeTarget = "204004000000"
+    ObjKindCode = {RealEstateBase.Ref.RealEstateObjKind:Здание}
+  )
+  
+  {RealEstate.Ref.Target:"5"}
+  (
+    Name = "Садовый дом"
+    ObjKindCode = {RealEstateBase.Ref.RealEstateObjKind:Здание}
+  )
+  
+  {RealEstate.Ref.Target:"6"}
+  (
+    Name = "Гараж"
+    ObjKindCode = {RealEstateBase.Ref.RealEstateObjKind:Здание}
+  )
+  
+  {RealEstate.Ref.Target:"7"}
+  (
+    Name = "Линейное сооружение"
+    ObjKindCode = {RealEstateBase.Ref.RealEstateObjKind:Сооружение}
+  )
+  
+  {RealEstate.Ref.Target:"8"}
+  (
+    Name = "Подземное сооружение"
+    ObjKindCode = {RealEstateBase.Ref.RealEstateObjKind:Сооружение}
+  )
+  
+  {RealEstate.Ref.Target:"9"}
+  (
+    Name = "Площадное сооружение"
+    ObjKindCode = {RealEstateBase.Ref.RealEstateObjKind:Сооружение}
+  )
+  
+  {RealEstate.Ref.Target:"10"}
+  (
+    Name = "Сооружение, предназначенное для хранения"
+    ObjKindCode = {RealEstateBase.Ref.RealEstateObjKind:Сооружение}
+  )
+  
+  {RealEstate.Ref.Target:"11"}
+  (
+    Name = "Высотное сооружение"
+    ObjKindCode = {RealEstateBase.Ref.RealEstateObjKind:Сооружение}
+  )
+  
+  {RealEstate.Ref.Target:"12"}
+  (
+    Name = "Иное сооружение"
+    ObjKindCode = {RealEstateBase.Ref.RealEstateObjKind:Сооружение}
+  )
+  
+  {RealEstate.Ref.Target:"13"}
+  (
+    Name = "Нежилое"
+    ClaasCodeTarget = "206001000000"
+    ObjKindCode = {RealEstateBase.Ref.RealEstateObjKind:Помещение}
+  )
+  
+  {RealEstate.Ref.Target:"14"}
+  (
+    Name = "Жилое"
+    ClaasCodeTarget = "206002000000"
+    ObjKindCode = {RealEstateBase.Ref.RealEstateObjKind:Помещение}
+  )
+  
+  {RealEstate.Ref.Target:"15"}
+  (
+    Name = "Дороги"
+    ObjKindCode = {RealEstateBase.Ref.RealEstateObjKind:Сооружение}
+  )
+]
+
+]

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Frm.RepSettings.RepComp">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="SubParameters" Class="Com.ISubContainer" ItemClass="Com.Rep.IRepControl" OnAfterDelete="SubParametersOnAfterDelete" OnAfterInsert="SubParametersOnAfterInsert"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Component Name="ShowParamsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+        <Component Name="ShowParamsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+          <Component Name="ShowParamsCB" Class="Com.Ctrl.ICheckBox" Caption="@TrackingCore:ShowParamsCB=Показывать параметры в отчете"/>
+        </Component>
+      </Component>
+      <Component Name="ParamsFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Orientation="Vertical">
+        <Component Name="ParametersCommonFrame" Class="Com.Ctrl.IFrame" Size="70">
+          <Component Name="AddParameterFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="4">
+            <Component Name="AddParameterGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+              <Component Name="AddParameterStatic" Class="Com.Ctrl.IStatic" Caption="@TrackingCore:AddParameterStatic=Добавить параметр" ImageName="Com.AddItem" ImageSize="15" OnClick="AddParameterStaticOnClick" StaticStyle="StaticHyperlink"/>
+            </Component>
+          </Component>
+          <Component Name="ParametersListFrame" Class="Com.Ctrl.IFrame" AutoSize="True" Margins="8" OnMove="MoveParameter">
+            <Component Name="ParametersListTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="False" CanMove="False" Freezed="False" HasCaption="False" ManualControl="False" Numbering="False" Subtable="SubParameters" Width="68">
+              <Component Name="ParamParameter" Class="Com.RepCtrl.IEditSub" FixSize="True" LinkName="Parameter" OnChange="ParamParameterOnChange" OnDrawEx="ParamHighlight" OnVerify="ParamParameterOnVerify" SubContainer="SubParameters" Width="50"/>
+              <Component Name="ParamActive" Class="Com.RepCtrl.IFlagSub" Alignment="CenterAlign" Caption="@Tune:Active=Акт" FixSize="True" Hint="@Tune:ActiveHint=Отключенный параметр не показывается на экране и не участвует в наложении фильтра" LinkName="Active" OnDrawEx="ParamHighlight" Visible="False" Width="10"/>
+              <Component Name="DeleteParamStatic" Class="Com.Ctrl.IButton" Alignment="CenterAlign" FixSize="True" ImageName="Com.Close" ImageSize="15" OnClick="DeleteParamStaticOnClick" VertAlignment="CenterAlign" Width="7"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="SeparatorFrame" Class="Com.Ctrl.IFrame" FixSize="True" Size="40"/>
+        <Component Name="CurrentParameterFrame" Class="Com.Ctrl.IFrame" Margins="4">
+          <Component Name="CurrentParameterGroupFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="ParameterLinkGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+              <Component Name="ParamCaptionStatic" Class="Com.Ctrl.IStatic" Caption="@Tune:Caption=Заголовок"/>
+              <Component Name="ParamCaption" Class="Com.RepCtrl.IEditSubCurrent" LinkName="Caption" SubContainer="SubParameters"/>
+              <Component Name="ParamValueStatic" Class="Com.Ctrl.IStatic" Caption="@Tune:ValueType=Тип параметра"/>
+              <Component Name="Group16" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="ParamValueType" Class="Com.RepCtrl.IEditSubCurrent" CellFormat="EnumFormat" HasButton="True" LinkName="ValueType" ListAsString="varUnknown|0;varString|1;varInteger|2;varNumeric|3;varLogical|4;varDate|5;varObject|6;varVariant|7;varArray|8;varClass|9;varNull|10;varPointer|42;varInt64|48;varFunction|52" OnChange="ParamValueTypeOnChange" SubContainer="SubParameters" ValueType="VarInteger"/>
+                <Component Name="ParamOperator" Class="Com.RepCtrl.IEditSubCurrent" Caption="@Tune:Operator=Условие" CaptionWidth="20" CellFormat="EnumFormat" FixSize="True" LinkName="Operator" SubContainer="SubParameters" ValueType="VarString" Visible="False" Width="15"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="SeparatorFrame1" Class="Com.Ctrl.IFrame" FixSize="True" Size="40"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="HRBase.Rec.Data.EmployeePlace" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame" CanHideBySplit="True" SplitterAtRight="True" UseSplitter="True" Visible="False">
+        <Inherited Name="Group1" ByColumn="False" MaxWidth="230">
+          <Inherited Name="Code" Caption="Код учета" CaptionWidth="22" Visible="True" Width="25"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="Сотрудник">
+          <Component Name="FieldsFrameMain" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="EmplNumber" Class="Com.Ctrl.IEdit" Field="EdtRec.EmplNumber" HasCaption="True" Width="25"/>
+              <Component Name="Code1" Class="Com.Ctrl.IEdit" Caption="Код учета" CaptionWidth="22" Field="EdtRec.Code" HasCaption="True" Visible="True" Width="25"/>
+              <Component Name="Name1" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" FontBold="True" HasCaption="True" Visible="False"/>
+              <Component Name="Person" Class="Com.Ctrl.IEdit" Caption="@ФИО" CaptionWidth="15" CardFileClass="HRBase.Tab.Data.StaffersHR" Field="EdtRec.Person" HasCaption="True" LookupField="Name"/>
+              <Component Name="btPerson" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Person" JumpForm="HRBase.Frm.Data.NaturalPersonHR"/>
+            </Component>
+            <Component Name="grMain" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="grCompany" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Company" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="EdtRec.Company" HasCaption="True" LookupField="Name" OnChange="Company_OnChange" Required="True" ShortList="True"/>
+                <Component Name="btCompany" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Company" JumpForm="Bas.Frm.Data.Entity"/>
+              </Component>
+              <Component Name="grDivision" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Division" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" Field="EdtRec.Division" HasCaption="True" LookupField="Name" OnOpenCardForm="НастроитьКартотекуПодразделения" Required="True"/>
+                <Component Name="btDivision" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Division" JumpForm="Bas.Frm.Data.Entity"/>
+              </Component>
+              <Component Name="grPosition" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Position" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Ref.PositionsHR" Field="EdtRec.Position" HasCaption="True" LookupField="Name" Required="True"/>
+                <Component Name="btPosition" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Position" JumpForm="HRBase.Frm.Ref.PositionHR"/>
+              </Component>
+              <Component Name="grDates" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="HireDate" Class="Com.Ctrl.IEdit" Field="EdtRec.HireDate" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="35" OnVerify="HireDate_OnVerify"/>
+                <Component Name="FireDate" Class="Com.Ctrl.IEdit" Field="EdtRec.FireDate" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="35" OnVerify="FireDate_OnVerify"/>
+                <Component Name="stEmpty" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+              </Component>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

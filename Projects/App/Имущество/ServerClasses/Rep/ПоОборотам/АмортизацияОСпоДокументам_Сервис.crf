@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" AccountFilter="Амортизация" AccountPlan="Оперативный" BegDate="01.01.2022" BegSaldoFormat="sfTotalRoll" Caption="Амортизация ОС по документам" CIndicator="1" EndDate="01.01.2023" EndSaldoFormat="sfTotalRoll" FreezeHeader="True" HystoKind="hkSide" Legend="lpkAtRight" Palette="cpDefault" Period="5" ShowBeyondLimits="False" ShowDebCreRow="False" ShowIndicatorRow="False">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorСумма" Class="Com.Rep.IIndMain" Caption="IndicatorСумма" Contents="Сумма" InvertValue="True" LimitActive_Turn="True"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam02745EDD" Class="Com.Rep.ISplitByDoc"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="SplitContent76B60FF3" Class="Com.Rep.ISplitContent" Caption="Период" Contents="Документ.ПериодРасчета.Name"/>
+        <Component Name="SplitContent6279996D" Class="Com.Rep.ISplitContent" Caption="Дата" Contents="Документ.ДатаНачала"/>
+        <Component Name="SplitContent13134CAD" Class="Com.Rep.ISplitContent" Contents="Документ.Номер"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_ОС" Class="Com.Rep.IRepControl" Caption="ОС" CaptionWidth="15" CardFileClass="ИмуществоБазовый.Tab.Справочники.ОснСредства" DefaultStr="Object(nil)" MultiSelect="True" Operator=" is " Parameter="ОС" Plan="Оперативный" SkipNil="True" ValueType="VarObject" Width="100"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="HRBase.Frm.Data.StaffingUnitData">
+  <Inherited>
+    <Component Name="ПостНачисления" Class="УправлениеПерсоналом.Rec.Данные.НастройкиШтЭлемента_ПостНачисления" IsLibrary="1" After="EdtRec"/>
+    <Component Name="ПостУдержания" Class="УправлениеПерсоналом.Rec.Данные.НастройкиШтЭлемента_ПостУдержания" IsLibrary="1"/>
+    <Inherited Name="TableMenu" After="ПостУдержания"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Component Name="grDataOther" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+            <Component Name="грВидОплаты" Class="Com.Ctrl.IGroup" ByColumn="False">
+              <Component Name="Ставка" Class="Com.Ctrl.IEdit" Field="EdtRec.Ставка" FieldFormat=",##0.00;;-" HasCaption="True" Hint="@Размер оклада/тарифа" MaxWidth="35" Required="True"/>
+              <Component Name="ВидОснНачисления" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Field="EdtRec.ВидОснНачисления" HasCaption="True" LookupField="Name" LookupFilter="(IsGroup = -1) or (Проводить and ТипНачисления = 1)" OnOpenCardForm="ВидОснНачисления_OnOpenCardForm"/>
+              <Component Name="кнВидОснНачисления" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ВидОснНачисления" JumpForm="УправлениеПерсоналом.Frm.Справочники.ВидНачислений"/>
+            </Component>
+            <Component Name="грЗанятостьХарактер" Class="Com.Ctrl.IGroup" ByColumn="False">
+              <Component Name="ВидЗанятости" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="EdtRec.ВидЗанятости" HasCaption="True"/>
+              <Component Name="ХарактерРаботы" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="EdtRec.ХарактерРаботы" HasCaption="True" Width="30"/>
+              <Component Name="stEmpty3" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Component Name="грПродолжРабВремени" Class="Com.Ctrl.IGroup" ByColumn="False">
+              <Component Name="ПродолжРабВремени" Class="Com.Ctrl.IEdit" Caption="@Продолжительность" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ПродолжРабВремени" Field="EdtRec.ПродолжРабВремени" HasCaption="True" Hint="@Продолжительность рабочего времени" LookupField="name"/>
+              <Component Name="кнПродолжРабВремени" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ПродолжРабВремени" JumpForm="УправлениеПерсоналом.Frm.Справочники.ПродолжРабВремени"/>
+            </Component>
+            <Component Name="грГрафикиРаботы" Class="Com.Ctrl.IGroup" ByColumn="False">
+              <Component Name="ГрафикРаботы" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Ref.WorkSchedule" Field="EdtRec.ГрафикРаботы" HasCaption="True" LookupField="Name" OnGetLookupFilter="ГрафикРаботы_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуГрафикРабот"/>
+              <Component Name="кнГрафикРаботы" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ГрафикРаботы" JumpForm="HRBase.Frm.Ref.WorkSchedule"/>
+            </Component>
+            <Component Name="грУсловияТруда" Class="Com.Ctrl.IGroup" ByColumn="False">
+              <Component Name="УсловияТруда" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловияТруда" Field="EdtRec.УсловияТруда" HasCaption="True" LookupField="Name" Multiline="True" Wrap="True"/>
+              <Component Name="УсловияТруда1" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловияТруда" Enabled="False" Field="EdtRec.УсловияТруда" FixSize="True" HasCaption="False" LookupField="Подкласс" Multiline="True" Width="25" Wrap="True"/>
+              <Component Name="кнУсловияТруда" Class="Com.Ctrl.IJumpButton" Field="EdtRec.УсловияТруда" JumpForm="УправлениеПерсоналом.Frm.Классификаторы.УсловияТруда"/>
+            </Component>
+            <Component Name="грОсобыеУсловия" Class="Com.Ctrl.IGroup" ByColumn="False">
+              <Component Name="ОсобыеУсловия" Class="Com.Ctrl.IEdit" Caption="@Особые условия" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ОсобыеУсловияТруда" Field="EdtRec.ОсобыеУсловия" HasCaption="True" Hint="@Особые условия труда" LookupField="Name" Multiline="True" Wrap="True"/>
+              <Component Name="ОсобыеУсловия1" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ОсобыеУсловияТруда" Enabled="False" Field="EdtRec.ОсобыеУсловия" FixSize="True" HasCaption="False" Hint="@Особые условия труда" LookupField="КодУчета" Multiline="True" Width="25" Wrap="True"/>
+              <Component Name="кнОсобыеУсловия" Class="Com.Ctrl.IJumpButton" Field="EdtRec.ОсобыеУсловия" JumpForm="УправлениеПерсоналом.Frm.Классификаторы.ОсобыеУсловияТруда"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="ЗакладкаПостНачисления" Class="Com.Ctrl.IFrame" AutoSize="False" Caption="@Постоянные начисления" HasCaption="True" Margins="5">
+          <Component Name="тблПостНачисления" Class="Com.Ctrl.ITable" Subtable="EdtRec.ПостНачисления">
+            <Component Name="грПостНачВид" Class="Com.Ctrl.IColumnsGroup" Caption="Вид надбавки" HasCaption="True">
+              <Component Name="ПостНачНаименование" Class="Com.Ctrl.IEdit" Caption="@наименование" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Field="ПостНачисления.Наименование" HasCaption="True" LookupField="Name" LookupFilter="Проводить and (not ТипНачисления in [1,4])" Multiline="True" Width="60" Wrap="True"/>
+              <Component Name="ПостНачНаименованиеКод" Class="Com.Ctrl.IEdit" Caption="@код дохода" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Enabled="False" Field="ПостНачисления.Наименование" HasCaption="True" LookupField="ВидДохода.КодУчета" Width="20"/>
+              <Component Name="кнПостНачНаименование" Class="Com.Ctrl.IJumpButton" Field="ПостНачисления.Наименование" JumpForm="УправлениеПерсоналом.Frm.Справочники.ВидНачислений"/>
+            </Component>
+            <Component Name="грПостНачЗначения" Class="Com.Ctrl.IColumnsGroup" Caption="@Размер надбавки/доплаты" HasCaption="True">
+              <Component Name="ПостНачСтавка" Class="Com.Ctrl.IEdit" Caption="@ставка" Field="ПостНачисления.Ставка" FieldFormat=",##0.##%;;-" HasCaption="True" OnChange="ПостСтавка_OnChange" OnVerify="ПостСтавка_OnVerify" Width="20"/>
+              <Component Name="ПостНачСумма" Class="Com.Ctrl.IEdit" Caption="@сумма (руб.)" Field="ПостНачисления.Сумма" FieldFormat=",##0.00;;-" HasCaption="True" OnChange="ПостСумма_OnChange" OnVerify="ПостСумма_OnVerify" Width="30"/>
+            </Component>
+            <Component Name="ПостНачПериодичность" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Периодичность" CellFormat="EnumFormat" Field="ПостНачисления.Периодичность" HasCaption="True" Width="30"/>
+            <Component Name="ПостНачУсловиеРасчета" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Условие попадания в расчет" CellFormat="EnumFormat" Field="ПостНачисления.УсловиеРасчета" HasCaption="True" Multiline="True" Width="55" Wrap="True"/>
+          </Component>
+        </Component>
+        <Component Name="ЗакладкаПостУдержания" Class="Com.Ctrl.IFrame" AutoSize="False" Caption="@Постоянные удержания" HasCaption="True" Margins="5">
+          <Component Name="тблПостУдержания" Class="Com.Ctrl.ITable" Subtable="EdtRec.ПостУдержания">
+            <Component Name="грПостУдВид" Class="Com.Ctrl.IColumnsGroup" Caption="Вид удержания" HasCaption="True">
+              <Component Name="ПостУдНаименование" Class="Com.Ctrl.IEdit" Caption="@наименование" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыУдержаний" Field="ПостУдержания.Наименование" HasCaption="True" LookupField="Name" LookupFilter="Проводить" Multiline="True" Width="80" Wrap="True"/>
+              <Component Name="ПостУдНаименованиеКод" Class="Com.Ctrl.IEdit" Caption="@код" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыУдержаний" Enabled="False" Field="ПостУдержания.Наименование" HasCaption="True" LookupField="Код" Width="20"/>
+              <Component Name="кнПостУдНаименование" Class="Com.Ctrl.IJumpButton" Field="ПостУдержания.Наименование" JumpForm="УправлениеПерсоналом.Frm.Справочники.ВидУдержаний"/>
+            </Component>
+            <Component Name="Очередность" Class="Com.Ctrl.IEdit" Caption="Очередность" CellFormat="EnumFormat" Field="ПостУдержания.Очередность" HasCaption="True" Hint="Очередность в соответствии с ч.1 ст.111 229-ФЗ" Width="25"/>
+            <Component Name="грПостУдЗначения" Class="Com.Ctrl.IColumnsGroup" Caption="@Значения" HasCaption="True">
+              <Component Name="ПостУдCтавка" Class="Com.Ctrl.IEdit" Caption="@ставка" Field="ПостУдержания.Ставка" FieldFormat=",##0.##%;;-" HasCaption="True" OnChange="ПостСтавкаУд_OnChange" OnVerify="ПостСтавка_OnVerify" Width="20"/>
+              <Component Name="ПостУдСумма" Class="Com.Ctrl.IEdit" Caption="@сумма (руб.)" Field="ПостУдержания.Сумма" FieldFormat=",##0.00;;-" HasCaption="True" OnChange="ПостСуммаУд_OnChange" OnVerify="ПостСтавка_OnVerify" Width="30"/>
+              <Component Name="ПостУдМаксСумма" Class="Com.Ctrl.IEdit" Caption="@макс. сумма" Field="ПостУдержания.МаксСумма" FieldFormat=",##0.00;;-" HasCaption="True" OnVerify="ПостСумма_OnVerify" Width="30"/>
+            </Component>
+            <Component Name="ПостУдУсловиеРасчета" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Условие попадания в расчет" CellFormat="EnumFormat" Field="ПостУдержания.УсловиеРасчета" HasCaption="True" Multiline="True" Width="80" Wrap="True"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

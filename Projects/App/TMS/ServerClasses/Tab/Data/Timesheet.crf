@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.Event">
+  <Inherited Caption="@TMS:Timesheet=Табель учета рабочего времени" OnShow="CardFormOnShow">
+    <Inherited Name="Current" Class="TMS.Rec.Data.Timesheet" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame" Visible="True">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile" Visible="True">
+          <Inherited Name="Name" Visible="False"/>
+          <Inherited Name="Code" Visible="False"/>
+          <Component Name="EventTimeEdit" Class="Com.Ctrl.IEdit" Caption="@Event:EventDate=Дата" CellFormat="DateFormat" Field="Current.EventTime" FieldFormat="dd.mm.yyyy" FormatOfDate="DateOnly"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

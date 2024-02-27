@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Frm.Services.BlanksRep.ExecutorWorkload">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="NormCode" Class="Com.Fld.IVar" RecordClass="Repair.Rec.FlowCharts.Norms" ValueType="VarObject"/>
+      <Component Name="FlowCode" Class="Com.Fld.IVar" RecordClass="Repair.Rec.FlowCharts.FlowCharts" ValueType="VarObject"/>
+      <Component Name="ExportType" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="4">
+        <Component Name="btnBlank" Class="Com.Ctrl.IButton" After="btnFilter" Hint="@Generate a blank=Сформировать бланк" ImageName="Com.Blank" OnClick="btnBlankClick"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="FormatFrame" Class="Com.Ctrl.IFrame" After="#0">
+          <Component Name="FormatGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+            <Component Name="FormatStatic" Class="Com.Ctrl.IStatic"/>
+            <Component Name="ExportTypeEdit" Class="Com.Ctrl.IEdit" CellFormat="EnumFormat" Field="ExportType" FixSize="True" HasCaption="True" Width="15"/>
+          </Component>
+        </Component>
+        <Inherited Name="FilterBox">
+          <Inherited Name="ParamFrame">
+            <Inherited Name="ParamGr">
+              <Inherited Name="ParamLGr">
+                <Component Name="edNormCodeGr" Class="Com.Ctrl.IGroup" After="edDocTypeGr" ByColumn="False">
+                  <Component Name="edNormCode" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.FlowCharts.Norms" CellFormat="ReferenceFormat" Field="NormCode" HasCaption="True" LookupField="Name" Wrap="False"/>
+                  <Component Name="edNormCodeJB" Class="Com.Ctrl.IJumpButton" Field="NormCode" FixSize="True" Width="7.2"/>
+                </Component>
+              </Inherited>
+              <Inherited Name="ParamRGr">
+                <Component Name="edFlowCodeGr" Class="Com.Ctrl.IGroup" After="edDocStatusGr" ByColumn="False">
+                  <Component Name="edFlowCode" Class="Com.Ctrl.IEdit" CardFileClass="Repair.Tab.FlowCharts.FlowCharts" CellFormat="ReferenceFormat" Field="FlowCode" HasCaption="True" LookupField="Name" Wrap="False"/>
+                  <Component Name="edFlowCodeJB" Class="Com.Ctrl.IJumpButton" Field="FlowCode" FixSize="True" Width="7.2"/>
+                </Component>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Frm.AddIns.BaseTask">
+  <Inherited Caption="@Task:Chat=Обсуждение">
+    <Inherited Name="RootFrame" AutoSize="True" Size="50">
+      <Component Name="ChatFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+        <Component Name="Chat" Class="TrackingLib.Ctrl.IChat" DataSource="ChatRecord" EditorStyle="esEmbeddedWindow" OnAddAttachment="ChatOnAddAttachment" UseOneSide="False">
+          <Component Name="ChatSubtable" Class="TrackingLib.Ctrl.ChatSubtable" Excluded="True" AddingTime="AddingTime" Attachment="Attachment" CommentID="CommentID" CommentOwner="CommentOwner" EditingTime="EditingTime" HtmlContent="HTML" Subtable="EdtRec.Chat"/>
+          <Component Name="ChatRecord" Class="TrackingLib.Ctrl.ChatRecord" AddingTime="AddingTime" Attachment="Attachment" ChatOwner="ChatOwner" CommentID="CommentID" CommentOwner="CommentOwner" EditingTime="EditingTime" HtmlContent="HTML" Partition="Partition" PartitionValue="1" RecordClass="TrackingCore.Data.TaskChat"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

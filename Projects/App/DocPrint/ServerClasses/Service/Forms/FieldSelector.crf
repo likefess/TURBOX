@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="DocPrint.Service.Forms.DataSelector">
+  <Inherited>
+    <Inherited Name="Data" Class="DocPrint.Service.Data.FieldSelector" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="ResultArray" Class="Com.Fld.IArray" ValueType="VarVariant"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+          <Component Name="ProjectEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.FieldSelector.ProjectEdit:Caption=Проект" Field="Data.CurrentProject" HasCaption="True" OnChange="ProjectEditOnChange" OnEnter="ProjectEditOnEnter" OnOutputEx="ProjectEditOnOutputEx" ValueType="VarObject"/>
+          <Component Name="ClassEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.FieldSelector.ClassEdit:Caption=Класс записи" Field="Data.CurrentClass" HasCaption="True" OnChange="ClassEditOnChange" OnEnter="ClassEditOnEnter" OnOutputEx="ClassEditOnOutputEx" ValueType="VarObject"/>
+          <Component Name="CardFormEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.FieldSelector.CardFormEdit:Caption=Картотека" Field="Data.CurrentCardForm" HasCaption="True" OnChange="CardFormEditOnChange" OnDrawEx="CardFormEditOnDrawEx" OnEnter="CardFormEditOnEnter" OnOutputEx="CardFormEditOnOutputEx" ValueType="VarObject"/>
+          <Component Name="RecordEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.FieldSelector.RecordEdit:Caption=Запись" CellFormat="ReferenceFormat" Field="Data.CurrentRecord" HasCaption="True" OnChange="RecordEditOnChange" OnEnter="RecordEditOnEnter" OnOpenCardForm="RecordEditOnOpenCardForm" ValueType="VarObject"/>
+          <Component Name="LookupEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.FieldSelector.LookupEdit:Caption=Разыменование" CellFormat="StringFormat" Field="Data.CurrentLookup" HasCaption="True" OnChange="LookupEditOnChange" OnVerify="LookupEditOnVerify" ValueType="VarString"/>
+          <Component Name="EnumListEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.UserReportSelector.EnumListEdit:Caption=Перечисление" CellFormat="StringFormat" Field="Data.EnumList" HasCaption="True" Multiline="True" OnChange="EnumListEditOnChange" ValueType="VarString" Wrap="True"/>
+          <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="False">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption=" " Width="40"/>
+            <Component Name="ApplyEnumCheckBox" Class="Com.Ctrl.ICheckBox" Caption="@DocPrint.FieldSelector.ApplyEnumCheckBox:Caption=Применить перечисление" Field="Data.ApplyEnum" HasCaption="True" OnChange="ApplyEnumCheckBoxOnChange" Width="55"/>
+            <Component Name="SingleValueCheckBox" Class="Com.Ctrl.ICheckBox" Caption="@DocPrint.FieldSelector.SingleValueCheckBox:Caption=Одно значение" Field="Data.SingleValue" HasCaption="True" OnChange="SingleValueCheckBoxOnChange" Width="40"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" OnSwitch="TabsFrameOnSwitch" Visible="True">
+        <Inherited Name="MainTab" Visible="False"/>
+        <Component Name="FieldListTab" Class="Com.Ctrl.IFrame" Caption="@DocPrint.FieldSelector.FieldListTab:Caption=Настройки полей" HasCaption="True">
+          <Component Name="FieldListTable" Class="Com.Ctrl.ITable" CanMove="False" Subtable="Data.FieldListSubtable">
+            <Component Name="FieldTypeEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.FieldSelector.FieldTypeEdit:Caption=Тип поля" CellFormat="EnumFormat" Field="FieldSelector_ListStruct.FieldType" HasCaption="True" OnChange="FieldTypeEditOnChange" ValueType="VarInteger" Width="30"/>
+            <Component Name="FieldNameEdit" Class="Com.Ctrl.IEdit" ButtonStyle="LookupButton" Caption="@DocPrint.FieldSelector.FieldNameEdit:Caption=Название поля" Field="FieldSelector_ListStruct.FieldName" HasButton="True" HasCaption="True" OnChange="FieldNameEditOnChange" OnEnter="FieldNameEditOnEnter" OnOutputEx="FieldNameEditOnOutputEx" ValueType="VarString" Width="60"/>
+            <Component Name="SubtableFilterEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.FieldSelector.SubtableFilterEdit:Caption=Фильтр таблицы" CellFormat="StringFormat" Field="FieldSelector_ListStruct.SubtableFilter" HasCaption="True" OnEnter="SubtableFilterEditOnEnter" ValueType="VarString" Width="60"/>
+          </Component>
+        </Component>
+        <Component Name="ResultTab" Class="Com.Ctrl.IFrame" Caption="@DocPrint.FieldSelector.ResultTab:Caption=Результат" HasCaption="True">
+          <Component Name="ResultTable" Class="Com.Ctrl.ITable" ManualControl="False">
+            <Component Name="ResultArrayEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.FieldSelector.ResultArrayEdit:Caption=Значения" Enabled="False" Field="ResultArray" HasCaption="True" OnOutputEx="ResultArrayEditOnOutputEx" ValueType="VarVariant" Width="150"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+    <Component Name="FieldSelector_ListStruct" Class="DocPrint.Struct.FieldSelector_ListStruct" IsLibrary="1"/>
+  </Inherited>
+</Resource>

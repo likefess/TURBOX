@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingLib.Frm.AddIns.Base">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Control.Rec.Data.Task" IsLibrary="1"/>
+    <Inherited Name="RootFrame" Color="0x00FAF6F5" Margins="0">
+      <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+      <Component Name="TaskProperties" Class="Com.Ctrl.IFrame" AutoSize="True" Color="0x00F8F7F7" Margins="0" Orientation="Horizontal">
+        <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+        <Component Name="StatusProject" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+          <Component Name="GroupTaskStatus" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" Enabled="True">
+            <Component Name="StatusEdit" Class="Com.Ctrl.IEdit" Caption="Статус" Enabled="True" Field="EdtRec.TaskStatus" HasCaption="False" HasInnerCaption="True" LookupFilter="not Closed" OnGetLookupFilter="StatusEditOnGetLookupFilter" OnVerify="StatusEditOnVerify" Required="True" ShortList="True"/>
+          </Component>
+          <Component Name="GroupProject" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" Visible="True">
+            <Component Name="ProjectEdit" Class="Com.Ctrl.IEdit" Caption="Проект" Field="EdtRec.TaskProject" FixSize="False" FontBold="False" HasCaption="False" HasInnerCaption="True" Multiline="False" OnChange="ProjectEditOnChange" Required="True" Visible="True"/>
+          </Component>
+        </Component>
+        <Component Name="TypeForSeriousness" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" Visible="False">
+          <Component Name="GroupType1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" Visible="True">
+            <Component Name="TypeEdit1" Class="Com.Ctrl.IEdit" Caption="@TrackingCore:TypeEdit=Тип" Field="EdtRec.TaskType" HasCaption="False" HasInnerCaption="True" LookupFilter="not Closed" OnChange="TypeEditOnChange" OnGetLookupFilter="TypeEditOnGetLookupFilter" OnVerify="TypeEditOnVerify" Required="True" ShortList="True"/>
+          </Component>
+        </Component>
+        <Component Name="PrioritySeriousness" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" Visible="False">
+          <Component Name="GroupPrio2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" Visible="True">
+            <Component Name="PriorityEdit2" Class="Com.Ctrl.IEdit" Caption="Приоритет" Field="EdtRec.TaskPriority" HasCaption="False" HasInnerCaption="True" LookupFilter="not Closed" OnChange="PriorityEditOnChange" Required="True" ShortList="True"/>
+          </Component>
+          <Component Name="GroupSeriousness" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" Visible="True">
+            <Component Name="SeriousnessEdit" Class="Com.Ctrl.IEdit" CanSort="True" Caption="Серьёзность" Enabled="True" Field="EdtRec.Seriousness" HasCaption="False" HasInnerCaption="True" LookupFilter="not Closed" ShortList="True"/>
+          </Component>
+        </Component>
+        <Component Name="PriorityProject" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+          <Component Name="GroupType" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" Visible="True">
+            <Component Name="TypeEdit" Class="Com.Ctrl.IEdit" Caption="@TrackingCore:TypeEdit=Тип" Field="EdtRec.TaskType" HasCaption="False" HasInnerCaption="True" LookupFilter="not Closed" OnChange="TypeEditOnChange" OnGetLookupFilter="TypeEditOnGetLookupFilter" OnVerify="TypeEditOnVerify" Required="True" ShortList="True"/>
+          </Component>
+          <Component Name="GroupPrio" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" Visible="True">
+            <Component Name="PriorityEdit" Class="Com.Ctrl.IEdit" Caption="Приоритет" Field="EdtRec.TaskPriority" HasCaption="False" HasInnerCaption="True" LookupFilter="not Closed" OnChange="PriorityEditOnChange" Required="True" ShortList="True"/>
+          </Component>
+        </Component>
+        <Component Name="Dates" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" Visible="True">
+          <Component Name="CreateDateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="CreateDateEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Дата начала" Enabled="True" Field="EdtRec.EventTime" FormatOfDate="DateOnly" HasCaption="True" HasInnerCaption="True" OnVerify="CreateDateEditOnVerify"/>
+          </Component>
+          <Component Name="FinDateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="FinDateEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Крайний срок" Enabled="True" Field="EdtRec.Deadline" FormatOfDate="DateOnly" HasCaption="False" HasInnerCaption="True" OnVerify="FinDateEditOnVerify"/>
+          </Component>
+        </Component>
+        <Component Name="GroupSolutionProgress" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+          <Component Name="GroupResolution" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="ResolutionEdit" Class="Com.Ctrl.IEdit" Caption="Решение" CardFileClass="TrackingCore.Tab.Ref.Resolution" Field="EdtRec.Resolution" HasCaption="False" HasInnerCaption="True" LookupField="Name" ShortList="True"/>
+          </Component>
+          <Component Name="GroupProgress" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="ProgressEdit" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Процент выполнения" Field="EdtRec.Progress" HasCaption="False" HasInnerCaption="True"/>
+          </Component>
+        </Component>
+        <Component Name="GroupVersion" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+          <Component Name="GroupAffectVersion" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="VersionEdit" Class="Com.Ctrl.IEdit" Caption="Версия" Field="EdtRec.AffVersions" HasCaption="False" HasInnerCaption="True" ShortList="True"/>
+          </Component>
+          <Component Name="GroupFixVersion" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="VersionFixEdit" Class="Com.Ctrl.IEdit" Caption="Исправлено в" Field="EdtRec.FixVersions" HasCaption="False" HasInnerCaption="True" ShortList="True"/>
+          </Component>
+        </Component>
+        <Component Name="LabelsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+          <Component Name="GroupLabels" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="Labels" Class="Com.Ctrl.IListEdit" AlwaysMark="True" Caption="@TrackingCore:Labels=Метки" CellFormat="ReferenceFormat" Field="EdtRec.Labels" HasCaption="False" HasInnerCaption="True" LookupField="Name" LookupFilter="not Closed" ValueType="VarObject" Visible="True"/>
+          </Component>
+        </Component>
+        <Component Name="ComponentsGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+          <Component Name="GroupComps" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True">
+            <Component Name="PrjComps" Class="Com.Ctrl.IListEdit" AlwaysMark="True" Caption="Компоненты" CellFormat="ReferenceFormat" Field="EdtRec.PrjComponents" HasCaption="False" HasInnerCaption="True" LookupField="Name" LookupFilter="not Closed" ValueType="VarObject"/>
+          </Component>
+        </Component>
+        <Component Name="Separator16" Class="Com.Ctrl.IStatic"/>
+        <Component Name="Epics" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+          <Component Name="GroupEpic" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="True">
+            <Component Name="EpicEdit" Class="Com.Ctrl.IEdit" Excluded="True" Field="EdtRec.GroupDoc" FixSize="False" FontBold="False" HasCaption="False" Multiline="False" OnChange="TypeEditOnChange"/>
+          </Component>
+        </Component>
+        <Component Name="StatusProjectFrame" Class="Com.Ctrl.IFrame" Excluded="True" Color="0x00F8F7F7" Orientation="Vertical">
+          <Component Name="TaskStatusFrame" Class="Com.Ctrl.IFrame" Color="0x00F8F7F7"/>
+          <Component Name="ProjectFrame" Class="Com.Ctrl.IFrame" Excluded="True" Color="0x00F8F7F7"/>
+        </Component>
+        <Component Name="PriorityProjectFrame" Class="Com.Ctrl.IFrame" Excluded="True" Color="0x00F8F7F7" Orientation="Vertical">
+          <Component Name="TypeFrame" Class="Com.Ctrl.IFrame" Color="0x00F8F7F7"/>
+          <Component Name="PrioFrame" Class="Com.Ctrl.IFrame" Color="0x00F8F7F7"/>
+        </Component>
+        <Component Name="DateFrame" Class="Com.Ctrl.IFrame" Excluded="True" Color="0x00F8F7F7" Orientation="Vertical">
+          <Component Name="CreateDateFrame" Class="Com.Ctrl.IFrame" Color="0x00F8F7F7"/>
+          <Component Name="FinDateFrame" Class="Com.Ctrl.IFrame" Color="0x00F8F7F7"/>
+        </Component>
+        <Component Name="SolutionProgressFrame" Class="Com.Ctrl.IFrame" Excluded="True" Color="0x00F8F7F7" Orientation="Vertical">
+          <Component Name="SolutionFrame" Class="Com.Ctrl.IFrame" Color="0x00F8F7F7"/>
+          <Component Name="ProgressFrame" Class="Com.Ctrl.IFrame" Color="0x00F8F7F7"/>
+        </Component>
+        <Component Name="VersionsFrame" Class="Com.Ctrl.IFrame" Excluded="True" Color="0x00F8F7F7" Orientation="Vertical">
+          <Component Name="AffectVersionFrame" Class="Com.Ctrl.IFrame" Color="0x00F8F7F7"/>
+          <Component Name="FixVersionFrame" Class="Com.Ctrl.IFrame" Color="0x00F8F7F7"/>
+        </Component>
+        <Component Name="LabelsFrame" Class="Com.Ctrl.IFrame" Excluded="True" Color="0x00F8F7F7" Orientation="Vertical"/>
+        <Component Name="ComponentsFrame" Class="Com.Ctrl.IFrame" Excluded="True" Color="0x00F8F7F7" Orientation="Horizontal"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

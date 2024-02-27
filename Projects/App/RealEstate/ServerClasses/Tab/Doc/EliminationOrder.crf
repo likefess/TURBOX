@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.Event">
+  <Inherited Caption="Предписания об устранении нарушений" HelpContext="RealEstate.Управление имуществом.Данные.Документы.Предписание">
+    <Inherited Name="Current" Class="RealEstate.Rec.Doc.EliminationOrder" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Caption="Предписания об устранении нарушений"/>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" Visible="False"/>
+          <Inherited Name="Code" Visible="False"/>
+          <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Caption="@З" Field="Current.Locked" HasCaption="True" Hint="@Замок" Width="5"/>
+          <Component Name="EventTime" Class="Com.Ctrl.IEdit" CellFormat="DateFormat" Field="Current.EventTime" HasCaption="True"/>
+          <Component Name="PrintedNumber" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="Current.PrintedNumber" HasCaption="True"/>
+          <Component Name="Status" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.Status" LookupField="Name"/>
+          <Component Name="Object" Class="Com.Ctrl.IEdit" CellFormat="ReferenceFormat" Field="Current.Object" HasCaption="True" LookupField="Code"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

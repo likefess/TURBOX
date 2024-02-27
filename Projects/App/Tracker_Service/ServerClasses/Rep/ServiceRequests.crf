@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Rep.IReportTurns" AccountPlan="Workflow" BegDate="01.06.2022" BegSaldoFormat="sfNone" Caption="Все обращения" CIndicator="1" EndDate="01.07.2022" EndSaldoFormat="sfNone" HystoKind="hkSide" Legend="lpkAtRight" OpenPeriod="opAll" Palette="cpDefault" ParameterFilter="Task.Функция.IsService" Period="3">
+    <Component Name="Indicators" Class="Com.RepCtrl.IWrapIndicator">
+      <Component Name="IndicatorTaskUnit" Class="Com.Rep.IIndMain" Caption="IndicatorTaskUnit" Contents="TaskUnit" Visible="False"/>
+    </Component>
+    <Component Name="Grouping" Class="Com.RepCtrl.IWrapGrouping">
+      <Component Name="SplitByRows" Class="Com.RepCtrl.IWrapDimension" Dimension="rdRow">
+        <Component Name="SplitParam1C83999F" Class="Com.Rep.ISplitByParam" ShowTotals="False" SortOrder="-Task.ДатаНачала" SplitParam="Task"/>
+      </Component>
+      <Component Name="SplitByCols" Class="Com.RepCtrl.IWrapDimension" Dimension="rdCol"/>
+      <Component Name="SplitByTabs" Class="Com.RepCtrl.IWrapDimension" Dimension="rdTab"/>
+      <Component Name="ContentByRows" Class="Com.RepCtrl.IWrapContent" Dimension="rdRow">
+        <Component Name="CompanySplitContent" Class="Com.Rep.ISplitContent" Caption="Клиент" Contents="Task.Contraparty.#Name"/>
+        <Component Name="PrintNumberSplitContent" Class="Com.Rep.ISplitContent" Caption="Номер" Contents="Task.ПечатныйНомер" MaxWidth="25" MinWidth="25"/>
+        <Component Name="ThemeSplitContent" Class="Com.Rep.ISplitContent" Caption="Тема обращения" Contents="Task.#Name"/>
+        <Component Name="ServiceSplitContent" Class="Com.Rep.ISplitContent" Caption="Услуга" Contents="Task.#Service.Name"/>
+        <Component Name="PrioritySplitContent" Class="Com.Rep.ISplitContent" Caption="Приоритет" Contents="Task.#ServiceLevel.Name"/>
+        <Component Name="DescriptionSplitContent" Class="Com.Rep.ISplitContent" Caption="Описание" Contents="TaskDescription" MaxWidth="120" OnUpdateCell="DescriptionOnUpdateCell"/>
+        <Component Name="TypeSplitContent" Class="Com.Rep.ISplitContent" Caption="Тип" Contents="Task.Функция.Name"/>
+        <Component Name="StatusSplitContent" Class="Com.Rep.ISplitContent" Caption="Состояние" Contents="Task.Состояние.Name" MaxWidth="30"/>
+        <Component Name="BeginDateSplitContent" Class="Com.Rep.ISplitContent" Caption="Дата и время обращения" Contents="Task.ДатаНачала" MaxWidth="30"/>
+        <Component Name="ReactionDateSplitContent" Class="Com.Rep.ISplitContent" Caption="Отреагировать до" Contents="Task.ReactionDate" MaxWidth="35"/>
+        <Component Name="DecisionDateSplitContent" Class="Com.Rep.ISplitContent" Caption="Решить до" Contents="Task.DecisionDate" MaxWidth="35"/>
+        <Component Name="FinishDateSplitContent" Class="Com.Rep.ISplitContent" Caption="Срок инициатора" Contents="Task.СрокЗавершения" MaxWidth="30"/>
+        <Component Name="InitiatorSplitContent" Class="Com.Rep.ISplitContent" Caption="Инициатор" Contents="Task.Инициатор.#Name" MaxWidth="50"/>
+        <Component Name="WorkGroupSplitContent" Class="Com.Rep.ISplitContent" Caption="Рабочая группа" Contents="Task.#WorkingGroup.Name" MaxWidth="50" UseMacro="True"/>
+        <Component Name="ResponsibleSplitContent" Class="Com.Rep.ISplitContent" Caption="Ответственный" Contents="Task.Ответственный.#Name" MaxWidth="50" UseMacro="True"/>
+        <Component Name="ClosingCodeSplitContent" Class="Com.Rep.ISplitContent" Caption="Код закрытия" Contents="Task.#ClosingCode.Name" MaxWidth="50"/>
+        <Component Name="UpdateDateSplitContent" Class="Com.Rep.ISplitContent" Caption="Дата обновления" Contents="Task.UpdateDate"/>
+      </Component>
+      <Component Name="ContentByCols" Class="Com.RepCtrl.IWrapContent" Dimension="rdCol"/>
+      <Component Name="ContentByTabs" Class="Com.RepCtrl.IWrapContent" Dimension="rdTab"/>
+    </Component>
+    <Component Name="DrillDown" Class="Com.RepCtrl.IWrapExplain"/>
+    <Component Name="Parameters" Class="Com.RepCtrl.IWrapControls">
+      <Component Name="RC_Company" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Клиент" CardFileClass="Bas.Tab.Data.Contraparties" DefaultStr="Object(nil)" Operator="=" Parameter="Task.Contraparty" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Contract" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Договор" DefaultStr="Object(nil)" Operator="=" Parameter="Task.Contract" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Service" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Услуга" DefaultStr="Object(nil)" NewLine="True" Operator="=" Parameter="Task.Service" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Функция" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Состав услуги" DefaultStr="Object(nil)" MultiSelect="True" Operator="=" Parameter="Task.Функция" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_Состояние" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Состояние" DefaultStr="Object(nil)" MultiSelect="True" Operator="=" Parameter="Task.Состояние" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_UpdateDate" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Изменена с" DefaultStr="Object(nil)" Operator=">=" Parameter="Task.UpdateDate" Plan="Workflow" SkipNil="True" ValueType="VarDate"/>
+      <Component Name="RC_ErrorFindedIn" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Версия" DefaultStr="Object(nil)" Operator="=" Parameter="Task.ErrorFindedIn" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_CorrectedIn" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Исправлено в" DefaultStr="Object(nil)" Operator="=" Parameter="Task.CorrectedIn" Plan="Workflow" SkipNil="True" ValueType="VarObject"/>
+      <Component Name="RC_PrintedNumber" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@Number=Номер" CellFormat="StringFormat" Operator="like" Parameter="Task.PrintedNumber" Plan="Workflow" SkipNil="True" ValueType="VarString" Width="40"/>
+      <Component Name="RC_Description" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="@Name=Название" CaptionWidth="40" CellFormat="StringFormat" Operator="like" Parameter="Task.Description" Plan="Workflow" SkipNil="True" ValueType="VarString"/>
+      <Component Name="RC_Завершен" Class="Com.Rep.IRepControl" AutoBuild="True" Caption="Завершенные" CellFormat="LogicalFormat" DefaultStr="Logical(False)" Operator="=" Parameter="Task.Завершен" Plan="Workflow" ValueType="VarLogical"/>
+    </Component>
+    <Component Name="JoinedCharts" Class="InfoBoard.Rep.IWrapJoinedChart"/>
+    <Component Name="SelectedIndicators" Class="InfoBoard.Rep.IWrapSelectedIndicators"/>
+    <Component Name="AxisBottom" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisLeft" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisTop" Class="Com.Ctrl.Chart.IAxis"/>
+    <Component Name="AxisRight" Class="Com.Ctrl.Chart.IAxis"/>
+  </Component>
+</Resource>

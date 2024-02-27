@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Документы.Кадры.ПриказСтрока">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Кадровые документы.Приказ (распоряжение) о переводе работника на другую работу">
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="грПримечание" Visible="False"/>
+        <Component Name="грПричинаПеревода" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+          <Component Name="ПричинаПеревода" Class="Com.Ctrl.IEdit" Caption="Причина перевода" Field="СтрокаПриказа.ПричинаПеревода" Hint="Причина перевода" Multiline="True" Wrap="True"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab" Visible="True">
+          <Inherited Name="грОсновное" Excluded="True"/>
+          <Component Name="бксПереводОплатаТруда" Class="Com.Ctrl.IBox" Excluded="True" Caption="Оплата труда" HasCaption="True">
+            <Component Name="грОплатаСтавка" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+              <Component Name="грСтавка" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="ДоляСтавки" Class="Com.Ctrl.IEdit" Field="СтрокаПриказа.ДоляСтавки" FieldFormat="0.##" HasCaption="True" MaxWidth="35" OnChange="ДоляСтавки_OnChange" OnVerify="ДоляСтавки_OnVerify" Width="30"/>
+              </Component>
+              <Component Name="грВидОснНачисления" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+                <Component Name="Ставка" Class="Com.Ctrl.IEdit" Caption="Оклад (тариф) " Field="СтрокаПриказа.Ставка" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Размер оклада или тарифа с учетом доли ставки. При неполной продолжительности оклад ставится фактический" MaxWidth="35" Width="30"/>
+                <Component Name="ВидОснНачисления" Class="Com.Ctrl.IEdit" Caption="Вид осн. начисления" CaptionWidth="45" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Field="СтрокаПриказа.ВидОснНачисления" HasCaption="True" LookupField="Name" LookupFilter="(IsGroup = -1) or (Проводить and ТипНачисления = 1)"/>
+                <Component Name="кнВидОснНачисления" Class="Com.Ctrl.IJumpButton" Field="СтрокаПриказа.ВидОснНачисления" JumpForm="УправлениеПерсоналом.Frm.Справочники.ВидНачислений"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="бксПриемУсловияТруда" Class="Com.Ctrl.IBox" Caption="Условия труда" HasCaption="True">
+            <Component Name="грХарРабДоговор" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="ВидДоговора" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="СтрокаПриказа.ВидДоговора" HasCaption="True"/>
+              <Component Name="ХарактерРаботы" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" CellFormat="EnumFormat" Field="СтрокаПриказа.ХарактерРаботы" HasCaption="True" Width="30"/>
+              <Component Name="stEmpty4" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Component Name="грПродолжРабВрем" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="ПродолжРабВремени" Class="Com.Ctrl.IEdit" Caption="@Продолжительность" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ПродолжРабВремени" Field="СтрокаПриказа.ПродолжРабВремени" HasCaption="True" Hint="@Продолжительность рабочего времени" LookupField="name" OnChange="ПродолжРабВремени_OnChange"/>
+              <Component Name="кнПродолжРабВремени" Class="Com.Ctrl.IJumpButton" Field="СтрокаПриказа.ПродолжРабВремени" JumpForm="УправлениеПерсоналом.Frm.Справочники.ПродолжРабВремени"/>
+            </Component>
+            <Component Name="грГрафикРаботы" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="ГрафикРаботы" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Ref.WorkSchedule" Field="СтрокаПриказа.ГрафикРаботы" HasCaption="True" LookupField="Name" OnChange="ГрафикРаботы_OnChange" OnGetLookupFilter="ГрафикРаботы_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуГрафикРабот"/>
+              <Component Name="кнГрафикРаботы" Class="Com.Ctrl.IJumpButton" Field="СтрокаПриказа.ГрафикРаботы" JumpForm="HRBase.Frm.Ref.WorkSchedule"/>
+            </Component>
+            <Component Name="грУсловияТруда1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="УсловияТруда1" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловияТруда" Field="СтрокаПриказа.УсловияТруда" HasCaption="True" LookupField="Name" Multiline="True" Wrap="True"/>
+              <Component Name="УсловияТрудаКод" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.УсловияТруда" Field="СтрокаПриказа.УсловияТруда" FixSize="True" HasCaption="False" LookupField="Подкласс" Width="25"/>
+              <Component Name="кнУсловияТрудаСотрудника" Class="Com.Ctrl.IJumpButton" Field="СтрокаПриказа.УсловияТруда" JumpForm="УправлениеПерсоналом.Frm.Классификаторы.УсловияТруда"/>
+            </Component>
+            <Component Name="грОсобыеУсловия" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+              <Component Name="ОсобыеУсловия" Class="Com.Ctrl.IEdit" Caption="@Особые условия" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ОсобыеУсловияТруда" Field="СтрокаПриказа.ОсобыеУсловия" HasCaption="True" Hint="@Особые условия труда" LookupField="Name" Multiline="True" Wrap="True"/>
+              <Component Name="ОсобыеУсловияКод" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ОсобыеУсловияТруда" Field="СтрокаПриказа.ОсобыеУсловия" FixSize="True" HasCaption="False" Hint="@Особые условия труда" LookupField="КодУчета" Width="25"/>
+              <Component Name="кнОсобыеУсловия" Class="Com.Ctrl.IJumpButton" Field="СтрокаПриказа.ОсобыеУсловия" JumpForm="УправлениеПерсоналом.Frm.Классификаторы.ОсобыеУсловияТруда"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

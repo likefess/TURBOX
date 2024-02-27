@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2">
+  <Component Class="Com.Frm.IBlankForm">
+    <Component Name="Libraries" Class="Com.ILibContainer">
+      <Component Name="Commands" Class="Com.Menu.CommandGroups.Root" IsLibrary="1"/>
+      <Component Name="Fashions" Class="Com.IFashions" IsLibrary="1"/>
+    </Component>
+    <Component Name="Variables" Class="Com.IVarContainer">
+      <Component Name="OnDate" Class="Com.Fld.IVar" Caption="@На дату" ValueType="VarDate"/>
+      <Component Name="ObjTypes" Class="Com.Fld.IVar" Caption="@Тип объекта" RecordClass="RealEstate.Rec.Ref.RealEstateObjType" ValueType="VarObject"/>
+      <Component Name="ObjKinds" Class="Com.Fld.IVar" Caption="@Вид объекта" RecordClass="RealEstate.Rec.Ref.RealEstateObjKind" ValueType="VarObject"/>
+      <Component Name="Regions" Class="Com.Fld.IVar" Caption="@Регион" RecordClass="Biz.Rec.Ref.CountryOrRegion" ValueType="VarObject"/>
+      <Component Name="FDistricts" Class="Com.Fld.IVar" Caption="@Федеральный округ" RecordClass="RealEstate.Rec.Ref.FederalDistrict" ValueType="VarObject"/>
+      <Component Name="Balansers" Class="Com.Fld.IVar" Caption="@Балансодержатель" RecordClass="Biz.Rec.Ref.CFR" ValueType="VarObject"/>
+      <Component Name="PropUsers" Class="Com.Fld.IVar" Caption="@Пользователь" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+    </Component>
+    <Component Name="RootFrame" Class="Com.Ctrl.IFrame">
+      <Component Name="HeaderFrame" Class="Com.Ctrl.IHeader" Caption="Реестр объектов имущества" HasCaption="True" MaxButton="3">
+        <Component Name="RefreshBtn" Class="Com.Ctrl.IButton" Caption="@Form:RefreshButton=Обновить" Hint="@Form:RefreshButton=Обновить" ImageName="Refresh" OnClick="RefreshBtn_OnClick"/>
+        <Component Name="ExportBtn" Class="Com.Ctrl.IButton" Caption="@Экспорт" HasCaption="True" ImageName="Biz.download" OnClick="ExportBtn_OnClick"/>
+        <Component Name="ButtonClose" Class="Com.Ctrl.IButton" Caption="@Cmd:Close=Закрыть" Command="Commands.CloseForm" ImageName="Close"/>
+      </Component>
+      <Component Name="ParamsFrame" Class="Com.Ctrl.IFrame">
+        <Component Name="FieldsGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+          <Component Name="OnDateEdit" Class="Com.Ctrl.IEdit" Caption="@На дату" CellFormat="DateFormat" Field="OnDate" FixSize="True" FormatOfDate="DateOnly" HasCaption="True" Width="30"/>
+          <Component Name="ObjTypesList" Class="Com.Ctrl.IListEdit" Caption="@Тип объекта" CardFileClass="RealEstate.Tab.Ref.RealEstateObjType" CellFormat="ReferenceFormat" Field="ObjTypes" HasCaption="True" LookupField="Name"/>
+          <Component Name="ObjKindsList" Class="Com.Ctrl.IListEdit" Caption="@Вид объекта" CardFileClass="RealEstate.Tab.Ref.RealEstateObjKind" CellFormat="ReferenceFormat" Field="ObjKinds" HasCaption="True" LookupField="Name"/>
+          <Component Name="RegionsCodeList" Class="Com.Ctrl.IListEdit" Caption="@Код региона" CardFileClass="Biz.Tab.Ref.CountriesOrRegions" CellFormat="ReferenceFormat" Field="Regions" HasCaption="True" LookupField="Code"/>
+          <Component Name="RegionsNameList" Class="Com.Ctrl.IListEdit" Caption="@Наименование региона" CardFileClass="Biz.Tab.Ref.CountriesOrRegions" CellFormat="ReferenceFormat" Field="Regions" HasCaption="True" LookupField="Name"/>
+          <Component Name="FDistrictsList" Class="Com.Ctrl.IListEdit" Caption="@Федеральный округ" CardFileClass="RealEstate.Tab.Ref.FederalDistrict" CellFormat="ReferenceFormat" Field="FDistricts" HasCaption="True" LookupField="Name"/>
+          <Component Name="BalansersList" Class="Com.Ctrl.IListEdit" Caption="@Балансодержатель" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="Balansers" HasCaption="True" LookupField="Name"/>
+          <Component Name="PropUsersList" Class="Com.Ctrl.IListEdit" Caption="@Пользователь" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Field="PropUsers" HasCaption="True" LookupField="Name"/>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Resource>

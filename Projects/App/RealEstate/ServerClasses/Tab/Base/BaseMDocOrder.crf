@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="RealEstate.Tab.Base.BaseMDoc">
+  <Inherited>
+    <Inherited Name="Current" Class="RealEstate.Rec.Doc.Order" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="FOrderType" Class="Com.Fld.IVar" After="#0" Caption="@Тип документа" RecordClass="RealEstate.Rec.Ref.OrderType" ValueType="VarObject"/>
+      <Component Name="FRightKind" Class="Com.Fld.IVar" Caption="@Вид документа" RecordClass="RealEstate.Rec.Ref.RightKind" ValueType="VarObject"/>
+      <Component Name="FPropertyType" Class="Com.Fld.IVar" Caption="@Вид собственности" RecordClass="RealEstate.Rec.Ref.LandCategoryTarget" ValueType="VarObject"/>
+      <Component Name="FPropertyForm" Class="Com.Fld.IVar" Caption="@Форма собственности" RecordClass="BizRus.Rec.Классификаторы.ОКФС" ValueType="VarObject"/>
+      <Component Name="FRegDateStart" Class="Com.Fld.IVar" Caption="@Дата регистрации с " ValueType="VarDate"/>
+      <Component Name="FRegDateEnd" Class="Com.Fld.IVar" Caption="@Дата регистрации по" ValueType="VarDate"/>
+      <Component Name="FRegCode" Class="Com.Fld.IVar" Caption="@Номер записи" ValueType="VarString"/>
+      <Component Name="FObjKind" Class="Com.Fld.IVar" Caption="@Вид объекта" RecordClass="RealEstate.Rec.Ref.RealEstateObjKind" ValueType="VarObject"/>
+      <Component Name="FObjName" Class="Com.Fld.IVar" Caption="@Объект имущества" ValueType="VarString"/>
+      <Component Name="FSubject" Class="Com.Fld.IVar" Caption="@Субъект права" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="FSubjectStr" Class="Com.Fld.IVar" Caption="@Субъект права" ValueType="VarString"/>
+      <Component Name="FBalanser" Class="Com.Fld.IVar" Caption="@Балансодержатель" RecordClass="Biz.Rec.Ref.CFR" ValueType="VarObject"/>
+      <Component Name="FBalanserStr" Class="Com.Fld.IVar" Caption="@Балансодержатель" ValueType="VarString"/>
+      <Component Name="FPropertyUser" Class="Com.Fld.IVar" Caption="@Пользователь" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="FPropertyUserStr" Class="Com.Fld.IVar" Caption="@Пользователь" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonFilters">
+          <Component Name="ButtonFilter" Class="Com.Ctrl.IButton" After="#0" Caption="@Панель фильтра" ImageName="CommonFilter" IsSwitch="True" OnClick="ButtonFilter_OnClick"/>
+        </Inherited>
+        <Component Name="OrdersLinesDataUpdateBtn" Class="Com.Ctrl.IButton" Caption="fix - перенос субъектов права" HasCaption="True" OnClick="OrdersLinesDataUpdateBtn_OnClick"/>
+        <Component Name="OrdersEncumbrancesDataUpdateBtn" Class="Com.Ctrl.IButton" Caption="fix - перенос обременений" HasCaption="True" OnClick="OrdersEncumbrancesDataUpdateBtn_OnClick"/>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" Excluded="True"/>
+          <Inherited Name="Code" Excluded="True"/>
+          <Component Name="Number" Class="Com.Ctrl.IEdit" After="colDate" Caption="Номер" Field="Current.Number" HasCaption="True"/>
+          <Component Name="OrderType" Class="Com.Ctrl.IEdit" Caption="Тип документа" CardFileClass="RealEstate.Tab.Ref.OrderType" Field="Current.OrderType" HasCaption="True"/>
+        </Inherited>
+        <Component Name="FilterFrame" Class="Com.Ctrl.IFrame" AutoSize="True" CanHideBySplit="True" UseSplitter="True">
+          <Component Name="FilterHeaderFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="FilterHeaderGr" Class="Com.Ctrl.IGroup" Adaptive="True">
+              <Component Name="SwitchHierarchyBtn" Class="Com.Ctrl.IButton" Enabled="False" FixSize="True" HasCaption="False" Hint="@Иерархический вид" ImageName="Com.folder-tree" OnClick="SwitchHierarchy" Width="7.2"/>
+              <Component Name="Static1" Class="Com.Ctrl.IStatic"/>
+              <Component Name="FilterSetBtn" Class="Com.Ctrl.IButton" FixSize="True" HasCaption="False" Hint="@Применить" ImageName="Com.Find" OnClick="FilterSet" Width="7.2"/>
+              <Component Name="FilterClearBtn" Class="Com.Ctrl.IButton" FixSize="True" HasCaption="False" Hint="@Очистить" ImageName="Com.trash-alt" OnClick="FilterClear" Width="7.2"/>
+              <Component Name="FilterCloseBtn" Class="Com.Ctrl.IButton" FixSize="True" HasCaption="False" Hint="@Закрыть" ImageName="Com.Close" OnClick="FilterClose" Width="7.2"/>
+            </Component>
+          </Component>
+          <Component Name="FilterBodyFrame" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="FGeneralBox" Class="Com.Ctrl.IBox" AutoSize="True" Caption="@Основное">
+              <Component Name="FGeneralGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" CaptionWidth="40">
+                <Component Name="FOrderTypeEdt" Class="Com.Ctrl.IListEdit" CardFileClass="RealEstate.Tab.Ref.OrderType" CellFormat="ReferenceFormat" Field="FOrderType" FixSize="True" HasCaption="True" LookupField="Name" Multiline="True" Width="65" Wrap="True"/>
+                <Component Name="FRightKindEdt" Class="Com.Ctrl.IListEdit" CardFileClass="RealEstate.Tab.Ref.RightKind" CellFormat="ReferenceFormat" Field="FRightKind" FixSize="True" HasCaption="True" LookupField="Name" Multiline="True" Width="65" Wrap="True"/>
+                <Component Name="FPropertyTypeEdt" Class="Com.Ctrl.IListEdit" Caption="@Вид собствен." CardFileClass="RealEstate.Tab.Ref.LandCategoryTarget" CellFormat="ReferenceFormat" Field="FPropertyType" FixSize="True" HasCaption="True" LookupField="Name" Multiline="True" Width="65" Wrap="True"/>
+                <Component Name="FPropertyFormEdt" Class="Com.Ctrl.IListEdit" Caption="@Форма собствен." CardFileClass="BizRus.Tab.Классификаторы.ОКФС" CellFormat="ReferenceFormat" Field="FPropertyForm" FixSize="True" HasCaption="True" LookupField="Name" Multiline="True" Width="65" Wrap="True"/>
+                <Component Name="FRegDateGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="FRegDateStartEdt" Class="Com.Ctrl.IEdit" Caption="Дата регистр." CellFormat="DateFormat" Field="FRegDateStart" FixSize="True" HasCaption="True" Width="30"/>
+                  <Component Name="FRegDateEndEdt" Class="Com.Ctrl.IEdit" Caption="- " CaptionWidth="5" CellFormat="DateFormat" Field="FRegDateEnd" FixSize="True" HasCaption="True" Width="30"/>
+                </Component>
+                <Component Name="FRegCodeEdt" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="FRegCode" FixSize="True" HasCaption="True" Multiline="True" Width="65" Wrap="True"/>
+                <Component Name="FObjKindEdt" Class="Com.Ctrl.IListEdit" CardFileClass="RealEstate.Tab.Ref.RealEstateObjKind" CellFormat="ReferenceFormat" Field="FObjKind" FixSize="True" HasCaption="True" LookupField="Name" Multiline="True" Width="65" Wrap="True"/>
+                <Component Name="FObjNameEdt" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="FObjName" FixSize="True" HasCaption="True" Multiline="True" Width="65" Wrap="True"/>
+                <Component Name="FSubjectGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="FSubjectEdt" Class="Com.Ctrl.IListEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Field="FSubject" FixSize="True" HasCaption="True" LookupField="Name" Multiline="True" Visible="True" Width="57.8" Wrap="True"/>
+                  <Component Name="FSubjectStrEdt" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="FSubjectStr" FixSize="True" HasCaption="True" Hint="@Поиск по подстроке наименования субъекта права" Multiline="True" Visible="False" Width="57.8" Wrap="True"/>
+                  <Component Name="FSubjectBtn" Class="Com.Ctrl.IButton" FixSize="True" HasCaption="False" Hint="@Сменить режим поиска" ImageName="Com.Refresh" OnClick="FSubjectBtn_OnClick" Width="7.2"/>
+                </Component>
+                <Component Name="FBalanserGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="FBalanserEdt" Class="Com.Ctrl.IListEdit" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Field="FBalanser" FixSize="True" HasCaption="True" LookupField="Name" Multiline="True" Visible="True" Width="57.8" Wrap="True"/>
+                  <Component Name="FBalanserStrEdt" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="FBalanserStr" FixSize="True" HasCaption="True" Hint="@Поиск по подстроке наименования балансодержателя" Multiline="True" Visible="False" Width="57.8" Wrap="True"/>
+                  <Component Name="FBalanserBtn" Class="Com.Ctrl.IButton" FixSize="True" HasCaption="False" Hint="@Сменить режим поиска" ImageName="Com.Refresh" OnClick="FBalanserBtn_OnClick" Width="7.2"/>
+                </Component>
+                <Component Name="FPropertyUserGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                  <Component Name="FPropertyUserEdt" Class="Com.Ctrl.IListEdit" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Field="FPropertyUser" FixSize="True" HasCaption="True" LookupField="Name" Multiline="True" Visible="True" Width="57.8" Wrap="True"/>
+                  <Component Name="FPropertyUserStrEdt" Class="Com.Ctrl.IEdit" CellFormat="StringFormat" Field="FPropertyUserStr" FixSize="True" HasCaption="True" Hint="@Поиск по подстроке наименования пользователя" Multiline="True" Visible="False" Width="57.8" Wrap="True"/>
+                  <Component Name="FPropertyUserBtn" Class="Com.Ctrl.IButton" FixSize="True" HasCaption="False" Hint="@Сменить режим поиска" ImageName="Com.Refresh" OnClick="FPropertyUserBtn_OnClick" Width="7.2"/>
+                </Component>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

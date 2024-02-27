@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.КодИмя">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Справочники.Ставки страховых взносов">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Справочники.СтавкиСВ" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="GroupCode">
+            <Inherited Name="Locked" Visible="True"/>
+          </Inherited>
+          <Inherited Name="GroupName">
+            <Inherited Name="Closed" Visible="True"/>
+          </Inherited>
+        </Inherited>
+        <Component Name="грДаты" Class="Com.Ctrl.IGroup" ByColumn="False">
+          <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Caption="Период действия" Field="EdtRec.ДатаНачала" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="35" Width="35"/>
+          <Component Name="ДатаОкончания" Class="Com.Ctrl.IEdit" Caption=" - " CaptionWidth="10" Field="EdtRec.ДатаОкончания" FormatOfDate="DateOnly" HasCaption="True" MaxWidth="35" Width="35"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="@Frm:MainTab=Ставки">
+          <Component Name="грЕСВ" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption="Единый страховой взнос:" FixSize="True" Width="50"/>
+            <Component Name="ЕСВ" Class="Com.Ctrl.IEdit" Caption="&quot;&lt;&quot;" CaptionWidth="20" Field="EdtRec.ЕСВ" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Hint="% в пределах установленной единой предельной величины базы для исчисления страховых взносов" Width="20"/>
+            <Component Name="ЕСВ_Сверх" Class="Com.Ctrl.IEdit" Caption="&quot;>&quot;" CaptionWidth="20" Field="EdtRec.ЕСВ_Сверх" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Hint="% свыше установленной единой предельной величины базы" Width="20"/>
+            <Component Name="МРОТ_Сверх" Class="Com.Ctrl.IEdit" Caption="% свыше МРОТ" CaptionWidth="35" Field="EdtRec.МРОТ_Сверх" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Width="20"/>
+          </Component>
+          <Component Name="грПрочее" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" Caption="Отдельные категории:" FixSize="True" Width="50"/>
+            <Component Name="ФСС" Class="Com.Ctrl.IEdit" Caption="ФСС" CaptionWidth="20" Field="EdtRec.ФСС" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Width="20"/>
+            <Component Name="ОМС" Class="Com.Ctrl.IEdit" Caption="ОМС" CaptionWidth="20" Field="EdtRec.ОМС" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Width="20"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.IBlankWIthFrames">
+  <Inherited HelpContext="SubjectPayable.Расчеты с субъектами.Документы.Действия.Пакетное проведение документов">
+    <Component Name="vDefPos" Class="SubjectPayable.Rec.Service.DocAccounted" IsLibrary="1" After="#0"/>
+    <Inherited Name="TableMenu" After="vDefPos"/>
+    <Inherited Name="Variables">
+      <Component Name="tbRefDocs" Class="Com.ISubtable" StructClass="SubjectPayable.Rec.Service.DocAccounted"/>
+      <Component Name="vCompany" Class="Com.Fld.IVar" RecordClass="Bas.Rec.Data.Entity" ValueType="VarObject"/>
+      <Component Name="vFromDate" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="vToDate" Class="Com.Fld.IVar" ValueType="VarDate"/>
+      <Component Name="vTypeDoc" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="vAccountedAll" Class="Com.Fld.IVar" ValueType="VarLogical"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonOK" Visible="False"/>
+        <Inherited Name="ButtonRefresh" Visible="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="grCompany" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150" MinWidth="100">
+          <Component Name="edCompany" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Company=Предприятие" CardFileClass="Bas.Tab.Data.OurCompanies" Field="vCompany" HasCaption="True" LookupField="Name" OnChange="edCompany_OnChange" ShortList="True"/>
+        </Component>
+        <Component Name="grPeriod" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150" MinWidth="100">
+          <Component Name="edFromDate" Class="Com.Ctrl.IEdit" Caption="Период" Field="vFromDate" FormatOfDate="DateOnly" HasCaption="True" OnChange="edFromDate_OnChange"/>
+          <Component Name="edToDate" Class="Com.Ctrl.IEdit" Caption="-" CaptionWidth="8" Field="vToDate" FormatOfDate="DateOnly" HasCaption="True" OnChange="edToDate_OnChange"/>
+        </Component>
+        <Component Name="grType" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="150" MinWidth="100">
+          <Component Name="edType" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:TypeOfDoc=Документ" CellFormat="EnumFormat" Field="vTypeDoc" HasCaption="True" OnChange="edType_OnChange"/>
+        </Component>
+        <Component Name="grOther" Class="Com.Ctrl.IGroup">
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+          <Component Name="chAccountedAll" Class="Com.Ctrl.ICheckBox" Caption="Проводить все" Field="vAccountedAll" OnChange="chAccountedAll_OnChange" Printed="False" Width="35"/>
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" Width="20"/>
+          <Component Name="btUpdate" Class="Com.Ctrl.IButton" Caption="Обновить" HasCaption="True" OnClick="btUpdate_OnClick"/>
+          <Component Name="btAccounted" Class="Com.Ctrl.IButton" Caption="Провести" HasCaption="True" OnClick="btAccounted_OnClick"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="tblRefDocs" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Subtable="tbRefDocs">
+            <Component Name="edAccounted" Class="Com.Ctrl.IEdit" Caption="Проводить" Field="vDefPos.Accounted" HasCaption="True" HasInnerCaption="False" Width="15"/>
+            <Component Name="edRefDoc" Class="Com.Ctrl.IEdit" Caption="Документ" Enabled="False" Field="vDefPos.RefDoc" HasCaption="True" LookupField="Name" Multiline="True" Width="45" Wrap="True"/>
+            <Component Name="btRefRecord" Class="Com.Ctrl.IButton" FixSize="True" Hint="Открыть документ" ImageName="Com.arrow-circle-right" OnClick="btRefRecord_OnClick" Width="8"/>
+            <Component Name="edContraparty" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Contraparty=Контрагент" Enabled="False" Field="vDefPos.RefDoc" HasCaption="True" LookupField="Contraparty.Name" Multiline="True" Width="40" Wrap="True"/>
+            <Component Name="edContraparty2" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Contraparty2=Контрагент 2" Enabled="False" Field="vDefPos.RefDoc" HasCaption="True" LookupField="Contraparty2.Name" Multiline="True" Width="40" Wrap="True"/>
+            <Component Name="edContract" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Contract=Договор" Enabled="False" Field="vDefPos.RefDoc" HasCaption="True" LookupField="Contract" Multiline="True" OnOutputEx="edContract_OnOutputEx" Width="40" Wrap="True"/>
+            <Component Name="edTaxCBC" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Tax=Налог" CardFileClass="BizRus.Tab.Классификаторы.КБК" Enabled="False" Field="vDefPos.RefDoc" HasCaption="True" LookupField="TaxCBC.Name" Multiline="True" Width="40" Wrap="True"/>
+            <Component Name="chAdvance" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@PaymentOfDebt:Advance=Аванс" CellFormat="LogicalFormat" Enabled="False" Field="vDefPos.RefDoc" HasCaption="True" HasInnerCaption="False" LookupField="Advance" ValueType="VarLogical" Width="15"/>
+            <Component Name="grSum" Class="Com.Ctrl.IColumnsGroup" Caption="Сумма" HasCaption="True">
+              <Component Name="grSumDoc" Class="Com.Ctrl.IColumnsGroup" Caption="@SubjectPayable:SumDocCurrency=в вал.документа" HasCaption="True">
+                <Component Name="edSumDoc" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="-" Enabled="False" Field="vDefPos.RefDoc" FieldFormat=",0.00;;-" HasCaption="False" LookupField="SumDoc" OnOutputEx="edSumDoc_OnOutputEx" Width="30"/>
+                <Component Name="edCurrency" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="-" CardFileClass="Biz.Tab.Ref.UCurrencies" Enabled="False" Field="vDefPos.RefDoc" HasCaption="False" LookupField="Currency.Code" Width="15"/>
+              </Component>
+              <Component Name="edSumBase" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@SubjectPayable:SumBaseCurrency= в опер. валюте" Enabled="False" Field="vDefPos.RefDoc" FieldFormat=",0.00;;-" HasCaption="True" LookupField="SumBase" OnOutputEx="edSumBase_OnOutputEx" Width="30"/>
+            </Component>
+            <Component Name="edDocAccrualOfDebt" Class="Com.Ctrl.IEdit" Caption="@SettlementOfDebt:DocAccrualOfDebt1=Документ обязат-ва" CaptionWidth="45" Enabled="False" Field="vDefPos.RefDoc" HasCaption="True" LookupField="DocAccrualOfDebt.Name" Multiline="True" Width="35" Wrap="True"/>
+            <Component Name="edSourceDoc" Class="Com.Ctrl.IEdit" Caption="@PaymentOfDebt:SourceDoc=Платежный документ" CaptionWidth="45" Enabled="False" Field="vDefPos.RefDoc" HasCaption="True" LookupField="SourceDoc" Multiline="True" Width="40" Wrap="True"/>
+            <Component Name="edBaseDoc" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:BaseDoc=Источник" CaptionWidth="45" Enabled="False" Field="vDefPos.RefDoc" HasCaption="True" Multiline="True" OnOutputEx="edBaseDoc_OnOutputEx" Width="40" Wrap="True"/>
+            <Component Name="grSumDeb" Class="Com.Ctrl.IColumnsGroup" Caption="Задолженность 1" HasCaption="True">
+              <Component Name="grSumDoc1" Class="Com.Ctrl.IColumnsGroup" Caption="@SubjectPayable:SumDocCurrency=в вал.документа" HasCaption="True">
+                <Component Name="edSumDeb" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="-" Enabled="False" Field="vDefPos.RefDoc" FieldFormat=",0.00;;-" HasCaption="False" LookupField="SumDeb" OnOutputEx="edSumDeb_OnOutputEx" Width="30"/>
+                <Component Name="edCurrencyDeb" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="-" CardFileClass="Biz.Tab.Ref.UCurrencies" Enabled="False" Field="vDefPos.RefDoc" HasCaption="False" LookupField="CurrencyDeb.Code" Width="15"/>
+              </Component>
+              <Component Name="edSumBaseDeb" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@SubjectPayable:SumBaseCurrency= в опер. валюте" Enabled="False" Field="vDefPos.RefDoc" FieldFormat=",0.00;;-" HasCaption="True" LookupField="SumBaseDeb" OnOutputEx="edSumBaseDeb_OnOutputEx" Width="30"/>
+            </Component>
+            <Component Name="grSumCre" Class="Com.Ctrl.IColumnsGroup" Caption="Задолженность 2" HasCaption="True">
+              <Component Name="grSumDoc2" Class="Com.Ctrl.IColumnsGroup" Caption="@SubjectPayable:SumDocCurrency=в вал.документа" HasCaption="True">
+                <Component Name="edSumCre" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="-" Enabled="False" Field="vDefPos.RefDoc" FieldFormat=",0.00;;-" HasCaption="False" LookupField="SumCre" OnOutputEx="edSumCre_OnOutputEx" Width="30"/>
+                <Component Name="edCurrencyCre" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="-" CardFileClass="Biz.Tab.Ref.UCurrencies" Enabled="False" Field="vDefPos.RefDoc" HasCaption="False" LookupField="CurrencyCre.Code" Width="15"/>
+              </Component>
+              <Component Name="edSumBaseCre" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@SubjectPayable:SumBaseCurrency= в опер. валюте" Enabled="False" Field="vDefPos.RefDoc" FieldFormat=",0.00;;-" HasCaption="True" LookupField="SumBaseCre" OnOutputEx="edSumBaseCre_OnOutputEx" Width="30"/>
+            </Component>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

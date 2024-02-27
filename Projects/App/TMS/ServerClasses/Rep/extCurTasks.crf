@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Rep.PlanRep.CurTasks">
+  <Inherited BegSaldoFormat="sfNone" ShowBeyondLimits="False" ShowDebCreRow="False" ShowSumKindRow="False" TurnFormat="sfNone">
+    <Inherited Name="Indicators">
+      <Component Name="Indicator1" Class="Com.Rep.IIndCustom" Caption="Статус1" Formula="if(RowSplit(5).Value = nil, 0, if(RowSplit(6).Value &lt;> nil, RowSplit(6).Value - RowSplit(5).Value,  if(Today - Rowsplit(5).Value > 0, 1, 0))) " ShowUnit="False" ValueType="VarNumeric" Visible="False"/>
+      <Component Name="IndicatorStatus" Class="Com.Rep.IIndCustom" Alignment="CenterAlign" Caption="Статус" ColorEqual="6579455" ColorFormula="'Отклонение'" ColorLess="16495775" ColorMode="cmRows" ColorMore="7600505" Formula="If(Пок('1') > 0, 'Отклонение', (If(Пок('1')=0,'План', 'Опережение')))" ShowUnit="False" ValueType="VarString"/>
+    </Inherited>
+    <Inherited Name="Grouping">
+      <Inherited Name="SplitByRows">
+        <Component Name="TaskSplitParam" Class="Com.Rep.ISplitByParam" After="#0" ShowTotals="False" SortOrder="-Task.Prio.PriorityValue,-Task.#UpdateDate" SplitParam="Task"/>
+        <Component Name="SplitByParam1" Class="Com.Rep.ISplitByParam" After="SplitParam64002D6B" SplitParam="Task.FinDate"/>
+        <Component Name="SplitByDoc" Class="Com.Rep.ISplitByDoc" After="SplitParam865DD7AE"/>
+      </Inherited>
+      <Inherited Name="ContentByRows">
+        <Inherited Name="SplitContentStatus" AfterIndicators="False"/>
+        <Inherited Name="CompletionSplitContent" Alignment="CenterAlign"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

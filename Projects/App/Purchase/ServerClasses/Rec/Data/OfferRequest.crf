@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Purchase.Rec.Data.BaseDocRec">
+  <Inherited>
+    <Component Name="MethodSelectionSupplier" Class="Com.Fld.IField" FieldName="MethodSelectionSupplier" OnChange="MethodSelectionSupplier_OnChange"/>
+    <Component Name="PosSupplierOffer" Class="Com.ISubtable" StructClass="Purchase.Rec.Data.OfferRequest_PosSupplierOffer" SubtableName="PosSupplierOffer"/>
+    <Component Name="IsClosedPurchase" Class="Com.Fld.IField" FieldName="IsClosedPurchase"/>
+    <Component Name="IsElectronicForm" Class="Com.Fld.IField" FieldName="IsElectronicForm"/>
+    <Component Name="IsComplianceFedLaw" Class="Com.Fld.IField" FieldName="IsComplianceFedLaw"/>
+    <Component Name="Заказчик" Class="Com.Fld.IField" Caption="Заказчик" FieldName="Initiator"/>
+    <Component Name="Организатор" Class="Com.Fld.IField" Caption="Организатор закупки" FieldName="Manager"/>
+    <Component Name="СостояниеЗП" Class="Com.Fld.IField" FieldName="СостояниеЗП"/>
+    <Component Name="ContractSubject" Class="Com.Fld.IField" FieldName="ContractSubject"/>
+    <Component Name="MainPos" Class="Com.ISubtable" StructClass="Purchase.Rec.Data.OfferRequest_MainPos" SubtableName="MainPos"/>
+    <Component Name="НачПодготовки" Class="Com.Fld.IField" FieldName="НачПодготовки" OnChange="НачПодготовки_OnChange"/>
+    <Component Name="НачПодачи" Class="Com.Fld.IField" FieldName="НачПодачи" OnChange="НачПодачи_OnChange" OnVerify="НачПодачи_OnVerify"/>
+    <Component Name="ОкончПодачи" Class="Com.Fld.IField" FieldName="ОкончПодачи" OnVerify="ОкончПодачи_OnVerify"/>
+    <Component Name="EndPurchase" Class="Com.Fld.IField" FieldName="EndPurchase" OnVerify="EndPurchaseOnVerify"/>
+    <Component Name="Conditions" Class="Com.ISubtable" StructClass="Purchase.Rec.Data.OfferRequest_Conditions" SubtableName="Conditions"/>
+    <Component Name="Participants" Class="Com.ISubtable" StructClass="Purchase.Rec.Data.OfferRequest_Participants" SubtableName="Participants"/>
+    <Component Name="termsDelivery" Class="Com.Fld.IField" FieldName="termsDelivery"/>
+    <Component Name="placeDelivery" Class="Com.Fld.IField" FieldName="placeDelivery"/>
+    <Component Name="paymentConditions" Class="Com.Fld.IField" FieldName="paymentConditions"/>
+    <Component Name="SourceFunding" Class="Com.Fld.IField" FieldName="SourceFunding"/>
+    <Component Name="Path" Class="Com.Fld.IField" FieldName="Path"/>
+    <Component Name="НомерЗаявкиЭТП" Class="Com.Fld.IField" FieldName="НомерЗаявкиЭТП"/>
+    <Component Name="ElectronicPlatform" Class="Com.Fld.IField" FieldName="ElectronicPlatform"/>
+    <Component Name="PositionsLinksTable" Class="Com.ISubtableView" Order="IdPos" ParentSubtable="PositionsLinks"/>
+    <Component Name="PositionsLinks" Class="Com.ISubtable" StructClass="Purchase.Rec.Data.OfferRequest_PositionsLinks" SubtableName="PositionsLinks"/>
+    <Component Name="HistoryChangesHead" Class="Com.ISubtable" StructClass="Purchase.Rec.Data.OfferRequest_HistoryChangesHead" SubtableName="HistoryChangesHead"/>
+  </Inherited>
+</Resource>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="HRBase.Rec.Data.EmployeePlace">
+  <Inherited>
+    <Component Name="ПостВычеты" Class="Com.ISubtable" After="#0" StructClass="УправлениеПерсоналом.Rec.Данные.УсловияТрудаСотрудника_ПостВычеты" SubtableName="ПостВычеты"/>
+    <Component Name="ПостУдержания" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Данные.УсловияТрудаСотрудника_ПостУдержания" SubtableName="ПостУдержания"/>
+    <Component Name="ОтпускаОстатки" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Сервис.ОтпускОстатки"/>
+    <Component Name="ОтпускаНорма" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Данные.УсловияТрудаСотрудника_ОтпускаНорма" SubtableFilter="ТипЭлемента = 23" SubtableName="Позиции"/>
+    <Component Name="ОтпускаКорр" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Данные.УсловияТрудаСотрудника_ОтпускаКорр" SubtableFilter="ТипЭлемента = 24" SubtableName="Позиции"/>
+    <Component Name="ВидЗанятости" Class="Com.Fld.IField" FieldName="ВидЗанятости"/>
+    <Component Name="ЛицевойСчет" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Данные.УсловияТрудаСотрудника_ЛицевойСчет" SubtableFilter="ТипЭлемента = 27" SubtableName="Позиции"/>
+    <Component Name="ПостНачисленияНаДату" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Сервис.ПостоянныеНачисления"/>
+    <Component Name="ПостУдержанияНаДату" Class="Com.ISubtable" Excluded="True" StructClass="УправлениеПерсоналом.Rec.Сервис.ПостоянныеУдержания"/>
+    <Component Name="ПостВычетыНаДату" Class="Com.ISubtable" Excluded="True" StructClass="УправлениеПерсоналом.Rec.Сервис.ПостоянныеВычеты"/>
+    <Component Name="ИсточникиНазначенияНаДату" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Сервис.ИсточникиНазначения"/>
+    <Component Name="ТрудДоговор" Class="Com.Fld.IField" FieldName="ТрудДоговор"/>
+    <Component Name="УТС_История" Class="Com.ISubtable" StructClass="УправлениеПерсоналом.Rec.Данные.УсловияТрудаСотрудника_История"/>
+    <Component Name="Разряд" Class="Com.Fld.IField" FieldName="Разряд"/>
+    <Component Name="КарточкаФЛ" Class="Com.Fld.IVar" OnCalc="КарточкаФЛ_OnCalc" RecordClass="Biz.Rec.Data.PersonalData" ValueType="VarObject"/>
+    <Component Name="СтрахСтажЛет" Class="Com.Fld.IField" FieldName="СтрахСтажЛет"/>
+    <Component Name="СтрахСтажМес" Class="Com.Fld.IField" FieldName="СтрахСтажМес"/>
+    <Component Name="СтрахСтажДни" Class="Com.Fld.IField" FieldName="СтрахСтажДни"/>
+    <Component Name="ДатаСП" Class="Com.Fld.IField" FieldName="ДатаСП"/>
+    <Component Name="ПоследнееНазначение" Class="Com.Fld.IVar" Excluded="True" Caption="@УсловияТрудаСотрудника:ТекущиеНазначения=Назначения сотрудника" OnCalc="ПоследнееНазначение_OnCalc" RecordClass="УправлениеПерсоналом.Rec.Данные.Назначения" ValueType="VarObject"/>
+    <Component Name="ДатаНачалаЭТК" Class="Com.Fld.IField" FieldName="ДатаНачалаЭТК"/>
+  </Inherited>
+</Resource>

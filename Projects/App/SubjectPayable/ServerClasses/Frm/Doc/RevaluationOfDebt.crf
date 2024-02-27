@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Frm.BasObject">
+  <Inherited HelpContext="SubjectPayable.Расчеты с субъектами.Документы.Документы.Переоценка задолженности">
+    <Inherited Name="EdtRec" Class="SubjectPayable.Rec.Doc.RevaluationOfDebt" IsLibrary="1"/>
+    <Component Name="Position" Class="SubjectPayable.Rec.Doc.RevaluationOfDebt_Positions" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="TableMenu" After="Position"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False">
+          <Component Name="btAutoReFill" Class="Com.Ctrl.IButton" Caption="Заполнить документ" HasCaption="True" OnClick="btAutoReFill_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="DateNumberGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250">
+          <Component Name="edNumberDoc" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Number=Номер" Field="EdtRec.NumberDoc" FixSize="True" HasCaption="True" Hint="@SubjectPayable:Number.Hint=Системный номер документа" Required="True" Width="40" Wrap="False"/>
+          <Component Name="edDateDoc" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:EventTime=от" CaptionWidth="7" Field="EdtRec.DateDoc" FixSize="True" FormatOfDate="DateOnly" HasCaption="True" Hint="@SubjectPayable:DateDoc.Hint=Дата документа. Дата ввода данных в систему" Required="True" Width="40"/>
+          <Component Name="DNStatic3" Class="Com.Ctrl.IStatic" Width="50"/>
+          <Component Name="DNStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+          <Component Name="chAccounted" Class="Com.Ctrl.ICheckBox" Excluded="True" Field="EdtRec.Accounted" FixSize="True" HasCaption="True" Hint="В установленном виде означает, что документ принят к учету и по нему сформированы оперативные проводки" OnChange="chAccounted_OnChange" OnVerify="chAccounted_OnVerify" Width="25"/>
+          <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Locked" FixSize="True" Hint="В установленном виде означает, что документ закрыт на редактирование" Width="25"/>
+        </Component>
+        <Component Name="CompanyGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250">
+          <Component Name="edCompany" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="EdtRec.Company" HasCaption="True" Hint="@SubjectPayable:Company.Hint=Наименование Нашего предприятия" LookupField="Name" OnChange="edCompany_OnChange" ShortList="True" Wrap="False"/>
+          <Component Name="jbCompany" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Company" JumpForm="Bas.Frm.Data.Entity"/>
+          <Component Name="Closed" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Closed" FixSize="True" Width="25"/>
+        </Component>
+        <Component Name="NameGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250">
+          <Component Name="edName" Class="Com.Ctrl.IEdit" Field="EdtRec.Name" HasCaption="True" Wrap="True"/>
+          <Component Name="NameGroupStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+          <Component Name="btAccounted" Class="Com.Ctrl.IButton" Caption="@SubjectPayable:btAccounted=Проводить" FixSize="True" HasCaption="True" Hint="@SubjectPayable:btAccounted.Hint=Документ будет принят к учету, сформированы оперативные проводки" OnClick="btAccounted_OnClick" Width="25"/>
+          <Component Name="btNoAccounted" Class="Com.Ctrl.IButton" Caption="@SubjectPayable:btNoAccounted=Отменить" FixSize="True" HasCaption="True" Hint="@SubjectPayable:btNoAccounted.Hint=Документ будет отменен, сформированные оперативные проводки удалены" OnClick="btNoAccounted_OnClick" Width="25"/>
+        </Component>
+        <Component Name="OtherGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250">
+          <Component Name="edBaseDoc" Class="Com.Ctrl.IEdit" Caption="Документ" Enabled="False" Field="EdtRec.BaseDoc" HasCaption="True" Hint="Документ, по которому сформирована переоценка" LookupField="Name" OnOutputEx="edBaseDoc_OnOutputEx"/>
+          <Component Name="jbBaseDoc" Class="Com.Ctrl.IJumpButton" Field="EdtRec.BaseDoc" OnClick="jbBaseDoc_OnClick"/>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+        </Component>
+        <Component Name="grMain" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250">
+          <Component Name="edAccDate" Class="Com.Ctrl.IEdit" Caption="@RevaluationOfDebt:AccDate=Дата переоценки" Field="EdtRec.AccDate" FormatOfDate="DateOnly" HasCaption="True" Hint="@RevaluationOfDebt:AccDate.Hint=Указывается дата, по состоянию на которую будет проводиться переоценка." MaxWidth="40" Required="True"/>
+          <Component Name="edCurrency" Class="Com.Ctrl.IEdit" Caption="@RevaluationOfDebt:Currency=Валюта документа" CaptionWidth="40" CardFileClass="Biz.Tab.Ref.UCurrencies" Field="EdtRec.Currency" HasCaption="True" Hint="@RevaluationOfDebt:Currency.Hint=Указывается валюта задолженностей, по которой будет проводиться переоценка." LookupField="Code" MaxWidth="25" OnVerify="edCurrency_OnVerify" Required="True" ShortList="True"/>
+          <Component Name="jbCurrency" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Currency" JumpForm="Biz.Frm.Ref.UnitOrCurrency"/>
+          <Component Name="grExchRate" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250">
+            <Component Name="edExchRate" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:ExchRate1=Курс валюты" CaptionWidth="30" Field="EdtRec.ExchRate" FieldFormat=",0.0000;;-" HasCaption="True" Hint="@RevaluationOfDebt:ExchRate.Hint=Курс валюты на дату проведения переоценки" MaxWidth="40" OnDrawEx="edExchRate_OnDrawEx" Required="True"/>
+            <Component Name="btExchRate" Class="Com.Ctrl.IButton" FixSize="True" Hint="@SubjectPayable:ExchRateUpd=Обновить курс валюты" ImageName="Com.Refresh" OnClick="btExchRate_OnClick" Width="7"/>
+          </Component>
+          <Component Name="SumDocStatic" Class="Com.Ctrl.IStatic" Excluded="True" Width="50"/>
+          <Component Name="SumStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+          <Component Name="btAutoCalc" Class="Com.Ctrl.IButton" Caption="Авторасчет" FixSize="True" HasCaption="True" OnClick="btAutoCalc_OnClick" Width="25"/>
+          <Component Name="stAutoCalc" Class="Com.Ctrl.IStatic" FixSize="True" Width="25"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="@SubjectPayable.Frm:MainTab=Документ" HasCaption="True">
+          <Component Name="Frame1" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="tblPositions" Class="Com.Ctrl.ITable" CanDelete="True" CanInsert="True" CanMove="True" Freezed="True" Sortable="True" Subtable="EdtRec.Positions">
+              <Component Name="edAccrualOfDebt" Class="Com.Ctrl.IEditEx" CardFileClass="SubjectPayable.Tab.Doc.AccrualOfDebt" Field="Position.AccrualOfDebt" HasCaption="True" Hint="@RevaluationOfDebt:AccrualOfDebt.Hint=Указывается задолженность, по которой производится переоценка." LookupField="Name" Multiline="True" OnChange="edAccrualOfDebt_OnChange" OnGetLookupFilter="edAccrualOfDebt_OnGetLookupFilter" Width="65" Wrap="True">
+                <Component Name="jbAccrualOfDebt" Class="Com.Ctrl.IJumpButton" Field="Position.AccrualOfDebt" JumpForm="SubjectPayable.Frm.Doc.AccrualOfDebt"/>
+              </Component>
+              <Component Name="edContractTax" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:ContractTax=Договор/Налог" Enabled="False" Field="Position.AccrualOfDebt" HasCaption="True" Hint="@SubjectPayable:ContractTax=Договор/Налог" Multiline="True" OnOutputEx="edContractTax_OnOutputEx" Width="40" Wrap="True"/>
+              <Component Name="edContraparty" Class="Com.Ctrl.IEdit" Caption="@SubjectPayable:Contraparty=Контрагент" CardFileClass="Bas.Tab.Data.Contraparties" Enabled="False" Field="Position.AccrualOfDebt" HasCaption="True" Hint="@RevaluationOfDebt:Contraparty.Hint=Наименование контрагента, являющегося стороной по задолженности, по которой производится переоценка" LookupField="Contraparty.Name" Width="50"/>
+              <Component Name="edSumDebt" Class="Com.Ctrl.IEdit" Caption="@RevaluationOfDebt:SumDebt=Сумма для переоценки" Field="Position.SumDebt" FieldFormat=",0.00;;-" HasCaption="True" Hint="@RevaluationOfDebt:SumDebt.Hint=Указывается сумма задолженности, подлежащая переоценке" Width="30"/>
+              <Component Name="edSumCurrency" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@RevaluationOfDebt:SumCurrency=Валюта" Enabled="False" Field="Position.AccrualOfDebt" HasCaption="True" Hint="@RevaluationOfDebt:SumCurrency.Hint=Валюта суммы для переоценки" LookupField="Currency.Code" Width="16"/>
+              <Component Name="edExchRatePos" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@RevaluationOfDebt:ExchRatePos=Курс на дату пересчета" Enabled="False" Field="EdtRec.ExchRate" FieldFormat=",0.0000;;-" HasCaption="True" Hint="@RevaluationOfDebt:ExchRatePos.Hint=Указывается курс валюты, установленный на дату пересчета" MaxWidth="40" OnOutputEx="edExchRatePos_OnOutputEx" Required="True" Width="22"/>
+              <Component Name="edExchRatePrev" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@RevaluationOfDebt:ExchRatePrev=Курс на дату предыдущего пересчета" Field="Position.ExchRatePrev" FieldFormat=",0.0000;;-" HasCaption="True" Hint="@RevaluationOfDebt:ExchRatePrev=Курс на дату предыдущего пересчета" Width="22"/>
+              <Component Name="edSumReVal" Class="Com.Ctrl.IEdit" Caption="@RevaluationOfDebt:SumReVal=Сумма переоценки" Field="Position.SumReVal" FieldFormat=",0.00;;-" HasCaption="True" Hint="@RevaluationOfDebt:SumReVal.Hint=Сумма переоценки в операционной валюте" Width="30"/>
+            </Component>
+            <Component Name="grComment1" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="250">
+              <Component Name="CommentStatic1" Class="Com.Ctrl.IStatic" FixSize="True" Width="32"/>
+            </Component>
+          </Component>
+          <Component Name="bxMain" Class="Com.Ctrl.IBox" Excluded="True" Caption="@SubjectPayable:MainBox=Основное" HasCaption="True" MaxSize="250"/>
+          <Component Name="bxCreateUpdate" Class="Com.Ctrl.IBox" Caption="@SubjectPayable:CreateUpdate=Создал, изменил" Collapsed="True" HasCaption="True">
+            <Component Name="grCreate" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250">
+              <Component Name="edCreateUser" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.CreateUser" HasCaption="True" Width="50" Wrap="False"/>
+              <Component Name="edCreateDate" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.CreateDate" FormatOfDate="DateAndTime" HasCaption="True" Width="50" Wrap="False"/>
+              <Component Name="CreateStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+            <Component Name="grUpdate" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250">
+              <Component Name="edUpdateUser" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.UpdateUser" HasCaption="True" Width="50" Wrap="False"/>
+              <Component Name="edUpdateDate" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.UpdateDate" FormatOfDate="DateAndTime" HasCaption="True" Width="50" Wrap="False"/>
+              <Component Name="UpdateStatic" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="RepMoveTab" Class="Com.Ctrl.IFrame" Caption="@Проводки" HasCaption="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

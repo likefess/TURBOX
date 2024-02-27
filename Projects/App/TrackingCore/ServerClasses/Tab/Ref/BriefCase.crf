@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Tab.CodeName">
+  <Inherited>
+    <Inherited Name="Current" Class="TrackingCore.Rec.Ref.BriefCase" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="NavigatorFrame">
+        <Inherited Name="NavigatorGroup">
+          <Inherited Name="ButtonTree" Enabled="False" Visible="False"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Visible="False"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Name" Caption="Название"/>
+          <Inherited Name="Code" Visible="False"/>
+          <Component Name="Projects" Class="Com.Ctrl.IListEdit" Field="Current.ProjectsArr" LookupField="Name" ValueType="VarString"/>
+          <Component Name="BriefCases" Class="Com.Ctrl.IListEdit" Field="Current.BriefCasesArr" LookupField="Name" ValueType="VarString"/>
+          <Component Name="Responsible" Class="Com.Ctrl.IEdit" Caption="Ответственный" Field="Current.Responsible"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

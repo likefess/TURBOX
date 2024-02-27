@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Frm.Документы.Имущество.ОС.ИмуществоБазовыйДокументОС">
+  <Inherited HelpContext="Имущество.Имущество.Ведомости.Амортизация.Ведомость амортизации ОС">
+    <Inherited Name="EdtRec" Class="Имущество.Rec.Документы.Имущество.ОС.ВедомостьАмортизацииОС" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="перИзменениеСтоимостиОС" Class="Com.Fld.IVar" OnCalc="перИзменениеСтоимостиОС_OnCalc" ValueType="VarLogical"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Component Name="кнЗаполнить" Class="Com.Ctrl.IButton" After="#0" Caption="@Имущество:Заполнить=Заполнить" Hint="@Имущество:ЗаполнитьВедомостьАмортизацииОС=Заполнить ведомость амортизации ОС (заполнить позиции по ограничениям в шапке)" ImageName="Com.play" OnClick="кнЗаполнить_OnClick" Visible="True"/>
+          <Inherited Name="кнОбновитьЗначения" After="кнЗаполнить"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Шапка_Фрейм">
+          <Inherited Name="Шапка_Гр">
+            <Inherited Name="Шапка_Номер_Дата">
+              <Inherited Name="Номер" Hint="Номер документа по выбытию ОС"/>
+              <Inherited Name="ДатаНачала" Enabled="False" Hint="Дата ведомость амортизации ОС" OnVerify="ДатаНачала_OnVerify"/>
+              <Inherited Name="btnStatic7" Excluded="True"/>
+              <Component Name="СозданАвтоматически" Class="Com.Ctrl.ICheckBox" After="btnStatic7" Enabled="False" Field="EdtRec.СозданАвтоматически"/>
+              <Inherited Name="btnStatic1" After="СозданАвтоматически"/>
+            </Inherited>
+            <Component Name="ПериодРасчета_Гр" Class="Com.Ctrl.IGroup" After="Шапка_ПервичныйДокумент">
+              <Component Name="ПериодРасчета" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Ref.Period" Field="EdtRec.ПериодРасчета" HasCaption="True" Hint="Расчетный период" OnChange="ПериодРасчета_OnChange" OnGetLookupFilter="ПериодРасчета_OnGetLookupFilter" OnOpenCardForm="ПериодРасчета_OnOpenCardForm" OnVerify="ПериодРасчета_OnVerify" Required="True"/>
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" FixSize="True" Width="32"/>
+            </Component>
+            <Inherited Name="Корректировка_Гр" After="ПериодРасчета_Гр">
+              <Inherited Name="КорректируемыйДокумент" CardFileClass="Имущество.Tab.Документы.Имущество.ОС.ВедомостьАмортизацииОС" Hint="Выбор корректируемого документа"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="Имя_Код_Бокс" Excluded="True"/>
+          <Inherited Name="ОбщиеДанные" Caption="Ограничения">
+            <BuiltIn Name="Title" Hint="Ограничения для сервиса &quot;Заполнить ведомость амортизации ОС&quot;"/>
+            <Inherited Name="Подр_Гр">
+              <Inherited Name="Подразделение" Required="False"/>
+            </Inherited>
+            <Inherited Name="МОЛ_Гр">
+              <Inherited Name="ТрудовыеОтношения_Выбор" Required="False"/>
+              <Inherited Name="МОЛ" Visible="False"/>
+            </Inherited>
+            <Inherited Name="Стоимость_Гр" Excluded="True"/>
+            <Component Name="ГрупповоеОС_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ГрупповоеОС" Class="Com.Ctrl.IEdit" CardFileClass="ИмуществоБазовый.Tab.Справочники.ГрупповыеОС" Field="EdtRec.ГрупповоеОС" FixSize="True" HasCaption="True" Hint="Групповое ОС, в состав которого входят отбираемые ОС" LookupField="КодИмущества" OnGetLookupFilter="ГрОС_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуГрОС" Width="40"/>
+              <Component Name="ГрупповоеОС_Имя" Class="Com.Ctrl.IEdit" CardFileClass="ИмуществоБазовый.Tab.Справочники.ГрупповыеОС" Enabled="False" Field="EdtRec.ГрупповоеОС" Hint="Наименование группового ОС" LookupField="Name"/>
+            </Component>
+            <Component Name="ОС_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ОС_ИнвентарныйНомер" Class="Com.Ctrl.IEdit" Caption="ОС" CellFormat="ReferenceFormat" Field="EdtRec.ОС" FixSize="True" LookupField="КодИмущества" OnGetLookupFilter="ОС_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуОС" Width="40"/>
+              <Component Name="ОС" Class="Com.Ctrl.IEdit" Caption="Наименование ОС" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.ОС" HasCaption="False" Hint="Краткое наименование ОС" LookupField="Name" OnGetLookupFilter="ОС_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуОС" Width="70"/>
+            </Component>
+          </Inherited>
+        </Inherited>
+        <Component Name="фрОперУчет" Class="Com.Ctrl.IFrame" Caption="@Frm:ОперУчет=Опер.учет" Hint="@Frm:перативныйУчет=Оперативный учет">
+          <Component Name="Позиции_Box" Class="Com.Ctrl.IBox" Caption="Амортизация ОС">
+            <Component Name="СтоимостьВывод_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="СтоимостьВывод" Class="Com.Ctrl.IEdit" Caption="Сумма по ведомости" CaptionWidth="50" Enabled="False" Field="EdtRec.Стоимость" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Сумма по ведомости" MaxWidth="40" MinWidth="30" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify"/>
+              <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Visible="True" Width="10"/>
+              <Component Name="перИзменениеСтоимостиОС_Флаг" Class="Com.Ctrl.ICheckBox" Caption="Изменение стоимости  ОС" Field="перИзменениеСтоимостиОС" FixSize="True" HasCaption="True" Hint="Показывать изменение стоимости  ОС (модернизация, дооценка/уценка, обесценение)" OnChange="перИзменениеСтоимостиОС_Флаг_OnChange" Width="54"/>
+            </Component>
+            <Component Name="ПозицииОС_Табл" Class="Com.Ctrl.ITable" Freezed="True" Sortable="True" Subtable="EdtRec.ПозицииОС">
+              <Component Name="ПозицииОС" Class="Имущество.Rec.Документы.Имущество.ОС.ВедомостьАмортизацииОС_Позиции" IsLibrary="1"/>
+              <Component Name="Имя_Табл" Class="Com.Ctrl.IEdit" Caption="Наименование ОС" CardFileClass="ИмуществоБазовый.Tab.Справочники.ОснСредства" CellFormat="ReferenceFormat" Field="ПозицииОС.ОС" Hint="Краткое наименование ОС" LookupField="Name" Multiline="True" OnChange="ОС_Табл_OnChange" OnGetLookupFilter="ОС_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуОС" OnVerify="ОС_Табл_OnVerify" Required="True" Width="70" Wrap="True"/>
+              <Component Name="ИнвентарныйНомер_Табл" Class="Com.Ctrl.IEdit" Caption="Инвентарный номер" CardFileClass="ИмуществоБазовый.Tab.Справочники.ОснСредства" CellFormat="ReferenceFormat" Field="ПозицииОС.ОС" Hint="Инвентарный номер ОС" LookupField="КодИмущества" OnChange="ОС_Табл_OnChange" OnGetLookupFilter="ОС_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуОС" OnVerify="ОС_Табл_OnVerify" Required="True" Width="30"/>
+              <Component Name="ОС_JumpButton" Class="Com.Ctrl.IJumpButton" Field="ПозицииОС.ОС" Hint="Возможность перехода на карточку ОС, просмотра и редактирования доступных полей" JumpForm="ИмуществоБазовый.Frm.Справочники.ОснСредства"/>
+              <Component Name="кн_ОбновитьДанныеПоПозицииОС" Class="Com.Ctrl.IButton" FixSize="True" Hint="Обновить данные по текущей позиции ОС" ImageName="Control.Refresh" OnClick="кн_ОбновитьДанныеПоПозицииОС_OnClick" Width="6"/>
+              <Component Name="Подразделение_Табл" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" Enabled="False" Field="ПозицииОС.Подразделение" HasCaption="True" Multiline="True" Width="40" Wrap="True"/>
+              <Component Name="МОЛ_Табл" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" Enabled="False" Field="ПозицииОС.МОЛ" HasCaption="True" Multiline="True" Width="40" Wrap="True"/>
+              <Component Name="ПервоначальнаяСтоимость_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ПозицииОС.ПервоначальнаяСтоимость" FieldFormat=",##0.00;;-" HasCaption="True" Required="True" Width="32"/>
+              <Component Name="СтоимостьМодернизации_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ПозицииОС.СтоимостьМодернизации" FieldFormat=",##0.00;;-" HasCaption="True" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify" Width="30"/>
+              <Component Name="СтоимостьДооценкиУценки_Табл" Class="Com.Ctrl.IEdit" Caption="@Имущество:СтоимостьДооценкиУценки=Стоимость дооценки/ уценки" Enabled="False" Field="ПозицииОС.СтоимостьДооценкиУценки" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+              <Component Name="СуммаОбесценения_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ПозицииОС.СуммаОбесценения" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+              <Component Name="ТекущаяСтоимость_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ПозицииОС.ТекущаяСтоимость" FieldFormat=",##0.00;;-" HasCaption="True" Width="32"/>
+              <Component Name="СуммаАмортизации_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ПозицииОС.СуммаАмортизации" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Сумма амортизации, начисленная по данному объекту ОС на дату проведения амортизации" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify" Width="30"/>
+              <Component Name="БалансоваяСтоимость_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ПозицииОС.БалансоваяСтоимость" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+              <Component Name="ЛиквидационнаяСтоимость_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ПозицииОС.ЛиквидационнаяСтоимость" FieldFormat=",##0.00;;-" HasCaption="True" Width="33"/>
+              <Component Name="СтоимостьДляРасчетаАмортизации_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ПозицииОС.СтоимостьДляРасчетаАмортизации" FieldFormat=",##0.00;;-" HasCaption="True" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify" Width="30"/>
+              <Component Name="ОстатокСПИ_КП_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ПозицииОС.ОстатокСПИ_КП" HasCaption="True" OnChange="ОстатокСПИ_КП_ТаблOnChange" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify" Width="30"/>
+              <Component Name="КоэфАмортизации" Class="Com.Ctrl.IEdit" Caption="КА" Enabled="False" Field="ПозицииОС.КоэфАмортизации" FieldFormat="##0.##;;-" FixSize="True" Hint="Коэффициент амортизации (0 - не начисляется, 1 - за полный месяц, от 0 до 1 - пропорцтонально количеству дней амортизации)" Width="10"/>
+              <Component Name="СуммаАмортизацииТП_Табл" Class="Com.Ctrl.IEdit" Field="ПозицииОС.СуммаАмортизацииТП" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Сумма амортизации, начисленная по данному объекту ОС за текущий период (соответствующий дате проведения амортизации)" OnDrawEx="СуммаАмортизацииТП_Табл_OnDrawEx" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify" Width="30"/>
+              <Component Name="СуммаАмортизацииТПРассчитанная_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ПозицииОС.СуммаАмортизацииТПРассчитанная" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Сумма амортизации, начисленная расчетом по данному объекту ОС за текущий период (соответствующий дате проведения амортизации)" OnDrawEx="СуммаАмортизацииТПРассчитанная_Табл_OnDrawEx" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify" Visible="False" Width="30"/>
+              <Component Name="СуммаПереоценкиАмортизации_Табл" Class="Com.Ctrl.IEdit" Enabled="False" Field="ПозицииОС.СуммаПереоценкиАмортизации" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Сумма амортизации, начисленная по данному объекту ОС за текущий период (соответствующий дате проведения амортизации)" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify" Width="30"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IRoleCenter">
+  <Inherited Caption="@TrackingCore:RCTaskManagement_User=Трекинг пользователь" CaptionAlign="CenterAlign" FormIcon="TrackingCore.user-fill">
+    <Inherited Name="MainGroup" Columns="3" Orientation="Vertical">
+      <Component Name="TaskGroup" Class="Com.Cmd2.IGroup" Caption="@TrackingCore:TaskGroup=Задачи" Columns="2" Orientation="Vertical" Rows="2">
+        <Component Name="NewTask" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:NewTask=Создать задачу" FormClassName="TrackingCore.Frm.Data.Task" IconName="Com.AddItem"/>
+        <Component Name="TaskList" Class="Com.ComManaging.OpenIForm" Excluded="True" Caption="@TrackingCore:TaskList=Задачи" FormClassName="TrackingCore.Rep.TaskList" IconName="Com.Tasks"/>
+        <Component Name="TaskList1" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:TaskList=Задачи" FormClassName="TrackingCore.Rep.TaskList_LeftStaticFilters" IconName="TrackingCore.file-list-2-fill"/>
+        <Component Name="Kanbans" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:Kanbans=Доски" FormClassName="TrackingLib.Tab.Services.Kanban" IconName="InfoBoard.kanban" Visible="True"/>
+      </Component>
+      <Component Name="Productivity" Class="Com.Cmd2.IGroup" Caption="@TrackingCore:Productivity=Продуктивность" Columns="2" Orientation="Vertical" Rows="2">
+        <Component Name="StatusChart" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:StatusChart=Диаграмма статусов" FormClassName="TrackingCore.Frm.StatusChart" IconName="TrackingCore.pie-chart-2-fill"/>
+        <Component Name="BurnDownChart" Class="Com.ComManaging.OpenIForm" Caption="@TrackingCore:BurnDownChart=Диаграмма сгорания" FormClassName="Rep.BurnDownDiagram.BurnDownChart" IconName="TrackingCore.pie-chart-2-fill"/>
+      </Component>
+      <Component Name="Team" Class="Com.Cmd2.IGroup" Caption="@TrackingCore:Team=Команды" Columns="1" Rows="4"/>
+    </Inherited>
+  </Inherited>
+</Resource>

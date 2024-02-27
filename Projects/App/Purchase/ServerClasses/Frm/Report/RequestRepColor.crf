@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Purchase.Rec.Report.RequestRepColor" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="ColorLines" Class="Purchase.Rec.Report.RequestRepColor_ColorLines" IsLibrary="1"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="11">
+        <Inherited Name="ButtonOK" Hint="Сохранить"/>
+        <Inherited Name="ButtonServices" Visible="False"/>
+        <Inherited Name="ButtonPost" Visible="False"/>
+        <Inherited Name="ButtonCancel" Visible="False"/>
+        <Inherited Name="ButtonClone" Visible="False"/>
+        <Inherited Name="ButtonDelete" Visible="False"/>
+        <Inherited Name="ButtonRefresh" Visible="False"/>
+        <Inherited Name="ButtonHelp" Visible="False"/>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Component Name="tblColorLines" Class="Com.Ctrl.ITable" After="#0" Numbering="False" Subtable="EdtRec.ColorLines">
+          <Component Name="ed_StatusOfferRequest" Class="Com.Ctrl.IEdit" Caption="Состояние" CardFileClass="Purchase.Tab.Ref.StatusOfferRequest" Field="ColorLines.StatusOfferRequest" FixSize="True" HasCaption="True" LookupField="Name" Width="40"/>
+          <Component Name="gr_DaysCount" Class="Com.Ctrl.IColumnsGroup" Caption="Кол-во дней" HasCaption="True">
+            <Component Name="ed_FromDay" Class="Com.Ctrl.IEdit" Caption="с" Field="ColorLines.FromDay" FixSize="True" HasCaption="True" Width="30"/>
+            <Component Name="ed_ByDay" Class="Com.Ctrl.IEdit" Caption="по" Field="ColorLines.ByDay" FixSize="True" HasCaption="True" Width="30"/>
+          </Component>
+          <Component Name="ed_ColorRow" Class="Com.Ctrl.IColorEdit" Caption="Цвет" Field="ColorLines.ColorRow" FixSize="True" HasCaption="True" Width="30"/>
+        </Component>
+        <Inherited Name="MainTab" Excluded="True" Visible="False"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

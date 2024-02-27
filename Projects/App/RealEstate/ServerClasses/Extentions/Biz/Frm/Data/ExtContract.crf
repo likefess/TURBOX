@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Biz.Frm.Data.Contract">
+  <Inherited OnPost="Editor_OnPost">
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices">
+          <Component Name="ЗаменитьОрганизацию" Class="Com.Ctrl.IButton" After="#0" Caption="ЗаменитьОрганизацию" HasCaption="True" OnClick="ЗаменитьОрганизациюOnClick" Visible="False"/>
+          <Component Name="CreatePropReturnAct" Class="Com.Ctrl.IButton" After="UpdateClaimProcessButton" Caption="Создать акт возврата имущества" ImageName="RealEstate.plus" OnClick="CreatePropReturnAct_OnClick"/>
+          <Component Name="DeletePropReturnAct" Class="Com.Ctrl.IButton" Caption="Удалить акт возврата имущества" ImageName="RealEstate.minus" OnClick="DeletePropReturnAct_OnClick"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="ContractSubjectGroup">
+          <Inherited Name="ContractSubject" OnChange="ContractSubject_OnChange"/>
+        </Inherited>
+        <Inherited Name="CompanyEmployeeGroup">
+          <Inherited Name="Company" ShortList="False"/>
+        </Inherited>
+        <Component Name="GroupFF6" Class="Com.Ctrl.IGroup" After="GroupFF4" Adaptive="True" ByColumn="False" CaptionWidth="50" MaxWidth="300" MinWidth="150">
+          <Component Name="Group13" Class="Com.Ctrl.IGroup" MaxWidth="150">
+            <Component Name="InsType" Class="Com.Ctrl.IEdit" Caption="@Contract:InsType=Тип страховки" CellFormat="EnumFormat" Field="EdtRec.InsType" HasCaption="True"/>
+            <Component Name="ContractTypeBtnStatic1" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="7.5"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Component Name="ОбъектИмущества" Class="Com.Ctrl.IBox" After="#0" Caption="Объект имущества" HasCaption="True" Visible="False">
+            <Component Name="RealEstateObjectGr" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+              <Component Name="RealEstateObject" Class="Com.Ctrl.IEdit" Caption="Объект имущества" CaptionWidth="50" CardFileClass="RealEstateBase.Tab.Data.RealEstateObject" CellFormat="ReferenceFormat" Field="EdtRec.RealEstateObject" HasButton="True" HasCaption="True" LookupField="Name" OnChange="RealEstateObject_OnChange" OnOutput="RealEstateObject_OnOutput"/>
+              <Component Name="RealEstateObjectJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.RealEstateObject" FixSize="True" JumpForm="RealEstateBase.Frm.Data.RealEstateObject" Width="7.2"/>
+            </Component>
+            <Component Name="CopyrightHolderGr" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+              <Component Name="CopyrightHolder" Class="Com.Ctrl.IEdit" Caption="Правообладатель" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.CopyrightHolder" HasButton="True" HasCaption="True" Hint="@Правообладатель" LookupField="Name" Required="True"/>
+              <Component Name="CopyrightHolderJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.CopyrightHolder" FixSize="True" JumpForm="Bas.Frm.Data.Entity" Width="7.2"/>
+            </Component>
+            <Component Name="BalanserGr" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+              <Component Name="Balanser" Class="Com.Ctrl.IEdit" Caption="Балансодержатель" CardFileClass="Biz.Tab.Ref.CFR" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.Balanser" HasButton="True" HasCaption="True" Hint="@Balanser" LookupField="Name" Required="True"/>
+              <Component Name="BalanserJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Balanser" FixSize="True" JumpForm="Biz.Frm.Ref.CFR" Width="7.2"/>
+            </Component>
+            <Component Name="PropertyUserGr" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="150">
+              <Component Name="PropertyUser" Class="Com.Ctrl.IEdit" Caption="Пользователь" CardFileClass="Bas.Tab.Data.Entity" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.PropertyUser" HasButton="True" HasCaption="True" Hint="@Пользователь" LookupField="Name" Required="True"/>
+              <Component Name="PropertyUserJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.PropertyUser" FixSize="True" JumpForm="Bas.Frm.Data.Entity" Width="7.2"/>
+            </Component>
+          </Component>
+          <Component Name="ОбъектыИмуществаBox" Class="Com.Ctrl.IBox" Caption="@Объекты имущества" Visible="True">
+            <Component Name="ОбъектыИмуществаФрейм" Class="Com.Ctrl.IFrame">
+              <Component Name="Contract_REObjects_Table" Class="Com.Ctrl.ITable" Numbering="False" Subtable="EdtRec.Contract_REObjects">
+                <Component Name="Contract_REObjects" Class="RealEstate.Rec.Data.Contract_REObjects" IsLibrary="1"/>
+                <Component Name="RE_Object" Class="Com.Ctrl.IEdit" CardFileClass="RealEstateBase.Tab.Data.RealEstateObject" CellFormat="ReferenceFormat" Field="Contract_REObjects.RealEstateObject" HasButton="True" LookupField="Name" OnChange="RE_ObjectOnChange"/>
+                <Component Name="REJumpButton" Class="Com.Ctrl.IJumpButton" Field="Contract_REObjects.RealEstateObject" JumpForm="RealEstateBase.Frm.Data.RealEstateObject"/>
+                <Component Name="RE_Object_Area" Class="Com.Ctrl.IEdit" Caption="@Площадь ОИ (кв. м)" CardFileClass="RealEstateBase.Tab.Data.RealEstateObject" CellFormat="ReferenceFormat" Enabled="False" Field="Contract_REObjects.RealEstateObject" HasButton="False" HasCaption="True" LookupField="AreaObject"/>
+                <Component Name="AreaPart" Class="Com.Ctrl.IEdit" Field="Contract_REObjects.AreaPart"/>
+              </Component>
+            </Component>
+          </Component>
+          <Inherited Name="GeneralBox">
+            <Inherited Name="MainTabGroup">
+              <Component Name="InsuranceGroup" Class="Com.Ctrl.IGroup" After="DepartmentGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+                <Component Name="HasInsGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="HasInsSubGr" Class="Com.Ctrl.IGroup" Adaptive="True">
+                    <Component Name="SpecificationStatic2" Class="Com.Ctrl.IStatic" FixSize="True" Width="50"/>
+                    <Component Name="HasInsurance" Class="Com.Ctrl.ICheckBox" Caption="Подлежит страхованию" Field="EdtRec.HasInsurance" HasCaption="True"/>
+                    <Component Name="SpecificationBtnStatic2" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                  </Component>
+                </Component>
+                <Component Name="ResponseInsGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="150">
+                  <Component Name="ResponseInsSubGr" Class="Com.Ctrl.IGroup" Adaptive="True">
+                    <Component Name="ResponseInsurance" Class="Com.Ctrl.IEdit" Caption="Ответственный за страхование" CellFormat="EnumFormat" Field="EdtRec.ResponceInsurance" HasCaption="True"/>
+                    <Component Name="SpecificationBtnStatic3" Class="Com.Ctrl.IStatic" FixSize="True" Width="7.5"/>
+                  </Component>
+                </Component>
+              </Component>
+            </Inherited>
+          </Inherited>
+          <Inherited Name="ContractSumsBox">
+            <Inherited Name="ContractSumsFrameVert">
+              <Inherited Name="ContractSumsFrameHorz">
+                <Inherited Name="ContractSumsSubtableFrame">
+                  <Component Name="ContractSumsInsuranceSum" Class="Com.Ctrl.IEdit" Caption="@Contract:ContractSumsInsuranceSum=Страховая сумма" CellFormat="NumericFormat" Field="Contract_ContractSums.InsuranceSum" FieldFormat=",##0.00;;-" HasCaption="True" Width="30"/>
+                </Inherited>
+                <Inherited Name="ContractSumsTotalFrame">
+                  <Component Name="TotalContractSumsInsuranceSum" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" Field="Contract_ContractSums_Totals.InsuranceSumTotal" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="False" Width="30"/>
+                </Inherited>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="SpecificationsTab" Orientation="Horizontal">
+          <Component Name="ДопХарактеристики" Class="Com.Ctrl.IFrame" After="#0" AutoSize="True">
+            <Component Name="Groupall" Class="Com.Ctrl.IGroup">
+              <Component Name="Groupleft" Class="Com.Ctrl.IGroup" ByColumn="True">
+                <Component Name="Group2_RE" Class="Com.Ctrl.IGroup">
+                  <Component Name="Теплоснабжение" Class="Com.Ctrl.IEdit" Caption="Теплоснабжение" CaptionWidth="50" CellFormat="NumericFormat" Field="EdtRec.Теплоснабжение" FieldFormat=",##0.00;;-" HasCaption="True" ValueType="VarNumeric" Width="40"/>
+                  <Component Name="ЕдТеплоснабжение" Class="Com.Ctrl.IEdit" AutocompleteMode="acmOn" CardFileClass="Biz.Tab.Ref.UnitsOrCurrencies" CellFormat="ReferenceFormat" Field="EdtRec.ЕдТеплоснабжение" FixSize="True" HasButton="True" LookupField="code" ShortList="True" ValueType="VarObject" Width="20"/>
+                </Component>
+                <Component Name="Group3_RE" Class="Com.Ctrl.IGroup">
+                  <Component Name="Вода" Class="Com.Ctrl.IEdit" Caption="Вода" CaptionWidth="50" CellFormat="NumericFormat" Field="EdtRec.Вода" FieldFormat=",##0.00;;-" HasCaption="True" ValueType="VarNumeric" Width="40"/>
+                  <Component Name="ЕдВода" Class="Com.Ctrl.IEdit" AutocompleteMode="acmOn" CardFileClass="Biz.Tab.Ref.UnitsOrCurrencies" CellFormat="ReferenceFormat" Field="EdtRec.ЕдВода" FixSize="True" HasButton="True" LookupField="Code" ShortList="True" ValueType="VarObject" Width="20"/>
+                </Component>
+                <Component Name="Group4_RE" Class="Com.Ctrl.IGroup">
+                  <Component Name="Электроэнергия" Class="Com.Ctrl.IEdit" Caption="Электроэнергия" CaptionWidth="50" CellFormat="NumericFormat" Field="EdtRec.Электроэнергия" FieldFormat=",##0.00;;-" HasCaption="True" ValueType="VarNumeric" Width="40"/>
+                  <Component Name="ЕдЭлектроэнергия" Class="Com.Ctrl.IEdit" AutocompleteMode="acmOn" CardFileClass="Biz.Tab.Ref.UnitsOrCurrencies" CellFormat="ReferenceFormat" Field="EdtRec.ЕдЭлектроэнергия" FixSize="True" HasButton="True" LookupField="Code" ShortList="True" ValueType="VarObject" Width="20"/>
+                </Component>
+                <Component Name="Group5_RE" Class="Com.Ctrl.IGroup">
+                  <Component Name="ВывозТБО" Class="Com.Ctrl.IEdit" Caption="Вывоз ТБО" CaptionWidth="50" CellFormat="NumericFormat" Field="EdtRec.ВывозТБО" FieldFormat=",##0.00;;-" HasCaption="True" ValueType="VarNumeric" Width="40"/>
+                  <Component Name="ЕдВывозТБО" Class="Com.Ctrl.IEdit" AutocompleteMode="acmOn" CardFileClass="Biz.Tab.Ref.UnitsOrCurrencies" CellFormat="ReferenceFormat" Field="EdtRec.ЕдВывозТБО" FixSize="True" HasButton="True" LookupField="Code" ShortList="True" ValueType="VarObject" Width="20"/>
+                </Component>
+                <Component Name="Group6_RE" Class="Com.Ctrl.IGroup">
+                  <Component Name="Клининг" Class="Com.Ctrl.IEdit" Caption="Клининг" CaptionWidth="50" CellFormat="NumericFormat" Field="EdtRec.Клининг" FieldFormat=",##0.00;;-" HasCaption="True" ValueType="VarNumeric" Width="40"/>
+                  <Component Name="ЕдКлининг" Class="Com.Ctrl.IEdit" AutocompleteMode="acmOn" CardFileClass="Biz.Tab.Ref.UnitsOrCurrencies" CellFormat="ReferenceFormat" Field="EdtRec.ЕдКлининг" FixSize="True" HasButton="True" LookupField="Code" ShortList="True" ValueType="VarObject" Width="20"/>
+                </Component>
+              </Component>
+              <Component Name="Groupright" Class="Com.Ctrl.IGroup" ByColumn="True">
+                <Component Name="Group7" Class="Com.Ctrl.IGroup">
+                  <Component Name="Парковка" Class="Com.Ctrl.IEdit" Caption="Парковочные места" CaptionWidth="50" Field="EdtRec.Парковка" HasCaption="True" ValueType="VarNumeric" Width="40"/>
+                  <Component Name="ЕдПарковка" Class="Com.Ctrl.IEdit" AutocompleteMode="acmOn" CardFileClass="Biz.Tab.Ref.UnitsOrCurrencies" CellFormat="ReferenceFormat" Field="EdtRec.ЕдПарковка" FixSize="True" HasButton="True" LookupField="Code" ShortList="True" ValueType="VarObject" Width="20"/>
+                </Component>
+                <Component Name="Group8" Class="Com.Ctrl.IGroup">
+                  <Component Name="Эксплуатация" Class="Com.Ctrl.IEdit" Caption="Эксплуатационные расходы" CaptionWidth="50" CellFormat="NumericFormat" Field="EdtRec.Эксплуатация" FieldFormat=",##0.00;;-" HasCaption="True" ValueType="VarNumeric" Width="40"/>
+                  <Component Name="ЕдЭксплуатация" Class="Com.Ctrl.IEdit" AutocompleteMode="acmOn" CardFileClass="Biz.Tab.Ref.UnitsOrCurrencies" CellFormat="ReferenceFormat" Field="EdtRec.ЕдЭксплуатация" FixSize="True" HasButton="True" LookupField="Code" ShortList="True" ValueType="VarObject" Width="20"/>
+                </Component>
+                <Component Name="Group9" Class="Com.Ctrl.IGroup">
+                  <Component Name="Охрана" Class="Com.Ctrl.IEdit" Caption="Охрана" CaptionWidth="50" CellFormat="NumericFormat" Field="EdtRec.Охрана" FieldFormat=",##0.00;;-" HasCaption="True" ValueType="VarNumeric" Width="40"/>
+                  <Component Name="ЕдОхрана" Class="Com.Ctrl.IEdit" AutocompleteMode="acmOn" CardFileClass="Biz.Tab.Ref.UnitsOrCurrencies" CellFormat="ReferenceFormat" Field="EdtRec.ЕдОхрана" FixSize="True" HasButton="True" LookupField="Code" ShortList="True" TabStop="False" ValueType="VarObject" Width="20"/>
+                </Component>
+                <Component Name="Group10" Class="Com.Ctrl.IGroup">
+                  <Component Name="Мебель" Class="Com.Ctrl.IEdit" Caption="Мебель" CaptionWidth="50" Field="EdtRec.Мебель" HasCaption="True" ValueType="VarNumeric" Width="40"/>
+                  <Component Name="ЕдМебель" Class="Com.Ctrl.IEdit" AutocompleteMode="acmOn" CardFileClass="Biz.Tab.Ref.UnitsOrCurrencies" CellFormat="ReferenceFormat" Field="EdtRec.ЕдМебель" FixSize="True" HasButton="True" LookupField="Code" ShortList="True" TabStop="False" ValueType="VarObject" Width="20" Wrap="False"/>
+                </Component>
+                <Component Name="Group12" Class="Com.Ctrl.IGroup">
+                  <Component Name="Площадь" Class="Com.Ctrl.IEdit" Caption="Площадь" CaptionWidth="50" Field="EdtRec.Площадь" HasCaption="True" ValueType="VarNumeric" Width="40"/>
+                  <Component Name="ЕдПлощадь" Class="Com.Ctrl.IEdit" AutocompleteMode="acmOn" CardFileClass="Biz.Tab.Ref.UnitsOrCurrencies" CellFormat="ReferenceFormat" Field="EdtRec.ЕдПлощадь" FixSize="True" HasButton="True" LookupField="Code" ShortList="True" TabStop="False" ValueType="VarObject" Width="20" Wrap="False"/>
+                </Component>
+              </Component>
+            </Component>
+            <Component Name="Group11" Class="Com.Ctrl.IGroup">
+              <Component Name="Static1" Class="Com.Ctrl.IStatic" Width="50"/>
+              <Component Name="Почта" Class="Com.Ctrl.ICheckBox" Caption="Почта" Field="EdtRec.Почта" HasCaption="True" Width="50"/>
+              <Component Name="Оборудование" Class="Com.Ctrl.ICheckBox" Caption="IT Оборудование" Field="EdtRec.Оборудование" HasCaption="True" Width="50"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Inherited Name="FinanceTab">
+          <Inherited Name="ShippingTimelineBox">
+            <Inherited Name="ShippingTimelineVert">
+              <Inherited Name="ShippingTimelineHorz">
+                <Inherited Name="ShippingTimelineSubtableFrame">
+                  <Component Name="ShippingRealEstateObject" Class="Com.Ctrl.IEdit" After="ShippingSourceEdit" Caption="ОИ" CellFormat="ReferenceFormat" Field="Contract_ShippingTimeline.RealEstateObject" HasCaption="True" LookupField="Name" OnGetLookupFilter="ShippingRealEstateObjectOnGetLookupFilter" Width="30"/>
+                </Inherited>
+                <Inherited Name="ShippingTimelineTotalsFrame">
+                  <Component Name="ShippingRealEstateObject_Total" Class="Com.Ctrl.IEdit" After="ShippingTotalSource" HasCaption="True" Width="30"/>
+                </Inherited>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="RescissionTab">
+          <Inherited Name="RescissionGroup">
+            <Component Name="PropertyReturnActEdit" Class="Com.Ctrl.IEdit" After="NewLine2" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.PropertyReturnAct" HasCaption="True" LookupField="PrintedNumber" OnOutput="PropertyReturnActEdit_OnOutput"/>
+            <Component Name="PropertyReturnActJB" Class="Com.Ctrl.IJumpButton" Enabled="True" Field="EdtRec.PropertyReturnAct" JumpForm="RealEstate.Frm.Doc.PropertyReturnAct"/>
+            <Component Name="NewLine3" Class="Com.Ctrl.INewLine"/>
+          </Inherited>
+        </Inherited>
+        <Component Name="RelatedOrdersAcceptions_Tab" Class="Com.Ctrl.IFrame" Caption="@Связанные заявки и приемки" HasCaption="True" Hint="Связанные заявки и приемки">
+          <Component Name="Заявки" Class="Com.Ctrl.IBox" Caption="@Заявки">
+            <Component Name="ЗаявкиФрейм" Class="Com.Ctrl.IFrame">
+              <Component Name="ЗаявкиОбновить" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+                <Component Name="ЗаявкиОбновитьStatic" Class="Com.Ctrl.IStatic" FontBold="True" FontSize="9"/>
+                <Component Name="кнЗаявкиОбновить" Class="Com.Ctrl.IButton" Hint="@Обновить" ImageName="Com.Refresh" OnClick="кнЗаявкиОбновить_ПриНажатии"/>
+              </Component>
+              <Component Name="Заявки_Таблица" Class="Com.Ctrl.ITable" Subtable="EdtRec.Contract_RelatedOrders_Repair">
+                <Component Name="Contract_RelatedOrders_Repair" Class="RealEstate.Extentions.Biz.Rec.Data.Contract_RelatedOrders_Repair" IsLibrary="1"/>
+                <Component Name="OrdSubject1" Class="Com.Ctrl.IEdit" Caption="@Orders:OrdSubject=Заявка" CardFileClass="EquipmentRegistry.Tab.Journals.Orders" CellFormat="ReferenceFormat" Enabled="False" Field="Contract_RelatedOrders_Repair.OrdSubject" HasCaption="True" LookupField="Name" Width="60" Wrap="True"/>
+                <Component Name="jbtnOrdSubject1" Class="Com.Ctrl.IJumpButton" Field="Contract_RelatedOrders_Repair.OrdSubject" JumpForm="EquipmentRegistry.Frm.Journals.Orders"/>
+                <Component Name="OrdNumber1" Class="Com.Ctrl.IEdit" Caption="@Order:OrdNumber=Номер" CellFormat="StringFormat" Enabled="False" Field="Contract_RelatedOrders_Repair.OrdNumber" HasCaption="True" ValueType="VarString" Width="25" Wrap="True"/>
+                <Component Name="OrdDate1" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Contract:OrdDate=Дата документа" CellFormat="DateFormat" Enabled="False" Field="Contract_RelatedOrders_Repair.OrdDate" FormatOfDate="DateOnly" HasCaption="True" ValueType="VarDate" Width="25" Wrap="True"/>
+                <Component Name="OrdFlowChartType1" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Orders:OrdFlowChartType=Вид работы" CardFileClass="Repair.Tab.FlowCharts.FlowChartsTypes" CellFormat="ReferenceFormat" Enabled="False" Field="Contract_RelatedOrders_Repair.OrdFlowChartType" HasCaption="True" LookupField="Name" Width="35" Wrap="True"/>
+                <Component Name="OrdCostCode1" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Orders:OrdCostCode=Статья" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Enabled="False" Field="Contract_RelatedOrders_Repair.OrdCostCode" HasCaption="True" LookupField="Name" LookupFilter="Not Closed" Width="45" Wrap="True"/>
+                <Component Name="OrdCostValue1" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Orders:OrdCost=Цена" Enabled="False" Field="Contract_RelatedOrders_Repair.OrdCostValue" HasCaption="True" ValueType="VarNumeric" Width="35" Wrap="True"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="Приемки" Class="Com.Ctrl.IBox" Caption="@Приемки" HasCaption="True">
+            <Component Name="ПриемкиФрейм" Class="Com.Ctrl.IFrame">
+              <Component Name="ПриемкиОбновить" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" Color="0xFE000018">
+                <Component Name="ПриемкиОбновитьStatic" Class="Com.Ctrl.IStatic" FontBold="True" FontSize="9"/>
+                <Component Name="кнПриемкиОбновить" Class="Com.Ctrl.IButton" Hint="@Обновить" ImageName="Com.Refresh" OnClick="кнПриемкиОбновить_ПриНажатии"/>
+              </Component>
+              <Component Name="Приемки_Таблица" Class="Com.Ctrl.ITable" Subtable="EdtRec.Contract_RelatedAccepting_Repair">
+                <Component Name="Contract_RelatedAccepting_Repair" Class="RealEstate.Extentions.Biz.Rec.Data.Contract_RelatedAccepting_Repair" IsLibrary="1"/>
+                <Component Name="AccSubject1" Class="Com.Ctrl.IEdit" Caption="@Accepting:AccSubject=Приемка" CardFileClass="EquipmentRegistry.Tab.Journals.Accepting" CellFormat="ReferenceFormat" Enabled="False" Field="Contract_RelatedAccepting_Repair.AccSubject" HasCaption="True" LookupField="name" Width="60" Wrap="True"/>
+                <Component Name="jbtnAccSubject1" Class="Com.Ctrl.IJumpButton" Field="Contract_RelatedAccepting_Repair.AccSubject" JumpForm="EquipmentRegistry.Frm.Journals.Accepting"/>
+                <Component Name="AccNumber1" Class="Com.Ctrl.IEdit" Caption="@Accepting:AccNumber=Номер" CellFormat="StringFormat" Enabled="False" Field="Contract_RelatedAccepting_Repair.AccNumber" HasCaption="True" ValueType="VarString" Width="25" Wrap="True"/>
+                <Component Name="AccDate1" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Accepting:AccDate=Дата документа" CellFormat="DateFormat" Enabled="False" Field="Contract_RelatedAccepting_Repair.AccDate" FormatOfDate="DateOnly" HasCaption="True" ValueType="VarDate" Width="25" Wrap="True"/>
+                <Component Name="AccFlowChartType1" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Accepting:AccFlowChartType=Вид работы" CardFileClass="Repair.Tab.FlowCharts.FlowChartsTypes" CellFormat="ReferenceFormat" Enabled="False" Field="Contract_RelatedAccepting_Repair.AccFlowChartType" HasCaption="True" LookupField="Name" Width="35" Wrap="True"/>
+                <Component Name="AccCostCode1" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="@Accepting:AccCostCode=Статья" CardFileClass="Biz.Tab.Ref.BGI" CellFormat="ReferenceFormat" Enabled="False" Field="Contract_RelatedAccepting_Repair.AccCostCode" HasCaption="True" LookupField="Name" Width="45" Wrap="True"/>
+                <Component Name="AccFactCostValue1" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Accepting:AccFactCostValue=Фактическая стоимость" Enabled="False" Field="Contract_RelatedAccepting_Repair.AccFactCostValue" HasCaption="True" ValueType="VarNumeric" Width="35" Wrap="True"/>
+                <Component Name="AccPlanCostValue1" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Accepting:AccFactCostValue=Плановая стоимость" Enabled="False" Field="Contract_RelatedAccepting_Repair.AccPlanCostValue" HasCaption="True" ValueType="VarNumeric" Width="35" Wrap="True"/>
+              </Component>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Menu.RCTaskManagement_ProjectManager">
+  <Inherited>
+    <Inherited Name="MainGroup">
+      <Inherited Name="Planning">
+        <Component Name="NewApproval" Class="Com.ComManaging.OpenIForm" After="#0" Caption="@TrackingPlan:NewApproval=Новый запрос на согласование" FormClassName="TaskApprovement.Frm.Services.CreateNewApprovalWizard" IconName="Control.thumbs-up"/>
+        <Component Name="ApprovalTemplate" Class="Com.ComManaging.OpenIForm" Caption="@TaskApprovement:ApprovalTemplates=Шаблоны согласования" CardFilter="IsTemplate" FormClassName="TaskApprovement.Tab.Ref.ApprovalTemplate" IconName="Control.thumbs-up"/>
+        <Inherited Name="Sprint" After="ApprovalTemplate"/>
+        <Component Name="AllocatedStaffReplacement" Class="Com.ComManaging.OpenIForm" After="Kanbans" Caption="@TaskApprovement:AllocatedStaffReplacement=Делегирование" FormClassName="TaskApprovement.Tab.Services.AllocatedStaffReplacement" IconName="Bas.Division"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

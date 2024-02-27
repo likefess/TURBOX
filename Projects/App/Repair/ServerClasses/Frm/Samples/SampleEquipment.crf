@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="EquipmentRegistry.Frm.Eqm.EquipmentFrm">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="Repair.Rec.Samples.SampleEquipment" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="BasicFrame">
+        <Component Name="SampleLinkFrame" Class="Com.Ctrl.IFrame" After="CodeFrame" AutoSize="True">
+          <Component Name="SampleLinkGr" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+            <Component Name="SampleRecord" Class="Com.Ctrl.IEdit" Caption="@ЭС" CardFileClass="Repair.Tab.Samples.SampleStructure" CellFormat="ReferenceFormat" Enabled="False" Field="EdtRec.SampleRecord" HasCaption="True" LookupField="Name"/>
+            <Component Name="SampleRecordJB" Class="Com.Ctrl.IJumpButton" Field="EdtRec.SampleRecord" JumpForm="Repair.Frm.Samples.SampleStructure"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="bPosition">
+            <Inherited Name="bPositionGr">
+              <Inherited Name="ED_PlaceGr">
+                <Inherited Name="ED_Place" CardFileClass="Repair.Tab.Samples.SamplePlaces"/>
+                <Inherited Name="ED_PlaceJB" JumpForm="Repair.Frm.Samples.SamplePlaces"/>
+              </Inherited>
+              <Inherited Name="ED_ParentGr">
+                <Inherited Name="ED_Parent" CardFileClass="Repair.Tab.Samples.SampleEquipment"/>
+                <Inherited Name="ED_ParentJB" JumpForm="Repair.Frm.Samples.SampleEquipment"/>
+              </Inherited>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

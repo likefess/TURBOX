@@ -1,0 +1,56 @@
+﻿TBCFile VER="3.4" [Created '16.05.2022 14:20:24' by 'Администратор']
+
+DESCRIPTION[
+Count=1
+CountByRef=0
+Biz.Ref.UnitOrCurrency
+(
+  Count=1
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Biz.Ref.UnitOrCurrency
+  (
+    Deleted :Boolean
+    Locked :Boolean
+    Closed :Boolean
+    Code :String(80)
+    Name :String(255)
+    Dative :String(255)
+    Accusative :String(255)
+    DigitalCode :String(20)
+    ISOCode :String(3)
+    BaseUnit :Biz.Ref.UnitOrCurrency
+    ToMultiply :Boolean
+    Rate :Real period Date
+    Accuracy :Integer
+    IsCurrency :Integer
+    QuotingPeriod :Integer
+    AlterName :String(240)
+    ShortInteger :String(20)
+    ShortFraction :String(20)
+    SpellInteger :String
+    SpellFraction :String
+    SpellAccuracy :Integer
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Biz.Ref.UnitOrCurrency
+  
+  {Biz.Ref.UnitOrCurrency:"ШтЕд"}
+  (
+    Name = "Единица измерения вакансии (штатная единица)"
+    ToMultiply = True
+    Accuracy = 2
+    IsCurrency = 2
+  )
+]
+
+]

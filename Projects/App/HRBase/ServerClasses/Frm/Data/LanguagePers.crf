@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="HRBase.Frm.Base.DataNaturalPerson">
+  <Inherited HelpContext="HRBase.Основные данные.Физические лица">
+    <Inherited Name="EdtRec" Class="HRBase.Rec.Data.LanguagePers" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="110">
+          <Component Name="grLanguage" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Language" Class="Com.Ctrl.IEdit" CardFileClass="HRBase.Tab.Ref.Languages" Field="EdtRec.Language" HasCaption="True" LookupField="Name"/>
+            <Component Name="btLanguage" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Language" JumpForm="HRBase.Frm.Ref.Languages"/>
+          </Component>
+          <Component Name="grLevel" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Level" Class="Com.Ctrl.IEdit" Caption="@Степень" CardFileClass="HRBase.Tab.Ref.LanguageLevels" Field="EdtRec.Level" HasCaption="True" Hint="@Степень знания языка" LookupField="Name" ShortList="True"/>
+            <Component Name="btLevel" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Level" JumpForm="HRBase.Frm.Ref.LanguageLevels"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

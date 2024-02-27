@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="ИмуществоБазовый.Frm.Справочники.КапВложения">
+  <Inherited>
+    <Inherited Name="Variables">
+      <Component Name="локДатаОтчета" Class="Com.Fld.IVar" OnCalc="локДатаОтчета_OnCalc" ValueType="VarDate"/>
+      <Component Name="локКолво" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="локСумма" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+      <Component Name="локОбесценение" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+      <Component Name="локСтоимость" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+      <Component Name="локКолвоСписываемыхКВ" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="локСуммаСписания" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+      <Component Name="локОстатокКолва" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+      <Component Name="Обесц_Subtable" Class="Com.ISubtable" StructClass="Имущество.Rec.Расширения.Справочники.РасшКВ_Обесценение"/>
+      <Component Name="Обесц_Subtable_П" Class="Com.ISubtable" StructClass="Имущество.Rec.Расширения.Справочники.РасшКВ_Обесценение"/>
+      <Component Name="локОстатокСуммы" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+      <Component Name="ОтчетКВ_Subtable" Class="Com.ISubtable" StructClass="Имущество.Rec.Расширения.Справочники.РасшКВ_Отчет"/>
+      <Component Name="МодернВведен_Subtable" Class="Com.ISubtable" StructClass="Имущество.Rec.Расширения.Справочники.РасшКВ_Обесценение"/>
+      <Component Name="перСтоимостьКВ_Остаток" Class="Com.Fld.IVar" ValueType="VarNumeric"/>
+      <Component Name="перКоличествоКВ_Остаток" Class="Com.Fld.IVar" ValueType="VarInteger"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False">
+          <Component Name="СозданиеДокВводаОстатков" Class="Com.Ctrl.IButton" Caption="@СоздДокВводОст:Создание/обновление документа &quot;Ввод остатков&quot;" ImageName="Com.plus" OnClick="СозданиеДокВводаОстатков_OnClick" Visible="True"/>
+          <Component Name="ЗаполнитьПечФорму" Class="Com.Ctrl.IButton" Caption="@ЗаполнитьПечФорм:Заполнить печатную форму" Hint="@ЗаполнитьПечФормКарточки:Заполнить печатную форму карточки" ImageName="Control.Refresh" OnClick="ЗаполнитьПечФорму_OnClick" Visible="True"/>
+          <Component Name="ОбновитьЗнач" Class="Com.Ctrl.IButton" Caption="@ОбновитьЗнач:Обновить значения карточки" Hint="@ОбновитьЗнач: Обновить основную информацию по данным учета" ImageName="Control.Refresh" OnClick="ОбновитьЗнач_OnClick" Visible="True"/>
+        </Inherited>
+        <Inherited Name="HeaderSeparator" After="ButtonClose"/>
+        <Inherited Name="ButtonReports" After="HeaderSeparator"/>
+        <Inherited Name="ButtonPost" After="ButtonAnalytics"/>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="БоксОсновное">
+            <Inherited Name="ДатаНачала_Гр">
+              <Inherited Name="ДатаНачала" MinWidth="30" OnVerify="ДатаНачала_OnVerify"/>
+              <Inherited Name="СтоимостьКВ" MinWidth="20"/>
+            </Inherited>
+            <Inherited Name="ТекущееПодразделение_Гр">
+              <Inherited Name="ТекущееПодразделение" OnVerify="ТекущееПодразделение_OnVerify"/>
+              <Inherited Name="ТрудовыеОтношения_Выбор" OnVerify="ТрудовыеОтношения_Выбор_OnVerify"/>
+              <Inherited Name="ТекущееМОЛ" OnLookup="ТекущееМОЛ_OnLookup"/>
+            </Inherited>
+            <Component Name="НазвТаблОбесцГр" Class="Com.Ctrl.IGroup" After="ТекущееПодразделение_Гр">
+              <Component Name="НазвТаблОбесц" Class="Com.Ctrl.IStatic" Caption="Обесценение объекта КВ " FontItalic="True" Width="50"/>
+              <Component Name="ОбновитьТаблОбесц" Class="Com.Ctrl.IButton" Caption="Обновить данные таблицы" FixSize="True" ImageName="Control.Refresh" OnClick="ОбновитьТаблОбесц_OnClick" Width="70"/>
+            </Component>
+            <Component Name="Обесцен_Табл" Class="Com.Ctrl.ITable" Subtable="Обесц_Subtable">
+              <Component Name="РасшКВ_Обесценение" Class="Имущество.Rec.Расширения.Справочники.РасшКВ_Обесценение" IsLibrary="1"/>
+              <Component Name="ДатаОбесцен" Class="Com.Ctrl.IEdit" Caption="Дата обесценения" Enabled="False" Field="РасшКВ_Обесценение.ДатаОбесц" Width="40"/>
+              <Component Name="СуммаОбесцен" Class="Com.Ctrl.IEdit" Caption="Сумма обесценения" Enabled="False" Field="РасшКВ_Обесценение.СуммаОбесц" FieldFormat=",##0.00;;-" Hint="Сумма обесценения (убытка)" Width="40"/>
+              <Component Name="СтоимостьПосле" Class="Com.Ctrl.IEdit" Caption="Стоимость после" Enabled="False" Field="РасшКВ_Обесценение.СтоимостьПосле" FieldFormat=",##0.00;;-" Hint="@Стоимость объекта КВ после проведения обесценения" Width="40"/>
+            </Component>
+            <Inherited Name="Примечание" After="Обесцен_Табл"/>
+          </Inherited>
+        </Inherited>
+        <Inherited Name="фрВводВЭксплуатацию">
+          <Component Name="фрВводВЭксплуатациюНазв" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="стВводВЭксплуатациюНазв" Class="Com.Ctrl.IStatic" Caption="Остатки КВ после ввода в эксплуатацию ОС с использованием данного объекта КВ: " Width="200"/>
+            <Component Name="Количество_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="300" MinWidth="150">
+              <Component Name="СуммаКВ_остаток" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Стоимость" CaptionWidth="40" Enabled="False" Field="перСтоимостьКВ_Остаток" FieldFormat=",##0.00;;-" HasCaption="True" MaxWidth="40" MinWidth="30"/>
+              <Component Name="КоличествоКВ_Остаток" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Количество" CaptionWidth="34" Enabled="False" Field="перКоличествоКВ_Остаток" HasCaption="True" MaxWidth="40" MinWidth="30"/>
+              <Component Name="ПодписьШтуки1" Class="Com.Ctrl.IStatic" Caption="шт." FixSize="True" Width="10"/>
+              <Component Name="ОбновитьСтоимКолво" Class="Com.Ctrl.IButton" Caption="Обновить значения " OnClick="ОбновитьСтоимКолво_OnClick" Width="50"/>
+            </Component>
+          </Component>
+          <Component Name="ПодФреймОтчетОС" Class="Com.Ctrl.IFrame"/>
+          <Component Name="ПодФреймОтчетНМА" Class="Com.Ctrl.IFrame"/>
+        </Inherited>
+        <Inherited Name="ПечФормаКВ">
+          <Inherited Name="ДатаОприх_Стоимость" MaxWidth="300">
+            <Inherited Name="ДатаОприходП" Enabled="False"/>
+            <Inherited Name="СтоимП" Enabled="False" FieldFormat=",##0.00;;-"/>
+          </Inherited>
+          <Inherited Name="Счет_Статья" MaxWidth="300">
+            <Inherited Name="СтатьяЗатратП" Enabled="False"/>
+            <Inherited Name="СчетУчетаП" Enabled="False"/>
+          </Inherited>
+          <Inherited Name="Мол_Подразд" MaxWidth="300">
+            <Inherited Name="МолП" Enabled="False"/>
+            <Inherited Name="ПозразделениеП" Enabled="False"/>
+          </Inherited>
+          <Inherited Name="Обесцен_Табл_П" Subtable="Обесц_Subtable_П">
+            <Inherited Name="ДатаОбесцен_П" Alignment="CenterAlign" Field="РасшКВ_Обесценение.ДатаОбесц"/>
+            <Inherited Name="СуммаОбесцен_П" Alignment="CenterAlign" Field="РасшКВ_Обесценение.СуммаОбесц" FieldFormat=",##0.00;;-"/>
+            <Inherited Name="Стоимость_П" Alignment="CenterAlign" Field="РасшКВ_Обесценение.СтоимостьПосле" FieldFormat=",##0.00;;-"/>
+          </Inherited>
+          <Inherited Name="ПереченьОбъектов_Табл" Subtable="МодернВведен_Subtable">
+            <Component Name="РасшКВ_МодернВведен" Class="Имущество.Rec.Расширения.Справочники.РасшКВ_МодернВведен" IsLibrary="1" After="#0"/>
+            <Inherited Name="Номер_П" After="РасшКВ_МодернВведен" Alignment="CenterAlign" Field="РасшКВ_МодернВведен.ИнвНомер"/>
+            <Inherited Name="НаименованиеОбъекта_П" Alignment="CenterAlign" Field="РасшКВ_МодернВведен.ИмяОС" Width="104"/>
+            <Component Name="Операция_П" Class="Com.Ctrl.IEdit" After="НаименованиеОбъекта_П" Caption="Операция" Enabled="False" Field="РасшКВ_МодернВведен.Операция" Width="40"/>
+            <Inherited Name="Цена_П" After="Операция_П" Alignment="CenterAlign" Caption="Стоимость" Field="РасшКВ_МодернВведен.ЦенаОбъекта" FieldFormat=",##0.00;;-" Hint="Стоимость по операции" Width="30"/>
+            <Inherited Name="ДатаПринятия_П" Alignment="CenterAlign" Caption="Дата операции" Field="РасшКВ_МодернВведен.ДатаПринятия" Hint="Дата принятия к учету/модернизации объекта" Width="30"/>
+          </Inherited>
+          <Inherited Name="ОтчетПоКВ_Табл" Subtable="ОтчетКВ_Subtable">
+            <Component Name="РасшКВ_Отчет" Class="Имущество.Rec.Расширения.Справочники.РасшКВ_Отчет" IsLibrary="1" After="#0"/>
+            <Inherited Name="ДанныеПоОбъектуКВГр_П" After="РасшКВ_Отчет">
+              <Inherited Name="СуммаКВ_П" Alignment="CenterAlign" Field="РасшКВ_Отчет.СуммаКВ" FieldFormat=",##0.00;;-" Width="35"/>
+              <Component Name="КолвоП" Class="Com.Ctrl.IEdit" After="СуммаКВ_П" Alignment="CenterAlign" Caption="Кол-во, шт." Enabled="False" Field="РасшКВ_Отчет.КолвоКВ" FixSize="True" HasCaption="True" Hint="Количество Объектов КВ" Width="20"/>
+              <Inherited Name="СуммаОбесц_П" After="КолвоП" Alignment="CenterAlign" Field="РасшКВ_Отчет.СуммаОбесценения" FieldFormat=",##0.00;;-" Width="35"/>
+              <Inherited Name="Подразделение_П" Alignment="CenterAlign" Field="РасшКВ_Отчет.Подразделение" Wrap="True"/>
+              <Inherited Name="МОЛ_П" Alignment="CenterAlign" Field="РасшКВ_Отчет.МОЛ" Wrap="True"/>
+            </Inherited>
+            <Inherited Name="СписаниеОбъектаКВ_П">
+              <Inherited Name="СтоимостьП" Alignment="CenterAlign" Field="РасшКВ_Отчет.СтоимостьОС" FieldFormat=",##0.00;;-" Width="35"/>
+              <Inherited Name="СуммаСписания_П" Alignment="CenterAlign" Field="РасшКВ_Отчет.СуммаСписания" FieldFormat=",##0.00;;-" Width="35"/>
+              <Component Name="КолвоСписываемыхКВ_П" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Кол-во списываемых КВ, шт." CaptionWidth="55" Enabled="False" Field="РасшКВ_Отчет.КолвоСписываемых" FixSize="True" HasCaption="True" Hint="Количество списываемых Объектов КВ. Данные берутся из документов Списание КВ и Продажа КВ, а также из документов по Вводу ОС" Width="25"/>
+            </Inherited>
+            <Inherited Name="ОстатокСуммыКВ_П" Alignment="CenterAlign" Field="РасшКВ_Отчет.ОстатокСуммы" FieldFormat=",##0.00;;-" Width="35"/>
+            <Component Name="ОстатокКолваКВ_П" Class="Com.Ctrl.IEdit" After="ОстатокСуммыКВ_П" Alignment="CenterAlign" Caption="Остаток количества КВ, шт." Enabled="False" Field="РасшКВ_Отчет.ОстатокКолваКВ" Width="25"/>
+          </Inherited>
+          <Component Name="ДанныепоОбъектуКВ_ГрПП" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+            <Component Name="ДатаИКолво_ГрПП" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ДатаОприх_ПП" Class="Com.Ctrl.IEdit" Caption="Дата " Enabled="False" Field="EdtRec.ДатаОприходованияКВ" FixSize="True" HasCaption="True" Hint="Указывается дата оприходования объекта КВ" Width="25"/>
+              <Component Name="Колво_ПП" Class="Com.Ctrl.IEdit" Caption="Кол-во" Enabled="False" Field="локКолво" FixSize="True" HasCaption="True" Hint="Количество Объектов КВ" Width="25"/>
+            </Component>
+            <Component Name="СуммаИОбесценение_ГрПП" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="СуммаПП" Class="Com.Ctrl.IEdit" Caption="Сумма" Enabled="False" Field="локСумма" FixSize="True" HasCaption="True" Hint="Сумма учета объекта КВ" Width="25"/>
+              <Component Name="ОбесценениеПП" Class="Com.Ctrl.IEdit" Caption="Обесценение" Enabled="False" Field="локОбесценение" FixSize="True" HasCaption="True" Hint="Стоимость объекта КВ после проведения обесценения" Width="25"/>
+            </Component>
+            <Component Name="Подразделение_ПП" Class="Com.Ctrl.IEdit" Caption="Подразделение" Enabled="False" Field="EdtRec.ТекущееПодразделение" HasCaption="True" Hint="Подразделение, за которым закреплен объект КВ" Width="40"/>
+            <Component Name="МОЛ_ПП" Class="Com.Ctrl.IEdit" Caption="МОЛ" Enabled="False" Field="EdtRec.ТекущееМОЛ" HasCaption="True" Hint="Материально-ответственное лицо, за которым закреплен объект КВ" Width="40"/>
+          </Component>
+          <Component Name="СписаниеОбъектаКВ_ПП" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+            <Component Name="Стоимость_ПП" Class="Com.Ctrl.IEdit" Caption="Стоимость объектов ОС" CaptionWidth="55" Enabled="False" Field="локСтоимость" FixSize="True" HasCaption="True" Hint="Общая первоначальная стоимость объектов ОС, внедренных в эксплуатацию посредством использования данного объекта КВ" Width="25"/>
+            <Component Name="КоличествоИСумма_Гр_ПП" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="КолвоСписываемыхКВ_ПП" Class="Com.Ctrl.IEdit" Caption="Кол-во списываемых КВ" CaptionWidth="55" Enabled="False" Field="локКолвоСписываемыхКВ" FixSize="True" HasCaption="True" Hint="Количество списываемых Объектов КВ. Данные берутся из документов Списание КВ и Продажа КВ, а также из документов по Вводу ОС" Width="25"/>
+              <Component Name="СуммаСписания_ПП" Class="Com.Ctrl.IEdit" Caption="Сумма списания объекта КВ" CaptionWidth="55" Enabled="False" Field="локСуммаСписания" FixSize="True" HasCaption="True" Hint="Сумма списания/продажи объекта КВ. Данные берутся из документов Списание КВ и Продажа КВ, а также из документов по Вводу ОС" Width="25"/>
+            </Component>
+          </Component>
+          <Component Name="ОстатокCуммыКВ_ПП" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+            <Component Name="ОстатокКолва_ПП" Class="Com.Ctrl.IEdit" Caption="Остаток кол-ва КВ" Enabled="False" Field="локОстатокКолва" FixSize="True" HasCaption="True" Width="25"/>
+            <Component Name="ОстатокСуммы_ПП" Class="Com.Ctrl.IEdit" Caption="Остаток суммы КВ" Enabled="False" Field="локОстатокСуммы" FixSize="True" HasCaption="True" Width="25"/>
+          </Component>
+        </Inherited>
+        <Component Name="ОтчетПоПроводкамОбъектаКВ" Class="Com.Ctrl.IFrame" Caption="@Frm:MainTab=Отчет по проводкам" Margins="5"/>
+        <Component Name="ОтчетПоОбъектуКВ" Class="Com.Ctrl.IFrame" Caption="@Frm:ОтчетПоОбъектуКВ=Отчет по объекту КВ" Margins="5">
+          <Component Name="ДатаОтчета_Фрейм" Class="Com.Ctrl.IFrame" AutoSize="True">
+            <Component Name="ДатаОтчета" Class="Com.Ctrl.IEdit" Caption="Дата отчета" Field="локДатаОтчета" HasCaption="True" OnVerify="ДатаОтчета_OnVerify"/>
+            <Component Name="Построить" Class="Com.Ctrl.IButton" Caption="Построить" HasCaption="True" OnClick="Построить_OnClick" Width="35"/>
+          </Component>
+          <Component Name="ДанныеПоОбъектуКВ_Box" Class="Com.Ctrl.IBox" Caption="Данные по объекту КВ" HasCaption="True">
+            <Component Name="ДанныепоОбъектуКВ_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ДатаИКолво_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+                <Component Name="ДатаОприх" Class="Com.Ctrl.IEdit" Caption="Дата " Enabled="False" Field="EdtRec.ДатаОприходованияКВ" FixSize="True" HasCaption="True" Hint="Указывается дата оприходования объекта КВ" Width="50"/>
+                <Component Name="Колво" Class="Com.Ctrl.IEdit" Caption="Кол-во, шт." Enabled="False" Field="локКолво" FixSize="True" HasCaption="True" Hint="Количество Объектов КВ" Width="50"/>
+              </Component>
+              <Component Name="СуммаИОбесценение_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+                <Component Name="Сумма" Class="Com.Ctrl.IEdit" Caption="Сумма" Enabled="False" Field="локСумма" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Hint="Сумма учета объекта КВ" Width="50"/>
+                <Component Name="Обесценение" Class="Com.Ctrl.IEdit" Caption="Обесценение" Enabled="False" Field="локОбесценение" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Hint="Стоимость объекта КВ после проведения обесценения" Width="50"/>
+              </Component>
+              <Component Name="Подразделение" Class="Com.Ctrl.IEdit" Caption="Подразделение" Enabled="False" Field="EdtRec.ТекущееПодразделение" HasCaption="True" Hint="Подразделение, за которым закреплен объект КВ" Width="40"/>
+              <Component Name="МОЛ" Class="Com.Ctrl.IEdit" Caption="МОЛ" Enabled="False" Field="EdtRec.ТекущееМОЛ" HasCaption="True" Hint="Материально-ответственное лицо, за которым закреплен объект КВ" Width="40"/>
+            </Component>
+          </Component>
+          <Component Name="СписаниеОбъектаКВ_Box" Class="Com.Ctrl.IBox" Caption="Списание объекта КВ:">
+            <Component Name="СписаниеОбъектаКВ" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="Стоимость" Class="Com.Ctrl.IEdit" Caption="Стоимость объектов ОС" CaptionWidth="55" Enabled="False" Field="локСтоимость" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Hint="Общая первоначальная стоимость объектов ОС, внедренных в эксплуатацию посредством использования данного объекта КВ" Width="50"/>
+              <Component Name="КоличествоИСумма_Гр" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+                <Component Name="КолвоСписываемыхКВ" Class="Com.Ctrl.IEdit" Caption="Кол-во списываемых КВ, шт." CaptionWidth="55" Enabled="False" Field="локКолвоСписываемыхКВ" FixSize="True" HasCaption="True" Hint="Количество списываемых Объектов КВ. Данные берутся из документов Списание КВ и Продажа КВ, а также из документов по Вводу ОС" Width="50"/>
+                <Component Name="СуммаСписания" Class="Com.Ctrl.IEdit" Caption="Сумма списания объекта КВ" CaptionWidth="55" Enabled="False" Field="локСуммаСписания" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Hint="Сумма списания/продажи объекта КВ. Данные берутся из документов Списание КВ и Продажа КВ, а также из документов по Вводу ОС" Width="50"/>
+              </Component>
+            </Component>
+          </Component>
+          <Component Name="ОстатокCуммыКВ_Box" Class="Com.Ctrl.IBox" Caption="Остаток суммы КВ:">
+            <Component Name="ОстатокCуммыКВ" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+              <Component Name="ОстатокКолва" Class="Com.Ctrl.IEdit" Caption="Остаток кол-ва КВ, шт." CaptionWidth="55" Enabled="False" Field="локОстатокКолва" FixSize="True" HasCaption="True" Width="50"/>
+              <Component Name="ОстатокСуммы" Class="Com.Ctrl.IEdit" Caption="Остаток суммы КВ" CaptionWidth="55" Enabled="False" Field="локОстатокСуммы" FieldFormat=",##0.00;;-" FixSize="True" HasCaption="True" Width="50"/>
+            </Component>
+          </Component>
+        </Component>
+        <Component Name="Документы" Class="Com.Ctrl.IFrame" Excluded="True" Caption="@Frm:MainTab=Документы, связанные с КВ" Margins="5">
+          <Component Name="СвязДокументы" Class="Com.Ctrl.ICardFile" CanCopy="False" CanDelete="False" CanEdit="False" CanInsert="False" CanMove="False" Hierarchical="False"/>
+          <Component Name="ДокументыБокс" Class="Com.Ctrl.IBox" Excluded="True" Caption="Документы" FixSize="True" Size="80">
+            <Component Name="НайтиДокументы" Class="Com.Ctrl.IButton" Caption="Найти документы, связанные с КВ" FixSize="True" OnClick="НайтиДокументы_OnClick" Width="80"/>
+            <Component Name="ДокументыТабл" Class="Com.Ctrl.ITable" Sortable="True" Subtable="локДокументы">
+              <Component Name="Название" Class="Com.Ctrl.IEdit" Caption="Название" Enabled="False" HasCaption="True" Hint="Документ" MaxWidth="35" MinWidth="30" Width="40"/>
+            </Component>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

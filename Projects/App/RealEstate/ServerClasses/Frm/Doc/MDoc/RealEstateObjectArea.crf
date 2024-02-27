@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="RealEstate.Frm.Base.BaseMDocMeter">
+  <Inherited>
+    <Inherited Name="EdtRec" Class="RealEstate.Rec.Doc.MDoc.RealEstateObjectArea" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Group1">
+          <Inherited Name="DateCodeGr">
+            <Inherited Name="Date" Caption="@Дата" FormatOfDate="DateAndTime" Hint="@Дата проведения документа" Width="50"/>
+            <Inherited Name="CodeEdit" Excluded="True"/>
+          </Inherited>
+          <Inherited Name="NameGr" Excluded="True"/>
+          <Inherited Name="DescriptionGr">
+            <Inherited Name="Description" Hint="@Введите основание для изменения площади"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="LinesFrame">
+        <Inherited Name="LRightFrame">
+          <Inherited Name="LinesTable" Adaptive="False" CanDelete="False" CanInsert="False" CanMove="False" Freezed="False" ManualControl="False" Numbering="False" Sortable="False">
+            <Inherited Name="vDefPos" Class="RealEstate.Rec.Doc.MDoc.RealEstateObjectArea_Lines" IsLibrary="1"/>
+            <Component Name="MeterCode" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="@Вид площади объекта" CellFormat="ReferenceFormat" Color="0xFE000018" Enabled="False" Field="vDefPos.MeterCode" LookupField="Name" Width="60"/>
+            <Component Name="FValue3" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="@Занимаемая площадь" CellFormat="NumericFormat" Field="vDefPos.FValue3" FieldFormat=",##0.00;;-" OnDraw="FValue3_OnDraw" OnEnter="FValue3_OnEnter" OnOutput="FValue3_OnOutput" Width="45"/>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

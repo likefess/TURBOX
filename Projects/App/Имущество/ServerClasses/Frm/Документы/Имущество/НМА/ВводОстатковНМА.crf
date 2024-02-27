@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Имущество.Frm.Документы.Имущество.НМА.ИмуществоБазовыйДокументНМА">
+  <Inherited HelpContext="Имущество.Имущество.Документы движения и учета НМА.Принятие к учету НМА.Ввод остатков НМА">
+    <Inherited Name="EdtRec" Class="Имущество.Rec.Документы.Имущество.НМА.ВводОстатковНМА" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="перПоказыватьПараметрыНМА" Class="Com.Fld.IVar" OnCalc="перПоказыватьПараметрыНМА_OnCalc"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="Шапка_Фрейм">
+          <Inherited Name="Шапка_Гр">
+            <Inherited Name="Корректировка_Гр">
+              <Inherited Name="КорректируемыйДокумент" CardFileClass="Имущество.Tab.Документы.Имущество.НМА.ВводОстатковНМА"/>
+              <Inherited Name="кнКорректируемыйДокумент" JumpForm="Имущество.Frm.Документы.Имущество.НМА.ВводОстатковНМА"/>
+            </Inherited>
+          </Inherited>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="TabsFrame">
+        <Inherited Name="MainTab">
+          <Inherited Name="ОбщиеДанные" Excluded="True"/>
+          <Component Name="Позиции_Box" Class="Com.Ctrl.IBox" After="ОбщиеДанные" Caption="Ввод остатков НМА">
+            <Component Name="грУправлениеВидимостью_Табл" Class="Com.Ctrl.IGroup">
+              <Component Name="Static_ПоказыватьГрКол" Class="Com.Ctrl.IStatic" Caption="Показывать группу колонок:" FixSize="True" Printed="False" Visible="True" Width="55"/>
+              <Component Name="перПоказыватьПараметрыНМА_Флаг" Class="Com.Ctrl.ICheckBox" Caption="Параметры НМА" Field="перПоказыватьПараметрыНМА" FixSize="True" HasCaption="True" Hint="Показывать группу колонок &quot;Параметры НМА&quot;" OnChange="перПоказыватьПараметрыНМА_Флаг_OnChange" Printed="False" Width="40"/>
+              <Component Name="Static_ПарамБУ" Class="Com.Ctrl.IStatic" Printed="False"/>
+              <Component Name="Static_ПарамНУ" Class="Com.Ctrl.IStatic" Printed="False"/>
+            </Component>
+            <Component Name="грСтоимостьВывод" Class="Com.Ctrl.IGroup" Adaptive="True" MaxWidth="300" MinWidth="150">
+              <Component Name="СтоимостьВывод" Class="Com.Ctrl.IEdit" Enabled="False" Field="EdtRec.Стоимость" FieldFormat=",##0.00;;-" HasCaption="True" Hint="Стоимость объекта (без учета НДС)" MaxWidth="40" MinWidth="30" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify"/>
+            </Component>
+            <Component Name="ПозицииНМА_Табл" Class="Com.Ctrl.ITable" Sortable="True" Subtable="EdtRec.ПозицииНМА">
+              <Component Name="ВводОстатковНМА_Позиции" Class="Имущество.Rec.Документы.Имущество.НМА.ВводОстатковНМА_Позиции" IsLibrary="1"/>
+              <Component Name="Имя_Табл" Class="Com.Ctrl.IEdit" Caption="Наименование НМА" CardFileClass="ИмуществоБазовый.Tab.Справочники.НМА" CellFormat="ReferenceFormat" Field="ВводОстатковНМА_Позиции.НМА" Hint="Краткое наименование НМА" LookupField="Name" Multiline="True" OnChange="НМА_Табл_OnChange" OnGetLookupFilter="НМА_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуНМА" OnVerify="НМА_Табл_OnVerify" Required="True" Width="70" Wrap="True"/>
+              <Component Name="ИнвентарныйНомер_Табл" Class="Com.Ctrl.IEdit" Caption="Инвентарный номер" CardFileClass="ИмуществоБазовый.Tab.Справочники.НМА" CellFormat="ReferenceFormat" Field="ВводОстатковНМА_Позиции.НМА" Hint="Инвентарный номер ОС" LookupField="КодИмущества" OnChange="НМА_Табл_OnChange" OnGetLookupFilter="НМА_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуНМА" OnVerify="НМА_Табл_OnVerify" Required="True" Width="30"/>
+              <Component Name="НМА_JumpButton" Class="Com.Ctrl.IJumpButton" Field="ВводОстатковНМА_Позиции.НМА" Hint="Возможность перехода на карточку НМА, просмотра и редактирования доступных полей" JumpForm="ИмуществоБазовый.Frm.Справочники.НМА"/>
+              <Component Name="кн_ОбновитьДанныеПоПозицииНМА" Class="Com.Ctrl.IButton" FixSize="True" Hint="Обновить данные по текущей позиции НМА" ImageName="Control.Refresh" OnClick="кн_ОбновитьДанныеПоПозицииНМА_OnClick" Width="6"/>
+              <Component Name="грПараметрыНМА_Табл" Class="Com.Ctrl.IColumnsGroup" Caption="Параметры НМА" HasCaption="True">
+                <Component Name="ПервоначальнаяСтоимость_Табл" Class="Com.Ctrl.IEdit" Field="ВводОстатковНМА_Позиции.ПервоначальнаяСтоимость" FieldFormat=",##0.00;;-" Hint="Первоначальная стоимость объекта НМА" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify" Required="True" Width="32"/>
+                <Component Name="СтоимостьНМА_Табл" Class="Com.Ctrl.IEdit" Field="ВводОстатковНМА_Позиции.СтоимостьНМА" FieldFormat=",##0.00;;-" Hint="Стоимость НМА на дату ввода остатков (с учетом сумм переоценки, обесценения)" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify" Required="True" Width="30"/>
+                <Component Name="ОКОФ_Табл" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" CardFileClass="BizRus.Tab.Классификаторы.ОКОФ" CellFormat="ReferenceFormat" Enabled="False" Field="ВводОстатковНМА_Позиции.ОКОФ_Ссылка" Hint="Классификация НМА (ОКОФ)" LookupField="КодОКОФ" ValueType="VarObject" Width="40"/>
+                <Component Name="Подразделение_Табл" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" Field="ВводОстатковНМА_Позиции.Подразделение" Hint="Подразделение, в котором числится объект НМА" Multiline="True" OnClick="Подразделение_Табл_OnClick" OnEnter="Подразделение_Табл_OnEnter" OnGetLookupFilter="Подразделение_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуПодразделение" Required="True" Width="40" Wrap="True"/>
+                <Component Name="ТрудовыеОтношения_Выбор_Табл" Class="Com.Ctrl.IEdit" Caption="МОЛ " CardFileClass="Biz.Tab.Data.LabourRelations" Field="ВводОстатковНМА_Позиции.перТрудовыеОтношения_Выбор" HasCaption="True" Hint="ФИО материально-ответственного лица, за которым закреплен данный объект НМА, по состоянию на текущую дату" LookupField="Person.Name" Multiline="True" OnChange="ТрудовыеОтношения_Выбор_Табл_OnChange" OnGetLookupFilter="ТрудовыеОтношения_Выбор_Табл_OnGetLookupFilter" OnOutputEx="ТрудовыеОтношения_Выбор_Табл_OnOutputEx" Required="True" Width="50" Wrap="True"/>
+                <Component Name="МОЛ_Табл" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Entity" Field="ВводОстатковНМА_Позиции.МОЛ" FieldFormat=",##0.00;;-" Hint="Материально-ответственное лицо, ответственное за данный объект НМА" Multiline="True" OnChange="МОЛ_Табл_OnChange" OnGetLookupFilter="МОЛ_OnGetLookupFilter" OnOpenCardForm="НастроитьКартотекуМОЛ" Required="True" Visible="False" Width="40" Wrap="True"/>
+                <Component Name="СуммаОбесценения_Табл" Class="Com.Ctrl.IEdit" Field="ВводОстатковНМА_Позиции.СуммаОбесценения" FieldFormat=",##0.00;;-" Hint="Сумма обесценения, начисленная на момент ввода остатков НМА" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify" Width="30"/>
+                <Component Name="СуммаДооценкиУценки_Табл" Class="Com.Ctrl.IEdit" Caption="Сумма дооценки/ уценки" Enabled="False" Field="ВводОстатковНМА_Позиции.СуммаДооценкиУценки" FieldFormat=",##0.00;;-" Hint="Сумма дооценки(+)/уценки(-) объекта НМА на дату ввода остатков (вычисляется автоматически)" Width="30"/>
+                <Component Name="СуммаАмортизации_Табл" Class="Com.Ctrl.IEdit" Caption="Сумма амортизации" Field="ВводОстатковНМА_Позиции.СуммаАмортизации" FieldFormat=",##0.00;;-" Hint="Сумма начисленной амортизации на момент ввода остатков НМА" OnVerify="ЗапретВводаОтрицательныхЧисел_OnVerify" Width="30"/>
+              </Component>
+            </Component>
+          </Component>
+          <Inherited Name="Комментарии_Box" After="Позиции_Box"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

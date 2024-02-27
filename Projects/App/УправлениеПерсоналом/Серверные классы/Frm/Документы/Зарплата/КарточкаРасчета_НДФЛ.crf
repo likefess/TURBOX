@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.БазовыйДокумент">
+  <Inherited Caption="НДФЛ по видам начислений">
+    <Component Name="НДФЛВидНач" Class="УправлениеПерсоналом.Rec.Документы.Зарплата.КарточкаРасчета_НДФЛВидНач" IsLibrary="1" After="#0"/>
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Документы.Зарплата.КарточкаРасчета" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="тбНДФЛИтого" Class="Com.ISubtable"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" Visible="True">
+        <Inherited Name="ButtonClone" Visible="False"/>
+        <Inherited Name="ButtonDelete" Visible="False"/>
+        <Inherited Name="ButtonRefresh" Visible="False"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="grMain">
+          <Inherited Name="Предприятие" Enabled="False"/>
+          <Inherited Name="Замок" Visible="False"/>
+          <Component Name="Static9" Class="Com.Ctrl.IStatic" FixSize="True" Printed="False" Width="25"/>
+        </Inherited>
+        <Inherited Name="грТипДокумента" Visible="False"/>
+        <Inherited Name="grNumberDate">
+          <Inherited Name="Номер" Enabled="False"/>
+          <Inherited Name="ДатаДокумента" Enabled="False"/>
+          <Component Name="Static7" Class="Com.Ctrl.IStatic" FixSize="True" Printed="False" Width="25"/>
+        </Inherited>
+        <Component Name="грКонтрагент" Class="Com.Ctrl.IGroup" After="grNumberDate" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Контрагент" Class="Com.Ctrl.IEdit" Caption="ФИО" CardFileClass="Bas.Tab.Data.NaturalEntities" Enabled="False" Field="EdtRec.Контрагент" HasCaption="True" Hint="Фамилия, Имя, Отчество сотрудника или физического лица" OnOutputEx="ФИО_OnOutputEx"/>
+          <Component Name="ТабНомер" Class="Com.Ctrl.IEdit" Caption="Таб. номер" CaptionWidth="30" CardFileClass="УправлениеПерсоналом.Tab.Данные.УсловияТрудаСотрудников" Enabled="False" Field="EdtRec.УсловияТрудаСотр" FixSize="True" HasCaption="True" Hint="Табельный номер" LookupField="ТабНомер" Multiline="False" Width="30" Wrap="False"/>
+          <Component Name="кнТабНомер" Class="Com.Ctrl.IJumpButton" Field="EdtRec.УсловияТрудаСотр" FixSize="True" JumpForm="УправлениеПерсоналом.Frm.Данные.УсловияТрудаСотрудника" Printed="False" Width="7"/>
+          <Component Name="Static6" Class="Com.Ctrl.IStatic" FixSize="True" Printed="False" Width="25"/>
+        </Component>
+        <Component Name="грНазначение" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Static8" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+          <Component Name="Назначение" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Данные.Назначения" Enabled="False" Field="EdtRec.Назначение" HasCaption="False" Hint="Подразделение, должность, разряд сотрудника" OnOutputEx="Назначение_OnOutputEx"/>
+          <Component Name="Static5" Class="Com.Ctrl.IStatic" FixSize="True" Printed="False" Width="32"/>
+        </Component>
+        <Inherited Name="грОписание" Visible="False"/>
+        <Inherited Name="грПримечание" Visible="False"/>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" HasCaption="False">
+          <Component Name="тблНДФЛВидНач" Class="Com.Ctrl.ITable" Subtable="EdtRec.НДФЛВидНач">
+            <Component Name="грНДФЛВидНач" Class="Com.Ctrl.IColumnsGroup" Caption="НДФЛ по видам начислений" FontBold="True" HasCaption="True">
+              <Component Name="КодДохода" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Код дохода" CardFileClass="УправлениеПерсоналом.Tab.Классификаторы.ВидыДоходов" Enabled="False" Field="НДФЛВидНач.ВидДохода" HasCaption="True" LookupField="КодУчета" Width="20"/>
+              <Component Name="ВидНачисления" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Вид начисления" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыНачислений" Field="НДФЛВидНач.ВидНачислений" HasCaption="True" LookupField="Name" Multiline="True" OnChange="ВидНачисления_OnChange" Width="90" Wrap="True"/>
+              <Component Name="Удержание" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Ставка" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ВидыУдержаний" CellFormat="ReferenceFormat" Field="НДФЛВидНач.ВидРасчета" HasCaption="True" LookupField="Ставка_НДФЛ.Код" LookupFilter="Ставка_НДФЛ &lt;> nil" ValueType="VarObject" Width="30"/>
+              <Component Name="ПоказательУд1" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="%" Field="НДФЛВидНач.Показатель1" HasCaption="True" OnChange="ПоказательУд1_OnChange" OnDrawEx="ПоказательУд1_OnDrawEx" Width="15"/>
+              <Component Name="ПоказательУд2" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="облагаемая база" Field="НДФЛВидНач.Показатель2" FieldFormat=",##0.00;;-" HasCaption="True" OnChange="ПоказательУд2_OnChange" OnDrawEx="ПоказательУд2_OnDrawEx" Width="40"/>
+              <Component Name="ПоказательУд3" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="сумма" Field="НДФЛВидНач.Показатель3" FieldFormat=",##0.00;;-" HasCaption="True" OnChange="ПоказательУд3_OnChange" OnDrawEx="ПоказательУд3_OnDrawEx" Width="40"/>
+              <Component Name="грПоказатели1" Class="Com.Ctrl.IColumnsGroup" Excluded="True" Caption="Показатели" HasCaption="True"/>
+            </Component>
+          </Component>
+          <Component Name="тблНДФЛИтого" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" HasCaption="False" Numbering="False" Subtable="тбНДФЛИтого">
+            <Component Name="стУдИтого" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Enabled="False" FontBold="True" HasCaption="False" OnOutputEx="Итого_OnOutputEx" Width="205"/>
+            <Component Name="ИтогоУд" Class="Com.Ctrl.IEdit" Alignment="RightAlign" CellFormat="NumericFormat" Enabled="False" FieldFormat=",##0.00;;-" FontBold="True" HasCaption="False" OnOutputEx="ИтогоУд_OnOutputEx" Width="40"/>
+          </Component>
+          <Component Name="грОтступ" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Static2" Class="Com.Ctrl.IStatic" Width="100"/>
+          </Component>
+          <Component Name="грКнопки" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Width="100"/>
+            <Component Name="ButtonOK1" Class="Com.Ctrl.IButton" Caption="OK" HasCaption="True" OnClick="ButtonOK1_OnClick"/>
+            <Component Name="ButtonCancel1" Class="Com.Ctrl.IButton" Caption="Отмена" HasCaption="True" OnClick="ButtonCancel1_OnClick"/>
+          </Component>
+        </Inherited>
+        <Inherited Name="фрПодписи" Visible="False"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

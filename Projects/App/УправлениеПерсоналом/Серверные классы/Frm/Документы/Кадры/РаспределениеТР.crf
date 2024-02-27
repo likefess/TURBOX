@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.БазовыйДокумент">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Распределение затрат.Распределение ТР по объектам">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Документы.Кадры.РаспределениеТР" IsLibrary="1"/>
+    <Component Name="Позиции" Class="УправлениеПерсоналом.Rec.Документы.Кадры.РаспределениеТР_позиции" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame">
+        <Inherited Name="ButtonServices" Excluded="False">
+          <Component Name="кнВыбратьСотрудников" Class="Com.Ctrl.IButton" Caption="Выбрать сотрудников" HasCaption="False" Hint="Групповой выбор сотрудников" ImageName="Com.Blank" OnClick="кнВыбратьСотрудников_OnClick" Visible="True"/>
+        </Inherited>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Inherited Name="грТипДокумента" Excluded="True"/>
+        <Inherited Name="grNumberDate">
+          <Component Name="Период" Class="Com.Ctrl.IEdit" After="ДатаДокумента" Caption="Период" CaptionWidth="20" Field="EdtRec.Период" HasCaption="True" Hint="Указывается период составления документа" OnChange="Период_OnChange" OnGetLookupFilter="Период_OnGetLookupFilter" Required="True"/>
+          <Inherited Name="stEmpty" FixSize="True" Width="37"/>
+        </Inherited>
+        <Component Name="grDivision" Class="Com.Ctrl.IGroup" After="grNumberDate" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Подразделение" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" Field="EdtRec.Подразделение" HasCaption="True" Hint="Подразделение организации" LookupField="Name" OnChange="Подразделение_OnChange" OnOpenCardForm="НастроитьКартотекуПодразделения"/>
+          <Component Name="кнПодразделение" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Подразделение" JumpForm="Bas.Frm.Data.Entity"/>
+          <Component Name="stEmpty1" Class="Com.Ctrl.IStatic" Excluded="True" FixSize="True" Width="7"/>
+          <Component Name="кнУтвердить" Class="Com.Ctrl.IButton" Caption="Утвердить" OnClick="кнУтвердить_OnClick" Width="30"/>
+        </Component>
+        <Component Name="грПериод" Class="Com.Ctrl.IGroup" Excluded="True" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="stEmpty2" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+          <Component Name="stEmpty3" Class="Com.Ctrl.IStatic" FixSize="True" Width="30"/>
+        </Component>
+        <Inherited Name="грОписание" Excluded="True">
+          <Inherited Name="Описание" Excluded="True" Visible="False"/>
+          <Inherited Name="Static3" Excluded="True"/>
+        </Inherited>
+        <Inherited Name="грПримечание">
+          <Inherited Name="Static4" Width="37"/>
+        </Inherited>
+        <Component Name="грВидДопАналитики" Class="Com.Ctrl.IGroup" After="грПримечание" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="стВидДопАналит" Class="Com.Ctrl.IStatic" Caption="Вид доп. аналитики" FixSize="True" Hint="Указывается вид дополнительной аналитики, по объектам которого будет производится распределение ТР" Width="40"/>
+          <Component Name="ЭтоПодразделение" Class="Com.Ctrl.ICheckBox" Caption="Подразделение" Field="EdtRec.ЭтоПодразделение" FixSize="True" HasCaption="True" OnChange="ВидДопАн_OnChange" Width="35"/>
+          <Component Name="ЭтоДоговор" Class="Com.Ctrl.ICheckBox" Caption="Договор" Field="EdtRec.ЭтоДоговор" FixSize="True" HasCaption="True" OnChange="ВидДопАн_OnChange" Width="30"/>
+          <Component Name="ЭтоПроект" Class="Com.Ctrl.ICheckBox" Caption="Проект" Field="EdtRec.ЭтоПроект" FixSize="True" HasCaption="True" OnChange="ВидДопАн_OnChange" Width="30"/>
+          <Component Name="ЭтоПродукт" Class="Com.Ctrl.ICheckBox" Caption="Продукт" Field="EdtRec.ЭтоПродукт" FixSize="True" HasCaption="True" OnChange="ВидДопАн_OnChange" Width="30"/>
+          <Component Name="ЭтоЗаказ" Class="Com.Ctrl.ICheckBox" Caption="Заказ" Field="EdtRec.ЭтоЗаказ" FixSize="True" HasCaption="True" OnChange="ВидДопАн_OnChange" Width="30"/>
+          <Component Name="ЭтоЦФО" Class="Com.Ctrl.ICheckBox" Caption="ЦФО" Field="EdtRec.ЭтоЦФО" FixSize="True" HasCaption="True" OnChange="ВидДопАн_OnChange" Width="30"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Caption="@Frm:MainTab=Распределение ТР">
+          <Component Name="тблПозиции" Class="Com.Ctrl.ITable" OnDelete="тблПозиции_OnDelete" Sortable="True" Subtable="EdtRec.Позиции">
+            <Component Name="грСотрудник" Class="Com.Ctrl.IColumnsGroup" Caption="Сотрудник" HasCaption="True">
+              <Component Name="Назначение_ФИО" Class="Com.Ctrl.IEdit" Caption="ФИО" CardFileClass="УправлениеПерсоналом.Tab.Данные.Назначения" CellFormat="ReferenceFormat" Field="Позиции.Назначение" HasCaption="True" Hint="ФИО сотрудника" LookupField="УсловияТрудаСотрудника.ФизЛицо.Имя" Multiline="True" OnChange="Назначение_ФИО_OnChange" OnGetLookupFilter="Назначение_ФИО_OnGetLookupFilter" OnOpenCardForm="Назначение_ФИО_OnOpenCardForm" OnOutput="Назначение_ФИО_OnOutput" Width="45" Wrap="True"/>
+              <Component Name="Назначение_Табель" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="таб. номер" CellFormat="ReferenceFormat" Enabled="False" Field="Позиции.Назначение" HasCaption="True" LookupField="УсловияТрудаСотрудника.ТабНомер" Width="20"/>
+              <Component Name="грНазначениеОтк" Class="Com.Ctrl.IColumnsGroup" Caption="Назначение" HasCaption="False">
+                <Component Name="НазначениеПодр" Class="Com.Ctrl.IEdit" Caption="подразделение" CardFileClass="УправлениеПерсоналом.Tab.Данные.Назначения" Enabled="False" Field="Позиции.Назначение" HasCaption="True" Hint="Подразделение сотрудника" LookupField="Подразделение.Name" Multiline="True" OnOutput="Назначение_Подр_OnOutput" Width="40" Wrap="True"/>
+                <Component Name="НазначениеДолж" Class="Com.Ctrl.IEdit" Caption="должность, разряд" CardFileClass="УправлениеПерсоналом.Tab.Данные.Назначения" Enabled="False" Field="Позиции.Назначение" HasCaption="True" Hint="Должность, разряд сотрудника" LookupField="Name" Multiline="True" OnOutput="Назначение_Долж_OnOutput" Width="40" Wrap="True"/>
+                <Component Name="ПериодРаботы" Class="Com.Ctrl.IEdit" Caption="период работы (с,по)" Enabled="False" Field="Позиции.Сотрудник" HasCaption="True" Multiline="True" OnOutput="ПериодРаботы_OnOutput" Width="22" Wrap="True"/>
+              </Component>
+              <Component Name="кнТабНомер" Class="Com.Ctrl.IJumpButton" Field="Позиции.Сотрудник" JumpForm="УправлениеПерсоналом.Frm.Данные.УсловияТрудаСотрудника"/>
+            </Component>
+            <Component Name="грВидАналитики" Class="Com.Ctrl.IColumnsGroup" Caption="Наименование объекта доп. аналитики" HasCaption="True">
+              <Component Name="ПодразделениеПоз" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.Divisions" Field="Позиции.Подразделение" Multiline="True" OnOpenCardForm="НастроитьКартотекуПодразделения" Width="60" Wrap="True"/>
+              <Component Name="Договор" Class="Com.Ctrl.IEdit" CardFileClass="Biz.Tab.Data.Contract" Field="Позиции.Договор" LookupField="Code" Multiline="True" Width="45" Wrap="True"/>
+              <Component Name="Проект" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Ref.Project" Field="Позиции.Проект" Multiline="True" Width="45" Wrap="True"/>
+              <Component Name="Продукт" Class="Com.Ctrl.IEdit" Field="Позиции.Продукт" Multiline="True" Width="45" Wrap="True"/>
+              <Component Name="Заказ" Class="Com.Ctrl.IEdit" Field="Позиции.Заказ" Multiline="True" Width="45" Wrap="True"/>
+              <Component Name="ЦФО" Class="Com.Ctrl.IEdit" Field="Позиции.ЦФО" Multiline="True" Width="45" Wrap="True"/>
+            </Component>
+            <Component Name="грДатаЧасы" Class="Com.Ctrl.IColumnsGroup" Caption="Назначение" HasCaption="False">
+              <Component Name="ДатаНачала" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Дата начала" Field="Позиции.ДатаНачала" FormatOfDate="DateOnly" OnVerify="ДатаНачала_OnVerify" Width="30"/>
+              <Component Name="ДатаОкончания" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Дата окончания" Field="Позиции.ДатаОкончания" FormatOfDate="DateOnly" OnVerify="ДатаОкончания_OnVerify" Width="30"/>
+              <Component Name="КолвоЧасов" Class="Com.Ctrl.IEdit" Alignment="RightAlign" Caption="Кол-во часов" Field="Позиции.ОбщКолвоЧасов" HasCaption="True" Hint="Количество часов" OnChange="КолвоЧасов_OnChange" Width="15"/>
+            </Component>
+          </Component>
+        </Inherited>
+        <Component Name="MainTab_УчетРВ" Class="Com.Ctrl.IFrame" After="MainTab" Caption="@Frm:MainTab_УчетРВ=Учет рабочего времени" Margins="5">
+          <Component Name="тблПозиции1" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" Numbering="True" Sortable="True" Subtable="EdtRec.Позиции">
+            <Component Name="Сотрудник" Class="Com.Ctrl.IEdit" Enabled="False" Field="Позиции.Сотрудник" Multiline="True" OnOutput="Сотрудник_OnOutput" Width="40" Wrap="True"/>
+            <Component Name="табНомер" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Таб. номер" CardFileClass="HRBase.Tab.Data.EmployeePlace" Enabled="False" Field="Позиции.Сотрудник" HasCaption="True" Hint="Табельный номер" LookupField="EmplNumber" Width="15" Wrap="True"/>
+            <Component Name="грРаспредЧасов" Class="Com.Ctrl.IColumnsGroup" Caption="Распределение часов по объектам доп. аналитики" HasCaption="True">
+              <Component Name="часы1" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы1" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="7"/>
+              <Component Name="часы2" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы2" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="7"/>
+              <Component Name="часы3" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы3" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="7"/>
+              <Component Name="часы4" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы4" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="7"/>
+              <Component Name="часы5" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы5" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="7"/>
+              <Component Name="часы6" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы6" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="7"/>
+              <Component Name="часы7" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы7" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="7"/>
+              <Component Name="часы8" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы8" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="7"/>
+              <Component Name="часы9" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы9" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="7"/>
+              <Component Name="часы10" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы10" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="8"/>
+              <Component Name="часы11" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы11" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="8"/>
+              <Component Name="часы12" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы12" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="8"/>
+              <Component Name="часы13" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы13" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="8"/>
+              <Component Name="часы14" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы14" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="8"/>
+              <Component Name="часы15" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы15" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="8"/>
+              <Component Name="часы16" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы16" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="8"/>
+              <Component Name="часы17" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы17" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="8"/>
+              <Component Name="часы18" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы18" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="8"/>
+              <Component Name="часы19" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы19" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="8"/>
+              <Component Name="часы20" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы20" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="8"/>
+              <Component Name="часы21" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы21" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="8"/>
+              <Component Name="часы22" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы22" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="8"/>
+              <Component Name="часы23" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы23" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="8"/>
+              <Component Name="часы24" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы24" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="8"/>
+              <Component Name="часы25" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы25" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="8"/>
+              <Component Name="часы26" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы26" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="8"/>
+              <Component Name="часы27" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы27" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="8"/>
+              <Component Name="часы28" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы28" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="8"/>
+              <Component Name="часы29" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы29" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="8"/>
+              <Component Name="часы30" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы30" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="8"/>
+              <Component Name="часы31" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Field="Позиции.часы31" OnEnter="часы_OnEnter" OnOutputEx="часы_OnOutputEx" OnVerify="часы_OnVerify" Width="8"/>
+            </Component>
+            <Component Name="ОбщееКолвоЧасов" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Колич час. общ." Enabled="False" Field="Позиции.ОбщКолвоЧасов" HasCaption="True" Hint="Количество часов (общее)" Width="14"/>
+            <Component Name="РаспредКолвоЧасов" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Колич час. расп." Enabled="False" Field="Позиции.РаспрКолвоЧасов" HasCaption="True" Hint="Количество часов (распределенное)" Width="14"/>
+            <Component Name="Отклонения" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Отклонение" Enabled="False" Field="Позиции.Отклонения" HasCaption="True" Hint="Отклонения" Width="12"/>
+          </Component>
+        </Component>
+        <Inherited Name="фрПодписи" Caption="Прочее" HasCaption="True">
+          <Inherited Name="фрПодписиОбщ" Excluded="True"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

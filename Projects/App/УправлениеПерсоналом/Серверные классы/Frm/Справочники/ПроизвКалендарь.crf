@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="УправлениеПерсоналом.Frm.Базовая.Справочник">
+  <Inherited HelpContext="УправлениеПерсоналом.Зарплата и Кадры.Справочники.Производственный календарь">
+    <Inherited Name="EdtRec" Class="УправлениеПерсоналом.Rec.Справочники.ПроизвКалендарь" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="HeaderFrame" MaxButton="2">
+        <Inherited Name="ButtonPost" After="ButtonClose"/>
+        <Inherited Name="ButtonReports" After="ButtonHelp"/>
+      </Inherited>
+      <Inherited Name="FieldsFrame">
+        <Component Name="грПродолжРабВремени" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+          <Component Name="грПродолжительность" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="230" MinWidth="150">
+            <Component Name="ПродолжРабВремени" Class="Com.Ctrl.IEdit" CardFileClass="УправлениеПерсоналом.Tab.Справочники.ПродолжРабВремени" Field="EdtRec.ПродолжРабВремени" HasCaption="True" Hint="Наименование продолжительности" LookupField="Name" MaxWidth="230" MinWidth="150" OnChange="ПродолжРабВремени_OnChange" Width="150"/>
+            <Component Name="ВидПродолжРабВремени" Class="Com.Ctrl.IEdit" Caption="Вид" CellFormat="EnumFormat" Enabled="False" Field="EdtRec.ПродолжРабВремени" HasButton="False" HasCaption="True" Hint="Вид продолжительности рабочего времени" LookupField="Вид" MaxWidth="230" MinWidth="150" Width="150"/>
+          </Component>
+          <Component Name="грНормыЧасов" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False">
+            <Component Name="ЧасыВНеделю" Class="Com.Ctrl.IEdit" Caption="Норма часов в неделю" CaptionWidth="50" Enabled="False" Field="EdtRec.ПродолжРабВремени" LookupField="ЧасыВНеделю" MaxWidth="30" Width="20"/>
+            <Component Name="НормаВДень" Class="Com.Ctrl.IEdit" Caption="в день" CaptionWidth="20" Enabled="False" Field="EdtRec.ПродолжРабВремени" Hint="Норма часов в день" LookupField="НормаВДень" MaxWidth="30" Width="20"/>
+          </Component>
+        </Component>
+        <Component Name="грКалендарь" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="230" MinWidth="150">
+          <Component Name="Calendar" Class="Com.Ctrl.IEdit" Caption="Тип календаря" CardFileClass="Bas.Tab.Ref.Calendar" Field="EdtRec.Calendar" HasCaption="True" LookupField="Code" Width="80"/>
+          <Component Name="btnCalendar" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Calendar" JumpForm="Bas.Frm.Ref.Calendar"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Visible="False"/>
+        <Component Name="фрГрафикНаГод" Class="Com.Ctrl.IFrame" Caption="График на год" HasCaption="True" Visible="True"/>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

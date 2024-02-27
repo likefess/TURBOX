@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="TrackingCore.Frm.AddIns.BaseTask">
+  <Inherited>
+    <Component Name="AllureLinkSubtable" Class="Com.ISubtable" After="#0" StructClass="TrackingDev.Rec.Data.Allure_Link"/>
+    <Component Name="AllureLinkEnterSubtable" Class="Com.ISubtable"/>
+    <Inherited Name="EdtRec" IsLibrary="1" After="AllureLinkEnterSubtable"/>
+    <Component Name="TabMenu" Class="Com.Ctrl.IPopupMenu" After="EdtRec" AddDefaultItems="False">
+      <Component Name="cmdInsertRow" Class="Com.ComManaging.ExecProcedure" Caption="Добавить" CommandName="Kernel.Edit.InsertObj" CommandProc="InsertRow_CommandProc" IconName="Com.InsertObj"/>
+      <Component Name="cmdDeleteRow" Class="Com.ComManaging.ExecProcedure" Caption="Удалить" CommandName="Kernel.Edit.DeleteObj" CommandProc="DeleteRow_CommandProc" IconName="Com.DeleteObj"/>
+    </Component>
+    <Inherited Name="RootFrame" After="TabMenu" Color="0xFF000005" Margins="0">
+      <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+      <Component Name="TableFrame" Class="Com.Ctrl.IFrame" AutoSize="False" Color="0xFF000005" Margins="0">
+        <BuiltIn Name="SideMargins" Bottom="0" Left="0" Right="0" Top="0"/>
+        <Component Name="AllureLinkEnterTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="False" CanInsert="True" CanMove="False" Color="0xFF000005" ManualControl="False" Numbering="False" Subtable="AllureLinkEnterSubtable">
+          <Component Name="AllureLinkEnterGroup" Class="Com.Ctrl.IColumnsGroup" Alignment="LeftAlign" Caption="Ссылка" FontBold="True" HasCaption="True">
+            <Component Name="AllureLinkEnter" Class="Com.Ctrl.IEdit" Caption="Вставьте ссылку" HasCaption="False" HasInnerCaption="True" MinWidth="50" Multiline="False" OnChange="AllureLinkEnterOnChange" ValueType="VarString"/>
+          </Component>
+        </Component>
+        <Component Name="AllureLinkTable" Class="Com.Ctrl.ITable" Adaptive="True" CanDelete="True" CanInsert="True" CanMove="False" Color="0xFF000005" HasCaption="False" ManualControl="False" Numbering="False" Subtable="AllureLinkSubtable" Visible="True">
+          <Component Name="Allure_Link" Class="TrackingDev.Rec.Data.Allure_Link" IsLibrary="1"/>
+          <Component Name="Author" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Автор" CardFileClass="Bas.Tab.Data.Entity" Field="Allure_Link.Author" LookupField="Name" Visible="False"/>
+          <Component Name="Date" Class="Com.Ctrl.IEdit" Caption="Дата" CellFormat="DateFormat" Field="Allure_Link.Date" ValueType="VarObject" Visible="False"/>
+          <Component Name="Link" Class="Com.Ctrl.IEdit" Alignment="LeftAlign" Caption="Ссылка" Enabled="False" Field="Allure_Link.Link" FontColor="0xFF00000D" OnClick="LinkOnClick"/>
+          <Component Name="Passed_num" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Количество успешно пройденных тестов" Color="0x0064CC97" Enabled="False" Field="Allure_Link.Passed_num" FieldColor="0x0064CC97" FieldFormat="Пройдено #####0" FixSize="True" FontColor="0x00000000" Hint="Количество успешно пройденных тестов" Width="33"/>
+          <Component Name="Failed_num" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Количество проваленных тестов" Color="0x003E5AFD" Enabled="False" Field="Allure_Link.Failed_num" FieldColor="0x003E5AFD" FieldFormat="Провалено #####0" FixSize="True" FontColor="0x00000000" Hint="Количество проваленных тестов" Width="34"/>
+          <Component Name="Broken_num" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Количество сломанных тестов" Color="0x0050D0FF" Enabled="False" Field="Allure_Link.Broken_num" FieldColor="0x0050D0FF" FieldFormat="Сломано #####0" FixSize="True" FontColor="0x00000000" Hint="Количество сломанных тестов" Width="31"/>
+          <Component Name="Unknown_num" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Количество неизвестных тестов" Color="0x00BE5ED3" Enabled="False" Field="Allure_Link.Unknown_num" FieldColor="0x00BE5ED3" FieldFormat="Неизвестно #####0" FixSize="True" FontColor="0x00FFFFFF" Hint="Количество неизвестных тестов" Width="35"/>
+          <Component Name="Skipped_num" Class="Com.Ctrl.IEdit" Alignment="CenterAlign" Caption="Количество пропущенных тестов" Color="0x00AAAAAA" Enabled="False" Field="Allure_Link.Skipped_num" FieldColor="0x00AAAAAA" FieldFormat="Пропущено #####0" FixSize="True" FontColor="0x00000000" Hint="Количество пропущенных тестов" Width="36"/>
+          <Component Name="DelButton" Class="Com.Ctrl.IButton" FixSize="True" Hint="Удалить ссылку" ImageName="Com.DeleteAsync" OnClick="DelButtonOnClick" Width="7"/>
+        </Component>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

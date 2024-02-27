@@ -1,0 +1,345 @@
+﻿TBCFile VER="3.4" [Created '29.11.2019 17:22:58' by 'Администратор']
+
+DESCRIPTION[
+Count=25
+CountByRef=0
+Bas.Ref.EntityRole
+(
+  Count=25
+  CountByRef=0
+)
+]
+
+METADATA[
+
+  [Bas.Ref.EntityRole
+  (
+    Deleted :Boolean
+    GroupDoc :Bas.Ref.EntityRole
+    isGroup :Integer
+    IsMeta :Boolean
+    ModuleCode :String
+    Code :String(80)
+    Name :String(255)
+    SystemRole :Integer
+    ChildRoles :Struct array Integer
+    (
+      ChildRoleValue :Bas.Ref.EntityRole
+    )
+    PosOrProf :Integer
+    SystemCode :Integer
+    PosOrProfByString :Boolean
+    UpperRolesFiler :Memo
+    UpperRoles :Struct array Integer
+    (
+      Value :Bas.Ref.EntityRole
+    )
+    PageOfEntityForm :Integer array Integer
+    Категория :BizRus.Классификаторы.КатегорияДолжностиИлиПрофессии
+    КодПозицииСписка :String
+  )
+  ForeignKey Code
+  ]
+
+]
+DATA[
+
+[Bas.Ref.EntityRole
+  
+  {Bas.Ref.EntityRole:"Контр_Поставщик"}
+  (
+    GroupDoc = {Bas.Ref.EntityRole:Контрагент}
+    IsMeta = True
+    ModuleCode = "ТиС"
+    Name = "Поставщик"
+    SystemRole = 12
+  )
+  
+  {Bas.Ref.EntityRole:"Контр_Покупатель"}
+  (
+    GroupDoc = {Bas.Ref.EntityRole:Контрагент}
+    IsMeta = True
+    ModuleCode = "ТиС"
+    Name = "Покупатель"
+    SystemRole = 13
+  )
+  
+  {Bas.Ref.EntityRole:"ДебиторКредитор"}
+  (
+    GroupDoc = {Bas.Ref.EntityRole:Контрагент}
+    IsMeta = True
+    ModuleCode = "ТиС"
+    Name = "ДебиторКредитор"
+    SystemRole = 15
+    UpperRolesFiler = "Значение.Код in [""Контрагент""]"
+    UpperRoles = (
+      0:(
+        Value = {Bas.Ref.EntityRole:Контрагент}
+      )
+    )
+  )
+  
+  {Bas.Ref.EntityRole:"РСчет"}
+  (
+    GroupDoc = {Bas.Ref.EntityRole:Подразделение}
+    IsMeta = True
+    ModuleCode = "ТиС"
+    Name = "Подразделение с расч.счетом"
+    UpperRolesFiler = "Значение.Код in [""НашеПредпр"",""РСчет""]"
+    UpperRoles = (
+      0:(
+        Value = {Bas.Ref.EntityRole:НашеПредпрТорг}
+      )
+      1:(
+        Value = {Bas.Ref.EntityRole:РСчет}
+      )
+    )
+  )
+  
+  {Bas.Ref.EntityRole:"Контр_Производитель"}
+  (
+    GroupDoc = {Bas.Ref.EntityRole:Контрагент}
+    IsMeta = True
+    ModuleCode = "ТиС"
+    Name = "Производитель"
+    SystemRole = 4
+  )
+  
+  {Bas.Ref.EntityRole:"Контрагент"}
+  (
+    isGroup = -1
+    IsMeta = True
+    ModuleCode = "ТиС"
+    Name = "Контрагент"
+    SystemRole = 4
+  )
+  
+  {Bas.Ref.EntityRole:"Банк"}
+  (
+    GroupDoc = {Bas.Ref.EntityRole:Контрагент}
+    IsMeta = True
+    ModuleCode = "ТиС"
+    Name = "Банк"
+    UpperRolesFiler = "Значение.Код in [""Контрагент""]"
+    UpperRoles = (
+      0:(
+        Value = {Bas.Ref.EntityRole:Контрагент}
+      )
+    )
+  )
+  
+  {Bas.Ref.EntityRole:"Подразделение"}
+  (
+    isGroup = -1
+    IsMeta = True
+    ModuleCode = "ТиС"
+    Name = "Подразделение"
+    SystemRole = 10
+    SystemCode = 7
+    UpperRolesFiler = "Значение.Код in [""Подразделение"",""НашеПредпр"",""Контрагент""]"
+    UpperRoles = (
+      0:(
+        Value = {Bas.Ref.EntityRole:Подразделение}
+      )
+      1:(
+        Value = {Bas.Ref.EntityRole:НашеПредпрТорг}
+      )
+      2:(
+        Value = {Bas.Ref.EntityRole:Контрагент}
+      )
+    )
+  )
+  
+  {Bas.Ref.EntityRole:"Учредитель"}
+  (
+    GroupDoc = {Bas.Ref.EntityRole:Контрагент}
+    IsMeta = True
+    ModuleCode = "ТиС"
+    Name = "Учредитель"
+    SystemRole = 14
+    UpperRolesFiler = "Значение.Код in [""Подразделение"",""Контрагент"",""НашеПредпр""]"
+    UpperRoles = (
+      0:(
+        Value = {Bas.Ref.EntityRole:Подразделение}
+      )
+      1:(
+        Value = {Bas.Ref.EntityRole:Контрагент}
+      )
+    )
+  )
+  
+  {Bas.Ref.EntityRole:"Посредник"}
+  (
+    GroupDoc = {Bas.Ref.EntityRole:Контрагент}
+    IsMeta = True
+    ModuleCode = "ТиС"
+    Name = "Посредник"
+  )
+  
+  {Bas.Ref.EntityRole:"НашеПредпрТорг"}
+  (
+    IsMeta = True
+    ModuleCode = "ТиС"
+    Name = "Наше предприятие"
+    SystemRole = 1
+    SystemCode = 12
+    UpperRolesFiler = "Значение.Код in [""НашеПредпр""]"
+    UpperRoles = (
+      0:(
+        Value = {Bas.Ref.EntityRole:НашеПредпрТорг}
+      )
+    )
+    PageOfEntityForm = (
+      0: 0
+    )
+  )
+  
+  {Bas.Ref.EntityRole:"ЮрЛицо"}
+  (
+    GroupDoc = {Bas.Ref.EntityRole:Реквизит}
+    IsMeta = True
+    ModuleCode = "ТиС"
+    Name = "Юр. лицо"
+    SystemCode = 3
+    UpperRolesFiler = "Значение.ExtId in [""ЮрЛицо""]"
+    UpperRoles = (
+      0:(
+        Value = {Bas.Ref.EntityRole:ЮрЛицо}
+      )
+    )
+    PageOfEntityForm = (
+      0: 0
+      1: 0
+    )
+  )
+  
+  {Bas.Ref.EntityRole:"ФизЛицо"}
+  (
+    GroupDoc = {Bas.Ref.EntityRole:Реквизит}
+    IsMeta = True
+    ModuleCode = "ТиС"
+    Name = "Физ. лицо"
+    SystemCode = 2
+    PageOfEntityForm = (
+      0: 0
+    )
+  )
+  
+  {Bas.Ref.EntityRole:"МаркетингИнфо"}
+  (
+    GroupDoc = {Bas.Ref.EntityRole:Реквизит}
+    IsMeta = True
+    ModuleCode = "ТиС"
+    Name = "Маркетинговая информация"
+    SystemCode = 11
+    PageOfEntityForm = (
+      0: 0
+    )
+  )
+  
+  {Bas.Ref.EntityRole:"Склад"}
+  (
+    GroupDoc = {Bas.Ref.EntityRole:Подразделение}
+    IsMeta = True
+    ModuleCode = "ТиС"
+    Name = "Складское подразделение"
+    SystemRole = 16
+    UpperRolesFiler = "Значение.Код in [""НашеПредпр"",""Подразделение"",""Контрагент""]"
+    UpperRoles = (
+      0:(
+        Value = {Bas.Ref.EntityRole:НашеПредпрТорг}
+      )
+      1:(
+        Value = {Bas.Ref.EntityRole:Подразделение}
+      )
+    )
+  )
+  
+  {Bas.Ref.EntityRole:"Касса"}
+  (
+    GroupDoc = {Bas.Ref.EntityRole:Подразделение}
+    IsMeta = True
+    ModuleCode = "ТиС"
+    Name = "Подразделение с кассой"
+    UpperRolesFiler = "Значение.Код in [""НашеПредпр"",""Касса""]"
+    UpperRoles = (
+      0:(
+        Value = {Bas.Ref.EntityRole:НашеПредпрТорг}
+      )
+      1:(
+        Value = {Bas.Ref.EntityRole:Касса}
+      )
+    )
+  )
+  
+  {Bas.Ref.EntityRole:"СотрудникТорг"}
+  (
+    isGroup = -1
+    IsMeta = True
+    ModuleCode = "ТиС"
+    Name = "Сотрудник"
+    SystemRole = 3
+    ChildRoles = (
+      0:(
+        ChildRoleValue = {Bas.Ref.EntityRole:МОЛ}
+      )
+    )
+    SystemCode = 10
+    UpperRolesFiler = "Значение.Код in [""Подразделение"",""НашеПредпр"",""Контрагент""]"
+    UpperRoles = (
+      0:(
+        Value = {Bas.Ref.EntityRole:Подразделение}
+      )
+      1:(
+        Value = {Bas.Ref.EntityRole:НашеПредпрТорг}
+      )
+    )
+    PageOfEntityForm = (
+      0: 0
+      1: 0
+    )
+  )
+  
+  {Bas.Ref.EntityRole:"КассирМОЛ"}
+  (
+    GroupDoc = {Bas.Ref.EntityRole:СотрудникТорг}
+    IsMeta = True
+    ModuleCode = "ТиС"
+    Name = "Материально-ответственное лицо за кассу"
+    UpperRolesFiler = 
+      "Значение.Код in [""Бухгалтерия"",""НашеПредпр"",""Подразделение"",""Контрагент"","""
+      "ГруппаКонтр""]"
+  )
+  
+  {Bas.Ref.EntityRole:"МОЛ"}
+  (
+    GroupDoc = {Bas.Ref.EntityRole:СотрудникТорг}
+    IsMeta = True
+    ModuleCode = "ТиС"
+    Name = "Материально-ответственное лицо"
+    UpperRolesFiler = "Значение.Код in [""Подразделение"",""НашеПредпр"",""Контрагент""]"
+    UpperRoles = (
+      0:(
+        Value = {Bas.Ref.EntityRole:Подразделение}
+      )
+    )
+  )
+  
+  {Bas.Ref.EntityRole:"БиФ"}
+  (
+    GroupDoc = {Bas.Ref.EntityRole:Контрагент}
+    IsMeta = True
+    ModuleCode = "ТиС"
+    Name = "Бюджет и фонды"
+  )
+  
+  {Bas.Ref.EntityRole:"Реквизит"}
+  (
+    isGroup = -1
+    IsMeta = True
+    ModuleCode = "ТиС"
+    Name = "Реквизит субъекта"
+  )
+]
+
+]

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IMenu">
+  <Inherited Caption="@Cmd:Панель_ФинансовыйДиректор=Финансовый директор">
+    <Inherited Name="MainGroup">
+      <Component Name="Операции" Class="Com.Cmd2.IGroup" Caption="@Cmd:Группа_Операции=Операции" Columns="6">
+        <Component Name="Платежный_календарь1" Class="Com.Cmd2.IItem" Command="Commands.Платежный_календарь"/>
+      </Component>
+      <Component Name="Отчеты" Class="Com.Cmd2.IGroup" Caption="@Cmd:Группа_Отчеты=Отчеты" Columns="6">
+        <Component Name="Отчет_по_заявкам_на_оплату" Class="Com.Cmd2.IItem" Command="Commands.Отчет_по_заявкам_на_оплату"/>
+        <Component Name="Реестр_платежных_поручений" Class="Com.Cmd2.IItem" Command="Commands.Реестр_платежных_поручений"/>
+        <Component Name="Анализ_исполнения_БДДС" Class="Com.Cmd2.IItem" Command="Commands.Анализ_исполнения_БДДС"/>
+        <Component Name="План_факт_анализ_БДДС" Class="Com.Cmd2.IItem" Command="Commands.План_факт_анализ_БДДС"/>
+        <Component Name="Отчет_о_движении_денежных_средств" Class="Com.Cmd2.IItem" Command="Commands.Отчет_о_движении_денежных_средств"/>
+        <Component Name="ОСВ_по_банку" Class="Com.Cmd2.IItem" Excluded="True" Command="Commands.cmdRepTSRBank"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

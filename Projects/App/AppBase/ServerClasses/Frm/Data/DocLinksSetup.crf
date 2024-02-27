@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Frm.ICodeName">
+  <Inherited HelpContext="AppBase.AppBase.Настройки.Интеграция данных">
+    <Inherited Name="EdtRec" Class="AppBase.Rec.Data.DocLinksSetup" IsLibrary="1"/>
+    <Component Name="defLinks" Class="AppBase.Rec.Data.DocLinksSetup_Links" IsLibrary="1" After="EdtRec"/>
+    <Inherited Name="TableMenu" After="defLinks"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="CompanyGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="150">
+          <Component Name="edCompany" Class="Com.Ctrl.IEdit" CardFileClass="Bas.Tab.Data.OurCompanies" Field="EdtRec.Company" HasCaption="True" LookupField="Name" ShortList="True" Wrap="False"/>
+          <Component Name="jbCompany" Class="Com.Ctrl.IJumpButton" Field="EdtRec.Company" JumpForm="Bas.Frm.Data.Entity"/>
+          <Component Name="Closed" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Closed" FixSize="True" Width="25"/>
+        </Component>
+        <Component Name="PeriodGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="150">
+          <Component Name="edFromDate" Class="Com.Ctrl.IEdit" Caption="@DocLinksSetup:Period=Период действия" Field="EdtRec.FromDate" HasCaption="True" Hint="@DocLinksSetup:FromDate.Hint=Дата начала срока действия документа" MaxWidth="35"/>
+          <Component Name="edToDate" Class="Com.Ctrl.IEdit" Caption="-" CaptionWidth="8" Field="EdtRec.ToDate" HasCaption="True" Hint="@DocLinksSetup:ToDate.Hint=Дата окончания срока действия документа" MaxWidth="35"/>
+          <Component Name="Static1" Class="Com.Ctrl.IStatic" Width="20"/>
+          <Component Name="Static5" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+          <Component Name="Locked" Class="Com.Ctrl.ICheckBox" Field="EdtRec.Locked" FixSize="True" Width="25"/>
+        </Component>
+        <Component Name="OtherGroup" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="False" MaxWidth="250" MinWidth="150">
+          <Component Name="Static2" Class="Com.Ctrl.IStatic" FixSize="True" Width="40"/>
+          <Component Name="Static3" Class="Com.Ctrl.IStatic" Width="20"/>
+          <Component Name="Static4" Class="Com.Ctrl.IStatic" FixSize="True" Width="7"/>
+          <Component Name="btToTrans" Class="Com.Ctrl.IButton" Caption="@AppBase:btToTrans=Утвердить" FixSize="True" OnClick="btToTrans_OnClick" Width="25"/>
+          <Component Name="btToCancel" Class="Com.Ctrl.IButton" Caption="@AppBase:btToCancel=Отменить" FixSize="True" OnClick="btToCancel_OnClick" Width="25"/>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab">
+          <Component Name="tbLinks" Class="Com.Ctrl.ITable" CanDelete="False" CanInsert="False" CanMove="False" Subtable="EdtRec.Links">
+            <Component Name="grSource" Class="Com.Ctrl.IColumnsGroup" Caption="@DocLinksSetup:SourceDoc=Документ - основание" HasCaption="True">
+              <Component Name="edSourceProject" Class="Com.Ctrl.IEdit" Caption="@DocLinksSetup:DocProject=решение" Enabled="False" Field="defLinks.SourceProject" HasCaption="True" OnOutputEx="edProject_OnOutputEx" Width="45"/>
+              <Component Name="edSourceTable" Class="Com.Ctrl.IEdit" Caption="@DocLinksSetup:DocTable=документ" Enabled="False" Field="defLinks.SourceTable" HasCaption="True" OnOutputEx="edTable_OnOutputEx" Width="50"/>
+            </Component>
+            <Component Name="grReceiver" Class="Com.Ctrl.IColumnsGroup" Caption="@DocLinksSetup:ReceiverDoc=Формируемый документ&#xD;&#xA;" HasCaption="True">
+              <Component Name="edReceiverProject" Class="Com.Ctrl.IEdit" Caption="@DocLinksSetup:DocProject=решение" Enabled="False" Field="defLinks.ReceiverProject" HasCaption="True" OnOutputEx="edProject_OnOutputEx" Width="45"/>
+              <Component Name="edReceiverTable" Class="Com.Ctrl.IEdit" Caption="@DocLinksSetup:DocTable=документ" Enabled="False" Field="defLinks.ReceiverTable" HasCaption="True" OnOutputEx="edTable_OnOutputEx" Width="50"/>
+            </Component>
+            <Component Name="edDoLink" Class="Com.Ctrl.IEdit" Field="defLinks.DoLink" HasCaption="True" Width="30"/>
+          </Component>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

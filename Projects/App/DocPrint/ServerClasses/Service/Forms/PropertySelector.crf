@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="DocPrint.Service.Forms.DataSelector">
+  <Inherited>
+    <Inherited Name="Data" Class="DocPrint.Service.Data.PropertySelector" IsLibrary="1"/>
+    <Inherited Name="Variables">
+      <Component Name="Comment" Class="Com.Fld.IVar"/>
+      <Component Name="Signature" Class="Com.Fld.IVar"/>
+      <Component Name="ResultArray" Class="Com.Fld.IArray" ValueType="VarVariant"/>
+    </Inherited>
+    <Inherited Name="RootFrame">
+      <Inherited Name="FieldsFrame">
+        <Component Name="Group1" Class="Com.Ctrl.IGroup" Adaptive="True" ByColumn="True" MaxWidth="300" MinWidth="150">
+          <Component Name="ProjectEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.PropertySelector.ProjectEdit:Caption=Проект" Field="Data.CurrentProject" HasCaption="True" OnChange="ProjectEditOnChange" OnEnter="ProjectEditOnEnter" OnOutputEx="ProjectEditOnOutputEx" ValueType="VarObject"/>
+          <Component Name="ClassEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.PropertySelector.ClassEdit:Caption=Класс записи" Field="Data.CurrentClass" HasCaption="True" OnChange="ClassEditOnChange" OnEnter="ClassEditOnEnter" OnOutputEx="ClassEditOnOutputEx" ValueType="VarObject"/>
+          <Component Name="PropertyEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.PropertySelector.PropertyEdit:Caption=Свойство" Field="Data.CurrentProperty" HasCaption="True" OnChange="PropertyEditOnChange" OnEnter="PropertyEditOnEnter" OnOutputEx="PropertyEditOnOutputEx" ValueType="VarObject"/>
+          <Component Name="CommentEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.PropertySelector.CommentEdit:Caption=Описание" CellFormat="StringFormat" Enabled="False" Field="Comment" HasCaption="True" Multiline="True" ValueType="VarString" Wrap="True"/>
+          <Component Name="SignatureEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.PropertySelector.SignatureEdit:Caption=Сигнатура" CellFormat="StringFormat" Enabled="False" Field="Signature" HasCaption="True" ValueType="VarString" Wrap="True"/>
+          <Component Name="CardFormEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.PropertySelector.CardFormEdit:Caption=Картотека" Field="Data.CurrentCardForm" HasCaption="True" OnChange="CardFormEditOnChange" OnDrawEx="CardFormEditOnDrawEx" OnEnter="CardFormEditOnEnter" OnOutputEx="CardFormEditOnOutputEx" ValueType="VarObject" Visible="False"/>
+          <Component Name="RecordEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.PropertySelector.RecordEdit:Caption=Запись" CellFormat="ReferenceFormat" Field="Data.CurrentRecord" HasCaption="True" OnChange="RecordEditOnChange" OnEnter="RecordEditOnEnter" OnOpenCardForm="RecordEditOnOpenCardForm" ValueType="VarObject" Visible="False"/>
+          <Component Name="EnumListEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.PropertySelector.EnumListEdit:Caption=Перечисление" CellFormat="StringFormat" Field="Data.EnumList" HasCaption="True" Multiline="True" OnChange="EnumListEditOnChange" ValueType="VarString" Wrap="True"/>
+          <Component Name="Group2" Class="Com.Ctrl.IGroup" Adaptive="False">
+            <Component Name="Static1" Class="Com.Ctrl.IStatic" Caption=" " Width="40"/>
+            <Component Name="ApplyEnumCheckBox" Class="Com.Ctrl.ICheckBox" Caption="@DocPrint.PropertySelector.ApplyEnumCheckBox:Caption=Применить перечисление" Field="Data.ApplyEnum" HasCaption="True" OnChange="ApplyEnumCheckBoxOnChange" Width="55"/>
+            <Component Name="SingleValueCheckBox" Class="Com.Ctrl.ICheckBox" Caption="@DocPrint.PropertySelector.SingleValueCheckBox:Caption=Одно значение" Field="Data.SingleValue" HasCaption="True" OnChange="SingleValueCheckBoxOnChange" Width="40"/>
+          </Component>
+        </Component>
+      </Inherited>
+      <Inherited Name="TabsFrame" Visible="True">
+        <Inherited Name="MainTab" Visible="False"/>
+        <Component Name="ResultTab" Class="Com.Ctrl.IFrame" Caption="@DocPrint.PropertySelector.ResultTab:Caption=Результат" HasCaption="True">
+          <Component Name="ResultTable" Class="Com.Ctrl.ITable" ManualControl="False">
+            <Component Name="ResultArrayEdit" Class="Com.Ctrl.IEdit" Caption="@DocPrint.PropertySelector.RecordColumnEdit:Caption=Значения" Enabled="False" Field="ResultArray" HasCaption="True" OnOutputEx="ResultArrayEditOnOutputEx" ValueType="VarVariant" Width="150"/>
+          </Component>
+        </Component>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>

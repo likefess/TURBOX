@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Com.Cmd2.IMenu">
+  <Inherited Caption="@Menu.Panel:MoneyDoc_Main=Денежные документы" FormIcon="Biz.money-bill">
+    <Inherited Name="MainGroup">
+      <Component Name="MenuGroup_CashFlow_MoneyDoc_Data" Class="Com.Cmd2.IGroup" Caption="@Menu.Group:MoneyDoc_Ref=Основные данные" Columns="2" Rows="2">
+        <Component Name="MenuItem_InfobaseCmd_MoneyDocument" Class="Com.Cmd2.IItem" Command="Commands.Cmd_MoneyDocument"/>
+        <Component Name="MenuItem_InfobaseCmd_MoneyDocNumber" Class="Com.Cmd2.IItem" Command="Commands.Cmd_MoneyDocNumber"/>
+        <Component Name="MenuItem_InfobaseCmd_CashRegister" Class="Com.Cmd2.IItem" Command="Commands.Cmd_CashRegisters"/>
+        <Component Name="MenuItem_InfobaseCmd_MoneyDocKind" Class="Com.Cmd2.IItem" Command="Commands.Cmd_MoneyDocKind"/>
+      </Component>
+      <Component Name="MenuGroup_CashFlow_MoneyDocument" Class="Com.Cmd2.IGroup" Caption="@Menu.Group:MoneyDocument=Документы" Columns="2" Rows="2">
+        <Component Name="Separator1" Class="Com.Cmd2.ISeparator" Caption="Движение ден. документов"/>
+        <Component Name="MenuItem_InfobaseCmd_CashFlow_MoneyDoc_Reception" Class="Com.Cmd2.IItem" Command="Commands.Cmd_MoneyDoc_Reception"/>
+        <Component Name="MenuItem_InfobaseCmd_CashFlow_MoneyDoc_Issue" Class="Com.Cmd2.IItem" Command="Commands.Cmd_MoneyDoc_Issue"/>
+        <Component Name="MenuItem_InfobaseCmd_CashFlow_MoneyDoc_WriteOff" Class="Com.Cmd2.IItem" Command="Commands.Cmd_MoneyDoc_WriteOff"/>
+        <Component Name="MenuItem_InfobaseCmd_CashFlow_MoneyDoc_Moving" Class="Com.Cmd2.IItem" Command="Commands.Cmd_MoneyDoc_Moving"/>
+        <Component Name="MenuItem_InfobaseCmd_CashFlow_MoneyDoc_Realization" Class="Com.Cmd2.IItem" Command="Commands.Cmd_MoneyDoc_Realization"/>
+        <Component Name="Separator2" Class="Com.Cmd2.ISeparator" Caption="Межфилиальное перемещение"/>
+        <Component Name="MenuItem_InfobaseCmd_CashFlow_MoneyDoc_BranchReception" Class="Com.Cmd2.IItem" Command="Commands.Cmd_MoneyDoc_BranchReception"/>
+        <Component Name="MenuItem_InfobaseCmd_CashFlow_MoneyDoc_BranchIssue" Class="Com.Cmd2.IItem" Command="Commands.Cmd_MoneyDoc_BranchIssue"/>
+      </Component>
+      <Component Name="MenuGroup_CashFlow_MoneyDocRep" Class="Com.Cmd2.IGroup" Caption="@Menu.Group:MoneyDocRep=Отчеты" Columns="2" Rows="2">
+        <Component Name="MenuItem_InfobaseCmd_CashFlow_MoneyDoc_Saldo" Class="Com.Cmd2.IItem" Command="Commands.Cmd_MoneyDoc_Saldo"/>
+        <Component Name="MenuItem_InfobaseCmd_CashFlow_MoneyDoc_Movement" Class="Com.Cmd2.IItem" Command="Commands.Cmd_MoneyDoc_MovementReport"/>
+      </Component>
+    </Inherited>
+  </Inherited>
+</Resource>

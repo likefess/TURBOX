@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Resource Version="2" Inherited="Bas.Tab.CodeName">
+  <Inherited Caption="@TMS:Status.Title=Статус рабочего времени">
+    <Inherited Name="Current" Class="TMS.Rec.Ref.TMSStatus" IsLibrary="1"/>
+    <Inherited Name="RootFrame">
+      <Inherited Name="MainFrame">
+        <Inherited Name="FrameCardTree" Excluded="True"/>
+        <Inherited Name="FrameCardFile">
+          <Inherited Name="Code" After="ExtId"/>
+          <Inherited Name="Name" After="Code"/>
+          <Component Name="Color" Class="Com.Ctrl.IEdit" Field="Current.Color" OnColumnDraw="ColorOnDraw"/>
+        </Inherited>
+      </Inherited>
+    </Inherited>
+  </Inherited>
+</Resource>
